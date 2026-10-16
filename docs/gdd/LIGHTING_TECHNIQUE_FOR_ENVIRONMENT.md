@@ -2,7 +2,7 @@
 
 Для бота, который делает окружение проекта Snow (Unity 6000.0.67f1, URP 17, Forward+, линейное пространство, без тонмаппинга, туман Exponential). Здесь — что даёт картинку, с цифрами проекта, чтобы фонари, прожекторы и мачты острова светили так же.
 
-Исходники приёмов — в пакете самолёта v11 (`F:\ClaudeGames\snow\assets\plane\UtilityPlane_Unity_v11\Assets\UtilityPlane\`):
+Исходники приёмов — в пакете самолёта v11 (`F:\ClaudeGames\snow_archive\plane\UtilityPlane_Unity_v11\Assets\UtilityPlane\`):
 - `Shaders/UtilityPlaneAirlight.shader` — свечение лампы в тумане;
 - `Shaders/UtilityPlaneBeam.shader` — видимый луч;
 - `Scripts/UtilityPlaneRig.Lights.cs` — физика ламп, создание квадов и пирамид (`BuildFx`, `QuadMesh`, `PyramidMesh`, `FxParams`), тени;

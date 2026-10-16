@@ -6,7 +6,7 @@ namespace Snow.Cargo
     /// GRAB-01: one player's hand is a spring-damper between the grab point on the item and the hand target, with a
     /// force budget per player. Several players add their own clamped forces at their own points; physics computes the
     /// result and the rotation. No torque is applied directly, so orientation cannot create an unbounded moment.
-    /// All values TEMPORARY (Docs/Tuning/Cargo.md).
+    /// All values TEMPORARY (docs/dev/Tuning/Cargo.md).
     /// </summary>
     public static class GrabMath
     {

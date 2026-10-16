@@ -5,7 +5,7 @@ namespace Snow.Character
 {
     /// <summary>
     /// Character movement numbers. All values are TEMPORARY (PLANE_PROMPT_UNITY.md §7.2), SI units.
-    /// The table with sources and tuning results is Docs/Tuning/Character.md.
+    /// The table with sources and tuning results is docs/dev/Tuning/Character.md.
     /// </summary>
     [Serializable]
     public class MovementTuning

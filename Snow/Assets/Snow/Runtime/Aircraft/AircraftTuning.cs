@@ -5,7 +5,7 @@ namespace Snow.Aircraft
 {
     /// <summary>
     /// Aerodynamic data of one lifting section (PHYS-02.4, §9.3). SI units: m², 1/rad. All values TEMPORARY
-    /// ("single-engine turboprop STOL" class, not a real aircraft), see Docs/Tuning/UtilityPlane.md.
+    /// ("single-engine turboprop STOL" class, not a real aircraft), see docs/dev/Tuning/UtilityPlane.md.
     /// </summary>
     [Serializable]
     public class AeroProfile
@@ -32,7 +32,7 @@ namespace Snow.Aircraft
     /// <summary>
     /// Every TEMPORARY number of the Utility Plane in one ScriptableObject (§6, PHYS-02.8). Units in the field names or
     /// tooltips; SI inside the models, gauge units only at the instruments. Origin and tuning results of each value:
-    /// Docs/Tuning/UtilityPlane.md.
+    /// docs/dev/Tuning/UtilityPlane.md.
     /// </summary>
     [CreateAssetMenu(menuName = "Snow/Aircraft Tuning", fileName = "AircraftTuning")]
     public class AircraftTuning : ScriptableObject

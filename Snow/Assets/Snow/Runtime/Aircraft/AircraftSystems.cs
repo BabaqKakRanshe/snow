@@ -226,7 +226,7 @@ namespace Snow.Aircraft
     }
 
     /// <summary>
-    /// Glass fog (И2 G.1, TEMPORARY, Docs/Tuning/UtilityPlane.md). Pure C#. Below fogBelowOatC the people's breath fogs every
+    /// Glass fog (И2 G.1, TEMPORARY, docs/dev/Tuning/UtilityPlane.md). Pure C#. Below fogBelowOatC the people's breath fogs every
     /// pane by fogPerPerson per second each; with the engine running the defroster clears the windshield and the cabin
     /// heat clears all panes and stops the fogging. Without the engine neither heats. 0 = clear, 1 = fully fogged.
     /// </summary>

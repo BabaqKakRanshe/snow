@@ -28,7 +28,7 @@ namespace Snow.Vehicles
         public NetworkDoor bayDoor;
         [Tooltip("Wheel centres at rest; 0,1 front (steered), 2,3 rear (driven)")] public Transform[] wheels;
 
-        [Header("TEMPORARY (Docs/Tuning/Cargo.md)")]
+        [Header("TEMPORARY (docs/dev/Tuning/Cargo.md)")]
         public float massKg = 1600f;
         public Vector3 centerOfMass = new Vector3(0f, 0.55f, 0.2f);
         [Tooltip("kg·m² about local X (pitch), Y (yaw), Z (roll)")] public Vector3 inertia = new Vector3(4200f, 4500f, 1300f);

@@ -27,7 +27,7 @@ namespace Snow.Input
         /// <summary>Held: narrow the field of view to look closer (TEMPORARY right mouse button).</summary>
         public bool Zoom;
         /// <summary>Held: show every interactive thing around (TEMPORARY B: Alt is taken by the Unity editor; rebind in
-        /// Assets/Snow/Input/SnowControls.inputactions, see Docs/Controls.md).</summary>
+        /// Assets/Snow/Input/SnowControls.inputactions, see docs/dev/Controls.md).</summary>
         public bool Reveal;
         // seat: flight axes -1..1, + = push / right roll / right pedal / more throttle
         public float Pitch, Roll, Yaw, Throttle;

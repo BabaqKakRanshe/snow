@@ -23,7 +23,7 @@ namespace Snow.EditorTools
         internal const string CargoFolder = BenchBuilder.Folder + "/Cargo";
         public const string ScenePath = BenchBuilder.Folder + "/P02_PhysicsBench.unity";
 
-        // TEMPORARY masses, kg (Docs/Tuning/Cargo.md): Case5 is the heavy one of AT-08 (one hand 400 N < 588 N weight < two)
+        // TEMPORARY masses, kg (docs/dev/Tuning/Cargo.md): Case5 is the heavy one of AT-08 (one hand 400 N < 588 N weight < two)
         internal static readonly float[] Masses = { 18f, 22f, 12f, 10f, 60f, 7f };
 
         [MenuItem("Tools/Snow/Build P02 Physics Bench")]

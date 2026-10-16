@@ -9,15 +9,15 @@
 - §10.3, экран GPS (свой квад 0.0874 × 0.0653 м поверх `Display_Radio`) — тема D. Содержание экрана GPS по §10.3 остаётся в силе.
 
 Проект: `F:\ClaudeGames\snow\Snow`, Unity 6000.0.67f1, URP 17 (Forward+), Netcode for GameObjects 2.13.3.
-Пакет модели: `F:\ClaudeGames\snow\assets\plane\UtilityPlane_Unity_v12\Assets\UtilityPlane` — v12, редакция 2. Рендеры для сравнения — `F:\ClaudeGames\snow\assets\plane\UtilityPlane_Unity_v12\previews\`.
-Пакет зимнего комплекта: `F:\ClaudeGames\snow\assets\plane\UtilityPlane_WinterKit_v1_2\Assets\UtilityPlane` — 1.2; его задание — `F:\ClaudeGames\snow\docs\gdd\PLANE_WINTERKIT_UNITY.md` (1.2.1) с поправками из И4.
+Пакет модели: `F:\ClaudeGames\snow\source\plane\UtilityPlane_Unity_v12\Assets\UtilityPlane` — v12, редакция 2. Рендеры для сравнения — `F:\ClaudeGames\snow\source\plane\UtilityPlane_Unity_v12\previews\`.
+Пакет зимнего комплекта: `F:\ClaudeGames\snow\source\plane\UtilityPlane_WinterKit_v1_2\Assets\UtilityPlane` — 1.2; его задание — `F:\ClaudeGames\snow\docs\gdd\PLANE_WINTERKIT_UNITY.md` (1.2.1) с поправками из И4.
 
 ## 0. Что есть и что нужно
 
 ### 0.1 Проект на 16.10.2026 (проверено по файлам)
 
 - Модель **v4**: заголовок `Assets/UtilityPlane/README.md` — «v4»; 43 зоны, 12 источников света (у ламп кабины двойной префикс: `Light_Light_Dome_L` …); в `Materials/` есть `M_CargoNet.mat`, в `Textures/` — карты v4 `T_*_AO`, `T_*_MetallicSmoothness`, `T_*_Normal`.
-- Код — этап **P03** (`Docs/ImplementationStatus.md` от 29.09; после 1.10 проект не менялся): `PlaneVehicle`, `PlaneState` (`PlaneSwitchState`, `PlaneTelemetry`), `PlanePresentation`, `AircraftPhysics`, `AircraftSystems`, `TurbopropEngine`, `ElectricalSystem`, `Autopilot` (держит курс и высоту на момент включения), `NetworkDoor`, `SeatAnchor` / `SeatedVehicle`, `CargoItem` / `TieDownSocket`, `InteractionSensor` / `InteractionHost` / `InteractionOverlay` / `HoverOutline`. Вариант `Assets/Snow/Plane/UtilityPlane_Game.prefab` и стенд `Assets/Snow/Bench/P03_PlaneBench.unity` собирает `Editor/PlaneBenchBuilder.cs` (`Tools/Snow/Build P03 Plane Bench`), уровень `Assets/SkyIsland/Scenes/SkyIsland.unity` — `Editor/SkyIslandLevelBuilder.cs` (`Tools/Snow/Integrate Sky Island Level`).
+- Код — этап **P03** (`docs/dev/ImplementationStatus.md` от 29.09; после 1.10 проект не менялся): `PlaneVehicle`, `PlaneState` (`PlaneSwitchState`, `PlaneTelemetry`), `PlanePresentation`, `AircraftPhysics`, `AircraftSystems`, `TurbopropEngine`, `ElectricalSystem`, `Autopilot` (держит курс и высоту на момент включения), `NetworkDoor`, `SeatAnchor` / `SeatedVehicle`, `CargoItem` / `TieDownSocket`, `InteractionSensor` / `InteractionHost` / `InteractionOverlay` / `HoverOutline`. Вариант `Assets/Snow/Plane/UtilityPlane_Game.prefab` и стенд `Assets/Snow/Bench/P03_PlaneBench.unity` собирает `Editor/PlaneBenchBuilder.cs` (`Tools/Snow/Build P03 Plane Bench`), уровень `Assets/SkyIsland/Scenes/SkyIsland.unity` — `Editor/SkyIslandLevelBuilder.cs` (`Tools/Snow/Integrate Sky Island Level`).
 - Самолёт ставится горизонтально: `PlaneBenchBuilder.cs` (~202) `SetPositionAndRotation(PlanePosition, Quaternion.identity)`, `SkyIslandLevelBuilder.cs` (~96) `SetPositionAndRotation(planePos, PlaneFacing)`. `AircraftTuning`: `wingIncidenceDeg` 4.5 (обход горизонтальной стоянки, 30.09), `tailWheelRadius` 0.285, `mainTravel` 0.12, `tailTravel` 0.06. `AircraftPhysics` (~158–161): доли веса колёс 0.41 / 0.41 / 0.18 — константы.
 - Совместимость с v12 (сверено по коду): все поля Rig, которые пишет `PlanePresentation`, в v12 есть с теми же типами; все 43 id зон v4 в v12 есть без переименований, новых — 36; asmdef пакета не изменились. После замены пакета проект должен собраться без правок кода. Новые зоны до своих итераций отвечают «Нет действия» (`PlaneVehicle.ServerUse`) — это ожидаемо.
 - `PlanePresentation.LateUpdate` доводит тумблеры `SW_*`, краны `FuelSel_*` и рычаг `Lever_Flap` после Rig по углам контракта (+40°, +60°, −12° на ступень, по X). В v12 углы и оси те же — доводку оставить, но писать поворот только пока орган движется (J.2): сейчас она пишет каждый кадр.
@@ -74,7 +74,7 @@
 | `Runtime/Interaction/*` (`InteractionSensor.Usable` / `Pick`, `HoverOutline`, `InteractionOverlay`) | новые kind (`lock`, `ladder`, `stow`, `kit`, `kit_item`); прозрачные зоны; правила перебора рендереров (LOD, `*_Shadow`, `Glow_*` / `Beam_*`) |
 | `Runtime/Cargo/*` | крепления на полу v5; места хранения с полной позой; предметы и вещи комплекта |
 | `Runtime/Doors/*` | двери кабины от тумблеров; замок |
-| `Docs/ImplementationStatus.md`, `Docs/ProjectAudit.md`, `Docs/Tuning/UtilityPlane.md`, `Docs/Tuning/Cargo.md`, `Docs/Controls.md` | статус модели; закрытые пробелы M1–M3, M5–M7 и находки N1–N9; TEMPORARY-числа; Dev-клавиши |
+| `docs/dev/ImplementationStatus.md`, `docs/dev/ProjectAudit.md`, `docs/dev/Tuning/UtilityPlane.md`, `docs/dev/Tuning/Cargo.md`, `docs/dev/Controls.md` | статус модели; закрытые пробелы M1–M3, M5–M7 и находки N1–N9; TEMPORARY-числа; Dev-клавиши |
 | `Assets/Settings/PC_RPAsset.asset`, `PC_Renderer.asset`, Graphics Settings, Quality, профили постобработки | только проверить и записать (И1.1.5); без разрешения пользователя не менять |
 
 ## 2. Итерации
@@ -84,9 +84,9 @@
 ### И1. Пакет v12 и минимум, чтобы всё стояло и работало
 
 **1. Подготовка**
-1. Выйти из Play Mode. Перед каждой компиляцией проверять состояние редактора (R-4 в `Docs/ImplementationStatus.md`: компиляция в Play Mode перезагружает домен).
+1. Выйти из Play Mode. Перед каждой компиляцией проверять состояние редактора (R-4 в `docs/dev/ImplementationStatus.md`: компиляция в Play Mode перезагружает домен).
 2. Определить версию модели по заголовку `Assets/UtilityPlane/README.md` (на 16.10 — «v4»). Если стоит не v4 — после пп. 3–5 действовать по разделу 6.
-3. Git в проекте нет (R-3). Резервная копия вне `Assets` — в `F:\ClaudeGames\snow\backup\plane_v4_<дата>\`: `Assets/UtilityPlane`, `Assets/Snow`, `Assets/SkyIsland/Scenes/SkyIsland.unity`, `Assets/DefaultNetworkPrefabs.asset` (всё с `.meta`) и `Docs/`.
+3. Git в проекте нет (R-3). Резервная копия вне `Assets` — в `F:\ClaudeGames\snow_archive\backup\plane_v4_<дата>\`: `Assets/UtilityPlane`, `Assets/Snow`, `Assets/SkyIsland/Scenes/SkyIsland.unity`, `Assets/DefaultNetworkPrefabs.asset` (всё с `.meta`) и `docs/dev/`.
 4. Записать «до»: снимки из кресла пилота днём на P03 и на Sky Island (1920 × 1080); FPS сцены; треугольники кадра из кабины и снаружи с 5 м (Statistics или Frame Debugger); видеопамять текстур самолёта (Profiler → Memory, текстуры `T_*`).
 5. Проверить и записать, ничего не меняя (v11 U1.4):
    - `PC_RPAsset`: Depth Texture, Light Cookies, Additional Lights Shadows (атлас 2048, тиры 256 / 512 / 1024), Soft Shadows;
@@ -121,7 +121,7 @@
 
 **5. Правки кода И1** — темы A, B, J, N, O раздела 3, из темы C — пункты 1–2.
 
-**6. Документы И1** — модель v12 (редакция 2) в `Docs/ImplementationStatus.md`; настройки из п. 1.5; решения по A, B, J, N, O, в том числе значение `KeepMeshesReadable` и почему; список ненужных файлов из п. 3.2 (удалены или нет — по ответу пользователя).
+**6. Документы И1** — модель v12 (редакция 2) в `docs/dev/ImplementationStatus.md`; настройки из п. 1.5; решения по A, B, J, N, O, в том числе значение `KeepMeshesReadable` и почему; список ненужных файлов из п. 3.2 (удалены или нет — по ответу пользователя).
 
 **7. Пересборка** (после каждой итерации)
 1. `Tools → Snow → Build P03 Plane Bench` — вариант `UtilityPlane_Game.prefab` и стенд; GUID варианта сохраняется, список сетевых префабов остаётся рабочим.
@@ -177,7 +177,7 @@
 4. В `PlanePresentation` один раз: `rig.mainGearTravel = tuning.mainTravel; rig.tailGearTravel = tuning.tailTravel;` — Rig сам переводит долю хода в угол стойки (N4). `AircraftPhysics` (~183) отдаёт именно долю хода, своего пересчёта в угол в проекте нет (16.10); если появится — убрать, иначе пересчёт выполнится дважды.
 5. `wingIncidenceDeg` 4.5 → около 2° (TEMPORARY): обход горизонтальной стоянки больше не нужен.
    - На стоянке крыло стоит к потоку около 12°; разбег — с подъёмом хвоста.
-   - В `Docs/Tuning/UtilityPlane.md` переоценить скорости отрыва и сваливания и убрать фразу про горизонтальную стоянку.
+   - В `docs/dev/Tuning/UtilityPlane.md` переоценить скорости отрыва и сваливания и убрать фразу про горизонтальную стоянку.
 
 ### B. Груз, коллайдеры, подножки, кресла кабины (И1; v5 U4.5, U4.7–U4.9, v6 U4.7)
 1. `Socket_TieDown_01..15` стоят на полу под кольцами рельсов: X −0.42 / 0 / +0.42, Z +1.45 … −1.10, Y 1.074 (верх `COL_Floor`, место pivot ящика). Нумерация прежняя: спереди назад, слева направо. `captureRadius` 0.45 покрывает весь пол (дальняя точка — 0.41 м); комментарий о сетке 0.5 × 0.7 в `PlaneBenchBuilder` (~159) исправить.
@@ -249,7 +249,7 @@
 3. Что меняет ручка (частота, громкость, режим) — по системам, которые есть; пока систем радио нет, ручка только поворачивается.
 
 ### G. Запотевание и отпечатки (И2; v7 U4.5, v9 U4.5, v10 U4.2)
-1. `rig.windshieldFog` (лобовое) и `rig.sideWindowFog` (остальные) 0…1 считает сервер и реплицирует. **TEMPORARY**-модель — записать в `Docs/Tuning/UtilityPlane.md`:
+1. `rig.windshieldFog` (лобовое) и `rig.sideWindowFog` (остальные) 0…1 считает сервер и реплицирует. **TEMPORARY**-модель — записать в `docs/dev/Tuning/UtilityPlane.md`:
    - при наружной температуре ниже +5 °C стёкла запотевают на 0.004 в секунду за каждого человека в кабине и отсеке, до 1;
    - `Pull_Defrost` при работающем двигателе очищает лобовое на 0.05 в секунду × положение тяги;
    - `Pull_CabinHeat` при работающем двигателе очищает все стёкла на 0.02 в секунду × положение тяги и останавливает рост;
@@ -262,7 +262,7 @@
 3. Кто ставит отпечатки в игре — **OPEN**. До ответа TEMPORARY — Dev-клавиша, выключенная по умолчанию:
    - ладонь там, куда смотрит игрок, если стекло ближе 1 м;
    - точку брать `rig.RaycastFog(луч из глаза, 1 м, out точка)`, а не попаданием физики: коллайдеры кабины стоят на 5–20 см ближе стекла;
-   - записать клавишу в `Docs/Controls.md` как Dev.
+   - записать клавишу в `docs/dev/Controls.md` как Dev.
 4. `printRegrowSeconds` 25, `latentPrintVisibility` 0.6 — TEMPORARY. Read/Write у `UtilityPlane.fbx` не нужен: отпечатки читают копии слоёв запотевания из `Generated/`.
 
 ### H. Стремянка (И3; v7 U4.6, v9 U4.4; M5 закрыт)
@@ -330,7 +330,7 @@
 
 ### L. Места хранения и аварийный комплект (И3; v9 U4.4, U4.7; CARGO-01, SECURE-01)
 1. В `PlaneBenchBuilder` по `Data/stowage.json` на каждый `Socket_Stow_<id>` — компонент места хранения (ENGINEERING, например `StowPoint`: `stowId`, какой предмет принимает, занятость — серверное состояние). Сокет задаёт полную позу (позиция и поворот), а не центр дна с курсом, как `TieDownSocket`.
-2. Предметы — игровые варианты префабов `Surv_*` кодом сборки, как ящики: Rigidbody, `NetworkObject`, `NetworkTransform`, `CargoItem`, регистрация в `DefaultNetworkPrefabs.asset`. Массы — TEMPORARY из `Data/survival_kit.json`, записать в `Docs/Tuning/Cargo.md`. Канистра — `KitCarry_JerryCan` комплекта (И4), стремянка — `StepLadder`.
+2. Предметы — игровые варианты префабов `Surv_*` кодом сборки, как ящики: Rigidbody, `NetworkObject`, `NetworkTransform`, `CargoItem`, регистрация в `DefaultNetworkPrefabs.asset`. Массы — TEMPORARY из `Data/survival_kit.json`, записать в `docs/dev/Tuning/Cargo.md`. Канистра — `KitCarry_JerryCan` комплекта (И4), стремянка — `StepLadder`.
 3. Положить: игрок несёт подходящий предмет и использует зону `Stow_<id>` → сервер ставит корень предмета в позу сокета и держит.
    - Позы пересекают коллайдеры самолёта на 2–7 см — так предмет прижат. Пока предмет на месте, его коллайдеры не должны сталкиваться с самолётом: `Physics.IgnoreCollision` со всеми коллайдерами самолёта или слой без столкновений с ним.
    - Зоны `Stow_*` прозрачны, пока игрок не несёт подходящий предмет (И1.4).
@@ -364,13 +364,13 @@
 2. Bloom профилей не менять. Записать, как выглядят блики с текущим Bloom; если пользователь захочет мягче — предложить порог 1, интенсивность 0.3–0.6, рассеяние 0.65.
 
 ### P. Документы (И1–И5)
-- `Docs/ImplementationStatus.md`:
+- `docs/dev/ImplementationStatus.md`:
   - модель v12 (редакция 2) и комплект 1.2; что подключено по темам A–O;
   - пробелы: M1, M2, M3 закрыты (v7), M5 — стремянка, M6 — синхронные штурвалы (решение пользователя), M7 — канистра комплекта; M4 (руки и тело) открыт;
   - OPEN из раздела 5.
-- `Docs/ProjectAudit.md`: N1, N2, N3, N4, N5, N7, N9 закрыты моделью (v5); N6 — высота отсека оставлена по решению пользователя; N8 — без изменений.
-- `Docs/Tuning/UtilityPlane.md` и `Cargo.md` — TEMPORARY-числа и правила этого задания: установочный угол, вакуум, запотевание, компас, пороги винта, массы стремянки, ключа и предметов, время складывания кресел, правила выхода из кресел отсека (< 0.5 м/с, точки выхода), отпечатки, правила комплекта.
-- `Docs/Controls.md` — Dev-клавиши (отпечаток и др.).
+- `docs/dev/ProjectAudit.md`: N1, N2, N3, N4, N5, N7, N9 закрыты моделью (v5); N6 — высота отсека оставлена по решению пользователя; N8 — без изменений.
+- `docs/dev/Tuning/UtilityPlane.md` и `Cargo.md` — TEMPORARY-числа и правила этого задания: установочный угол, вакуум, запотевание, компас, пороги винта, массы стремянки, ключа и предметов, время складывания кресел, правила выхода из кресел отсека (< 0.5 м/с, точки выхода), отпечатки, правила комплекта.
+- `docs/dev/Controls.md` — Dev-клавиши (отпечаток и др.).
 
 ## 4. Что проверить
 

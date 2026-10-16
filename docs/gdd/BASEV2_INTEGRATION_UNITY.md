@@ -4,10 +4,10 @@
 
 Проект: `F:\ClaudeGames\snow\Snow`, Unity 6000.0.67f1, URP 17.0.4 (`PC_RPAsset`, рендерер Forward+), NGO 2.13.3, Multiplayer Play Mode 1.6.3.
 Пакеты (`.unitypackage`, ставятся в U2):
-- ядро локаций — `F:\ClaudeGames\snow\assets\SkyIsland\`: `SkyIsland_Update_1`, `SkyIsland_Update_2`, `SkyIsland_Update3_1`, `SkyIsland_Update5`, `SkyIsland_Update6`, `SkyIsland_Update7`, `SkyIsland_Update8`;
-- корпус — `F:\ClaudeGames\snow\assets\BaseV2\BaseV2.unitypackage` → `Assets/Locations/BaseV2`.
+- ядро локаций — `F:\ClaudeGames\snow\source\locations\SkyIsland\`: `SkyIsland_Update_1`, `SkyIsland_Update_2`, `SkyIsland_Update3_1`, `SkyIsland_Update5`, `SkyIsland_Update6`, `SkyIsland_Update7`, `SkyIsland_Update8`;
+- корпус — `F:\ClaudeGames\snow\source\locations\BaseV2\BaseV2.unitypackage` → `Assets/Locations/BaseV2`.
 
-Справка после импорта: `Assets/SkyIsland/Scripts/CHANGES_v2.md` (разделы v2.3–v2.7.1: питание, светильники, интерактив, рольставни), `Assets/SkyIsland/README.md` (раздел «Цепочка обновлений с ядра v1»), `Assets/Locations/BaseV2/README.md` (помещения, интерактив, свет, размеры). Стиль окружения: `F:\ClaudeGames\snow\docs\gdd\PSX_STYLE_FOR_ENVIRONMENT.md`. Картинки: `F:\ClaudeGames\snow\assets\BaseV2\*.jpg`, `Assets/Locations/BaseV2/Previews/`.
+Справка после импорта: `Assets/SkyIsland/Scripts/CHANGES_v2.md` (разделы v2.3–v2.7.1: питание, светильники, интерактив, рольставни), `Assets/SkyIsland/README.md` (раздел «Цепочка обновлений с ядра v1»), `Assets/Locations/BaseV2/README.md` (помещения, интерактив, свет, размеры). Стиль окружения: `F:\ClaudeGames\snow\docs\gdd\PSX_STYLE_FOR_ENVIRONMENT.md`. Картинки: `F:\ClaudeGames\snow\source\locations\BaseV2\*.jpg`, `Assets/Locations/BaseV2/Previews/`.
 
 Задание составлено по коду проекта на 16.10.2026 (`InteractionHost`, `InteractionSensor`, `HoverOutline`, `InteractionOverlay`, `NetworkDoor`, `DoorModel`, `PlayerNet.UseRpc`, `SnowNetworkBootstrap`, `BenchBuilder`, `SkyIslandLevelBuilder`, `SkyIslandPlayerCamera`, `HLCharacterMotor`) и по данным корпуса; числа сверены с `BaseV2_Layout.json` и `BaseMain.fbx`. Образцы в проекте: уровень — `Editor/SkyIslandLevelBuilder.cs`; зоны — `BenchBuilder.Volume`; хост с дверью — `Runtime/Bench/BenchCabin.cs` и `BenchBuilder.BuildCabin`.
 
@@ -43,7 +43,7 @@ BaseV2 — главный корпус обсерватории Hohenmoos: по�
 | `Assets/Snow/Editor/BaseV2LevelBuilder.cs` | новый: меню `Tools/Snow/Integrate BaseV2 Level` (U4.3) |
 | `Assets/Snow/Editor/Snow.Editor.asmdef` | + `SkyIsland.Runtime` |
 | `ProjectSettings/EditorBuildSettings.asset` | `BaseV2.unity` — в конец списка, не первой (U4.3.12) |
-| `Docs/ImplementationStatus.md` | раздел BaseV2 (U6) |
+| `docs/dev/ImplementationStatus.md` | раздел BaseV2 (U6) |
 
 Файлы самолёта, стенды P01–P03, `Player.prefab`, `DefaultNetworkPrefabs.asset`, Volume-профили проекта не меняются.
 
@@ -51,7 +51,7 @@ BaseV2 — главный корпус обсерватории Hohenmoos: по�
 
 ### U1. Подготовка и аудит (без изменений)
 1. Выйти из Play Mode. Перед каждой компиляцией проверять состояние редактора (R-4).
-2. Git нет (R-3): копия вне `Assets` в `F:\ClaudeGames\snow\backup\basev2_<дата>\`: `Assets/SkyIsland` целиком (≈120 МБ) с `.meta`, `Assets/Snow/Levels`, `Assets/Snow/Editor`, `Assets/Snow/Bench/*.unity`, `Assets/DefaultNetworkPrefabs.asset`, `Assets/Settings/*.asset`, `ProjectSettings/TagManager.asset`, `QualitySettings.asset`, `EditorBuildSettings.asset` — всё с `.meta`.
+2. Git нет (R-3): копия вне `Assets` в `F:\ClaudeGames\snow_archive\backup\basev2_<дата>\`: `Assets/SkyIsland` целиком (≈120 МБ) с `.meta`, `Assets/Snow/Levels`, `Assets/Snow/Editor`, `Assets/Snow/Bench/*.unity`, `Assets/DefaultNetworkPrefabs.asset`, `Assets/Settings/*.asset`, `ProjectSettings/TagManager.asset`, `QualitySettings.asset`, `EditorBuildSettings.asset` — всё с `.meta`.
 3. Версия ядра по файлам `Assets/SkyIsland/Scripts`: нет `Editor/SkyIslandLocation.cs` — v1; есть `Runtime/SkyIslandInteractable.cs` — не ниже Update3_1; `Runtime/SkyIslandPowerGrid.cs` — не ниже Update5; `Runtime/SkyIslandLightManager.cs` — не ниже Update7; в `CHANGES_v2.md` есть раздел «v2.7.1» — ядро уже новое, сразу U2.8. Цепочку начинать с первого пакета после стоящей версии (на 16.10 — с `SkyIsland_Update_1`).
 4. Локальные правки ядра: сравнить скрипты `Assets/SkyIsland/Scripts` с содержимым пакетов. Известна одна — `SkyIslandLook.cs` (01.10, кубмапа неба), она вошла в v2.7.1. Если есть ещё файлы или правки — записать (diff, имя файла); после цепочки возвращать только то, без чего снова ошибка, и сообщить. Лишний свой файл в `Scripts/Editor` изменит счёт в U2.3 — учесть.
 5. Записать «до» для отчёта: значения из раздела 0 (URP-ассеты обоих уровней качества, включая Per Object Limit, рендерер, Rendering Layers, слой Interact), активный уровень качества, порядок сцен в Build Settings, даты изменения `Assets/Snow/Bench/*.unity`, `SkyIsland.unity` и `DefaultNetworkPrefabs.asset` (для U5.3).
@@ -66,7 +66,7 @@ BaseV2 — главный корпус обсерватории Hohenmoos: по�
 2. Импорт — по одному пакету, со следующим только после конца импорта и компиляции:
    - редактор открыт и через доступный канал можно выполнить код редактора — `AssetDatabase.ImportPackage(path, false)`; дождаться `AssetDatabase.importPackageCompleted` (или `importPackageFailed`), затем перезагрузки домена и `!EditorApplication.isCompiling && !EditorApplication.isUpdating` (R-4: связь с редактором на перезагрузке может прерваться — дождаться и проверить состояние); между пакетами в консоли не должно быть `error CS`;
    - редактор закрыт — batchmode, без `-nographics`, с журналом, в котором нет `error CS`:
-     `"<Unity.exe>" -batchmode -projectPath "F:\ClaudeGames\snow\Snow" -importPackage "F:\ClaudeGames\snow\assets\SkyIsland\SkyIsland_Update_1.unitypackage" -quit -logFile "%TEMP%\basev2_import_1.log"`;
+     `"<Unity.exe>" -batchmode -projectPath "F:\ClaudeGames\snow\Snow" -importPackage "F:\ClaudeGames\snow\source\locations\SkyIsland\SkyIsland_Update_1.unitypackage" -quit -logFile "%TEMP%\basev2_import_1.log"`;
    - ни то ни другое недоступно — попросить пользователя импортировать 8 пакетов по порядку (Assets → Import Package → Custom Package…, всё отмечено, дожидаясь компиляции).
 3. После цепочки: в `Assets/SkyIsland/Scripts/Editor` 13 скриптов и asmdef (`SkyIsland` + `Builder, Capture, Data, Emitters, Import, Json, Lighting, Location, LocationWindow, Look, Materials, Prefabs, URP`), в `Scripts/Runtime` 20 и asmdef (`Beacons, BuiltinPost, Flicker, FlyCamera, FogByAltitude, FogEvent, Interactable, Interactor, LightFixture, LightManager, MaterialSwap, PSX, PowerGrid, ProximityGroup, RadarRotator, Rotator, Sky, UVScroll, Viewpoint, WaterLevel`); в `CHANGES_v2.md` есть «v2.7.1»; в `SkyIslandLook.cs` есть строка `decoded to linear`.
 4. Консоль без ошибок во всех сборках проекта. `Snow.Levels` берёт у `SkyIslandFogByAltitude` поля `target, groundDensity, airDensity, island, islandTopY, heightRange, distanceRange, applyInEditMode` — в v2.7.1 они на месте. Если код Snow не собирается из-за ядра — минимальная правка в коде Snow с записью. Файлы ядра не править; исключение — минимальная совместимость API установленной версии Unity, без изменения логики, с отчётом.
@@ -160,7 +160,7 @@ BaseV2 — главный корпус обсерватории Hohenmoos: по�
 3. Сцены самолёта, стенды P01–P03, `SkyIsland.unity` и `DefaultNetworkPrefabs.asset` не изменились (даты из U1.5).
 
 ### U6. Документы
-`Docs/ImplementationStatus.md`, новый раздел «BaseV2»: ядро v2.7.1; корпус собран; уровень и сеть — по пунктам со статусами `написано / скомпилировано / запущено / проверено в сети`; временные значения (U4.3.5, U4.3.7); OPEN (раздел 0, U2.6, U4.1, U4.3.12); ответ пользователя по U1.6.
+`docs/dev/ImplementationStatus.md`, новый раздел «BaseV2»: ядро v2.7.1; корпус собран; уровень и сеть — по пунктам со статусами `написано / скомпилировано / запущено / проверено в сети`; временные значения (U4.3.5, U4.3.7); OPEN (раздел 0, U2.6, U4.1, U4.3.12); ответ пользователя по U1.6.
 
 ## 3. Что проверить
 
