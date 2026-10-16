@@ -1,0 +1,86 @@
+{
+ "note": "Stow points: put the item root on Socket_Stow_<id> (position and rotation; the socket rides on its parent: the pilot doors move). Each has a trigger zone Stow_<id> (kind stow). Items are free physics bodies elsewhere (the game decides); snapping them here works like a tie-down.",
+ "points": [
+  {
+   "id": "Flashlight",
+   "socket": "Socket_Stow_Flashlight",
+   "zone": "Stow_Flashlight",
+   "parent": "PilotDoor_L",
+   "item": "SM_Surv_Flashlight",
+   "prefab": "Surv_Flashlight",
+   "size": [
+    0.0546,
+    0.056,
+    0.2881
+   ]
+  },
+  {
+   "id": "FlareGun",
+   "socket": "Socket_Stow_FlareGun",
+   "zone": "Stow_FlareGun",
+   "parent": "PilotDoor_R",
+   "item": "SM_Surv_FlareGun",
+   "prefab": "Surv_FlareGun",
+   "size": [
+    0.039,
+    0.24443,
+    0.15198
+   ]
+  },
+  {
+   "id": "Shovel",
+   "socket": "Socket_Stow_Shovel",
+   "zone": "Stow_Shovel",
+   "parent": "Cockpit",
+   "item": "SM_Surv_Shovel",
+   "prefab": "Surv_Shovel",
+   "size": [
+    0.25554,
+    0.91428,
+    0.0497
+   ]
+  },
+  {
+   "id": "SurvivalBag",
+   "socket": "Socket_Stow_SurvivalBag",
+   "zone": "Stow_SurvivalBag",
+   "parent": "Cockpit",
+   "item": "SM_Surv_Bag",
+   "prefab": "Surv_Bag",
+   "size": [
+    0.28425,
+    0.31252,
+    0.5385
+   ],
+   "note": "under seat L1, against the wall; Surv_Bag_Strap (child of the bag) = the strap shown while secured"
+  },
+  {
+   "id": "JerryCan",
+   "socket": "Socket_Stow_JerryCan",
+   "zone": "Stow_JerryCan",
+   "parent": "Cockpit",
+   "item": "SM_Kit_JerryCan",
+   "prefab": "KitCarry_JerryCan (winter kit)",
+   "size": [
+    0.34,
+    0.476,
+    0.189
+   ],
+   "note": "winter kit can (pivot at its bottom centre); the bungee of the bracket stays across"
+  },
+  {
+   "id": "Ladder",
+   "socket": "Socket_Stow_Ladder",
+   "zone": "Stow_Ladder",
+   "parent": "Cockpit",
+   "item": "SM_StepLadder",
+   "prefab": "StepLadder",
+   "size": [
+    0.81,
+    0.6286,
+    2.5122
+   ],
+   "note": "fold Ladder_RearLegs (-38 deg about local X) first; show Stow_LadderStraps (UtilityPlaneRig.ladderStowed)"
+  }
+ ]
+}

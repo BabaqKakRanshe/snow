@@ -1,0 +1,1266 @@
+[
+ {
+  "id": "SW_Battery",
+  "parent": "SW_Battery",
+  "kind": "toggle",
+  "label": "АКБ",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_Avionics",
+  "parent": "SW_Avionics",
+  "kind": "toggle",
+  "label": "Авионика",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_FuelPump",
+  "parent": "SW_FuelPump",
+  "kind": "toggle",
+  "label": "Топл. насос",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_Ignition",
+  "parent": "SW_Ignition",
+  "kind": "toggle",
+  "label": "Зажигание",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_Starter",
+  "parent": "SW_Starter",
+  "kind": "momentary",
+  "label": "Стартер",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_Beacon",
+  "parent": "SW_Beacon",
+  "kind": "toggle",
+  "label": "Маяк",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_Strobe",
+  "parent": "SW_Strobe",
+  "kind": "toggle",
+  "label": "Стробы",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_NavLights",
+  "parent": "SW_NavLights",
+  "kind": "toggle",
+  "label": "АНО",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_Landing",
+  "parent": "SW_Landing",
+  "kind": "toggle",
+  "label": "Посадочная фара",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "Rheo_Panel",
+  "parent": "Rheo_Panel",
+  "kind": "rotary",
+  "label": "Подсветка приборов",
+  "center": [
+   0.0,
+   0.0,
+   -0.0073
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "Rheo_Flood",
+  "parent": "Rheo_Flood",
+  "kind": "rotary",
+  "label": "Заливающий свет",
+  "center": [
+   0.0,
+   0.0,
+   -0.0073
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "Pull_CabinHeat",
+  "parent": "Pull_CabinHeat",
+  "kind": "pull",
+  "label": "Обогрев кабины",
+  "center": [
+   0.0,
+   0.0,
+   -0.007
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.017
+  ]
+ },
+ {
+  "id": "Pull_Defrost",
+  "parent": "Pull_Defrost",
+  "kind": "pull",
+  "label": "Обдув стекла",
+  "center": [
+   0.0,
+   0.0,
+   -0.007
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.017
+  ]
+ },
+ {
+  "id": "Pull_ParkBrake",
+  "parent": "Pull_ParkBrake",
+  "kind": "pull",
+  "label": "Стояночный тормоз",
+  "center": [
+   0.0,
+   0.0,
+   -0.0075
+  ],
+  "halfExtents": [
+   0.025,
+   0.015,
+   0.0175
+  ]
+ },
+ {
+  "id": "Pull_FuelShutoff",
+  "parent": "Pull_FuelShutoff",
+  "kind": "pull",
+  "label": "Перекрывной топливный кран",
+  "center": [
+   0.0,
+   0.0,
+   -0.011
+  ],
+  "halfExtents": [
+   0.0225,
+   0.015,
+   0.021
+  ]
+ },
+ {
+  "id": "FuelSel_L",
+  "parent": "FuelSel_L",
+  "kind": "selector",
+  "label": "Кран левого бака",
+  "center": [
+   0.0,
+   -0.0405,
+   0.0
+  ],
+  "halfExtents": [
+   0.015,
+   0.0405,
+   0.015
+  ]
+ },
+ {
+  "id": "FuelSel_R",
+  "parent": "FuelSel_R",
+  "kind": "selector",
+  "label": "Кран правого бака",
+  "center": [
+   0.0,
+   -0.0405,
+   0.0
+  ],
+  "halfExtents": [
+   0.015,
+   0.0405,
+   0.015
+  ]
+ },
+ {
+  "id": "Visor_P",
+  "parent": "Visor_P",
+  "kind": "hinge",
+  "label": "Козырёк",
+  "center": [
+   0.0,
+   -0.00311,
+   -0.07634
+  ],
+  "halfExtents": [
+   0.155,
+   0.015,
+   0.08184
+  ]
+ },
+ {
+  "id": "Visor_C",
+  "parent": "Visor_C",
+  "kind": "hinge",
+  "label": "Козырёк",
+  "center": [
+   0.0,
+   -0.00311,
+   -0.07634
+  ],
+  "halfExtents": [
+   0.155,
+   0.015,
+   0.08184
+  ]
+ },
+ {
+  "id": "Lever_Power",
+  "parent": "Lever_Power",
+  "kind": "lever",
+  "label": "РУД (газ)",
+  "center": [
+   0.0,
+   0.07736,
+   0.02901
+  ],
+  "halfExtents": [
+   0.033,
+   0.07914,
+   0.03399
+  ]
+ },
+ {
+  "id": "Lever_Prop",
+  "parent": "Lever_Prop",
+  "kind": "lever",
+  "label": "Шаг винта",
+  "center": [
+   0.0,
+   0.07861,
+   0.02851
+  ],
+  "halfExtents": [
+   0.015,
+   0.08039,
+   0.03349
+  ]
+ },
+ {
+  "id": "Lever_Condition",
+  "parent": "Lever_Condition",
+  "kind": "lever",
+  "label": "Рычаг останова / малый газ",
+  "center": [
+   0.0,
+   0.07911,
+   0.03101
+  ],
+  "halfExtents": [
+   0.015,
+   0.08089,
+   0.03599
+  ]
+ },
+ {
+  "id": "Lever_Flap",
+  "parent": "Lever_Flap",
+  "kind": "lever",
+  "label": "Закрылки",
+  "center": [
+   0.0103,
+   0.05376,
+   0.01806
+  ],
+  "halfExtents": [
+   0.015,
+   0.05524,
+   0.02294
+  ]
+ },
+ {
+  "id": "TrimWheel",
+  "parent": "TrimWheel",
+  "kind": "wheel",
+  "label": "Триммер РВ",
+  "center": [
+   -0.00075,
+   0.0,
+   0.0
+  ],
+  "halfExtents": [
+   0.015,
+   0.078,
+   0.078
+  ]
+ },
+ {
+  "id": "SW_CargoDoor_L",
+  "parent": "SW_CargoDoor_L",
+  "kind": "toggle",
+  "label": "Грузовая дверь, левая",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_CargoDoor_R",
+  "parent": "SW_CargoDoor_R",
+  "kind": "toggle",
+  "label": "Грузовая дверь, правая",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_CabinLight",
+  "parent": "SW_CabinLight",
+  "kind": "toggle",
+  "label": "Свет кабины",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_CargoLight",
+  "parent": "SW_CargoLight",
+  "kind": "toggle",
+  "label": "Свет отсека",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "Btn_AnnunTest",
+  "parent": "Btn_AnnunTest",
+  "kind": "momentary",
+  "label": "Проверка табло",
+  "center": [
+   0.0,
+   0.0,
+   -0.0019
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "Glovebox_Lid",
+  "parent": "Glovebox_Lid",
+  "kind": "hinge",
+  "label": "Бардачок",
+  "center": [
+   0.0,
+   0.0835,
+   0.004
+  ],
+  "halfExtents": [
+   0.1825,
+   0.0835,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_CabinDoor_L",
+  "parent": "SW_CabinDoor_L",
+  "kind": "toggle",
+  "label": "Дверь кабины, левая",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "SW_CabinDoor_R",
+  "parent": "SW_CabinDoor_R",
+  "kind": "toggle",
+  "label": "Дверь кабины, правая",
+  "center": [
+   0.0,
+   -0.00415,
+   -0.0103
+  ],
+  "halfExtents": [
+   0.015,
+   0.015,
+   0.015
+  ]
+ },
+ {
+  "id": "Knob_ALT_Baro",
+  "parent": "Knob_ALT_Baro",
+  "kind": "rotary",
+  "label": "Давление на высотомере",
+  "center": [
+   0.0,
+   0.0,
+   -0.0063
+  ],
+  "halfExtents": [
+   0.0064,
+   0.0065,
+   0.0063
+  ]
+ },
+ {
+  "id": "Knob_HDG_Bug",
+  "parent": "Knob_HDG_Bug",
+  "kind": "rotary",
+  "label": "Задатчик курса",
+  "center": [
+   0.0,
+   0.0,
+   -0.0063
+  ],
+  "halfExtents": [
+   0.0064,
+   0.0065,
+   0.0063
+  ]
+ },
+ {
+  "id": "Knob_DG_Set",
+  "parent": "Knob_DG_Set",
+  "kind": "rotary",
+  "label": "Согласование курсового",
+  "center": [
+   0.0,
+   0.0,
+   -0.0063
+  ],
+  "halfExtents": [
+   0.0064,
+   0.0065,
+   0.0063
+  ]
+ },
+ {
+  "id": "Knob_Audio_Vol",
+  "parent": "Knob_Audio_Vol",
+  "kind": "rotary",
+  "label": "Аудио: громкость",
+  "center": [
+   0.0,
+   0.0,
+   -0.0043
+  ],
+  "halfExtents": [
+   0.00487,
+   0.005,
+   0.0043
+  ]
+ },
+ {
+  "id": "Knob_Com_Outer",
+  "parent": "Knob_Com_Outer",
+  "kind": "rotary",
+  "label": "COM: МГц",
+  "center": [
+   0.0,
+   0.0,
+   -0.00375
+  ],
+  "halfExtents": [
+   0.008,
+   0.008,
+   0.004
+  ]
+ },
+ {
+  "id": "Knob_Com_Inner",
+  "parent": "Knob_Com_Inner",
+  "kind": "rotary",
+  "label": "COM: кГц",
+  "center": [
+   0.0,
+   0.0,
+   -0.01175
+  ],
+  "halfExtents": [
+   0.00487,
+   0.005,
+   0.00425
+  ]
+ },
+ {
+  "id": "Knob_Nav_Outer",
+  "parent": "Knob_Nav_Outer",
+  "kind": "rotary",
+  "label": "NAV: МГц",
+  "center": [
+   0.0,
+   0.0,
+   -0.00375
+  ],
+  "halfExtents": [
+   0.008,
+   0.008,
+   0.004
+  ]
+ },
+ {
+  "id": "Knob_Nav_Inner",
+  "parent": "Knob_Nav_Inner",
+  "kind": "rotary",
+  "label": "NAV: кГц",
+  "center": [
+   0.0,
+   0.0,
+   -0.01175
+  ],
+  "halfExtents": [
+   0.00487,
+   0.005,
+   0.00425
+  ]
+ },
+ {
+  "id": "Knob_NavCom_Vol",
+  "parent": "Knob_NavCom_Vol",
+  "kind": "rotary",
+  "label": "NAV/COM: питание, громкость",
+  "center": [
+   0.0,
+   0.0,
+   -0.0043
+  ],
+  "halfExtents": [
+   0.004,
+   0.004,
+   0.0043
+  ]
+ },
+ {
+  "id": "Knob_GPS_Pwr",
+  "parent": "Knob_GPS_Pwr",
+  "kind": "rotary",
+  "label": "GPS: питание",
+  "center": [
+   0.0,
+   0.0,
+   -0.0043
+  ],
+  "halfExtents": [
+   0.00487,
+   0.005,
+   0.0043
+  ]
+ },
+ {
+  "id": "Knob_GPS_Outer",
+  "parent": "Knob_GPS_Outer",
+  "kind": "rotary",
+  "label": "GPS: внешняя ручка",
+  "center": [
+   0.0,
+   0.0,
+   -0.00375
+  ],
+  "halfExtents": [
+   0.008,
+   0.008,
+   0.004
+  ]
+ },
+ {
+  "id": "Knob_GPS_Inner",
+  "parent": "Knob_GPS_Inner",
+  "kind": "rotary",
+  "label": "GPS: внутренняя ручка",
+  "center": [
+   0.0,
+   0.0,
+   -0.01175
+  ],
+  "halfExtents": [
+   0.00487,
+   0.005,
+   0.00425
+  ]
+ },
+ {
+  "id": "Knob_XPDR_Mode",
+  "parent": "Knob_XPDR_Mode",
+  "kind": "selector",
+  "label": "Режим ответчика",
+  "center": [
+   0.0,
+   0.0,
+   -0.0048
+  ],
+  "halfExtents": [
+   0.007,
+   0.007,
+   0.0048
+  ]
+ },
+ {
+  "id": "Knob_AP_Baro",
+  "parent": "Knob_AP_Baro",
+  "kind": "rotary",
+  "label": "Автопилот: BARO",
+  "center": [
+   0.0,
+   0.0,
+   -0.0043
+  ],
+  "halfExtents": [
+   0.00585,
+   0.006,
+   0.0043
+  ]
+ },
+ {
+  "id": "Knob_ADF_Vol",
+  "parent": "Knob_ADF_Vol",
+  "kind": "rotary",
+  "label": "ADF: питание, громкость",
+  "center": [
+   0.0,
+   0.0,
+   -0.0043
+  ],
+  "halfExtents": [
+   0.00487,
+   0.005,
+   0.0043
+  ]
+ },
+ {
+  "id": "Knob_ADF_Outer",
+  "parent": "Knob_ADF_Outer",
+  "kind": "rotary",
+  "label": "ADF: частота, грубо",
+  "center": [
+   0.0,
+   0.0,
+   -0.00375
+  ],
+  "halfExtents": [
+   0.008,
+   0.008,
+   0.004
+  ]
+ },
+ {
+  "id": "Knob_ADF_Inner",
+  "parent": "Knob_ADF_Inner",
+  "kind": "rotary",
+  "label": "ADF: частота, точно",
+  "center": [
+   0.0,
+   0.0,
+   -0.01175
+  ],
+  "halfExtents": [
+   0.00487,
+   0.005,
+   0.00425
+  ]
+ },
+ {
+  "id": "Socket_Handle_PilotDoor_L_Out",
+  "parent": "PilotDoor_L",
+  "kind": "door",
+  "label": "Дверь пилота",
+  "center": [
+   -0.03,
+   0.1,
+   -0.78
+  ],
+  "halfExtents": [
+   0.04,
+   0.04,
+   0.08
+  ]
+ },
+ {
+  "id": "Socket_Handle_PilotDoor_L_In",
+  "parent": "PilotDoor_L",
+  "kind": "door",
+  "label": "Дверь пилота",
+  "center": [
+   0.09,
+   0.113,
+   -0.27
+  ],
+  "halfExtents": [
+   0.04,
+   0.04,
+   0.07
+  ]
+ },
+ {
+  "id": "Socket_Handle_PilotDoor_R_Out",
+  "parent": "PilotDoor_R",
+  "kind": "door",
+  "label": "Правая дверь",
+  "center": [
+   0.03,
+   0.1,
+   -0.78
+  ],
+  "halfExtents": [
+   0.04,
+   0.04,
+   0.08
+  ]
+ },
+ {
+  "id": "Socket_Handle_PilotDoor_R_In",
+  "parent": "PilotDoor_R",
+  "kind": "door",
+  "label": "Правая дверь",
+  "center": [
+   -0.09,
+   0.113,
+   -0.27
+  ],
+  "halfExtents": [
+   0.04,
+   0.04,
+   0.07
+  ]
+ },
+ {
+  "id": "Socket_Handle_CargoDoor_L_Out",
+  "parent": "CargoDoor_L",
+  "kind": "door",
+  "label": "Грузовая дверь, левая",
+  "center": [
+   -0.023,
+   -0.02,
+   1.15
+  ],
+  "halfExtents": [
+   0.04,
+   0.05,
+   0.1
+  ]
+ },
+ {
+  "id": "Socket_Handle_CargoDoor_L_In",
+  "parent": "CargoDoor_L",
+  "kind": "door",
+  "label": "Грузовая дверь, левая",
+  "center": [
+   0.087,
+   -0.052,
+   1.13
+  ],
+  "halfExtents": [
+   0.04,
+   0.04,
+   0.08
+  ]
+ },
+ {
+  "id": "Socket_Handle_CargoDoor_R_Out",
+  "parent": "CargoDoor_R",
+  "kind": "door",
+  "label": "Грузовая дверь, правая",
+  "center": [
+   0.023,
+   -0.02,
+   1.15
+  ],
+  "halfExtents": [
+   0.04,
+   0.05,
+   0.1
+  ]
+ },
+ {
+  "id": "Socket_Handle_CargoDoor_R_In",
+  "parent": "CargoDoor_R",
+  "kind": "door",
+  "label": "Грузовая дверь, правая",
+  "center": [
+   -0.087,
+   -0.052,
+   1.13
+  ],
+  "halfExtents": [
+   0.04,
+   0.04,
+   0.08
+  ]
+ },
+ {
+  "id": "Socket_FuelCap_L",
+  "parent": "FuelCap_L",
+  "kind": "cap",
+  "label": "Крышка левого бака",
+  "center": [
+   0.0,
+   -0.005,
+   0.047
+  ],
+  "halfExtents": [
+   0.06,
+   0.04,
+   0.06
+  ]
+ },
+ {
+  "id": "Socket_FuelCap_R",
+  "parent": "FuelCap_R",
+  "kind": "cap",
+  "label": "Крышка правого бака",
+  "center": [
+   0.0,
+   -0.005,
+   0.047
+  ],
+  "halfExtents": [
+   0.06,
+   0.04,
+   0.06
+  ]
+ },
+ {
+  "id": "Socket_Belt_P",
+  "parent": "Cockpit",
+  "kind": "toggle",
+  "label": "Ремни пилота",
+  "center": [
+   -0.33,
+   1.505,
+   2.3
+  ],
+  "halfExtents": [
+   0.12,
+   0.07,
+   0.09
+  ]
+ },
+ {
+  "id": "Socket_Belt_C",
+  "parent": "Cockpit",
+  "kind": "toggle",
+  "label": "Ремни пассажира",
+  "center": [
+   0.33,
+   1.505,
+   2.3
+  ],
+  "halfExtents": [
+   0.12,
+   0.07,
+   0.09
+  ]
+ },
+ {
+  "id": "Socket_Keyhole_PilotDoor_L",
+  "parent": "PilotDoor_L",
+  "kind": "lock",
+  "label": "Замок",
+  "center": [
+   0.0038,
+   0.1,
+   -0.885
+  ],
+  "halfExtents": [
+   0.02,
+   0.02,
+   0.02
+  ]
+ },
+ {
+  "id": "Socket_Keyhole_PilotDoor_R",
+  "parent": "PilotDoor_R",
+  "kind": "lock",
+  "label": "Замок",
+  "center": [
+   -0.0038,
+   0.1,
+   -0.885
+  ],
+  "halfExtents": [
+   0.02,
+   0.02,
+   0.02
+  ]
+ },
+ {
+  "id": "Seat_P",
+  "parent": "Cockpit",
+  "kind": "seat",
+  "label": "Кресло пилота",
+  "center": [
+   -0.33,
+   1.55,
+   2.22
+  ],
+  "halfExtents": [
+   0.22,
+   0.2,
+   0.22
+  ]
+ },
+ {
+  "id": "Seat_C",
+  "parent": "Cockpit",
+  "kind": "seat",
+  "label": "Кресло пассажира",
+  "center": [
+   0.33,
+   1.55,
+   2.22
+  ],
+  "halfExtents": [
+   0.22,
+   0.2,
+   0.22
+  ]
+ },
+ {
+  "id": "PaxSeat_L1",
+  "parent": "Cockpit",
+  "kind": "seat",
+  "label": "Откидное кресло, левое переднее",
+  "center": [
+   -0.44,
+   1.725,
+   1.27
+  ],
+  "halfExtents": [
+   0.17,
+   0.205,
+   0.2
+  ]
+ },
+ {
+  "id": "PaxSeatFold_L1",
+  "parent": "PaxSeat_L1",
+  "kind": "hinge",
+  "label": "Откинуть / сложить сиденье",
+  "center": [
+   0.315,
+   -0.008,
+   0.0
+  ],
+  "halfExtents": [
+   0.065,
+   0.035,
+   0.2
+  ]
+ },
+ {
+  "id": "PaxSeat_R1",
+  "parent": "Cockpit",
+  "kind": "seat",
+  "label": "Откидное кресло, правое переднее",
+  "center": [
+   0.44,
+   1.725,
+   1.27
+  ],
+  "halfExtents": [
+   0.17,
+   0.205,
+   0.2
+  ]
+ },
+ {
+  "id": "PaxSeatFold_R1",
+  "parent": "PaxSeat_R1",
+  "kind": "hinge",
+  "label": "Откинуть / сложить сиденье",
+  "center": [
+   -0.315,
+   -0.008,
+   0.0
+  ],
+  "halfExtents": [
+   0.065,
+   0.035,
+   0.2
+  ]
+ },
+ {
+  "id": "PaxSeat_L2",
+  "parent": "Cockpit",
+  "kind": "seat",
+  "label": "Откидное кресло, левое заднее",
+  "center": [
+   -0.44,
+   1.725,
+   -0.86
+  ],
+  "halfExtents": [
+   0.17,
+   0.205,
+   0.2
+  ]
+ },
+ {
+  "id": "PaxSeatFold_L2",
+  "parent": "PaxSeat_L2",
+  "kind": "hinge",
+  "label": "Откинуть / сложить сиденье",
+  "center": [
+   0.315,
+   -0.008,
+   0.0
+  ],
+  "halfExtents": [
+   0.065,
+   0.035,
+   0.2
+  ]
+ },
+ {
+  "id": "PaxSeat_R2",
+  "parent": "Cockpit",
+  "kind": "seat",
+  "label": "Откидное кресло, правое заднее",
+  "center": [
+   0.44,
+   1.725,
+   -0.86
+  ],
+  "halfExtents": [
+   0.17,
+   0.205,
+   0.2
+  ]
+ },
+ {
+  "id": "PaxSeatFold_R2",
+  "parent": "PaxSeat_R2",
+  "kind": "hinge",
+  "label": "Откинуть / сложить сиденье",
+  "center": [
+   -0.315,
+   -0.008,
+   0.0
+  ],
+  "halfExtents": [
+   0.065,
+   0.035,
+   0.2
+  ]
+ },
+ {
+  "id": "Stow_Flashlight",
+  "parent": "PilotDoor_L",
+  "kind": "stow",
+  "label": "Держатель фонаря",
+  "center": [
+   0.105,
+   -0.125,
+   -0.34445
+  ],
+  "halfExtents": [
+   0.0373,
+   0.038,
+   0.15405
+  ]
+ },
+ {
+  "id": "Stow_FlareGun",
+  "parent": "PilotDoor_R",
+  "kind": "stow",
+  "label": "Кобура ракетницы",
+  "center": [
+   -0.092,
+   -0.046,
+   -0.30312
+  ],
+  "halfExtents": [
+   0.0295,
+   0.114,
+   0.08599
+  ]
+ },
+ {
+  "id": "Stow_Shovel",
+  "parent": "Cockpit",
+  "kind": "stow",
+  "label": "Крепление лопаты",
+  "center": [
+   -0.25,
+   1.58165,
+   1.66465
+  ],
+  "halfExtents": [
+   0.13777,
+   0.46714,
+   0.03485
+  ]
+ },
+ {
+  "id": "Stow_SurvivalBag",
+  "parent": "Cockpit",
+  "kind": "stow",
+  "label": "Место аварийной сумки",
+  "center": [
+   -0.405,
+   1.23874,
+   1.14
+  ],
+  "halfExtents": [
+   0.15212,
+   0.16626,
+   0.27925
+  ]
+ },
+ {
+  "id": "Stow_JerryCan",
+  "parent": "Cockpit",
+  "kind": "stow",
+  "label": "Держатель канистры",
+  "center": [
+   -0.4,
+   1.366,
+   -1.1855
+  ],
+  "halfExtents": [
+   0.19,
+   0.25,
+   0.1125
+  ]
+ },
+ {
+  "id": "Stow_Ladder",
+  "parent": "Cockpit",
+  "kind": "stow",
+  "label": "Место стремянки (на полу, стропы)",
+  "center": [
+   0.195,
+   1.4473,
+   0.1639
+  ],
+  "halfExtents": [
+   0.415,
+   0.3243,
+   1.2661
+  ]
+ }
+]

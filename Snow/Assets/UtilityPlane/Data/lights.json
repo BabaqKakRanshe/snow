@@ -1,0 +1,928 @@
+{
+ "note": "v11 lights of UtilityPlane.prefab (UtilityPlaneRig.LightDefs). position: prefab space (+X right, +Y up, +Z forward); positionParked: world with ParkedPose at the origin. Intensity = 100 % level (the prefab Light.intensity overrides it). Filters are linear; coloured lamps use 6500 K at full power and redden as they dim.",
+ "lights": [
+  {
+   "key": "Nav_L",
+   "light": "Light_Nav_L",
+   "socket": "Socket_Nav_L",
+   "type": "Spot",
+   "position": [
+    -7.07,
+    2.8683,
+    2.3
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    -0.671,
+    -0.5736,
+    0.4698
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 8.0,
+   "intensityURP": 4.0,
+   "intensityHDRPcandela": 40,
+   "kelvin": 6500,
+   "filterLinear": [
+    1.0,
+    0.02,
+    0.01
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "navLights",
+   "lens": "Lens_Nav_L",
+   "spotOuter": 160,
+   "spotInner": 152,
+   "cookie": "T_Cookie_Nav_L",
+   "glow": {
+    "pattern_fwd": [
+     -0.819,
+     0.0,
+     0.574
+    ],
+    "sector": 55,
+    "soft": 3,
+    "elev": 2.5,
+    "floor": 0.06,
+    "core": 0.035,
+    "core_gain": 2.2,
+    "halo": 0.7,
+    "iso": 1.0
+   },
+   "positionParked": [
+    -7.07,
+    2.852,
+    1.768
+   ]
+  },
+  {
+   "key": "Nav_R",
+   "light": "Light_Nav_R",
+   "socket": "Socket_Nav_R",
+   "type": "Spot",
+   "position": [
+    7.07,
+    2.8683,
+    2.3
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.671,
+    -0.5736,
+    0.4698
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 8.0,
+   "intensityURP": 4.0,
+   "intensityHDRPcandela": 40,
+   "kelvin": 6500,
+   "filterLinear": [
+    0.02,
+    1.0,
+    0.45
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "navLights",
+   "lens": "Lens_Nav_R",
+   "spotOuter": 160,
+   "spotInner": 152,
+   "cookie": "T_Cookie_Nav_R",
+   "glow": {
+    "pattern_fwd": [
+     0.819,
+     0.0,
+     0.574
+    ],
+    "sector": 55,
+    "soft": 3,
+    "elev": 2.5,
+    "floor": 0.06,
+    "core": 0.035,
+    "core_gain": 2.2,
+    "halo": 0.7,
+    "iso": 1.0
+   },
+   "positionParked": [
+    7.07,
+    2.852,
+    1.768
+   ]
+  },
+  {
+   "key": "Nav_Tail",
+   "light": "Light_Nav_Tail",
+   "socket": "Socket_Nav_Tail",
+   "type": "Spot",
+   "position": [
+    0.0,
+    2.26,
+    -5.1
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.0,
+    -0.4226,
+    -0.9063
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 7.0,
+   "intensityURP": 1.5,
+   "intensityHDRPcandela": 20,
+   "kelvin": 3000,
+   "filterLinear": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "navLights",
+   "lens": "Lens_Nav_Tail",
+   "spotOuter": 160,
+   "spotInner": 152,
+   "cookie": "T_Cookie_Nav_Tail",
+   "glow": {
+    "pattern_fwd": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "sector": 70,
+    "soft": 3,
+    "elev": 2.5,
+    "floor": 0.06,
+    "core": 0.03,
+    "core_gain": 2.2,
+    "halo": 0.7,
+    "iso": 1.0
+   },
+   "positionParked": [
+    0.0,
+    0.97,
+    -5.414
+   ]
+  },
+  {
+   "key": "Strobe_L",
+   "light": "Light_Strobe_L",
+   "socket": "Socket_Strobe_L",
+   "type": "Spot",
+   "position": [
+    -7.075,
+    2.8683,
+    2.08
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 26.0,
+   "intensityURP": 30.0,
+   "intensityHDRPcandela": 2000,
+   "kelvin": 6500,
+   "filterLinear": [
+    0.92,
+    0.96,
+    1.0
+   ],
+   "lamp": "xenon",
+   "drivenBy": "strobeLights",
+   "lens": "Lens_Strobe_L",
+   "spotOuter": 170,
+   "spotInner": 164,
+   "cookie": "T_Cookie_Strobe_L",
+   "glow": {
+    "pattern_fwd": [
+     -1.0,
+     0.0,
+     0.0
+    ],
+    "sector": 100,
+    "soft": 20,
+    "elev": 1.2,
+    "floor": 0.04,
+    "core": 0.03,
+    "core_gain": 2.5,
+    "halo": 0.6,
+    "iso": 1.0,
+    "radius_scale": 0.9
+   },
+   "positionParked": [
+    -7.075,
+    2.813,
+    1.551
+   ]
+  },
+  {
+   "key": "Strobe_R",
+   "light": "Light_Strobe_R",
+   "socket": "Socket_Strobe_R",
+   "type": "Spot",
+   "position": [
+    7.075,
+    2.8683,
+    2.08
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 26.0,
+   "intensityURP": 30.0,
+   "intensityHDRPcandela": 2000,
+   "kelvin": 6500,
+   "filterLinear": [
+    0.92,
+    0.96,
+    1.0
+   ],
+   "lamp": "xenon",
+   "drivenBy": "strobeLights",
+   "lens": "Lens_Strobe_R",
+   "spotOuter": 170,
+   "spotInner": 164,
+   "cookie": "T_Cookie_Strobe_R",
+   "glow": {
+    "pattern_fwd": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "sector": 100,
+    "soft": 20,
+    "elev": 1.2,
+    "floor": 0.04,
+    "core": 0.03,
+    "core_gain": 2.5,
+    "halo": 0.6,
+    "iso": 1.0,
+    "radius_scale": 0.9
+   },
+   "positionParked": [
+    7.075,
+    2.813,
+    1.551
+   ]
+  },
+  {
+   "key": "Beacon_Top",
+   "light": "Light_Beacon_Top",
+   "socket": "Socket_Beacon_Top",
+   "type": "Spot",
+   "position": [
+    0.0,
+    3.915,
+    -4.4
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.0,
+    -0.2756,
+    -0.9613
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 30.0,
+   "intensityURP": 25.0,
+   "intensityHDRPcandela": 400,
+   "kelvin": 6500,
+   "filterLinear": [
+    1.0,
+    0.06,
+    0.012
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "beaconLights",
+   "lens": "Lens_Beacon_Top",
+   "spotOuter": 72,
+   "spotInner": 68,
+   "cookie": "T_Cookie_Beacon_Top",
+   "shadowTier": 0,
+   "shadowsFromQuality": "High",
+   "rotates": "about the plane up axis, beaconRpm (45) x sqrt(beaconLights)",
+   "glow": {
+    "pattern_fwd": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "fan": 7.0,
+    "el_lo": -40,
+    "el_hi": 8,
+    "elev": 0.0,
+    "floor": 0.05,
+    "core": 0.03,
+    "core_gain": 1.6,
+    "halo": 1.0,
+    "iso": 0.0
+   },
+   "beam": {
+    "length": 26.0,
+    "x": [
+     -24,
+     24
+    ],
+    "y": [
+     -30,
+     30
+    ],
+    "fan": 7.0,
+    "el_lo": -40,
+    "el_hi": 8,
+    "gain": 1.0,
+    "g": 0.6
+   },
+   "positionParked": [
+    0.0,
+    2.721,
+    -5.012
+   ]
+  },
+  {
+   "key": "Beacon_Bottom",
+   "light": "Light_Beacon_Bottom",
+   "socket": "Socket_Beacon_Bottom",
+   "type": "Spot",
+   "position": [
+    0.0,
+    0.955,
+    -1.65
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.0,
+    -0.5878,
+    0.809
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 16.0,
+   "intensityURP": 8.0,
+   "intensityHDRPcandela": 200,
+   "kelvin": 6500,
+   "filterLinear": [
+    1.0,
+    0.06,
+    0.012
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "beaconLights",
+   "lens": "Lens_Beacon_Bottom",
+   "spotOuter": 80,
+   "spotInner": 76,
+   "cookie": "T_Cookie_Beacon_Bottom",
+   "shadowTier": 0,
+   "shadowsFromQuality": "High",
+   "rotates": "about the plane up axis, beaconRpm (45) x sqrt(beaconLights)",
+   "glow": {
+    "pattern_fwd": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "fan": 7.0,
+    "el_lo": -62,
+    "el_hi": -3,
+    "elev": 0.0,
+    "floor": 0.05,
+    "core": 0.04,
+    "core_gain": 1.6,
+    "halo": 1.0,
+    "iso": 0.0
+   },
+   "beam": {
+    "length": 12.0,
+    "x": [
+     -24,
+     24
+    ],
+    "y": [
+     -30,
+     36
+    ],
+    "fan": 7.0,
+    "el_lo": -62,
+    "el_hi": -3,
+    "gain": 1.0,
+    "g": 0.6
+   },
+   "positionParked": [
+    0.0,
+    0.283,
+    -1.791
+   ]
+  },
+  {
+   "key": "Landing",
+   "light": "Light_Landing",
+   "socket": "Socket_Landing",
+   "type": "Spot",
+   "position": [
+    -2.3,
+    2.6898,
+    2.57
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.0256,
+    -0.2079,
+    0.9778
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 160.0,
+   "intensityURP": 900.0,
+   "intensityHDRPcandela": 150000,
+   "kelvin": 3400,
+   "filterLinear": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "landingLight",
+   "lens": "Lens_Landing",
+   "spotOuter": 78,
+   "spotInner": 74,
+   "cookie": "T_Cookie_Landing",
+   "shadowTier": 1,
+   "shadowsFromQuality": "Low",
+   "shadowNearPlane": 0.2,
+   "glow": {
+    "pattern_fwd": null,
+    "beam_width": 4.5,
+    "elev": 0.0,
+    "floor": 0.015,
+    "core": 0.05,
+    "core_gain": 0.35,
+    "halo": 1.0,
+    "iso": 0.0
+   },
+   "beam": {
+    "length": 70.0,
+    "x": [
+     -32,
+     32
+    ],
+    "y": [
+     -38,
+     26
+    ],
+    "core": 4.5,
+    "skirt": 0.012,
+    "gain": 1.0,
+    "g": 0.7
+   },
+   "positionParked": [
+    -2.3,
+    2.722,
+    2.065
+   ]
+  },
+  {
+   "key": "Dome_L",
+   "light": "Light_Dome_L",
+   "socket": "Socket_Light_Dome_L",
+   "type": "Spot",
+   "position": [
+    -0.085,
+    2.4726,
+    2.29
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    -0.2434,
+    -0.9637,
+    0.1093
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": 2.3,
+   "intensityURP": 0.5,
+   "intensityHDRPcandela": 15,
+   "kelvin": 3000,
+   "filterLinear": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "cabinLight",
+   "lens": "Lens_Dome",
+   "spotOuter": 118,
+   "spotInner": 104,
+   "cookie": "T_Cookie_Dome_L",
+   "shadowTier": 0,
+   "shadowsFromQuality": "Medium",
+   "shadowNearPlane": 0.08,
+   "positionParked": [
+    -0.085,
+    2.46,
+    1.827
+   ]
+  },
+  {
+   "key": "Dome_R",
+   "light": "Light_Dome_R",
+   "socket": "Socket_Light_Dome_R",
+   "type": "Spot",
+   "position": [
+    0.085,
+    2.4726,
+    2.29
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.2434,
+    -0.9637,
+    0.1093
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": 2.3,
+   "intensityURP": 0.5,
+   "intensityHDRPcandela": 15,
+   "kelvin": 3000,
+   "filterLinear": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "cabinLight",
+   "lens": null,
+   "spotOuter": 118,
+   "spotInner": 104,
+   "cookie": "T_Cookie_Dome_R",
+   "shadowTier": 0,
+   "shadowsFromQuality": "Medium",
+   "shadowNearPlane": 0.08,
+   "positionParked": [
+    0.085,
+    2.46,
+    1.827
+   ]
+  },
+  {
+   "key": "Cargo",
+   "light": "Light_Cargo",
+   "socket": "Socket_Light_Cargo",
+   "type": "Spot",
+   "position": [
+    0.0,
+    2.54,
+    0.55
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": 2.7,
+   "intensityURP": 0.7,
+   "intensityHDRPcandela": 25,
+   "kelvin": 6500,
+   "filterLinear": [
+    0.88,
+    1.0,
+    0.86
+   ],
+   "lamp": "fluorescent",
+   "drivenBy": "cargoLight",
+   "lens": "Lens_CargoLight",
+   "spotOuter": 150,
+   "spotInner": 142,
+   "cookie": "T_Cookie_Cargo",
+   "shadowTier": 1,
+   "shadowsFromQuality": "Medium",
+   "shadowNearPlane": 0.08,
+   "positionParked": [
+    0.0,
+    2.225,
+    0.101
+   ]
+  },
+  {
+   "key": "Cargo_2",
+   "light": "Light_Cargo_2",
+   "socket": "Socket_Light_Cargo_2",
+   "type": "Spot",
+   "position": [
+    0.0,
+    2.54,
+    -0.75
+   ],
+   "offsetFromSocket": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": 2.7,
+   "intensityURP": 0.7,
+   "intensityHDRPcandela": 25,
+   "kelvin": 6500,
+   "filterLinear": [
+    0.88,
+    1.0,
+    0.86
+   ],
+   "lamp": "fluorescent",
+   "drivenBy": "cargoLight",
+   "lens": null,
+   "spotOuter": 150,
+   "spotInner": 142,
+   "cookie": "T_Cookie_Cargo_2",
+   "shadowTier": 1,
+   "shadowsFromQuality": "Medium",
+   "shadowNearPlane": 0.08,
+   "positionParked": [
+    0.0,
+    2.0,
+    -1.179
+   ]
+  },
+  {
+   "key": "Flood",
+   "light": "Light_Flood",
+   "socket": "Socket_Light_Flood",
+   "type": "Spot",
+   "position": [
+    -0.3,
+    2.01,
+    2.865
+   ],
+   "offsetFromSocket": [
+    -0.3,
+    -0.005,
+    -0.1
+   ],
+   "forward": [
+    0.0,
+    -0.9659,
+    0.259
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": 1.5,
+   "intensityURP": 0.3,
+   "intensityHDRPcandela": 4,
+   "kelvin": 6500,
+   "filterLinear": [
+    1.0,
+    0.05,
+    0.02
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "floodLight (x busPowered)",
+   "lens": "Lens_Flood_L",
+   "spotOuter": 140,
+   "spotInner": 132,
+   "cookie": "T_Cookie_Flood",
+   "shadowTier": 0,
+   "shadowsFromQuality": "Medium",
+   "shadowNearPlane": 0.05,
+   "positionParked": [
+    -0.3,
+    2.104,
+    2.473
+   ]
+  },
+  {
+   "key": "Flood_2",
+   "light": "Light_Flood_2",
+   "socket": "Socket_Light_Flood",
+   "type": "Spot",
+   "position": [
+    0.3,
+    2.01,
+    2.865
+   ],
+   "offsetFromSocket": [
+    0.3,
+    -0.005,
+    -0.1
+   ],
+   "forward": [
+    0.0,
+    -0.9659,
+    0.259
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": 1.5,
+   "intensityURP": 0.3,
+   "intensityHDRPcandela": 4,
+   "kelvin": 6500,
+   "filterLinear": [
+    1.0,
+    0.05,
+    0.02
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "floodLight (x busPowered)",
+   "lens": "Lens_Flood_R",
+   "spotOuter": 140,
+   "spotInner": 132,
+   "cookie": "T_Cookie_Flood_2",
+   "shadowTier": 0,
+   "shadowsFromQuality": "Medium",
+   "shadowNearPlane": 0.05,
+   "positionParked": [
+    0.3,
+    2.104,
+    2.473
+   ]
+  },
+  {
+   "key": "Fill_Cockpit",
+   "light": "Light_Fill_Cockpit",
+   "socket": "Socket_Light_Dome_L",
+   "type": "Point",
+   "position": [
+    0.0,
+    2.0526,
+    2.29
+   ],
+   "offsetFromSocket": [
+    0.085,
+    -0.42,
+    0.0
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 1.25,
+   "intensityURP": 0.075,
+   "intensityHDRPcandela": 2,
+   "kelvin": 3000,
+   "filterLinear": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "lamp": "incandescent",
+   "drivenBy": "cabinLight",
+   "lens": null,
+   "positionParked": [
+    0.0,
+    2.046,
+    1.9
+   ]
+  },
+  {
+   "key": "Fill_Bay",
+   "light": "Light_Fill_Bay",
+   "socket": "Socket_Light_Cargo",
+   "type": "Point",
+   "position": [
+    0.0,
+    2.0,
+    -0.1
+   ],
+   "offsetFromSocket": [
+    0.0,
+    -0.54,
+    -0.65
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": 2.0,
+   "intensityURP": 0.1,
+   "intensityHDRPcandela": 3,
+   "kelvin": 6500,
+   "filterLinear": [
+    0.88,
+    1.0,
+    0.86
+   ],
+   "lamp": "fluorescent",
+   "drivenBy": "cargoLight",
+   "lens": null,
+   "positionParked": [
+    0.0,
+    1.58,
+    -0.445
+   ]
+  }
+ ]
+}

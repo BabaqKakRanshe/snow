@@ -1,0 +1,120 @@
+{
+ "_doc": "Scene look. All colours are LINEAR (pre-tonemap). Unity builder converts to gamma when assigning Color properties. Directions: dir_blender is the direction light travels (Blender Z-up); the builder uses dir_unity.",
+ "fog": {
+  "mode": "Exponential",
+  "density": 0.0036,
+  "color": [
+   0.172,
+   0.126,
+   0.018
+  ]
+ },
+ "sky": {
+  "horizon": [
+   0.172,
+   0.126,
+   0.018
+  ],
+  "band": [
+   0.205,
+   0.148,
+   0.022
+  ],
+  "zenith": [
+   0.108,
+   0.078,
+   0.011
+  ],
+  "below": [
+   0.118,
+   0.086,
+   0.013
+  ],
+  "bandHeight": 0.2,
+  "bandWidth": 0.16,
+  "cloudScale": 0.35,
+  "cloudContrast": 0.34,
+  "cloudSpeed": 0.004,
+  "sunColor": [
+   1.0,
+   0.86,
+   0.45
+  ],
+  "sunGlow": 0.07,
+  "sunGlowPower": 6.0,
+  "sunDisc": 0.6,
+  "sunDiscPower": 3000.0
+ },
+ "sun": {
+  "dir_blender": [
+   -0.306,
+   -0.888,
+   -0.342
+  ],
+  "color": [
+   1.0,
+   0.8,
+   0.38
+  ],
+  "intensity": 0.105,
+  "dir_unity": [
+   0.306,
+   -0.342,
+   0.888
+  ]
+ },
+ "ambient": {
+  "sky": [
+   0.0795,
+   0.0598,
+   0.0103
+  ],
+  "equator": [
+   0.0608,
+   0.0449,
+   0.008
+  ],
+  "ground": [
+   0.0164,
+   0.0122,
+   0.0028
+  ]
+ },
+ "post": {
+  "exposure": -0.1,
+  "contrast": 10.0,
+  "tonemap": "Neutral",
+  "bloom": {
+   "threshold": 0.9,
+   "intensity": 1.1,
+   "scatter": 0.72,
+   "tint": [
+    1.0,
+    0.92,
+    0.72
+   ],
+   "clamp": 65472.0,
+   "highQuality": true
+  },
+  "vignette": {
+   "intensity": 0.32,
+   "smoothness": 0.42,
+   "color": [
+    0.05,
+    0.035,
+    0.008
+   ],
+   "rounded": false
+  },
+  "grain": {
+   "type": "Medium1",
+   "intensity": 0.22,
+   "response": 0.8
+  },
+  "chromaticAberration": 0.06,
+  "lut": "SkyIsland_RefLook_LUT32.png",
+  "lutContribution": 1.0
+ },
+ "localLightScale": 1.0,
+ "emissionScale": 1.0
+}

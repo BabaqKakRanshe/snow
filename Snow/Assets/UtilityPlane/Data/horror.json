@@ -1,0 +1,326 @@
+{
+ "note": "Points for the game's horror and sound design. Unity prefab space (parked: the root is pitched nose-up 9.98 deg, ground points sit on the parked ground). Scare sockets: +Z = where the figure looks; Socket_Scare_Window_*: the face point 0.35 m outside the pane, looking in; the others: feet. Audio sockets: emitters (identity rotation).",
+ "scare": {
+  "Socket_Scare_Bay_Aft": {
+   "position": [
+    0.0,
+    1.074,
+    -1.12
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "note": "bay floor at the rear bulkhead, facing the cockpit"
+  },
+  "Socket_Scare_Bay_Fwd": {
+   "position": [
+    0.0,
+    1.074,
+    1.56
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "note": "bay floor right behind the cargo barrier, facing the crew"
+  },
+  "Socket_Scare_Window_Pilot_L": {
+   "position": [
+    -1.1,
+    2.12,
+    2.588
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Window_Pilot_R": {
+   "position": [
+    1.1,
+    2.12,
+    2.588
+   ],
+   "forward": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Window_Side_L": {
+   "position": [
+    -1.1,
+    2.13,
+    1.585
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Window_Side_R": {
+   "position": [
+    1.1,
+    2.13,
+    1.585
+   ],
+   "forward": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Window_Cargo_L": {
+   "position": [
+    -1.1,
+    2.11,
+    0.2
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Window_Cargo_R": {
+   "position": [
+    1.1,
+    2.11,
+    0.2
+   ],
+   "forward": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Window_Aft_L": {
+   "position": [
+    -1.1,
+    2.12,
+    -0.98
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Window_Aft_R": {
+   "position": [
+    1.1,
+    2.12,
+    -0.98
+   ],
+   "forward": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "note": "face point outside the window, looking in"
+  },
+  "Socket_Scare_Windshield": {
+   "position": [
+    0.0,
+    2.33,
+    3.62
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "note": "face point on the cowling in front of the windshield, looking at the crew"
+  },
+  "Socket_Scare_Nose": {
+   "position": [
+    0.0,
+    -0.90725,
+    7.3
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "note": "ground 2.6 m ahead of the propeller"
+  },
+  "Socket_Scare_Tail": {
+   "position": [
+    0.0,
+    1.5041,
+    -6.4
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "note": "ground behind the tail"
+  },
+  "Socket_Scare_UnderWing_L": {
+   "position": [
+    -4.2,
+    -0.00959,
+    2.2
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "note": "ground under the wing, facing the fuselage"
+  },
+  "Socket_Scare_UnderWing_R": {
+   "position": [
+    4.2,
+    -0.00959,
+    2.2
+   ],
+   "forward": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "note": "ground under the wing, facing the fuselage"
+  },
+  "Socket_Scare_Belly": {
+   "position": [
+    0.0,
+    0.16642,
+    1.2
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "note": "ground under the fuselage (crawling)"
+  }
+ },
+ "audio": {
+  "Socket_Audio_Radio": {
+   "position": [
+    0.0,
+    2.578,
+    2.3
+   ],
+   "note": "cabin speaker under the overhead console (radio voices)"
+  },
+  "Socket_Audio_Headset_P": {
+   "position": [
+    -0.25,
+    2.05,
+    1.775
+   ],
+   "note": "pilot headset hanging behind the seat (whispers)"
+  },
+  "Socket_Audio_Headset_C": {
+   "position": [
+    0.25,
+    2.05,
+    1.775
+   ],
+   "note": "right headset hanging behind the seat"
+  },
+  "Socket_Audio_StallHorn": {
+   "position": [
+    -0.6,
+    2.45,
+    2.62
+   ],
+   "note": "stall warning horn, upper left corner of the windshield"
+  },
+  "Socket_Audio_Bay": {
+   "position": [
+    0.0,
+    2.3,
+    0.2
+   ],
+   "note": "cargo bay (creaks, cargo shifting)"
+  },
+  "Socket_Audio_Roof": {
+   "position": [
+    0.0,
+    2.8,
+    1.5
+   ],
+   "note": "on top of the wing centre section (steps)"
+  },
+  "Socket_Audio_Belly": {
+   "position": [
+    0.0,
+    0.92,
+    0.6
+   ],
+   "note": "under the cabin floor (knocks)"
+  },
+  "Socket_Audio_ELT": {
+   "position": [
+    0.0,
+    1.8,
+    -2.7
+   ],
+   "note": "emergency locator transmitter in the tail cone"
+  },
+  "Socket_Audio_Wind_L": {
+   "position": [
+    -0.72,
+    2.4,
+    2.0
+   ],
+   "note": "left door seal (whistle)"
+  },
+  "Socket_Audio_Wind_R": {
+   "position": [
+    0.72,
+    2.4,
+    2.0
+   ],
+   "note": "right door seal (whistle)"
+  },
+  "Socket_Audio_FuelTank_L": {
+   "position": [
+    -1.8,
+    2.72,
+    1.95
+   ],
+   "note": "left wing tank (sloshing)"
+  },
+  "Socket_Audio_FuelTank_R": {
+   "position": [
+    1.8,
+    2.72,
+    1.95
+   ],
+   "note": "right wing tank (sloshing)"
+  }
+ },
+ "existingAudio": [
+  "Socket_Audio_Engine",
+  "Socket_Audio_Cabin",
+  "Socket_Audio_Gear_L",
+  "Socket_Audio_Gear_R",
+  "Socket_Audio_Tail",
+  "Socket_Thrust (propeller)",
+  "Socket_Exhaust_L/R",
+  "Socket_Handle_* (doors, knocks)"
+ ],
+ "alsoUseful": [
+  "Socket_Seat_Pax* (a figure sitting in a bay seat)",
+  "Socket_Seat_C (the right cockpit seat)"
+ ],
+ "fogPrints": "UtilityPlaneRig.StampFogPrint(worldPoint, brush, sizeM, angleDeg, wipe, strength): a hand / finger print on the fogged glass; StampFogStroke(a, b, width) writes; ClearFogPrints() cleans."
+}

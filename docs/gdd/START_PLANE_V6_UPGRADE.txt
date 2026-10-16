@@ -1,0 +1,12 @@
+Обнови модель самолёта в проекте F:\ClaudeGames\snow\Snow до v6 (новая приборная доска).
+
+Задание: F:\ClaudeGames\snow\docs\gdd\PLANE_V6_UPGRADE_UNITY.md — выполни шаги U1–U5 по порядку. Сначала определи, какая версия стоит сейчас (v5 или v4): если v4, правки кода из PLANE_V5_UPGRADE_UNITY.md тоже нужны, но ставить сразу пакет v6.
+Новый пакет модели: F:\ClaudeGames\snow\assets\plane\UtilityPlane_Unity_v6\Assets\UtilityPlane (README.md, UNITY_CONTRACT.md — раздел 13 «Что изменилось с v5»).
+Общие правила, статусы и формат отчёта — из F:\ClaudeGames\snow\docs\gdd\PLANE_PROMPT_UNITY.md (версия 2.1).
+
+Главное:
+- Display_GPS теперь меш-квад, к нему добавились ещё 6 экранов Display_*; размеры и точки — только из Data/displays.json;
+- новые поля Rig: busVolts, suctionInHg, mapCase (бардачок, зона IV_Glovebox_Lid), screensDrivenExternally;
+- имена прежних частей и 43 зон не менялись, добавилась зона Glovebox_Lid; геометрию модели не менять, новые пакеты не ставить.
+
+В конце — отчёт: с какой версии обновлено, что заменено, какие файлы кода изменены и почему, результаты проверок W1–W10 (и V1–V12 при обновлении с v4), что осталось открытым.

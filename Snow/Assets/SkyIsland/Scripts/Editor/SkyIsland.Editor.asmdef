@@ -1,0 +1,37 @@
+{
+    "name": "SkyIsland.Editor",
+    "rootNamespace": "SkyIsland.EditorTools",
+    "references": [
+        "SkyIsland.Runtime",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.HighDefinition.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.core",
+            "expression": "12.0.0",
+            "define": "SKYISLAND_SRP_CORE"
+        },
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "12.0.0",
+            "define": "SKYISLAND_URP"
+        },
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "13.0.0",
+            "define": "SKYISLAND_HDRP"
+        }
+    ],
+    "noEngineReferences": false
+}

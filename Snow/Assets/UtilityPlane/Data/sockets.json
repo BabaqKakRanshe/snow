@@ -1,0 +1,2168 @@
+{
+ "Socket_PilotEye": {
+  "parent": "Sockets",
+  "position": [
+   -0.33,
+   2.22,
+   2.24
+  ]
+ },
+ "Socket_CopilotEye": {
+  "parent": "Sockets",
+  "position": [
+   0.33,
+   2.22,
+   2.24
+  ]
+ },
+ "Socket_WheelContact_L": {
+  "parent": "Sockets",
+  "position": [
+   -1.25,
+   0.36,
+   2.85
+  ]
+ },
+ "Socket_WheelContact_R": {
+  "parent": "Sockets",
+  "position": [
+   1.25,
+   0.36,
+   2.85
+  ]
+ },
+ "Socket_WheelContact_Tail": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.45,
+   -4.47
+  ]
+ },
+ "Socket_Exhaust_L": {
+  "parent": "Sockets",
+  "position": [
+   -0.78,
+   1.56,
+   3.8
+  ]
+ },
+ "Socket_Exhaust_R": {
+  "parent": "Sockets",
+  "position": [
+   0.78,
+   1.56,
+   3.8
+  ]
+ },
+ "Socket_PropWash": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   -0.45666,
+   4.74
+  ]
+ },
+ "Socket_CenterOfMass": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.75,
+   1.95
+  ]
+ },
+ "Socket_Audio_Engine": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.55,
+   4.0
+  ]
+ },
+ "Socket_Audio_Cabin": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.9,
+   2.2
+  ]
+ },
+ "Socket_Audio_Gear_L": {
+  "parent": "Sockets",
+  "position": [
+   -0.46,
+   1.03,
+   2.85
+  ]
+ },
+ "Socket_Audio_Gear_R": {
+  "parent": "Sockets",
+  "position": [
+   0.46,
+   1.03,
+   2.85
+  ]
+ },
+ "Socket_Audio_Tail": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.62,
+   -4.35
+  ]
+ },
+ "Socket_Cam_Chase": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   4.5,
+   -14.0
+  ]
+ },
+ "Socket_Seat_P": {
+  "parent": "Sockets",
+  "position": [
+   -0.33,
+   1.43,
+   2.2
+  ]
+ },
+ "Socket_Seat_C": {
+  "parent": "Sockets",
+  "position": [
+   0.33,
+   1.43,
+   2.2
+  ]
+ },
+ "Socket_Aero_Fin": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   3.0,
+   -4.25
+  ]
+ },
+ "Socket_Aero_Fuselage": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.75,
+   1.0
+  ]
+ },
+ "Socket_Thrust": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.7,
+   4.74
+  ]
+ },
+ "Socket_Ladder_Fuel_L": {
+  "parent": "Sockets",
+  "position": [
+   -2.0,
+   -0.05753,
+   2.47233
+  ]
+ },
+ "Socket_Ladder_Fuel_R": {
+  "parent": "Sockets",
+  "position": [
+   2.0,
+   -0.05753,
+   2.47233
+  ]
+ },
+ "Socket_Nav_L": {
+  "parent": "Sockets",
+  "position": [
+   -7.07,
+   2.86835,
+   2.3
+  ]
+ },
+ "Socket_Nav_R": {
+  "parent": "Sockets",
+  "position": [
+   7.07,
+   2.86835,
+   2.3
+  ]
+ },
+ "Socket_Strobe_L": {
+  "parent": "Sockets",
+  "position": [
+   -7.075,
+   2.86835,
+   2.08
+  ]
+ },
+ "Socket_Strobe_R": {
+  "parent": "Sockets",
+  "position": [
+   7.075,
+   2.86835,
+   2.08
+  ]
+ },
+ "Socket_Nav_Tail": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   2.26,
+   -5.1
+  ]
+ },
+ "Socket_Beacon_Top": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   3.915,
+   -4.4
+  ]
+ },
+ "Socket_Beacon_Bottom": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   0.955,
+   -1.65
+  ]
+ },
+ "Socket_Landing": {
+  "parent": "Sockets",
+  "position": [
+   -2.3,
+   2.68978,
+   2.57
+  ]
+ },
+ "Socket_Exit_L": {
+  "parent": "Sockets",
+  "position": [
+   -1.2,
+   0.01681,
+   2.05
+  ]
+ },
+ "Socket_Exit_Cargo_L": {
+  "parent": "Sockets",
+  "position": [
+   -1.35,
+   0.34243,
+   0.2
+  ]
+ },
+ "Socket_FuelCap_L": {
+  "parent": "Sockets",
+  "position": [
+   -1.55,
+   2.84774,
+   2.025
+  ]
+ },
+ "Socket_Aero_Wing_L_In": {
+  "parent": "Sockets",
+  "position": [
+   -2.0,
+   2.7513,
+   2.025
+  ]
+ },
+ "Socket_Aero_Wing_L_Out": {
+  "parent": "Sockets",
+  "position": [
+   -5.2,
+   2.86305,
+   2.025
+  ]
+ },
+ "Socket_Aero_HStab_L": {
+  "parent": "Sockets",
+  "position": [
+   -1.2,
+   2.06,
+   -4.24
+  ]
+ },
+ "Socket_Exit_R": {
+  "parent": "Sockets",
+  "position": [
+   1.2,
+   0.01681,
+   2.05
+  ]
+ },
+ "Socket_Exit_Cargo_R": {
+  "parent": "Sockets",
+  "position": [
+   1.35,
+   0.34243,
+   0.2
+  ]
+ },
+ "Socket_FuelCap_R": {
+  "parent": "Sockets",
+  "position": [
+   1.55,
+   2.84774,
+   2.025
+  ]
+ },
+ "Socket_Aero_Wing_R_In": {
+  "parent": "Sockets",
+  "position": [
+   2.0,
+   2.7513,
+   2.025
+  ]
+ },
+ "Socket_Aero_Wing_R_Out": {
+  "parent": "Sockets",
+  "position": [
+   5.2,
+   2.86305,
+   2.025
+  ]
+ },
+ "Socket_Aero_HStab_R": {
+  "parent": "Sockets",
+  "position": [
+   1.2,
+   2.06,
+   -4.24
+  ]
+ },
+ "Socket_Light_Cargo": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   2.54,
+   0.55
+  ]
+ },
+ "Socket_Light_Cargo_2": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   2.54,
+   -0.75
+  ]
+ },
+ "Socket_TieDown_01": {
+  "parent": "Sockets",
+  "position": [
+   -0.42,
+   1.074,
+   1.45
+  ]
+ },
+ "Socket_TieDown_02": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.074,
+   1.45
+  ]
+ },
+ "Socket_TieDown_03": {
+  "parent": "Sockets",
+  "position": [
+   0.42,
+   1.074,
+   1.45
+  ]
+ },
+ "Socket_TieDown_04": {
+  "parent": "Sockets",
+  "position": [
+   -0.42,
+   1.074,
+   0.8
+  ]
+ },
+ "Socket_TieDown_05": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.074,
+   0.8
+  ]
+ },
+ "Socket_TieDown_06": {
+  "parent": "Sockets",
+  "position": [
+   0.42,
+   1.074,
+   0.8
+  ]
+ },
+ "Socket_TieDown_07": {
+  "parent": "Sockets",
+  "position": [
+   -0.42,
+   1.074,
+   0.15
+  ]
+ },
+ "Socket_TieDown_08": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.074,
+   0.15
+  ]
+ },
+ "Socket_TieDown_09": {
+  "parent": "Sockets",
+  "position": [
+   0.42,
+   1.074,
+   0.15
+  ]
+ },
+ "Socket_TieDown_10": {
+  "parent": "Sockets",
+  "position": [
+   -0.42,
+   1.074,
+   -0.5
+  ]
+ },
+ "Socket_TieDown_11": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.074,
+   -0.5
+  ]
+ },
+ "Socket_TieDown_12": {
+  "parent": "Sockets",
+  "position": [
+   0.42,
+   1.074,
+   -0.5
+  ]
+ },
+ "Socket_TieDown_13": {
+  "parent": "Sockets",
+  "position": [
+   -0.42,
+   1.074,
+   -1.1
+  ]
+ },
+ "Socket_TieDown_14": {
+  "parent": "Sockets",
+  "position": [
+   0.0,
+   1.074,
+   -1.1
+  ]
+ },
+ "Socket_TieDown_15": {
+  "parent": "Sockets",
+  "position": [
+   0.42,
+   1.074,
+   -1.1
+  ]
+ },
+ "Socket_Handle_PilotDoor_L_Out": {
+  "parent": "PilotDoor_L",
+  "position_prefab": [
+   -0.775,
+   1.7,
+   2.32
+  ]
+ },
+ "Socket_Handle_PilotDoor_L_In": {
+  "parent": "PilotDoor_L",
+  "position_prefab": [
+   -0.655,
+   1.713,
+   2.83
+  ]
+ },
+ "Socket_Handle_PilotDoor_R_Out": {
+  "parent": "PilotDoor_R",
+  "position_prefab": [
+   0.775,
+   1.7,
+   2.32
+  ]
+ },
+ "Socket_Handle_PilotDoor_R_In": {
+  "parent": "PilotDoor_R",
+  "position_prefab": [
+   0.655,
+   1.713,
+   2.83
+  ]
+ },
+ "Socket_Handle_CargoDoor_L_Out": {
+  "parent": "CargoDoor_L",
+  "position_prefab": [
+   -0.775,
+   1.75,
+   0.7
+  ]
+ },
+ "Socket_Handle_CargoDoor_L_In": {
+  "parent": "CargoDoor_L",
+  "position_prefab": [
+   -0.665,
+   1.718,
+   0.68
+  ]
+ },
+ "Socket_Handle_CargoDoor_R_Out": {
+  "parent": "CargoDoor_R",
+  "position_prefab": [
+   0.775,
+   1.75,
+   0.7
+  ]
+ },
+ "Socket_Handle_CargoDoor_R_In": {
+  "parent": "CargoDoor_R",
+  "position_prefab": [
+   0.665,
+   1.718,
+   0.68
+  ]
+ },
+ "Socket_Hand_Yoke_L": {
+  "parent": "Yoke_P_Roll",
+  "position_prefab": [
+   -0.488,
+   1.752,
+   2.759
+  ]
+ },
+ "Socket_Hand_Yoke_R": {
+  "parent": "Yoke_P_Roll",
+  "position_prefab": [
+   -0.172,
+   1.752,
+   2.759
+  ]
+ },
+ "Socket_Hand_Throttle": {
+  "parent": "Lever_Power",
+  "position_prefab": [
+   -0.04,
+   1.54424,
+   2.89
+  ]
+ },
+ "Socket_Foot_L": {
+  "parent": "PedalP_L",
+  "position_prefab": [
+   -0.43,
+   1.37055,
+   3.03289
+  ]
+ },
+ "Socket_Foot_R": {
+  "parent": "PedalP_R",
+  "position_prefab": [
+   -0.23,
+   1.37055,
+   3.03289
+  ]
+ },
+ "Socket_Light_Dome_L": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   -0.085,
+   2.4726,
+   2.29
+  ]
+ },
+ "Socket_Light_Dome_R": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   0.085,
+   2.4726,
+   2.29
+  ]
+ },
+ "Socket_Light_Flood": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   0.0,
+   2.015,
+   2.965
+  ]
+ },
+ "Socket_Belt_P": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   -0.33,
+   1.505,
+   2.3
+  ]
+ },
+ "Socket_Belt_C": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   0.33,
+   1.505,
+   2.3
+  ]
+ },
+ "Socket_Keyhole_PilotDoor_L": {
+  "parent": "PilotDoor_L",
+  "position_prefab": [
+   -0.7412,
+   1.7,
+   2.215
+  ]
+ },
+ "Socket_Keyhole_PilotDoor_R": {
+  "parent": "PilotDoor_R",
+  "position_prefab": [
+   0.7412,
+   1.7,
+   2.215
+  ]
+ },
+ "Socket_Seat_PaxL1": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -0.495,
+   1.505,
+   1.27
+  ],
+  "position": [
+   -0.495,
+   1.505,
+   1.27
+  ],
+  "position_local": [
+   -0.495,
+   1.505,
+   1.27
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxEye_L1": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -0.475,
+   2.295,
+   1.27
+  ],
+  "position": [
+   -0.475,
+   2.295,
+   1.27
+  ],
+  "position_local": [
+   -0.475,
+   2.295,
+   1.27
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxExit_L1": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.076,
+   0.7
+  ],
+  "position": [
+   0.0,
+   1.076,
+   0.7
+  ],
+  "position_local": [
+   0.0,
+   1.076,
+   0.7
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Seat_PaxR1": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.495,
+   1.505,
+   1.27
+  ],
+  "position": [
+   0.495,
+   1.505,
+   1.27
+  ],
+  "position_local": [
+   0.495,
+   1.505,
+   1.27
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxEye_R1": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.475,
+   2.295,
+   1.27
+  ],
+  "position": [
+   0.475,
+   2.295,
+   1.27
+  ],
+  "position_local": [
+   0.475,
+   2.295,
+   1.27
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxExit_R1": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.076,
+   0.7
+  ],
+  "position": [
+   0.0,
+   1.076,
+   0.7
+  ],
+  "position_local": [
+   0.0,
+   1.076,
+   0.7
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Seat_PaxL2": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -0.495,
+   1.505,
+   -0.86
+  ],
+  "position": [
+   -0.495,
+   1.505,
+   -0.86
+  ],
+  "position_local": [
+   -0.495,
+   1.505,
+   -0.86
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxEye_L2": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -0.475,
+   2.295,
+   -0.86
+  ],
+  "position": [
+   -0.475,
+   2.295,
+   -0.86
+  ],
+  "position_local": [
+   -0.475,
+   2.295,
+   -0.86
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxExit_L2": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.076,
+   -0.3
+  ],
+  "position": [
+   0.0,
+   1.076,
+   -0.3
+  ],
+  "position_local": [
+   0.0,
+   1.076,
+   -0.3
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Seat_PaxR2": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.495,
+   1.505,
+   -0.86
+  ],
+  "position": [
+   0.495,
+   1.505,
+   -0.86
+  ],
+  "position_local": [
+   0.495,
+   1.505,
+   -0.86
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxEye_R2": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.475,
+   2.295,
+   -0.86
+  ],
+  "position": [
+   0.475,
+   2.295,
+   -0.86
+  ],
+  "position_local": [
+   0.475,
+   2.295,
+   -0.86
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_PaxExit_R2": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.076,
+   -0.3
+  ],
+  "position": [
+   0.0,
+   1.076,
+   -0.3
+  ],
+  "position_local": [
+   0.0,
+   1.076,
+   -0.3
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Stow_Flashlight": {
+  "parent": "PilotDoor_L",
+  "position_prefab": [
+   -0.64,
+   1.475,
+   2.745
+  ],
+  "position_local": [
+   0.105,
+   -0.125,
+   -0.355
+  ],
+  "rotation": [
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Stow_FlareGun": {
+  "parent": "PilotDoor_R",
+  "position_prefab": [
+   0.653,
+   1.62,
+   2.798
+  ],
+  "position_local": [
+   -0.092,
+   0.02,
+   -0.302
+  ],
+  "rotation": [
+   0.707107,
+   0.0,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   0.0,
+   1.0
+  ]
+ },
+ "Socket_Stow_Shovel": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   -0.25,
+   2.025,
+   1.671
+  ],
+  "position_local": [
+   -0.25,
+   2.025,
+   1.671
+  ],
+  "rotation": [
+   0.707107,
+   0.0,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   0.0,
+   1.0
+  ]
+ },
+ "Socket_Stow_SurvivalBag": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   -0.405,
+   1.379,
+   1.14
+  ],
+  "position_local": [
+   -0.405,
+   1.379,
+   1.14
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Stow_JerryCan": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   -0.4,
+   1.131,
+   -1.1875
+  ],
+  "position_local": [
+   -0.4,
+   1.131,
+   -1.1875
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Stow_Ladder": {
+  "parent": "Cockpit",
+  "position_prefab": [
+   0.195,
+   0.81665,
+   1.16233
+  ],
+  "position_local": [
+   0.195,
+   0.81665,
+   1.16233
+  ],
+  "rotation": [
+   -0.578641,
+   0.0,
+   0.0,
+   0.815582
+  ],
+  "forward": [
+   0.0,
+   0.94386,
+   0.33035
+  ],
+  "up": [
+   0.0,
+   0.33035,
+   -0.94386
+  ]
+ },
+ "Socket_Scare_Bay_Aft": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.074,
+   -1.12
+  ],
+  "position": [
+   0.0,
+   1.074,
+   -1.12
+  ],
+  "position_local": [
+   0.0,
+   1.074,
+   -1.12
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Bay_Fwd": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.074,
+   1.56
+  ],
+  "position": [
+   0.0,
+   1.074,
+   1.56
+  ],
+  "position_local": [
+   0.0,
+   1.074,
+   1.56
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Pilot_L": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -1.1,
+   2.12,
+   2.588
+  ],
+  "position": [
+   -1.1,
+   2.12,
+   2.588
+  ],
+  "position_local": [
+   -1.1,
+   2.12,
+   2.588
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Pilot_R": {
+  "parent": "Sockets",
+  "position_prefab": [
+   1.1,
+   2.12,
+   2.588
+  ],
+  "position": [
+   1.1,
+   2.12,
+   2.588
+  ],
+  "position_local": [
+   1.1,
+   2.12,
+   2.588
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Side_L": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -1.1,
+   2.13,
+   1.585
+  ],
+  "position": [
+   -1.1,
+   2.13,
+   1.585
+  ],
+  "position_local": [
+   -1.1,
+   2.13,
+   1.585
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Side_R": {
+  "parent": "Sockets",
+  "position_prefab": [
+   1.1,
+   2.13,
+   1.585
+  ],
+  "position": [
+   1.1,
+   2.13,
+   1.585
+  ],
+  "position_local": [
+   1.1,
+   2.13,
+   1.585
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Cargo_L": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -1.1,
+   2.11,
+   0.2
+  ],
+  "position": [
+   -1.1,
+   2.11,
+   0.2
+  ],
+  "position_local": [
+   -1.1,
+   2.11,
+   0.2
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Cargo_R": {
+  "parent": "Sockets",
+  "position_prefab": [
+   1.1,
+   2.11,
+   0.2
+  ],
+  "position": [
+   1.1,
+   2.11,
+   0.2
+  ],
+  "position_local": [
+   1.1,
+   2.11,
+   0.2
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Aft_L": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -1.1,
+   2.12,
+   -0.98
+  ],
+  "position": [
+   -1.1,
+   2.12,
+   -0.98
+  ],
+  "position_local": [
+   -1.1,
+   2.12,
+   -0.98
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Window_Aft_R": {
+  "parent": "Sockets",
+  "position_prefab": [
+   1.1,
+   2.12,
+   -0.98
+  ],
+  "position": [
+   1.1,
+   2.12,
+   -0.98
+  ],
+  "position_local": [
+   1.1,
+   2.12,
+   -0.98
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Windshield": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   2.33,
+   3.62
+  ],
+  "position": [
+   0.0,
+   2.33,
+   3.62
+  ],
+  "position_local": [
+   0.0,
+   2.33,
+   3.62
+  ],
+  "rotation": [
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Nose": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   -0.90725,
+   7.3
+  ],
+  "position": [
+   0.0,
+   -0.90725,
+   7.3
+  ],
+  "position_local": [
+   0.0,
+   -0.90725,
+   7.3
+  ],
+  "rotation": [
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   -1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Tail": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.5041,
+   -6.4
+  ],
+  "position": [
+   0.0,
+   1.5041,
+   -6.4
+  ],
+  "position_local": [
+   0.0,
+   1.5041,
+   -6.4
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_UnderWing_L": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -4.2,
+   -0.00959,
+   2.2
+  ],
+  "position": [
+   -4.2,
+   -0.00959,
+   2.2
+  ],
+  "position_local": [
+   -4.2,
+   -0.00959,
+   2.2
+  ],
+  "rotation": [
+   0.0,
+   0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_UnderWing_R": {
+  "parent": "Sockets",
+  "position_prefab": [
+   4.2,
+   -0.00959,
+   2.2
+  ],
+  "position": [
+   4.2,
+   -0.00959,
+   2.2
+  ],
+  "position_local": [
+   4.2,
+   -0.00959,
+   2.2
+  ],
+  "rotation": [
+   0.0,
+   -0.707107,
+   0.0,
+   0.707107
+  ],
+  "forward": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Scare_Belly": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   0.16642,
+   1.2
+  ],
+  "position": [
+   0.0,
+   0.16642,
+   1.2
+  ],
+  "position_local": [
+   0.0,
+   0.16642,
+   1.2
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Radio": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   2.578,
+   2.3
+  ],
+  "position": [
+   0.0,
+   2.578,
+   2.3
+  ],
+  "position_local": [
+   0.0,
+   2.578,
+   2.3
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Headset_P": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -0.25,
+   2.05,
+   1.775
+  ],
+  "position": [
+   -0.25,
+   2.05,
+   1.775
+  ],
+  "position_local": [
+   -0.25,
+   2.05,
+   1.775
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Headset_C": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.25,
+   2.05,
+   1.775
+  ],
+  "position": [
+   0.25,
+   2.05,
+   1.775
+  ],
+  "position_local": [
+   0.25,
+   2.05,
+   1.775
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_StallHorn": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -0.6,
+   2.45,
+   2.62
+  ],
+  "position": [
+   -0.6,
+   2.45,
+   2.62
+  ],
+  "position_local": [
+   -0.6,
+   2.45,
+   2.62
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Bay": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   2.3,
+   0.2
+  ],
+  "position": [
+   0.0,
+   2.3,
+   0.2
+  ],
+  "position_local": [
+   0.0,
+   2.3,
+   0.2
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Roof": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   2.8,
+   1.5
+  ],
+  "position": [
+   0.0,
+   2.8,
+   1.5
+  ],
+  "position_local": [
+   0.0,
+   2.8,
+   1.5
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Belly": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   0.92,
+   0.6
+  ],
+  "position": [
+   0.0,
+   0.92,
+   0.6
+  ],
+  "position_local": [
+   0.0,
+   0.92,
+   0.6
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_ELT": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.0,
+   1.8,
+   -2.7
+  ],
+  "position": [
+   0.0,
+   1.8,
+   -2.7
+  ],
+  "position_local": [
+   0.0,
+   1.8,
+   -2.7
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Wind_L": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -0.72,
+   2.4,
+   2.0
+  ],
+  "position": [
+   -0.72,
+   2.4,
+   2.0
+  ],
+  "position_local": [
+   -0.72,
+   2.4,
+   2.0
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_Wind_R": {
+  "parent": "Sockets",
+  "position_prefab": [
+   0.72,
+   2.4,
+   2.0
+  ],
+  "position": [
+   0.72,
+   2.4,
+   2.0
+  ],
+  "position_local": [
+   0.72,
+   2.4,
+   2.0
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_FuelTank_L": {
+  "parent": "Sockets",
+  "position_prefab": [
+   -1.8,
+   2.72,
+   1.95
+  ],
+  "position": [
+   -1.8,
+   2.72,
+   1.95
+  ],
+  "position_local": [
+   -1.8,
+   2.72,
+   1.95
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ "Socket_Audio_FuelTank_R": {
+  "parent": "Sockets",
+  "position_prefab": [
+   1.8,
+   2.72,
+   1.95
+  ],
+  "position": [
+   1.8,
+   2.72,
+   1.95
+  ],
+  "position_local": [
+   1.8,
+   2.72,
+   1.95
+  ],
+  "rotation": [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "forward": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "up": [
+   0.0,
+   1.0,
+   0.0
+  ]
+ }
+}

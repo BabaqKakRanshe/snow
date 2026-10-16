@@ -1,0 +1,181 @@
+{
+ "note": "Survival kit models -> Prefabs/Surv_<Name>.prefab. Item local space (Unity): pivot = the grip (the bag: its top handle), +Z = forward (light, muzzle, flame, blade), +Y = up. massKg is a TEMPORARY suggestion. sockets: working points in item space. stow: Data/stowage.json id.",
+ "items": [
+  {
+   "model": "SM_Surv_Bag",
+   "prefab": "Surv_Bag",
+   "label": "Аварийная сумка",
+   "massKg": 6.0,
+   "sizeM": [
+    0.28425,
+    0.31252,
+    0.5385
+   ],
+   "boundsCenter": [
+    0.0,
+    -0.14026,
+    0.0
+   ],
+   "sockets": {
+    "Socket_Bottom": [
+     0.0,
+     -0.295,
+     0.0
+    ]
+   },
+   "colliders": [
+    "COL_Surv_Bag"
+   ],
+   "children": [
+    "Surv_Bag_Strap"
+   ],
+   "stow": "SurvivalBag",
+   "castsShadows": true
+  },
+  {
+   "model": "SM_Surv_Flare",
+   "prefab": "Surv_Flare",
+   "label": "Фальшфейер",
+   "massKg": 0.3,
+   "sizeM": [
+    0.038,
+    0.038,
+    0.328
+   ],
+   "boundsCenter": [
+    0.0,
+    0.0,
+    0.109
+   ],
+   "sockets": {
+    "Socket_Flame": [
+     0.0,
+     0.0,
+     0.273
+    ]
+   },
+   "colliders": [
+    "COL_Surv_Flare"
+   ],
+   "children": [],
+   "stow": null,
+   "castsShadows": false
+  },
+  {
+   "model": "SM_Surv_FlareGun",
+   "prefab": "Surv_FlareGun",
+   "label": "Ракетница",
+   "massKg": 0.6,
+   "sizeM": [
+    0.039,
+    0.15198,
+    0.24443
+   ],
+   "boundsCenter": [
+    0.0,
+    -0.00112,
+    0.04779
+   ],
+   "sockets": {
+    "Socket_Breech": [
+     0.0,
+     0.05,
+     0.01
+    ],
+    "Socket_Muzzle": [
+     0.0,
+     0.05,
+     0.17
+    ]
+   },
+   "colliders": [
+    "COL_Surv_FlareGun"
+   ],
+   "children": [],
+   "stow": "FlareGun",
+   "castsShadows": false
+  },
+  {
+   "model": "SM_Surv_FlareShell",
+   "prefab": "Surv_FlareShell",
+   "label": "Патрон к ракетнице, 26.5 мм",
+   "massKg": 0.05,
+   "sizeM": [
+    0.031,
+    0.031,
+    0.111
+   ],
+   "boundsCenter": [
+    0.0,
+    0.0,
+    0.0055
+   ],
+   "sockets": {},
+   "colliders": [
+    "COL_Surv_FlareShell"
+   ],
+   "children": [],
+   "stow": null,
+   "castsShadows": false
+  },
+  {
+   "model": "SM_Surv_Flashlight",
+   "prefab": "Surv_Flashlight",
+   "label": "Фонарь",
+   "massKg": 0.45,
+   "sizeM": [
+    0.0546,
+    0.056,
+    0.2881
+   ],
+   "boundsCenter": [
+    0.0,
+    0.0,
+    -0.01055
+   ],
+   "sockets": {
+    "Socket_Light": [
+     0.0,
+     0.0,
+     0.1318
+    ]
+   },
+   "colliders": [
+    "COL_Surv_Flashlight"
+   ],
+   "children": [],
+   "stow": "Flashlight",
+   "castsShadows": false
+  },
+  {
+   "model": "SM_Surv_Shovel",
+   "prefab": "Surv_Shovel",
+   "label": "Лопата",
+   "massKg": 1.5,
+   "sizeM": [
+    0.25554,
+    0.0497,
+    0.91428
+   ],
+   "boundsCenter": [
+    0.0,
+    -0.00635,
+    0.44335
+   ],
+   "sockets": {
+    "Socket_BladeTip": [
+     0.0,
+     0.0,
+     0.9
+    ]
+   },
+   "colliders": [
+    "COL_Shovel_Blade",
+    "COL_Shovel_Shaft"
+   ],
+   "children": [],
+   "stow": "Shovel",
+   "castsShadows": true
+  }
+ ]
+}

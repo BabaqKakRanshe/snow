@@ -1,0 +1,12 @@
+Обнови модель самолёта в проекте F:\ClaudeGames\snow\Snow с v4 до v5.
+
+Задание: F:\ClaudeGames\snow\docs\gdd\PLANE_V5_UPGRADE_UNITY.md — выполни шаги U1–U5 по порядку.
+Новый пакет модели: F:\ClaudeGames\snow\assets\plane\UtilityPlane_Unity_v5\Assets\UtilityPlane (README.md, UNITY_CONTRACT.md — раздел 12 «Что изменилось с v4»).
+Общие правила, статусы и формат отчёта — из F:\ClaudeGames\snow\docs\gdd\PLANE_PROMPT_UNITY.md (версия 2.1).
+
+Главное:
+- самолёт теперь стоит на земле хвостом вниз (9.98°): ставить его только через UtilityPlaneRig.ParkedPose;
+- обход «модель стоит горизонтально» (wingIncidenceDeg 4.5°) больше не нужен;
+- имена частей, сокетов и 43 зон прежние, геометрию модели не менять, новые пакеты не ставить.
+
+В конце — отчёт: что заменено, какие файлы кода изменены и почему, результаты проверок V1–V12, что осталось открытым.

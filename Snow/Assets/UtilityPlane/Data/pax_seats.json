@@ -1,0 +1,109 @@
+{
+ "note": "Unity prefab space, m. Pan pivot = hinge pin, leg pivot = front tube of the pan. Folding: pan localRotation = rest * Euler(0, 0, s * 90 * (1 - down)), leg = rest * Euler(0, 0, -s * 90 * (1 - down)), s = +1 for L seats, -1 for R seats (UtilityPlaneRig does this). Sit only when down; seats face the cabin centre (the pelvis / eye sockets carry that rotation).",
+ "seats": [
+  {
+   "index": 0,
+   "id": "PaxSeat_L1",
+   "pan": "PaxSeat_L1",
+   "leg": "PaxSeat_L1_Leg",
+   "foldSign": 1,
+   "side": "left",
+   "position": "ahead of the cargo doors",
+   "number": 1,
+   "pelvis": "Socket_Seat_PaxL1",
+   "eye": "Socket_PaxEye_L1",
+   "exit": "Socket_PaxExit_L1",
+   "sitZone": "PaxSeat_L1",
+   "foldZone": "PaxSeatFold_L1",
+   "colliders": [
+    "COL_PaxSeat_L1",
+    "COL_PaxSeatLeg_L1",
+    "COL_PaxBack_L1"
+   ],
+   "hinge": [
+    -0.612,
+    1.49,
+    1.27
+   ],
+   "blockedByLadder": false
+  },
+  {
+   "index": 1,
+   "id": "PaxSeat_R1",
+   "pan": "PaxSeat_R1",
+   "leg": "PaxSeat_R1_Leg",
+   "foldSign": -1,
+   "side": "right",
+   "position": "ahead of the cargo doors",
+   "number": 2,
+   "pelvis": "Socket_Seat_PaxR1",
+   "eye": "Socket_PaxEye_R1",
+   "exit": "Socket_PaxExit_R1",
+   "sitZone": "PaxSeat_R1",
+   "foldZone": "PaxSeatFold_R1",
+   "colliders": [
+    "COL_PaxSeat_R1",
+    "COL_PaxSeatLeg_R1",
+    "COL_PaxBack_R1"
+   ],
+   "hinge": [
+    0.612,
+    1.49,
+    1.27
+   ],
+   "blockedByLadder": true
+  },
+  {
+   "index": 2,
+   "id": "PaxSeat_L2",
+   "pan": "PaxSeat_L2",
+   "leg": "PaxSeat_L2_Leg",
+   "foldSign": 1,
+   "side": "left",
+   "position": "behind the cargo doors",
+   "number": 3,
+   "pelvis": "Socket_Seat_PaxL2",
+   "eye": "Socket_PaxEye_L2",
+   "exit": "Socket_PaxExit_L2",
+   "sitZone": "PaxSeat_L2",
+   "foldZone": "PaxSeatFold_L2",
+   "colliders": [
+    "COL_PaxSeat_L2",
+    "COL_PaxSeatLeg_L2",
+    "COL_PaxBack_L2"
+   ],
+   "hinge": [
+    -0.612,
+    1.49,
+    -0.86
+   ],
+   "blockedByLadder": false
+  },
+  {
+   "index": 3,
+   "id": "PaxSeat_R2",
+   "pan": "PaxSeat_R2",
+   "leg": "PaxSeat_R2_Leg",
+   "foldSign": -1,
+   "side": "right",
+   "position": "behind the cargo doors",
+   "number": 4,
+   "pelvis": "Socket_Seat_PaxR2",
+   "eye": "Socket_PaxEye_R2",
+   "exit": "Socket_PaxExit_R2",
+   "sitZone": "PaxSeat_R2",
+   "foldZone": "PaxSeatFold_R2",
+   "colliders": [
+    "COL_PaxSeat_R2",
+    "COL_PaxSeatLeg_R2",
+    "COL_PaxBack_R2"
+   ],
+   "hinge": [
+    0.612,
+    1.49,
+    -0.86
+   ],
+   "blockedByLadder": true
+  }
+ ]
+}

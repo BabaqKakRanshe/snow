@@ -1,0 +1,117 @@
+{
+ "note": "Unity prefab space, m. Model frame is level (cabin floor Y 1.07); parked on flat ground the root is pitched nose-up (Euler X = -parkedPitchDeg) and its height over the ground is parkedRootHeight (struts unloaded).",
+ "parkedPitchDeg": 9.982,
+ "parkedRootHeight": -0.3719,
+ "mainWheelCentreL": [
+  -1.25,
+  0.36,
+  2.85
+ ],
+ "mainWheelRadius": 0.484,
+ "tailWheelCentre": [
+  0.0,
+  1.45,
+  -4.47
+ ],
+ "tailWheelRadius": 0.2856,
+ "mainContactY": -0.124,
+ "tailContactY": 1.1644,
+ "wheelbase": 7.32,
+ "track": 2.5,
+ "mainGearArm": {
+  "r": 1.0359,
+  "phi0Deg": 40.301
+ },
+ "tailGearArm": {
+  "r": 0.6512,
+  "phi0Deg": 28.926
+ },
+ "parkedHeights": {
+  "note": "m above flat ground in the parked pose; door sills as [front end, aft end]",
+  "pilotDoorSill": [
+   1.292,
+   1.094
+  ],
+  "cargoDoorSill": [
+   0.859,
+   0.633
+  ],
+  "cargoStepTop": 0.501,
+  "pilotStepTop": 0.554,
+  "pilotEye": 2.203,
+  "propAxis": 2.124,
+  "propTipClearance": 0.823,
+  "propTipClearanceTailUp": 0.503
+ },
+ "ladder": {
+  "note": "SM_StepLadder at Socket_Ladder_Fuel_L/R (flat ground, same yaw as the plane, its +Z = the plane nose): outboard of the main wheel, platform centre ahead of the leading edge; player feet on the platform, eye 1.65 m above them (assumption, set your own). Distances from the eye at the platform centre.",
+  "platformHeight": 1.56,
+  "treadHeights": [
+   0.26,
+   0.52,
+   0.78,
+   1.04,
+   1.3
+  ],
+  "railTop": 2.36,
+  "eyeHeight": 3.21,
+  "fuelCapHeight": 2.784,
+  "eyeToCap": 1.129,
+  "eyeAboveCap": 0.426,
+  "lookDownDeg": 22.2,
+  "lateralToCap": 0.45,
+  "leadingEdgeHeight": 2.721,
+  "standOffLeadingEdge": 0.4,
+  "capTopVisible": true,
+  "capBaseVisible": true,
+  "sightLineClearanceOverWing": 0.046
+ },
+ "propeller": {
+  "note": "PropBlade_1..3 are children of Propeller, pivot on the hub centre; local Y (Unity) = blade span = pitch axis. Modelled at fine pitch (blade angle 28 deg at r = 0.76 m); feather: localRotation = rest * Euler(0, -62, 0) (blade angle 90 deg at r = 0.76 m), see the contract, section 3.",
+  "tipRadius": 1.322,
+  "rpmMax": 1900
+ },
+ "paxSeats": {
+  "note": "Folding troop seats (canvas laced to an aluminium tube frame). The model rests with every seat down; UtilityPlaneRig.paxSeatDown[i] (0 = folded up against the wall, the rig default) drives pan and leg.",
+  "seatHeightAboveFloor": 0.418,
+  "panDepth": 0.36,
+  "panWidth": 0.432,
+  "backCanvas": [
+   0.488,
+   0.664
+  ],
+  "aisleBetweenFacingPans": 0.482,
+  "aisleBetweenFacingLegs": 0.427,
+  "foldedPanTopAboveFloor": 0.776,
+  "foldDeg": 90.0
+ },
+ "ladderStowed": {
+  "note": "Socket_Stow_Ladder: ladder root (pivot on the ground under the platform) with Ladder_RearLegs folded -38 deg about its local X, lying on its back on the right half of the bay floor, feet forward. It covers the floor under seats R1 and R2: they cannot be put down while the ladder is stowed (game rule).",
+  "boxMin": [
+   -0.21,
+   1.133,
+   -1.0922
+  ],
+  "boxMax": [
+   0.6,
+   1.7616,
+   1.42
+  ],
+  "blocksSeats": [
+   "PaxSeat_R1",
+   "PaxSeat_R2"
+  ],
+  "ringsCovered": [
+   "Socket_TieDown_05",
+   "Socket_TieDown_06",
+   "Socket_TieDown_08",
+   "Socket_TieDown_09",
+   "Socket_TieDown_11",
+   "Socket_TieDown_12"
+  ],
+  "ringsForStraps": [
+   "Socket_TieDown_04",
+   "Socket_TieDown_10"
+  ]
+ }
+}

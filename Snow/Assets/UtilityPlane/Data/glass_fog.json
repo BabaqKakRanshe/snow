@@ -1,0 +1,117 @@
+{
+ "note": "UV cells of T_GlassFog_Mask (px rects in 1024 x 1024); R clearing order, G density, B windshield",
+ "cells": {
+  "side_L": {
+   "rect": [
+    0,
+    341,
+    256,
+    341
+   ],
+   "windshield": false
+  },
+  "aft_L": {
+   "rect": [
+    0,
+    682,
+    256,
+    341
+   ],
+   "windshield": false
+  },
+  "side_R": {
+   "rect": [
+    256,
+    341,
+    256,
+    341
+   ],
+   "windshield": false
+  },
+  "aft_R": {
+   "rect": [
+    256,
+    682,
+    256,
+    341
+   ],
+   "windshield": false
+  },
+  "ws_L": {
+   "rect": [
+    0,
+    0,
+    256,
+    341
+   ],
+   "windshield": true
+  },
+  "ws_R": {
+   "rect": [
+    256,
+    0,
+    256,
+    341
+   ],
+   "windshield": true
+  },
+  "pilot_L": {
+   "rect": [
+    512,
+    0,
+    256,
+    341
+   ],
+   "windshield": false
+  },
+  "pilot_R": {
+   "rect": [
+    768,
+    0,
+    256,
+    341
+   ],
+   "windshield": false
+  },
+  "cargo_L": {
+   "rect": [
+    512,
+    341,
+    256,
+    341
+   ],
+   "windshield": false
+  },
+  "cargo_R": {
+   "rect": [
+    768,
+    341,
+    256,
+    341
+   ],
+   "windshield": false
+  }
+ },
+ "objects": {
+  "Glass_Fog": [
+   "side_L",
+   "aft_L",
+   "side_R",
+   "aft_R",
+   "ws_L",
+   "ws_R"
+  ],
+  "PilotDoor_L_Fog": [
+   "pilot_L"
+  ],
+  "PilotDoor_R_Fog": [
+   "pilot_R"
+  ],
+  "CargoDoor_L_Fog": [
+   "cargo_L"
+  ],
+  "CargoDoor_R_Fog": [
+   "cargo_R"
+  ]
+ }
+}

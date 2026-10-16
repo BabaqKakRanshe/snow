@@ -1,0 +1,23 @@
+{
+    "name": "Snow.Editor",
+    "rootNamespace": "Snow.EditorTools",
+    "references": [
+        "Snow.Runtime",
+        "Snow.Levels",
+        "UtilityPlane.Runtime",
+        "Unity.InputSystem",
+        "Unity.Netcode.Runtime",
+        "Unity.Networking.Transport"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

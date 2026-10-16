@@ -1,0 +1,142 @@
+{
+ "Display_ADF": {
+  "parent": "Cockpit",
+  "unit": "ADF",
+  "position_prefab": [
+   0.064,
+   1.6805,
+   2.9787
+  ],
+  "size": [
+   0.072,
+   0.017
+  ],
+  "aspect": 4.2353,
+  "suggestedPixels": [
+   720,
+   170
+  ],
+  "power": "avionicsPower",
+  "note": "mesh quad in the local XY plane facing -Z (towards the pilot), pivot at its centre, UV 0..1 = the visible window (u to the right, v up); material M_Screen (dark LCD). Draw live content into it (RenderTexture on its material, or a world-space canvas of this size at this transform)."
+ },
+ "Display_AP": {
+  "parent": "Cockpit",
+  "unit": "AP",
+  "position_prefab": [
+   0.07,
+   1.7205,
+   2.9787
+  ],
+  "size": [
+   0.08,
+   0.013
+  ],
+  "aspect": 6.1538,
+  "suggestedPixels": [
+   800,
+   130
+  ],
+  "power": "avionicsPower",
+  "note": "mesh quad in the local XY plane facing -Z (towards the pilot), pivot at its centre, UV 0..1 = the visible window (u to the right, v up); material M_Screen (dark LCD). Draw live content into it (RenderTexture on its material, or a world-space canvas of this size at this transform)."
+ },
+ "Display_COM1": {
+  "parent": "Cockpit",
+  "unit": "NAVCOM",
+  "position_prefab": [
+   0.039,
+   1.8785,
+   2.9787
+  ],
+  "size": [
+   0.048,
+   0.017
+  ],
+  "aspect": 2.8235,
+  "suggestedPixels": [
+   480,
+   170
+  ],
+  "power": "avionicsPower",
+  "note": "mesh quad in the local XY plane facing -Z (towards the pilot), pivot at its centre, UV 0..1 = the visible window (u to the right, v up); material M_Screen (dark LCD). Draw live content into it (RenderTexture on its material, or a world-space canvas of this size at this transform)."
+ },
+ "Display_GPS": {
+  "parent": "Cockpit",
+  "unit": "GPS",
+  "position_prefab": [
+   0.076,
+   1.817,
+   2.9787
+  ],
+  "size": [
+   0.092,
+   0.05
+  ],
+  "aspect": 1.84,
+  "suggestedPixels": [
+   920,
+   500
+  ],
+  "power": "avionicsPower",
+  "note": "mesh quad in the local XY plane facing -Z (towards the pilot), pivot at its centre, UV 0..1 = the visible window (u to the right, v up); material M_Screen (dark LCD). Draw live content into it (RenderTexture on its material, or a world-space canvas of this size at this transform)."
+ },
+ "Display_Hobbs": {
+  "parent": "Cockpit",
+  "unit": "Hobbs",
+  "position_prefab": [
+   0.395,
+   1.8385,
+   2.9967
+  ],
+  "size": [
+   0.03,
+   0.0095
+  ],
+  "aspect": 3.1579,
+  "suggestedPixels": [
+   300,
+   95
+  ],
+  "power": "busPowered",
+  "note": "mesh quad in the local XY plane facing -Z (towards the pilot), pivot at its centre, UV 0..1 = the visible window (u to the right, v up); material M_Screen (dark LCD). Draw live content into it (RenderTexture on its material, or a world-space canvas of this size at this transform)."
+ },
+ "Display_NAV1": {
+  "parent": "Cockpit",
+  "unit": "NAVCOM",
+  "position_prefab": [
+   0.11,
+   1.8785,
+   2.9787
+  ],
+  "size": [
+   0.048,
+   0.017
+  ],
+  "aspect": 2.8235,
+  "suggestedPixels": [
+   480,
+   170
+  ],
+  "power": "avionicsPower",
+  "note": "mesh quad in the local XY plane facing -Z (towards the pilot), pivot at its centre, UV 0..1 = the visible window (u to the right, v up); material M_Screen (dark LCD). Draw live content into it (RenderTexture on its material, or a world-space canvas of this size at this transform)."
+ },
+ "Display_XPDR": {
+  "parent": "Cockpit",
+  "unit": "XPDR",
+  "position_prefab": [
+   0.074,
+   1.762,
+   2.9787
+  ],
+  "size": [
+   0.06,
+   0.018
+  ],
+  "aspect": 3.3333,
+  "suggestedPixels": [
+   600,
+   180
+  ],
+  "power": "avionicsPower",
+  "note": "mesh quad in the local XY plane facing -Z (towards the pilot), pivot at its centre, UV 0..1 = the visible window (u to the right, v up); material M_Screen (dark LCD). Draw live content into it (RenderTexture on its material, or a world-space canvas of this size at this transform)."
+ }
+}
