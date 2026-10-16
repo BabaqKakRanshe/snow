@@ -15,6 +15,9 @@ namespace Snow.Seats
         public SeatRole role;
         public Transform pelvis, eye, exit;
         public NetworkDoor exitDoor;
+        [Tooltip("И3 K.7: a seat inside the vehicle (cargo-bay troop seat): the exit is onto the floor inside, not outside")]
+        public bool inside;
+        [Tooltip("Inside seats: where to stand if the own exit point is taken (the other pair's exit)")] public Transform altExit;
 
         Collider[] _eyeColliders;
 

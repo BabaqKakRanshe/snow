@@ -4,6 +4,7 @@
     "references": [
         "Snow.Runtime",
         "Snow.Levels",
+        "SkyIsland.Runtime",
         "UtilityPlane.Runtime",
         "Unity.InputSystem",
         "Unity.Netcode.Runtime",

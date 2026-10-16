@@ -1,0 +1,163 @@
+{
+ "_doc": "BaseV2 look (linear colours): neutral overcast day for reading the model; PSX textures (point filtered) but no PSX screen output / LUT. On the Forest map the building takes the forest look.",
+ "fog": {
+  "mode": "Linear",
+  "start": 60.0,
+  "end": 700.0,
+  "density": 0.002,
+  "color": [
+   0.6,
+   0.64,
+   0.68
+  ],
+  "glowFloor": 0.0
+ },
+ "sky": {
+  "horizon": [
+   0.7,
+   0.73,
+   0.76
+  ],
+  "band": [
+   0.66,
+   0.7,
+   0.75
+  ],
+  "zenith": [
+   0.38,
+   0.47,
+   0.6
+  ],
+  "below": [
+   0.6,
+   0.64,
+   0.68
+  ],
+  "bandHeight": 0.1,
+  "bandWidth": 0.15,
+  "cloudScale": 0.35,
+  "cloudContrast": 0.25,
+  "cloudSpeed": 0.002,
+  "sunColor": [
+   1.0,
+   0.95,
+   0.86
+  ],
+  "sunGlow": 0.2,
+  "sunGlowPower": 6.0,
+  "sunDisc": 1.0,
+  "sunDiscPower": 3000.0,
+  "starIntensity": 0.0,
+  "starDensity": 0.0,
+  "starScale": 240.0,
+  "starSize": 0.3,
+  "starColor": [
+   1.0,
+   1.0,
+   1.0
+  ]
+ },
+ "sun": {
+  "dir_blender": [
+   -0.4511,
+   0.5514,
+   -0.7018
+  ],
+  "color": [
+   1.0,
+   0.96,
+   0.9
+  ],
+  "intensity": 1.1,
+  "angle": 1.5,
+  "shadowStrength": 0.8,
+  "dir_unity": [
+   0.45113,
+   -0.70176,
+   -0.55138
+  ]
+ },
+ "ambient": {
+  "sky": [
+   0.4,
+   0.45,
+   0.52
+  ],
+  "equator": [
+   0.34,
+   0.35,
+   0.36
+  ],
+  "ground": [
+   0.2,
+   0.19,
+   0.17
+  ]
+ },
+ "weights": {
+  "ambient": 1.0,
+  "sun": 1.0,
+  "local": 1.0,
+  "emit": 1.0
+ },
+ "post": {
+  "exposure": 0.0,
+  "contrast": 0.0,
+  "tonemap": "Neutral",
+  "bloom": {
+   "threshold": 1.2,
+   "intensity": 0.25,
+   "scatter": 0.6,
+   "tint": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "clamp": 65472.0,
+   "highQuality": true
+  },
+  "vignette": {
+   "intensity": 0.0,
+   "smoothness": 0.4,
+   "color": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rounded": false
+  },
+  "grain": {
+   "type": "Medium1",
+   "intensity": 0.0,
+   "response": 0.8
+  },
+  "chromaticAberration": 0.0,
+  "lut": "",
+  "lutContribution": 0.0
+ },
+ "fogByAltitude": {
+  "center": [
+   340.0,
+   -360.0
+  ],
+  "radii": [
+   400.0,
+   400.0
+  ],
+  "topY": 56.74,
+  "heightRange": 40.0,
+  "distanceRange": 400.0,
+  "airFactor": 0.6
+ },
+ "camera": {
+  "far": 3000.0
+ },
+ "localLightScale": 1.0,
+ "emissionScale": 1.0,
+ "psx": {
+  "height": 240,
+  "colorBits": 5,
+  "dither": 1.0,
+  "pointTextures": true
+ }
+}

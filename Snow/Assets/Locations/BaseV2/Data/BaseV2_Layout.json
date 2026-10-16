@@ -1,0 +1,6173 @@
+{
+ "version": 2,
+ "id": "BaseV2",
+ "units": "metres",
+ "coordinateSystem": "unity",
+ "marker": {
+  "name": "BaseV2_Marker",
+  "expected": [
+   510.0,
+   1.4589,
+   -220.0
+  ]
+ },
+ "worldModels": [
+  "BV_Terrain",
+  "BV_Context",
+  "BV_Trees"
+ ],
+ "prefabs": [
+  {
+   "m": "BaseMain",
+   "p": [
+    340.0,
+    16.7443,
+    -360.0
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ]
+  }
+ ],
+ "trees": [],
+ "rocks": [],
+ "viewpoints": [
+  {
+   "name": "Hof",
+   "p": [
+    334.4277,
+    17.9943,
+    -334.981
+   ],
+   "target": [
+    342.2589,
+    19.9443,
+    -358.2978
+   ],
+   "fov": 41.555,
+   "preview": "BaseV2_Hof.jpg"
+  },
+  {
+   "name": "Eingang",
+   "p": [
+    347.9877,
+    17.9943,
+    -349.5096
+   ],
+   "target": [
+    346.8047,
+    18.2443,
+    -357.9269
+   ],
+   "fov": 42.996,
+   "preview": "BaseV2_Eingang.jpg"
+  },
+  {
+   "name": "Flur",
+   "p": [
+    347.1299,
+    18.3943,
+    -361.002
+   ],
+   "target": [
+    332.474,
+    18.1443,
+    -358.9423
+   ],
+   "fov": 48.979,
+   "preview": "BaseV2_Flur.jpg"
+  },
+  {
+   "name": "Leitstand",
+   "p": [
+    344.7779,
+    18.3943,
+    -359.0558
+   ],
+   "target": [
+    335.7724,
+    17.7443,
+    -354.1547
+   ],
+   "fov": 52.115,
+   "preview": "BaseV2_Leitstand.jpg"
+  },
+  {
+   "name": "Garage",
+   "p": [
+    357.2783,
+    18.2443,
+    -358.49
+   ],
+   "target": [
+    348.4253,
+    17.9443,
+    -364.7185
+   ],
+   "fov": 52.115,
+   "preview": "BaseV2_Garage.jpg"
+  },
+  {
+   "name": "Treppenhaus",
+   "p": [
+    340.739,
+    18.3943,
+    -361.5681
+   ],
+   "target": [
+    339.7035,
+    19.3443,
+    -366.4212
+   ],
+   "fov": 50.534,
+   "preview": "BaseV2_Treppenhaus.jpg"
+  },
+  {
+   "name": "Kaserne",
+   "p": [
+    342.6132,
+    21.7943,
+    -358.6506
+   ],
+   "target": [
+    347.374,
+    21.0443,
+    -356.3911
+   ],
+   "fov": 52.115,
+   "preview": "BaseV2_Kaserne.jpg"
+  },
+  {
+   "name": "Kueche",
+   "p": [
+    341.1139,
+    21.7943,
+    -358.5408
+   ],
+   "target": [
+    334.2313,
+    21.1443,
+    -354.3421
+   ],
+   "fov": 52.115,
+   "preview": "BaseV2_Kueche.jpg"
+  },
+  {
+   "name": "Schaltraum",
+   "p": [
+    337.4007,
+    15.3943,
+    -361.2504
+   ],
+   "target": [
+    334.2971,
+    14.9443,
+    -364.6516
+   ],
+   "fov": 50.534,
+   "preview": "BaseV2_Schaltraum.jpg"
+  },
+  {
+   "name": "Serverraum",
+   "p": [
+    337.4007,
+    18.3943,
+    -361.2504
+   ],
+   "target": [
+    332.7405,
+    17.9443,
+    -364.2309
+   ],
+   "fov": 50.534,
+   "preview": "BaseV2_Serverraum.jpg"
+  },
+  {
+   "name": "Lager",
+   "p": [
+    344.7287,
+    18.3943,
+    -362.2803
+   ],
+   "target": [
+    346.0101,
+    17.7443,
+    -366.0958
+   ],
+   "fov": 50.534,
+   "preview": "BaseV2_Lager.jpg"
+  },
+  {
+   "name": "Waschraum",
+   "p": [
+    344.7782,
+    21.7943,
+    -362.2873
+   ],
+   "target": [
+    346.2082,
+    21.1443,
+    -366.1236
+   ],
+   "fov": 50.534,
+   "preview": "BaseV2_Waschraum.jpg"
+  },
+  {
+   "name": "Stationsleiter",
+   "p": [
+    336.757,
+    21.7943,
+    -361.16
+   ],
+   "target": [
+    332.824,
+    21.0443,
+    -363.6367
+   ],
+   "fov": 50.534,
+   "preview": "BaseV2_Stationsleiter.jpg"
+  },
+  {
+   "name": "Heizung",
+   "p": [
+    337.4636,
+    15.3943,
+    -354.6954
+   ],
+   "target": [
+    333.6869,
+    14.8443,
+    -357.497
+   ],
+   "fov": 52.115,
+   "preview": "BaseV2_Heizung.jpg"
+  },
+  {
+   "name": "Dach",
+   "p": [
+    347.6556,
+    24.9943,
+    -355.8248
+   ],
+   "target": [
+    333.5017,
+    25.1443,
+    -363.126
+   ],
+   "fov": 46.692,
+   "preview": "BaseV2_Dach.jpg"
+  },
+  {
+   "name": "Nordwest",
+   "p": [
+    363.2419,
+    17.9943,
+    -381.4433
+   ],
+   "target": [
+    345.8024,
+    19.7443,
+    -361.8253
+   ],
+   "fov": 41.555,
+   "preview": "BaseV2_Nordwest.jpg"
+  }
+ ],
+ "reflectionProbes": [
+  {
+   "p": [
+    343.9611,
+    19.7443,
+    -360.5567
+   ],
+   "size": [
+    34.0,
+    16.0,
+    18.0
+   ]
+  }
+ ],
+ "vegetationPrefixes": [],
+ "grassPrefixes": [],
+ "noColliderPrefixes": [
+  "BV_Trees",
+  "Trees"
+ ],
+ "prefabLights": [
+  {
+   "model": "BaseMain",
+   "lights": [
+    {
+     "t": "point",
+     "p": [
+      6.45,
+      2.96,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_BulkheadCeiling_1",
+     "room": "Windfang",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      3.5,
+      2.65,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_2",
+     "room": "Leitstand",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "hero": true,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      0.5,
+      2.65,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_3",
+     "room": "Leitstand",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "hero": true,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -2.5,
+      2.65,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_4",
+     "room": "Leitstand",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "hero": true,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -5.5,
+      2.65,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_5",
+     "room": "Leitstand",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "hero": true,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      0.45,
+      1.0341,
+      1.6645
+     ],
+     "d": [
+      -0.0,
+      -0.57358,
+      -0.81915
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.6,
+     "r": 2.2,
+     "a": 80.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_DeskLamp_6",
+     "room": "Leitstand",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 15.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -3.55,
+      1.0341,
+      1.6645
+     ],
+     "d": [
+      -0.0,
+      -0.57358,
+      -0.81915
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.6,
+     "r": 2.2,
+     "a": 80.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_DeskLamp_7",
+     "room": "Leitstand",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 15.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      5.7,
+      2.65,
+      -0.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_8",
+     "room": "Flur_EG",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      1.9,
+      2.65,
+      -0.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_9",
+     "room": "Flur_EG",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -1.9,
+      2.65,
+      -0.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_10",
+     "room": "Flur_EG",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "faulty": true,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -5.7,
+      2.65,
+      -0.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_11",
+     "room": "Flur_EG",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      6.2,
+      2.962,
+      -3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_12",
+     "room": "Lager",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      3.4,
+      2.962,
+      -3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_13",
+     "room": "Lager",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -6.0,
+      2.65,
+      -3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.0,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Raster_15",
+     "room": "Serverraum",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      15.4,
+      2.46,
+      0.9
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 1.2,
+     "r": 6.0,
+     "a": 110.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Pendant_16",
+     "room": "Garage",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "hero": true,
+     "lod": 30.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      15.4,
+      2.46,
+      -2.7
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 1.2,
+     "r": 6.0,
+     "a": 110.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Pendant_17",
+     "room": "Garage",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "hero": true,
+     "lod": 30.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      11.0,
+      2.46,
+      2.2
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 1.2,
+     "r": 6.0,
+     "a": 110.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Pendant_18",
+     "room": "Garage",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "hero": true,
+     "lod": 30.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      11.0,
+      2.46,
+      -1.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 1.2,
+     "r": 6.0,
+     "a": 110.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Pendant_19",
+     "room": "Garage",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "hero": true,
+     "lod": 30.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      10.2,
+      3.312,
+      -3.9
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_20",
+     "room": "Garage",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -0.0,
+      0.7,
+      -6.61
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_21",
+     "room": "Treppenhaus",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -0.0,
+      3.9,
+      -6.61
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_22",
+     "room": "Treppenhaus",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -0.0,
+      7.2,
+      -6.61
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_23",
+     "room": "Treppenhaus",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -1.1,
+      9.0,
+      -1.29
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      -1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_24",
+     "room": "Treppenhaus",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      5.6,
+      6.15,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.5,
+     "r": 6.0,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_25",
+     "room": "Kaserne",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      3.0,
+      6.15,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.5,
+     "r": 6.0,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_26",
+     "room": "Kaserne",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -0.4,
+      6.15,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.5,
+     "r": 6.0,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_27",
+     "room": "Kueche",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -2.6,
+      6.15,
+      3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.5,
+     "r": 6.0,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_28",
+     "room": "Kueche",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -6.2,
+      6.162,
+      2.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_29",
+     "room": "Kueche",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -4.6,
+      5.31,
+      3.7
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.9,
+     "r": 4.0,
+     "a": 110.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Pendant_30",
+     "room": "Kueche",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 30.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      4.0,
+      6.162,
+      -0.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_31",
+     "room": "Flur_OG",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -3.6,
+      6.162,
+      -0.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_32",
+     "room": "Flur_OG",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      4.8,
+      6.162,
+      -3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_33",
+     "room": "Waschraum",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      6.9,
+      6.16,
+      -4.6
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_BulkheadCeiling_34",
+     "room": "Waschraum",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -4.8,
+      5.51,
+      -3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 1.0,
+     "r": 5.0,
+     "a": 110.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Pendant_35",
+     "room": "Stationsleiter",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 30.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -5.4307,
+      4.4341,
+      -3.4979
+     ],
+     "d": [
+      -0.67911,
+      -0.57358,
+      0.45806
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.6,
+     "r": 2.2,
+     "a": 80.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_DeskLamp_36",
+     "room": "Stationsleiter",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 15.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -2.6,
+      -0.438,
+      3.2
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_37",
+     "room": "Heizung",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -5.6,
+      -0.438,
+      3.2
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_38",
+     "room": "Heizung",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -4.0,
+      -1.0,
+      1.29
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_39",
+     "room": "Heizung",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -1.3,
+      -0.9,
+      -0.86
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_40",
+     "room": "Flur_UG",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -5.6,
+      -0.9,
+      -0.86
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 4.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_41",
+     "room": "Flur_UG",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -4.8,
+      -0.438,
+      -3.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.6659,
+      0.3967
+     ],
+     "i": 1.1,
+     "r": 5.5,
+     "a": 150.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_42",
+     "room": "Schaltraum",
+     "kind": "fluorescent",
+     "circuit": "power",
+     "k": 4100.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      6.45,
+      2.3,
+      5.4
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      0.05,
+      1.0,
+      0.32
+     ],
+     "i": 0.12,
+     "r": 1.6,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_ExitSign_43",
+     "room": "Windfang",
+     "kind": "exit",
+     "circuit": "battery",
+     "lod": 20.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -7.4,
+      2.3,
+      -0.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      0.05,
+      1.0,
+      0.32
+     ],
+     "i": 0.12,
+     "r": 1.6,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_ExitSign_44",
+     "room": "Flur_EG",
+     "kind": "exit",
+     "circuit": "battery",
+     "lod": 20.0
+    },
+    {
+     "t": "point",
+     "p": [
+      6.45,
+      2.3,
+      0.75
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      0.05,
+      1.0,
+      0.32
+     ],
+     "i": 0.12,
+     "r": 1.6,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_ExitSign_45",
+     "room": "Flur_EG",
+     "kind": "exit",
+     "circuit": "battery",
+     "lod": 20.0
+    },
+    {
+     "t": "point",
+     "p": [
+      10.82,
+      2.08,
+      4.45
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      0.05,
+      1.0,
+      0.32
+     ],
+     "i": 0.12,
+     "r": 1.6,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_ExitSign_46",
+     "room": "Garage",
+     "kind": "exit",
+     "circuit": "battery",
+     "lod": 20.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      7.54,
+      2.3,
+      4.6
+     ],
+     "d": [
+      -0.45399,
+      -0.89101,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_47",
+     "room": "Windfang",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      4.6,
+      2.3,
+      1.26
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_48",
+     "room": "Leitstand",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -0.0,
+      2.37,
+      -0.89
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_49",
+     "room": "Flur_EG",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -5.6,
+      2.37,
+      -0.89
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_50",
+     "room": "Flur_EG",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -7.54,
+      2.3,
+      -2.0
+     ],
+     "d": [
+      0.45399,
+      -0.89101,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_51",
+     "room": "Serverraum",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      8.11,
+      2.4,
+      -2.0
+     ],
+     "d": [
+      0.45399,
+      -0.89101,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_52",
+     "room": "Garage",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -0.0,
+      2.37,
+      -1.26
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      -0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_53",
+     "room": "Treppenhaus",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -0.0,
+      5.77,
+      -1.26
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      -0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_54",
+     "room": "Treppenhaus",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -0.0,
+      -0.63,
+      -1.26
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      -0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_55",
+     "room": "Treppenhaus",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -0.0,
+      5.77,
+      -0.89
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_56",
+     "room": "Flur_OG",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -0.0,
+      -0.63,
+      -0.89
+     ],
+     "d": [
+      -0.0,
+      -0.89101,
+      0.45399
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.45,
+     "r": 4.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_57",
+     "room": "Flur_UG",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -4.075,
+      -0.7,
+      -1.26
+     ],
+     "d": [
+      -0.0,
+      -0.57358,
+      -0.81915
+     ],
+     "c": [
+      1.0,
+      0.8509,
+      0.7323
+     ],
+     "i": 0.6,
+     "r": 6.5,
+     "a": 120.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_58",
+     "room": "Schaltraum",
+     "kind": "emergency",
+     "circuit": "battery",
+     "k": 5500.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      6.45,
+      2.45,
+      6.14
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.9,
+     "r": 6.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_59",
+     "room": "Exterior",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      5.6,
+      2.735,
+      8.1536
+     ],
+     "d": [
+      -0.0,
+      -0.64279,
+      0.76604
+     ],
+     "c": [
+      1.0,
+      0.4408,
+      0.1557
+     ],
+     "i": 2.6,
+     "r": 12.0,
+     "a": 80.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_WallFlood_60",
+     "room": "Exterior",
+     "kind": "halogen",
+     "circuit": "power",
+     "k": 3000.0,
+     "hero": true,
+     "lod": 70.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -8.14,
+      2.45,
+      -1.15
+     ],
+     "d": [
+      -1.0,
+      0.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.9,
+     "r": 6.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_61",
+     "room": "Exterior",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      12.2,
+      3.1098,
+      5.2273
+     ],
+     "d": [
+      -0.0,
+      -0.57358,
+      0.81915
+     ],
+     "c": [
+      1.0,
+      0.4408,
+      0.1557
+     ],
+     "i": 3.0,
+     "r": 14.0,
+     "a": 80.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_WallFlood_62",
+     "room": "Exterior",
+     "kind": "halogen",
+     "circuit": "power",
+     "k": 3000.0,
+     "hero": true,
+     "lod": 70.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -1.1,
+      9.05,
+      -0.86
+     ],
+     "d": [
+      -0.0,
+      0.0,
+      1.0
+     ],
+     "c": [
+      1.0,
+      0.385,
+      0.0962
+     ],
+     "i": 0.8,
+     "r": 5.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_63",
+     "room": "Exterior",
+     "kind": "incandescent",
+     "circuit": "power",
+     "k": 2700.0,
+     "lod": 25.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -5.45,
+      18.61,
+      -2.95
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.035,
+      0.02
+     ],
+     "i": 0.6,
+     "r": 6.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_Obstruction_64",
+     "room": "Exterior",
+     "kind": "beacon",
+     "circuit": "power",
+     "nosw": true,
+     "lod": 60.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      20.9543,
+      5.6119,
+      21.9049
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.2387,
+      0.0062
+     ],
+     "i": 3.5,
+     "r": 16.0,
+     "a": 125.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y1",
+     "room": "Exterior",
+     "kind": "hps",
+     "circuit": "power",
+     "k": 2050.0,
+     "hero": true,
+     "nosw": true,
+     "lod": 90.0,
+     "warmup": 90.0,
+     "restrike": 60.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -21.2231,
+      5.6134,
+      39.2937
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.2387,
+      0.0062
+     ],
+     "i": 3.5,
+     "r": 16.0,
+     "a": 125.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y2",
+     "room": "Exterior",
+     "kind": "hps",
+     "circuit": "power",
+     "k": 2050.0,
+     "hero": true,
+     "nosw": true,
+     "lod": 90.0,
+     "warmup": 90.0,
+     "restrike": 60.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -51.1367,
+      5.5773,
+      55.4023
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.2387,
+      0.0062
+     ],
+     "i": 3.5,
+     "r": 16.0,
+     "a": 125.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y3",
+     "room": "Exterior",
+     "kind": "hps",
+     "circuit": "power",
+     "k": 2050.0,
+     "hero": true,
+     "nosw": true,
+     "lod": 90.0,
+     "warmup": 90.0,
+     "restrike": 60.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      37.1968,
+      5.5955,
+      -11.3237
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.2387,
+      0.0062
+     ],
+     "i": 3.5,
+     "r": 16.0,
+     "a": 125.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y4",
+     "room": "Exterior",
+     "kind": "hps",
+     "circuit": "power",
+     "k": 2050.0,
+     "hero": true,
+     "nosw": true,
+     "lod": 90.0,
+     "warmup": 90.0,
+     "restrike": 60.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      -27.3771,
+      5.5604,
+      -17.1547
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.2387,
+      0.0062
+     ],
+     "i": 3.5,
+     "r": 16.0,
+     "a": 125.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y5",
+     "room": "Exterior",
+     "kind": "hps",
+     "circuit": "power",
+     "k": 2050.0,
+     "hero": true,
+     "nosw": true,
+     "lod": 90.0,
+     "warmup": 90.0,
+     "restrike": 60.0
+    },
+    {
+     "t": "spot",
+     "p": [
+      29.5962,
+      5.5837,
+      -51.0308
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.2387,
+      0.0062
+     ],
+     "i": 3.5,
+     "r": 16.0,
+     "a": 125.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y6",
+     "room": "Exterior",
+     "kind": "hps",
+     "circuit": "power",
+     "k": 2050.0,
+     "hero": true,
+     "nosw": true,
+     "lod": 90.0,
+     "warmup": 90.0,
+     "restrike": 60.0
+    },
+    {
+     "t": "point",
+     "p": [
+      -40.0,
+      59.744,
+      -50.0
+     ],
+     "d": [
+      -0.0,
+      -1.0,
+      -0.0
+     ],
+     "c": [
+      1.0,
+      0.035,
+      0.02
+     ],
+     "i": 0.6,
+     "r": 6.0,
+     "a": 0.0,
+     "sh": false,
+     "tag": "fx",
+     "fx": "FX_ObstructionFlash_M1",
+     "room": "Exterior",
+     "kind": "beacon",
+     "circuit": "power",
+     "nosw": true,
+     "lod": 60.0,
+     "flash": [
+      1.5,
+      0.35
+     ]
+    }
+   ]
+  }
+ ],
+ "prefabGlows": [
+  {
+   "model": "BaseMain",
+   "glows": [
+    {
+     "p": [
+      6.45,
+      2.99,
+      3.4
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_BulkheadCeiling_1"
+    },
+    {
+     "p": [
+      3.5,
+      2.68,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_2"
+    },
+    {
+     "p": [
+      0.5,
+      2.68,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_3"
+    },
+    {
+     "p": [
+      -2.5,
+      2.68,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_4"
+    },
+    {
+     "p": [
+      -5.5,
+      2.68,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_5"
+    },
+    {
+     "p": [
+      0.45,
+      1.0398,
+      1.6727
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.3,
+     "tag": "fx",
+     "fx": "FX_DeskLamp_6"
+    },
+    {
+     "p": [
+      -3.55,
+      1.0398,
+      1.6727
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.3,
+     "tag": "fx",
+     "fx": "FX_DeskLamp_7"
+    },
+    {
+     "p": [
+      5.7,
+      2.68,
+      -0.0
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_8"
+    },
+    {
+     "p": [
+      1.9,
+      2.68,
+      -0.0
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_9"
+    },
+    {
+     "p": [
+      -1.9,
+      2.68,
+      -0.0
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_10"
+    },
+    {
+     "p": [
+      -5.7,
+      2.68,
+      -0.0
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_11"
+    },
+    {
+     "p": [
+      6.2,
+      3.0012,
+      -3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_12"
+    },
+    {
+     "p": [
+      3.4,
+      3.0012,
+      -3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_13"
+    },
+    {
+     "p": [
+      -6.0,
+      2.68,
+      -3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.8,
+     "tag": "fx",
+     "fx": "FX_Raster_15"
+    },
+    {
+     "p": [
+      15.4,
+      2.45,
+      0.9
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_Pendant_16"
+    },
+    {
+     "p": [
+      15.4,
+      2.45,
+      -2.7
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_Pendant_17"
+    },
+    {
+     "p": [
+      11.0,
+      2.45,
+      2.2
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_Pendant_18"
+    },
+    {
+     "p": [
+      11.0,
+      2.45,
+      -1.4
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_Pendant_19"
+    },
+    {
+     "p": [
+      10.2,
+      3.3512,
+      -3.9
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_20"
+    },
+    {
+     "p": [
+      -0.0,
+      0.7,
+      -6.64
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_21"
+    },
+    {
+     "p": [
+      -0.0,
+      3.9,
+      -6.64
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_22"
+    },
+    {
+     "p": [
+      -0.0,
+      7.2,
+      -6.64
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_23"
+    },
+    {
+     "p": [
+      -1.1,
+      9.0,
+      -1.26
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_24"
+    },
+    {
+     "p": [
+      5.6,
+      6.192,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 1.0,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_25"
+    },
+    {
+     "p": [
+      3.0,
+      6.192,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 1.0,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_26"
+    },
+    {
+     "p": [
+      -0.4,
+      6.192,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 1.0,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_27"
+    },
+    {
+     "p": [
+      -2.6,
+      6.192,
+      3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 1.0,
+     "tag": "fx",
+     "fx": "FX_FluorBatten2_28"
+    },
+    {
+     "p": [
+      -6.2,
+      6.2012,
+      2.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_29"
+    },
+    {
+     "p": [
+      -4.6,
+      5.3,
+      3.7
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_Pendant_30"
+    },
+    {
+     "p": [
+      4.0,
+      6.2012,
+      -0.0
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_31"
+    },
+    {
+     "p": [
+      -3.6,
+      6.2012,
+      -0.0
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_32"
+    },
+    {
+     "p": [
+      4.8,
+      6.2012,
+      -3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_33"
+    },
+    {
+     "p": [
+      6.9,
+      6.19,
+      -4.6
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_BulkheadCeiling_34"
+    },
+    {
+     "p": [
+      -4.8,
+      5.5,
+      -3.4
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_Pendant_35"
+    },
+    {
+     "p": [
+      -5.424,
+      4.4398,
+      -3.5025
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.3,
+     "tag": "fx",
+     "fx": "FX_DeskLamp_36"
+    },
+    {
+     "p": [
+      -2.6,
+      -0.3988,
+      3.2
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_37"
+    },
+    {
+     "p": [
+      -5.6,
+      -0.3988,
+      3.2
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_38"
+    },
+    {
+     "p": [
+      -4.0,
+      -1.0,
+      1.26
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_39"
+    },
+    {
+     "p": [
+      -1.3,
+      -0.9,
+      -0.89
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_40"
+    },
+    {
+     "p": [
+      -5.6,
+      -0.9,
+      -0.89
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_41"
+    },
+    {
+     "p": [
+      -4.8,
+      -0.3988,
+      -3.4
+     ],
+     "m": "M_Glow_FX_Fluor",
+     "s": 0.9,
+     "tag": "fx",
+     "fx": "FX_FluorBatten_42"
+    },
+    {
+     "p": [
+      6.45,
+      2.42,
+      5.57
+     ],
+     "m": "M_Glow_FX_Exit",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_ExitSign_43"
+    },
+    {
+     "p": [
+      -7.57,
+      2.42,
+      -0.0
+     ],
+     "m": "M_Glow_FX_Exit",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_ExitSign_44"
+    },
+    {
+     "p": [
+      6.45,
+      2.42,
+      0.92
+     ],
+     "m": "M_Glow_FX_Exit",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_ExitSign_45"
+    },
+    {
+     "p": [
+      10.82,
+      2.2,
+      4.62
+     ],
+     "m": "M_Glow_FX_Exit",
+     "s": 0.5,
+     "tag": "fx",
+     "fx": "FX_ExitSign_46"
+    },
+    {
+     "p": [
+      7.565,
+      2.32,
+      4.6
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_47"
+    },
+    {
+     "p": [
+      4.6,
+      2.32,
+      1.235
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_48"
+    },
+    {
+     "p": [
+      -0.0,
+      2.39,
+      -0.915
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_49"
+    },
+    {
+     "p": [
+      -5.6,
+      2.39,
+      -0.915
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_50"
+    },
+    {
+     "p": [
+      -7.565,
+      2.32,
+      -2.0
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_51"
+    },
+    {
+     "p": [
+      8.085,
+      2.42,
+      -2.0
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_52"
+    },
+    {
+     "p": [
+      -0.0,
+      2.39,
+      -1.235
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_53"
+    },
+    {
+     "p": [
+      -0.0,
+      5.79,
+      -1.235
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_54"
+    },
+    {
+     "p": [
+      -0.0,
+      -0.61,
+      -1.235
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_55"
+    },
+    {
+     "p": [
+      -0.0,
+      5.79,
+      -0.915
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_56"
+    },
+    {
+     "p": [
+      -0.0,
+      -0.61,
+      -0.915
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_57"
+    },
+    {
+     "p": [
+      -4.075,
+      -0.68,
+      -1.235
+     ],
+     "m": "M_Glow_FX_Emergency",
+     "s": 0.45,
+     "tag": "fx",
+     "fx": "FX_EmergencyLight_58"
+    },
+    {
+     "p": [
+      6.45,
+      2.45,
+      6.11
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_59"
+    },
+    {
+     "p": [
+      5.6,
+      2.7479,
+      8.1383
+     ],
+     "m": "M_Glow_FX_Halogen",
+     "s": 1.2,
+     "tag": "fx",
+     "fx": "FX_WallFlood_60"
+    },
+    {
+     "p": [
+      -8.11,
+      2.45,
+      -1.15
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_61"
+    },
+    {
+     "p": [
+      12.2,
+      3.1213,
+      5.211
+     ],
+     "m": "M_Glow_FX_Halogen",
+     "s": 1.2,
+     "tag": "fx",
+     "fx": "FX_WallFlood_62"
+    },
+    {
+     "p": [
+      -1.1,
+      9.05,
+      -0.89
+     ],
+     "m": "M_Glow_FX_Warm",
+     "s": 0.55,
+     "tag": "fx",
+     "fx": "FX_Bulkhead_63"
+    },
+    {
+     "p": [
+      -5.45,
+      18.61,
+      -2.95
+     ],
+     "m": "M_Glow_FX_Red",
+     "s": 1.6,
+     "tag": "fx",
+     "fx": "FX_Obstruction_64"
+    },
+    {
+     "p": [
+      20.9543,
+      5.6419,
+      21.9049
+     ],
+     "m": "M_Glow_FX_HPS",
+     "s": 1.6,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y1"
+    },
+    {
+     "p": [
+      -21.2231,
+      5.6434,
+      39.2937
+     ],
+     "m": "M_Glow_FX_HPS",
+     "s": 1.6,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y2"
+    },
+    {
+     "p": [
+      -51.1367,
+      5.6073,
+      55.4023
+     ],
+     "m": "M_Glow_FX_HPS",
+     "s": 1.6,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y3"
+    },
+    {
+     "p": [
+      37.1968,
+      5.6255,
+      -11.3237
+     ],
+     "m": "M_Glow_FX_HPS",
+     "s": 1.6,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y4"
+    },
+    {
+     "p": [
+      -27.3771,
+      5.5904,
+      -17.1547
+     ],
+     "m": "M_Glow_FX_HPS",
+     "s": 1.6,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y5"
+    },
+    {
+     "p": [
+      29.5962,
+      5.6137,
+      -51.0308
+     ],
+     "m": "M_Glow_FX_HPS",
+     "s": 1.6,
+     "tag": "fx",
+     "fx": "FX_PoleHead_Y6"
+    },
+    {
+     "p": [
+      -40.0,
+      59.744,
+      -50.0
+     ],
+     "m": "M_Glow_FX_Red",
+     "s": 2.4,
+     "tag": "fx",
+     "fx": "FX_ObstructionFlash_M1"
+    }
+   ]
+  }
+ ],
+ "worldGlows": [],
+ "interactables": [
+  {
+   "model": "BaseMain",
+   "child": "IX_MainDoor_1",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 90.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ExitDoor_2",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 90.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_3",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_4",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_5",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_6",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_7",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_8",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_9",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_10",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_11",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_12",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_13",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_14",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_15",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Door_16",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RoofDoor_17",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 95.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_GarageGate_18",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 85.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_GarageDoor_19",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 90.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LockerDoor_20",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LockerDoor_21",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_22",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_23",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_24",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_25",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_26",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_27",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_28",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_29",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_30",
+   "kind": "slide",
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_31",
+   "kind": "slide",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_32",
+   "kind": "slide",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_33",
+   "kind": "slide",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_34",
+   "kind": "slide",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_35",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_36",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_37",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RackDoor_38",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RackDoor_39",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RackDoor_40",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RackDoor_41",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RackDoor_42",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RackDoor_43",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_RackDoor_44",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_45",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_46",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_47",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_48",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_49",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_50",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Isolator_51",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 90.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_TumbaDoor_52",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 100.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_TumbaDoor_53",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 100.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LockerDoor_54",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LockerDoor_55",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LockerDoor_56",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LockerDoor_57",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 110.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_FridgeDoor_58",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 115.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_59",
+   "kind": "slide",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_60",
+   "kind": "slide",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_61",
+   "kind": "slide",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.45,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_62",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_63",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_64",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_65",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_66",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_67",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Drawer_68",
+   "kind": "slide",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.5,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_69",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 80.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_70",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 80.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_71",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 80.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_72",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 80.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_73",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 80.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_74",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 80.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_MainSwitch_75",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 90.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_76",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_77",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_78",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_79",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_80",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Breaker_81",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 45.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Isolator_82",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 90.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_PanelDoor_83",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "min": 0.0,
+   "max": 120.0,
+   "locked": false
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Windfang_84",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Flur_EG_85",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Flur_EG_86",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Garage_87",
+   "kind": "hinge",
+   "axis": [
+    0.0,
+    -0.0,
+    1.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Lager_88",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Leitstand_89",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Treppenhaus_90",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Treppenhaus_91",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Treppenhaus_92",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Serverraum_93",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Kaserne_94",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Flur_OG_95",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Kueche_96",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Waschraum_97",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Stationsleiter_98",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Heizung_99",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Flur_UG_100",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Schaltraum_101",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_LightSwitch_Exterior_102",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Leitstand_103",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0284,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Leitstand_104",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0284,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Leitstand_105",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0284,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Leitstand_106",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0284,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Leitstand_107",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0284,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Lager_108",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.05,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterWinder_Lager_109",
+   "kind": "hinge",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.0,
+   "locked": false,
+   "open": true,
+   "drives": [
+    "IX_Shutter_Lager_108"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Leitstand_110",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0284,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Kaserne_111",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterWinder_Kaserne_112",
+   "kind": "hinge",
+   "axis": [
+    -0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.0,
+   "locked": false,
+   "open": true,
+   "drives": [
+    "IX_Shutter_Kaserne_111"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Kaserne_113",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterWinder_Kaserne_114",
+   "kind": "hinge",
+   "axis": [
+    -0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 0.0,
+   "locked": false,
+   "open": true,
+   "drives": [
+    "IX_Shutter_Kaserne_113"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Kueche_115",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Kueche_116",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Kueche_117",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Waschraum_118",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.05,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterWinder_Waschraum_119",
+   "kind": "hinge",
+   "axis": [
+    -0.0,
+    0.0,
+    -1.0
+   ],
+   "min": 0.0,
+   "max": 0.0,
+   "locked": false,
+   "open": true,
+   "drives": [
+    "IX_Shutter_Waschraum_118"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Stationsleiter_120",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Stationsleiter_121",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Kueche_122",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Flur_OG_123",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterWinder_Flur_OG_124",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.0,
+   "locked": false,
+   "open": true,
+   "drives": [
+    "IX_Shutter_Flur_OG_123"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Stationsleiter_125",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0427,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_Shutter_Flur_OG_126",
+   "kind": "scale",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "min": 1.0,
+   "max": 0.0463,
+   "locked": false,
+   "open": true,
+   "speed": 0.3
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterWinder_Flur_OG_127",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    0.0,
+    -0.0
+   ],
+   "min": 0.0,
+   "max": 0.0,
+   "locked": false,
+   "open": true,
+   "drives": [
+    "IX_Shutter_Flur_OG_126"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterSwitch_Leitstand_128",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true,
+   "needsPower": true,
+   "drives": [
+    "IX_Shutter_Leitstand_103",
+    "IX_Shutter_Leitstand_104",
+    "IX_Shutter_Leitstand_105",
+    "IX_Shutter_Leitstand_106",
+    "IX_Shutter_Leitstand_107",
+    "IX_Shutter_Leitstand_110"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterSwitch_Kueche_129",
+   "kind": "hinge",
+   "axis": [
+    -1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true,
+   "needsPower": true,
+   "drives": [
+    "IX_Shutter_Kueche_115",
+    "IX_Shutter_Kueche_116",
+    "IX_Shutter_Kueche_117",
+    "IX_Shutter_Kueche_122"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_ShutterSwitch_Stationsleiter_130",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -9.0,
+   "max": 9.0,
+   "locked": false,
+   "open": true,
+   "needsPower": true,
+   "drives": [
+    "IX_Shutter_Stationsleiter_120",
+    "IX_Shutter_Stationsleiter_121",
+    "IX_Shutter_Stationsleiter_125"
+   ]
+  },
+  {
+   "model": "BaseMain",
+   "child": "IX_HeatingStop_131",
+   "kind": "hinge",
+   "axis": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "min": -10.0,
+   "max": 10.0,
+   "locked": false,
+   "open": true
+  }
+ ],
+ "groups": [],
+ "flickers": [],
+ "uvScroll": [],
+ "power": {
+  "lightPrefix": "Light_power",
+  "glowPrefix": "Glow_power",
+  "switches": [
+   "IX_MainSwitch"
+  ],
+  "materialsOff": [
+   "M_ScreenOff",
+   "M_LEDOff"
+  ],
+  "materialsOn": [
+   "M_ScreenOn",
+   "M_LEDOn"
+  ],
+  "startPowered": true
+ },
+ "lighting": {
+  "exteriorLayer": 1,
+  "defaultMask": 2,
+  "dynamicMask": 1,
+  "rooms": [
+   {
+    "name": "Windfang",
+    "layer": 7,
+    "sw": "IX_LightSwitch_Windfang_"
+   },
+   {
+    "name": "Leitstand",
+    "layer": 4,
+    "sw": "IX_LightSwitch_Leitstand_"
+   },
+   {
+    "name": "Flur_EG",
+    "layer": 2,
+    "sw": "IX_LightSwitch_Flur_EG_"
+   },
+   {
+    "name": "Lager",
+    "layer": 5,
+    "sw": "IX_LightSwitch_Lager_"
+   },
+   {
+    "name": "Treppenhaus",
+    "layer": 6,
+    "sw": "IX_LightSwitch_Treppenhaus_"
+   },
+   {
+    "name": "Serverraum",
+    "layer": 8,
+    "sw": "IX_LightSwitch_Serverraum_"
+   },
+   {
+    "name": "Garage",
+    "layer": 6,
+    "sw": "IX_LightSwitch_Garage_"
+   },
+   {
+    "name": "Kaserne",
+    "layer": 8,
+    "sw": "IX_LightSwitch_Kaserne_"
+   },
+   {
+    "name": "Kueche",
+    "layer": 7,
+    "sw": "IX_LightSwitch_Kueche_"
+   },
+   {
+    "name": "Flur_OG",
+    "layer": 3,
+    "sw": "IX_LightSwitch_Flur_OG_"
+   },
+   {
+    "name": "Waschraum",
+    "layer": 9,
+    "sw": "IX_LightSwitch_Waschraum_"
+   },
+   {
+    "name": "Stationsleiter",
+    "layer": 4,
+    "sw": "IX_LightSwitch_Stationsleiter_"
+   },
+   {
+    "name": "Heizung",
+    "layer": 5,
+    "sw": "IX_LightSwitch_Heizung_"
+   },
+   {
+    "name": "Flur_UG",
+    "layer": 7,
+    "sw": "IX_LightSwitch_Flur_UG_"
+   },
+   {
+    "name": "Schaltraum",
+    "layer": 9,
+    "sw": "IX_LightSwitch_Schaltraum_"
+   },
+   {
+    "name": "Exterior",
+    "layer": 1,
+    "sw": "IX_LightSwitch_Exterior_"
+   }
+  ],
+  "assign": [
+   {
+    "model": "BaseMain",
+    "node": "BaseMain",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Windfang",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Leitstand",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Flur_EG",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Lager",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Treppenhaus",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Serverraum",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Garage",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Kaserne",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Kueche",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Flur_OG",
+    "mask": 8
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Waschraum",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Stationsleiter",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Heizung",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Flur_UG",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "R_Schaltraum",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_BulkheadCeiling_1",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_2",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_3",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_4",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_5",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_DeskLamp_6",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_DeskLamp_7",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_8",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_9",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_10",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_11",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_12",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_13",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_14",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Raster_15",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Pendant_16",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Pendant_17",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Pendant_18",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Pendant_19",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_20",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_21",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_22",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_23",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_24",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten2_25",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten2_26",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten2_27",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten2_28",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_29",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Pendant_30",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_31",
+    "mask": 8
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_32",
+    "mask": 8
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_33",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_BulkheadCeiling_34",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Pendant_35",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_DeskLamp_36",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_37",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_38",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_39",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_40",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_41",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_FluorBatten_42",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_ExitSign_43",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_ExitSign_44",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_ExitSign_45",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_ExitSign_46",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_47",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_48",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_49",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_50",
+    "mask": 4
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_51",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_52",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_53",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_54",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_55",
+    "mask": 64
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_56",
+    "mask": 8
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_57",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_EmergencyLight_58",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_59",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_WallFlood_60",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_61",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_WallFlood_62",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Bulkhead_63",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_Obstruction_64",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_PoleHead_Y1",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_PoleHead_Y2",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_PoleHead_Y3",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_PoleHead_Y4",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_PoleHead_Y5",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_PoleHead_Y6",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "FX_ObstructionFlash_M1",
+    "mask": 2
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_MainDoor_1",
+    "mask": 130
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ExitDoor_2",
+    "mask": 134
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_3",
+    "mask": 68
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_4",
+    "mask": 96
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_5",
+    "mask": 132
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_6",
+    "mask": 20
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_7",
+    "mask": 36
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_8",
+    "mask": 196
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_9",
+    "mask": 900
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_10",
+    "mask": 284
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_11",
+    "mask": 556
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_12",
+    "mask": 76
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_13",
+    "mask": 284
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_14",
+    "mask": 160
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_15",
+    "mask": 192
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Door_16",
+    "mask": 640
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RoofDoor_17",
+    "mask": 74
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_GarageGate_18",
+    "mask": 66
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_GarageDoor_19",
+    "mask": 66
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LockerDoor_20",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LockerDoor_21",
+    "mask": 128
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_22",
+    "mask": 48
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_23",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_24",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_25",
+    "mask": 48
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_26",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_27",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_28",
+    "mask": 48
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_29",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_30",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_31",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_32",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_33",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_34",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_35",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_36",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_37",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RackDoor_38",
+    "mask": 768
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RackDoor_39",
+    "mask": 768
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RackDoor_40",
+    "mask": 768
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RackDoor_41",
+    "mask": 768
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RackDoor_42",
+    "mask": 768
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RackDoor_43",
+    "mask": 768
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_RackDoor_44",
+    "mask": 768
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_45",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_46",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_47",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_48",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_49",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_50",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Isolator_51",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_TumbaDoor_52",
+    "mask": 384
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_TumbaDoor_53",
+    "mask": 384
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LockerDoor_54",
+    "mask": 384
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LockerDoor_55",
+    "mask": 384
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LockerDoor_56",
+    "mask": 384
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LockerDoor_57",
+    "mask": 400
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_FridgeDoor_58",
+    "mask": 144
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_59",
+    "mask": 272
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_60",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_61",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_62",
+    "mask": 272
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_63",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_64",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_65",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_66",
+    "mask": 272
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_67",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Drawer_68",
+    "mask": 16
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_69",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_70",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_71",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_72",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_73",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_74",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_MainSwitch_75",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_76",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_77",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_78",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_79",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_80",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Breaker_81",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Isolator_82",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_PanelDoor_83",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Windfang_84",
+    "mask": 132
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Flur_EG_85",
+    "mask": 68
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Flur_EG_86",
+    "mask": 132
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Garage_87",
+    "mask": 100
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Lager_88",
+    "mask": 36
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Leitstand_89",
+    "mask": 20
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Treppenhaus_90",
+    "mask": 68
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Treppenhaus_91",
+    "mask": 72
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Treppenhaus_92",
+    "mask": 192
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Serverraum_93",
+    "mask": 260
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Kaserne_94",
+    "mask": 264
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Flur_OG_95",
+    "mask": 72
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Kueche_96",
+    "mask": 136
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Waschraum_97",
+    "mask": 520
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Stationsleiter_98",
+    "mask": 24
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Heizung_99",
+    "mask": 160
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Flur_UG_100",
+    "mask": 192
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Schaltraum_101",
+    "mask": 640
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_LightSwitch_Exterior_102",
+    "mask": 132
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Leitstand_103",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Leitstand_104",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Leitstand_105",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Leitstand_106",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Leitstand_107",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Lager_108",
+    "mask": 34
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterWinder_Lager_109",
+    "mask": 32
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Leitstand_110",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Kaserne_111",
+    "mask": 258
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterWinder_Kaserne_112",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Kaserne_113",
+    "mask": 258
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterWinder_Kaserne_114",
+    "mask": 256
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Kueche_115",
+    "mask": 130
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Kueche_116",
+    "mask": 130
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Kueche_117",
+    "mask": 130
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Waschraum_118",
+    "mask": 514
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterWinder_Waschraum_119",
+    "mask": 512
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Stationsleiter_120",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Stationsleiter_121",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Kueche_122",
+    "mask": 130
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Flur_OG_123",
+    "mask": 10
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterWinder_Flur_OG_124",
+    "mask": 24
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Stationsleiter_125",
+    "mask": 18
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_Shutter_Flur_OG_126",
+    "mask": 10
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterWinder_Flur_OG_127",
+    "mask": 520
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterSwitch_Leitstand_128",
+    "mask": 20
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterSwitch_Kueche_129",
+    "mask": 136
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_ShutterSwitch_Stationsleiter_130",
+    "mask": 24
+   },
+   {
+    "model": "BaseMain",
+    "node": "IX_HeatingStop_131",
+    "mask": 160
+   }
+  ],
+  "maxShadowed": 3,
+  "shadowRange": 14.0,
+  "lodFade": 6.0
+ },
+ "anchors": [],
+ "spawn": {
+  "p": [
+   348.3357,
+   16.3443,
+   -347.0339
+  ],
+  "yaw": -172.0
+ },
+ "fogEvents": []
+}

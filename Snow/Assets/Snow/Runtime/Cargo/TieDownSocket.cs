@@ -14,5 +14,7 @@ namespace Snow.Cargo
         [Tooltip("deg: how far the item's up may lean from the socket's up")] public float maxTilt = 25f;
 
         public CargoItem Occupant { get; set; }
+        /// <summary>Server: why this ring cannot be used now (covered by the stowed ladder or the jerry can, И3 L.5), or null.</summary>
+        public string Blocked { get; set; }
     }
 }

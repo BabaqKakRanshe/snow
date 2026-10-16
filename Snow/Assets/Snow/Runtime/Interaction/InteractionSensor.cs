@@ -40,6 +40,9 @@ namespace Snow.Interaction
         string _message;
         float _messageUntil;
         bool _pressSent;
+        InteractionHost _pressHost;
+        string _pressId;
+        float _pressTime, _pressHold;
         float _holdDistance;
         readonly RaycastHit[] _hits = new RaycastHit[16];
 
@@ -93,7 +96,8 @@ namespace Snow.Interaction
             PlayerInputFrame f = controller.Frame, last = controller.PreviousFrame;
 
             Ray ray = ctx == InputContext.SeatCursor && view.cam != null && view.cam.enabled
-                ? view.cam.ScreenPointToRay(f.Pointer)
+                // the pointer is in screen pixels, the camera may render into a smaller RenderTexture (PS1 frame)
+                ? view.cam.ViewportPointToRay(new Vector3(f.Pointer.x / Screen.width, f.Pointer.y / Screen.height, 0f))
                 : new Ray(view.EyePosition, view.EyeRotation * Vector3.forward);
             Resolve(ray);
 
@@ -106,6 +110,10 @@ namespace Snow.Interaction
             {
                 net.RequestUse(TargetHost, TargetId, UsePhase.Press);
                 _pressSent = true;
+                _pressHost = TargetHost;
+                _pressId = TargetId;
+                _pressTime = Time.time;
+                _pressHold = TargetHost.HoldSeconds(TargetId);
             }
             else if (down && TargetCargo != null && ctx == InputContext.OnFoot)
             {
@@ -121,9 +129,10 @@ namespace Snow.Interaction
             }
             if (up && _pressSent)
             {
+                // the release goes to the zone that was pressed: momentary controls, held kit actions, pouring (И4)
                 _pressSent = false;
-                if (TargetHost != null && TargetVolume != null && TargetVolume.kind == "momentary")
-                    net.RequestUse(TargetHost, TargetId, UsePhase.Release);
+                if (_pressHost != null) net.RequestUse(_pressHost, _pressId, UsePhase.Release);
+                _pressHost = null;
             }
             if (up && Held != null)
             {
@@ -246,6 +255,7 @@ namespace Snow.Interaction
         bool Usable(UtilityPlaneInteractable zone, Vector3 eye)
         {
             if (zone.kind == "seat" && controller.Source.Context != InputContext.OnFoot) return false;   // get out first
+            if (zone.kind == "kit" && controller.Source.Context != InputContext.OnFoot) return false;    // winter kit: from outside only (K4.2)
             var host = zone.GetComponentInParent<InteractionHost>();
             return host != null && host.ZoneOpen(zone, Held) && host.SideAllows(zone.id, eye);
         }
@@ -271,6 +281,15 @@ namespace Snow.Interaction
                 GUI.DrawTexture(new Rect(cx - 3f, cy - 3f, 6f, 6f), Texture2D.whiteTexture);
                 GUI.color = TargetHost != null || TargetCargo != null ? new Color(1f, 0.85f, 0.3f) : Color.white;
                 GUI.DrawTexture(new Rect(cx - 2f, cy - 2f, 4f, 4f), Texture2D.whiteTexture);
+                GUI.color = Color.white;
+            }
+            // held action (winter kit): a progress bar under the aim point while the button is held
+            if (_pressSent && _pressHold > 0f)
+            {
+                float k = Mathf.Clamp01((Time.time - _pressTime) / _pressHold);
+                var bar = new Rect(Screen.width * 0.5f - 100f, Screen.height * 0.55f, 200f, 8f);
+                GUI.color = new Color(0f, 0f, 0f, 0.6f); GUI.DrawTexture(bar, Texture2D.whiteTexture);
+                GUI.color = new Color(1f, 0.85f, 0.3f); GUI.DrawTexture(new Rect(bar.x, bar.y, bar.width * k, bar.height), Texture2D.whiteTexture);
                 GUI.color = Color.white;
             }
             var style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontSize = 18 };

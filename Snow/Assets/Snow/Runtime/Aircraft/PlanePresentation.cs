@@ -146,6 +146,11 @@ namespace Snow.Aircraft
             for (int i = 0; i < PlaneSwitchState.RadioKnobCount && i < r.radioKnobDeg.Length; i++)
                 r.radioKnobDeg[i] = Mathf.MoveTowardsAngle(r.radioKnobDeg[i], s.RadioKnob(i) * 15f, 360f * Time.deltaTime);
             r.xpdrMode = s.Xpdr;
+            // troop seats fold over paxFoldTime (a view: sitting follows the state at once, И3 K.5); straps over the ladder
+            float fold = Time.deltaTime / Mathf.Max(0.05f, vehicle.paxFoldTime);
+            for (int i = 0; i < 4 && i < r.paxSeatDown.Length; i++)
+                r.paxSeatDown[i] = Mathf.MoveTowards(r.paxSeatDown[i], s.PaxDown(i) ? 1f : 0f, fold);
+            r.ladderStowed = s.LadderStowed;
             if (s.Bits != _shownBits)
             {
                 _shownBits = s.Bits;
@@ -181,6 +186,7 @@ namespace Snow.Aircraft
             }
             if (Keyboard.current != null && Keyboard.current.f10Key.wasPressedThisFrame) _dev = !_dev;
             DevFogPrint();
+            BenchView(s, t);
             UpdateHelp(s, t);
 
             // autopilot on/off note for the players in this plane (the model has no autopilot annunciator)
@@ -216,6 +222,28 @@ namespace Snow.Aircraft
             bool known = _eased.TryGetValue(key, out float before);
             angle = Rate(key, target, perSecond);
             return known && before != target;
+        }
+
+        float _nextView;
+
+        /// <summary>
+        /// Bench evidence (I-30, KX5): once a second, what this peer shows of the replicated plane state — switches, troop
+        /// seats, ladder, winter kit, glass fog, the key holder, stowed items. Only in bench runs with a log file.
+        /// </summary>
+        void BenchView(PlaneSwitchState s, PlaneTelemetry t)
+        {
+            var args = Snow.Net.SnowNetworkBootstrap.Args;
+            if (args == null || string.IsNullOrEmpty(args.LogPath) || Time.unscaledTime < _nextView) return;
+            _nextView = Time.unscaledTime + 1f;
+            var kit = GetComponent<PlaneWinterKitNet>();
+            ulong keyHolder = PlaneKey.All.Count > 0 ? PlaneKey.All[0].Holder : PlaneKey.None;
+            int stowed = 0;
+            foreach (var c in Snow.Cargo.CargoItem.All) if (c.IsSpawned && c.State == Snow.Cargo.CargoState.Stowed) stowed++;
+            Snow.Net.BenchLog.Event("plane_view", "bits", s.Bits, "pax", s.PaxSeats, "ladder", s.LadderStowed, "alt", s.AltSetting,
+                "xpdr", s.Xpdr, "radioA", s.RadioA, "kit", kit != null ? kit.Mask : -1, "kitShown", kit != null && kit.Kit != null ? kit.Kit.Mask : -1,
+                "fogW", _rig.windshieldFog, "fogS", _rig.sideWindowFog, "paxShown", _rig.paxSeatDown[0] + _rig.paxSeatDown[1] + _rig.paxSeatDown[2] + _rig.paxSeatDown[3],
+                "mapCase", _rig.mapCase, "key", keyHolder == PlaneKey.None ? -1L : (long)keyHolder, "stowed", stowed,
+                "doorL", vehicle.pilotDoorL != null ? vehicle.pilotDoorL.ShownPosition : -1f);
         }
 
         /// <summary>

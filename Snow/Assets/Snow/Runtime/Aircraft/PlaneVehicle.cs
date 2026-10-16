@@ -28,6 +28,20 @@ namespace Snow.Aircraft
         [Tooltip("Cargo bay box in prefab space (CARGO LOOSE lamp)")] public Vector3 bayCenter = new Vector3(0f, 1.8f, 0.3f), bayHalfExtents = new Vector3(0.66f, 0.75f, 1.65f);
         [Tooltip("s between bench log lines")] public float logInterval = 1f;
 
+        /// <summary>A collider box in prefab space (centre, half extents, rotation).</summary>
+        [System.Serializable]
+        public struct BoxPose { public Vector3 center, half; public Quaternion rotation; public int seat; }
+
+        [Header("И3 cargo bay (built by PlaneBenchBuilder from the model)")]
+        [Tooltip("Pan and leg colliders of each troop seat in the down pose, prefab space (seat = PaxSeatNames index)")]
+        public BoxPose[] paxDownBoxes = System.Array.Empty<BoxPose>();
+        [Tooltip("Floor box the stowed ladder needs, prefab space (model_facts.json ladderStowed)")] public BoxPose ladderStowBox;
+        public StowPoint[] stowPoints = System.Array.Empty<StowPoint>();
+        [Tooltip("Socket_Exit_Cargo_L: troop seats L1/L2 get out here past a stowed ladder")] public Transform exitCargoL;
+        [Tooltip("Rings the stowed ladder covers or strap (model_facts.json)")] public TieDownSocket[] ladderRings = System.Array.Empty<TieDownSocket>();
+        [Tooltip("Ring half covered by the jerry can in its holder (Socket_TieDown_13)")] public TieDownSocket jerryCanRing;
+        [Tooltip("s for a troop seat to fold or unfold (presentation, TEMPORARY)")] public float paxFoldTime = 0.5f;
+
         readonly NetworkVariable<PlaneSwitchState> _switches = new NetworkVariable<PlaneSwitchState>(PlaneSwitchState.ColdAndDark,
             NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
         readonly NetworkVariable<PlaneTelemetry> _telemetry = new NetworkVariable<PlaneTelemetry>(default,
@@ -36,6 +50,11 @@ namespace Snow.Aircraft
         AircraftSystems _systems;
         FlightInstruments _instruments;
         CabinClimate _climate;
+        PlaneWinterKitNet _kitNet;
+        bool _held;                                    // И4: the kit holds the parked aircraft (anchor spring)
+        Vector3 _holdPos;
+        float _holdYaw;
+        readonly Dictionary<ulong, bool> _pours = new Dictionary<ulong, bool>();   // client → left tank (jerry can)
         Autopilot _ap;
         float _elev, _ail, _rud, _flap;
         int _flapDirection = 1;
@@ -46,6 +65,7 @@ namespace Snow.Aircraft
         float _appliedMass = -1f;
         int _appliedOccupants = -1;
         readonly Collider[] _bayHits = new Collider[48];
+        readonly Collider[] _boxHits = new Collider[32];
 
         static readonly Dictionary<string, PlaneSwitch> Toggles = new Dictionary<string, PlaneSwitch>
         {
@@ -72,6 +92,7 @@ namespace Snow.Aircraft
         protected override void Awake()
         {
             base.Awake();
+            _kitNet = GetComponent<PlaneWinterKitNet>();
             foreach (NetworkDoor d in Doors())
                 if (d != null) d.PowerSource = () => _systems != null && _systems.Electrics.BusPowered;
         }
@@ -136,7 +157,9 @@ namespace Snow.Aircraft
             _ail = Mathf.MoveTowards(_ail, rollIn * t.aileronDeg, rate);
             _rud = Mathf.MoveTowards(_rud, c.Yaw * t.rudderDeg, rate);
             // flaps are electric: they stop without power and draw current while moving
-            float flapTarget = t.flapDetents[Mathf.Clamp(s.FlapLever, 0, t.flapDetents.Length - 1)];
+            bool wingCover = _kitNet != null && (_kitNet.WingCoverL || _kitNet.WingCoverR);
+            if (wingCover) _ail = Mathf.MoveTowards(_ail, 0f, rate);          // И4 K4.3: held in neutral under a wing cover
+            float flapTarget = wingCover ? 0f : t.flapDetents[Mathf.Clamp(s.FlapLever, 0, t.flapDetents.Length - 1)];
             bool flapsMoving = _systems.Electrics.BusPowered && Mathf.Abs(_flap - flapTarget) > 0.01f;
             if (flapsMoving) _flap = Mathf.MoveTowards(_flap, flapTarget, t.flapRate * dt);
 
@@ -144,6 +167,7 @@ namespace Snow.Aircraft
             {
                 _nextLooseCheck = Time.time + 0.25f;
                 _cargoLoose = CargoLooseInBay();
+                UpdateBayStowage();
             }
             int doorsRunning = 0;
             foreach (NetworkDoor d in Doors()) if (d != null && d.ActuatorRunning) doorsRunning++;
@@ -167,10 +191,13 @@ namespace Snow.Aircraft
                 CargoDoorOpen = NotClosed(cargoDoorL) || NotClosed(cargoDoorR),
                 CargoLoose = _cargoLoose,
                 BeltWarning = belt,
+                Heater = _kitNet != null && _kitNet.Preheating,
+                Insulated = _kitNet != null && _kitNet.Insulated,
             }, dt);
 
             // toe brakes split by the pedals (a full right pedal brakes only the right wheel); parking brake on both
-            float park = s.On(PlaneSwitch.ParkBrake) ? 1f : 0f;
+            bool moveBlocked = _kitNet != null && _kitNet.MoveBlocked;
+            float park = s.On(PlaneSwitch.ParkBrake) || moveBlocked ? 1f : 0f;   // И4: chocks, tie-downs, heater duct
             TurbopropEngine e = _systems.Engine;
             physics.Step(new AircraftPhysics.Inputs
             {
@@ -179,7 +206,10 @@ namespace Snow.Aircraft
                 BrakeLeft = Mathf.Max(park, c.Brake * Mathf.Clamp01(1f - c.Yaw)),
                 BrakeRight = Mathf.Max(park, c.Brake * Mathf.Clamp01(1f + c.Yaw)),
                 ThrustN = e.ThrustN, ShaftTorqueNm = e.TorqueNm, PropOmega = e.PropOmega,
+                WingCoverL = _kitNet != null && _kitNet.WingCoverL, WingCoverR = _kitNet != null && _kitNet.WingCoverR,
             }, dt);
+            HoldParked(moveBlocked && physics.Last.OnGround);
+            Pour(dt);
 
             UpdateMass(false);
             _climate.Step(oat, PeopleAboard(), e.Combusting, s.On(PlaneSwitch.Defrost) ? 1f : 0f, s.On(PlaneSwitch.CabinHeat) ? 1f : 0f, dt);
@@ -195,6 +225,71 @@ namespace Snow.Aircraft
         }
 
         static bool NotClosed(NetworkDoor d) => d != null && d.State != DoorState.Closed;
+
+        /// <summary>
+        /// И4 K4.3 MoveBlocked (ENGINEERING): chocks, tie-downs or the heater duct hold the parked aircraft. Brakes are full,
+        /// and a stiff horizontal spring-damper at the centre of mass plus one about the vertical keep it where it was when
+        /// it got blocked: thrust does not push it off, the struts still work.
+        /// </summary>
+        void HoldParked(bool hold)
+        {
+            if (!hold) { _held = false; return; }
+            if (!_held) { _held = true; _holdPos = Body.worldCenterOfMass; _holdYaw = transform.eulerAngles.y; }
+            AircraftTuning t = tuning;
+            Vector3 d = Body.worldCenterOfMass - _holdPos; d.y = 0f;
+            Vector3 v = Body.linearVelocity; v.y = 0f;
+            Body.AddForce(-t.holdSpring * d - t.holdDamper * v, ForceMode.Force);
+            float yaw = Mathf.DeltaAngle(_holdYaw, transform.eulerAngles.y) * Mathf.Deg2Rad;
+            Body.AddTorque(Vector3.up * (-t.holdYawSpring * yaw - t.holdYawDamper * Body.angularVelocity.y), ForceMode.Force);
+        }
+
+        /// <summary>
+        /// И4 K4.5 (§9.6, M7): from the step ladder, the cap open, the jerry can in hand: fuel runs into that tank at
+        /// jerryPourLpm (TEMPORARY) while the use button is held; the can gets lighter.
+        /// </summary>
+        bool ServerStartPour(ulong client, string id, out string reason)
+        {
+            reason = null;
+            bool left = id.EndsWith("_L");
+            CargoItem held = CargoItem.HeldBy(client);
+            if (held == null || !held.TryGetComponent(out KitCarry can) || !can.IsJerryCan) return false;   // not pouring: the cap toggles
+            if (!_switches.Value.On(left ? PlaneSwitch.FuelCapL : PlaneSwitch.FuelCapR)) { reason = "Сначала откройте крышку бака"; return true; }
+            if (can.FuelLitres <= 0f) { reason = "Канистра пуста"; return true; }
+            if (!OnLadder(client)) { reason = "Нужна стремянка"; return true; }
+            _pours[client] = left;
+            BenchLog.Event("pour_start", "client", client, "left", left, "can", can.FuelLitres);
+            return true;
+        }
+
+        // the player stands on a step ladder (its platform or a tread) — the server's own check, owner movement is trusted (§11.3)
+        bool OnLadder(ulong client)
+        {
+            if (!NetworkManager.ConnectedClients.TryGetValue(client, out var c) || c.PlayerObject == null) return false;
+            Vector3 feet = c.PlayerObject.transform.position;
+            foreach (var h in Physics.RaycastAll(feet + Vector3.up * 0.1f, Vector3.down, 0.4f, ~0, QueryTriggerInteraction.Ignore))
+                if (h.collider.GetComponentInParent<StepLadderItem>() != null) return true;
+            return false;
+        }
+
+        void Pour(float dt)
+        {
+            if (_pours.Count == 0) return;
+            List<ulong> stop = null;
+            foreach (var kv in _pours)
+            {
+                CargoItem held = CargoItem.HeldBy(kv.Key);
+                bool cap = _switches.Value.On(kv.Value ? PlaneSwitch.FuelCapL : PlaneSwitch.FuelCapR);
+                if (held == null || !held.TryGetComponent(out KitCarry can) || !can.IsJerryCan || can.FuelLitres <= 0f || !cap)
+                {
+                    (stop ??= new List<ulong>()).Add(kv.Key);
+                    continue;
+                }
+                float taken = _systems.Fuel.Add(kv.Value, Mathf.Min(can.FuelLitres, tuning.jerryPourLpm / 60f * dt));
+                can.ServerSetFuel(can.FuelLitres - taken);
+                if (taken <= 0f) (stop ??= new List<ulong>()).Add(kv.Key);
+            }
+            if (stop != null) foreach (var c in stop) { _pours.Remove(c); BenchLog.Event("pour_stop", "client", c); }
+        }
 
         /// <summary>Server: people breathing in the cabin and bay (glass fog): seated ones and players standing inside.</summary>
         int PeopleAboard()
@@ -326,7 +421,7 @@ namespace Snow.Aircraft
                 Elevator = _elev, Aileron = _ail, Rudder = _rud, Flap = _flap, TailSteer = Controls.Yaw * tuning.tailSteerDeg,
                 GearL = o.GearL, GearR = o.GearR, GearT = o.GearT, WheelMain = o.WheelMain, WheelTail = o.WheelTail,
                 PropRpm = e.PropRpm,
-                IasKt = _instruments.IasKt, AltFt = _instruments.AltFt, VsiFpm = _instruments.VsiFpm,
+                IasKt = _kitNet != null && _kitNet.AirspeedBlocked ? 0f : _instruments.IasKt, AltFt = _instruments.AltFt, VsiFpm = _instruments.VsiFpm,
                 PitchDeg = _instruments.PitchDeg, BankDeg = _instruments.BankDeg, HeadingDeg = _instruments.HeadingDeg,
                 TurnRate = _instruments.TurnRate, Slip = _instruments.Slip,
                 // electric gauges read zero without bus power (§9.5)
@@ -357,6 +452,17 @@ namespace Snow.Aircraft
         {
             reason = null;
             PlaneSwitchState s = _switches.Value;
+            if (_kitNet != null && PlaneWinterKitNet.IsKitId(id)) return _kitNet.ServerUse(clientId, id, phase, out reason);   // И4
+            if (id.StartsWith("Socket_FuelCap_", System.StringComparison.Ordinal))
+            {
+                if (phase == UsePhase.Release) { _pours.Remove(clientId); return true; }
+                if (phase == UsePhase.Press && ServerStartPour(clientId, id, out reason)) return reason == null;
+            }
+            if (id == "SW_Starter" && phase == UsePhase.Press && _kitNet != null && _kitNet.StartBlocked)
+            {
+                reason = _kitNet.StartBlockText();                           // И4 K4.3: plugs, engine cover or heater on
+                return false;
+            }
 
             // momentary controls: held while pressed
             if (id == "SW_Starter" || id == "Btn_AnnunTest")
@@ -375,7 +481,14 @@ namespace Snow.Aircraft
             if (phase != UsePhase.Press) return true;
 
             int seat = SeatIndex(id);
-            if (seat >= 0) return ServerSit(clientId, seat, out reason);
+            if (seat >= 0)
+            {
+                int pax = PaxIndex(id);
+                if (pax >= 0 && !s.PaxDown(pax)) { reason = "Кресло сложено"; return false; }
+                return ServerSit(clientId, seat, out reason);
+            }
+            if (id.StartsWith("PaxSeatFold_", System.StringComparison.Ordinal)) return ServerPaxFold(clientId, PaxIndex(id.Replace("PaxSeatFold_", "PaxSeat_")), out reason);
+            if (id.StartsWith("Stow_", System.StringComparison.Ordinal)) return ServerStowUse(clientId, id, out reason);
 
             if (Toggles.TryGetValue(id, out PlaneSwitch toggle))
             {
@@ -455,9 +568,120 @@ namespace Snow.Aircraft
         /// </summary>
         public override bool ZoneOpen(UtilityPlane.UtilityPlaneInteractable zone, CargoItem held)
         {
-            if (zone.kind == "stow") return false;
-            if (zone.kind == "seat" && zone.id.StartsWith("PaxSeat_")) return false;
+            if (zone.kind == "stow") return StowFor(zone.id, held, out _) != null;
+            if (zone.kind == "kit") return _kitNet != null && _kitNet.ZoneOpen(zone.id, held);
+            if (zone.kind == "seat") { int i = PaxIndex(zone.id); return i < 0 || Switches.PaxDown(i); }
             return true;
+        }
+
+        // ================================================================ cargo bay: troop seats, stowage (И3)
+        static int PaxIndex(string id) => System.Array.IndexOf(UtilityPlane.UtilityPlaneRig.PaxSeatNames, id);
+
+        /// <summary>The stow point of a Stow_* zone that takes this held item now, or null (with the reason).</summary>
+        StowPoint StowFor(string zoneId, CargoItem held, out string reason)
+        {
+            reason = "Сюда это не кладётся";
+            if (held == null) return null;
+            foreach (var p in stowPoints)
+            {
+                if (p == null || p.ZoneId != zoneId) continue;
+                if (p.accepts != held.itemKey) return null;
+                if (p.Occupant != null || (held.State == CargoState.Stowed && held.Stow != p)) { reason = "Место занято"; return null; }
+                if (p.stowId == "Ladder" && (Switches.PaxDown(1) || Switches.PaxDown(3))) { reason = "Сначала сложите кресла 2 и 4"; return null; }
+                reason = null;
+                return p;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Server, И3 L.3: the player carries a fitting item and uses the zone: it goes onto the stow point. The ladder also
+        /// needs its floor free of cargo and seats R1/R2 folded (L.5).
+        /// </summary>
+        bool ServerStowUse(ulong client, string zoneId, out string reason)
+        {
+            CargoItem held = CargoItem.HeldBy(client);
+            StowPoint p = StowFor(zoneId, held, out reason);
+            if (p == null) return false;
+            if (p.stowId == "Ladder" && BoxHasCargo(ladderStowBox, held, out string what)) { reason = "Мешает " + what; return false; }
+            if (!held.ServerStow(client, p, out reason)) return false;
+            UpdateBayStowage();
+            return true;
+        }
+
+        /// <summary>
+        /// Server, И3 K.3: fold or unfold a troop seat. Only an empty seat; R1/R2 not while the ladder is stowed; down only
+        /// if its pan and leg in the down pose would not hit cargo or a player.
+        /// </summary>
+        bool ServerPaxFold(ulong client, int i, out string reason)
+        {
+            reason = null;
+            if (i < 0) { reason = "Нет действия"; return false; }
+            PlaneSwitchState s = _switches.Value;
+            int seat = SeatIndex(UtilityPlane.UtilityPlaneRig.PaxSeatNames[i]);
+            if (seat >= 0 && OccupantOf(seat) != SeatRegistry.Empty) { reason = "Кресло занято"; return false; }
+            bool down = !s.PaxDown(i);
+            if (down && (i == 1 || i == 3) && s.LadderStowed) { reason = "Мешает стремянка"; return false; }
+            if (down)
+                foreach (var b in paxDownBoxes)
+                    if (b.seat == i && BoxHasCargo(b, null, out string what)) { reason = "Мешает " + what; return false; }
+            s.PaxSeats = (byte)(down ? s.PaxSeats | (1 << i) : s.PaxSeats & ~(1 << i));
+            SetSwitches(s, "PaxSeatFold_" + i, client);
+            return true;
+        }
+
+        /// <summary>Server: does a box (prefab space) overlap loose cargo or a player? Stowed items are in their places.</summary>
+        bool BoxHasCargo(BoxPose b, CargoItem except, out string what)
+        {
+            what = null;
+            int mask = ~(1 << LayerMask.NameToLayer("Interact"));
+            int n = Physics.OverlapBoxNonAlloc(transform.TransformPoint(b.center), b.half, _boxHits, transform.rotation * b.rotation, mask, QueryTriggerInteraction.Ignore);
+            for (int k = 0; k < n; k++)
+            {
+                Collider c = _boxHits[k];
+                if (c is CharacterController) { what = "игрок"; return true; }
+                var item = c.GetComponentInParent<CargoItem>();
+                if (item == null || item == except || item.State == CargoState.Stowed) continue;
+                what = "груз";
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>Server: LadderStowed and the covered rings follow the stow points (a ladder taken out by grab frees them).</summary>
+        void UpdateBayStowage()
+        {
+            PlaneSwitchState s = _switches.Value;
+            bool ladder = false, jerry = false;
+            foreach (var p in stowPoints)
+            {
+                if (p == null || p.Occupant == null) continue;
+                if (p.stowId == "Ladder") ladder = true;
+                if (p.stowId == "JerryCan") jerry = true;
+            }
+            foreach (var r in ladderRings) if (r != null) r.Blocked = ladder ? "Кольцо под стремянкой" : null;
+            if (jerryCanRing != null) jerryCanRing.Blocked = jerry ? "Кольцо под канистрой" : null;
+            if (s.LadderStowed == ladder) return;
+            s.LadderStowed = ladder;
+            SetSwitches(s, "ladder_stowed", 0);
+        }
+
+        /// <summary>
+        /// Server, И3 K.7–K.8: troop seats get up inside. TEMPORARY: not while the aircraft moves (ground speed ≥ 0.5 m/s,
+        /// walking in a moving aircraft is DEFERRED). With the ladder stowed, L1/L2 get out through the open left cargo door.
+        /// </summary>
+        protected override bool ServerInsideExit(ulong client, SeatAnchor a, out Vector3 feet, out string reason)
+        {
+            feet = a.exit.position;
+            if (Telemetry.GroundSpeed >= 0.5f) { reason = "Самолёт движется"; return false; }
+            if (Switches.LadderStowed && (a.seatId == "PaxSeat_L1" || a.seatId == "PaxSeat_L2"))
+            {
+                if (cargoDoorL == null || cargoDoorL.State != DoorState.Open) { reason = "Мешает стремянка: откройте левую грузовую дверь"; return false; }
+                if (exitCargoL != null && FindExitAt(exitCargoL, out feet)) { reason = null; return true; }
+                reason = "Нет места для выхода у левой грузовой двери";
+                return false;
+            }
+            return base.ServerInsideExit(client, a, out feet, out reason);
         }
 
         /// <summary>
@@ -563,8 +787,11 @@ namespace Snow.Aircraft
         // ================================================================ hover hints (any peer, replicated state)
         public override string Describe(string id)
         {
+            if (_kitNet != null && _kitNet.Kit != null && System.Enum.TryParse(id, out UtilityPlane.KitItem kitItem))
+                return _kitNet.Kit.IsInstalled(kitItem) ? "стоит" : "снято";
             int seat = SeatIndex(id);
             if (seat >= 0) return SeatText(seat);
+            if (id.StartsWith("PaxSeatFold_")) return Switches.PaxDown(PaxIndex(id.Replace("PaxSeatFold_", "PaxSeat_"))) ? "опущено" : "сложено";
             PlaneSwitchState s = _switches.Value;
             if (Toggles.TryGetValue(id, out PlaneSwitch t))
             {
@@ -610,9 +837,15 @@ namespace Snow.Aircraft
             return null;
         }
 
+        public override float HoldSeconds(string id) => _kitNet != null ? _kitNet.HoldSeconds(id) : 0f;
+
         public override string ActionText(string id)
         {
-            if (SeatIndex(id) >= 0) return "сесть";
+            if (_kitNet != null && PlaneWinterKitNet.IsKitId(id))
+                return _kitNet.Kit != null && System.Enum.TryParse(id, out UtilityPlane.KitItem ki) && _kitNet.Kit.IsInstalled(ki) ? "снять (держать)" : "установить (держать)";
+            if (SeatIndex(id) >= 0) return PaxIndex(id) >= 0 && !Switches.PaxDown(PaxIndex(id)) ? "сложено" : "сесть";
+            if (id.StartsWith("PaxSeatFold_")) return Switches.PaxDown(PaxIndex(id.Replace("PaxSeatFold_", "PaxSeat_"))) ? "сложить" : "опустить";
+            if (id.StartsWith("Stow_")) return "положить на место";
             PlaneSwitchState s = _switches.Value;
             if (Toggles.TryGetValue(id, out PlaneSwitch t))
             {

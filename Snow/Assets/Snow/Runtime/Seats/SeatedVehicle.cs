@@ -93,7 +93,11 @@ namespace Snow.Seats
             SeatAnchor a = seats[s];
             if (a.exitDoor != null && a.exitDoor.State != DoorState.Open) { reason = "Дверь закрыта"; return false; }
             yaw = a.exit.eulerAngles.y;
-            if (!FindExit(a, out position))
+            if (a.inside)
+            {
+                if (!ServerInsideExit(client, a, out position, out reason)) return false;
+            }
+            else if (!FindExit(a, out position))
             {
                 reason = "Нет места для выхода: снаружи у двери препятствие";
                 return false;
@@ -118,23 +122,63 @@ namespace Snow.Seats
         /// socket (the vehicle's own colliders ignored), and if that spot is taken, spots further out from the side.
         /// In flight there is no ground within reach: the socket itself (SEAT-02: out at once, keeping the speed).
         /// </summary>
-        bool FindExit(SeatAnchor a, out Vector3 feet)
+        bool FindExit(SeatAnchor a, out Vector3 feet) => FindExitAt(a.exit, out feet);
+
+        /// <summary>Server: free standing place on the ground at an exit socket of the vehicle, stepping outwards.</summary>
+        protected bool FindExitAt(Transform exit, out Vector3 feet)
         {
-            Vector3 socket = a.exit.position;
+            Vector3 socket = exit.position;
             Vector3 outward = socket - transform.position;
             outward.y = 0f;
-            outward = outward.sqrMagnitude > 1e-4f ? outward.normalized : -a.exit.right;
+            outward = outward.sqrMagnitude > 1e-4f ? outward.normalized : -exit.right;
             foreach (float step in ExitSteps)
             {
                 feet = OnGround(socket + outward * step);
                 if (ExitClear(feet)) return true;
             }
             feet = socket;
-            BenchLog.Event("exit_blocked", "seat", a.seatId, "socket", socket);
+            BenchLog.Event("exit_blocked", "exit", exit.name, "socket", socket);
             return false;
         }
 
         static readonly float[] ExitSteps = { 0f, 0.35f, 0.7f, 1.1f };
+
+        /// <summary>
+        /// Server, И3 K.7: getting up from a seat inside (troop seats of the bay): feet on the floor at the seat's exit
+        /// point; the crouched capsule (0.90 m) must be free of everything but the player himself; if it is taken, the other
+        /// pair's exit point; else "Проход занят". Vehicles add their own rules (moving, a ladder over the floor).
+        /// </summary>
+        protected virtual bool ServerInsideExit(ulong client, SeatAnchor a, out Vector3 feet, out string reason)
+        {
+            reason = null;
+            Transform player = NetworkManager.ConnectedClients.TryGetValue(client, out var cc) && cc.PlayerObject != null ? cc.PlayerObject.transform : null;
+            foreach (Transform p in new[] { a.exit, a.altExit })
+            {
+                if (p == null) continue;
+                feet = p.position + Vector3.up * 0.02f;
+                if (CrouchFree(feet, player)) return true;
+            }
+            feet = a.exit.position;
+            reason = "Проход занят";
+            BenchLog.Event("exit_blocked", "seat", a.seatId, "inside", true);
+            return false;
+        }
+
+        readonly Collider[] _exitHits = new Collider[16];
+
+        /// <summary>Server: the crouched capsule at these feet touches nothing solid but the given player.</summary>
+        protected bool CrouchFree(Vector3 feet, Transform ignore)
+        {
+            var t = new MovementTuning();
+            float r = t.radius;
+            int mask = ~(1 << LayerMask.NameToLayer("Interact"));
+            Vector3 a = feet + Vector3.up * (HLCharacterMotor.SkinWidth + r + 0.02f);
+            Vector3 b = feet + Vector3.up * (HLCharacterMotor.SkinWidth + t.crouchHeight - r);
+            int n = Physics.OverlapCapsuleNonAlloc(a, b, r, _exitHits, mask, QueryTriggerInteraction.Ignore);
+            for (int i = 0; i < n; i++)
+                if (ignore == null || !_exitHits[i].transform.IsChildOf(ignore)) return false;
+            return true;
+        }
 
         Vector3 OnGround(Vector3 p)
         {

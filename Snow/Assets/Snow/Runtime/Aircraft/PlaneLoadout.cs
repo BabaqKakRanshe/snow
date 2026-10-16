@@ -15,6 +15,7 @@ namespace Snow.Aircraft
     ///  - Ground: on the ground at a socket of the plane plus a plane-space offset, upright, heading = plane heading + yaw;
     ///    the height from a ray down that ignores the plane itself.
     ///  - HostPocket: the key goes straight into the host player's pocket (TEMPORARY start of a level, §8.3).
+    ///  - Stow: on a stow point of the plane (socket = stowId), held there like a stowed item (И3 L).
     /// Late joiners get the items as ordinary network objects; nothing is spawned twice.
     /// </summary>
     public class PlaneLoadout : NetworkBehaviour
@@ -25,6 +26,8 @@ namespace Snow.Aircraft
             Ground,
             /// <summary>The key (PlaneKey) in the host's pocket at the start (И2 TEMPORARY, §8.3).</summary>
             HostPocket,
+            /// <summary>On a stow point of the plane (И3 L; socket = stowId, e.g. Flashlight).</summary>
+            Stow,
         }
 
         [Serializable]
@@ -36,6 +39,9 @@ namespace Snow.Aircraft
             [Tooltip("deg about up, added to the plane's heading")] public float yaw;
             [Tooltip("Ground: socket of the plane the offset starts from")] public string socket;
             [Tooltip("Bay: name of an item spawned earlier in this list to stand on")] public string stackOn;
+            [Tooltip("Winter-kit carry forms (KitCarry): set the bag's sets and the can's litres at spawn")] public bool setKit;
+            public int kitSets;
+            public float kitFuelLitres;
         }
 
         public Entry[] items = Array.Empty<Entry>();
@@ -72,6 +78,12 @@ namespace Snow.Aircraft
                 rot = transform.rotation * Quaternion.Euler(0f, e.yaw, 0f);
                 if (!string.IsNullOrEmpty(e.stackOn) && _tops.TryGetValue(e.stackOn, out float top)) pos.y = top + 0.005f;
             }
+            else if (e.place == Place.Stow)
+            {
+                Snow.Cargo.StowPoint p = FindStow(e.socket);
+                pos = p != null ? p.transform.position : transform.position;
+                rot = p != null ? p.transform.rotation : transform.rotation;
+            }
             else if (e.place == Place.HostPocket)
             {
                 pos = transform.position + Vector3.up * 1.5f;
@@ -90,8 +102,19 @@ namespace Snow.Aircraft
             no.Spawn();
             Spawned[go.name] = no;
             if (e.place == Place.HostPocket && go.TryGetComponent(out PlaneKey key)) key.ServerPocket(NetworkManager.ServerClientId, out _);
+            if (e.setKit && go.TryGetComponent(out KitCarry kit)) { kit.ServerSetSets(e.kitSets); kit.ServerSetFuel(e.kitFuelLitres); }
+            if (e.place == Place.Stow && go.TryGetComponent(out Snow.Cargo.CargoItem item) && FindStow(e.socket) is Snow.Cargo.StowPoint point)
+                item.ServerStow(NetworkManager.ServerClientId, point, out _);
             _tops[go.name] = pos.y + Height(e.prefab);
             BenchLog.Event("loadout_spawn", "item", go.name, "place", e.place.ToString(), "p", pos);
+        }
+
+        Snow.Cargo.StowPoint FindStow(string stowId)
+        {
+            foreach (var p in GetComponentsInChildren<Snow.Cargo.StowPoint>(true))
+                if (p.stowId == stowId) return p;
+            Debug.LogWarning($"[Snow] PlaneLoadout: stow point {stowId} not found on {name}");
+            return null;
         }
 
         Transform Find(string name)

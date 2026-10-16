@@ -159,7 +159,10 @@ namespace Snow.Doors
         {
             if (vehicleRoot == null) return false;
             if (c.transform.IsChildOf(vehicleRoot)) return true;
-            return c.attachedRigidbody != null && c.attachedRigidbody.transform == vehicleRoot;
+            if (c.attachedRigidbody != null && c.attachedRigidbody.transform == vehicleRoot) return true;
+            // an item on one of this vehicle's stow points (the flashlight on the pilot door) is part of it (И3 L.4)
+            var item = c.GetComponentInParent<Snow.Cargo.CargoItem>();
+            return item != null && item.State == Snow.Cargo.CargoState.Stowed && item.Stow != null && item.Stow.transform.IsChildOf(vehicleRoot);
         }
 
         static Bounds LocalBounds(Collider c)

@@ -47,7 +47,7 @@ namespace Snow.Aircraft
         /// rotation and propeller wash), body axes, m/s. deflectionDown: control surface, rad, trailing edge towards
         /// -Normal = more lift. alphaOffset: downwash, rad. groundPhi: ground-effect factor on induced drag, 1 = none.
         /// </summary>
-        public Vector3 Force(Vector3 vRel, float rho, float deflectionDown, float alphaOffset, float groundPhi, float dt)
+        public Vector3 Force(Vector3 vRel, float rho, float deflectionDown, float alphaOffset, float groundPhi, float dt, float liftScale = 1f)
         {
             Vector3 v = vRel - Span * Vector3.Dot(vRel, Span);      // spanwise flow makes no lift
             float v2 = v.sqrMagnitude;
@@ -64,7 +64,7 @@ namespace Snow.Aircraft
             // lift is perpendicular to the (downwash-turned) flow in the chord-normal plane, drag along it
             Vector3 liftDir = Normal * Mathf.Cos(alpha) + Chord * Mathf.Sin(alpha);
             Vector3 flowDir = Chord * Mathf.Cos(alpha) - Normal * Mathf.Sin(alpha);
-            return q * (LastCl * liftDir - LastCd * flowDir);
+            return q * (LastCl * liftScale * liftDir - LastCd * flowDir);   // liftScale 0: a wing cover on (И4 K4.3)
         }
 
         /// <summary>Coefficients at an angle of attack; advances the separation state by dt. Public for EditMode tests.</summary>

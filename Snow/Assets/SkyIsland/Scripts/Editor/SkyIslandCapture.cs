@@ -1,19 +1,23 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SkyIsland.EditorTools
 {
     public static partial class SkyIslandBuilder
     {
         const int CaptureW = 1280, CaptureH = 720;
+        const string CaptureFolderName = "SkyIslandCaptures";
 
         /// <summary>
         /// Renders every SkyIslandViewpoint of the open scene with the main camera (post-processing included) at 1280x720,
-        /// saves PNGs to &lt;project&gt;/SkyIslandCaptures and writes report.txt comparing them with the preview renders.
+        /// saves PNGs and writes report.txt comparing them with the preview renders. Sky Island goes to
+        /// &lt;project&gt;/SkyIslandCaptures (as in v1), any other location scene to &lt;project&gt;/SkyIslandCaptures/&lt;Id&gt;.
         /// </summary>
         [MenuItem(Menu + "Capture Viewpoints (compare with previews)", priority = 30)]
         public static void CaptureViewpoints()
@@ -32,14 +36,67 @@ namespace SkyIsland.EditorTools
                 }
             }
             if (views.Length == 0) { Debug.LogError("[SkyIsland] No SkyIslandViewpoint objects found (run Build Scene first)."); return; }
-            var cam = Camera.main;
-            if (cam == null) { Debug.LogError("[SkyIsland] No camera tagged MainCamera in the open scene."); return; }
-            System.Array.Sort(views, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
+            string id = OpenLocationId();   // null for Sky Island / scenes that are not a location
+            string legacyRoot = null;
+            try { legacyRoot = FindRoot(); } catch { /* previews comparison is optional */ }
+            CaptureViews(views, CaptureFolder(id), legacyRoot);
+        }
 
-            string folder = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "SkyIslandCaptures"));
+        /// <summary>Batch mode: -executeMethod SkyIsland.EditorTools.SkyIslandBuilder.CaptureLocationFromCommandLine -location &lt;Id&gt;
+        /// opens &lt;root&gt;/Scenes/&lt;Id&gt;.unity and captures into &lt;project&gt;/SkyIslandCaptures/&lt;Id&gt;.</summary>
+        public static void CaptureLocationFromCommandLine()
+        {
+            string id = CommandLineLocation();
+            string root = FindLocationRoot(id);
+            if (!CaptureLocationAt(root, id)) throw new Exception($"[SkyIsland] capturing location '{id}' failed (see the log above).");
+        }
+
+        /// <summary>Opens the location's scene (asks to save the current one when interactive) and captures every viewpoint
+        /// into &lt;project&gt;/SkyIslandCaptures/&lt;Id&gt;.</summary>
+        public static bool CaptureLocationAt(string root, string id)
+        {
+            string scenePath = LocationScenePath(root, id);
+            if (!File.Exists(Path.Combine(Application.dataPath, "..", scenePath)))
+            {
+                Debug.LogError($"[SkyIsland] {scenePath} not found: build {id} first.");
+                return false;
+            }
+            if (EditorSceneManager.GetActiveScene().path != scenePath)
+            {
+                if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return false;
+                EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+            }
+            var views = FindViewpoints();
+            if (views.Length == 0) { Debug.LogError($"[SkyIsland] {scenePath} has no SkyIslandViewpoint objects."); return false; }
+            return CaptureViews(views, CaptureFolder(id), root) > 0;
+        }
+
+        /// <summary>&lt;project&gt;/SkyIslandCaptures, or its &lt;id&gt; sub folder.</summary>
+        static string CaptureFolder(string id)
+        {
+            string folder = Path.GetFullPath(Path.Combine(Application.dataPath, "..", CaptureFolderName));
+            return string.IsNullOrEmpty(id) ? folder : Path.Combine(folder, id);
+        }
+
+        /// <summary>Preview image of a viewpoint (absolute path) or null: previewPath (set by the builder), else
+        /// &lt;fallbackRoot&gt;/Previews/previewImage (v1 scenes).</summary>
+        static string PreviewFile(SkyIsland.SkyIslandViewpoint v, string fallbackRoot)
+        {
+            string asset = null;
+            if (!string.IsNullOrEmpty(v.previewPath)) asset = v.previewPath;
+            else if (fallbackRoot != null && !string.IsNullOrEmpty(v.previewImage)) asset = fallbackRoot + "/Previews/" + v.previewImage;
+            if (asset == null) return null;
+            string full = Path.GetFullPath(Path.Combine(Application.dataPath, "..", asset));
+            return File.Exists(full) ? full : null;
+        }
+
+        /// <summary>Renders the viewpoints into folder (PNG + report.txt). Returns the number of captured views.</summary>
+        static int CaptureViews(SkyIsland.SkyIslandViewpoint[] views, string folder, string fallbackRoot)
+        {
+            var cam = Camera.main;
+            if (cam == null) { Debug.LogError("[SkyIsland] No camera tagged MainCamera in the open scene."); return 0; }
+            Array.Sort(views, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
             Directory.CreateDirectory(folder);
-            string root = null;
-            try { root = FindRoot(); } catch { /* previews comparison is optional */ }
 
             var fog = cam.GetComponent<SkyIsland.SkyIslandFogByAltitude>();
             var t = cam.transform;
@@ -70,17 +127,14 @@ namespace SkyIsland.EditorTools
                     File.WriteAllBytes(Path.Combine(folder, baseName + "_unity.png"), tex.EncodeToPNG());
 
                     string line = v.name + ";" + Stats(tex, out var capL);
-                    if (root != null && !string.IsNullOrEmpty(v.previewImage))
+                    string pp = PreviewFile(v, fallbackRoot);
+                    if (pp != null)
                     {
-                        string pp = Path.GetFullPath(Path.Combine(Application.dataPath, "..", root, "Previews", v.previewImage));
-                        if (File.Exists(pp))
-                        {
-                            var pv = new Texture2D(2, 2, TextureFormat.RGB24, false, false);
-                            pv.LoadImage(File.ReadAllBytes(pp));
-                            string ps = Stats(pv, out var prvL);
-                            line += ";" + ps + ";" + (capL - prvL).ToString("+0.000;-0.000");
-                            Object.DestroyImmediate(pv);
-                        }
+                        var pv = new Texture2D(2, 2, TextureFormat.RGB24, false, false);
+                        pv.LoadImage(File.ReadAllBytes(pp));
+                        string ps = Stats(pv, out var prvL);
+                        line += ";" + ps + ";" + (capL - prvL).ToString("+0.000;-0.000");
+                        Object.DestroyImmediate(pv);
                     }
                     report.AppendLine(line);
                 }
@@ -98,6 +152,7 @@ namespace SkyIsland.EditorTools
             File.WriteAllText(Path.Combine(folder, "report.txt"), report.ToString());
             Debug.Log($"[SkyIsland] {views.Length} viewpoints captured to {folder} (see report.txt: L = OKLab lightness 0..1, compare with the preview renders).");
             if (!Application.isBatchMode) EditorUtility.RevealInFinder(Path.Combine(folder, "report.txt"));
+            return views.Length;
         }
 
         static SkyIsland.SkyIslandViewpoint[] FindViewpoints()

@@ -19,6 +19,7 @@ namespace SkyIsland.EditorTools
             bool glowWarned = false;
             foreach (var s in ctx.materials.materials)
             {
+                if (s == null || string.IsNullOrEmpty(s.name)) continue;
                 string path = $"{ctx.MatFolder}/{s.name}.mat";
                 bool glow = s.type == "glow";
                 if (glow && ctx.pipe == Pipe.HDRP)
@@ -44,6 +45,7 @@ namespace SkyIsland.EditorTools
                     mat.shader = sh;
                 }
                 if (glow) SetupGlow(ctx, mat, s);
+                else if (s.type == "interior" && ctx.pipe != Pipe.HDRP) SetupInterior(ctx, mat, s);
                 else
                 {
                     switch (ctx.pipe)
@@ -66,6 +68,7 @@ namespace SkyIsland.EditorTools
             var result = new Dictionary<string, Material>();
             foreach (var s in ctx.materials.materials)
             {
+                if (s == null || string.IsNullOrEmpty(s.name)) continue;
                 var m = AssetDatabase.LoadAssetAtPath<Material>($"{ctx.MatFolder}/{s.name}.mat");
                 if (m != null) result[s.name] = m;
             }
@@ -76,6 +79,7 @@ namespace SkyIsland.EditorTools
         static Shader PickShader(Pipe pipe, MatSpec s)
         {
             if (s.type == "glow") return Shader.Find("SkyIsland/LightGlow");
+            if (s.type == "interior" && pipe != Pipe.HDRP) return Shader.Find("SkyIsland/InteriorWindow");
             switch (pipe)
             {
                 case Pipe.URP: return Shader.Find("Universal Render Pipeline/Lit");
@@ -110,8 +114,37 @@ namespace SkyIsland.EditorTools
             float k = ctx.look != null && ctx.look.emissionScale > 0f ? ctx.look.emissionScale : 1f;
             m.SetFloat("_Intensity", s.emissionIntensity * mx * k);
             m.SetFloat("_Softness", s.softness > 0f ? s.softness : 2.6f);
+            if (m.HasProperty("_FogFloor"))                                                          // v2.4
+                m.SetFloat("_FogFloor", ctx.look != null && ctx.look.fog != null ? Mathf.Clamp01(ctx.look.fog.glowFloor) : 0f);
             m.SetFloat("_NearFade", 3f);
             m.renderQueue = (int)RenderQueue.Transparent + 10;
+        }
+
+        /// <summary>Fake room behind the glass: room atlas (albedo), curtain layer, lit / unlit levels, sky-gradient reflection
+        /// (defaults to the look's sky horizon / below colours so the glass matches the fog).</summary>
+        static void SetupInterior(Context ctx, Material m, MatSpec s)
+        {
+            m.SetTexture("_Atlas", Tex(ctx, s.albedo));
+            m.SetTexture("_Curtains", Tex(ctx, s.curtains));
+            m.SetFloat("_Cols", s.cols > 0f ? s.cols : 4f);
+            m.SetFloat("_Rows", s.rows > 0f ? s.rows : 4f);
+            m.SetFloat("_Depth", s.depth > 0f ? s.depth : 1f);
+            m.SetFloat("_CamDist", s.camDist > 0f ? s.camDist : 1f);
+            float k = ctx.look != null && ctx.look.emissionScale > 0f ? ctx.look.emissionScale : 1f;
+            m.SetFloat("_LitIntensity", (s.litIntensity > 0f ? s.litIntensity : 1.6f) * k);
+            m.SetFloat("_DarkIntensity", s.darkIntensity > 0f ? s.darkIntensity : 0.05f);
+            m.SetFloat("_Fresnel", s.fresnel > 0f ? s.fresnel : 0.04f);
+            m.SetColor("_LitTint", (s.litTint != null && s.litTint.Length >= 3 ? J.Lin(s.litTint) : new Color(1f, 0.9f, 0.78f)).gamma);
+            m.SetColor("_DarkTint", (s.darkTint != null && s.darkTint.Length >= 3 ? J.Lin(s.darkTint) : new Color(0.55f, 0.62f, 0.85f)).gamma);
+            Color top = new Color(0.05f, 0.06f, 0.12f), bottom = new Color(0.015f, 0.015f, 0.02f);
+            if (s.reflTop != null && s.reflTop.Length >= 3) top = J.Lin(s.reflTop);
+            else if (ctx.look != null && ctx.look.sky != null && ctx.look.sky.horizon != null && ctx.look.sky.horizon.Length >= 3) top = J.Lin(ctx.look.sky.horizon);
+            if (s.reflBottom != null && s.reflBottom.Length >= 3) bottom = J.Lin(s.reflBottom);
+            else if (ctx.look != null && ctx.look.sky != null && ctx.look.sky.below != null && ctx.look.sky.below.Length >= 3) bottom = J.Lin(ctx.look.sky.below) * 0.5f;
+            m.SetColor("_ReflTop", top.gamma);
+            m.SetColor("_ReflBottom", bottom.gamma);
+            m.SetFloat("_ReflStrength", 1f);
+            m.renderQueue = (int)RenderQueue.Geometry;
         }
 
         static void SetupURP(Context ctx, Material m, MatSpec s)
@@ -185,13 +218,59 @@ namespace SkyIsland.EditorTools
             m.renderQueue = cutout ? (int)RenderQueue.AlphaTest : (int)RenderQueue.Geometry;
             m.SetFloat("_SrcBlend", 1f);
             m.SetFloat("_DstBlend", 0f);
+            m.SetFloat("_SrcBlendAlpha", 1f);   // URP 14+ separate alpha factors (opaque values; restores a former transparent)
+            m.SetFloat("_DstBlendAlpha", 0f);
             m.SetFloat("_ZWrite", 1f);
             m.SetFloat("_Cull", s.doubleSided ? 0f : 2f);
             m.SetFloat("_ReceiveShadows", 1f);
             Kw(m, "_RECEIVE_SHADOWS_OFF", false);
-            m.SetFloat("_EnvironmentReflections", 1f);
-            m.SetFloat("_SpecularHighlights", 1f);
-            m.SetShaderPassEnabled("ShadowCaster", s.type != "emissive");
+            bool noSpec = s.noSpecular;                                                              // v2.4 PSX: no specular
+            m.SetFloat("_EnvironmentReflections", noSpec ? 0f : 1f);
+            m.SetFloat("_SpecularHighlights", noSpec ? 0f : 1f);
+            Kw(m, "_ENVIRONMENTREFLECTIONS_OFF", noSpec);
+            Kw(m, "_SPECULARHIGHLIGHTS_OFF", noSpec);
+            m.SetShaderPassEnabled("DepthOnly", true);
+            bool transparent = IsTransparent(s);
+            if (transparent) MakeURPTransparent(m, s);
+            m.SetShaderPassEnabled("ShadowCaster", s.type != "emissive" && !transparent);
+        }
+
+        static bool IsTransparent(MatSpec s) => s.type == "transparent";
+
+        /// <summary>Base alpha of a transparent material (preview defaults: 1 with alphaFromTexture, else 0.6).</summary>
+        static float TransparentAlpha(MatSpec s) => s.alpha > 0f ? Mathf.Clamp01(s.alpha) : (s.alphaFromTexture ? 1f : 0.6f);
+
+        static Color TransparentColor(MatSpec s)
+        {
+            var c = J.Gam(s.color);
+            c.a = TransparentAlpha(s);
+            return c;
+        }
+
+        /// <summary>URP Lit, Surface Transparent / Blend Alpha (same state as the URP material inspector, without
+        /// "preserve specular"): SrcAlpha / OneMinusSrcAlpha, ZWrite off, queue Transparent, no depth / shadow passes.</summary>
+        static void MakeURPTransparent(Material m, MatSpec s)
+        {
+            var c = TransparentColor(s);
+            m.SetColor("_BaseColor", c);
+            m.SetColor("_Color", c);
+            m.SetFloat("_Surface", 1f);
+            m.SetFloat("_Blend", 0f);
+            m.SetFloat("_BlendModePreserveSpecular", 0f);
+            m.SetFloat("_AlphaClip", 0f);
+            m.SetFloat("_AlphaToMask", 0f);
+            m.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            m.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            m.SetFloat("_SrcBlendAlpha", (float)UnityEngine.Rendering.BlendMode.One);
+            m.SetFloat("_DstBlendAlpha", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            m.SetFloat("_ZWrite", 0f);
+            Kw(m, "_SURFACE_TYPE_TRANSPARENT", true);
+            Kw(m, "_ALPHATEST_ON", false);
+            Kw(m, "_ALPHAPREMULTIPLY_ON", false);
+            Kw(m, "_ALPHAMODULATE_ON", false);
+            m.SetOverrideTag("RenderType", "Transparent");
+            m.renderQueue = (int)RenderQueue.Transparent;
+            m.SetShaderPassEnabled("DepthOnly", false);
         }
 
         static void SetupBuiltIn(Context ctx, Material m, MatSpec s)
@@ -228,16 +307,35 @@ namespace SkyIsland.EditorTools
             Kw(m, "_EMISSION", emissive);
             m.globalIlluminationFlags = emissive ? MaterialGlobalIlluminationFlags.RealtimeEmissive : MaterialGlobalIlluminationFlags.EmissiveIsBlack;
             bool cutout = s.type == "cutout";
+            bool transparent = IsTransparent(s);
+            if (transparent)
+            {
+                // Standard shader "Fade" mode (StandardShaderGUI): alpha blend, no depth write, queue Transparent
+                m.SetColor("_Color", TransparentColor(s));
+                m.SetFloat("_Mode", 2f);
+                m.SetFloat("_Cutoff", s.cutoff);
+                m.SetOverrideTag("RenderType", "Transparent");
+                m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                m.SetInt("_ZWrite", 0);
+                Kw(m, "_ALPHATEST_ON", false);
+                Kw(m, "_ALPHABLEND_ON", true);
+                Kw(m, "_ALPHAPREMULTIPLY_ON", false);
+                m.renderQueue = (int)RenderQueue.Transparent;
+                m.SetShaderPassEnabled("ShadowCaster", false);
+                return;
+            }
             m.SetFloat("_Mode", cutout ? 1f : 0f);
             m.SetFloat("_Cutoff", s.cutoff);
             m.SetOverrideTag("RenderType", cutout ? "TransparentCutout" : "");
-            m.SetInt("_SrcBlend", (int)BlendMode.One);
-            m.SetInt("_DstBlend", (int)BlendMode.Zero);
+            m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+            m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
             m.SetInt("_ZWrite", 1);
             Kw(m, "_ALPHATEST_ON", cutout);
             Kw(m, "_ALPHABLEND_ON", false);
             Kw(m, "_ALPHAPREMULTIPLY_ON", false);
             m.renderQueue = cutout ? (int)RenderQueue.AlphaTest : -1;
+            m.SetShaderPassEnabled("ShadowCaster", true);   // restores a former transparent material
         }
 
         static void SetupHDRP(Context ctx, Material m, MatSpec s)
@@ -272,17 +370,28 @@ namespace SkyIsland.EditorTools
             m.SetColor("_EmissiveColor", eLin);
             m.SetTexture("_EmissiveColorMap", emap);
             bool cutout = s.type == "cutout";
+            bool transparent = IsTransparent(s);
             m.SetFloat("_AlphaCutoffEnable", cutout ? 1f : 0f);
             m.SetFloat("_AlphaCutoff", s.cutoff);
             m.SetFloat("_DoubleSidedEnable", s.doubleSided ? 1f : 0f);
+            m.SetFloat("_SurfaceType", transparent ? 1f : 0f);
+            if (transparent)
+            {
+                m.SetColor("_BaseColor", TransparentColor(s));
+                m.SetFloat("_BlendMode", 0f);            // Alpha
+                m.SetFloat("_TransparentZWrite", 0f);
+                m.SetFloat("_ZWrite", 0f);
+            }
 #if SKYISLAND_HDRP
             HDMaterial.ValidateMaterial(m);
 #endif
+            m.SetShaderPassEnabled("ShadowCaster", !transparent);
         }
 
         // ------------------------------------------------------------------ model remaps
         public static void RemapModels(Context ctx, Dictionary<string, Material> mats)
         {
+            if (!AssetDatabase.IsValidFolder(ctx.root + "/Models")) return;
             foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { ctx.root + "/Models" }))
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);

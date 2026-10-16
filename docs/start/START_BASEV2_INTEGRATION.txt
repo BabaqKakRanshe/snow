@@ -1,15 +1,16 @@
 Встрой главный корпус BaseV2 в игру: в проекте F:\ClaudeGames\snow\Snow нужен сетевой уровень, где до 4 игроков ходят по корпусу и пользуются дверями, ящиками, светом, главным рубильником и рольставнями.
 
-Задание: F:\ClaudeGames\snow\docs\gdd\BASEV2_INTEGRATION_UNITY.md — выполни шаги U1–U6 по порядку. Общие правила, статусы и формат отчёта — из F:\ClaudeGames\snow\docs\gdd\PLANE_PROMPT_UNITY.md (версия 2.1, §0).
+Задание: F:\ClaudeGames\snow\docs\gdd\BASEV2_INTEGRATION_UNITY.md (версия 1.1) — выполни шаги U1–U6 по порядку. Общие правила, статусы и формат отчёта — из F:\ClaudeGames\snow\docs\gdd\PLANE_PROMPT_UNITY.md (версия 2.1, §0). Если часть уже сделана по версии 1.0 — сверь с абзацем «Изменения 1.1» в начале задания и дополни, переделывать не нужно.
 Пакеты .unitypackage: F:\ClaudeGames\snow\source\locations\SkyIsland\ (цепочка SkyIsland_Update_1 … SkyIsland_Update8) и F:\ClaudeGames\snow\source\locations\BaseV2\BaseV2.unitypackage.
 
 Главное:
+- точка отката — коммит в git перед началом (README проекта; ручная копия в F:\ClaudeGames\snow_archive\backup — только если коммит недоступен);
 - в проекте стоит ядро локаций v1: сначала цепочка обновлений ядра строго по порядку U2.1 (Update4 нет), потом пакет BaseV2; импортируй сам, по одному пакету, из кода редактора (AssetDatabase.ImportPackage) или в batchmode при закрытом редакторе; если ни то ни другое не получается — попроси меня (8 импортов); твоя правка SkyIslandLook.cs от 01.10 (кубмапа неба) уже внутри Update8;
 - до сборки корпуса напиши мне о глобальных изменениях (U1.6: сборщик включит тени дополнительных источников в Mobile_RPAsset, назовёт Rendering Layers 8–9); ответа не жди — без него верни Mobile к прежнему значению после сборки; во время сборки активно качество PC;
 - корпус собирает только сборщик пакета (Location Builder → BaseV2 → Build); данные, лук и файлы ядра не трогать; переопределения в префаб BaseMain не применять;
-- код Snow: SkyIslandPlayerCamera (туман копировать целиком, кадр PS1 — флаг, выключен), новый SkyIslandLocationHost (мост деталей ядра к InteractionHost: сервер решает, клиенты ставят состояние только полями, без методов ядра), меню Tools/Snow/Integrate BaseV2 Level (двери — NetworkDoor, зоны IV_*, слой Interact у мебели, спавн во дворе, NetworkManager);
+- код Snow: SkyIslandPlayerCamera (туман копировать целиком; кадр PS1 на камеру игрока — включён, моё решение: «PS1 везде, и в кабине тоже»; под него экранные координаты в InteractionOverlay и InteractionSensor — через viewport, в HoverOutline — ширина контура и рамки зоны по targetTexture камеры), новый SkyIslandLocationHost (мост деталей ядра к InteractionHost: сервер решает, клиенты ставят состояние только полями, без методов ядра; Release — без действий), меню Tools/Snow/Integrate BaseV2 Level (двери — NetworkDoor, зоны IV_*, слой Interact у мебели, спавн во дворе, NetworkManager);
 - имена деталей с номерами (IX_MainDoor_1, IX_GarageGate_18): префиксы сравнивать через StartsWith(префикс + "_");
 - Sky Island не пересобирать; BaseV2 не делать первой сценой; пакеты Package Manager не ставить и не обновлять; файлы не удалять;
 - сеть проверять на хосте и виртуальных игроках Multiplayer Play Mode, включая поздний вход; Join в окнах виртуальных игроков нажму я — попроси.
 
-В конце — отчёт по разделу 5: версия ядра до и после, как поставлены пакеты, мой ответ по U1.6, журнал сборки корпуса, изменённые файлы, Q1–Q14 со снимками и строками BenchLog, что осталось OPEN.
+В конце — отчёт по разделу 5: версия ядра до и после, как поставлены пакеты, мой ответ по U1.6, журнал сборки корпуса, изменённые файлы, Q1–Q15 со снимками и строками BenchLog, что осталось OPEN. Журнал работы — F:\ClaudeGames\snow\docs\dev\ImplementationStatus.md.

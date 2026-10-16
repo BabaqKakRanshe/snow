@@ -102,13 +102,13 @@ namespace SkyIsland.EditorTools
                     Debug.LogWarning("[SkyIsland] The URP renderer uses Forward: with ~80 lamps some lights will pop on large meshes. Recommended: Tools > Sky Island > Switch URP Renderer To Forward+.");
 #endif
             }
-            var lut = AssetDatabase.LoadAssetAtPath<Texture2D>($"{ctx.root}/Textures/LUT/SkyIsland_RefLook_LUT{lutSize}.png");
+            var lut = LoadLut(ctx, lutSize);   // look.post.lut ("64" variant for a 64 LUT); null when contribution <= 0
 
             EnsureFolder(ctx.root + "/Settings");
-            string path = ctx.root + "/Settings/SkyIsland_URP_Volume.asset";
+            string path = ctx.root + "/Settings/" + ctx.AssetName("URP_Volume") + ".asset";
             AssetDatabase.DeleteAsset(path);
             var profile = ScriptableObject.CreateInstance<VolumeProfile>();
-            profile.name = "SkyIsland_URP_Volume";
+            profile.name = ctx.AssetName("URP_Volume");
             AssetDatabase.CreateAsset(profile, path);
 
             T Add<T>() where T : VolumeComponent
@@ -136,9 +136,12 @@ namespace SkyIsland.EditorTools
             ca.postExposure.Override(p.exposure);
             ca.contrast.Override(p.contrast);
 
-            var cl = Add<ColorLookup>();
-            cl.texture.Override(lut);
-            cl.contribution.Override(p.lutContribution);
+            if (lut != null && p.lutContribution > 0f)
+            {
+                var cl = Add<ColorLookup>();
+                cl.texture.Override(lut);
+                cl.contribution.Override(p.lutContribution);
+            }
 
             var vg = Add<Vignette>();
             vg.color.Override(J.Lin(p.vignette.color));

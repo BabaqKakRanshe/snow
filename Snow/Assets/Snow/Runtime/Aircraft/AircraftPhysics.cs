@@ -24,6 +24,8 @@ namespace Snow.Aircraft
             public float BrakeLeft, BrakeRight;
             /// <summary>Propeller thrust N, shaft torque N·m, propeller speed rad/s.</summary>
             public float ThrustN, ShaftTorqueNm, PropOmega;
+            /// <summary>И4 K4.3: a winter-kit cover on this wing: its sections make no lift.</summary>
+            public bool WingCoverL, WingCoverR;
         }
 
         public struct Outputs
@@ -121,10 +123,11 @@ namespace Snow.Aircraft
             // factory rigging (not a control input, not a stabiliser): a fixed tab and aileron rig cancel the left-turning
             // tendencies of a clockwise propeller near cruise; at climb power the pilot still needs right rudder
             float ail = (u.AileronDeg + t.aileronRigDeg) * Mathf.Deg2Rad;
-            Section(_wLIn, flap, 0f, Vector3.zero, rho, dt, true);
-            Section(_wRIn, flap, 0f, Vector3.zero, rho, dt, true);
-            Section(_wLOut, ail, 0f, Vector3.zero, rho, dt, true);
-            Section(_wROut, -ail, 0f, Vector3.zero, rho, dt, true);
+            float liftL = u.WingCoverL ? 0f : 1f, liftR = u.WingCoverR ? 0f : 1f;
+            Section(_wLIn, flap, 0f, Vector3.zero, rho, dt, true, liftL);
+            Section(_wRIn, flap, 0f, Vector3.zero, rho, dt, true, liftR);
+            Section(_wLOut, ail, 0f, Vector3.zero, rho, dt, true, liftL);
+            Section(_wROut, -ail, 0f, Vector3.zero, rho, dt, true, liftR);
 
             // --- downwash at the tail, delayed by the travel time from the wing
             float wingAlpha = 0.5f * (_wLIn.Alpha + _wRIn.Alpha);
@@ -185,13 +188,13 @@ namespace Snow.Aircraft
             Last.HeightAgl = Height(cg);
         }
 
-        void Section(AeroSection s, float deflection, float alphaOffset, Vector3 washBody, float rho, float dt, bool groundEffect)
+        void Section(AeroSection s, float deflection, float alphaOffset, Vector3 washBody, float rho, float dt, bool groundEffect, float liftScale = 1f)
         {
             Vector3 p = transform.TransformPoint(s.Position);
             Vector3 air = body.GetPointVelocity(p) - EnvironmentProvider.WindAt(p);
             Vector3 v = transform.InverseTransformDirection(air) + washBody;
             float phi = groundEffect ? AeroSection.GroundPhi(Height(p), tuning.span) : 1f;
-            Vector3 f = s.Force(v, rho, deflection, alphaOffset, phi, dt);
+            Vector3 f = s.Force(v, rho, deflection, alphaOffset, phi, dt, liftScale);
             body.AddForceAtPosition(transform.TransformDirection(f), p, ForceMode.Force);
         }
 

@@ -1,0 +1,26 @@
+[
+ {
+  "atlas": "KitCovers",
+  "material": "M_KitCovers",
+  "metresPerUV": 7.2688,
+  "pxPerMetre": 70.4,
+  "areaM2": 34.57,
+  "detail": "",
+  "detailTiling": 0.0,
+  "detailNormalScale": 0.0,
+  "detailMask": "",
+  "psx": true
+ },
+ {
+  "atlas": "KitProps",
+  "material": "M_KitProps",
+  "metresPerUV": 5.1832,
+  "pxPerMetre": 98.8,
+  "areaM2": 14.23,
+  "detail": "",
+  "detailTiling": 0.0,
+  "detailNormalScale": 0.0,
+  "detailMask": "",
+  "psx": true
+ }
+]

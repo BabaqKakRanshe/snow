@@ -67,6 +67,27 @@ namespace Snow.EditorTools
             }
             // И2 E.4: the key, TEMPORARY 0.05 kg
             Item(NetItem("PlaneKey", "PlaneKey_Net", 0.05f, "Ключ от самолёта", go => go.AddComponent<PlaneKey>()));
+            // И3 H.1: the step ladder, TEMPORARY 8 kg; L.2: the survival kit, masses from Data/survival_kit.json (TEMPORARY)
+            Item(NetItem("StepLadder", "StepLadder_Net", 8f, "Стремянка", go => go.AddComponent<StepLadderItem>()));
+            Item(NetItem("Surv_Bag", "Surv_Bag_Net", 6f, "Аварийная сумка", go =>
+            {
+                Transform strap = go.GetComponentsInChildren<Transform>(true).FirstOrDefault(x => x.name == "Surv_Bag_Strap");
+                if (strap != null) { go.GetComponent<CargoItem>().stowedMarker = strap.gameObject; strap.gameObject.SetActive(false); }
+            }));
+            Item(NetItem("Surv_Flashlight", "Surv_Flashlight_Net", 0.45f, "Фонарь"));
+            Item(NetItem("Surv_FlareGun", "Surv_FlareGun_Net", 0.6f, "Ракетница"));
+            Item(NetItem("Surv_FlareShell", "Surv_FlareShell_Net", 0.05f, "Патрон к ракетнице, 26.5 мм"));
+            Item(NetItem("Surv_Flare", "Surv_Flare_Net", 0.3f, "Фальшфейер"));
+            Item(NetItem("Surv_Shovel", "Surv_Shovel_Net", 1.5f, "Лопата"));
+            // И4 K4.2: game variants of the winter-kit carry forms (Prefabs/Kit/KitCarry_*, made by Install Winter Kit)
+            foreach (var (key, label) in KitLabels)
+            {
+                var src = AssetDatabase.LoadAssetAtPath<GameObject>($"Assets/UtilityPlane/Prefabs/Kit/KitCarry_{key}.prefab");
+                if (src == null) continue;
+                float mass = src.GetComponent<UtilityPlaneKitItem>().TotalMassKg;
+                Item(NetItem($"Kit/KitCarry_{key}", $"KitCarry_{key}_Net", mass, label, go => go.AddComponent<KitCarry>()));
+            }
+            Item(BuildBarrel());
             GameObject variant = BuildVariant(tuning, cargo, items);
             if (variant == null) return;
             if (!list.PrefabList.Any(x => x.Prefab == variant)) list.Add(new NetworkPrefab { Prefab = variant });
@@ -159,10 +180,19 @@ namespace Snow.EditorTools
                 a.exitDoor = door;
                 return a;
             }
+            SeatAnchor Pax(string key, string altKey)
+            {
+                // И3 K.1: troop seats of the bay (Data/pax_seats.json), getting up inside onto the bay floor
+                SeatAnchor a = Seat("PaxSeat_" + key, SeatRole.Passenger, "Socket_Seat_Pax" + key, "Socket_PaxEye_" + key, "Socket_PaxExit_" + key, null);
+                a.inside = true;
+                a.altExit = F("Socket_PaxExit_" + altKey);
+                return a;
+            }
             var seats = new[]
             {
                 Seat("Seat_P", SeatRole.Pilot, "Socket_Seat_P", "Socket_PilotEye", "Socket_Exit_L", pilotL),
                 Seat("Seat_C", SeatRole.Passenger, "Socket_Seat_C", "Socket_CopilotEye", "Socket_Exit_R", pilotR),
+                Pax("L1", "L2"), Pax("R1", "R2"), Pax("L2", "L1"), Pax("R2", "R1"),
             };
 
             for (int i = 1; i <= 15; i++)
@@ -174,7 +204,30 @@ namespace Snow.EditorTools
                 tie.captureRadius = 0.45f;                            // v5 rails: X −0.42 / 0 / +0.42, Z +1.45 … −1.10: every floor point is within 0.41 m of a socket
             }
 
+            // И3 L.1: stow points on the model's Socket_Stow_* (Data/stowage.json): full pose, one item each
+            var stows = new List<StowPoint>();
+            foreach (var (id, accepts) in new[] { ("Flashlight", "Surv_Flashlight"), ("FlareGun", "Surv_FlareGun"), ("Shovel", "Surv_Shovel"),
+                                                 ("SurvivalBag", "Surv_Bag"), ("JerryCan", "KitCarry_JerryCan"), ("Ladder", "StepLadder") })
+            {
+                Transform sock = F("Socket_Stow_" + id);
+                if (sock == null) { Debug.LogWarning($"[Snow] Socket_Stow_{id} not found"); continue; }
+                var sp = sock.gameObject.AddComponent<StowPoint>();
+                sp.stowId = id;
+                sp.accepts = accepts;
+                stows.Add(sp);
+            }
+
             var vehicle = root.AddComponent<PlaneVehicle>();
+            vehicle.stowPoints = stows.ToArray();
+            vehicle.exitCargoL = F("Socket_Exit_Cargo_L");
+            vehicle.paxDownBoxes = PaxBoxes(t, F).ToArray();
+            // model_facts.json ladderStowed: floor box and rings under / for the straps
+            Vector3 lmin = new Vector3(-0.21f, 1.133f, -1.0922f), lmax = new Vector3(0.6f, 1.7616f, 1.42f);
+            vehicle.ladderStowBox = new PlaneVehicle.BoxPose { center = (lmin + lmax) * 0.5f, half = (lmax - lmin) * 0.5f, rotation = Quaternion.identity, seat = -1 };
+            vehicle.ladderRings = new[] { "05", "06", "08", "09", "11", "12", "04", "10" }
+                .Select(n => F("Socket_TieDown_" + n)).Where(x => x != null).Select(x => x.GetComponent<TieDownSocket>()).ToArray();
+            Transform ring13 = F("Socket_TieDown_13");
+            vehicle.jerryCanRing = ring13 != null ? ring13.GetComponent<TieDownSocket>() : null;
             vehicle.tuning = tuning;
             vehicle.physics = physics;
             vehicle.pilotDoorL = pilotL; vehicle.pilotDoorR = pilotR; vehicle.cargoDoorL = cargoL; vehicle.cargoDoorR = cargoR;
@@ -183,6 +236,14 @@ namespace Snow.EditorTools
             // cabin + bay inside the fuselage walls (floor 1.07, roof ~2.6, rear bulkhead -1.32, panel ~3.1): *_In handles
             vehicle.interiorCenter = new Vector3(0f, 1.85f, 0.9f);
             vehicle.interiorSize = new Vector3(1.4f, 1.6f, 4.5f);
+
+            // И4: winter kit 1.2 state, zones and consequences (the WinterKit child comes with the model prefab)
+            if (root.GetComponentInChildren<UtilityPlaneWinterKit>(true) != null)
+            {
+                var kitNet = root.AddComponent<PlaneWinterKitNet>();
+                kitNet.carryPrefabs = items.Values.Where(x => x.GetComponent<KitCarry>() != null).ToArray();
+            }
+            else Debug.LogWarning("[Snow] WinterKit missing in UtilityPlane.prefab: run Tools/Utility Plane/Install Winter Kit, then rebuild");
 
             var presentation = root.AddComponent<PlanePresentation>();
             presentation.vehicle = vehicle;
@@ -198,10 +259,42 @@ namespace Snow.EditorTools
             return prefab;
         }
 
+        /// <summary>
+        /// И3 K.3: the pan and leg colliders of each troop seat as boxes in prefab space, in the down pose (the model rests
+        /// with the seats down; the Rig folds them only at runtime). The server tests them for cargo before a seat goes down.
+        /// </summary>
+        static IEnumerable<PlaneVehicle.BoxPose> PaxBoxes(Transform root, System.Func<string, Transform> find)
+        {
+            for (int i = 0; i < UtilityPlaneRig.PaxSeatNames.Length; i++)
+            {
+                string key = UtilityPlaneRig.PaxSeatNames[i].Substring("PaxSeat_".Length);
+                foreach (string name in new[] { "COL_PaxSeat_" + key, "COL_PaxSeatLeg_" + key })
+                {
+                    Transform ct = find(name);
+                    Collider c = ct != null ? ct.GetComponent<Collider>() : null;
+                    if (c == null) { Debug.LogWarning($"[Snow] {name} not found"); continue; }
+                    Bounds b = c is BoxCollider bc ? new Bounds(bc.center, bc.size)
+                             : c is MeshCollider mc && mc.sharedMesh != null ? mc.sharedMesh.bounds : new Bounds(Vector3.zero, Vector3.one * 0.1f);
+                    Vector3 scale = ct.lossyScale;
+                    yield return new PlaneVehicle.BoxPose
+                    {
+                        center = root.InverseTransformPoint(ct.TransformPoint(b.center)),
+                        half = Vector3.Scale(b.extents, new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z))) * 0.95f,
+                        rotation = Quaternion.Inverse(root.rotation) * ct.rotation,
+                        seat = i,
+                    };
+                }
+            }
+        }
+
         // cargo_layout.json (plane space), loose in the bay; stacks are put on the real top (audit N5)
         static List<PlaneLoadout.Entry> Loadout(List<GameObject> cargo, Dictionary<string, GameObject> items)
         {
             GameObject I(string n) => items.TryGetValue(n, out var g) ? g : null;
+            PlaneLoadout.Entry Ground(string item, Vector3 offset, float yaw) =>
+                new PlaneLoadout.Entry { prefab = I(item), place = PlaneLoadout.Place.Ground, socket = "Socket_Ladder_Fuel_L", offset = offset, yaw = yaw };
+            PlaneLoadout.Entry Kit(PlaneLoadout.Entry e, int sets, float litres) { e.setKit = true; e.kitSets = sets; e.kitFuelLitres = litres; return e; }
+            PlaneLoadout.Entry Stow(string item, string stowId) => new PlaneLoadout.Entry { prefab = I(item), place = PlaneLoadout.Place.Stow, socket = stowId };
             GameObject C(int n) => cargo.FirstOrDefault(c => c.name == $"Cargo_Case{n}_Net");
             PlaneLoadout.Entry Bay(int n, Vector3 offset, string stackOn = null) =>
                 new PlaneLoadout.Entry { prefab = C(n), place = PlaneLoadout.Place.Bay, offset = offset, stackOn = stackOn };
@@ -215,6 +308,20 @@ namespace Snow.EditorTools
                 Bay(6, new Vector3(-0.086f, 1.09f, 0.05f), "Cargo_Case4_Net"),
                 // И2: the key starts in the host's pocket, the plane unlocked (TEMPORARY, §8.3)
                 new PlaneLoadout.Entry { prefab = I("PlaneKey_Net"), place = PlaneLoadout.Place.HostPocket },
+                // И3 H.6 TEMPORARY: one ladder on the ground at the left wing (where it lives is OPEN)
+                new PlaneLoadout.Entry { prefab = I("StepLadder_Net"), place = PlaneLoadout.Place.Ground, socket = "Socket_Ladder_Fuel_L" },
+                // И3 L TEMPORARY: the survival kit in its places; flare and shell (no place of their own) loose on the bay floor
+                Stow("Surv_Flashlight_Net", "Flashlight"), Stow("Surv_FlareGun_Net", "FlareGun"), Stow("Surv_Shovel_Net", "Shovel"),
+                Stow("Surv_Bag_Net", "SurvivalBag"),
+                new PlaneLoadout.Entry { prefab = I("Surv_Flare_Net"), place = PlaneLoadout.Place.Bay, offset = new Vector3(0.25f, 1.10f, 1.30f), yaw = 90f },
+                new PlaneLoadout.Entry { prefab = I("Surv_FlareShell_Net"), place = PlaneLoadout.Place.Bay, offset = new Vector3(0.25f, 1.10f, 1.10f), yaw = 90f },
+                // И4 K4.6 TEMPORARY (where the kit lives is OPEN): at the left wing on the ground the heater, the empty
+                // tie-down bag (all three sets are on the plane) and two full jerry cans; a fuel drum to fill them (K4.5)
+                Ground("KitCarry_HeaterStowed_Net", new Vector3(-1.6f, 0f, -0.6f), 90f),
+                Kit(Ground("KitCarry_TieDownBag_Net", new Vector3(-1.6f, 0f, 0.4f), 90f), 0, 0f),
+                Kit(Ground("KitCarry_JerryCan_Net", new Vector3(-0.9f, 0f, 1.2f), 90f), 1, 20f),
+                Kit(Ground("KitCarry_JerryCan_Net", new Vector3(-0.5f, 0f, 1.2f), 90f), 1, 20f),
+                Ground("FuelBarrel_Net", new Vector3(-3.5f, 0f, 1.5f), 0f),
             }.Where(e => e.prefab != null).ToList();
         }
 
@@ -224,7 +331,46 @@ namespace Snow.EditorTools
         /// path = same GUID), with a Rigidbody, a server NetworkTransform + NetworkRigidbody and a CargoItem (carried by
         /// grab). The model prefab itself is not changed.
         /// </summary>
-        internal static GameObject NetItem(string source, string name, float massKg, string label, System.Action<GameObject> extra = null)
+        static readonly (string key, string label)[] KitLabels =
+        {
+            ("IntakePlug", "Заглушка воздухозаборника"), ("ExhaustCover", "Заглушка выхлопа"), ("PitotCover", "Чехол ПВД"),
+            ("WingCoverBag", "Чехол крыла"), ("WindshieldCoverBag", "Чехол лобового стекла"), ("EngineCoverBag", "Утеплённый чехол двигателя"),
+            ("Chocks", "Колодки"), ("ChocksTail", "Колодки хвостового колеса"), ("TieDownBag", "Сумка швартовки"),
+            ("HeaterStowed", "Подогреватель двигателя"), ("JerryCan", "Канистра 20 л"), ("Funnel", "Воронка с фильтром"),
+        };
+
+        /// <summary>
+        /// TEMPORARY (K4.5, where to fill the jerry can is OPEN): a fuel drum as a network object — a stand-in cylinder of
+        /// drum size, not a model asset — with one zone Barrel_Fill on the Interact layer.
+        /// </summary>
+        static GameObject BuildBarrel()
+        {
+            var go = new GameObject("FuelBarrel_Net");
+            var body = go.transform;
+            var visual = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            visual.name = "Drum";
+            visual.transform.SetParent(body, false);
+            visual.transform.localPosition = new Vector3(0f, 0.44f, 0f);
+            visual.transform.localScale = new Vector3(0.58f, 0.44f, 0.58f);
+            visual.GetComponent<Renderer>().sharedMaterial = Material("M_FuelDrum", new Color(0.55f, 0.12f, 0.08f));
+            go.AddComponent<NetworkObject>();
+            go.AddComponent<FuelBarrel>();
+            var zone = new GameObject("IV_Barrel_Fill") { layer = BenchBuilder.InteractLayer() };
+            zone.transform.SetParent(body, false);
+            zone.transform.localPosition = new Vector3(0f, 0.9f, 0f);
+            var box = zone.AddComponent<BoxCollider>();
+            box.isTrigger = true;
+            box.size = new Vector3(0.5f, 0.12f, 0.5f);
+            var iv = zone.AddComponent<UtilityPlaneInteractable>();
+            iv.id = "Barrel_Fill";
+            iv.kind = "barrel";
+            iv.label = "Бочка с топливом (TEMPORARY)";
+            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(go, $"{ItemsFolder}/FuelBarrel_Net.prefab");
+            Object.DestroyImmediate(go);
+            return prefab;
+        }
+
+        internal static GameObject NetItem(string source, string name, float massKg, string label, System.Action<GameObject> extra = null, string folder = ItemsFolder)
         {
             string src = $"Assets/UtilityPlane/Prefabs/{source}.prefab";
             var model = AssetDatabase.LoadAssetAtPath<GameObject>(src);
@@ -244,8 +390,9 @@ namespace Snow.EditorTools
             var item = go.AddComponent<CargoItem>();
             item.label = label;
             item.massKg = massKg;
+            item.itemKey = System.IO.Path.GetFileName(source);         // what stow points accept (Data/stowage.json prefab)
             extra?.Invoke(go);
-            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(go, $"{ItemsFolder}/{name}.prefab");
+            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(go, $"{folder}/{name}.prefab");
             Object.DestroyImmediate(go);
             return prefab;
         }

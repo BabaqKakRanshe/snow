@@ -103,7 +103,7 @@ namespace Snow.Interaction
             Mesh mesh = mf != null ? mf.sharedMesh : null;
             if (mesh == null) return;
             props.SetColor(ColorId, color);
-            props.SetFloat(WidthId, width);
+            props.SetFloat(WidthId, FrameWidth());
             props.SetVector(CenterId, mesh.bounds.center);
             var rp = new RenderParams(outlineMaterial)
             {
@@ -142,6 +142,17 @@ namespace Snow.Interaction
             }
             for (int i = 0; i < _path.Length; i++) _path[i] = _corners[BoxPath[i]];
             box.SetPositions(_path);
+        }
+
+        /// <summary>
+        /// Outline width in the camera's own pixels. A camera that renders into a RenderTexture (the PS1 frame of the
+        /// location levels, 240 lines) has pixels ~4.5 screen pixels high, so 3 px would be ~13 px on screen: 1 px there
+        /// (TEMPORARY, from a screenshot).
+        /// </summary>
+        float FrameWidth()
+        {
+            Camera cam = sensor != null && sensor.view != null ? sensor.view.cam : null;
+            return cam != null && cam.targetTexture != null ? 1f : width;
         }
 
         static float Max(Vector3 v) => Mathf.Max(v.x, Mathf.Max(v.y, v.z));

@@ -116,5 +116,11 @@
   "lutContribution": 1.0
  },
  "localLightScale": 1.0,
- "emissionScale": 1.0
+ "emissionScale": 1.0,
+ "psx": {
+  "height": 240,
+  "colorBits": 5,
+  "dither": 1.0,
+  "pointTextures": true
+ }
 }

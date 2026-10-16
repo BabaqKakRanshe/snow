@@ -1,0 +1,928 @@
+{
+ "version": 2,
+ "space": "plane prefab space (WinterKit root at local identity under the plane root), metres",
+ "park": {
+  "parkedPitchDeg": 9.982,
+  "note": "ground items (chocks, tie-down anchors, heater) are modelled level on flat ground in the parked pose (root pitched nose-up by parkedPitchDeg), as children of the plane root"
+ },
+ "items": [
+  {
+   "id": "IntakePlug",
+   "object": "Kit_IntakePlug",
+   "label": "Заглушка воздухозаборника",
+   "socket": [
+    0.0,
+    1.335,
+    4.665
+   ],
+   "zone": {
+    "center": [
+     0.0,
+     1.335,
+     4.62
+    ],
+    "halfExtents": [
+     0.23,
+     0.11,
+     0.09
+    ],
+    "rotationEuler": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_IntakePlug",
+   "carryFbx": "SM_Kit_IntakePlug",
+   "effects": [
+    "engineStartBlocked"
+   ],
+   "excludes": [
+    "Heater"
+   ],
+   "installSeconds": 4,
+   "groundItem": false,
+   "parkedHeight": [
+    1.744,
+    1.62,
+    1.868
+   ],
+   "tris": 452
+  },
+  {
+   "id": "ExhaustCover_L",
+   "object": "Kit_ExhaustCover_L",
+   "label": "Заглушка выхлопа, левая",
+   "socket": [
+    -0.7356,
+    1.5628,
+    3.798
+   ],
+   "zone": {
+    "center": [
+     -0.7356,
+     1.5628,
+     3.798
+    ],
+    "halfExtents": [
+     0.11,
+     0.1,
+     0.11
+    ],
+    "rotationEuler": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_ExhaustCover",
+   "carryFbx": "SM_Kit_ExhaustCover",
+   "effects": [
+    "engineStartBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 3,
+   "groundItem": false,
+   "parkedHeight": [
+    1.826,
+    1.708,
+    1.943
+   ],
+   "tris": 512
+  },
+  {
+   "id": "ExhaustCover_R",
+   "object": "Kit_ExhaustCover_R",
+   "label": "Заглушка выхлопа, правая",
+   "socket": [
+    0.7356,
+    1.5628,
+    3.798
+   ],
+   "zone": {
+    "center": [
+     0.7356,
+     1.5628,
+     3.798
+    ],
+    "halfExtents": [
+     0.11,
+     0.1,
+     0.11
+    ],
+    "rotationEuler": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_ExhaustCover",
+   "carryFbx": "SM_Kit_ExhaustCover",
+   "effects": [
+    "engineStartBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 3,
+   "groundItem": false,
+   "parkedHeight": [
+    1.826,
+    1.708,
+    1.943
+   ],
+   "tris": 512
+  },
+  {
+   "id": "PitotCover",
+   "object": "Kit_PitotCover",
+   "label": "Чехол приёмника воздушного давления",
+   "socket": [
+    -4.6,
+    2.573,
+    2.472
+   ],
+   "zone": {
+    "center": [
+     -4.6,
+     2.573,
+     2.39
+    ],
+    "halfExtents": [
+     0.05,
+     0.05,
+     0.12
+    ],
+    "rotationEuler": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_PitotCover",
+   "carryFbx": "SM_Kit_PitotCover",
+   "effects": [
+    "airspeedBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 3,
+   "groundItem": false,
+   "parkedHeight": [
+    2.576,
+    2.506,
+    2.646
+   ],
+   "tris": 216
+  },
+  {
+   "id": "WingCover_L",
+   "object": "Kit_WingCover_L",
+   "label": "Чехол левого крыла",
+   "socket": [
+    -3.9,
+    2.95,
+    1.5
+   ],
+   "zone": {
+    "center": [
+     -3.95,
+     2.76,
+     0.4944
+    ],
+    "halfExtents": [
+     2.95,
+     0.1974,
+     0.13
+    ],
+    "rotationEuler": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_WingCoverBag",
+   "carryFbx": "SM_Kit_WingCoverBag",
+   "effects": [
+    "liftBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 40,
+   "groundItem": false,
+   "parkedHeight": [
+    2.432,
+    2.215,
+    2.649
+   ],
+   "tris": 6956
+  },
+  {
+   "id": "WingCover_R",
+   "object": "Kit_WingCover_R",
+   "label": "Чехол правого крыла",
+   "socket": [
+    3.9,
+    2.95,
+    1.5
+   ],
+   "zone": {
+    "center": [
+     3.95,
+     2.762,
+     0.4944
+    ],
+    "halfExtents": [
+     2.95,
+     0.1955,
+     0.13
+    ],
+    "rotationEuler": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_WingCoverBag",
+   "carryFbx": "SM_Kit_WingCoverBag",
+   "effects": [
+    "liftBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 40,
+   "groundItem": false,
+   "parkedHeight": [
+    2.434,
+    2.219,
+    2.649
+   ],
+   "tris": 6956
+  },
+  {
+   "id": "WindshieldCover",
+   "object": "Kit_WindshieldCover",
+   "label": "Чехол лобового стекла",
+   "socket": [
+    0.0,
+    2.35,
+    2.95
+   ],
+   "zone": {
+    "center": [
+     0.0,
+     2.3546,
+     3.0069
+    ],
+    "halfExtents": [
+     0.74,
+     0.06,
+     0.42
+    ],
+    "rotationEuler": [
+     42.447,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_WindshieldCoverBag",
+   "carryFbx": "SM_Kit_WindshieldCoverBag",
+   "effects": [
+    "viewBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 20,
+   "groundItem": false,
+   "parkedHeight": [
+    2.468,
+    2.192,
+    2.744
+   ],
+   "tris": 3236
+  },
+  {
+   "id": "EngineCover",
+   "object": "Kit_EngineCover",
+   "label": "Утеплённый чехол двигателя",
+   "socket": [
+    0.0,
+    1.95,
+    3.95
+   ],
+   "zone": {
+    "center": [
+     0.0,
+     1.9,
+     3.985
+    ],
+    "halfExtents": [
+     0.76,
+     0.22,
+     0.615
+    ],
+    "rotationEuler": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_EngineCoverBag",
+   "carryFbx": "SM_Kit_EngineCoverBag",
+   "effects": [
+    "engineStartBlocked",
+    "engineInsulated"
+   ],
+   "excludes": [],
+   "installSeconds": 30,
+   "groundItem": false,
+   "parkedHeight": [
+    2.19,
+    1.867,
+    2.513
+   ],
+   "tris": 4848
+  },
+  {
+   "id": "Chocks_L",
+   "object": "Kit_Chocks_L",
+   "label": "Колодки, левое колесо",
+   "socket": [
+    -1.25,
+    -0.124,
+    2.85
+   ],
+   "zone": {
+    "center": [
+     -1.263,
+     -0.1151,
+     3.2034
+    ],
+    "halfExtents": [
+     0.263,
+     0.09,
+     0.224
+    ],
+    "rotationEuler": [
+     9.982,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_Chocks",
+   "carryFbx": "SM_Kit_Chocks",
+   "effects": [
+    "wheelsHeld",
+    "moveBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 4,
+   "groundItem": true,
+   "parkedHeight": [
+    0.07,
+    -0.02,
+    0.16
+   ],
+   "tris": 248
+  },
+  {
+   "id": "Chocks_R",
+   "object": "Kit_Chocks_R",
+   "label": "Колодки, правое колесо",
+   "socket": [
+    1.25,
+    -0.124,
+    2.85
+   ],
+   "zone": {
+    "center": [
+     1.263,
+     -0.1151,
+     3.2034
+    ],
+    "halfExtents": [
+     0.263,
+     0.09,
+     0.224
+    ],
+    "rotationEuler": [
+     9.982,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_Chocks",
+   "carryFbx": "SM_Kit_Chocks",
+   "effects": [
+    "wheelsHeld",
+    "moveBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 4,
+   "groundItem": true,
+   "parkedHeight": [
+    0.07,
+    -0.02,
+    0.16
+   ],
+   "tris": 248
+  },
+  {
+   "id": "Chocks_Tail",
+   "object": "Kit_Chocks_Tail",
+   "label": "Колодки, хвостовое колесо",
+   "socket": [
+    0.0,
+    1.1644,
+    -4.47
+   ],
+   "zone": {
+    "center": [
+     -0.013,
+     1.1647,
+     -4.2407
+    ],
+    "halfExtents": [
+     0.148,
+     0.06,
+     0.1253
+    ],
+    "rotationEuler": [
+     9.982,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_ChocksTail",
+   "carryFbx": "SM_Kit_ChocksTail",
+   "effects": [
+    "wheelsHeld",
+    "moveBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 4,
+   "groundItem": true,
+   "parkedHeight": [
+    0.04,
+    -0.02,
+    0.1
+   ],
+   "tris": 248
+  },
+  {
+   "id": "TieDown_L",
+   "object": "Kit_TieDown_L",
+   "label": "Швартовка левого крыла",
+   "socket": [
+    -4.21,
+    0.2059,
+    0.9759
+   ],
+   "zone": {
+    "center": [
+     -4.21,
+     0.329,
+     0.9975
+    ],
+    "halfExtents": [
+     0.15,
+     0.145,
+     0.15
+    ],
+    "rotationEuler": [
+     9.982,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_TieDownBag",
+   "carryFbx": "SM_Kit_TieDownBag",
+   "effects": [
+    "tiedDown",
+    "moveBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 20,
+   "groundItem": true,
+   "attach": [
+    -3.36,
+    2.585,
+    1.75
+   ],
+   "ropeLength": 2.542,
+   "parkedHeight": [
+    0.125,
+    -0.02,
+    0.27
+   ],
+   "tris": 872
+  },
+  {
+   "id": "TieDown_R",
+   "object": "Kit_TieDown_R",
+   "label": "Швартовка правого крыла",
+   "socket": [
+    4.21,
+    0.2059,
+    0.9759
+   ],
+   "zone": {
+    "center": [
+     4.21,
+     0.329,
+     0.9975
+    ],
+    "halfExtents": [
+     0.15,
+     0.145,
+     0.15
+    ],
+    "rotationEuler": [
+     9.982,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_TieDownBag",
+   "carryFbx": "SM_Kit_TieDownBag",
+   "effects": [
+    "tiedDown",
+    "moveBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 20,
+   "groundItem": true,
+   "attach": [
+    3.36,
+    2.585,
+    1.75
+   ],
+   "ropeLength": 2.542,
+   "parkedHeight": [
+    0.125,
+    -0.02,
+    0.27
+   ],
+   "tris": 872
+  },
+  {
+   "id": "TieDown_Tail",
+   "object": "Kit_TieDown_Tail",
+   "label": "Швартовка хвоста",
+   "socket": [
+    -0.32,
+    1.061,
+    -3.8824
+   ],
+   "zone": {
+    "center": [
+     -0.32,
+     1.1841,
+     -3.8607
+    ],
+    "halfExtents": [
+     0.15,
+     0.145,
+     0.15
+    ],
+    "rotationEuler": [
+     9.982,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_TieDownBag",
+   "carryFbx": "SM_Kit_TieDownBag",
+   "effects": [
+    "tiedDown",
+    "moveBlocked"
+   ],
+   "excludes": [],
+   "installSeconds": 15,
+   "groundItem": true,
+   "attach": [
+    0.0,
+    1.715,
+    -3.95
+   ],
+   "ropeLength": 0.641,
+   "parkedHeight": [
+    0.125,
+    -0.02,
+    0.27
+   ],
+   "tris": 872
+  },
+  {
+   "id": "Heater",
+   "object": "Kit_Heater",
+   "label": "Подогреватель двигателя",
+   "socket": [
+    -0.85,
+    -0.5712,
+    5.3906
+   ],
+   "zone": {
+    "center": [
+     -0.8295,
+     -0.2239,
+     5.4899
+    ],
+    "halfExtents": [
+     0.3895,
+     0.3792,
+     0.4684
+    ],
+    "rotationEuler": [
+     9.982,
+     0.0,
+     0.0
+    ]
+   },
+   "carry": "KitCarry_HeaterStowed",
+   "carryFbx": "SM_Kit_HeaterStowed",
+   "effects": [
+    "engineStartBlocked",
+    "preheating",
+    "moveBlocked"
+   ],
+   "excludes": [
+    "IntakePlug"
+   ],
+   "installSeconds": 25,
+   "groundItem": true,
+   "attach": [
+    0.0,
+    1.3246,
+    4.7191
+   ],
+   "parkedHeight": [
+    0.359,
+    -0.02,
+    0.738
+   ],
+   "tris": 6672
+  }
+ ],
+ "carry": [
+  {
+   "prefab": "KitCarry_IntakePlug",
+   "fbx": "SM_Kit_IntakePlug",
+   "label": "Заглушка воздухозаборника",
+   "massKg": 0.9,
+   "note": "intake plug, streamer wound round the rim",
+   "sizeM": [
+    0.43,
+    0.19,
+    0.178
+   ],
+   "grip": [
+    0.0,
+    0.115,
+    0.077
+   ],
+   "tris": 508
+  },
+  {
+   "prefab": "KitCarry_ExhaustCover",
+   "fbx": "SM_Kit_ExhaustCover",
+   "label": "Заглушка выхлопа",
+   "massKg": 0.3,
+   "note": "exhaust plug, streamer wound round the cap",
+   "sizeM": [
+    0.215,
+    0.213,
+    0.127
+   ],
+   "grip": [
+    0.0,
+    0.1066,
+    0.0
+   ],
+   "count": 2,
+   "tris": 520
+  },
+  {
+   "prefab": "KitCarry_PitotCover",
+   "fbx": "SM_Kit_PitotCover",
+   "label": "Чехол ПВД",
+   "massKg": 0.15,
+   "note": "pitot cover, streamer wound round the sleeve",
+   "sizeM": [
+    0.052,
+    0.052,
+    0.2
+   ],
+   "grip": [
+    0.0,
+    0.026,
+    0.0
+   ],
+   "tris": 208
+  },
+  {
+   "prefab": "KitCarry_WingCoverBag",
+   "fbx": "SM_Kit_WingCoverBag",
+   "label": "Сумка с чехлом крыла",
+   "massKg": 4.5,
+   "note": "one wing cover, rolled",
+   "sizeM": [
+    0.72,
+    0.382,
+    0.342
+   ],
+   "grip": [
+    0.0,
+    0.3703,
+    0.0
+   ],
+   "count": 2,
+   "tris": 376
+  },
+  {
+   "prefab": "KitCarry_WindshieldCoverBag",
+   "fbx": "SM_Kit_WindshieldCoverBag",
+   "label": "Сумка с чехлом лобового стекла",
+   "massKg": 2.2,
+   "note": "windshield cover, rolled",
+   "sizeM": [
+    0.48,
+    0.321,
+    0.28
+   ],
+   "grip": [
+    0.0,
+    0.309,
+    0.0
+   ],
+   "tris": 376
+  },
+  {
+   "prefab": "KitCarry_EngineCoverBag",
+   "fbx": "SM_Kit_EngineCoverBag",
+   "label": "Сумка с чехлом двигателя",
+   "massKg": 3.8,
+   "note": "insulated engine cover, folded",
+   "sizeM": [
+    0.52,
+    0.311,
+    0.34
+   ],
+   "grip": [
+    0.0,
+    0.2991,
+    0.0
+   ],
+   "tris": 276
+  },
+  {
+   "prefab": "KitCarry_Chocks",
+   "fbx": "SM_Kit_Chocks",
+   "label": "Колодки (пара)",
+   "massKg": 5.0,
+   "note": "same mesh as Kit_Chocks_L",
+   "sizeM": [
+    0.486,
+    0.14,
+    1.101
+   ],
+   "grip": [
+    -0.231,
+    0.077,
+    0.0
+   ],
+   "count": 2,
+   "tris": 248
+  },
+  {
+   "prefab": "KitCarry_ChocksTail",
+   "fbx": "SM_Kit_ChocksTail",
+   "label": "Колодки хвостового колеса",
+   "massKg": 2.0,
+   "note": "same mesh as Kit_Chocks_Tail",
+   "sizeM": [
+    0.256,
+    0.08,
+    0.662
+   ],
+   "grip": [
+    -0.116,
+    0.044,
+    0.0
+   ],
+   "tris": 248
+  },
+  {
+   "prefab": "KitCarry_TieDownBag",
+   "fbx": "SM_Kit_TieDownBag",
+   "label": "Сумка швартовки (3 комплекта)",
+   "massKg": 6.0,
+   "note": "3 screw anchors + 3 ropes",
+   "sizeM": [
+    0.46,
+    0.28,
+    0.238
+   ],
+   "grip": [
+    0.0,
+    0.2681,
+    0.0
+   ],
+   "sets": 3,
+   "tris": 376
+  },
+  {
+   "prefab": "KitCarry_HeaterStowed",
+   "fbx": "SM_Kit_HeaterStowed",
+   "label": "Подогреватель двигателя",
+   "massKg": 26.0,
+   "note": "forced-air heater, duct coiled on top",
+   "sizeM": [
+    0.49,
+    0.852,
+    0.76
+   ],
+   "grip": [
+    0.0,
+    0.62,
+    0.34
+   ],
+   "tris": 2896
+  },
+  {
+   "prefab": "KitCarry_JerryCan",
+   "fbx": "SM_Kit_JerryCan",
+   "label": "Канистра 20 л",
+   "massKg": 4.2,
+   "note": "20 l, empty 4.2 kg, full (Jet A-1, 0.8 kg/l) 20.2 kg",
+   "sizeM": [
+    0.34,
+    0.476,
+    0.189
+   ],
+   "grip": [
+    0.0,
+    0.47,
+    0.0
+   ],
+   "pour": [
+    -0.13,
+    0.46,
+    0.0
+   ],
+   "capacityL": 20,
+   "fuel": "Jet A-1 0.80 kg/l",
+   "fullMassKg": 20.2,
+   "tris": 472
+  },
+  {
+   "prefab": "KitCarry_Funnel",
+   "fbx": "SM_Kit_Funnel",
+   "label": "Воронка с фильтром",
+   "massKg": 0.4,
+   "note": "fuel funnel with water filter screen",
+   "sizeM": [
+    0.3,
+    0.3,
+    0.25
+   ],
+   "grip": [
+    -0.1438,
+    0.235,
+    0.0
+   ],
+   "tris": 404
+  }
+ ],
+ "effects": {
+  "engineStartBlocked": "starter must not run: plug / cover / heater duct in the intake or on the exhaust (your rule: refuse, or damage the engine)",
+  "airspeedBlocked": "pitot covered: airspeed indicator reads 0",
+  "liftBlocked": "wing cover on: no takeoff (your rule: refuse power, or no lift on that wing)",
+  "viewBlocked": "windshield cover on: the mesh itself blocks the view from the cockpit",
+  "engineInsulated": "engine cover on: the engine cools slower",
+  "wheelsHeld": "chocks in: the aircraft must not roll (wheel colliders: brake torque, or refuse taxi)",
+  "tiedDown": "tied down: the aircraft must not move (also against wind)",
+  "preheating": "heater running into the intake: engine/oil temperature rises over time",
+  "moveBlocked": "chocks, tie-downs or the heater (duct in the intake): the aircraft must not taxi or be towed"
+ },
+ "atlases": [
+  {
+   "atlas": "KitCovers",
+   "material": "M_KitCovers",
+   "metresPerUV": 7.2688,
+   "pxPerMetre": 70.4,
+   "areaM2": 34.57,
+   "detail": "",
+   "detailTiling": 0.0,
+   "detailNormalScale": 0.0,
+   "detailMask": "",
+   "psx": true
+  },
+  {
+   "atlas": "KitProps",
+   "material": "M_KitProps",
+   "metresPerUV": 5.1832,
+   "pxPerMetre": 98.8,
+   "areaM2": 14.23,
+   "detail": "",
+   "detailTiling": 0.0,
+   "detailNormalScale": 0.0,
+   "detailMask": "",
+   "psx": true
+  }
+ ]
+}

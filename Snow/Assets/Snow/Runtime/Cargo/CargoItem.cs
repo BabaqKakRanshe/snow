@@ -12,6 +12,8 @@ namespace Snow.Cargo
         Loose,
         Carried,
         Secured,
+        /// <summary>On its StowPoint (И3 L): kinematic, held in the socket pose, no collisions with the vehicle.</summary>
+        Stowed,
     }
 
     /// <summary>
@@ -26,6 +28,8 @@ namespace Snow.Cargo
     public class CargoItem : NetworkBehaviour
     {
         public string label = "Ящик";
+        [Tooltip("What this item is, for stow points and loadouts (e.g. Surv_Flashlight, StepLadder). Empty for cargo")] public string itemKey;
+        [Tooltip("Shown only while stowed (Surv_Bag_Strap)")] public GameObject stowedMarker;
         [Tooltip("kg, TEMPORARY (contents provider comes with CONTAINER-01)")] public float massKg = 15f;
         [Tooltip("Shown while secured: the visible strap (SECURE-01)")] public GameObject securedMarker;
         [Tooltip("N and N·m at which the tie-down lets go, TEMPORARY")] public float jointBreakForce = 30000f;
@@ -58,6 +62,9 @@ namespace Snow.Cargo
             NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
         readonly Dictionary<ulong, Hand> _hands = new Dictionary<ulong, Hand>();
+        static readonly List<CargoItem> AllItems = new List<CargoItem>();
+        StowPoint _stow;
+        Collider[] _ignoredVehicle = System.Array.Empty<Collider>();
         readonly Collider[] _overlap = new Collider[16];
         Rigidbody _rb;
         FixedJoint _joint;
@@ -69,6 +76,20 @@ namespace Snow.Cargo
         public string SocketId => _socket.Value.ToString();
         public Rigidbody Body => _rb;
         public GrabNet Grab(int index) => _grabs[index];
+        public static IReadOnlyList<CargoItem> All => AllItems;
+        /// <summary>Server: the stow point this item sits on, or null.</summary>
+        public StowPoint Stow => _stow;
+
+        /// <summary>Server: the item this client is carrying, or null.</summary>
+        public static CargoItem HeldBy(ulong client)
+        {
+            foreach (var item in AllItems)
+                if (item._hands.ContainsKey(client)) return item;
+            return null;
+        }
+
+        void OnEnable() => AllItems.Add(this);
+        void OnDisable() => AllItems.Remove(this);
 
         void Awake()
         {
@@ -92,6 +113,7 @@ namespace Snow.Cargo
         void ShowState(CargoState s)
         {
             if (securedMarker != null) securedMarker.SetActive(s == CargoState.Secured);
+            if (stowedMarker != null) stowedMarker.SetActive(s == CargoState.Stowed);
         }
 
         public string Describe()
@@ -100,6 +122,7 @@ namespace Snow.Cargo
             {
                 case CargoState.Secured: return $"закреплён ({SocketId})";
                 case CargoState.Carried: return $"несут: {Carriers}";
+                case CargoState.Stowed: return "на своём месте (взять — E)";
                 default: return "свободен";
             }
         }
@@ -109,6 +132,7 @@ namespace Snow.Cargo
         {
             reason = null;
             if (State == CargoState.Secured) { reason = "Закреплён — сначала открепите [R]"; return false; }
+            if (State == CargoState.Stowed) ServerUnstow();                // taken from its place by the item itself (И3 L.3)
             Vector3 world = transform.TransformPoint(localPoint);
             if (_hands.TryGetValue(client, out Hand h))
                 h.Local = localPoint;                               // re-grab moves the point, the budget stays one hand
@@ -151,6 +175,13 @@ namespace Snow.Cargo
             if (IsSpawned && SnowNetworkBootstrap.Args != null && SnowNetworkBootstrap.Args.Trace && (_traceStep++ % 5) == 0)
                 BenchLog.Event("cpos", "item", name, "st", NetworkManager.ServerTime.Time, "p", transform.position,
                     "r", transform.eulerAngles, "s", State.ToString(), "srv", IsServer);
+            if (IsServer && IsSpawned && State == CargoState.Stowed && _stow != null)
+            {
+                // held in the socket pose every physics step (the socket may ride on a moving door, И3 L.4)
+                _rb.MovePosition(_stow.transform.position);
+                _rb.MoveRotation(_stow.transform.rotation);
+                return;
+            }
             if (!IsServer || !IsSpawned || State != CargoState.Carried) return;
             // light items (key 50 g, survival kit): the hand's spring, damper and budget scale with the mass below 5 kg,
             // otherwise the explicit step is unstable (c·dt/m = 60 for the key at 50 Hz)
@@ -163,6 +194,59 @@ namespace Snow.Cargo
                     GrabMath.Stiffness * g, GrabMath.Damping * g, GrabMath.MaxForcePerPlayer * g);
                 _rb.AddForceAtPosition(f, p, ForceMode.Force);
             }
+        }
+
+        // ================================================================ server: stow (И3 L)
+        /// <summary>
+        /// Server: onto a stow point. The model's poses press the item 2-7 cm into the vehicle colliders, so while it is
+        /// there it does not collide with the vehicle at all (Physics.IgnoreCollision with every vehicle collider); it is
+        /// kinematic and follows the socket. Its mass is not added anywhere (the bench items are a few kg, TEMPORARY).
+        /// </summary>
+        public bool ServerStow(ulong client, StowPoint point, out string reason)
+        {
+            reason = null;
+            if (point.Occupant != null && point.Occupant != this) { reason = "Место занято"; return false; }
+            if (State == CargoState.Secured) ServerUnsecure(client, out _);
+            _hands.Clear();
+            SyncGrabs();
+            Transform vehicle = point.transform.root;
+            var rb = point.GetComponentInParent<Rigidbody>();
+            if (rb != null) vehicle = rb.transform;
+            _ignoredVehicle = vehicle.GetComponentsInChildren<Collider>(true);
+            foreach (var mine in _colliders)
+                if (mine != null && !mine.isTrigger)
+                    foreach (var other in _ignoredVehicle)
+                        if (other != null && !other.isTrigger) Physics.IgnoreCollision(mine, other, true);
+            _stow = point;
+            point.Occupant = this;
+            _rb.isKinematic = true;
+            _rb.position = point.transform.position;
+            _rb.rotation = point.transform.rotation;
+            transform.SetPositionAndRotation(point.transform.position, point.transform.rotation);
+            _socket.Value = new FixedString64Bytes(point.stowId);
+            _state.Value = CargoState.Stowed;
+            BenchLog.Event("cargo_stow", "item", name, "client", client, "stow", point.stowId);
+            return true;
+        }
+
+        /// <summary>Server: off its stow point, a free body again (it keeps the vehicle's velocity at that point).</summary>
+        public void ServerUnstow()
+        {
+            if (State != CargoState.Stowed) return;
+            Rigidbody vehicle = _stow != null ? _stow.GetComponentInParent<Rigidbody>() : null;
+            foreach (var mine in _colliders)
+                if (mine != null && !mine.isTrigger)
+                    foreach (var other in _ignoredVehicle)
+                        if (other != null && !other.isTrigger) Physics.IgnoreCollision(mine, other, false);
+            _ignoredVehicle = System.Array.Empty<Collider>();
+            if (_stow != null && _stow.Occupant == this) _stow.Occupant = null;
+            string from = _stow != null ? _stow.stowId : "";
+            _stow = null;
+            _rb.isKinematic = false;
+            _rb.linearVelocity = vehicle != null ? vehicle.GetPointVelocity(transform.position) : Vector3.zero;
+            _socket.Value = default;
+            _state.Value = CargoState.Loose;
+            BenchLog.Event("cargo_unstow", "item", name, "stow", from);
         }
 
         // ================================================================ server: secure
@@ -260,6 +344,7 @@ namespace Snow.Cargo
                 float along = (d - up * height).magnitude;
                 if (height < -0.08f || height > 0.15f || along > s.captureRadius || along >= bestDist) continue;
                 if (s.Occupant != null) { why ??= "Эта точка крепления занята"; continue; }
+                if (s.Blocked != null) { why ??= s.Blocked; continue; }
                 if (Vector3.Angle(transform.up, up) > s.maxTilt) { why = "Ящик стоит неровно: поставьте его на дно"; continue; }
                 best = s;
                 bestDist = along;

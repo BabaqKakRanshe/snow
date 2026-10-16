@@ -60,6 +60,11 @@ namespace Snow.Aircraft
         /// Knobs 0..7 in RadioA, 8..12 in RadioB. Xpdr: Knob_XPDR_Mode 0..4 = OFF, SBY, ON, ALT, TST.</summary>
         public ulong RadioA, RadioB;
         public byte Xpdr;
+        /// <summary>И3 K.2: troop seats of the bay, bit i = seat i (UtilityPlaneRig.PaxSeatNames) is down; the step ladder lies
+        /// stowed on the bay floor (Socket_Stow_Ladder).</summary>
+        public byte PaxSeats;
+        public bool LadderStowed;
+        public bool PaxDown(int i) => (PaxSeats & (1 << i)) != 0;
 
         public const int RadioKnobCount = 13, RadioDetents = 24;
         public int RadioKnob(int i) => (int)(((i < 8 ? RadioA : RadioB) >> (8 * (i & 7))) & 0xFF);
@@ -94,12 +99,14 @@ namespace Snow.Aircraft
             s.SerializeValue(ref FlapLever);
             s.SerializeValue(ref AltSetting); s.SerializeValue(ref HdgBug); s.SerializeValue(ref DgKnob);
             s.SerializeValue(ref RadioA); s.SerializeValue(ref RadioB); s.SerializeValue(ref Xpdr);
+            s.SerializeValue(ref PaxSeats); s.SerializeValue(ref LadderStowed);
         }
 
         public bool Equals(PlaneSwitchState o) => Bits == o.Bits && RheoPanel == o.RheoPanel && RheoFlood == o.RheoFlood
                                                   && PropLever == o.PropLever && FlapLever == o.FlapLever
                                                   && AltSetting == o.AltSetting && HdgBug == o.HdgBug && DgKnob == o.DgKnob
-                                                  && RadioA == o.RadioA && RadioB == o.RadioB && Xpdr == o.Xpdr;
+                                                  && RadioA == o.RadioA && RadioB == o.RadioB && Xpdr == o.Xpdr
+                                                  && PaxSeats == o.PaxSeats && LadderStowed == o.LadderStowed;
     }
 
     /// <summary>

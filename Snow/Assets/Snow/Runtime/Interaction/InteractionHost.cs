@@ -142,6 +142,9 @@ namespace Snow.Interaction
         /// <summary>Client and server: state part of the hover hint, e.g. "закрыта".</summary>
         public virtual string Describe(string id) => null;
 
+        /// <summary>Client: seconds the use button must be held for this zone (winter-kit items), 0 = a click.</summary>
+        public virtual float HoldSeconds(string id) => 0f;
+
         /// <summary>Client and server: the action a use would perform now, e.g. "открыть".</summary>
         public virtual string ActionText(string id) => "использовать";
     }

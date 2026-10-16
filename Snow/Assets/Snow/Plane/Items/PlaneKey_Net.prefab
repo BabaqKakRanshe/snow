@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1739003061
+  GlobalObjectIdHash: 1556492346
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -246,6 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   label: "\u041A\u043B\u044E\u0447 \u043E\u0442 \u0441\u0430\u043C\u043E\u043B\u0451\u0442\u0430"
+  itemKey: PlaneKey
+  stowedMarker: {fileID: 0}
   massKg: 0.05
   securedMarker: {fileID: 0}
   jointBreakForce: 30000

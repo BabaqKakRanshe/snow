@@ -34,6 +34,8 @@ namespace Snow.Aircraft
             public float FeedLimitPph;
             /// <summary>Forward airspeed, m/s; air density kg/m³; outside air temperature °C.</summary>
             public float Airspeed, Rho, OatC;
+            /// <summary>И4 K4.3: the winter-kit heater on (warms oil and engine), the insulated engine cover on.</summary>
+            public bool Heater, Insulated;
         }
 
         readonly AircraftTuning _t;
@@ -145,7 +147,10 @@ namespace Snow.Aircraft
             float oilPTarget = 110f * Mathf.Pow(Mathf.Clamp01(Ng / 60f), 1.2f);
             OilPsi += (oilPTarget - OilPsi) * (1f - Mathf.Exp(-dt / 1f));
             float oilTTarget = u.OatC + (Combusting ? 45f + 45f * ShaftPowerW / _t.maxPowerW : 0f);
-            OilC += (oilTTarget - OilC) * (1f - Mathf.Exp(-dt / 90f));
+            if (!Combusting && u.Heater && OilC < u.OatC + _t.preheatAboveOatC)
+                OilC = Mathf.Min(u.OatC + _t.preheatAboveOatC, OilC + _t.preheatCPerMin / 60f * (u.Insulated ? 2f : 1f) * dt);   // TEMPORARY
+            else if (!(u.Heater && oilTTarget < OilC))
+                OilC += (oilTTarget - OilC) * (1f - Mathf.Exp(-dt / (u.Insulated && oilTTarget < OilC ? 180f : 90f)));   // insulated: cools half as fast
 
             // fuel flow and burn
             if (!Combusting) FuelFlowPph = 0f;

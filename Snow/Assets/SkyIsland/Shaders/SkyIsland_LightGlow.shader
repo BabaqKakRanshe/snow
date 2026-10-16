@@ -9,6 +9,7 @@ Shader "SkyIsland/LightGlow"
         _Intensity ("Intensity", Float) = 1
         _Softness ("Falloff exponent", Float) = 2.6
         _NearFade ("Fade when closer than (m)", Float) = 3
+        _FogFloor ("Least brightness kept in fog (beacons stay visible)", Range(0, 1)) = 0
     }
     SubShader
     {
@@ -28,7 +29,7 @@ Shader "SkyIsland/LightGlow"
             #include "UnityCG.cginc"
 
             half4 _Color;
-            float _Intensity, _Softness, _NearFade;
+            float _Intensity, _Softness, _NearFade, _FogFloor;
 
             struct appdata { float4 vertex : POSITION; UNITY_VERTEX_INPUT_INSTANCE_ID };
             struct v2f
@@ -65,7 +66,9 @@ Shader "SkyIsland/LightGlow"
                 float t = saturate(1.0 - dot(i.uv, i.uv));
                 float a = pow(t, _Softness) * 0.55 + pow(t, _Softness * 6.0) * 0.45;   // wide soft halo + brighter core
                 half3 col = _Color.rgb * (_Intensity * a * i.fade);
+                half3 raw = col;
                 UNITY_APPLY_FOG_COLOR(i.fogCoord, col, half4(0, 0, 0, 0));
+                col = max(col, raw * _FogFloor);                                  // v2.4 fog floor (look.fog.glowFloor)
                 return half4(col, 1.0);
             }
             ENDCG

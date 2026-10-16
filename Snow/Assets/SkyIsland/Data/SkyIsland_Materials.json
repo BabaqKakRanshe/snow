@@ -30,8 +30,8 @@
    "instancing": false,
    "softness": 2.6,
    "detail": {
-    "albedo": "T_GroundDetail_A.png",
-    "normal": "T_GroundDetail_N.png",
+    "albedo": "T_GroundDetail_A_px.png",
+    "normal": "",
     "tiling": [
      533.33,
      346.67
@@ -42,9 +42,9 @@
   {
    "name": "M_Rock",
    "type": "lit",
-   "albedo": "T_Rock_A.png",
-   "normal": "T_Rock_N.png",
-   "mask": "T_Rock_M.png",
+   "albedo": "T_Rock_A_px.png",
+   "normal": "",
+   "mask": "T_Rock_M_px.png",
    "emissionMap": "",
    "tiling": [
     1,
@@ -81,9 +81,9 @@
   {
    "name": "M_Moss",
    "type": "lit",
-   "albedo": "T_Moss_A.png",
-   "normal": "T_Moss_N.png",
-   "mask": "T_Moss_M.png",
+   "albedo": "T_Moss_A_px.png",
+   "normal": "",
+   "mask": "T_Moss_M_px.png",
    "emissionMap": "",
    "tiling": [
     1,
@@ -147,8 +147,8 @@
    "instancing": false,
    "softness": 2.6,
    "detail": {
-    "albedo": "T_AsphaltDetail_A.png",
-    "normal": "T_AsphaltDetail_N.png",
+    "albedo": "T_AsphaltDetail_A_px.png",
+    "normal": "",
     "tiling": [
      400,
      15
@@ -186,8 +186,8 @@
    "instancing": false,
    "softness": 2.6,
    "detail": {
-    "albedo": "T_ConcreteDetail_A.png",
-    "normal": "T_ConcreteDetail_N.png",
+    "albedo": "T_ConcreteDetail_A_px.png",
+    "normal": "",
     "tiling": [
      234.67,
      78.67
@@ -198,9 +198,9 @@
   {
    "name": "M_Corrugated",
    "type": "lit",
-   "albedo": "T_Corrugated_A.png",
-   "normal": "T_Corrugated_N.png",
-   "mask": "T_Corrugated_M.png",
+   "albedo": "T_Corrugated_A_px.png",
+   "normal": "",
+   "mask": "T_Corrugated_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.25,
@@ -237,9 +237,9 @@
   {
    "name": "M_Concrete",
    "type": "lit",
-   "albedo": "T_Concrete_A.png",
-   "normal": "T_Concrete_N.png",
-   "mask": "T_Concrete_M.png",
+   "albedo": "T_Concrete_A_px.png",
+   "normal": "",
+   "mask": "T_Concrete_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.1667,
@@ -276,9 +276,9 @@
   {
    "name": "M_ConcreteFloor",
    "type": "lit",
-   "albedo": "T_Concrete_A.png",
-   "normal": "T_Concrete_N.png",
-   "mask": "T_Concrete_M.png",
+   "albedo": "T_Concrete_A_px.png",
+   "normal": "",
+   "mask": "T_Concrete_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.1333,
@@ -315,9 +315,9 @@
   {
    "name": "M_Steel",
    "type": "lit",
-   "albedo": "T_Steel_A.png",
-   "normal": "T_Steel_N.png",
-   "mask": "T_Steel_M.png",
+   "albedo": "T_Steel_A_px.png",
+   "normal": "",
+   "mask": "T_Steel_M_px.png",
    "emissionMap": "",
    "tiling": [
     1,
@@ -354,9 +354,9 @@
   {
    "name": "M_PaintWhite",
    "type": "lit",
-   "albedo": "T_PaintWhite_A.png",
-   "normal": "T_Paint_N.png",
-   "mask": "T_Paint_M.png",
+   "albedo": "T_PaintWhite_A_px.png",
+   "normal": "",
+   "mask": "T_Paint_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.5,
@@ -393,9 +393,9 @@
   {
    "name": "M_PaintRed",
    "type": "lit",
-   "albedo": "T_PaintRed_A.png",
-   "normal": "T_Paint_N.png",
-   "mask": "T_Paint_M.png",
+   "albedo": "T_PaintRed_A_px.png",
+   "normal": "",
+   "mask": "T_Paint_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.5,
@@ -432,9 +432,9 @@
   {
    "name": "M_PaintOlive",
    "type": "lit",
-   "albedo": "T_PaintOlive_A.png",
-   "normal": "T_Paint_N.png",
-   "mask": "T_Paint_M.png",
+   "albedo": "T_PaintOlive_A_px.png",
+   "normal": "",
+   "mask": "T_Paint_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.5,
@@ -471,9 +471,9 @@
   {
    "name": "M_PaintYellow",
    "type": "lit",
-   "albedo": "T_PaintYellow_A.png",
-   "normal": "T_Paint_N.png",
-   "mask": "T_Paint_M.png",
+   "albedo": "T_PaintYellow_A_px.png",
+   "normal": "",
+   "mask": "T_Paint_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.5,
@@ -510,9 +510,9 @@
   {
    "name": "M_Radome",
    "type": "lit",
-   "albedo": "T_Radome_A.png",
-   "normal": "T_Radome_N.png",
-   "mask": "T_Radome_M.png",
+   "albedo": "T_Radome_A_px.png",
+   "normal": "",
+   "mask": "T_Radome_M_px.png",
    "emissionMap": "",
    "tiling": [
     1,
@@ -549,10 +549,10 @@
   {
    "name": "M_Windows",
    "type": "lit",
-   "albedo": "T_Windows_A.png",
+   "albedo": "T_Windows_A_px.png",
    "normal": "",
-   "mask": "T_Windows_M.png",
-   "emissionMap": "T_Windows_E.png",
+   "mask": "T_Windows_M_px.png",
+   "emissionMap": "T_Windows_E_px.png",
    "tiling": [
     1,
     1
@@ -607,7 +607,7 @@
     0.5
    ],
    "emissionIntensity": 0.18,
-   "smoothness": 0.94,
+   "smoothness": 0.6666666666666666,
    "metallic": 0.0,
    "cutoff": 0.5,
    "normalScale": 1.0,
@@ -627,7 +627,7 @@
   {
    "name": "M_HangarNumbers",
    "type": "cutout",
-   "albedo": "T_HangarNumbers_A.png",
+   "albedo": "T_HangarNumbers_A_px.png",
    "normal": "",
    "mask": "",
    "emissionMap": "",
@@ -646,7 +646,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.45,
+   "smoothness": 0.3333333333333333,
    "metallic": 0.0,
    "cutoff": 0.35,
    "normalScale": 1.0,
@@ -666,8 +666,8 @@
   {
    "name": "M_Bark",
    "type": "lit",
-   "albedo": "T_Bark_A.png",
-   "normal": "T_Bark_N.png",
+   "albedo": "T_Bark_A_px.png",
+   "normal": "",
    "mask": "",
    "emissionMap": "",
    "tiling": [
@@ -685,7 +685,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.18,
+   "smoothness": 0.0,
    "metallic": 0.0,
    "cutoff": 0.5,
    "normalScale": 1.0,
@@ -705,8 +705,8 @@
   {
    "name": "M_DeadWood",
    "type": "lit",
-   "albedo": "T_Bark_A.png",
-   "normal": "T_Bark_N.png",
+   "albedo": "T_Bark_A_px.png",
+   "normal": "",
    "mask": "",
    "emissionMap": "",
    "tiling": [
@@ -724,7 +724,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.22,
+   "smoothness": 0.0,
    "metallic": 0.0,
    "cutoff": 0.5,
    "normalScale": 1.0,
@@ -744,7 +744,7 @@
   {
    "name": "M_Spruce",
    "type": "cutout",
-   "albedo": "T_SpruceBranch_A.png",
+   "albedo": "T_SpruceBranch_A_px.png",
    "normal": "",
    "mask": "",
    "emissionMap": "",
@@ -763,7 +763,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.12,
+   "smoothness": 0.0,
    "metallic": 0.0,
    "cutoff": 0.42,
    "normalScale": 1.0,
@@ -783,7 +783,7 @@
   {
    "name": "M_SpruceImpostor",
    "type": "cutout",
-   "albedo": "T_SpruceImpostor_A.png",
+   "albedo": "T_SpruceImpostor_A_px.png",
    "normal": "",
    "mask": "",
    "emissionMap": "",
@@ -802,7 +802,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.1,
+   "smoothness": 0.0,
    "metallic": 0.0,
    "cutoff": 0.42,
    "normalScale": 1.0,
@@ -822,7 +822,7 @@
   {
    "name": "M_Grass",
    "type": "cutout",
-   "albedo": "T_Grass_A.png",
+   "albedo": "T_Grass_A_px.png",
    "normal": "",
    "mask": "",
    "emissionMap": "",
@@ -841,7 +841,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.18,
+   "smoothness": 0.0,
    "metallic": 0.0,
    "cutoff": 0.4,
    "normalScale": 1.0,
@@ -861,7 +861,7 @@
   {
    "name": "M_CamoNet",
    "type": "cutout",
-   "albedo": "T_CamoNet_A.png",
+   "albedo": "T_CamoNet_A_px.png",
    "normal": "",
    "mask": "",
    "emissionMap": "",
@@ -880,7 +880,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.15,
+   "smoothness": 0.0,
    "metallic": 0.0,
    "cutoff": 0.4,
    "normalScale": 1.0,
@@ -1134,9 +1134,9 @@
   {
    "name": "M_Brick",
    "type": "lit",
-   "albedo": "T_Brick_A.png",
-   "normal": "T_Brick_N.png",
-   "mask": "T_Brick_M.png",
+   "albedo": "T_Brick_A_px.png",
+   "normal": "",
+   "mask": "T_Brick_M_px.png",
    "emissionMap": "",
    "tiling": [
     0.5,
@@ -1173,9 +1173,9 @@
   {
    "name": "M_FencePanel",
    "type": "lit",
-   "albedo": "T_FencePanel_A.png",
-   "normal": "T_FencePanel_N.png",
-   "mask": "T_FencePanel_M.png",
+   "albedo": "T_FencePanel_A_px.png",
+   "normal": "",
+   "mask": "T_FencePanel_M_px.png",
    "emissionMap": "",
    "tiling": [
     1,
@@ -1212,7 +1212,7 @@
   {
    "name": "M_ChainLink",
    "type": "cutout",
-   "albedo": "T_ChainLink_A.png",
+   "albedo": "T_ChainLink_A_px.png",
    "normal": "",
    "mask": "",
    "emissionMap": "",
@@ -1231,7 +1231,7 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.35,
+   "smoothness": 0.3333333333333333,
    "metallic": 0.0,
    "cutoff": 0.45,
    "normalScale": 1.0,
@@ -1270,8 +1270,8 @@
     0
    ],
    "emissionIntensity": 0.0,
-   "smoothness": 0.38,
-   "metallic": 0.3,
+   "smoothness": 0.3333333333333333,
+   "metallic": 0.0,
    "cutoff": 0.5,
    "normalScale": 1.0,
    "doubleSided": false,
@@ -1290,10 +1290,10 @@
   {
    "name": "M_Signs",
    "type": "lit",
-   "albedo": "T_Signs_A.png",
+   "albedo": "T_Signs_A_px.png",
    "normal": "",
-   "mask": "T_Signs_M.png",
-   "emissionMap": "T_Signs_E.png",
+   "mask": "T_Signs_M_px.png",
+   "emissionMap": "T_Signs_E_px.png",
    "tiling": [
     1,
     1
@@ -1598,6 +1598,85 @@
     ],
     "normalScale": 1.0
    }
+  },
+  {
+   "name": "M_Bone_Island",
+   "type": "lit",
+   "albedo": "T_Giant_A_px.png",
+   "normal": "",
+   "mask": "T_Giant_M_px.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.82,
+    0.78,
+    0.7
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "T_BoneDetail_A_px.png",
+    "normal": "",
+    "tiling": [
+     90.0,
+     90.0
+    ],
+    "normalScale": 0.8
+   }
+  },
+  {
+   "name": "M_Flesh",
+   "type": "lit",
+   "albedo": "T_Flesh_A_px.png",
+   "normal": "",
+   "mask": "T_Flesh_M_px.png",
+   "emissionMap": "",
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
   }
- ]
+ ],
+ "_doc": "PSX (Utility Plane recipe v9): albedo *_px (shading in the colour, 64-colour palette, Bayer dither), mask *_M_px (R metal 0/1, G = 1, A smoothness steps), no normal maps; macros stay smooth."
 }

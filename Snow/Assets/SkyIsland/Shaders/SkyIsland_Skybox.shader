@@ -21,6 +21,11 @@ Shader "SkyIsland/Skybox"
         _SunDisc ("Sun disc", Float) = 0.6
         _SunDiscPower ("Sun disc power", Float) = 3000
         _Exposure ("Exposure", Float) = 1
+        _StarColor ("Star colour", Color) = (0.8, 0.85, 1, 1)
+        _StarIntensity ("Star intensity (0 = no stars)", Float) = 0
+        _StarDensity ("Star density", Range(0, 1)) = 0.06
+        _StarScale ("Star cells per unit direction", Float) = 220
+        _StarSize ("Star size (cell fraction)", Float) = 0.32
     }
     SubShader
     {
@@ -38,6 +43,8 @@ Shader "SkyIsland/Skybox"
             half4 _HorizonColor, _BandColor, _ZenithColor, _BelowColor, _SunColor;
             float _BandHeight, _BandWidth, _CloudScale, _CloudContrast, _CloudSpeed;
             float _SunGlow, _SunGlowPower, _SunDisc, _SunDiscPower, _Exposure;
+            half4 _StarColor;
+            float _StarIntensity, _StarDensity, _StarScale, _StarSize;
             float4 _SunDir;
             sampler2D _CloudTex;
 
@@ -71,6 +78,17 @@ Shader "SkyIsland/Skybox"
                 float c = tex2Dlod(_CloudTex, float4(uv, 0, 0)).r;
                 float fade = smoothstep(-0.02, 0.35, up);
                 col *= 1.0 + (c - 0.5) * 2.0 * _CloudContrast * fade;
+                // v2.4 stars: one candidate per cell of a direction grid (mirror of wk/post.py stars())
+                if (_StarIntensity > 0)
+                {
+                    float3 sp = d * _StarScale;
+                    float3 cell = floor(sp);
+                    float3 h = frac(sin(float3(dot(cell, float3(127.1, 311.7, 74.7)), dot(cell, float3(269.5, 183.3, 246.1)),
+                                               dot(cell, float3(113.5, 271.9, 124.6)))) * 43758.5453);
+                    float dist = length(sp - (cell + 0.25 + 0.5 * h));
+                    float sb = saturate(1.0 - dist / max(_StarSize, 1e-3)) * step(1.0 - _StarDensity, h.x) * (0.35 + 0.65 * h.z);
+                    col += _StarColor.rgb * (sb * _StarIntensity * smoothstep(0.02, 0.25, up));
+                }
                 // sun
                 float cs = saturate(dot(d, normalize(_SunDir.xyz)));
                 col += _SunColor.rgb * (pow(cs, _SunGlowPower) * _SunGlow + pow(cs, _SunDiscPower) * _SunDisc);

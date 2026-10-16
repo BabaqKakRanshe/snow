@@ -16,6 +16,7 @@ namespace Snow.Character
         public MovementTuning tuning = new MovementTuning();
         [Tooltip("Layers the capsule stands on and collides with in its own queries")]
         public LayerMask collisionMask = ~0;
+        [Tooltip("m/s along a ladder (И3 H.3, Half-Life ladder, TEMPORARY)")] public float ladderSpeed = 1.6f;
 
         /// <summary>PhysX keeps the capsule this far off surfaces; the capsule centre is raised by it so the feet (transform) touch the ground.</summary>
         public const float SkinWidth = 0.02f;
@@ -32,6 +33,9 @@ namespace Snow.Character
         readonly List<Vector3> _hitNormals = new List<Vector3>(8);
         readonly List<Vector3> _savedNormals = new List<Vector3>(8);
         readonly RaycastHit[] _castHits = new RaycastHit[16];
+        readonly Collider[] _ladderHits = new Collider[8];
+        readonly List<Collider> _ladderIgnored = new List<Collider>(16);
+        Transform _ladder;
         Vector3 _prevEye, _currEye;
         float _stanceEyeJump;
 
@@ -51,6 +55,8 @@ namespace Snow.Character
         public CharacterController Controller => _cc;
         /// <summary>What the capsule stands on (null in the air). Standing on a vehicle floor makes the player ride it (§7.6).</summary>
         public Collider GroundCollider { get; private set; }
+        /// <summary>On a ladder (И3 H.3): the climb volume the capsule is in, null otherwise.</summary>
+        public Transform Ladder => _ladder;
         /// <summary>Contact normals of the last Move (diagnostics and tests).</summary>
         public IReadOnlyList<Vector3> LastHitNormals => _hitNormals;
 
@@ -92,6 +98,7 @@ namespace Snow.Character
             transform.rotation = Quaternion.Euler(0f, Input.YawDeg, 0f);
 
             UpdateStance(Input.Crouch);
+            if (LadderMove(dt)) { _currEye = transform.position + Vector3.up * EyeHeight; return; }
 
             MoveInput input = Input;
             input.Jump |= _jumpQueued;
@@ -319,6 +326,75 @@ namespace Snow.Character
         }
 
         static float Horizontal(Vector3 d) => new Vector2(d.x, d.z).magnitude;
+
+        // ---------------------------------------------------------------- ladder (И3 H.3, NEW-01: Half-Life ladder)
+        // The climb volume (kind "ladder", layer Interact, no collisions) is found by presence: OverlapCapsule with the
+        // Interact mask and triggers on, because trigger callbacks never come for a layer without collisions. While the
+        // capsule is in it and the player faces the treads, forward climbs and back descends along the stiles; the
+        // treads and stiles let the capsule through (the platform and rails do not), so it steps off onto the platform at
+        // the top and onto the ground at the bottom. Jump lets go.
+        bool LadderMove(float dt)
+        {
+            Transform ladder = FindLadder();
+            if (ladder == null || Input.Jump)
+            {
+                LeaveLadder();
+                return false;
+            }
+            if (ladder != _ladder) EnterLadder(ladder);
+            Vector3 look = Quaternion.Euler(0f, Input.YawDeg, 0f) * Vector3.forward;
+            Vector3 toTreads = -ladder.forward;                              // treads on the ladder's +Z side, climber faces -Z
+            bool facing = Vector3.Dot(look, toTreads) > 0.2f;
+            // along the stiles: bottom tread (z 0.61, y 0.25) to the top tread (z 0.23, y 1.29), ladder space
+            Vector3 along = ladder.TransformDirection(new Vector3(0f, 1.04f, -0.38f).normalized);
+            float climb = facing ? Input.Move.y : 0f;
+            Vector3 v = along * (climb * ladderSpeed) + ladder.right * (Input.Move.x * ladderSpeed * 0.5f);
+            if (!facing) v += look * (Input.Move.y * tuning.walkSpeed * 0.5f);   // turned away: step off
+            // no climb input: settle onto the tread or the platform under the feet (queries see the treads)
+            bool onSomething = ProbeGround(tuning.groundProbeDistance, out _);
+            if (Mathf.Abs(climb) < 0.01f && !onSomething) v += Vector3.down * ladderSpeed;
+            _hitNormals.Clear();
+            _cc.Move(v * dt);
+            _state.Velocity = v;
+            _state.Grounded = onSomething && climb <= 0f;
+            return true;
+        }
+
+        Transform FindLadder()
+        {
+            int interact = LayerMask.NameToLayer("Interact");
+            if (interact < 0) return null;
+            float r = _cc.radius;
+            Vector3 a = transform.position + Vector3.up * (SkinWidth + r), b = transform.position + Vector3.up * (SkinWidth + _cc.height - r);
+            int n = Physics.OverlapCapsuleNonAlloc(a, b, r, _ladderHits, 1 << interact, QueryTriggerInteraction.Collide);
+            for (int i = 0; i < n; i++)
+            {
+                var zone = _ladderHits[i].GetComponent<UtilityPlane.UtilityPlaneInteractable>();
+                if (zone != null && zone.kind == "ladder") return zone.transform;
+            }
+            return null;
+        }
+
+        void EnterLadder(Transform ladder)
+        {
+            LeaveLadder();
+            _ladder = ladder;
+            Transform root = ladder.parent != null ? ladder.parent : ladder;
+            foreach (var c in root.GetComponentsInChildren<Collider>())
+                if (!c.isTrigger && (c.name.Contains("Tread") || c.name.Contains("Stile")))
+                {
+                    Physics.IgnoreCollision(_cc, c, true);
+                    _ladderIgnored.Add(c);
+                }
+        }
+
+        void LeaveLadder()
+        {
+            if (_ladder == null) return;
+            foreach (var c in _ladderIgnored) if (c != null) Physics.IgnoreCollision(_cc, c, false);
+            _ladderIgnored.Clear();
+            _ladder = null;
+        }
 
         // ---------------------------------------------------------------- stance
         void UpdateStance(bool wantCrouch)

@@ -168,6 +168,13 @@ namespace Snow.Aircraft
         [Tooltip("s, suction rise / fall time constants")] public float suctionRise = 1f, suctionFall = 3f;
         [Tooltip("s, magnetic compass card lag: first order, no deviation or turning errors (TEMPORARY, И2 C.9)")] public float compassLag = 1f;
 
+        [Header("Winter kit (TEMPORARY, И4 K4.3, K4.5)")]
+        [Tooltip("°C per minute the heater warms oil and engine (×2 under the insulated cover)")] public float preheatCPerMin = 1f;
+        [Tooltip("°C above the outside air the heater stops at")] public float preheatAboveOatC = 30f;
+        [Tooltip("L/min from the jerry can into a tank")] public float jerryPourLpm = 10f;
+        [Tooltip("N/m and N·s/m: chocks / tie-downs / heater duct hold the parked aircraft (horizontal spring at the CG)")] public float holdSpring = 200000f, holdDamper = 43000f;
+        [Tooltip("N·m/rad and N·m·s/rad: the same about the vertical")] public float holdYawSpring = 2000000f, holdYawDamper = 330000f;
+
         [Header("Glass fog (TEMPORARY, И2 G.1)")]
         [Tooltip("°C: below this outside temperature the glass fogs from breath")] public float fogBelowOatC = 5f;
         [Tooltip("fog per second per person in the cabin and bay")] public float fogPerPerson = 0.004f;

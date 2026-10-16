@@ -22,6 +22,8 @@ namespace Snow.Aircraft
             public bool AutopilotOn;
             // lamp conditions the vehicle knows
             public bool CabinDoorOpen, CargoDoorOpen, CargoLoose, BeltWarning;
+            /// <summary>И4: winter-kit heater and engine cover.</summary>
+            public bool Heater, Insulated;
         }
 
         readonly AircraftTuning _t;
@@ -71,6 +73,8 @@ namespace Snow.Aircraft
                 Airspeed = u.Airspeed,
                 Rho = u.Rho,
                 OatC = u.OatC,
+                Heater = u.Heater,
+                Insulated = u.Insulated,
             }, dt);
             Fuel.Burn(Engine.BurnedL, s.On(PlaneSwitch.FuelSelL), s.On(PlaneSwitch.FuelSelR));
 

@@ -201,7 +201,10 @@ namespace Snow.Interaction
             float x0 = float.MaxValue, y0 = float.MaxValue, x1 = float.MinValue, y1 = float.MinValue;
             foreach (Vector3 w in _corners)
             {
-                Vector3 s = cam.WorldToScreenPoint(w);
+                // viewport, not camera pixels: with the PS1 frame the camera renders into a ~427 x 240 RenderTexture
+                Vector3 s = cam.WorldToViewportPoint(w);
+                s.x *= Screen.width;
+                s.y *= Screen.height;
                 if (s.z < 0.05f) return false;
                 x0 = Mathf.Min(x0, s.x); x1 = Mathf.Max(x1, s.x);
                 y0 = Mathf.Min(y0, s.y); y1 = Mathf.Max(y1, s.y);

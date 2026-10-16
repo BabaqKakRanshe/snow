@@ -3,14 +3,15 @@ using UnityEngine;
 namespace SkyIsland
 {
     /// <summary>
-    /// A named camera position matching one of the preview renders (Assets/SkyIsland/Previews).
+    /// A named camera position matching one of the preview renders (&lt;location&gt;/Previews).
     /// The fly camera jumps here with keys 1-9; Tools > Sky Island > Capture Viewpoints renders all of them.
     /// </summary>
     [AddComponentMenu("Sky Island/Viewpoint")]
     public class SkyIslandViewpoint : MonoBehaviour
     {
         [Tooltip("Vertical field of view (deg) that frames the view like the preview at 16:9")] public float fieldOfView = 44f;
-        [Tooltip("Preview image in Assets/SkyIsland/Previews rendered from this viewpoint")] public string previewImage;
+        [Tooltip("Preview image file rendered from this viewpoint")] public string previewImage;
+        [Tooltip("Asset path of the preview image (set by the builder: <location>/Previews/<file>)")] public string previewPath;
 
         void OnDrawGizmos()
         {
