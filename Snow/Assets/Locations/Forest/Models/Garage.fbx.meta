@@ -42,6 +42,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Gar_Bld
+    second: {fileID: 2100000, guid: 67b54e410d09ca540827eac91116483f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Gar_Panel
+    second: {fileID: 2100000, guid: d835554deb443de4faa6546bba77f1b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Gar_Parts
+    second: {fileID: 2100000, guid: c72b9b183a6b0c54f8132a091421d069, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_GlassDark
     second: {fileID: 2100000, guid: c8ab63fece6435f4e9672a6fe190da22, type: 2}
   - first:

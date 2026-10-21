@@ -15,6 +15,8 @@ namespace Snow.Interaction
     /// volume on the Interact layer, a physical item or nothing. Solid geometry in front blocks it. E on foot, a short F
     /// or the left button in a seat. The server decides. <see cref="Pick"/> is the one rule of what a ray from this
     /// player's eye reaches; the hover card and the Alt reveal use the same rule, so they cannot disagree.
+    /// With an item in hand on foot (E holds it) the left button uses the zone under the ray with that item (FOREST_U3
+    /// F4.5: pour from a jerrycan, unlock with a key, scrub with a rag); the ray passes through the held item.
     /// </summary>
     public class InteractionSensor : MonoBehaviour
     {
@@ -43,6 +45,11 @@ namespace Snow.Interaction
         InteractionHost _pressHost;
         string _pressId;
         float _pressTime, _pressHold;
+        // left button with an item in hand: its own press, released into the zone it pressed (F4.5)
+        bool _lmbSent;
+        InteractionHost _lmbHost;
+        string _lmbId;
+        float _lmbTime, _lmbHold;
         float _holdDistance;
         readonly RaycastHit[] _hits = new RaycastHit[16];
 
@@ -101,6 +108,13 @@ namespace Snow.Interaction
                 : new Ray(view.EyePosition, view.EyeRotation * Vector3.forward);
             Resolve(ray);
 
+            // out of the on-foot context (seated, menu): the server already let the item go (PlayerNet.ServerSeated)
+            if (ctx != InputContext.OnFoot)
+            {
+                if (Held != null) Held = null;
+                ReleaseLeft();
+            }
+
             bool down, up;
             if (ctx == InputContext.OnFoot) { down = f.Use && !last.Use; up = !f.Use && last.Use; }
             else if (ctx == InputContext.SeatCursor) { down = f.Click && !last.Click; up = !f.Click && last.Click; }
@@ -149,10 +163,26 @@ namespace Snow.Interaction
                 else if (wheel < -0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Back);
             }
 
-            // left mouse button with a survival item in hand: its action (TEMPORARY, user decision 16.10)
-            if (ctx == InputContext.OnFoot && Held != null && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame
-                && Held.TryGetComponent(out Snow.Aircraft.SurvivalItem _))
-                net.RequestItemAction(Held);
+            // left mouse button with an item in hand: the zone under the ray, used with that item (F4.5); otherwise a
+            // survival item's own action (TEMPORARY, user decision 16.10). Seats and kit zones are not used with an item.
+            if (ctx == InputContext.OnFoot && Held != null && Mouse.current != null)
+            {
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    if (TargetHost != null && TargetVolume != null && TargetVolume.kind != "seat" && TargetVolume.kind != "kit")
+                    {
+                        net.RequestUse(TargetHost, TargetId, UsePhase.Press);
+                        _lmbSent = true;
+                        _lmbHost = TargetHost;
+                        _lmbId = TargetId;
+                        _lmbTime = Time.time;
+                        _lmbHold = TargetHost.HoldSeconds(TargetId);
+                    }
+                    else if (Held.TryGetComponent(out Snow.Aircraft.SurvivalItem _)) net.RequestItemAction(Held);
+                }
+                else if (Mouse.current.leftButton.wasReleasedThisFrame) ReleaseLeft();
+            }
+            else if (_lmbSent && (Held == null || Mouse.current == null || !Mouse.current.leftButton.isPressed)) ReleaseLeft();
 
             // G: the plane key out of the pocket onto the ground (TEMPORARY, §8.3 one pocket without UI)
             if (ctx == InputContext.OnFoot && Keyboard.current != null && Keyboard.current.gKey.wasPressedThisFrame)
@@ -169,6 +199,14 @@ namespace Snow.Interaction
                 }
                 else ShowMessage("Наведитесь на ящик (или держите его E) и нажмите R");
             }
+        }
+
+        void ReleaseLeft()
+        {
+            if (!_lmbSent) return;
+            _lmbSent = false;
+            if (_lmbHost != null) net.RequestUse(_lmbHost, _lmbId, UsePhase.Release);
+            _lmbHost = null;
         }
 
         void Resolve(Ray ray)
@@ -226,6 +264,7 @@ namespace Snow.Interaction
                 RaycastHit h = _hits[i];
                 Collider c = h.collider;
                 if (c.transform.IsChildOf(transform) || System.Array.IndexOf(seat, c) >= 0) continue;
+                if (Held != null && c.transform.IsChildOf(Held.transform)) continue;   // the item in hand hangs on the ray (F4.5)
                 var zone = c.GetComponent<UtilityPlaneInteractable>();
                 if (zone != null)
                 {
@@ -266,13 +305,15 @@ namespace Snow.Interaction
             return host != null && host.ZoneOpen(zone, Held) && host.SideAllows(zone.id, eye);
         }
 
-        /// <summary>The key or button that uses the target in the current context (E / F / ЛКМ).</summary>
+        /// <summary>The key or button that uses the target in the current context (E / F / ЛКМ; ЛКМ on foot with an item
+        /// in hand, F4.5).</summary>
         public string UseKey => Key();
 
         string Key()
         {
             InputContext ctx = controller.Source.Context;
-            return ctx == InputContext.OnFoot ? "E" : ctx == InputContext.SeatCursor ? "ЛКМ" : "F";
+            if (ctx == InputContext.OnFoot) return Held != null ? "ЛКМ" : "E";
+            return ctx == InputContext.SeatCursor ? "ЛКМ" : "F";
         }
 
         void OnGUI()
@@ -290,9 +331,10 @@ namespace Snow.Interaction
                 GUI.color = Color.white;
             }
             // held action (winter kit): a progress bar under the aim point while the button is held
-            if (_pressSent && _pressHold > 0f)
+            bool lmbBar = _lmbSent && _lmbHold > 0f;
+            if ((_pressSent && _pressHold > 0f) || lmbBar)
             {
-                float k = Mathf.Clamp01((Time.time - _pressTime) / _pressHold);
+                float k = lmbBar ? Mathf.Clamp01((Time.time - _lmbTime) / _lmbHold) : Mathf.Clamp01((Time.time - _pressTime) / _pressHold);
                 var bar = new Rect(Screen.width * 0.5f - 100f, Screen.height * 0.55f, 200f, 8f);
                 GUI.color = new Color(0f, 0f, 0f, 0.6f); GUI.DrawTexture(bar, Texture2D.whiteTexture);
                 GUI.color = new Color(1f, 0.85f, 0.3f); GUI.DrawTexture(new Rect(bar.x, bar.y, bar.width * k, bar.height), Texture2D.whiteTexture);

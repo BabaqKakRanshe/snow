@@ -1,0 +1,36 @@
+{"tag": "before", "name": "Start", "teleport": "at (-466.39, 23.30, 502.03)", "perf": [[4.0026, 3.207168, 730], [0.4644, 0, 730], [11.8365, 0, 730]], "shot": false}
+{"tag": "before", "name": "Hut", "teleport": "no player", "perf": [[0.5212, 0, 730], [0.544, 0, 730], [0.4073, 0, 730]], "shot": false}
+{"tag": "before", "name": "Bridge", "teleport": "no player", "perf": [[0.5947, 0, 730], [0.9263, 0, 730], [0.5621, 0, 730]], "shot": false}
+{"tag": "before", "name": "Windfall", "teleport": "no player", "perf": [[0.5009, 0, 730], [1.0362, 0, 730], [1.0302, 0, 730]], "shot": false}
+{"tag": "before", "name": "Overlook", "teleport": "no player", "perf": [[2.0617, 0, 730], [0.8791, 0, 730], [2.9429, 0, 730]], "shot": false}
+{"tag": "before", "name": "UnderHand", "teleport": "no player", "perf": [[0.5085, 0, 730], [0.8353, 0, 730], [1.4189, 0, 730]], "shot": false}
+{"tag": "before", "name": "Ribs", "teleport": "no player", "perf": [[1.0188, 0, 730], [1.9181, 0, 730], [2.1579, 0, 730]], "shot": false}
+{"tag": "before", "name": "KPP", "teleport": "no player", "perf": [[1.8705, 0, 730], [3.4584, 0, 730], [1.6652, 0, 730]], "shot": false}
+{"tag": "before", "name": "Base", "teleport": "no player", "perf": [[0.4752, 0, 730], [1.1952, 0, 730], [1.1537, 0, 730]], "shot": false}
+{"tag": "before", "name": "Woods", "teleport": "no player", "perf": [[1.7545, 0, 730], [0.6811, 0, 730], [0.4198, 0, 730]], "shot": false}
+{"tag": "before", "name": "Dish1", "teleport": "no player", "perf": [[0.655, 0, 730], [0.4346, 0, 730], [0.4484, 0, 730]], "shot": false}
+{"tag": "before", "name": "Chapel", "teleport": "no player", "perf": [[0.5993, 0, 730], [2.6004, 0, 730], [0.8665, 0, 730]], "shot": false}
+{"tag": "before", "name": "ControlRoom", "teleport": "no player", "perf": [[1.4112, 0, 730], [1.7665, 0, 730], [1.7103, 0, 730]], "shot": false}
+{"tag": "before", "name": "Corridor", "teleport": "no player", "perf": [[0.4312, 0, 730], [0.4796, 0, 730], [0.8268, 0, 730]], "shot": false}
+{"tag": "before", "name": "Kitchen", "teleport": "no player", "perf": [[1.0043, 0, 730], [0.7999, 0, 730], [0.9148, 0, 730]], "shot": false}
+{"tag": "before", "name": "GenContainer", "teleport": "no player", "perf": [[1.7337, 0, 730], [2.0176, 0, 730], [1.7448, 0, 730]], "shot": false}
+{"tag": "before", "name": "Pole1", "teleport": "no player", "perf": [[1.1433, 0, 730], [2.6649, 0, 730], [2.1306, 0, 730]], "shot": false}
+{"tag": "before", "name": "Helipad", "teleport": "no player", "perf": [[1.8678, 0, 730], [1.544, 0, 730], [1.8618, 0, 730]], "shot": false}
+{"tag": "before", "name": "Start", "teleport": "at (-466.39, 23.30, 502.03)", "perf": [[30.6538, 25.904128, 67556], [27.5023, 23.396352, 67556], [24.9913, 21.69856, 67556]], "shot": true}
+{"tag": "before", "name": "Hut", "teleport": "at (-463.45, 28.40, 414.98)", "perf": [[7.028, 4.804608, 13599], [7.3945, 4.998144, 13599], [10.6605, 5.052416, 13599]], "shot": true}
+{"tag": "before", "name": "Bridge", "teleport": "at (-351.55, 20.99, 352.40)", "perf": [[18.1808, 15.326208, 53769], [19.4937, 16.866304, 53769], [18.8839, 16.165888, 53769]], "shot": true}
+{"tag": "before", "name": "Windfall", "teleport": "at (-270.42, 14.75, 257.74)", "perf": [[19.9764, 16.275456, 44556], [16.6832, 13.98272, 44556], [17.7818, 14.317568, 44556]], "shot": true}
+{"tag": "before", "name": "Overlook", "teleport": "at (-184.14, 11.03, 146.90)", "perf": [[13.9872, 11.609088, 33590], [16.2562, 13.092864, 33590], [13.6194, 10.68544, 33590]], "shot": true}
+{"tag": "before", "name": "UnderHand", "teleport": "at (39.11, 7.41, 15.18)", "perf": [[23.6938, 14.329856, 29234], [35.8517, 29.786112, 29234], [12.0619, 9.23648, 29234]], "shot": true}
+{"tag": "before", "name": "Ribs", "teleport": "at (207.99, 7.21, -116.15)", "perf": [[12.6303, 9.250816, 30610], [12.2053, 9.86112, 30610], [12.7181, 0, 30610]], "shot": true}
+{"tag": "before", "name": "KPP", "teleport": "at (290.49, 10.62, -212.38)", "perf": [[6.8111, 5.15072, 8465], [7.1449, 5.526528, 8465], [6.6755, 4.574208, 8465]], "shot": true}
+{"tag": "before", "name": "Base", "teleport": "at (316.69, 16.30, -310.27)", "perf": [[6.1813, 4.406272, 5786], [5.9795, 3.67616, 5786], [6.321, 4.822016, 5786]], "shot": true}
+{"tag": "before", "name": "Woods", "teleport": "at (505.35, 5.34, 160.14)", "perf": [[10.2637, 7.875584, 13914], [8.0401, 5.527552, 13914], [8.7131, 6.395904, 13914]], "shot": true}
+{"tag": "before", "name": "Dish1", "teleport": "at (-424.34, 24.52, 444.94)", "perf": [[12.2735, 0, 22377], [10.5289, 7.599104, 22377], [10.7451, 7.97184, 22377]], "shot": true}
+{"tag": "before", "name": "Chapel", "teleport": "at (458.00, 4.70, -106.00)", "perf": [[7.5547, 5.141504, 6657], [7.5209, 4.9408, 6657], [8.2954, 5.033984, 6657]], "shot": true}
+{"tag": "before", "name": "ControlRoom", "teleport": "at (332.30, 16.75, -357.30)", "perf": [[6.9621, 4.747264, 8009], [12.2638, 8.740864, 8009], [7.1527, 4.626432, 8009]], "shot": true}
+{"tag": "before", "name": "Corridor", "teleport": "at (354.06, 16.74, -361.98)", "perf": [[16.2685, 13.750272, 45897], [19.3495, 14.8224, 45897], [17.4475, 14.153728, 45897]], "shot": true}
+{"tag": "before", "name": "Kitchen", "teleport": "at (335.84, 16.74, -360.83)", "perf": [[5.881, 4.146176, 5310], [7.6233, 5.876736, 5310], [7.1112, 5.349376, 5310]], "shot": true}
+{"tag": "before", "name": "GenContainer", "teleport": "at (391.34, 16.41, -335.30)", "perf": [[6.4857, 4.350976, 4918], [6.6297, 4.265984, 4918], [7.9128, 5.009408, 4918]], "shot": true}
+{"tag": "before", "name": "Pole1", "teleport": "at (364.80, 16.41, -335.30)", "perf": [[6.6443, 3.688448, 4536], [6.4546, 4.378624, 4536], [7.3142, 4.144128, 4536]], "shot": true}
+{"tag": "before", "name": "Helipad", "teleport": "at (278.40, 16.36, -316.10)", "perf": [[6.3856, 3.765248, 5333], [6.0988, 3.63008, 5333], [6.8946, 0, 5333]], "shot": true}

@@ -6,7 +6,8 @@
         "Unity.InputSystem",
         "Unity.Netcode.Runtime",
         "Unity.Networking.Transport",
-        "Unity.Collections"
+        "Unity.Collections",
+        "Unity.RenderPipelines.Universal.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

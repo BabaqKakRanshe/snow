@@ -22,6 +22,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Far_Lookout
+    second: {fileID: 2100000, guid: 43fedffb6bbc26144be45f96c4d35949, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Panel
+    second: {fileID: 2100000, guid: 33c00698b248d534284352bcb10bbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_GlassDirty
     second: {fileID: 2100000, guid: 7d86bc8418028e748b78023c10195f83, type: 2}
   - first:

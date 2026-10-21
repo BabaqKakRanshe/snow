@@ -7,6 +7,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Base_Barbed
+    second: {fileID: 2100000, guid: 82c900225b374f24d84f1f1492d300af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Base_ChainLink
+    second: {fileID: 2100000, guid: 5d5da38d7e786d4408356f351c15b7aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Base_Fence
+    second: {fileID: 2100000, guid: 6f717b4ee90861947b0d68c5f3fea762, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Cable
     second: {fileID: 2100000, guid: f438695cf8d263d4e8824074fb9bdeba, type: 2}
   - first:

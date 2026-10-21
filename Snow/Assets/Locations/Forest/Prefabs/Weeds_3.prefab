@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 99d03a428418d5bdf8f583581753bf92, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 99d03a428418d5bdf8f583581753bf92, type: 3}
       propertyPath: m_Name
       value: Weeds_3

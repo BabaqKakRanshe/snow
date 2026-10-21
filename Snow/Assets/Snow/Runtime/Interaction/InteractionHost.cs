@@ -40,12 +40,26 @@ namespace Snow.Interaction
         public bool TryGetVolume(string id, out UtilityPlaneInteractable volume) => _volumes.TryGetValue(id, out volume);
         public IEnumerable<UtilityPlaneInteractable> Volumes => _volumes.Values;
 
-        /// <summary>Server: can this player reach the volume from where the server sees him?</summary>
+        /// <summary>
+        /// Server: can this player reach the volume from where the server sees him? Measured to the zone's box by the
+        /// transform's math, not Collider.ClosestPoint: on a disabled collider (a zone in a building another player keeps
+        /// switched off, LOCATIONS L4.4) ClosestPoint returns the point itself, distance 0, and any reach would pass.
+        /// </summary>
         public bool InReach(string id, Vector3 usePoint)
         {
             if (!TryGetVolume(id, out var v)) return false;
-            var col = v.GetComponent<Collider>();
-            Vector3 closest = col != null ? col.ClosestPoint(usePoint) : v.transform.position;
+            Vector3 closest = v.transform.position;
+            if (v.TryGetComponent(out BoxCollider box))
+            {
+                Transform t = box.transform;
+                Vector3 local = t.InverseTransformPoint(usePoint);
+                Vector3 half = box.size * 0.5f;
+                local = new Vector3(Mathf.Clamp(local.x, box.center.x - half.x, box.center.x + half.x),
+                                    Mathf.Clamp(local.y, box.center.y - half.y, box.center.y + half.y),
+                                    Mathf.Clamp(local.z, box.center.z - half.z, box.center.z + half.z));
+                closest = t.TransformPoint(local);
+            }
+            else if (v.TryGetComponent(out Collider col) && col.enabled && col.gameObject.activeInHierarchy) closest = col.ClosestPoint(usePoint);
             return Vector3.Distance(usePoint, closest) <= UseRange + ServerReachMargin;
         }
 

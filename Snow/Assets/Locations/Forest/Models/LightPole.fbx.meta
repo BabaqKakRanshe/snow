@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Base_Poles
+    second: {fileID: 2100000, guid: 03ffd4913350f314ba2b4b116d49e517, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Concrete
     second: {fileID: 2100000, guid: bf064d0fbd67e3e4eb3e5ab09469a7fa, type: 2}
   - first:

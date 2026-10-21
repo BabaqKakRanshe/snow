@@ -22,6 +22,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Far_Dish16
+    second: {fileID: 2100000, guid: 4546c3a880aac6b4fa1b3e0b4340dacb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Panel
+    second: {fileID: 2100000, guid: 33c00698b248d534284352bcb10bbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Galvanized
     second: {fileID: 2100000, guid: 9e542c4a1edfff44080af42b1a6782e0, type: 2}
   - first:

@@ -12,6 +12,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Hut_Hut
+    second: {fileID: 2100000, guid: 60a7d6217d8f7e04c853eb26046f13b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Hut_Panel
+    second: {fileID: 2100000, guid: 46aa2aba66e19584595b39c57a176e9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_MetalGrey
     second: {fileID: 2100000, guid: f670bcb232fc6bd43a8376a9cbb7ba7d, type: 2}
   - first:

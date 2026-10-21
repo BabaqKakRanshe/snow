@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: f914099dc330487f17fc2d9389f12c5b, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f914099dc330487f17fc2d9389f12c5b, type: 3}
       propertyPath: m_Name
       value: Branches_2

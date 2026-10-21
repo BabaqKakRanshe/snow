@@ -57,6 +57,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Kpp_Kpp
+    second: {fileID: 2100000, guid: d5cfc7277501b7b478cd4f38380448f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Kpp_KppProps
+    second: {fileID: 2100000, guid: 59a5af6bd494730459c5d9efe0dccedf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Kpp_Panel
+    second: {fileID: 2100000, guid: 56bfd4b7d31dd44459d6e7333704bfff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_LEDOff
     second: {fileID: 2100000, guid: deb441b3ca8250a45b6e500792f17066, type: 2}
   - first:
@@ -64,6 +79,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Laminate
     second: {fileID: 2100000, guid: c7b55b54e4294ba4180f24ecf2213cb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Lamp_BulbOff
+    second: {fileID: 2100000, guid: 3eea5f6ccca16fb44b2a495d9baa714a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

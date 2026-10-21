@@ -12,6 +12,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Far_Meteo
+    second: {fileID: 2100000, guid: ac52e4dbf2a37e94faa2b15c79765d6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Panel
+    second: {fileID: 2100000, guid: 33c00698b248d534284352bcb10bbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_PaintGreyMetal
     second: {fileID: 2100000, guid: 1729860cb8fd77e40b7b52e2f972b62a, type: 2}
   - first:

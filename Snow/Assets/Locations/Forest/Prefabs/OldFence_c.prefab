@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 2a58e2b49ad5d9ef588498bcd9d5cce4, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 2a58e2b49ad5d9ef588498bcd9d5cce4, type: 3}
       propertyPath: m_Name
       value: OldFence_c

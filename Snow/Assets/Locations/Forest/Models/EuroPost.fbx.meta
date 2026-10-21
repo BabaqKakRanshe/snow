@@ -19,6 +19,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Reflector
     second: {fileID: 2100000, guid: fc8f2d791749c6b49b82bda8309f59be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Road_Signs
+    second: {fileID: 2100000, guid: b0f8678326670d5469b592f79ef61caf, type: 2}
   materials:
     materialImportMode: 1
     materialName: 3

@@ -17,6 +17,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Far_Panel
+    second: {fileID: 2100000, guid: 33c00698b248d534284352bcb10bbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Towers
+    second: {fileID: 2100000, guid: f4b1bc71894f3c04b80ef5e0380633fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Light_Red
     second: {fileID: 2100000, guid: e513b85f0f2926549969dd2c6a83b413, type: 2}
   - first:

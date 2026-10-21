@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4499339867440955916, guid: 5dcd61810e4489e892a3a4af43cfad55, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5dcd61810e4489e892a3a4af43cfad55, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -47,6 +51,10 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5dcd61810e4489e892a3a4af43cfad55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 5dcd61810e4489e892a3a4af43cfad55, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 5dcd61810e4489e892a3a4af43cfad55, type: 3}
       propertyPath: m_Name

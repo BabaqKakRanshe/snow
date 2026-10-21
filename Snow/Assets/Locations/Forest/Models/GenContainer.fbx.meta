@@ -7,8 +7,128 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_BV_BlueMetal
+    second: {fileID: 2100000, guid: 627dd6cb8ccd9254c81acfec8d818670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_Brass
+    second: {fileID: 2100000, guid: 05c22620be680d84aa1566875325a4d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_Copper
+    second: {fileID: 2100000, guid: ef34a5b7127f4464ab8e9fbfd524324e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_Galvanized
+    second: {fileID: 2100000, guid: cc96881dce755a743ba44421fa7b2c80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_GreenMetal
+    second: {fileID: 2100000, guid: d4393289956c3e64faf9a7c039bb0eea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_RedMetal
+    second: {fileID: 2100000, guid: 47743b9920d64894b9c467821a800dcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_Safety
+    second: {fileID: 2100000, guid: c253b8a5a6f654242b4a3ade28f956f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_SteelDark
+    second: {fileID: 2100000, guid: 016d270d493f4704eb6b1dc9de8146f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_SteelGrey
+    second: {fileID: 2100000, guid: 9e38269f439ec6a44a456c663e5f44f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_StripeOlive
+    second: {fileID: 2100000, guid: d693ce6b373a5434fb4da4f22735ab59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_WhiteMetal
+    second: {fileID: 2100000, guid: aae0099607010a14d8316ecf4dde3829, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BV_YellowMetal
+    second: {fileID: 2100000, guid: 5ad4b209e2946884695018c8cd26bb89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Cable
+    second: {fileID: 2100000, guid: f438695cf8d263d4e8824074fb9bdeba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ChainLink
+    second: {fileID: 2100000, guid: 7dba4d0c03cecf445bc62835b6e60097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Concrete
+    second: {fileID: 2100000, guid: bf064d0fbd67e3e4eb3e5ab09469a7fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_ContainerGrey
     second: {fileID: 2100000, guid: 5e5d59ed4176bcf4e94c01ecc0c1091b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ContainerU3
+    second: {fileID: 2100000, guid: 979d432a72348b7429da5f20e3b6b997, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ContainerU3Dark
+    second: {fileID: 2100000, guid: 5fd4be3f779660c4b85baa05fddbe844, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_EngineIron
+    second: {fileID: 2100000, guid: e942a2d26733f5f45adfcff55217683f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Cage
+    second: {fileID: 2100000, guid: 300ac5bd266e79f4cbf88e0daf110082, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_CastAlu
+    second: {fileID: 2100000, guid: 39e2815a87bcba94e84074cfa1cecbe0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Polyester
+    second: {fileID: 2100000, guid: f90a0ff2cb95e2d48ae98486d1e1724b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FabricGrey
+    second: {fileID: 2100000, guid: fb663a961b1919b4d896af797305a034, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GensetYellow
+    second: {fileID: 2100000, guid: b94b04e7313dee044819bd2d16a63bec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GlassDark
+    second: {fileID: 2100000, guid: c8ab63fece6435f4e9672a6fe190da22, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -19,6 +139,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Grille
     second: {fileID: 2100000, guid: 7c9cb410ad5066745a2b44dadcde8d2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_HutTimber
+    second: {fileID: 2100000, guid: 636af0ae10a47cb41ba26894a21b0fb9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -52,6 +177,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_PaintWhite
+    second: {fileID: 2100000, guid: a31572d5febd7ed4dbd26d043b358050, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_PaintYellowMetal
     second: {fileID: 2100000, guid: d75d662728b728c46aa8eba9058c1798, type: 2}
   - first:
@@ -69,6 +199,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_RackGrey
     second: {fileID: 2100000, guid: fa788cfe67ed64f4cb92d0760c793394, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Radiator
+    second: {fileID: 2100000, guid: 659f0b19f43c4084da81fdb4ea51a532, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rubber
+    second: {fileID: 2100000, guid: 1380971d597ac184abd14732f66b7e5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rust
+    second: {fileID: 2100000, guid: 403c0b49bab27f34a81b2140506dcd35, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

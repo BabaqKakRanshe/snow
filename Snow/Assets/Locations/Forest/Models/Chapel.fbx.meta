@@ -37,6 +37,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Far_Chapel
+    second: {fileID: 2100000, guid: 422ccd0bd95784740862a2d43af43d35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Panel
+    second: {fileID: 2100000, guid: 33c00698b248d534284352bcb10bbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_ForestFloor
     second: {fileID: 2100000, guid: ae65b97f2cdcacc47b734e6f7332495b, type: 2}
   - first:

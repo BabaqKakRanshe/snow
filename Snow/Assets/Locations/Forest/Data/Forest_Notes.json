@@ -1,0 +1,190 @@
+{
+ "version": 1,
+ "_doc": "Readable notes (array): id, title, author, date, de (original, as written in the world), ru. Shown by the project when a note item is read.",
+ "notes": [
+  {
+   "id": "note_forester",
+   "title": "Zettel auf dem Tisch / Записка на столе",
+   "author": "H. Brandt, Revierförster",
+   "date": "16.10.",
+   "de": "Wer das liest:\nDer Kanister unter dem Regal ist voll. Nimm ihn mit, die Station ist 1 km die Straße hoch.\nFahr nicht nachts. Wenn du es doch tust: nicht anhalten, nicht aussteigen, nicht in den Rückspiegel sehen.\nDas Licht an der Hütte lasse ich brennen. Wenn es aus ist, bin ich nicht mehr hier.\n— H. Brandt",
+   "ru": "Кто бы ты ни был:\nКанистра под полкой полная. Бери, станция в километре вверх по дороге.\nНе езди ночью. А если всё-таки едешь — не останавливайся, не выходи, не смотри в зеркало заднего вида.\nФонарь у хижины я оставлю гореть. Если он погас — меня здесь больше нет.\n— Х. Брандт"
+  },
+  {
+   "id": "kpp_log",
+   "title": "Wachbuch KPP / Журнал КПП",
+   "author": "Wache",
+   "date": "16.–17.10.",
+   "de": "16.10. 22:10  Kontrollgang Zaun Ost — o. B.\n16.10. 23:40  Funkgerät schaltet sich von selbst ein. Rauschen. Jemand zählt.\n17.10. 01:05  Telefon klingelt. Keiner dran. Atmen.\n17.10. 02:15  Jemand steht am Schlagbaum. Kein Fahrzeug. Licht aus gemacht, nicht geöffnet.\n17.10. 02:40  Steht immer noch da.",
+   "ru": "16.10. 22:10  Обход забора, восток — без замечаний.\n16.10. 23:40  Рация включилась сама. Шум. Кто-то считает.\n17.10. 01:05  Звонит телефон. Никого. Дыхание.\n17.10. 02:15  Кто-то стоит у шлагбаума. Машины нет. Выключил свет, не открыл.\n17.10. 02:40  Всё ещё стоит."
+  },
+  {
+   "id": "gen_procedure",
+   "title": "Notstrom — Inbetriebnahme / Аварийное питание — запуск",
+   "author": "Technik",
+   "date": "",
+   "de": "1. Tagestank füllen: Handpumpe am Tanklager, Kanister, Einfüllkasten außen am Container (HEIZÖL).\n2. Vorglühen 10 s, dann Hebel START am Generatorpult.\n3. Leistungsschalter im Container EIN.\n4. Hauptschalter im Hauptgebäude, Schaltraum UG.\nTagestank 60 l reicht für ca. 17 Stunden.",
+   "ru": "1. Заправить расходный бак: ручной насос у баков ГСМ, канистра, заливной лючок снаружи контейнера (HEIZÖL).\n2. Прогрев 10 с, затем рычаг START на пульте генератора.\n3. Рубильник в контейнере — ВКЛ.\n4. Главный рубильник в основном корпусе, щитовая в подвале.\n60 л хватает примерно на 17 часов."
+  },
+  {
+   "id": "lobby_notice",
+   "title": "Aushang Windfang / Объявление в тамбуре",
+   "author": "Dr. W. Kessler",
+   "date": "12.10.",
+   "de": "AB 18 UHR: TÜREN SCHLIESSEN, RIEGEL VOR.\nALLE ROLLLÄDEN RUNTER.\nNIEMANDEN HEREINLASSEN — AUCH WENN ER KLOPFT,\nAUCH WENN ER EINEN VON UNS RUFT.\n— Kessler",
+   "ru": "С 18:00: ДВЕРИ ЗАКРЫТЬ, ЗАСОВ ЗАДВИНУТЬ.\nВСЕ РОЛЬСТАВНИ ВНИЗ.\nНИКОГО НЕ ВПУСКАТЬ — ДАЖЕ ЕСЛИ СТУЧИТ,\nДАЖЕ ЕСЛИ ЗОВЁТ КОГО-ТО ИЗ НАС ПО ИМЕНИ.\n— Кесслер"
+  },
+  {
+   "id": "control_log",
+   "title": "Messprotokoll / Протокол измерений",
+   "author": "Albers",
+   "date": "15.10.",
+   "de": "15.10. 21:12  Antenne 3: Signal bei 1420,4 MHz, kein Katalogobjekt.\nPeilung: nicht der Himmel. Elevation negativ. Richtung Moor.\n21:40  Signal moduliert. Takt wie Atmen.\n22:05  Antenne 3 nachgeführt, obwohl niemand am Pult war.",
+   "ru": "15.10. 21:12  Антенна 3: сигнал на 1420,4 МГц, в каталогах нет.\nПеленг: не небо. Угол места отрицательный. В сторону болота.\n21:40  Сигнал модулирован. Ритм — как дыхание.\n22:05  Антенна 3 повернулась сама, за пультом никого не было."
+  },
+  {
+   "id": "control_sticky",
+   "title": "Zettel am Monitor / Стикер на мониторе",
+   "author": "",
+   "date": "",
+   "de": "Nicht auf das Zählen antworten!!",
+   "ru": "Не отвечать на счёт!!"
+  },
+  {
+   "id": "control_shift",
+   "title": "Schichtplan Oktober / График смен, октябрь",
+   "author": "",
+   "date": "",
+   "de": "Kessler — Leitung\nAlbers — Messung\nNovak — Technik / Generator\nSchuster — Wache KPP\n(Lindqvist — abgereist 09.10.)",
+   "ru": "Кесслер — руководитель\nАльберс — измерения\nНовак — техника / генератор\nШустер — охрана КПП\n(Линдквист — уехал 09.10.)"
+  },
+  {
+   "id": "server_tapes",
+   "title": "Notiz Serverraum / Записка в серверной",
+   "author": "Albers",
+   "date": "14.10.",
+   "de": "Bänder 14–22 nach Bonn geschickt. Antwort: „Rauschen, Gerätefehler“.\nEs ist kein Rauschen. Rückwärts abgespielt sind es Namen. Unsere.",
+   "ru": "Ленты 14–22 отправлены в Бонн. Ответ: «Шум, неисправность аппаратуры».\nЭто не шум. Если пустить задом наперёд — это имена. Наши."
+  },
+  {
+   "id": "storage_list",
+   "title": "Bestandsliste Lager / Опись склада",
+   "author": "Novak",
+   "date": "01.10.",
+   "de": "Konserven: 12 Kartons\nDiesel Tanklager: 2 × 9000 l (Handpumpe)\nHeizöl Kellertank: ca. 3000 l\nKerzen: 2 Kartons\nBatterien Mono: 40\nKanister: 2 (einer in der Forsthütte geliehen)",
+   "ru": "Консервы: 12 коробок\nДизель на баках ГСМ: 2 × 9000 л (ручной насос)\nПечное топливо, бак в подвале: около 3000 л\nСвечи: 2 коробки\nБатарейки (большие): 40\nКанистры: 2 (одна одолжена в хижину лесника)"
+  },
+  {
+   "id": "kitchen_note",
+   "title": "Zettel am Küchentisch / Записка на кухонном столе",
+   "author": "Schuster",
+   "date": "",
+   "de": "Wer hat das Brot angefangen?\nUnd wer klopft nachts an den Küchenrollladen?\nWir sind nur noch zu viert.",
+   "ru": "Кто начал хлеб?\nИ кто стучит ночью в кухонную рольставню?\nНас осталось четверо."
+  },
+  {
+   "id": "kitchen_list",
+   "title": "Einkaufsliste / Список покупок",
+   "author": "",
+   "date": "",
+   "de": "Kaffee\nZigaretten (HB)\nBatterien!!\nSalz\nKerzen\nRattengift? (Geräusche im Dach)",
+   "ru": "Кофе\nСигареты (HB)\nБатарейки!!\nСоль\nСвечи\nОтрава для крыс? (шум на крыше)"
+  },
+  {
+   "id": "barracks_letter1",
+   "title": "Brief / Письмо",
+   "author": "Jan (Novak)",
+   "date": "13.10.",
+   "de": "Liebe Anna,\nhier ist es still, nur nachts nicht. Jemand geht über das Dach, immer von der Treppe zur Dachtür und zurück.\nKessler sagt, das sind Marder. Marder in Stiefeln.\nIch komme Weihnachten. Versprochen.\nDein Jan",
+   "ru": "Дорогая Анна,\nздесь тихо, только не по ночам. Кто-то ходит по крыше, всегда от лестницы к двери на крышу и обратно.\nКесслер говорит — куницы. Куницы в сапогах.\nПриеду на Рождество. Обещаю.\nТвой Ян"
+  },
+  {
+   "id": "barracks_letter2",
+   "title": "Angefangener Brief / Неоконченное письмо",
+   "author": "Schuster",
+   "date": "",
+   "de": "Mama, ich habe heute den Mann am Waldrand wieder gesehen. Er steht immer da, wo die Antenne 3 hinzeigt. Er ist zu groß. Er",
+   "ru": "Мама, сегодня я снова видел того человека на опушке. Он всегда стоит там, куда смотрит антенна 3. Он слишком высокий. Он"
+  },
+  {
+   "id": "barracks_diary",
+   "title": "Tagebuch / Дневник",
+   "author": "Lindqvist",
+   "date": "03.–09.10.",
+   "de": "03.10. Erste Nacht. Wunderbarer Himmel.\n05.10. Nebel im Moor, dreht gegen den Wind.\n07.10. Fußspuren am Zaun, innen. Keine nach außen.\n08.10. Habe meinen Namen im Rauschen gehört.\n09.10. Ich fahre. Wer bleibt, soll nachts die Tür verriegeln.",
+   "ru": "03.10. Первая ночь. Чудесное небо.\n05.10. Туман на болоте, идёт против ветра.\n07.10. Следы у забора, внутри. Наружу — ни одного.\n08.10. Слышала своё имя в шуме.\n09.10. Уезжаю. Кто останется — ночью запирайте дверь на засов."
+  },
+  {
+   "id": "washroom_mirror",
+   "title": "Zettel am Spiegel / Записка на зеркале",
+   "author": "",
+   "date": "",
+   "de": "Licht anlassen.",
+   "ru": "Не выключай свет."
+  },
+  {
+   "id": "chief_memo",
+   "title": "Dienstanweisung / Распоряжение",
+   "author": "Dr. W. Kessler, Stationsleiter",
+   "date": "12.10.",
+   "de": "An alle:\nAb sofort keine Außeneinsätze nach Einbruch der Dunkelheit.\nAntennenschränke werden nur tagsüber gewartet.\nWer den Mann im Wald sieht, meldet es mir — und geht NICHT hin.\nWer nachts die Tür öffnet, verlässt die Station am nächsten Morgen.\n— Kessler",
+   "ru": "Всем:\nС сегодняшнего дня — никаких выходов после наступления темноты.\nШкафы антенн обслуживаем только днём.\nКто увидит человека в лесу — докладывает мне и НЕ подходит.\nКто ночью откроет дверь — утром покидает станцию.\n— Кесслер"
+  },
+  {
+   "id": "chief_letter",
+   "title": "Briefentwurf an das Institut / Черновик письма в институт",
+   "author": "Dr. W. Kessler",
+   "date": "16.10.",
+   "de": "Sehr geehrte Herren,\nhiermit beantrage ich die sofortige Konservierung der Station Hohenmoos.\nDie Messungen sind nicht zu erklären. Das Personal ist nicht mehr vollzählig.\nIch bleibe, bis die Ablösung eintrifft. Schicken Sie niemanden allein.",
+   "ru": "Уважаемые господа,\nпрошу немедленно законсервировать станцию Хоэнмоос.\nИзмерениям нет объяснения. Персонал уже не в полном составе.\nЯ остаюсь до прибытия смены. Не присылайте никого поодиночке."
+  },
+  {
+   "id": "chief_safe",
+   "title": "Zettel / Стикер",
+   "author": "",
+   "date": "",
+   "de": "Tresor: Tag der Einweihung (Tafel am Eingang).",
+   "ru": "Сейф: день открытия станции (табличка у входа)."
+  },
+  {
+   "id": "chief_photo",
+   "title": "Foto, Rückseite / Фото, обратная сторона",
+   "author": "",
+   "date": "Herbst 86",
+   "de": "Herbst 86. Wir vier.\nWer hat das Foto gemacht?",
+   "ru": "Осень 86-го. Нас четверо.\nКто фотографировал?"
+  },
+  {
+   "id": "boiler_procedure",
+   "title": "Heizung — Bedienung / Отопление — порядок",
+   "author": "Novak",
+   "date": "",
+   "de": "1. NOT-AUS an der Tür einschalten.\n2. Druck prüfen. Unter 1 bar: Füllhahn öffnen bis 1,5 bar.\n3. Pumpe EIN.\n4. Brenner EIN. Geht meist auf STÖRUNG — Entstörknopf am Brenner drücken, dann läuft er.\n5. Thermostat auf 20 °C.",
+   "ru": "1. Включить аварийный выключатель у двери.\n2. Проверить давление. Меньше 1 бар — открыть кран подпитки до 1,5 бар.\n3. Насос ВКЛ.\n4. Горелка ВКЛ. Обычно уходит в ОШИБКУ (STÖRUNG) — нажать кнопку сброса на горелке, тогда запустится.\n5. Термостат на 20 °C."
+  },
+  {
+   "id": "switchroom_note",
+   "title": "Zettel Schaltraum / Записка в щитовой",
+   "author": "Novak",
+   "date": "",
+   "de": "Hauptschalter erst, wenn der Generator läuft! Sonst fliegen alle Sicherungen.",
+   "ru": "Главный рубильник — только когда генератор работает! Иначе выбьет все предохранители."
+  },
+  {
+   "id": "garage_quad",
+   "title": "Zettel am Quad / Записка на квадроцикле",
+   "author": "Schuster",
+   "date": "",
+   "de": "Batterie leer. Ladegerät im Regal braucht Strom.",
+   "ru": "Аккумулятор сел. Зарядка на стеллаже, нужна сеть."
+  },
+  {
+   "id": "roof_door",
+   "title": "Zettel Treppenhaus / Записка на лестнице",
+   "author": "",
+   "date": "",
+   "de": "Dachtür abgeschlossen lassen.\nWas auf dem Dach läuft, ist kein Tier.",
+   "ru": "Дверь на крышу держать запертой.\nТо, что ходит по крыше, — не животное."
+  }
+ ]
+}

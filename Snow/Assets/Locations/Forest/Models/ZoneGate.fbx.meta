@@ -37,6 +37,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Road_Barbed
+    second: {fileID: 2100000, guid: 72a4af97e424a47459efb0eda83a9018, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Road_ChainLink
+    second: {fileID: 2100000, guid: d201d47e932f83944a5cd727abc5054f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Road_Gate
+    second: {fileID: 2100000, guid: 15ba7dc065f22f541b518b4ea862bf4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Road_Panel
+    second: {fileID: 2100000, guid: a803c3b60fe17dc4aa9efe02daf25348, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Rust
     second: {fileID: 2100000, guid: 403c0b49bab27f34a81b2140506dcd35, type: 2}
   - first:

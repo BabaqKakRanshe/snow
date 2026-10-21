@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 287a52b99b34b08942f23618ffe84476, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 287a52b99b34b08942f23618ffe84476, type: 3}
       propertyPath: m_Name
       value: Hatch
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 2921980784674967319, guid: 287a52b99b34b08942f23618ffe84476, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980540208017298925, guid: 287a52b99b34b08942f23618ffe84476, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

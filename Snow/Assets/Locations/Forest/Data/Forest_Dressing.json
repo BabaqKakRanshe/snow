@@ -1,0 +1,7897 @@
+{
+ "version": 1,
+ "_doc": "Forest base dressing (Update 3): physics props in the main building (spawn asleep, wake on touch), readable notes, cleanable grime decals. Unity metres; p/q = pose of the item model origin (bottom centre). clean = counts for the cleaning task (into a TrashBag / the bin), kind: trash | prop | tool | paper. Texts: Forest_Notes.json. Decals: square quad of side size in the local XZ plane of q, 4 mm over the floor (in p), normal local +Y, u along local -X, v along local -Z (corner (+h, +h) = (u0, v0), h = size / 2), material M_BV_Decal (alpha cut-out).",
+ "props": [
+  {
+   "id": "Windfang_Boots_1",
+   "model": "Item_Boots",
+   "room": "Windfang",
+   "p": [
+    347.229,
+    16.7533,
+    -357.2796
+   ],
+   "q": [
+    0.0,
+    0.111468,
+    0.0,
+    0.993768
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.05,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.32,
+     0.26,
+     0.26
+    ]
+   }
+  },
+  {
+   "id": "Windfang_Newspaper_1",
+   "model": "Item_Newspaper",
+   "room": "Windfang",
+   "p": [
+    346.841,
+    16.7533,
+    -358.3157
+   ],
+   "q": [
+    0.0,
+    0.799684,
+    0.0,
+    0.600421
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.006,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.012,
+     0.42
+    ]
+   }
+  },
+  {
+   "id": "Windfang_PaperBall_1",
+   "model": "Item_PaperBall",
+   "room": "Windfang",
+   "p": [
+    345.7548,
+    16.7493,
+    -358.2842
+   ],
+   "q": [
+    0.0,
+    -0.113204,
+    0.0,
+    0.993572
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Windfang_PaperBall_2",
+   "model": "Item_PaperBall",
+   "room": "Windfang",
+   "p": [
+    347.1769,
+    16.7533,
+    -356.7876
+   ],
+   "q": [
+    0.0,
+    0.445416,
+    0.0,
+    0.895324
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Windfang_CardboardFlat_1",
+   "model": "Item_CardboardFlat",
+   "room": "Windfang",
+   "p": [
+    347.1917,
+    16.7593,
+    -355.8202
+   ],
+   "q": [
+    0.0,
+    0.348572,
+    0.0,
+    0.937282
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.006,
+     -0.0
+    ],
+    "size": [
+     0.55,
+     0.012,
+     0.42
+    ]
+   }
+  },
+  {
+   "id": "Windfang_BoxSmall_1",
+   "model": "Item_BoxSmall",
+   "room": "Windfang",
+   "p": [
+    347.4814,
+    16.7533,
+    -356.3456
+   ],
+   "q": [
+    0.0,
+    0.977966,
+    0.0,
+    -0.208765
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.2,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Windfang_Rag_1",
+   "model": "Item_Rag",
+   "room": "Windfang",
+   "p": [
+    347.6503,
+    16.7493,
+    -356.0058
+   ],
+   "q": [
+    0.0,
+    0.999702,
+    0.0,
+    -0.024432
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.08,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.03,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_MugWhite_1",
+   "model": "Item_MugWhite",
+   "room": "Leitstand",
+   "p": [
+    343.6176,
+    17.5093,
+    -356.8932
+   ],
+   "q": [
+    0.0,
+    -0.181378,
+    0.0,
+    0.983413
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_MugWhite_2",
+   "model": "Item_MugWhite",
+   "room": "Leitstand",
+   "p": [
+    342.5314,
+    17.5053,
+    -356.8618
+   ],
+   "q": [
+    0.0,
+    0.908143,
+    0.0,
+    -0.418659
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_MugTipped_1",
+   "model": "Item_MugTipped",
+   "room": "Leitstand",
+   "p": [
+    342.7357,
+    17.5153,
+    -357.1328
+   ],
+   "q": [
+    0.0,
+    0.202787,
+    0.0,
+    0.979223
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.045,
+     -0.0
+    ],
+    "size": [
+     0.1,
+     0.09,
+     0.09
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_Ashtray_1",
+   "model": "Item_Ashtray",
+   "room": "Leitstand",
+   "p": [
+    343.8719,
+    17.5093,
+    -356.8078
+   ],
+   "q": [
+    0.0,
+    -0.862955,
+    0.0,
+    0.50528
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.04,
+     0.15
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_Ashtray_2",
+   "model": "Item_Ashtray",
+   "room": "Leitstand",
+   "p": [
+    336.6791,
+    17.4953,
+    -357.9781
+   ],
+   "q": [
+    0.0,
+    -0.284016,
+    0.0,
+    0.95882
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.04,
+     0.15
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_Butts_1",
+   "model": "Item_Butts",
+   "room": "Leitstand",
+   "p": [
+    334.5234,
+    16.7493,
+    -357.7964
+   ],
+   "q": [
+    0.0,
+    0.108866,
+    0.0,
+    0.994056
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     0.12,
+     0.01,
+     0.12
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_Butts_2",
+   "model": "Item_Butts",
+   "room": "Leitstand",
+   "p": [
+    342.0355,
+    16.7493,
+    -355.2167
+   ],
+   "q": [
+    0.0,
+    0.455544,
+    0.0,
+    0.890213
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     0.12,
+     0.01,
+     0.12
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_PaperStack_1",
+   "model": "Item_PaperStack",
+   "room": "Leitstand",
+   "p": [
+    341.7889,
+    17.4953,
+    -358.6963
+   ],
+   "q": [
+    0.0,
+    0.829037,
+    0.0,
+    0.559193
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_PaperStack_2",
+   "model": "Item_PaperStack",
+   "room": "Leitstand",
+   "p": [
+    342.9046,
+    17.5053,
+    -356.793
+   ],
+   "q": [
+    0.0,
+    -0.582833,
+    0.0,
+    0.812592
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_PaperStack_3",
+   "model": "Item_PaperStack",
+   "room": "Leitstand",
+   "p": [
+    343.211,
+    17.5093,
+    -357.1996
+   ],
+   "q": [
+    0.0,
+    -0.07846,
+    0.0,
+    0.996917
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_PaperBall_1",
+   "model": "Item_PaperBall",
+   "room": "Leitstand",
+   "p": [
+    337.0985,
+    16.7493,
+    -355.8559
+   ],
+   "q": [
+    0.0,
+    0.994522,
+    0.0,
+    -0.104528
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_PaperBall_2",
+   "model": "Item_PaperBall",
+   "room": "Leitstand",
+   "p": [
+    343.5302,
+    16.7493,
+    -355.7903
+   ],
+   "q": [
+    0.0,
+    -0.559917,
+    0.0,
+    0.828549
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_PaperBall_3",
+   "model": "Item_PaperBall",
+   "room": "Leitstand",
+   "p": [
+    333.5001,
+    16.7493,
+    -355.5925
+   ],
+   "q": [
+    0.0,
+    -0.036644,
+    0.0,
+    0.999328
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_PaperBallB_1",
+   "model": "Item_PaperBallB",
+   "room": "Leitstand",
+   "p": [
+    338.6099,
+    16.7493,
+    -356.3106
+   ],
+   "q": [
+    0.0,
+    0.350207,
+    0.0,
+    0.936672
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_BinderBlue_1",
+   "model": "Item_BinderBlue",
+   "room": "Leitstand",
+   "p": [
+    339.6332,
+    17.4973,
+    -358.5145
+   ],
+   "q": [
+    0.0,
+    -0.768842,
+    0.0,
+    0.639439
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_BinderBlue_2",
+   "model": "Item_BinderBlue",
+   "room": "Leitstand",
+   "p": [
+    343.703,
+    17.5093,
+    -357.1476
+   ],
+   "q": [
+    0.0,
+    0.554844,
+    0.0,
+    0.831954
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_Clipboard_1",
+   "model": "Item_Clipboard",
+   "room": "Leitstand",
+   "p": [
+    340.5838,
+    17.4953,
+    -358.6481
+   ],
+   "q": [
+    0.0,
+    -0.502266,
+    0.0,
+    0.864713
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.23,
+     0.02,
+     0.32
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_Headphones_1",
+   "model": "Item_Headphones",
+   "room": "Leitstand",
+   "p": [
+    336.5936,
+    17.4953,
+    -357.7238
+   ],
+   "q": [
+    0.0,
+    0.650111,
+    0.0,
+    0.759839
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.055,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.11,
+     0.09
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_Thermos_1",
+   "model": "Item_Thermos",
+   "room": "Leitstand",
+   "p": [
+    342.938,
+    17.5053,
+    -356.5554
+   ],
+   "q": [
+    0.0,
+    0.945519,
+    0.0,
+    -0.325568
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.7,
+   "collider": {
+    "center": [
+     -0.0,
+     0.16,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.32,
+     0.09
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_CigPack_1",
+   "model": "Item_CigPack",
+   "room": "Leitstand",
+   "p": [
+    341.8685,
+    16.7493,
+    -356.4051
+   ],
+   "q": [
+    0.0,
+    0.842922,
+    0.0,
+    0.538036
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.044,
+     -0.0
+    ],
+    "size": [
+     0.055,
+     0.088,
+     0.022
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_CigPack_2",
+   "model": "Item_CigPack",
+   "room": "Leitstand",
+   "p": [
+    333.4648,
+    16.7493,
+    -354.9816
+   ],
+   "q": [
+    0.0,
+    0.989526,
+    0.0,
+    -0.144356
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.044,
+     -0.0
+    ],
+    "size": [
+     0.055,
+     0.088,
+     0.022
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_CanRed_1",
+   "model": "Item_CanRed",
+   "room": "Leitstand",
+   "p": [
+    337.0837,
+    16.7493,
+    -356.8232
+   ],
+   "q": [
+    0.0,
+    0.909236,
+    0.0,
+    0.416281
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0575,
+     -0.0
+    ],
+    "size": [
+     0.066,
+     0.115,
+     0.066
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_CanRed_2",
+   "model": "Item_CanRed",
+   "room": "Leitstand",
+   "p": [
+    333.6916,
+    16.7493,
+    -357.6795
+   ],
+   "q": [
+    0.0,
+    -0.047107,
+    0.0,
+    0.99889
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0575,
+     -0.0
+    ],
+    "size": [
+     0.066,
+     0.115,
+     0.066
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_NewspaperOpen_1",
+   "model": "Item_NewspaperOpen",
+   "room": "Leitstand",
+   "p": [
+    334.6403,
+    16.7493,
+    -356.9645
+   ],
+   "q": [
+    0.0,
+    0.736687,
+    0.0,
+    0.676234
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     0.8,
+     0.01,
+     0.55
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_BookOpen_1",
+   "model": "Item_BookOpen",
+   "room": "Leitstand",
+   "p": [
+    337.5109,
+    17.4953,
+    -358.095
+   ],
+   "q": [
+    0.0,
+    0.995396,
+    0.0,
+    -0.095845
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.03,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Leitstand_StickyNote_1",
+   "model": "Item_StickyNote",
+   "room": "Leitstand",
+   "p": [
+    338.8681,
+    17.4953,
+    -357.9223
+   ],
+   "q": [
+    0.0,
+    -0.821149,
+    0.0,
+    0.570713
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.002,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.002,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxLarge_1",
+   "model": "Item_BoxLarge",
+   "room": "Lager",
+   "p": [
+    344.9568,
+    16.7493,
+    -363.1
+   ],
+   "q": [
+    0.0,
+    -0.491664,
+    0.0,
+    0.870785
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.55,
+     0.4,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxLarge_2",
+   "model": "Item_BoxLarge",
+   "room": "Lager",
+   "p": [
+    346.3346,
+    16.7493,
+    -364.5054
+   ],
+   "q": [
+    0.0,
+    -0.861186,
+    0.0,
+    0.50829
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.55,
+     0.4,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxLarge_3",
+   "model": "Item_BoxLarge",
+   "room": "Lager",
+   "p": [
+    344.3292,
+    16.7493,
+    -363.2542
+   ],
+   "q": [
+    0.0,
+    0.863835,
+    0.0,
+    0.503774
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.55,
+     0.4,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxLarge_4",
+   "model": "Item_BoxLarge",
+   "room": "Lager",
+   "p": [
+    345.1129,
+    16.7493,
+    -364.5761
+   ],
+   "q": [
+    0.0,
+    0.903335,
+    0.0,
+    -0.428935
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.55,
+     0.4,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxSmall_1",
+   "model": "Item_BoxSmall",
+   "room": "Lager",
+   "p": [
+    346.1156,
+    16.7493,
+    -365.2017
+   ],
+   "q": [
+    0.0,
+    0.11667,
+    0.0,
+    0.993171
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.2,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxSmall_2",
+   "model": "Item_BoxSmall",
+   "room": "Lager",
+   "p": [
+    343.852,
+    16.7493,
+    -362.3389
+   ],
+   "q": [
+    0.0,
+    0.860297,
+    0.0,
+    0.509793
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.2,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxSmall_3",
+   "model": "Item_BoxSmall",
+   "room": "Lager",
+   "p": [
+    344.5688,
+    16.7493,
+    -364.1361
+   ],
+   "q": [
+    0.0,
+    -0.756425,
+    0.0,
+    0.654081
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.2,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxSmall_4",
+   "model": "Item_BoxSmall",
+   "room": "Lager",
+   "p": [
+    343.024,
+    16.7493,
+    -363.919
+   ],
+   "q": [
+    0.0,
+    0.971756,
+    0.0,
+    -0.23599
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.2,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxOpen_1",
+   "model": "Item_BoxOpen",
+   "room": "Lager",
+   "p": [
+    342.4838,
+    16.7493,
+    -365.176
+   ],
+   "q": [
+    0.0,
+    0.2241,
+    0.0,
+    0.974566
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.6,
+   "collider": {
+    "center": [
+     -0.0,
+     0.15,
+     -0.0
+    ],
+    "size": [
+     0.45,
+     0.3,
+     0.32
+    ]
+   }
+  },
+  {
+   "id": "Lager_BoxOpen_2",
+   "model": "Item_BoxOpen",
+   "room": "Lager",
+   "p": [
+    343.5141,
+    16.7493,
+    -363.0184
+   ],
+   "q": [
+    0.0,
+    -0.263874,
+    0.0,
+    0.964557
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.6,
+   "collider": {
+    "center": [
+     -0.0,
+     0.15,
+     -0.0
+    ],
+    "size": [
+     0.45,
+     0.3,
+     0.32
+    ]
+   }
+  },
+  {
+   "id": "Lager_WoodCrate_1",
+   "model": "Item_WoodCrate",
+   "room": "Lager",
+   "p": [
+    342.9868,
+    16.7493,
+    -362.4596
+   ],
+   "q": [
+    0.0,
+    0.393941,
+    0.0,
+    0.919136
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.62,
+     0.4,
+     0.5
+    ]
+   }
+  },
+  {
+   "id": "Lager_WoodCrate_2",
+   "model": "Item_WoodCrate",
+   "room": "Lager",
+   "p": [
+    343.9451,
+    16.7493,
+    -365.9873
+   ],
+   "q": [
+    0.0,
+    0.841511,
+    0.0,
+    0.540241
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.62,
+     0.4,
+     0.5
+    ]
+   }
+  },
+  {
+   "id": "Lager_Sack_1",
+   "model": "Item_Sack",
+   "room": "Lager",
+   "p": [
+    345.8387,
+    16.7493,
+    -362.8604
+   ],
+   "q": [
+    0.0,
+    0.256289,
+    0.0,
+    0.9666
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 25.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.175,
+     -0.0
+    ],
+    "size": [
+     0.56,
+     0.35,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Lager_Sack_2",
+   "model": "Item_Sack",
+   "room": "Lager",
+   "p": [
+    342.5301,
+    16.7493,
+    -363.1225
+   ],
+   "q": [
+    0.0,
+    0.141765,
+    0.0,
+    0.9899
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 25.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.175,
+     -0.0
+    ],
+    "size": [
+     0.56,
+     0.35,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Lager_RopeCoil_1",
+   "model": "Item_RopeCoil",
+   "room": "Lager",
+   "p": [
+    343.6535,
+    16.7493,
+    -364.6134
+   ],
+   "q": [
+    0.0,
+    0.888617,
+    0.0,
+    0.45865
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.025,
+     -0.0
+    ],
+    "size": [
+     0.34,
+     0.05,
+     0.34
+    ]
+   }
+  },
+  {
+   "id": "Lager_PaintCan_1",
+   "model": "Item_PaintCan",
+   "room": "Lager",
+   "p": [
+    347.0123,
+    16.7493,
+    -363.9948
+   ],
+   "q": [
+    0.0,
+    0.999634,
+    0.0,
+    -0.027049
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 2.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.17,
+     0.2,
+     0.17
+    ]
+   }
+  },
+  {
+   "id": "Lager_PaintCan_2",
+   "model": "Item_PaintCan",
+   "room": "Lager",
+   "p": [
+    345.982,
+    16.7493,
+    -366.1524
+   ],
+   "q": [
+    0.0,
+    -0.493942,
+    0.0,
+    0.869495
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 2.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.17,
+     0.2,
+     0.17
+    ]
+   }
+  },
+  {
+   "id": "Lager_OilCan_1",
+   "model": "Item_OilCan",
+   "room": "Lager",
+   "p": [
+    344.4962,
+    16.7493,
+    -362.0659
+   ],
+   "q": [
+    0.0,
+    0.974566,
+    0.0,
+    -0.2241
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.145,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.29,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "Lager_Toolbox_1",
+   "model": "Item_Toolbox",
+   "room": "Lager",
+   "p": [
+    342.5782,
+    16.7493,
+    -361.9175
+   ],
+   "q": [
+    0.0,
+    0.974173,
+    0.0,
+    0.225802
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.46,
+     0.26,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "Lager_CableReel_1",
+   "model": "Item_CableReel",
+   "room": "Lager",
+   "p": [
+    342.6842,
+    16.7493,
+    -363.7501
+   ],
+   "q": [
+    0.0,
+    -0.227502,
+    0.0,
+    0.973778
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.36,
+     0.37,
+     0.28
+    ]
+   }
+  },
+  {
+   "id": "Lager_BottleWater_1",
+   "model": "Item_BottleWater",
+   "room": "Lager",
+   "p": [
+    345.217,
+    16.7493,
+    -365.5602
+   ],
+   "q": [
+    0.0,
+    -0.155573,
+    0.0,
+    0.987824
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Lager_BottleWater_2",
+   "model": "Item_BottleWater",
+   "room": "Lager",
+   "p": [
+    346.9455,
+    16.7493,
+    -364.4701
+   ],
+   "q": [
+    0.0,
+    0.737866,
+    0.0,
+    0.674947
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Lager_TinLying_1",
+   "model": "Item_TinLying",
+   "room": "Lager",
+   "p": [
+    342.6174,
+    16.7493,
+    -364.2254
+   ],
+   "q": [
+    0.0,
+    0.759271,
+    0.0,
+    0.650775
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0425,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.085,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Lager_TinLying_2",
+   "model": "Item_TinLying",
+   "room": "Lager",
+   "p": [
+    347.2127,
+    16.7493,
+    -362.5688
+   ],
+   "q": [
+    0.0,
+    -0.701532,
+    0.0,
+    0.712638
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0425,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.085,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Lager_Bucket_1",
+   "model": "Item_Bucket",
+   "room": "Lager",
+   "p": [
+    344.0395,
+    16.7493,
+    -362.7287
+   ],
+   "q": [
+    0.0,
+    0.965016,
+    0.0,
+    0.26219
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 1.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.37,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_PaperStack_1",
+   "model": "Item_PaperStack",
+   "room": "Serverraum",
+   "p": [
+    332.5462,
+    17.6453,
+    -360.8711
+   ],
+   "q": [
+    0.0,
+    0.868632,
+    0.0,
+    -0.495458
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_PaperStack_2",
+   "model": "Item_PaperStack",
+   "room": "Serverraum",
+   "p": [
+    336.3322,
+    16.7493,
+    -361.5244
+   ],
+   "q": [
+    0.0,
+    -0.629999,
+    0.0,
+    0.776596
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_BinderRed_1",
+   "model": "Item_BinderRed",
+   "room": "Serverraum",
+   "p": [
+    334.9139,
+    18.7453,
+    -364.7181
+   ],
+   "q": [
+    0.0,
+    0.968583,
+    0.0,
+    0.24869
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_BinderRed_2",
+   "model": "Item_BinderRed",
+   "room": "Serverraum",
+   "p": [
+    332.7749,
+    18.7453,
+    -364.4175
+   ],
+   "q": [
+    0.0,
+    0.139173,
+    0.0,
+    0.990268
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_PaperBall_1",
+   "model": "Item_PaperBall",
+   "room": "Serverraum",
+   "p": [
+    335.9403,
+    16.7493,
+    -360.8634
+   ],
+   "q": [
+    0.0,
+    0.731948,
+    0.0,
+    0.68136
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_PaperBall_2",
+   "model": "Item_PaperBall",
+   "room": "Serverraum",
+   "p": [
+    332.7338,
+    16.7493,
+    -361.261
+   ],
+   "q": [
+    0.0,
+    0.986141,
+    0.0,
+    -0.165908
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_Toolbox_1",
+   "model": "Item_Toolbox",
+   "room": "Serverraum",
+   "p": [
+    335.5671,
+    16.7493,
+    -360.9321
+   ],
+   "q": [
+    0.0,
+    0.799684,
+    0.0,
+    0.600421
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.46,
+     0.26,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_Screwdriver_1",
+   "model": "Item_Screwdriver",
+   "room": "Serverraum",
+   "p": [
+    332.7396,
+    16.7493,
+    -363.8066
+   ],
+   "q": [
+    0.0,
+    0.951862,
+    0.0,
+    -0.306526
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.045,
+     0.012,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.025,
+     0.025
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_CableReel_1",
+   "model": "Item_CableReel",
+   "room": "Serverraum",
+   "p": [
+    333.1905,
+    16.7493,
+    -360.5981
+   ],
+   "q": [
+    0.0,
+    -0.446979,
+    0.0,
+    0.894544
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.36,
+     0.37,
+     0.28
+    ]
+   }
+  },
+  {
+   "id": "Serverraum_MugGreen_1",
+   "model": "Item_MugGreen",
+   "room": "Serverraum",
+   "p": [
+    332.6985,
+    17.6453,
+    -360.6502
+   ],
+   "q": [
+    0.0,
+    -0.235143,
+    0.0,
+    0.971961
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Flur_EG_PaperBall_1",
+   "model": "Item_PaperBall",
+   "room": "Flur_EG",
+   "p": [
+    338.8372,
+    16.7493,
+    -359.2206
+   ],
+   "q": [
+    0.0,
+    0.804375,
+    0.0,
+    0.594121
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Flur_EG_PaperBall_2",
+   "model": "Item_PaperBall",
+   "room": "Flur_EG",
+   "p": [
+    337.4298,
+    16.7493,
+    -359.7499
+   ],
+   "q": [
+    0.0,
+    -0.143493,
+    0.0,
+    0.989651
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Flur_EG_CigPack_1",
+   "model": "Item_CigPack",
+   "room": "Flur_EG",
+   "p": [
+    345.0685,
+    16.7493,
+    -360.581
+   ],
+   "q": [
+    0.0,
+    0.815633,
+    0.0,
+    0.57857
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.044,
+     -0.0
+    ],
+    "size": [
+     0.055,
+     0.088,
+     0.022
+    ]
+   }
+  },
+  {
+   "id": "Flur_EG_BucketWater_1",
+   "model": "Item_BucketWater",
+   "room": "Flur_EG",
+   "p": [
+    344.439,
+    16.7493,
+    -359.8867
+   ],
+   "q": [
+    0.0,
+    0.025304,
+    0.0,
+    0.99968
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 1.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.37,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "Flur_EG_Mop_1",
+   "model": "Item_Mop",
+   "room": "Flur_EG",
+   "p": [
+    338.9932,
+    16.7493,
+    -360.6967
+   ],
+   "q": [
+    -0.051474,
+    -0.654037,
+    0.059214,
+    0.752383
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.68,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     1.36,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "Garage_OilCan_1",
+   "model": "Item_OilCan",
+   "room": "Garage",
+   "p": [
+    351.2191,
+    16.5953,
+    -363.1622
+   ],
+   "q": [
+    0.0,
+    0.773287,
+    0.0,
+    0.634056
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.145,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.29,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "Garage_OilCan_2",
+   "model": "Item_OilCan",
+   "room": "Garage",
+   "p": [
+    351.503,
+    16.5953,
+    -361.142
+   ],
+   "q": [
+    0.0,
+    0.551937,
+    0.0,
+    0.833886
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.145,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.29,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "Garage_Rag_1",
+   "model": "Item_Rag",
+   "room": "Garage",
+   "p": [
+    349.5015,
+    16.5953,
+    -361.5878
+   ],
+   "q": [
+    0.0,
+    0.698415,
+    0.0,
+    0.715693
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.08,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.03,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Garage_Rag_2",
+   "model": "Item_Rag",
+   "room": "Garage",
+   "p": [
+    352.9643,
+    16.5953,
+    -361.9533
+   ],
+   "q": [
+    0.0,
+    -0.207912,
+    0.0,
+    0.978148
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.08,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.03,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Garage_Toolbox_1",
+   "model": "Item_Toolbox",
+   "room": "Garage",
+   "p": [
+    348.2207,
+    16.5953,
+    -365.5279
+   ],
+   "q": [
+    0.0,
+    0.973379,
+    0.0,
+    0.229201
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.46,
+     0.26,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "Garage_Wrench_1",
+   "model": "Item_Wrench",
+   "room": "Garage",
+   "p": [
+    351.1317,
+    16.5953,
+    -362.0593
+   ],
+   "q": [
+    0.0,
+    0.918791,
+    0.0,
+    -0.394743
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.006,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.012,
+     0.04
+    ]
+   }
+  },
+  {
+   "id": "Garage_Hammer_1",
+   "model": "Item_Hammer",
+   "room": "Garage",
+   "p": [
+    356.0777,
+    16.6033,
+    -357.9072
+   ],
+   "q": [
+    0.0,
+    0.735506,
+    0.0,
+    0.677518
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.6,
+   "collider": {
+    "center": [
+     -0.0,
+     0.018,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.036,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Garage_Screwdriver_1",
+   "model": "Item_Screwdriver",
+   "room": "Garage",
+   "p": [
+    350.0526,
+    17.2626,
+    -357.6663
+   ],
+   "q": [
+    0.0,
+    0.377032,
+    0.0,
+    0.9262
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.045,
+     0.012,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.025,
+     0.025
+    ]
+   }
+  },
+  {
+   "id": "Garage_TinOpen_1",
+   "model": "Item_TinOpen",
+   "room": "Garage",
+   "p": [
+    348.5605,
+    17.5053,
+    -365.6968
+   ],
+   "q": [
+    0.0,
+    0.208765,
+    0.0,
+    0.977966
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.04,
+     -0.0
+    ],
+    "size": [
+     0.085,
+     0.08,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Garage_BottleBeer_1",
+   "model": "Item_BottleBeer",
+   "room": "Garage",
+   "p": [
+    348.7031,
+    16.6033,
+    -361.2332
+   ],
+   "q": [
+    0.0,
+    -0.444636,
+    0.0,
+    0.895712
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Garage_BottleBeer_2",
+   "model": "Item_BottleBeer",
+   "room": "Garage",
+   "p": [
+    355.8497,
+    16.5953,
+    -362.1164
+   ],
+   "q": [
+    0.0,
+    -0.0096,
+    0.0,
+    0.999954
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Garage_PaintCan_1",
+   "model": "Item_PaintCan",
+   "room": "Garage",
+   "p": [
+    355.3333,
+    16.5953,
+    -358.8932
+   ],
+   "q": [
+    0.0,
+    -0.850811,
+    0.0,
+    0.525471
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 2.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.17,
+     0.2,
+     0.17
+    ]
+   }
+  },
+  {
+   "id": "Treppenhaus_Butts_1",
+   "model": "Item_Butts",
+   "room": "Treppenhaus",
+   "p": [
+    338.4352,
+    16.7453,
+    -361.5776
+   ],
+   "q": [
+    0.0,
+    0.990389,
+    0.0,
+    -0.138308
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     0.12,
+     0.01,
+     0.12
+    ]
+   }
+  },
+  {
+   "id": "Treppenhaus_CigPackCrushed_1",
+   "model": "Item_CigPackCrushed",
+   "room": "Treppenhaus",
+   "p": [
+    339.436,
+    16.7453,
+    -361.3547
+   ],
+   "q": [
+    0.0,
+    0.482518,
+    0.0,
+    0.875886
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.06,
+     0.02,
+     0.03
+    ]
+   }
+  },
+  {
+   "id": "Treppenhaus_PaperBall_1",
+   "model": "Item_PaperBall",
+   "room": "Treppenhaus",
+   "p": [
+    340.149,
+    16.7453,
+    -361.4549
+   ],
+   "q": [
+    0.0,
+    0.036643,
+    0.0,
+    0.999328
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Backpack_1",
+   "model": "Item_Backpack",
+   "room": "Kaserne",
+   "p": [
+    346.1929,
+    20.1493,
+    -356.8916
+   ],
+   "q": [
+    0.0,
+    -0.105397,
+    0.0,
+    0.99443
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 4.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.25,
+     -0.0
+    ],
+    "size": [
+     0.32,
+     0.5,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Backpack_2",
+   "model": "Item_Backpack",
+   "room": "Kaserne",
+   "p": [
+    343.4822,
+    20.1493,
+    -358.9343
+   ],
+   "q": [
+    0.0,
+    -0.030539,
+    0.0,
+    0.999534
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 4.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.25,
+     -0.0
+    ],
+    "size": [
+     0.32,
+     0.5,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Clothes_1",
+   "model": "Item_Clothes",
+   "room": "Kaserne",
+   "p": [
+    344.5273,
+    20.1493,
+    -355.8093
+   ],
+   "q": [
+    0.0,
+    0.233445,
+    0.0,
+    0.97237
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.07,
+     -0.0
+    ],
+    "size": [
+     0.5,
+     0.14,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Clothes_2",
+   "model": "Item_Clothes",
+   "room": "Kaserne",
+   "p": [
+    343.2889,
+    20.1493,
+    -355.9988
+   ],
+   "q": [
+    0.0,
+    -0.082809,
+    0.0,
+    0.996565
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.07,
+     -0.0
+    ],
+    "size": [
+     0.5,
+     0.14,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Clothes_3",
+   "model": "Item_Clothes",
+   "room": "Kaserne",
+   "p": [
+    342.7949,
+    20.1493,
+    -355.2023
+   ],
+   "q": [
+    0.0,
+    0.27228,
+    0.0,
+    0.962218
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.07,
+     -0.0
+    ],
+    "size": [
+     0.5,
+     0.14,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Boots_1",
+   "model": "Item_Boots",
+   "room": "Kaserne",
+   "p": [
+    346.8262,
+    20.1493,
+    -359.283
+   ],
+   "q": [
+    0.0,
+    -0.342021,
+    0.0,
+    0.939692
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.05,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.32,
+     0.26,
+     0.26
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Boots_2",
+   "model": "Item_Boots",
+   "room": "Kaserne",
+   "p": [
+    345.4426,
+    20.1493,
+    -355.332
+   ],
+   "q": [
+    0.0,
+    0.700909,
+    0.0,
+    0.713251
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.05,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.32,
+     0.26,
+     0.26
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Book_1",
+   "model": "Item_Book",
+   "room": "Kaserne",
+   "p": [
+    344.4939,
+    20.9253,
+    -356.047
+   ],
+   "q": [
+    0.0,
+    0.979223,
+    0.0,
+    0.202788
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.03,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Book_2",
+   "model": "Item_Book",
+   "room": "Kaserne",
+   "p": [
+    344.8857,
+    20.9253,
+    -356.7079
+   ],
+   "q": [
+    0.0,
+    0.592013,
+    0.0,
+    0.805929
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.03,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_BookStack_1",
+   "model": "Item_BookStack",
+   "room": "Kaserne",
+   "p": [
+    346.5365,
+    20.1493,
+    -358.7576
+   ],
+   "q": [
+    0.0,
+    0.621831,
+    0.0,
+    0.783151
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0478,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.09564,
+     0.26
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Magazine_1",
+   "model": "Item_Magazine",
+   "room": "Kaserne",
+   "p": [
+    343.5452,
+    20.1493,
+    -356.7619
+   ],
+   "q": [
+    0.0,
+    -0.074979,
+    0.0,
+    0.997185
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.21,
+     0.006,
+     0.28
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Magazine_2",
+   "model": "Item_Magazine",
+   "room": "Kaserne",
+   "p": [
+    343.6845,
+    20.1493,
+    -358.3568
+   ],
+   "q": [
+    0.0,
+    -0.562084,
+    0.0,
+    0.82708
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.21,
+     0.006,
+     0.28
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Cards_1",
+   "model": "Item_Cards",
+   "room": "Kaserne",
+   "p": [
+    344.5645,
+    20.9253,
+    -357.2687
+   ],
+   "q": [
+    0.0,
+    0.933893,
+    0.0,
+    -0.357553
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0085,
+     -0.0
+    ],
+    "size": [
+     0.56,
+     0.017,
+     0.42
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Ashtray_1",
+   "model": "Item_Ashtray",
+   "room": "Kaserne",
+   "p": [
+    344.6982,
+    20.9253,
+    -356.318
+   ],
+   "q": [
+    0.0,
+    -0.550481,
+    0.0,
+    0.834848
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.04,
+     0.15
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_BottleBeer_1",
+   "model": "Item_BottleBeer",
+   "room": "Kaserne",
+   "p": [
+    345.528,
+    20.1493,
+    -355.5864
+   ],
+   "q": [
+    0.0,
+    0.94235,
+    0.0,
+    -0.334629
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_BottleBeer_2",
+   "model": "Item_BottleBeer",
+   "room": "Kaserne",
+   "p": [
+    342.2399,
+    20.1493,
+    -357.4267
+   ],
+   "q": [
+    0.0,
+    0.984656,
+    0.0,
+    -0.174507
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_BottleBeer_3",
+   "model": "Item_BottleBeer",
+   "room": "Kaserne",
+   "p": [
+    345.7529,
+    20.1493,
+    -357.4357
+   ],
+   "q": [
+    0.0,
+    0.986714,
+    0.0,
+    -0.162464
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_BottleBeerLying_1",
+   "model": "Item_BottleBeerLying",
+   "room": "Kaserne",
+   "p": [
+    342.459,
+    20.1493,
+    -356.7304
+   ],
+   "q": [
+    0.0,
+    0.650111,
+    0.0,
+    0.759839
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.07,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_BottleBeerLying_2",
+   "model": "Item_BottleBeerLying",
+   "room": "Kaserne",
+   "p": [
+    342.2065,
+    20.1493,
+    -357.6644
+   ],
+   "q": [
+    0.0,
+    0.960537,
+    0.0,
+    0.278153
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.07,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_BottleSchnapps_1",
+   "model": "Item_BottleSchnapps",
+   "room": "Kaserne",
+   "p": [
+    344.2247,
+    20.9253,
+    -357.0997
+   ],
+   "q": [
+    0.0,
+    -0.565687,
+    0.0,
+    0.82462
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_CanCrushed_1",
+   "model": "Item_CanCrushed",
+   "room": "Kaserne",
+   "p": [
+    347.4499,
+    20.1493,
+    -357.4318
+   ],
+   "q": [
+    0.0,
+    0.630675,
+    0.0,
+    0.776047
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.05
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_CanCrushed_2",
+   "model": "Item_CanCrushed",
+   "room": "Kaserne",
+   "p": [
+    344.492,
+    20.1493,
+    -355.1984
+   ],
+   "q": [
+    0.0,
+    0.935444,
+    0.0,
+    -0.353474
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.05
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_CanCrushed_3",
+   "model": "Item_CanCrushed",
+   "room": "Kaserne",
+   "p": [
+    345.7175,
+    20.1493,
+    -356.8248
+   ],
+   "q": [
+    0.0,
+    0.577145,
+    0.0,
+    0.816642
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.05
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_CigPack_1",
+   "model": "Item_CigPack",
+   "room": "Kaserne",
+   "p": [
+    345.2107,
+    20.6153,
+    -357.8442
+   ],
+   "q": [
+    0.0,
+    -0.637424,
+    0.0,
+    0.770513
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.044,
+     -0.0
+    ],
+    "size": [
+     0.055,
+     0.088,
+     0.022
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_CigPack_2",
+   "model": "Item_CigPack",
+   "room": "Kaserne",
+   "p": [
+    344.5999,
+    20.9453,
+    -357.8795
+   ],
+   "q": [
+    0.0,
+    0.750688,
+    0.0,
+    0.660657
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.044,
+     -0.0
+    ],
+    "size": [
+     0.055,
+     0.088,
+     0.022
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Towel_1",
+   "model": "Item_Towel",
+   "room": "Kaserne",
+   "p": [
+    343.9685,
+    20.6153,
+    -356.3366
+   ],
+   "q": [
+    0.0,
+    0.610836,
+    0.0,
+    0.791757
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.06,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Towel_2",
+   "model": "Item_Towel",
+   "room": "Kaserne",
+   "p": [
+    345.1587,
+    20.6153,
+    -357.3522
+   ],
+   "q": [
+    0.0,
+    0.998135,
+    0.0,
+    0.061049
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.06,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_PhotoFrame_1",
+   "model": "Item_PhotoFrame",
+   "room": "Kaserne",
+   "p": [
+    347.0729,
+    21.6253,
+    -355.8035
+   ],
+   "q": [
+    0.0,
+    -0.133122,
+    0.0,
+    0.9911
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.25,
+   "collider": {
+    "center": [
+     -0.0,
+     0.07,
+     -0.0
+    ],
+    "size": [
+     0.16,
+     0.14,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_PhotoLoose_1",
+   "model": "Item_PhotoLoose",
+   "room": "Kaserne",
+   "p": [
+    343.0069,
+    20.1493,
+    -358.8675
+   ],
+   "q": [
+    0.0,
+    -0.165909,
+    0.0,
+    0.986141
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.1,
+     0.002,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_MugGreen_1",
+   "model": "Item_MugGreen",
+   "room": "Kaserne",
+   "p": [
+    344.5626,
+    20.9253,
+    -356.4202
+   ],
+   "q": [
+    0.0,
+    0.780975,
+    0.0,
+    0.624562
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_MugGreen_2",
+   "model": "Item_MugGreen",
+   "room": "Kaserne",
+   "p": [
+    344.2749,
+    20.9253,
+    -356.7432
+   ],
+   "q": [
+    0.0,
+    0.896486,
+    0.0,
+    0.443072
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Radio_1",
+   "model": "Item_Radio",
+   "room": "Kaserne",
+   "p": [
+    344.9525,
+    20.9253,
+    -356.2326
+   ],
+   "q": [
+    0.0,
+    0.343659,
+    0.0,
+    0.939094
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.09,
+     -0.0
+    ],
+    "size": [
+     0.28,
+     0.18,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Headphones_1",
+   "model": "Item_Headphones",
+   "room": "Kaserne",
+   "p": [
+    344.0186,
+    20.6153,
+    -355.9802
+   ],
+   "q": [
+    0.0,
+    0.979575,
+    0.0,
+    0.201078
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.055,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.11,
+     0.09
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Envelope_1",
+   "model": "Item_Envelope",
+   "room": "Kaserne",
+   "p": [
+    343.9017,
+    20.6153,
+    -356.812
+   ],
+   "q": [
+    0.0,
+    0.993171,
+    0.0,
+    -0.11667
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.002,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.004,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Kaserne_Envelope_2",
+   "model": "Item_Envelope",
+   "room": "Kaserne",
+   "p": [
+    345.1086,
+    20.6153,
+    -357.7087
+   ],
+   "q": [
+    0.0,
+    0.469471,
+    0.0,
+    0.882948
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.002,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.004,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Kueche_PlateDirty_1",
+   "model": "Item_PlateDirty",
+   "room": "Kueche",
+   "p": [
+    335.5209,
+    20.9003,
+    -355.513
+   ],
+   "q": [
+    0.0,
+    0.692143,
+    0.0,
+    0.721761
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   }
+  },
+  {
+   "id": "Kueche_PlateDirty_2",
+   "model": "Item_PlateDirty",
+   "room": "Kueche",
+   "p": [
+    336.3527,
+    20.9003,
+    -355.6299
+   ],
+   "q": [
+    0.0,
+    0.999877,
+    0.0,
+    0.015708
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   }
+  },
+  {
+   "id": "Kueche_PlateDirty_3",
+   "model": "Item_PlateDirty",
+   "room": "Kueche",
+   "p": [
+    335.5896,
+    20.9003,
+    -355.8862
+   ],
+   "q": [
+    0.0,
+    0.649448,
+    0.0,
+    0.760406
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   }
+  },
+  {
+   "id": "Kueche_PlateDirty_4",
+   "model": "Item_PlateDirty",
+   "room": "Kueche",
+   "p": [
+    333.9131,
+    21.0453,
+    -357.4682
+   ],
+   "q": [
+    0.0,
+    0.97437,
+    0.0,
+    -0.224951
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Plate_1",
+   "model": "Item_Plate",
+   "room": "Kueche",
+   "p": [
+    333.4044,
+    21.9853,
+    -357.6391
+   ],
+   "q": [
+    0.0,
+    -0.127065,
+    0.0,
+    0.991894
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Plate_2",
+   "model": "Item_Plate",
+   "room": "Kueche",
+   "p": [
+    341.6167,
+    21.2103,
+    -356.9756
+   ],
+   "q": [
+    0.0,
+    0.898794,
+    0.0,
+    -0.438371
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Plate_3",
+   "model": "Item_Plate",
+   "room": "Kueche",
+   "p": [
+    341.7856,
+    21.2103,
+    -356.6358
+   ],
+   "q": [
+    0.0,
+    -0.036644,
+    0.0,
+    0.999328
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   }
+  },
+  {
+   "id": "Kueche_MugWhite_1",
+   "model": "Item_MugWhite",
+   "room": "Kueche",
+   "p": [
+    334.9826,
+    21.0453,
+    -357.6185
+   ],
+   "q": [
+    0.0,
+    -0.166769,
+    0.0,
+    0.985996
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_MugWhite_2",
+   "model": "Item_MugWhite",
+   "room": "Kueche",
+   "p": [
+    336.2005,
+    20.9583,
+    -355.8508
+   ],
+   "q": [
+    0.0,
+    -0.561362,
+    0.0,
+    0.82757
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_MugWhite_3",
+   "model": "Item_MugWhite",
+   "room": "Kueche",
+   "p": [
+    339.1398,
+    20.8953,
+    -357.3545
+   ],
+   "q": [
+    0.0,
+    0.625242,
+    0.0,
+    0.780431
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_MugTipped_1",
+   "model": "Item_MugTipped",
+   "room": "Kueche",
+   "p": [
+    339.7468,
+    20.8953,
+    -355.6222
+   ],
+   "q": [
+    0.0,
+    0.814115,
+    0.0,
+    0.580703
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.045,
+     -0.0
+    ],
+    "size": [
+     0.1,
+     0.09,
+     0.09
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Pot_1",
+   "model": "Item_Pot",
+   "room": "Kueche",
+   "p": [
+    334.6261,
+    21.0453,
+    -357.5684
+   ],
+   "q": [
+    0.0,
+    0.907777,
+    0.0,
+    0.419453
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.085,
+     -0.0
+    ],
+    "size": [
+     0.28,
+     0.17,
+     0.23
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Pot_2",
+   "model": "Item_Pot",
+   "room": "Kueche",
+   "p": [
+    335.8144,
+    21.0523,
+    -357.7354
+   ],
+   "q": [
+    0.0,
+    -0.451657,
+    0.0,
+    0.892192
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.085,
+     -0.0
+    ],
+    "size": [
+     0.28,
+     0.17,
+     0.23
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Pan_1",
+   "model": "Item_Pan",
+   "room": "Kueche",
+   "p": [
+    335.3391,
+    21.0453,
+    -357.6686
+   ],
+   "q": [
+    0.0,
+    0.999507,
+    0.0,
+    0.031411
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.0,
+   "collider": {
+    "center": [
+     -0.08,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.46,
+     0.06,
+     0.26
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Kettle_1",
+   "model": "Item_Kettle",
+   "room": "Kueche",
+   "p": [
+    338.9856,
+    21.0453,
+    -356.727
+   ],
+   "q": [
+    0.0,
+    0.95424,
+    0.0,
+    -0.29904
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.8,
+   "collider": {
+    "center": [
+     -0.0,
+     0.11,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.22,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Jar_1",
+   "model": "Item_Jar",
+   "room": "Kueche",
+   "p": [
+    339.1192,
+    21.0453,
+    -355.7763
+   ],
+   "q": [
+    0.0,
+    -0.52101,
+    0.0,
+    0.853551
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0725,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.145,
+     0.09
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Jar_2",
+   "model": "Item_Jar",
+   "room": "Kueche",
+   "p": [
+    339.3903,
+    20.8953,
+    -355.5721
+   ],
+   "q": [
+    0.0,
+    0.755281,
+    0.0,
+    0.655401
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0725,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.145,
+     0.09
+    ]
+   }
+  },
+  {
+   "id": "Kueche_BreadMouldy_1",
+   "model": "Item_BreadMouldy",
+   "room": "Kueche",
+   "p": [
+    335.9461,
+    20.9203,
+    -355.9363
+   ],
+   "q": [
+    0.0,
+    0.868199,
+    0.0,
+    -0.496216
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.045,
+     -0.0
+    ],
+    "size": [
+     0.24,
+     0.09,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Kueche_TinOpen_1",
+   "model": "Item_TinOpen",
+   "room": "Kueche",
+   "p": [
+    336.5737,
+    20.9003,
+    -355.7821
+   ],
+   "q": [
+    0.0,
+    0.715083,
+    0.0,
+    0.69904
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.04,
+     -0.0
+    ],
+    "size": [
+     0.085,
+     0.08,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_TinOpen_2",
+   "model": "Item_TinOpen",
+   "room": "Kueche",
+   "p": [
+    336.4214,
+    20.9003,
+    -356.0031
+   ],
+   "q": [
+    0.0,
+    -0.739631,
+    0.0,
+    0.673012
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.04,
+     -0.0
+    ],
+    "size": [
+     0.085,
+     0.08,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_TinOpen_3",
+   "model": "Item_TinOpen",
+   "room": "Kueche",
+   "p": [
+    338.7833,
+    20.8953,
+    -357.3044
+   ],
+   "q": [
+    0.0,
+    -0.183952,
+    0.0,
+    0.982935
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.04,
+     -0.0
+    ],
+    "size": [
+     0.085,
+     0.08,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_TinLying_1",
+   "model": "Item_TinLying",
+   "room": "Kueche",
+   "p": [
+    339.8008,
+    20.1493,
+    -356.9627
+   ],
+   "q": [
+    0.0,
+    0.174507,
+    0.0,
+    0.984656
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0425,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.085,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_TinLying_2",
+   "model": "Item_TinLying",
+   "room": "Kueche",
+   "p": [
+    339.4128,
+    20.1493,
+    -357.9988
+   ],
+   "q": [
+    0.0,
+    0.597625,
+    0.0,
+    0.801776
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0425,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.085,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Kueche_BottleBeer_1",
+   "model": "Item_BottleBeer",
+   "room": "Kueche",
+   "p": [
+    335.7585,
+    20.9003,
+    -355.5464
+   ],
+   "q": [
+    0.0,
+    0.450877,
+    0.0,
+    0.892586
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kueche_BottleBeer_2",
+   "model": "Item_BottleBeer",
+   "room": "Kueche",
+   "p": [
+    336.5904,
+    20.9003,
+    -355.6633
+   ],
+   "q": [
+    0.0,
+    0.955536,
+    0.0,
+    0.294875
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kueche_BottleWater_1",
+   "model": "Item_BottleWater",
+   "room": "Kueche",
+   "p": [
+    337.6412,
+    20.1493,
+    -355.0839
+   ],
+   "q": [
+    0.0,
+    0.992115,
+    0.0,
+    0.125334
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kueche_BottleWater_2",
+   "model": "Item_BottleWater",
+   "room": "Kueche",
+   "p": [
+    334.5535,
+    20.1493,
+    -355.4982
+   ],
+   "q": [
+    0.0,
+    -0.509793,
+    0.0,
+    0.860297
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Kueche_CanRed_1",
+   "model": "Item_CanRed",
+   "room": "Kueche",
+   "p": [
+    335.4354,
+    20.9003,
+    -355.2586
+   ],
+   "q": [
+    0.0,
+    0.760972,
+    0.0,
+    0.648785
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0575,
+     -0.0
+    ],
+    "size": [
+     0.066,
+     0.115,
+     0.066
+    ]
+   }
+  },
+  {
+   "id": "Kueche_CanRed_2",
+   "model": "Item_CanRed",
+   "room": "Kueche",
+   "p": [
+    339.2715,
+    20.8953,
+    -355.5554
+   ],
+   "q": [
+    0.0,
+    0.957067,
+    0.0,
+    -0.289867
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0575,
+     -0.0
+    ],
+    "size": [
+     0.066,
+     0.115,
+     0.066
+    ]
+   }
+  },
+  {
+   "id": "Kueche_TrashBag_1",
+   "model": "Item_TrashBag",
+   "room": "Kueche",
+   "p": [
+    335.9943,
+    20.1493,
+    -354.7312
+   ],
+   "q": [
+    0.0,
+    0.941176,
+    0.0,
+    -0.337916
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 3.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.31,
+     -0.0
+    ],
+    "size": [
+     0.48,
+     0.62,
+     0.44
+    ]
+   }
+  },
+  {
+   "id": "Kueche_TrashBag_2",
+   "model": "Item_TrashBag",
+   "room": "Kueche",
+   "p": [
+    337.6971,
+    20.1493,
+    -357.273
+   ],
+   "q": [
+    0.0,
+    0.997053,
+    0.0,
+    -0.076719
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 3.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.31,
+     -0.0
+    ],
+    "size": [
+     0.48,
+     0.62,
+     0.44
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Ashtray_1",
+   "model": "Item_Ashtray",
+   "room": "Kueche",
+   "p": [
+    335.3686,
+    20.9003,
+    -355.7339
+   ],
+   "q": [
+    0.0,
+    0.877983,
+    0.0,
+    -0.478691
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.04,
+     0.15
+    ]
+   }
+  },
+  {
+   "id": "Kueche_NewspaperOpen_1",
+   "model": "Item_NewspaperOpen",
+   "room": "Kueche",
+   "p": [
+    334.1784,
+    20.1493,
+    -354.7184
+   ],
+   "q": [
+    0.0,
+    0.90296,
+    0.0,
+    0.429724
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     0.8,
+     0.01,
+     0.55
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Magazine_1",
+   "model": "Item_Magazine",
+   "room": "Kueche",
+   "p": [
+    339.3421,
+    20.6453,
+    -356.7771
+   ],
+   "q": [
+    0.0,
+    -0.532877,
+    0.0,
+    0.846193
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.21,
+     0.006,
+     0.28
+    ]
+   }
+  },
+  {
+   "id": "Kueche_PaperBall_1",
+   "model": "Item_PaperBall",
+   "room": "Kueche",
+   "p": [
+    335.9924,
+    20.1493,
+    -353.8827
+   ],
+   "q": [
+    0.0,
+    0.78801,
+    0.0,
+    0.615662
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Kueche_PaperBall_2",
+   "model": "Item_PaperBall",
+   "room": "Kueche",
+   "p": [
+    333.3838,
+    20.1493,
+    -356.0609
+   ],
+   "q": [
+    0.0,
+    -0.747798,
+    0.0,
+    0.663926
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Kueche_Rug_1",
+   "model": "Item_Rug",
+   "room": "Kueche",
+   "p": [
+    341.2473,
+    20.1493,
+    -358.7413
+   ],
+   "q": [
+    0.0,
+    -0.094978,
+    0.0,
+    0.995479
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 3.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     1.8,
+     0.01,
+     0.9
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Towel_1",
+   "model": "Item_Towel",
+   "room": "Waschraum",
+   "p": [
+    341.9674,
+    21.0053,
+    -361.9528
+   ],
+   "q": [
+    0.0,
+    0.140037,
+    0.0,
+    0.990146
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.06,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Towel_2",
+   "model": "Item_Towel",
+   "room": "Waschraum",
+   "p": [
+    347.0791,
+    20.9803,
+    -363.5195
+   ],
+   "q": [
+    0.0,
+    -0.39314,
+    0.0,
+    0.919479
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.06,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Towel_3",
+   "model": "Item_Towel",
+   "room": "Waschraum",
+   "p": [
+    342.6547,
+    20.5553,
+    -365.6848
+   ],
+   "q": [
+    0.0,
+    0.916013,
+    0.0,
+    0.401149
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.06,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_ToothCup_1",
+   "model": "Item_ToothCup",
+   "room": "Waschraum",
+   "p": [
+    347.1459,
+    20.9803,
+    -363.0441
+   ],
+   "q": [
+    0.0,
+    0.929455,
+    0.0,
+    0.368936
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.09,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.18,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_ToothCup_2",
+   "model": "Item_ToothCup",
+   "room": "Waschraum",
+   "p": [
+    347.1793,
+    20.9803,
+    -362.8065
+   ],
+   "q": [
+    0.0,
+    -0.434446,
+    0.0,
+    0.900698
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.09,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.18,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Soap_1",
+   "model": "Item_Soap",
+   "room": "Waschraum",
+   "p": [
+    347.0438,
+    20.9803,
+    -362.9086
+   ],
+   "q": [
+    0.0,
+    0.919479,
+    0.0,
+    -0.393139
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.0,
+     0.012,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.024,
+     0.05
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Soap_2",
+   "model": "Item_Soap",
+   "room": "Waschraum",
+   "p": [
+    341.6815,
+    21.8653,
+    -363.1244
+   ],
+   "q": [
+    0.0,
+    -0.707724,
+    0.0,
+    0.706489
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.0,
+     0.012,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.024,
+     0.05
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_ToiletRolls_1",
+   "model": "Item_ToiletRolls",
+   "room": "Waschraum",
+   "p": [
+    343.0092,
+    20.1493,
+    -364.8864
+   ],
+   "q": [
+    0.0,
+    0.999936,
+    0.0,
+    0.011345
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.30000000000000004,
+   "collider": {
+    "center": [
+     -0.115,
+     0.05,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.1,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_ToiletRolls_2",
+   "model": "Item_ToiletRolls",
+   "room": "Waschraum",
+   "p": [
+    343.2578,
+    20.1493,
+    -362.2553
+   ],
+   "q": [
+    0.0,
+    0.933893,
+    0.0,
+    -0.357553
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.30000000000000004,
+   "collider": {
+    "center": [
+     -0.115,
+     0.05,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.1,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_BucketWater_1",
+   "model": "Item_BucketWater",
+   "room": "Waschraum",
+   "p": [
+    346.1284,
+    20.1493,
+    -363.3859
+   ],
+   "q": [
+    0.0,
+    -0.741391,
+    0.0,
+    0.671074
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 1.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.37,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Mop_1",
+   "model": "Item_Mop",
+   "room": "Waschraum",
+   "p": [
+    346.0134,
+    20.1493,
+    -365.0662
+   ],
+   "q": [
+    0.078268,
+    0.994489,
+    -0.005473,
+    -0.069541
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.68,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     1.36,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Medicine_1",
+   "model": "Item_Medicine",
+   "room": "Waschraum",
+   "p": [
+    347.0772,
+    20.9803,
+    -362.6709
+   ],
+   "q": [
+    0.0,
+    -0.603208,
+    0.0,
+    0.797584
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.05,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.04,
+     0.04
+    ]
+   }
+  },
+  {
+   "id": "Waschraum_Rag_1",
+   "model": "Item_Rag",
+   "room": "Waschraum",
+   "p": [
+    345.4135,
+    20.1493,
+    -362.4371
+   ],
+   "q": [
+    0.0,
+    -0.152986,
+    0.0,
+    0.988228
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.08,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.03,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_PaperStack_1",
+   "model": "Item_PaperStack",
+   "room": "Stationsleiter",
+   "p": [
+    334.7411,
+    20.9088,
+    -363.3608
+   ],
+   "q": [
+    0.0,
+    -0.838195,
+    0.0,
+    0.54537
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_PaperStack_2",
+   "model": "Item_PaperStack",
+   "room": "Stationsleiter",
+   "p": [
+    335.1477,
+    20.8953,
+    -363.0544
+   ],
+   "q": [
+    0.0,
+    -0.332985,
+    0.0,
+    0.942932
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_PaperStack_3",
+   "model": "Item_PaperStack",
+   "room": "Stationsleiter",
+   "p": [
+    334.0281,
+    20.8953,
+    -363.2606
+   ],
+   "q": [
+    0.0,
+    -0.278992,
+    0.0,
+    0.960294
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_BinderBlue_1",
+   "model": "Item_BinderBlue",
+   "room": "Stationsleiter",
+   "p": [
+    332.5128,
+    21.1453,
+    -361.1088
+   ],
+   "q": [
+    0.0,
+    0.811574,
+    0.0,
+    0.58425
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_BinderBlue_2",
+   "model": "Item_BinderBlue",
+   "room": "Stationsleiter",
+   "p": [
+    337.1865,
+    21.4653,
+    -364.068
+   ],
+   "q": [
+    0.0,
+    -0.750111,
+    0.0,
+    0.661312
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_BinderRed_1",
+   "model": "Item_BinderRed",
+   "room": "Stationsleiter",
+   "p": [
+    336.9841,
+    21.4653,
+    -364.6455
+   ],
+   "q": [
+    0.0,
+    -0.224952,
+    0.0,
+    0.97437
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_BookStack_1",
+   "model": "Item_BookStack",
+   "room": "Stationsleiter",
+   "p": [
+    333.7718,
+    20.1493,
+    -362.4975
+   ],
+   "q": [
+    0.0,
+    0.681998,
+    0.0,
+    0.731354
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0478,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.09564,
+     0.26
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_BookStack_2",
+   "model": "Item_BookStack",
+   "room": "Stationsleiter",
+   "p": [
+    332.2418,
+    20.1493,
+    -361.313
+   ],
+   "q": [
+    0.0,
+    0.882127,
+    0.0,
+    -0.471011
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 1.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0478,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.09564,
+     0.26
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_Ashtray_1",
+   "model": "Item_Ashtray",
+   "room": "Stationsleiter",
+   "p": [
+    335.0809,
+    20.8953,
+    -363.5297
+   ],
+   "q": [
+    0.0,
+    0.984959,
+    0.0,
+    -0.172788
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.04,
+     0.15
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_BottleSchnapps_1",
+   "model": "Item_BottleSchnapps",
+   "room": "Stationsleiter",
+   "p": [
+    334.91,
+    20.8953,
+    -363.021
+   ],
+   "q": [
+    0.0,
+    0.809017,
+    0.0,
+    0.587786
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_MugWhite_1",
+   "model": "Item_MugWhite",
+   "room": "Stationsleiter",
+   "p": [
+    333.8071,
+    20.8953,
+    -363.1084
+   ],
+   "q": [
+    0.0,
+    0.168489,
+    0.0,
+    0.985704
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_PhotoFrame_1",
+   "model": "Item_PhotoFrame",
+   "room": "Stationsleiter",
+   "p": [
+    334.4867,
+    20.8953,
+    -363.4462
+   ],
+   "q": [
+    0.0,
+    -0.150399,
+    0.0,
+    0.988625
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.25,
+   "collider": {
+    "center": [
+     -0.0,
+     0.07,
+     -0.0
+    ],
+    "size": [
+     0.16,
+     0.14,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_Envelope_1",
+   "model": "Item_Envelope",
+   "room": "Stationsleiter",
+   "p": [
+    333.8405,
+    20.8953,
+    -362.8707
+   ],
+   "q": [
+    0.0,
+    0.921524,
+    0.0,
+    0.38832
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.002,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.004,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_Envelope_2",
+   "model": "Item_Envelope",
+   "room": "Stationsleiter",
+   "p": [
+    333.757,
+    20.8953,
+    -363.4649
+   ],
+   "q": [
+    0.0,
+    -0.190809,
+    0.0,
+    0.981627
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.002,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.004,
+     0.11
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_Clipboard_1",
+   "model": "Item_Clipboard",
+   "room": "Stationsleiter",
+   "p": [
+    335.4875,
+    20.1493,
+    -363.2234
+   ],
+   "q": [
+    0.0,
+    -0.176226,
+    0.0,
+    0.98435
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.23,
+     0.02,
+     0.32
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_Medicine_1",
+   "model": "Item_Medicine",
+   "room": "Stationsleiter",
+   "p": [
+    334.0782,
+    20.9953,
+    -362.9041
+   ],
+   "q": [
+    0.0,
+    0.865588,
+    0.0,
+    0.500756
+   ],
+   "kind": "prop",
+   "clean": false,
+   "massKg": 0.05,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.04,
+     0.04
+    ]
+   }
+  },
+  {
+   "id": "Stationsleiter_StickyNote_1",
+   "model": "Item_StickyNote",
+   "room": "Stationsleiter",
+   "p": [
+    334.8265,
+    20.8953,
+    -363.6152
+   ],
+   "q": [
+    0.0,
+    0.175366,
+    0.0,
+    0.984503
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.002,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.002,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "Heizung_Rag_1",
+   "model": "Item_Rag",
+   "room": "Heizung",
+   "p": [
+    339.3953,
+    13.7493,
+    -356.5422
+   ],
+   "q": [
+    0.0,
+    -0.501511,
+    0.0,
+    0.865151
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.08,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.03,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "Heizung_OilCan_1",
+   "model": "Item_OilCan",
+   "room": "Heizung",
+   "p": [
+    337.2377,
+    13.7493,
+    -355.5119
+   ],
+   "q": [
+    0.0,
+    0.961021,
+    0.0,
+    0.276477
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.145,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.29,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "Heizung_Wrench_1",
+   "model": "Item_Wrench",
+   "room": "Heizung",
+   "p": [
+    339.9914,
+    13.7493,
+    -357.4742
+   ],
+   "q": [
+    0.0,
+    0.999722,
+    0.0,
+    0.02356
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.006,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.012,
+     0.04
+    ]
+   }
+  },
+  {
+   "id": "Flur_UG_Broom_1",
+   "model": "Item_Broom",
+   "room": "Flur_UG",
+   "p": [
+    341.667,
+    13.7493,
+    -361.0724
+   ],
+   "q": [
+    0.078268,
+    0.994489,
+    -0.005473,
+    -0.069541
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.8,
+   "collider": {
+    "center": [
+     -0.0,
+     0.7,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     1.4,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Flur_UG_Dustpan_1",
+   "model": "Item_Dustpan",
+   "room": "Flur_UG",
+   "p": [
+    339.5762,
+    13.7493,
+    -359.5668
+   ],
+   "q": [
+    0.0,
+    0.918791,
+    0.0,
+    0.394744
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.05,
+     -0.07
+    ],
+    "size": [
+     0.25,
+     0.1,
+     0.36
+    ]
+   }
+  },
+  {
+   "id": "Schaltraum_Toolbox_1",
+   "model": "Item_Toolbox",
+   "room": "Schaltraum",
+   "p": [
+    334.9415,
+    13.7493,
+    -361.9348
+   ],
+   "q": [
+    0.0,
+    -0.764922,
+    0.0,
+    0.644123
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.46,
+     0.26,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "Schaltraum_Screwdriver_1",
+   "model": "Item_Screwdriver",
+   "room": "Schaltraum",
+   "p": [
+    333.6549,
+    13.7493,
+    -363.3293
+   ],
+   "q": [
+    0.0,
+    0.803337,
+    0.0,
+    0.595524
+   ],
+   "kind": "tool",
+   "clean": false,
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.045,
+     0.012,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.025,
+     0.025
+    ]
+   }
+  },
+  {
+   "id": "Schaltraum_PaperStack_1",
+   "model": "Item_PaperStack",
+   "room": "Schaltraum",
+   "p": [
+    334.1784,
+    13.7493,
+    -362.1911
+   ],
+   "q": [
+    0.0,
+    0.357553,
+    0.0,
+    0.933893
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   }
+  },
+  {
+   "id": "Schaltraum_Clipboard_1",
+   "model": "Item_Clipboard",
+   "room": "Schaltraum",
+   "p": [
+    332.3439,
+    13.7493,
+    -361.4486
+   ],
+   "q": [
+    0.0,
+    0.148672,
+    0.0,
+    0.988887
+   ],
+   "kind": "paper",
+   "clean": false,
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.23,
+     0.02,
+     0.32
+    ]
+   }
+  },
+  {
+   "id": "Flur_OG_BottleBeer_1",
+   "model": "Item_BottleBeer",
+   "room": "Flur_OG",
+   "p": [
+    341.1489,
+    20.1493,
+    -360.8784
+   ],
+   "q": [
+    0.0,
+    -0.579282,
+    0.0,
+    0.815128
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   }
+  },
+  {
+   "id": "Flur_OG_PaperBall_1",
+   "model": "Item_PaperBall",
+   "room": "Flur_OG",
+   "p": [
+    333.525,
+    20.1493,
+    -359.0799
+   ],
+   "q": [
+    0.0,
+    0.984041,
+    0.0,
+    0.177944
+   ],
+   "kind": "trash",
+   "clean": true,
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   }
+  }
+ ],
+ "notes": [
+  {
+   "id": "lobby_notice",
+   "model": "Item_Note",
+   "room": "Windfang",
+   "p": [
+    346.3175,
+    16.7493,
+    -359.4539
+   ],
+   "q": [
+    0.0,
+    0.546102,
+    0.0,
+    0.837719
+   ],
+   "readable": "lobby_notice",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "control_log",
+   "model": "Item_NoteForm",
+   "room": "Leitstand",
+   "p": [
+    343.5322,
+    17.5093,
+    -356.6389
+   ],
+   "q": [
+    0.0,
+    -0.703395,
+    0.0,
+    0.710799
+   ],
+   "readable": "control_log",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "control_sticky",
+   "model": "Item_StickyNote",
+   "room": "Leitstand",
+   "p": [
+    342.5982,
+    17.5053,
+    -356.3864
+   ],
+   "q": [
+    0.0,
+    0.543174,
+    0.0,
+    0.83962
+   ],
+   "readable": "control_sticky",
+   "massKg": 0.002,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.002,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "control_shift",
+   "model": "Item_NoteForm",
+   "room": "Leitstand",
+   "p": [
+    337.782,
+    17.4953,
+    -357.8908
+   ],
+   "q": [
+    0.0,
+    0.686453,
+    0.0,
+    0.727174
+   ],
+   "readable": "control_shift",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "server_tapes",
+   "model": "Item_Note",
+   "room": "Serverraum",
+   "p": [
+    335.6044,
+    16.7493,
+    -362.3915
+   ],
+   "q": [
+    0.0,
+    0.964557,
+    0.0,
+    0.263874
+   ],
+   "readable": "server_tapes",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "storage_list",
+   "model": "Item_NoteForm",
+   "room": "Lager",
+   "p": [
+    343.5661,
+    16.7493,
+    -363.5105
+   ],
+   "q": [
+    0.0,
+    0.68391,
+    0.0,
+    0.729566
+   ],
+   "readable": "storage_list",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "kitchen_note",
+   "model": "Item_Note",
+   "room": "Kueche",
+   "p": [
+    335.9962,
+    20.9003,
+    -355.5798
+   ],
+   "q": [
+    0.0,
+    0.708955,
+    0.0,
+    0.705253
+   ],
+   "readable": "kitchen_note",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "kitchen_list",
+   "model": "Item_Note",
+   "room": "Kueche",
+   "p": [
+    334.2696,
+    21.0453,
+    -357.5183
+   ],
+   "q": [
+    0.0,
+    0.992115,
+    0.0,
+    0.125334
+   ],
+   "readable": "kitchen_list",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "barracks_letter1",
+   "model": "Item_Note",
+   "room": "Kaserne",
+   "p": [
+    347.9066,
+    20.7453,
+    -356.7689
+   ],
+   "q": [
+    0.0,
+    0.999936,
+    0.0,
+    -0.011344
+   ],
+   "readable": "barracks_letter1",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "barracks_letter2",
+   "model": "Item_Note",
+   "room": "Kaserne",
+   "p": [
+    347.6394,
+    20.7453,
+    -358.6703
+   ],
+   "q": [
+    0.0,
+    0.66913,
+    0.0,
+    0.743145
+   ],
+   "readable": "barracks_letter2",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "barracks_diary",
+   "model": "Item_BookOpen",
+   "room": "Kaserne",
+   "p": [
+    344.5125,
+    20.9253,
+    -356.7766
+   ],
+   "q": [
+    0.0,
+    0.907411,
+    0.0,
+    0.420245
+   ],
+   "readable": "barracks_diary",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.03,
+     0.22
+    ]
+   }
+  },
+  {
+   "id": "washroom_mirror",
+   "model": "Item_StickyNote",
+   "room": "Waschraum",
+   "p": [
+    346.8414,
+    20.9803,
+    -363.4861
+   ],
+   "q": [
+    0.0,
+    0.837242,
+    0.0,
+    0.546833
+   ],
+   "readable": "washroom_mirror",
+   "massKg": 0.002,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.002,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "chief_memo",
+   "model": "Item_NoteForm",
+   "room": "Stationsleiter",
+   "p": [
+    334.5535,
+    20.8963,
+    -362.9709
+   ],
+   "q": [
+    0.0,
+    0.310676,
+    0.0,
+    0.950516
+   ],
+   "readable": "chief_memo",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "chief_letter",
+   "model": "Item_NoteForm",
+   "room": "Stationsleiter",
+   "p": [
+    334.3159,
+    20.8953,
+    -362.9375
+   ],
+   "q": [
+    0.0,
+    -0.835808,
+    0.0,
+    0.549022
+   ],
+   "readable": "chief_letter",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "chief_safe",
+   "model": "Item_StickyNote",
+   "room": "Stationsleiter",
+   "p": [
+    334.8933,
+    20.9063,
+    -363.1398
+   ],
+   "q": [
+    0.0,
+    0.562805,
+    0.0,
+    0.82659
+   ],
+   "readable": "chief_safe",
+   "massKg": 0.002,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.002,
+     0.08
+    ]
+   }
+  },
+  {
+   "id": "chief_photo",
+   "model": "Item_PhotoLoose",
+   "room": "Stationsleiter",
+   "p": [
+    334.2825,
+    20.8953,
+    -363.1752
+   ],
+   "q": [
+    0.0,
+    0.542441,
+    0.0,
+    0.840094
+   ],
+   "readable": "chief_photo",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.1,
+     0.002,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "boiler_procedure",
+   "model": "Item_Clipboard",
+   "room": "Heizung",
+   "p": [
+    335.357,
+    13.7493,
+    -356.8229
+   ],
+   "q": [
+    0.0,
+    -0.7108,
+    0.0,
+    0.703394
+   ],
+   "readable": "boiler_procedure",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.23,
+     0.02,
+     0.32
+    ]
+   }
+  },
+  {
+   "id": "switchroom_note",
+   "model": "Item_Note",
+   "room": "Schaltraum",
+   "p": [
+    335.1291,
+    13.7493,
+    -362.3247
+   ],
+   "q": [
+    0.0,
+    0.368935,
+    0.0,
+    0.929455
+   ],
+   "readable": "switchroom_note",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "garage_quad",
+   "model": "Item_Note",
+   "room": "Garage",
+   "p": [
+    351.9115,
+    16.5953,
+    -361.6841
+   ],
+   "q": [
+    0.0,
+    0.877565,
+    0.0,
+    -0.479457
+   ],
+   "readable": "garage_quad",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  },
+  {
+   "id": "roof_door",
+   "model": "Item_Note",
+   "room": "Treppenhaus",
+   "p": [
+    339.6589,
+    16.7453,
+    -362.3554
+   ],
+   "q": [
+    0.0,
+    0.446197,
+    0.0,
+    0.894935
+   ],
+   "readable": "roof_door",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   }
+  }
+ ],
+ "decals": [
+  {
+   "id": "Windfang_dirt_1",
+   "room": "Windfang",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    345.6212,
+    16.7523,
+    -359.2349
+   ],
+   "q": [
+    0.0,
+    0.663273,
+    0.0,
+    0.748378
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Windfang_dirt_2",
+   "room": "Windfang",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    346.9078,
+    16.7563,
+    -357.8404
+   ],
+   "q": [
+    0.0,
+    -0.507539,
+    0.0,
+    0.861629
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Windfang_prints_1",
+   "room": "Windfang",
+   "cell": "prints",
+   "label": "Грязные следы",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.004,
+    0.996,
+    0.496
+   ],
+   "p": [
+    346.295,
+    16.7523,
+    -357.0272
+   ],
+   "q": [
+    0.0,
+    0.399549,
+    0.0,
+    0.916712
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Leitstand_dirt_1",
+   "room": "Leitstand",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    342.5166,
+    16.7523,
+    -357.8291
+   ],
+   "q": [
+    0.0,
+    -0.773841,
+    0.0,
+    0.633381
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Leitstand_dirt_2",
+   "room": "Leitstand",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    335.1285,
+    16.7523,
+    -355.2155
+   ],
+   "q": [
+    0.0,
+    0.910684,
+    0.0,
+    -0.413104
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Leitstand_scuff_1",
+   "room": "Leitstand",
+   "cell": "scuff",
+   "label": "Затёртости",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.004,
+    0.746,
+    0.496
+   ],
+   "p": [
+    334.3634,
+    16.7523,
+    -354.6232
+   ],
+   "q": [
+    0.0,
+    0.366501,
+    0.0,
+    0.930418
+   ],
+   "size": 0.8,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Leitstand_scuff_2",
+   "room": "Leitstand",
+   "cell": "scuff",
+   "label": "Затёртости",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.004,
+    0.746,
+    0.496
+   ],
+   "p": [
+    337.1338,
+    16.7523,
+    -356.4667
+   ],
+   "q": [
+    0.0,
+    -0.333807,
+    0.0,
+    0.942641
+   ],
+   "size": 0.8,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Leitstand_oil_1",
+   "room": "Leitstand",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    335.4182,
+    16.7523,
+    -355.7409
+   ],
+   "q": [
+    0.0,
+    0.192521,
+    0.0,
+    0.981293
+   ],
+   "size": 0.6,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Flur_EG_prints_1",
+   "room": "Flur_EG",
+   "cell": "prints",
+   "label": "Грязные следы",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.004,
+    0.996,
+    0.496
+   ],
+   "p": [
+    347.2094,
+    16.7523,
+    -361.7302
+   ],
+   "q": [
+    0.0,
+    0.939991,
+    0.0,
+    0.3412
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Flur_EG_prints_2",
+   "room": "Flur_EG",
+   "cell": "prints",
+   "label": "Грязные следы",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.004,
+    0.996,
+    0.496
+   ],
+   "p": [
+    345.2393,
+    16.7523,
+    -361.0898
+   ],
+   "q": [
+    0.0,
+    -0.102793,
+    0.0,
+    0.994703
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Flur_EG_dirt_1",
+   "room": "Flur_EG",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    343.9322,
+    16.7523,
+    -360.9061
+   ],
+   "q": [
+    0.0,
+    -0.451657,
+    0.0,
+    0.892192
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kueche_oil_1",
+   "room": "Kueche",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    334.5368,
+    20.1523,
+    -355.617
+   ],
+   "q": [
+    0.0,
+    0.999702,
+    0.0,
+    -0.024432
+   ],
+   "size": 0.6,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kueche_oil_2",
+   "room": "Kueche",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    338.1371,
+    20.1523,
+    -356.7289
+   ],
+   "q": [
+    0.0,
+    0.837242,
+    0.0,
+    0.546833
+   ],
+   "size": 0.6,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kueche_dirt_1",
+   "room": "Kueche",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    339.7841,
+    20.1523,
+    -357.0815
+   ],
+   "q": [
+    0.0,
+    -0.311506,
+    0.0,
+    0.950244
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kueche_dirt_2",
+   "room": "Kueche",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    335.3314,
+    20.1523,
+    -354.2745
+   ],
+   "q": [
+    0.0,
+    -0.669779,
+    0.0,
+    0.74256
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kueche_damp_1",
+   "room": "Kueche",
+   "cell": "damp",
+   "label": "Пятно сырости",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.254,
+    0.004,
+    0.496,
+    0.496
+   ],
+   "p": [
+    338.4731,
+    20.1523,
+    -355.2008
+   ],
+   "q": [
+    0.0,
+    0.998537,
+    0.0,
+    -0.054078
+   ],
+   "size": 0.8,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kaserne_dirt_1",
+   "room": "Kaserne",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    343.7976,
+    20.1523,
+    -355.8279
+   ],
+   "q": [
+    0.0,
+    0.886204,
+    0.0,
+    -0.463296
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kaserne_dirt_2",
+   "room": "Kaserne",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    343.4655,
+    20.1523,
+    -359.0531
+   ],
+   "q": [
+    0.0,
+    -0.404344,
+    0.0,
+    0.914607
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Kaserne_prints_1",
+   "room": "Kaserne",
+   "cell": "prints",
+   "label": "Грязные следы",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.004,
+    0.996,
+    0.496
+   ],
+   "p": [
+    343.2908,
+    20.1523,
+    -356.8473
+   ],
+   "q": [
+    0.0,
+    -0.802297,
+    0.0,
+    0.596925
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Flur_OG_prints_1",
+   "room": "Flur_OG",
+   "cell": "prints",
+   "label": "Грязные следы",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.004,
+    0.996,
+    0.496
+   ],
+   "p": [
+    338.6534,
+    20.1523,
+    -360.5277
+   ],
+   "q": [
+    0.0,
+    0.940288,
+    0.0,
+    0.34038
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Flur_OG_prints_2",
+   "room": "Flur_OG",
+   "cell": "prints",
+   "label": "Грязные следы",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.004,
+    0.996,
+    0.496
+   ],
+   "p": [
+    338.6162,
+    20.1523,
+    -359.0683
+   ],
+   "q": [
+    0.0,
+    0.9688,
+    0.0,
+    -0.247844
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Waschraum_damp_1",
+   "room": "Waschraum",
+   "cell": "damp",
+   "label": "Пятно сырости",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.254,
+    0.004,
+    0.496,
+    0.496
+   ],
+   "p": [
+    345.3448,
+    20.1523,
+    -362.0639
+   ],
+   "q": [
+    0.0,
+    0.914607,
+    0.0,
+    0.404344
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Waschraum_damp_2",
+   "room": "Waschraum",
+   "cell": "damp",
+   "label": "Пятно сырости",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.254,
+    0.004,
+    0.496,
+    0.496
+   ],
+   "p": [
+    343.5032,
+    20.1523,
+    -365.6829
+   ],
+   "q": [
+    0.0,
+    0.992115,
+    0.0,
+    0.125334
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Waschraum_dirt_1",
+   "room": "Waschraum",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    345.1463,
+    20.1523,
+    -364.3384
+   ],
+   "q": [
+    0.0,
+    -0.844328,
+    0.0,
+    0.535826
+   ],
+   "size": 0.8,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Stationsleiter_dirt_1",
+   "room": "Stationsleiter",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    335.6879,
+    20.1523,
+    -361.7974
+   ],
+   "q": [
+    0.0,
+    0.657375,
+    0.0,
+    0.753564
+   ],
+   "size": 0.9,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Lager_dirt_1",
+   "room": "Lager",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    346.1991,
+    16.7523,
+    -364.6076
+   ],
+   "q": [
+    0.0,
+    0.326393,
+    0.0,
+    0.945234
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Lager_dirt_2",
+   "room": "Lager",
+   "cell": "dirt",
+   "label": "Грязь",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.504,
+    0.504,
+    0.746,
+    0.996
+   ],
+   "p": [
+    345.7366,
+    16.7523,
+    -362.7249
+   ],
+   "q": [
+    0.0,
+    0.078459,
+    0.0,
+    0.996917
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Lager_oil_1",
+   "room": "Lager",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    346.264,
+    16.7523,
+    -363.2837
+   ],
+   "q": [
+    0.0,
+    0.909236,
+    0.0,
+    0.416281
+   ],
+   "size": 0.7,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Garage_oil_1",
+   "room": "Garage",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    349.7449,
+    16.5983,
+    -364.1668
+   ],
+   "q": [
+    0.0,
+    0.823631,
+    0.0,
+    0.567126
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Garage_oil_2",
+   "room": "Garage",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    355.0108,
+    16.5983,
+    -366.361
+   ],
+   "q": [
+    0.0,
+    0.943222,
+    0.0,
+    0.332162
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Garage_oil_3",
+   "room": "Garage",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    350.1528,
+    16.5983,
+    -356.9533
+   ],
+   "q": [
+    0.0,
+    -0.820152,
+    0.0,
+    0.572145
+   ],
+   "size": 1.0,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Heizung_oil_1",
+   "room": "Heizung",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    337.2268,
+    13.7523,
+    -358.1763
+   ],
+   "q": [
+    0.0,
+    0.936366,
+    0.0,
+    -0.351024
+   ],
+   "size": 0.8,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  },
+  {
+   "id": "Heizung_oil_2",
+   "room": "Heizung",
+   "cell": "oil",
+   "label": "Масляное пятно",
+   "kind": "lever",
+   "material": "M_BV_Decal",
+   "uv": [
+    0.754,
+    0.504,
+    0.996,
+    0.996
+   ],
+   "p": [
+    338.7511,
+    13.7523,
+    -356.8152
+   ],
+   "q": [
+    0.0,
+    0.960779,
+    0.0,
+    0.277315
+   ],
+   "size": 0.8,
+   "normal": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "clean": true
+  }
+ ]
+}

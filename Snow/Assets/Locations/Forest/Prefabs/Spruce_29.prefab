@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4686331394944987616, guid: 1a6333d4ededefc32caaec3a2195c036, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1a6333d4ededefc32caaec3a2195c036, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 614001300274307561, guid: 1a6333d4ededefc32caaec3a2195c036, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5513789130446203734, guid: 1a6333d4ededefc32caaec3a2195c036, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 80
@@ -83,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 6204131354382365615, guid: 1a6333d4ededefc32caaec3a2195c036, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204268416455112010, guid: 1a6333d4ededefc32caaec3a2195c036, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

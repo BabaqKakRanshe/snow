@@ -27,6 +27,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Far_Small
+    second: {fileID: 2100000, guid: d62ac1a951223ef4692cb88fb5d8d4f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_FloorBoards
     second: {fileID: 2100000, guid: f4e8a6a2183533f4bbb584fa09442e05, type: 2}
   - first:

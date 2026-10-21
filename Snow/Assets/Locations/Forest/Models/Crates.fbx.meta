@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Base_Props
+    second: {fileID: 2100000, guid: 46e992c1b2b251c45ac1915a96f723ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_WoodPlanks
     second: {fileID: 2100000, guid: 1eab3db54e450044facd7165cf6349af, type: 2}
   materials:

@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Road_Deck
+    second: {fileID: 2100000, guid: 65deb3d04b50e2f4590badc1fa8b3c7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Rust
     second: {fileID: 2100000, guid: 403c0b49bab27f34a81b2140506dcd35, type: 2}
   - first:

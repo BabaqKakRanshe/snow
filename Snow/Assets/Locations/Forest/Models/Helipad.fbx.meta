@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Base_Helipad
+    second: {fileID: 2100000, guid: 965fc7e3af785bc4cbbe53448553a97b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Base_Panel
+    second: {fileID: 2100000, guid: 61bfd2a18d9648c4794ffb0ccfd58917, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_CleanWhite
     second: {fileID: 2100000, guid: d8243db78edff78439e8481c94e2cc02, type: 2}
   - first:

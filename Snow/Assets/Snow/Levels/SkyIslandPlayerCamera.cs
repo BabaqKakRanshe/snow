@@ -18,6 +18,8 @@ namespace Snow.Levels
         [Tooltip("Copy the scene camera's SkyIslandPSX (240 lines, 15-bit colour, dither) to the player's camera. " +
                  "User decision 16.10: the PS1 frame everywhere, the cockpit included")]
         public bool copyPsxFrame = true;
+        [Tooltip("Lines of the player's PS1 frame on every level (user decision 21.10: 360, was the location's 240); 0 = as the location")]
+        public int psxHeight = 360;
 
         Camera _applied;
 
@@ -59,13 +61,18 @@ namespace Snow.Levels
                 // once, so switch it off, copy the settings, then on again
                 var psx = cam.gameObject.AddComponent<SkyIslandPSX>();
                 psx.enabled = false;
-                psx.height = psxFrom.height;
+                psx.height = psxHeight > 0 ? psxHeight : psxFrom.height;
                 psx.colorBits = psxFrom.colorBits;
                 psx.dither = psxFrom.dither;
                 psx.presentShader = psxFrom.presentShader;
                 psx.canvasOrder = psxFrom.canvasOrder;
                 psx.enabled = true;
             }
+
+            // the fog event volumes react to the tag Player (CharacterController on the player's root): only the own player
+            // gets it, and only in play. In the prefab every peer's copy of every player would trigger them (L4.5)
+            GameObject me = PlayerNet.Local.gameObject;
+            if (me.CompareTag("Untagged")) me.tag = "Player";
 
             // PlayerNet already deactivates other MainCamera cameras on spawn; repeated here so the level does not
             // depend on that order (the scene camera's SkyIslandPSX removes its screen in OnDisable)

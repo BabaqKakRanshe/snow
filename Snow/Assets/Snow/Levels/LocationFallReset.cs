@@ -26,10 +26,10 @@ namespace Snow.Levels
             if (at.y >= fallY || !Nearest(at, out Transform spawn)) return;
 
             float yaw = spawn.eulerAngles.y;
+            p.view.SetYaw(yaw);                                        // first: the motor's next step takes the view's yaw (L4.2)
             p.motor.Teleport(spawn.position, yaw, Vector3.zero);
             if (p.TryGetComponent(out NetworkTransform nt) && nt.CanCommitToTransform)
                 nt.Teleport(spawn.position, Quaternion.Euler(0f, yaw, 0f), p.transform.localScale);
-            p.view.SetYaw(yaw);
             BenchLog.Event("fall_reset", "from", at, "to", spawn.position, "fallY", fallY);
         }
 

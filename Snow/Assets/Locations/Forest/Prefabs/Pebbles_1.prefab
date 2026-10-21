@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 4ff42b9d04e3088bf40819ee624c99d7, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 4ff42b9d04e3088bf40819ee624c99d7, type: 3}
       propertyPath: m_Name
       value: Pebbles_1

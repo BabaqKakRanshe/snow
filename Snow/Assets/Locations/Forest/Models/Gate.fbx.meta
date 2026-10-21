@@ -22,6 +22,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Kpp_Barbed
+    second: {fileID: 2100000, guid: 541d3a799f65bd7489196bcf45052d8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Kpp_ChainLink
+    second: {fileID: 2100000, guid: 185b80d8a019b724fba4714a0ab0bd87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Kpp_KppYard
+    second: {fileID: 2100000, guid: 336c4bfbc18745a4f8338fb3b8545c6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Kpp_Panel
+    second: {fileID: 2100000, guid: 56bfd4b7d31dd44459d6e7333704bfff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_ObsSigns
     second: {fileID: 2100000, guid: 4f294e6a1cde95742b0820053337041c, type: 2}
   - first:

@@ -65,7 +65,7 @@ namespace Snow.EditorTools
                 if (old != null) Object.DestroyImmediate(old);
             }
 
-            BenchBuilder.EnsurePlayerTag();
+            // the tag Player goes to the own player in play (SkyIslandPlayerCamera, LOCATIONS L4.5), not into Player.prefab
             GameObject player = AssetDatabase.LoadAssetAtPath<GameObject>(BenchBuilder.PlayerPrefabPath);
             NetworkPrefabsList list = BenchBuilder.EnsurePrefabList(player);
             if (!list.PrefabList.Any(x => x.Prefab == variant)) list.Add(new NetworkPrefab { Prefab = variant });

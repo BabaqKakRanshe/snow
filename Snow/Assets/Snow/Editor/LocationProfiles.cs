@@ -10,7 +10,9 @@ namespace Snow.EditorTools
     /// The core locations as levels (LOCATIONS_UPDATE_UNITY.md appendix A; BaseV2: BASEV2_INTEGRATION_UNITY.md appendix A).
     /// Rules are tried in order, the first match wins. Prefixes compare as StartsWith(prefix + "_"): IX_Shutter_ does not
     /// match IX_ShutterSwitch_, IX_Door_ does not match IX_HutDoor_. Town's names repeat and differ by the number of digit
-    /// groups (IX_Door3_12 a room door, IX_Door3_12_4 a wall-unit door), so Town matches whole names by regex.
+    /// groups (IX_Door3_12 a room door, IX_Door3_12_4 a wall-unit door), so Town matches whole names by regex. Forest has
+    /// the same prefixes on the main building and on the map (IX_GarageDoor, IX_MainSwitch, IX_Breaker, IX_Drawer): its
+    /// rules name the model the part belongs to.
     /// </summary>
     public static class LocationProfiles
     {
@@ -72,44 +74,66 @@ namespace Snow.EditorTools
             },
         };
 
-        // ------------------------------------------------------------------ Forest (A.2: 94 parts, names unique)
+        // ------------------------------------------------------------------ Forest (FOREST_U3 appendix A: 173 parts, names unique)
+        /// <summary>The main building (model BaseMain, 131 parts) by the BaseV2 profile; the main switch starts off here and
+        /// says "включён, сети нет" without the generator (LOCATIONS A.2). The rest of the map — 42 parts by model.</summary>
         public static readonly LocationProfile Forest = new LocationProfile
         {
             id = "Forest", rootName = "Forest", scenePath = "Assets/Locations/Forest/Scenes/Forest.unity",
-            requireGrid = true,
-            rules = new[]
-            {
-                R("IX_HutDoor", Category.Door, "Дверь хижины", "door"),
-                R("IX_CabinDoor", Category.Door, "Дверь избушки", "door"),
-                R("IX_PumpDoor", Category.Door, "Дверь насосной", "door"),
-                R("IX_ChapelDoor", Category.Door, "Дверь часовни", "door"),
-                R("IX_Door", Category.Door, "Дверь", "door"),
-                R("IX_MainDoor", Category.Door, "Входная дверь", "door"),
-                R("IX_BackDoor", Category.Door, "Задняя дверь", "door"),
-                R("IX_ExitDoor", Category.Door, "Запасной выход", "door"),
-                R("IX_BoothDoor", Category.Door, "Дверь будки КПП", "door"),
-                R("IX_ContSideDoor", Category.Door, "Дверь контейнера", "door"),
-                R("IX_TrafoGate", Category.Door, "Калитка трансформатора", "door"),
-                R("IX_GarageSideDoor", Category.Door, "Дверь гаража", "door"),
-                R("IX_ContDoorL", Category.Door, "Ворота контейнера", "door", travel: GateTravel),
-                R("IX_ContDoorR", Category.Door, "Ворота контейнера", "door", travel: GateTravel),
-                R("IX_GarageDoor", Category.Door, "Ворота гаража", "door", travel: GateTravel),
-                Doors(R("IX_BarrierArm", Category.Door, "Шлагбаум", "door", a0: "поднять", a1: "опустить", travel: GateTravel),
-                      "опущен", "поднимается", "поднят", "опускается", "упёрся"),
-                Locked(R("IX_HatchLid", Category.Door, "Люк шахты", "door"), "заперт"),
-                Doors(R("IX_Gate", Category.HostDoor, "Откатные ворота", "door"), "закрыты", "едут", "открыты", "едут", "упёрлись"),
-                Furniture("IX_Shutter", "Ставня"),
-                R("IX_Drawer", Category.Furniture, "Выдвижной ящик", "pull", "задвинут", "выдвинут", "выдвинуть", "задвинуть"),
-                R("IX_CabinetDoor", Category.Furniture, "Шкаф антенны", "hinge", "закрыт", "открыт", "открыть", "закрыть"),
-                Furniture("IX_RackDoor", "Дверца стойки"),
-                Furniture("IX_LockerDoor", "Дверца шкафчика"),
-                R("IX_FridgeDoor", Category.Furniture, "Холодильник", "hinge", "закрыт", "открыт", "открыть", "закрыть"),
-                R("IX_Breaker", Category.Positional, "Автомат", "toggle", "включён", "выключен", "выключить", "включить"),
-                NoPower(R("IX_MainSwitch", Category.PowerSwitch, "Рубильник", "toggle", "выключен", "включён", "включить", "выключить"),
-                        "включён, сети нет"),
-                R("IX_GenStart", Category.PowerSwitch, "Пуск генератора", "toggle", "остановлен", "работает", "запустить", "остановить"),
-            },
+            requireLights = true, requireGrid = true,
+            rules = ForestRules(),
+            roomLabels = BaseV2.roomLabels,
+            step = ForestLevelStep.Run,
         };
+
+        static Rule[] ForestRules()
+        {
+            var map = new List<Rule>
+            {
+                On("TowerHut", R("IX_HutDoor", Category.Door, "Дверь хижины", "door")),
+                On("Cabin", R("IX_CabinDoor", Category.Door, "Дверь избушки", "door")),
+                On("PumpHouse", R("IX_PumpDoor", Category.Door, "Дверь насосной", "door")),
+                On("Chapel", R("IX_ChapelDoor", Category.Door, "Дверь часовни", "door")),
+                On("Checkpoint", R("IX_BoothDoor", Category.Door, "Дверь будки КПП", "door")),
+                On("GenContainer", R("IX_ContSideDoor", Category.Door, "Дверь контейнера", "door")),
+                On("Trafo", R("IX_TrafoGate", Category.Door, "Калитка трансформатора", "door")),
+                On("Garage", R("IX_GarageSideDoor", Category.Door, "Дверь гаража", "door")),
+                On("GenContainer", R("IX_ContDoorL", Category.Door, "Ворота контейнера", "door", travel: GateTravel)),
+                On("GenContainer", R("IX_ContDoorR", Category.Door, "Ворота контейнера", "door", travel: GateTravel)),
+                On("Garage", R("IX_GarageDoor", Category.Door, "Ворота гаража", "door", travel: GateTravel)),
+                On("Barrier", Doors(R("IX_BarrierArm", Category.Door, "Шлагбаум", "door", a0: "поднять", a1: "опустить", travel: GateTravel),
+                                    "опущен", "поднимается", "поднят", "опускается", "упёрся")),
+                On("Hatch", Locked(R("IX_HatchLid", Category.Door, "Люк шахты", "door"), "заперт")),
+                // ~1 m/s instead of the core's 1.4 travels a second (9 m/s over 6.6 m): TEMPORARY (L4.1.8)
+                On("Gate", Speed(Doors(R("IX_Gate", Category.HostDoor, "Откатные ворота", "door"), "закрыты", "едут", "открыты", "едут", "упёрлись"), 0.15f)),
+                R("IX_CabinetDoor", Category.Furniture, "Шкаф антенны", "hinge", "закрыт", "открыт", "открыть", "закрыть"),
+                On("Checkpoint", R("IX_Drawer", Category.Furniture, "Выдвижной ящик", "pull", "задвинут", "выдвинут", "выдвинуть", "задвинуть")),
+                On("Checkpoint", R("IX_BoothWindow", Category.Furniture, "Окошко выдачи", "pull", "закрыто", "открыто", "открыть", "закрыть")),
+                On("Checkpoint", R("IX_KeyBoxDoor", Category.Furniture, "Шкафчик с ключами", "hinge", "закрыт", "открыт", "открыть", "закрыть")),
+                On("GenContainer", R("IX_Breaker", Category.Positional, "Автомат", "toggle", "включён", "выключен", "выключить", "включить")),
+                On("GenContainer", NoPower(R("IX_MainSwitch", Category.PowerSwitch, "Рубильник контейнера", "toggle", "выключен", "включён", "включить", "выключить"),
+                                           "включён, сети нет")),
+                // the opening script's parts (texts and uses there, ForestOpening)
+                On("GenContainer", R("IX_GenStart", Category.Scripted, "Пуск генератора", "lever")),
+                On("GenContainer", R("IX_GenFillCap", Category.Scripted, "Горловина бака генератора", "cap")),
+                On("FuelTanks", R("IX_PumpLever", Category.Scripted, "Ручной насос", "lever")),
+                On("BaseMain_Opening", R("IX_HeatPump", Category.Scripted, "Насос отопления", "toggle")),
+                On("BaseMain_Opening", R("IX_HeatBurner", Category.Scripted, "Горелка", "toggle")),
+                On("BaseMain_Opening", R("IX_HeatThermostat", Category.Scripted, "Термостат", "rotary")),
+                On("BaseMain_Opening", R("IX_HeatFill", Category.Scripted, "Кран подпитки", "wheel")),
+                On("BaseMain_Opening", R("IX_BurnerReset", Category.Scripted, "Сброс горелки", "momentary")),
+                On("BaseMain_Opening", NoZone(R("IX_HeatGauge", Category.Scripted, null, null))),
+                On("BaseMain_Opening", NoZone(R("IX_HeatTempGauge", Category.Scripted, null, null))),
+                On("BaseMain_Opening", R("IX_MainDoorBar", Category.Furniture, "Засов входной двери", "lever", "опущен — дверь заперта", "поднят", "поднять", "опустить")),
+            };
+            foreach (Rule b in BaseV2.rules)
+            {
+                Rule r = On("BaseMain", Clone(b));
+                if (r.category == Category.PowerSwitch) r.s1NoPower = "включён, сети нет";
+                map.Add(r);
+            }
+            return map.ToArray();
+        }
 
         // ------------------------------------------------------------------ Town (A.3: 10 399 parts, ids p<n>)
         public static readonly LocationProfile Town = new LocationProfile
@@ -178,5 +202,30 @@ namespace Snow.EditorTools
             r.s1NoPower = text;
             return r;
         }
+
+        static Rule On(string model, Rule r)
+        {
+            r.model = model;
+            return r;
+        }
+
+        static Rule Speed(Rule r, float speed)
+        {
+            r.speed = speed;
+            return r;
+        }
+
+        static Rule NoZone(Rule r)
+        {
+            r.noZone = true;
+            return r;
+        }
+
+        static Rule Clone(Rule r) => new Rule
+        {
+            prefix = r.prefix, regex = r.regex, category = r.category, label = r.label, kind = r.kind, s0 = r.s0, s1 = r.s1,
+            a0 = r.a0, a1 = r.a1, s1NoPower = r.s1NoPower, lockedState = r.lockedState, doorStates = r.doorStates,
+            travel = r.travel, model = r.model, speed = r.speed, noZone = r.noZone,
+        };
     }
 }

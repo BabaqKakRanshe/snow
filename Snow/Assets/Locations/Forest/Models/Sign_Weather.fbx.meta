@@ -19,6 +19,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_ObsSigns
     second: {fileID: 2100000, guid: 4f294e6a1cde95742b0820053337041c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Road_Panel
+    second: {fileID: 2100000, guid: a803c3b60fe17dc4aa9efe02daf25348, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Road_Signs
+    second: {fileID: 2100000, guid: b0f8678326670d5469b592f79ef61caf, type: 2}
   materials:
     materialImportMode: 1
     materialName: 3

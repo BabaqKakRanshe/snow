@@ -47,6 +47,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Hut_Hut
+    second: {fileID: 2100000, guid: 60a7d6217d8f7e04c853eb26046f13b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Hut_HutProps
+    second: {fileID: 2100000, guid: f62adbf615727534e93cd3e4d25c4272, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Hut_LampOil
+    second: {fileID: 2100000, guid: 41b11e441762b264e95c4cf57110c8fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Hut_Panel
+    second: {fileID: 2100000, guid: 46aa2aba66e19584595b39c57a176e9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Lantern
     second: {fileID: 2100000, guid: 19d411421d2536147b69588ea06ba23d, type: 2}
   - first:

@@ -18,6 +18,8 @@ namespace Snow.Levels
     /// only copy that state into the parts' fields and call SetRoom / SetPower: the core's Toggle / Open / Close / Follow
     /// raise onToggled, which would flip a room or the grid a second time on a client (NET-01, NET-02). Doors with a
     /// NetworkDoor replicate themselves; doors without one (sliding gates, the thousands of doors of Town) go the shared way.
+    /// A location script on the same object (<see cref="ILocationScript"/>, Forest) owns its Scripted parts and extra zones,
+    /// may word any hint and opens locks (FOREST_U3 F5.2).
     /// </summary>
     public class SkyIslandLocationHost : InteractionHost
     {
@@ -40,8 +42,11 @@ namespace Snow.Levels
             /// <summary>Shutter curtain: driven only, no zone.</summary>
             Shutter,
             /// <summary>A door without a NetworkDoor (sliding gates, Town's doors): a bit like furniture, the part stays on its
-            /// own layer so a closed door holds the player. TEMPORARY: no obstruction check (LOCATIONS L4.1.2).</summary>
+            /// own layer so a closed door holds the player. A player in the leaf's target pose refuses the command (L4.4).</summary>
             HostDoor,
+            /// <summary>Driven by the location script (Forest's generator, pump, boiler): in parts, not in the bits; uses
+            /// and texts go to the script (FOREST_U3 F5.1).</summary>
+            Scripted,
         }
 
         [Serializable]
@@ -58,6 +63,9 @@ namespace Snow.Levels
             [Tooltip("PowerSwitch: state text when on but the grid is down (empty: state1)")] public string state1NoPower;
             [Tooltip("Doors: closed, opening, open, closing, blocked (empty: закрыта, открывается, открыта, закрывается, упёрлась)")]
             public string[] doorStates;
+            [Tooltip("HostDoor: the leaf's local position and rotation when closed (written by the menu: doors are closed in the editor)")]
+            public Vector3 restPosition;
+            public Quaternion restRotation = Quaternion.identity;
         }
 
         public Part[] parts = new Part[0];
@@ -85,6 +93,8 @@ namespace Snow.Levels
         int[] _syncedOf;                                               // part index -> synced index, -1 for doors
         uint _hash;
         float _nextReconcile;
+        ILocationScript[] _scripts = Array.Empty<ILocationScript>();
+        readonly Collider[] _overlap = new Collider[16];
 
         /// <summary>Under a location root lie the capsules of every tree: the embedded-zone table (zone x convex collider)
         /// would take seconds to minutes on Forest and Town. Location zones stick out of their parts and need no embedding.</summary>
@@ -93,6 +103,7 @@ namespace Snow.Levels
         protected override void Awake()
         {
             base.Awake();
+            _scripts = GetComponents<ILocationScript>();
             _bits = new NetworkList<ulong>();                          // NetworkBehaviour.OnDestroy disposes it, spawned or not
             var synced = new List<int>();
             _syncedOf = new int[parts.Length];
@@ -102,7 +113,7 @@ namespace Snow.Levels
                 _syncedOf[i] = -1;
                 if (p == null || string.IsNullOrEmpty(p.id)) continue;
                 _index[p.id] = i;
-                if (p.door == null && p.part != null) { _syncedOf[i] = synced.Count; synced.Add(i); }
+                if (p.door == null && p.part != null && p.category != Category.Scripted) { _syncedOf[i] = synced.Count; synced.Add(i); }
             }
             _synced = new SkyIslandInteractable[synced.Count];
             _syncedIds = new string[synced.Count];
@@ -141,14 +152,46 @@ namespace Snow.Levels
             if (!IsServer && incremental) _bits.OnListChanged -= OnBitsChanged;
         }
 
+        // ------------------------------------------------------------------ for location scripts
+        /// <summary>Part entry by zone id (any peer).</summary>
+        public bool TryGetPart(string id, out Part part)
+        {
+            part = _index.TryGetValue(id, out int i) ? parts[i] : null;
+            return part != null && part.part != null;
+        }
+
+        /// <summary>Grid power as this peer sees it (no grid: powered).</summary>
+        public bool Powered => grid == null || grid.Powered;
+
+        ILocationScript Owner(string id)
+        {
+            for (int k = 0; k < _scripts.Length; k++)
+                if (_scripts[k] != null && _scripts[k].Owns(id)) return _scripts[k];
+            return null;
+        }
+
         // ------------------------------------------------------------------ server
         public override bool ServerUse(ulong clientId, string id, UsePhase phase, out string reason)
         {
             reason = null;
+            ILocationScript owner = Owner(id);
+            if (owner != null) return owner.ServerUse(clientId, id, phase, out reason);   // Release included (F5.2)
             if (phase == UsePhase.Release) return true;
             if (!_index.TryGetValue(id, out int i) || parts[i].part == null) { reason = "Нет действия"; return false; }
             Part p = parts[i];
-            if (p.part.locked) { reason = "Заперто"; return false; }
+            if (p.part.locked)
+            {
+                // a script may take the lock off (a key in hand); the first refusal with a reason is shown
+                bool open = false;
+                for (int k = 0; k < _scripts.Length && !open; k++)
+                {
+                    if (_scripts[k] == null) continue;
+                    if (_scripts[k].TryUnlock(clientId, id, out string why)) open = true;
+                    else if (reason == null) reason = why;
+                }
+                if (!open) { reason ??= "Заперто"; return false; }
+                reason = null;
+            }
             if (p.door != null)
             {
                 p.door.Toggle(DoorDrive.Manual);
@@ -156,6 +199,7 @@ namespace Snow.Levels
             }
             if (p.part.driven) { reason = "Управляется изнутри"; return false; }
             if (!p.part.HasPower) { reason = "Нет питания"; return false; }
+            if (p.category == Category.HostDoor && !LeafFree(p, p.part.target > 0.5f ? 0f : 1f)) { reason = "Мешает игрок"; return false; }
             p.part.Toggle();                                           // the core does the rest: linked curtains, rooms, grid
             if (!incremental) Publish();
             else
@@ -276,9 +320,65 @@ namespace Snow.Levels
             else ApplyReplicated(false);
         }
 
+        /// <summary>
+        /// Server, L4.4: is the leaf's pose at <paramref name="amount"/> (0 closed, 1 open) free of players? The core moves
+        /// the leaf by itself and cannot stop halfway (a bit is 0 or 1), so this is asked once, at the command. Each solid
+        /// collider of the leaf is boxed in that pose (its local box carried by the part's change of pose, the same math as
+        /// NetworkDoor.IsFree); a CharacterController inside refuses. Other players on the server have their controller on
+        /// (seated ones excepted).
+        /// </summary>
+        bool LeafFree(Part p, float amount)
+        {
+            SkyIslandInteractable d = p.part;
+            Transform t = d.transform;
+            Vector3 axis = d.axis.sqrMagnitude > 1e-8f ? d.axis.normalized : Vector3.up;
+            float v = Mathf.Lerp(d.min, d.max, amount);
+            Vector3 lp = p.restPosition;
+            Quaternion lr = p.restRotation;
+            if (d.kind == SkyIslandInteractable.Kind.Hinge) lr = Quaternion.AngleAxis(v, axis) * p.restRotation;
+            else if (d.kind == SkyIslandInteractable.Kind.Slide) lp = p.restPosition + axis * v;
+            Matrix4x4 parent = t.parent != null ? t.parent.localToWorldMatrix : Matrix4x4.identity;
+            Matrix4x4 move = parent * Matrix4x4.TRS(lp, lr, t.localScale) * t.worldToLocalMatrix;   // pose now -> target pose
+            foreach (Collider c in d.GetComponentsInChildren<Collider>())
+            {
+                if (c.isTrigger || !c.enabled) continue;
+                Bounds b = LocalBox(c);
+                Matrix4x4 m = move * c.transform.localToWorldMatrix;
+                Vector3 scale = c.transform.lossyScale;
+                Vector3 half = Vector3.Scale(b.extents, new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z)));
+                int n = Physics.OverlapBoxNonAlloc(m.MultiplyPoint3x4(b.center), half, _overlap, m.rotation, ~0, QueryTriggerInteraction.Ignore);
+                for (int k = 0; k < n; k++)
+                    if (_overlap[k] is CharacterController cc && cc.enabled) return false;
+            }
+            return true;
+        }
+
+        static Bounds LocalBox(Collider c)
+        {
+            switch (c)
+            {
+                case BoxCollider bc: return new Bounds(bc.center, bc.size);
+                case MeshCollider mc when mc.sharedMesh != null: return mc.sharedMesh.bounds;
+                case SphereCollider sc: return new Bounds(sc.center, Vector3.one * (2f * sc.radius));
+                case CapsuleCollider cap: return new Bounds(cap.center, new Vector3(2f * cap.radius, cap.height, 2f * cap.radius));
+                default: return new Bounds(c.transform.InverseTransformPoint(c.bounds.center), c.bounds.size);
+            }
+        }
+
         // ------------------------------------------------------------------ hints (client and server, replicated state)
+        public override float HoldSeconds(string id)
+        {
+            ILocationScript owner = Owner(id);
+            return owner != null ? owner.HoldSeconds(id) : 0f;
+        }
+
         public override string Describe(string id)
         {
+            for (int k = 0; k < _scripts.Length; k++)
+            {
+                string s = _scripts[k]?.Describe(id);
+                if (s != null) return s;
+            }
             if (!_index.TryGetValue(id, out int i)) return null;
             Part p = parts[i];
             if (p.part != null && p.part.locked) return string.IsNullOrEmpty(p.lockedState) ? "заперто" : p.lockedState;
@@ -314,6 +414,11 @@ namespace Snow.Levels
 
         public override string ActionText(string id)
         {
+            for (int k = 0; k < _scripts.Length; k++)
+            {
+                string s = _scripts[k]?.ActionText(id);
+                if (s != null) return s;
+            }
             if (!_index.TryGetValue(id, out int i)) return base.ActionText(id);
             Part p = parts[i];
             if (p.door != null)

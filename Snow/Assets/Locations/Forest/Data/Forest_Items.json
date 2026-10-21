@@ -1,0 +1,1786 @@
+{
+ "version": 1,
+ "_doc": "Item models of Forest Update 3 (Models/Item_*.fbx, origin = bottom centre): label (RU prompt), itemKey (= model name, what locks and recipes compare), massKg, box collider in the model space (Unity metres), kind opening | trash | prop | paper | tool, clean = counts for the cleaning task, tris. Placements: Forest_Opening.json items, Forest_Dressing.json props and notes (a placement may override massKg, e.g. the empty Jerrycan_Yard). readable = some placements of this model are notes (their noteId comes with the placement; others are plain props). Origin: bottom centre, except keys and padlock (hanging point on top) and the flashlight (centre).",
+ "items": [
+  {
+   "model": "Item_Ashtray",
+   "label": "Пепельница",
+   "itemKey": "Item_Ashtray",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.04,
+     0.15
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 308
+  },
+  {
+   "model": "Item_Backpack",
+   "label": "Рюкзак",
+   "itemKey": "Item_Backpack",
+   "massKg": 4.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.25,
+     -0.0
+    ],
+    "size": [
+     0.32,
+     0.5,
+     0.3
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 268
+  },
+  {
+   "model": "Item_BinderBlue",
+   "label": "Папка",
+   "itemKey": "Item_BinderBlue",
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 104
+  },
+  {
+   "model": "Item_BinderRed",
+   "label": "Папка",
+   "itemKey": "Item_BinderRed",
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.07,
+     0.29
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 104
+  },
+  {
+   "model": "Item_Book",
+   "label": "Книга",
+   "itemKey": "Item_Book",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.15,
+     0.03,
+     0.22
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 12
+  },
+  {
+   "model": "Item_BookOpen",
+   "label": "Раскрытая книга",
+   "itemKey": "Item_BookOpen",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.03,
+     0.22
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 24,
+   "readable": true
+  },
+  {
+   "model": "Item_BookStack",
+   "label": "Стопка книг",
+   "itemKey": "Item_BookStack",
+   "massKg": 1.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0478,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.09564,
+     0.26
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 36
+  },
+  {
+   "model": "Item_Boots",
+   "label": "Ботинки",
+   "itemKey": "Item_Boots",
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.05,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.32,
+     0.26,
+     0.26
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 264
+  },
+  {
+   "model": "Item_BottleBeer",
+   "label": "Пивная бутылка",
+   "itemKey": "Item_BottleBeer",
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 188
+  },
+  {
+   "model": "Item_BottleBeerLying",
+   "label": "Пивная бутылка",
+   "itemKey": "Item_BottleBeerLying",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.035,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.07,
+     0.07
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 188
+  },
+  {
+   "model": "Item_BottleSchnapps",
+   "label": "Бутылка шнапса",
+   "itemKey": "Item_BottleSchnapps",
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 188
+  },
+  {
+   "model": "Item_BottleWater",
+   "label": "Бутылка воды",
+   "itemKey": "Item_BottleWater",
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.07,
+     0.26,
+     0.07
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 168
+  },
+  {
+   "model": "Item_BoxLarge",
+   "label": "Большая коробка",
+   "itemKey": "Item_BoxLarge",
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.55,
+     0.4,
+     0.4
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 12
+  },
+  {
+   "model": "Item_BoxOpen",
+   "label": "Открытая коробка",
+   "itemKey": "Item_BoxOpen",
+   "massKg": 0.6,
+   "collider": {
+    "center": [
+     -0.0,
+     0.15,
+     -0.0
+    ],
+    "size": [
+     0.45,
+     0.3,
+     0.32
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 36
+  },
+  {
+   "model": "Item_BoxSmall",
+   "label": "Коробка",
+   "itemKey": "Item_BoxSmall",
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.2,
+     0.22
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 12
+  },
+  {
+   "model": "Item_BreadMouldy",
+   "label": "Заплесневелый хлеб",
+   "itemKey": "Item_BreadMouldy",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.045,
+     -0.0
+    ],
+    "size": [
+     0.24,
+     0.09,
+     0.11
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 104
+  },
+  {
+   "model": "Item_Broom",
+   "label": "Метла",
+   "itemKey": "Item_Broom",
+   "massKg": 0.8,
+   "collider": {
+    "center": [
+     -0.0,
+     0.7,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     1.4,
+     0.07
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 468
+  },
+  {
+   "model": "Item_Bucket",
+   "label": "Ведро",
+   "itemKey": "Item_Bucket",
+   "massKg": 1.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.37,
+     0.3
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 172
+  },
+  {
+   "model": "Item_BucketWater",
+   "label": "Ведро с водой",
+   "itemKey": "Item_BucketWater",
+   "massKg": 1.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.37,
+     0.3
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 216
+  },
+  {
+   "model": "Item_Butts",
+   "label": "Окурки",
+   "itemKey": "Item_Butts",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     0.12,
+     0.01,
+     0.12
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 192
+  },
+  {
+   "model": "Item_CableReel",
+   "label": "Катушка кабеля",
+   "itemKey": "Item_CableReel",
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.185,
+     -0.0
+    ],
+    "size": [
+     0.36,
+     0.37,
+     0.28
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 264
+  },
+  {
+   "model": "Item_CanCrushed",
+   "label": "Мятая банка",
+   "itemKey": "Item_CanCrushed",
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.05
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 76
+  },
+  {
+   "model": "Item_CanGreen",
+   "label": "Банка",
+   "itemKey": "Item_CanGreen",
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0575,
+     -0.0
+    ],
+    "size": [
+     0.066,
+     0.115,
+     0.066
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 240
+  },
+  {
+   "model": "Item_CanRed",
+   "label": "Банка",
+   "itemKey": "Item_CanRed",
+   "massKg": 0.015,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0575,
+     -0.0
+    ],
+    "size": [
+     0.066,
+     0.115,
+     0.066
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 240
+  },
+  {
+   "model": "Item_CardboardFlat",
+   "label": "Картон",
+   "itemKey": "Item_CardboardFlat",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.006,
+     -0.0
+    ],
+    "size": [
+     0.55,
+     0.012,
+     0.42
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 12
+  },
+  {
+   "model": "Item_Cards",
+   "label": "Игральные карты",
+   "itemKey": "Item_Cards",
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0085,
+     -0.0
+    ],
+    "size": [
+     0.56,
+     0.017,
+     0.42
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 96
+  },
+  {
+   "model": "Item_CigPack",
+   "label": "Пачка сигарет",
+   "itemKey": "Item_CigPack",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.044,
+     -0.0
+    ],
+    "size": [
+     0.055,
+     0.088,
+     0.022
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 12
+  },
+  {
+   "model": "Item_CigPackCrushed",
+   "label": "Мятая пачка",
+   "itemKey": "Item_CigPackCrushed",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.06,
+     0.02,
+     0.03
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 12
+  },
+  {
+   "model": "Item_Clipboard",
+   "label": "Планшет с бумагами",
+   "itemKey": "Item_Clipboard",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.23,
+     0.02,
+     0.32
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 26,
+   "readable": true
+  },
+  {
+   "model": "Item_Clothes",
+   "label": "Одежда",
+   "itemKey": "Item_Clothes",
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.07,
+     -0.0
+    ],
+    "size": [
+     0.5,
+     0.14,
+     0.4
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 48
+  },
+  {
+   "model": "Item_Dustpan",
+   "label": "Совок",
+   "itemKey": "Item_Dustpan",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.05,
+     -0.07
+    ],
+    "size": [
+     0.25,
+     0.1,
+     0.36
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 76
+  },
+  {
+   "model": "Item_Envelope",
+   "label": "Конверт",
+   "itemKey": "Item_Envelope",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     0.002,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.004,
+     0.11
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 12
+  },
+  {
+   "model": "Item_Flashlight",
+   "label": "Фонарик",
+   "itemKey": "Item_Flashlight",
+   "massKg": 0.45,
+   "collider": {
+    "center": [
+     -0.01,
+     0.0,
+     -0.0
+    ],
+    "size": [
+     0.245,
+     0.057,
+     0.057
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 448,
+   "light": {
+    "p": [
+     -0.133,
+     0.0,
+     -0.0
+    ],
+    "d": [
+     -1.0,
+     0.0,
+     -0.0
+    ],
+    "lensOn": "M_TorchLensOn",
+    "lensOff": "M_TorchLens"
+   }
+  },
+  {
+   "model": "Item_Funnel",
+   "label": "Воронка",
+   "itemKey": "Item_Funnel",
+   "massKg": 0.35,
+   "collider": {
+    "center": [
+     -0.0,
+     0.155,
+     -0.0
+    ],
+    "size": [
+     0.23,
+     0.31,
+     0.23
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 388
+  },
+  {
+   "model": "Item_Hammer",
+   "label": "Молоток",
+   "itemKey": "Item_Hammer",
+   "massKg": 0.6,
+   "collider": {
+    "center": [
+     -0.0,
+     0.018,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.036,
+     0.11
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 72
+  },
+  {
+   "model": "Item_Headphones",
+   "label": "Наушники",
+   "itemKey": "Item_Headphones",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.055,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.11,
+     0.09
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 200
+  },
+  {
+   "model": "Item_Jar",
+   "label": "Стеклянная банка",
+   "itemKey": "Item_Jar",
+   "massKg": 0.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0725,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.145,
+     0.09
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 228
+  },
+  {
+   "model": "Item_Jerrycan20",
+   "label": "Канистра 20 л",
+   "itemKey": "Item_Jerrycan20",
+   "massKg": 18.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.26,
+     -0.0
+    ],
+    "size": [
+     0.355,
+     0.52,
+     0.175
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 692,
+   "capacityL": 20.0,
+   "massEmptyKg": 4.0,
+   "massFullKg": 18.5,
+   "grip": [
+    0.035,
+    0.504,
+    -0.0
+   ],
+   "spout": [
+    -0.1393,
+    0.5193,
+    -0.0
+   ]
+  },
+  {
+   "model": "Item_Kettle",
+   "label": "Чайник",
+   "itemKey": "Item_Kettle",
+   "massKg": 0.8,
+   "collider": {
+    "center": [
+     -0.0,
+     0.11,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.22,
+     0.2
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 240
+  },
+  {
+   "model": "Item_Key_Garage",
+   "label": "Ключ «Garage»",
+   "itemKey": "Item_Key_Garage",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 200,
+   "key": "Garage"
+  },
+  {
+   "model": "Item_Key_Generator",
+   "label": "Ключ «Generator»",
+   "itemKey": "Item_Key_Generator",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 200,
+   "key": "Generator"
+  },
+  {
+   "model": "Item_Key_Hauptgebaeude",
+   "label": "Ключ «Hauptgebäude»",
+   "itemKey": "Item_Key_Hauptgebaeude",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 200,
+   "key": "Hauptgebäude"
+  },
+  {
+   "model": "Item_Key_Schranke",
+   "label": "Ключ «Schranke»",
+   "itemKey": "Item_Key_Schranke",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 200,
+   "key": "Schranke"
+  },
+  {
+   "model": "Item_Magazine",
+   "label": "Журнал",
+   "itemKey": "Item_Magazine",
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.21,
+     0.006,
+     0.28
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 12
+  },
+  {
+   "model": "Item_Medicine",
+   "label": "Лекарства",
+   "itemKey": "Item_Medicine",
+   "massKg": 0.05,
+   "collider": {
+    "center": [
+     -0.0,
+     0.02,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.04,
+     0.04
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 12
+  },
+  {
+   "model": "Item_Mop",
+   "label": "Швабра",
+   "itemKey": "Item_Mop",
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.68,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     1.36,
+     0.3
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 384
+  },
+  {
+   "model": "Item_MugGreen",
+   "label": "Кружка",
+   "itemKey": "Item_MugGreen",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 190
+  },
+  {
+   "model": "Item_MugTipped",
+   "label": "Кружка",
+   "itemKey": "Item_MugTipped",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.045,
+     -0.0
+    ],
+    "size": [
+     0.1,
+     0.09,
+     0.09
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 190
+  },
+  {
+   "model": "Item_MugWhite",
+   "label": "Кружка",
+   "itemKey": "Item_MugWhite",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0475,
+     -0.0
+    ],
+    "size": [
+     0.11,
+     0.095,
+     0.085
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 190
+  },
+  {
+   "model": "Item_Newspaper",
+   "label": "Газета",
+   "itemKey": "Item_Newspaper",
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.006,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.012,
+     0.42
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 12
+  },
+  {
+   "model": "Item_NewspaperOpen",
+   "label": "Раскрытая газета",
+   "itemKey": "Item_NewspaperOpen",
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     0.8,
+     0.01,
+     0.55
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 24
+  },
+  {
+   "model": "Item_Note",
+   "label": "Записка",
+   "itemKey": "Item_Note",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 8,
+   "readable": true
+  },
+  {
+   "model": "Item_NoteForm",
+   "label": "Бланк",
+   "itemKey": "Item_NoteForm",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 8,
+   "readable": true
+  },
+  {
+   "model": "Item_OilCan",
+   "label": "Канистра масла",
+   "itemKey": "Item_OilCan",
+   "massKg": 5.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.145,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.29,
+     0.1
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 100
+  },
+  {
+   "model": "Item_Padlock",
+   "label": "Навесной замок",
+   "itemKey": "Item_Padlock",
+   "massKg": 0.2,
+   "collider": {
+    "center": [
+     -0.0,
+     -0.035,
+     -0.0
+    ],
+    "size": [
+     0.05,
+     0.07,
+     0.025
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 134
+  },
+  {
+   "model": "Item_PaintCan",
+   "label": "Банка краски",
+   "itemKey": "Item_PaintCan",
+   "massKg": 2.5,
+   "collider": {
+    "center": [
+     -0.0,
+     0.1,
+     -0.0
+    ],
+    "size": [
+     0.17,
+     0.2,
+     0.17
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 212
+  },
+  {
+   "model": "Item_Pan",
+   "label": "Сковорода",
+   "itemKey": "Item_Pan",
+   "massKg": 1.0,
+   "collider": {
+    "center": [
+     -0.08,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.46,
+     0.06,
+     0.26
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 136
+  },
+  {
+   "model": "Item_PaperBall",
+   "label": "Скомканная бумага",
+   "itemKey": "Item_PaperBall",
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 24
+  },
+  {
+   "model": "Item_PaperBallB",
+   "label": "Скомканная бумага",
+   "itemKey": "Item_PaperBallB",
+   "massKg": 0.01,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0325,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.065,
+     0.08
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 32
+  },
+  {
+   "model": "Item_PaperStack",
+   "label": "Стопка бумаг",
+   "itemKey": "Item_PaperStack",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.22,
+     0.03,
+     0.31
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 96
+  },
+  {
+   "model": "Item_PhotoFrame",
+   "label": "Фото в рамке",
+   "itemKey": "Item_PhotoFrame",
+   "massKg": 0.25,
+   "collider": {
+    "center": [
+     -0.0,
+     0.07,
+     -0.0
+    ],
+    "size": [
+     0.16,
+     0.14,
+     0.08
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 58
+  },
+  {
+   "model": "Item_PhotoLoose",
+   "label": "Фотография",
+   "itemKey": "Item_PhotoLoose",
+   "massKg": 0.005,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.1,
+     0.002,
+     0.1
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 12,
+   "readable": true
+  },
+  {
+   "model": "Item_Plate",
+   "label": "Тарелка",
+   "itemKey": "Item_Plate",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 80
+  },
+  {
+   "model": "Item_PlateDirty",
+   "label": "Грязная тарелка",
+   "itemKey": "Item_PlateDirty",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.01,
+     -0.0
+    ],
+    "size": [
+     0.25,
+     0.02,
+     0.25
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 120
+  },
+  {
+   "model": "Item_Pot",
+   "label": "Кастрюля",
+   "itemKey": "Item_Pot",
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.085,
+     -0.0
+    ],
+    "size": [
+     0.28,
+     0.17,
+     0.23
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 304
+  },
+  {
+   "model": "Item_Radio",
+   "label": "Радиоприёмник",
+   "itemKey": "Item_Radio",
+   "massKg": 1.2,
+   "collider": {
+    "center": [
+     -0.0,
+     0.09,
+     -0.0
+    ],
+    "size": [
+     0.28,
+     0.18,
+     0.1
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 148
+  },
+  {
+   "model": "Item_Rag",
+   "label": "Тряпка",
+   "itemKey": "Item_Rag",
+   "massKg": 0.08,
+   "collider": {
+    "center": [
+     -0.0,
+     0.015,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.03,
+     0.2
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 16
+  },
+  {
+   "model": "Item_RopeCoil",
+   "label": "Моток верёвки",
+   "itemKey": "Item_RopeCoil",
+   "massKg": 2.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.025,
+     -0.0
+    ],
+    "size": [
+     0.34,
+     0.05,
+     0.34
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 320
+  },
+  {
+   "model": "Item_Rug",
+   "label": "Коврик",
+   "itemKey": "Item_Rug",
+   "massKg": 3.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.005,
+     -0.0
+    ],
+    "size": [
+     1.8,
+     0.01,
+     0.9
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 2
+  },
+  {
+   "model": "Item_Sack",
+   "label": "Мешок",
+   "itemKey": "Item_Sack",
+   "massKg": 25.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.175,
+     -0.0
+    ],
+    "size": [
+     0.56,
+     0.35,
+     0.4
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 36
+  },
+  {
+   "model": "Item_Screwdriver",
+   "label": "Отвёртка",
+   "itemKey": "Item_Screwdriver",
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.045,
+     0.012,
+     -0.0
+    ],
+    "size": [
+     0.2,
+     0.025,
+     0.025
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 56
+  },
+  {
+   "model": "Item_Soap",
+   "label": "Мыло",
+   "itemKey": "Item_Soap",
+   "massKg": 0.1,
+   "collider": {
+    "center": [
+     -0.0,
+     0.012,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.024,
+     0.05
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 44
+  },
+  {
+   "model": "Item_StickyNote",
+   "label": "Записка-стикер",
+   "itemKey": "Item_StickyNote",
+   "massKg": 0.002,
+   "collider": {
+    "center": [
+     -0.0,
+     0.001,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.002,
+     0.08
+    ]
+   },
+   "kind": "paper",
+   "clean": false,
+   "tris": 12,
+   "readable": true
+  },
+  {
+   "model": "Item_Thermos",
+   "label": "Термос",
+   "itemKey": "Item_Thermos",
+   "massKg": 0.7,
+   "collider": {
+    "center": [
+     -0.0,
+     0.16,
+     -0.0
+    ],
+    "size": [
+     0.09,
+     0.32,
+     0.09
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 152
+  },
+  {
+   "model": "Item_TinLying",
+   "label": "Консервная банка",
+   "itemKey": "Item_TinLying",
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.0425,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.085,
+     0.085
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 140
+  },
+  {
+   "model": "Item_TinOpen",
+   "label": "Открытая консерва",
+   "itemKey": "Item_TinOpen",
+   "massKg": 0.06,
+   "collider": {
+    "center": [
+     -0.0,
+     0.04,
+     -0.0
+    ],
+    "size": [
+     0.085,
+     0.08,
+     0.085
+    ]
+   },
+   "kind": "trash",
+   "clean": true,
+   "tris": 140
+  },
+  {
+   "model": "Item_ToiletRolls",
+   "label": "Туалетная бумага",
+   "itemKey": "Item_ToiletRolls",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.115,
+     0.05,
+     -0.0
+    ],
+    "size": [
+     0.33,
+     0.1,
+     0.11
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 312
+  },
+  {
+   "model": "Item_Toolbox",
+   "label": "Ящик с инструментами",
+   "itemKey": "Item_Toolbox",
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.13,
+     -0.0
+    ],
+    "size": [
+     0.46,
+     0.26,
+     0.21
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 196
+  },
+  {
+   "model": "Item_ToothCup",
+   "label": "Стакан для щёток",
+   "itemKey": "Item_ToothCup",
+   "massKg": 0.15,
+   "collider": {
+    "center": [
+     -0.0,
+     0.09,
+     -0.0
+    ],
+    "size": [
+     0.08,
+     0.18,
+     0.08
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 96
+  },
+  {
+   "model": "Item_Towel",
+   "label": "Полотенце",
+   "itemKey": "Item_Towel",
+   "massKg": 0.4,
+   "collider": {
+    "center": [
+     -0.0,
+     0.03,
+     -0.0
+    ],
+    "size": [
+     0.3,
+     0.06,
+     0.2
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 372
+  },
+  {
+   "model": "Item_TrashBag",
+   "label": "Мешок для мусора",
+   "itemKey": "Item_TrashBag",
+   "massKg": 3.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.31,
+     -0.0
+    ],
+    "size": [
+     0.48,
+     0.62,
+     0.44
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 138
+  },
+  {
+   "model": "Item_WoodCrate",
+   "label": "Деревянный ящик",
+   "itemKey": "Item_WoodCrate",
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     -0.0,
+     0.2,
+     -0.0
+    ],
+    "size": [
+     0.62,
+     0.4,
+     0.5
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 540
+  },
+  {
+   "model": "Item_Wrench",
+   "label": "Гаечный ключ",
+   "itemKey": "Item_Wrench",
+   "massKg": 0.3,
+   "collider": {
+    "center": [
+     -0.0,
+     0.006,
+     -0.0
+    ],
+    "size": [
+     0.26,
+     0.012,
+     0.04
+    ]
+   },
+   "kind": "tool",
+   "clean": false,
+   "tris": 52
+  }
+ ]
+}

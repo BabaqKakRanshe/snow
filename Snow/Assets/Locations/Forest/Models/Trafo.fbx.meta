@@ -44,6 +44,31 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_WoodPole
     second: {fileID: 2100000, guid: eaf0bdd3de7ce3744a95b3d3b727f51b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_Barbed
+    second: {fileID: 2100000, guid: 958ff93f76d83004c86d20b1f1c11c4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_ChainLink
+    second: {fileID: 2100000, guid: a9259380e683fdf489b8826cd4107cdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_Panel
+    second: {fileID: 2100000, guid: 58ba60727bc301244ac5445ceb468c12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_Trafo
+    second: {fileID: 2100000, guid: 73b5c54c67c820d47b16592e4dc244e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_YardProps
+    second: {fileID: 2100000, guid: 196373691658fec4e8acb1c2848530ac, type: 2}
   materials:
     materialImportMode: 1
     materialName: 3

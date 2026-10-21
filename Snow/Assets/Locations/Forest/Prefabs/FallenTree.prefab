@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: ee4e1164bd4e27d5104894280c7bbfd7, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: ee4e1164bd4e27d5104894280c7bbfd7, type: 3}
       propertyPath: m_Name
       value: FallenTree

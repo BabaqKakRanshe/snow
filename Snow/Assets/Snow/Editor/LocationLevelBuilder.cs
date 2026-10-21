@@ -26,6 +26,7 @@ namespace Snow.EditorTools
     /// player, the player camera look (PS1 frame included). The core builder recreates the scene from scratch, so run this
     /// again after every build of the location; running it twice replaces, not duplicates. Everything changed inside the
     /// location's prefab instances stays a scene override (no Apply to the prefabs). The scene goes last in Build Settings.
+    /// A profile may add its own step before the save (Forest: the opening, FOREST_U3 F5.1).
     /// </summary>
     public static class LocationLevelBuilder
     {
@@ -115,10 +116,12 @@ namespace Snow.EditorTools
             }
             else parts = all;
             var rules = new LocationProfile.Rule[parts.Length];
+            bool byModel = pr.rules.Any(r => r.model != null);
             for (int i = 0; i < parts.Length; i++)
             {
-                rules[i] = pr.RuleOf(parts[i].name);
-                if (rules[i] == null) { Debug.LogError($"[Snow] {id}: no rule for part '{parts[i].name}' (profile)."); return false; }
+                string model = byModel ? ModelOf(parts[i]) : null;
+                rules[i] = pr.RuleOf(parts[i].name, model);
+                if (rules[i] == null) { Debug.LogError($"[Snow] {id}: no rule for part '{parts[i].name}' (model '{model}', profile)."); return false; }
                 if (rules[i].category == Category.Door && (parts[i].kind != SkyIslandInteractable.Kind.Hinge || !Mathf.Approximately(parts[i].min, 0f)))
                 {
                     Debug.LogError($"[Snow] {id}: door '{parts[i].name}' is {parts[i].kind} with min {parts[i].min}; NetworkDoor turns from 0 only.");
@@ -173,7 +176,19 @@ namespace Snow.EditorTools
                     {
                         // a part that was a NetworkDoor in an older profile goes the shared way now
                         if (part.TryGetComponent(out NetworkDoor stale)) Object.DestroyImmediate(stale);
-                        synced++;
+                        if (rule.category != Category.Scripted) synced++;     // the location script replicates its own parts
+                        if (rule.category == Category.HostDoor)
+                        {
+                            // the closed pose, for the obstruction check at the command (L4.4); doors are closed in the editor
+                            hp.restPosition = part.transform.localPosition;
+                            hp.restRotation = part.transform.localRotation;
+                        }
+                        if (rule.speed > 0f && !Mathf.Approximately(part.speed, rule.speed))
+                        {
+                            part.speed = rule.speed;                    // a scene override, the data stay (L4.1.8)
+                            EditorUtility.SetDirty(part);
+                            if (PrefabUtility.IsPartOfPrefabInstance(part)) PrefabUtility.RecordPrefabInstancePropertyModifications(part);
+                        }
                         // furniture solids on Interact: the player's motor ignores them (an opened door cannot lock him in),
                         // the use ray still stops at them. Doors without a NetworkDoor stay on their layer: a closed door
                         // holds the player
@@ -207,7 +222,8 @@ namespace Snow.EditorTools
                     }
 
                     // zones: every part but the curtains (scaled down to 3 % when rolled up; driven by switches and winders)
-                    if (rule.category != Category.Shutter)
+                    // and the parts a profile keeps without one (Forest's boiler gauges)
+                    if (rule.category != Category.Shutter && !rule.noZone)
                     {
                         Zone(part, zoneId, rule.kind, label, rule.category == Category.Door || rule.category == Category.HostDoor, interact);
                         zones++;
@@ -264,8 +280,8 @@ namespace Snow.EditorTools
             fall.fallY = fallY;
             fall.spawnRoot = spawnRoot;
 
-            // network manager with the game's player (no new network prefabs)
-            BenchBuilder.EnsurePlayerTag();                            // the fog event volumes react to the tag
+            // network manager with the game's player (no new network prefabs). The tag Player the fog event volumes react to
+            // is given to the own player in play (SkyIslandPlayerCamera, L4.5), not to the prefab
             GameObject player = AssetDatabase.LoadAssetAtPath<GameObject>(BenchBuilder.PlayerPrefabPath);
             NetworkPrefabsList list = BenchBuilder.EnsurePrefabList(player);
             BenchBuilder.CreateNetworkManager(player, list, spawns.ToArray()).name = NetworkManagerName;
@@ -275,16 +291,36 @@ namespace Snow.EditorTools
             look.sceneCamera = sceneCam;
             look.copyPsxFrame = true;
 
+            // the location's own step (Forest: opening, items, zones, decals, bunks; then the terrain sub-step)
+            if (pr.step != null)
+            {
+                EditorUtility.DisplayProgressBar($"Integrate {id}", $"{id} step", 0.96f);
+                if (!pr.step(scene, root)) { Debug.LogError($"[Snow] {id}: the location step failed; the scene is not saved."); return false; }
+            }
+
+            // counted before the save: saving reloads the scene and the light manager reference dies with it
+            int rooms = lights != null ? lights.rooms.Count : 0;
             // saved so NGO sees the in-scene NetworkObject; last in Build Settings
             EditorUtility.DisplayProgressBar($"Integrate {id}", "Saving the scene", 0.98f);
             BenchBuilder.SaveNetworkScene(scene, pr.scenePath, false);
-            int rooms = lights != null ? lights.rooms.Count : 0;
             Debug.Log($"[Snow] {id} level integrated: {pr.scenePath} ({doors} doors, {zones} zones, {synced} synced parts, " +
                       $"{rooms} rooms, {groups.Length} proximity groups, fall reset Y {fallY:0.#}, {spawns.Count} spawn points), appended to Build Settings.");
             return true;
         }
 
         // ------------------------------------------------------------------ parts
+        /// <summary>The model a part belongs to: the source of its nearest prefab instance (the core builds every model
+        /// as Prefabs/&lt;Model&gt;.prefab), else the name of that instance root.</summary>
+        internal static string ModelOf(Component part)
+        {
+            GameObject inst = PrefabUtility.GetNearestPrefabInstanceRoot(part.gameObject);
+            if (inst == null) return null;
+            GameObject src = PrefabUtility.GetCorrespondingObjectFromSource(inst);
+            string name = src != null ? src.name : inst.name;
+            int cut = name.IndexOf(" (", StringComparison.Ordinal);
+            return cut > 0 ? name.Substring(0, cut) : name;
+        }
+
         static NetworkDoor Door(SkyIslandInteractable part, string id, Transform root, float travel, int interact)
         {
             GameObject go = part.gameObject;
@@ -422,6 +458,8 @@ namespace Snow.EditorTools
         public bool uniqueNames = true;
         /// <summary>SkyIslandLocationHost.incremental (Town).</summary>
         public bool incremental;
+        /// <summary>The location's own step after the shared ones, before the save; false = failed, nothing saved.</summary>
+        public Func<Scene, Transform, bool> step;
 
         public sealed class Rule
         {
@@ -434,15 +472,22 @@ namespace Snow.EditorTools
             public string[] doorStates;
             /// <summary>s, NetworkDoor travel time (TEMPORARY, as the game's other doors).</summary>
             public float travel = 1.2f;
+            /// <summary>Only parts of this model (Forest: the same prefixes on the main building and the map); null = any.</summary>
+            public string model;
+            /// <summary>Shared-way parts: the core's travel per second as a scene override (0 = the data's).</summary>
+            public float speed;
+            /// <summary>No zone (driven only, like the boiler gauges).</summary>
+            public bool noZone;
 
-            public bool Matches(string name) =>
-                regex != null ? regex.IsMatch(name) : name.StartsWith(prefix + "_", StringComparison.Ordinal);
+            public bool Matches(string name, string partModel) =>
+                (model == null || string.Equals(model, partModel, StringComparison.Ordinal)) &&
+                (regex != null ? regex.IsMatch(name) : name.StartsWith(prefix + "_", StringComparison.Ordinal));
         }
 
-        public Rule RuleOf(string name)
+        public Rule RuleOf(string name, string model = null)
         {
             foreach (Rule r in rules)
-                if (r.Matches(name)) return r;
+                if (r.Matches(name, model)) return r;
             return null;
         }
 

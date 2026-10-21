@@ -22,6 +22,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Far_Panel
+    second: {fileID: 2100000, guid: 33c00698b248d534284352bcb10bbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Small
+    second: {fileID: 2100000, guid: d62ac1a951223ef4692cb88fb5d8d4f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_PaintBlueMetal
     second: {fileID: 2100000, guid: c50942d72d5a1484fb81b147bbbaca04, type: 2}
   - first:

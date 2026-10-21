@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: a1cc47b87dafc62f07839ad356f6aa90
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Bulb
+    second: {fileID: 2100000, guid: a71253a2e45f16346861e10aad9d98a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Diffuser
+    second: {fileID: 2100000, guid: 130a1b8f9adf50e499d9da9559c194c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_EmergencyLens
+    second: {fileID: 2100000, guid: 9c86f5ade76988e42896f34866fe0bb9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Exit
+    second: {fileID: 2100000, guid: 2a726f9a48ef02e44a333c84009148bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Globe
+    second: {fileID: 2100000, guid: 2d0d9747bc642694ebe4fbdfda19e755, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Halogen
+    second: {fileID: 2100000, guid: 780ec3687d4675f4ab32d3e15f91bacf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Red
+    second: {fileID: 2100000, guid: ba9efe595c0514d4ea07a664d2711746, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FX_Tube
+    second: {fileID: 2100000, guid: cf4a0564eff2e8a429cd5415e2b1ed0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GlassClear
+    second: {fileID: 2100000, guid: 1ab9ae3ad9f806d4099d6369ea49239d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GlassDark
+    second: {fileID: 2100000, guid: c8ab63fece6435f4e9672a6fe190da22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_LEDOff
+    second: {fileID: 2100000, guid: deb441b3ca8250a45b6e500792f17066, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_LEDOn
+    second: {fileID: 2100000, guid: cf3e4e12e02f03b4f9220eb280e9ccd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Ext
+    second: {fileID: 2100000, guid: 5d4a179c70e858b4d9c68bcbbec3cc4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Panel
+    second: {fileID: 2100000, guid: 2b1a6af0bdc983f47b5c158e8ea44c72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Parts
+    second: {fileID: 2100000, guid: 0d53230af220b47458335c122366fa33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Flur_EG
+    second: {fileID: 2100000, guid: 5643f9c8219805b4a8f78cb865365f4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Flur_OG
+    second: {fileID: 2100000, guid: 36f1a950e9f22d847b1bfe743e23ce5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Flur_UG
+    second: {fileID: 2100000, guid: d7d99802eeaa3704194cf58a74d37bc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Garage
+    second: {fileID: 2100000, guid: 77ab89fd352527b4bbf48b1b55e9f8e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Heizung
+    second: {fileID: 2100000, guid: f16feb48e04f95944993999c1029eee0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Kaserne
+    second: {fileID: 2100000, guid: f676019fdd094d8409dcf0738008b56c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Kueche
+    second: {fileID: 2100000, guid: fda26128c6515b643b96a31d52d6f3c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Lager
+    second: {fileID: 2100000, guid: 141d7c1f2dd3a8e4fa68073a5efc0577, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Leitstand
+    second: {fileID: 2100000, guid: 1302c28f94c02464982e3d87820a1331, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Schaltraum
+    second: {fileID: 2100000, guid: 5623d7607f1446746b2002a3c6cd7221, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Serverraum
+    second: {fileID: 2100000, guid: 93ccefad5d18e98458bdad6dd05752b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Stationsleiter
+    second: {fileID: 2100000, guid: b10a656d00c42914e8a2527e51d466b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Treppenhaus
+    second: {fileID: 2100000, guid: 742bb7e376494354fb0dd88f80382885, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Waschraum
+    second: {fileID: 2100000, guid: 9c5a9abc311dd744ba354d0808e9417e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Rm_Windfang
+    second: {fileID: 2100000, guid: ada6e1969fdec984ca3a86dbd6ff39fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Main_Roof
+    second: {fileID: 2100000, guid: 183731a68887881438600de6c940adfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ScreenOff
+    second: {fileID: 2100000, guid: e56b24a353e601b4596b0a83795d9e91, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 3
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

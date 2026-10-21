@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Base_Panel
+    second: {fileID: 2100000, guid: 61bfd2a18d9648c4794ffb0ccfd58917, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Base_Props
+    second: {fileID: 2100000, guid: 46e992c1b2b251c45ac1915a96f723ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Concrete
     second: {fileID: 2100000, guid: bf064d0fbd67e3e4eb3e5ab09469a7fa, type: 2}
   - first:

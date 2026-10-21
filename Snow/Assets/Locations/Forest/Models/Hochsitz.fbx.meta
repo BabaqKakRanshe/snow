@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Hut_Hut
+    second: {fileID: 2100000, guid: 60a7d6217d8f7e04c853eb26046f13b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_RoofTar
     second: {fileID: 2100000, guid: df42024fe8b1e9445a4fa4e313dd3776, type: 2}
   - first:

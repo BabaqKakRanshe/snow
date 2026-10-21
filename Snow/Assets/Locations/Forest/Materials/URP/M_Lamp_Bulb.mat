@@ -22,6 +22,7 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -117,7 +118,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.66518503, g: 0.5838314, b: 0.48452914, a: 1}
-    - _Color: {r: 0.66518503, g: 0.58383137, b: 0.48452914, a: 1}
+    - _Color: {r: 0.66518503, g: 0.5838314, b: 0.48452914, a: 1}
     - _EmissionColor: {r: 2.078326, g: 1.7206327, b: 1.2727687, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

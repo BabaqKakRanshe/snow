@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Base_Mast
+    second: {fileID: 2100000, guid: 1ba04be03fc2d184993c6d4ff1a45a26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Base_Panel
+    second: {fileID: 2100000, guid: 61bfd2a18d9648c4794ffb0ccfd58917, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Cable
     second: {fileID: 2100000, guid: f438695cf8d263d4e8824074fb9bdeba, type: 2}
   - first:

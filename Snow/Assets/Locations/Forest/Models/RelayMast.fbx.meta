@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Base_Barbed
+    second: {fileID: 2100000, guid: 82c900225b374f24d84f1f1492d300af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Base_ChainLink
+    second: {fileID: 2100000, guid: 5d5da38d7e786d4408356f351c15b7aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Cable
     second: {fileID: 2100000, guid: f438695cf8d263d4e8824074fb9bdeba, type: 2}
   - first:
@@ -24,6 +34,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Corrugated
     second: {fileID: 2100000, guid: 1b86946fa72a17141ba1c189145ce399, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Panel
+    second: {fileID: 2100000, guid: 33c00698b248d534284352bcb10bbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Far_Towers
+    second: {fileID: 2100000, guid: f4b1bc71894f3c04b80ef5e0380633fd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

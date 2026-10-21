@@ -2,6 +2,7 @@ using Snow.Cargo;
 using Snow.Net;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Snow.Aircraft
 {
@@ -27,6 +28,8 @@ namespace Snow.Aircraft
     ///  - shovel: there is no snow cover to dig in the project yet — says so;
     ///  - bag: cargo only.
     /// All numbers TEMPORARY (docs/dev/Tuning/Cargo.md).
+    /// Lights made here shine on every rendering layer (LOCATIONS L4.8): maps with light zones (BaseV2, Forest) move their
+    /// renderers off layer 0, and a light on layer 0 only would not reach the ground, trees and walls.
     /// </summary>
     [RequireComponent(typeof(CargoItem))]
     public class SurvivalItem : NetworkBehaviour
@@ -34,6 +37,10 @@ namespace Snow.Aircraft
         public SurvivalKind kind;
         [Tooltip("s a hand flare burns")] public float flareSeconds = 60f;
         [Tooltip("m/s of the signal flare leaving the muzzle; s it burns in the air")] public float shotSpeed = 45f, shotSeconds = 7f;
+        [Header("Flashlight lens (optional: the Forest flashlight, FOREST_U3 F4.1.5)")]
+        [Tooltip("Renderer with the lens material slot; empty = no lens swap")] public Renderer lensRenderer;
+        public int lensSlot = -1;
+        public Material lensOn, lensOff;
 
         readonly NetworkVariable<bool> _on = new NetworkVariable<bool>(false,
             NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
@@ -44,6 +51,7 @@ namespace Snow.Aircraft
 
         Light _light;
         Transform _socket;
+        int _lensShown = -1;                                           // -1 unknown, 0 off, 1 on
 
         public bool On => _on.Value;
         public bool Loaded => _loaded.Value;
@@ -61,6 +69,7 @@ namespace Snow.Aircraft
             var go = new GameObject(kind == SurvivalKind.Flashlight ? "Light_Flashlight" : "Light_Flare");
             go.transform.SetParent(_socket, false);
             _light = go.AddComponent<Light>();
+            _light.GetUniversalAdditionalLightData().renderingLayers = uint.MaxValue;
             if (kind == SurvivalKind.Flashlight)
             {
                 _light.type = LightType.Spot; _light.range = 30f; _light.spotAngle = 38f; _light.innerSpotAngle = 14f;
@@ -77,13 +86,29 @@ namespace Snow.Aircraft
         void Update()
         {
             if (_light == null || !IsSpawned) return;
-            if (kind == SurvivalKind.Flashlight) _light.enabled = _on.Value;
+            if (kind == SurvivalKind.Flashlight)
+            {
+                _light.enabled = _on.Value;
+                ShowLens(_on.Value);
+            }
             else if (kind == SurvivalKind.Flare)
             {
                 bool burning = Burning;
                 _light.enabled = burning;
                 if (burning) _light.intensity = 10f * (0.8f + 0.2f * Mathf.PerlinNoise(Time.time * 9f, GetInstanceID() * 0.01f));
             }
+        }
+
+        // the lens material follows the light; written only when it changes
+        void ShowLens(bool on)
+        {
+            if (lensRenderer == null || lensSlot < 0 || _lensShown == (on ? 1 : 0)) return;
+            _lensShown = on ? 1 : 0;
+            Material want = on ? lensOn : lensOff;
+            Material[] mats = lensRenderer.sharedMaterials;
+            if (want == null || lensSlot >= mats.Length) return;
+            mats[lensSlot] = want;
+            lensRenderer.sharedMaterials = mats;
         }
 
         // ================================================================ server
@@ -154,6 +179,7 @@ namespace Snow.Aircraft
             var go = new GameObject("SignalFlare");
             go.transform.position = from;
             var l = go.AddComponent<Light>();
+            l.GetUniversalAdditionalLightData().renderingLayers = uint.MaxValue;
             l.type = LightType.Point; l.range = 120f; l.intensity = 400f; l.color = new Color(1f, 0.2f, 0.1f); l.shadows = LightShadows.None;
             go.AddComponent<SignalFlareEffect>().Init(dir.normalized * shotSpeed, shotSeconds);
         }

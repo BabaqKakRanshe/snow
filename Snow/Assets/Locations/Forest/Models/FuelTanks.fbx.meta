@@ -44,6 +44,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Steel
     second: {fileID: 2100000, guid: 1bad7fcdb580f854ca7a8613bbbbd6bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_Panel
+    second: {fileID: 2100000, guid: 58ba60727bc301244ac5445ceb468c12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_Tanks
+    second: {fileID: 2100000, guid: 6b4f39112650c7f4baa8caa0926471ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Yard_YardProps
+    second: {fileID: 2100000, guid: 196373691658fec4e8acb1c2848530ac, type: 2}
   materials:
     materialImportMode: 1
     materialName: 3

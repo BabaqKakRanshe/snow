@@ -9,6 +9,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Cable
     second: {fileID: 2100000, guid: f438695cf8d263d4e8824074fb9bdeba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Enamel
+    second: {fileID: 2100000, guid: 80d41ec8fe22cf24e9835ec6e34c8924, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Galvanized
+    second: {fileID: 2100000, guid: 9e542c4a1edfff44080af42b1a6782e0, type: 2}
   materials:
     materialImportMode: 1
     materialName: 3

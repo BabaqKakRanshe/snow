@@ -1,0 +1,2032 @@
+{
+ "version": 2,
+ "_doc": "Forest opening (forest -> car -> base -> first night), Update 3. Unity metres; p/q of items = spawn pose of the item model origin. Models in Assets/Locations/Forest/Models (Item_*.fbx). Systems are the project's (Assets/Snow). Zones: box centre p, rotation q, full size (local x, y, z). Decals: square quad of side size in the local XZ plane of q, normal local +Y, u along local -X, v along local -Z (corner (+h, +h) = (u0, v0), h = size / 2). Every list is an array of objects (no dictionaries, no nested arrays): JsonUtility can read the file.",
+ "car": {
+  "note": "the players' car is a project asset; the map only gives its place",
+  "anchor": "Car_Start",
+  "p": [
+   -463.1961,
+   22.8694,
+   495.643
+  ],
+  "q": [
+   0.022677,
+   0.898151,
+   -0.011083,
+   -0.438962
+  ],
+  "suggestedStart": "tank empty (needs the hut jerrycan), weak battery: 3 starter tries, then a crank / push start (car side)"
+ },
+ "items": [
+  {
+   "id": "Jerrycan_Hut",
+   "model": "Item_Jerrycan20",
+   "p": [
+    -473.0307,
+    28.7263,
+    403.4423
+   ],
+   "q": [
+    0.0,
+    -0.278774,
+    0.0,
+    0.960357
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     0.26,
+     -0.0
+    ],
+    "size": [
+     0.355,
+     0.52,
+     0.175
+    ]
+   },
+   "massKg": 18.5,
+   "fuelL": 20,
+   "capacityL": 20,
+   "grip": [
+    0.035,
+    0.504,
+    -0.0
+   ],
+   "spout": [
+    -0.1393,
+    0.5193,
+    -0.0
+   ],
+   "carry": "one hand, slow (two players: normal)",
+   "note": "under the shelves left of the hut door; the static Update 2 jerrycan is gone"
+  },
+  {
+   "id": "Funnel_Hut",
+   "model": "Item_Funnel",
+   "p": [
+    -473.3956,
+    29.7983,
+    403.14
+   ],
+   "q": [
+    0.876198,
+    0.0,
+    -0.481952,
+    0.0
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     0.155,
+     -0.0
+    ],
+    "size": [
+     0.23,
+     0.31,
+     0.23
+    ]
+   },
+   "massKg": 0.35,
+   "note": "rim-down on the lower shelf; refuelling without it spills half"
+  },
+  {
+   "id": "Flashlight_Hut",
+   "model": "Item_Flashlight",
+   "p": [
+    -474.2792,
+    29.5083,
+    404.8886
+   ],
+   "q": [
+    0.0,
+    0.32248,
+    0.0,
+    0.946576
+   ],
+   "collider": {
+    "center": [
+     -0.01,
+     0.0,
+     -0.0
+    ],
+    "size": [
+     0.245,
+     0.057,
+     0.057
+    ]
+   },
+   "massKg": 0.45,
+   "battery": 0.4,
+   "light": {
+    "p": [
+     -0.133,
+     0.0,
+     -0.0
+    ],
+    "d": [
+     -1.0,
+     0.0,
+     -0.0
+    ]
+   }
+  },
+  {
+   "id": "Note_Forester",
+   "model": "Item_Note",
+   "p": [
+    -474.5556,
+    29.4783,
+    404.6897
+   ],
+   "q": [
+    0.0,
+    0.541898,
+    0.0,
+    0.840444
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   },
+   "readable": "note_forester"
+  },
+  {
+   "id": "Key_Schranke",
+   "model": "Item_Key_Schranke",
+   "p": [
+    313.5288,
+    18.3876,
+    -291.1186
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "key": "Schranke",
+   "massKg": 0.02
+  },
+  {
+   "id": "Key_Hauptgebaeude",
+   "model": "Item_Key_Hauptgebaeude",
+   "p": [
+    313.4298,
+    18.3876,
+    -291.1047
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "key": "Hauptgebäude",
+   "massKg": 0.02
+  },
+  {
+   "id": "Key_Garage",
+   "model": "Item_Key_Garage",
+   "p": [
+    313.3307,
+    18.3876,
+    -291.0908
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "key": "Garage",
+   "massKg": 0.02
+  },
+  {
+   "id": "Key_Generator",
+   "model": "Item_Key_Generator",
+   "p": [
+    313.2317,
+    18.3876,
+    -291.0768
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     -0.04,
+     -0.0
+    ],
+    "size": [
+     0.04,
+     0.08,
+     0.012
+    ]
+   },
+   "key": "Generator",
+   "massKg": 0.02
+  },
+  {
+   "id": "Note_KPPLog",
+   "model": "Item_NoteForm",
+   "p": [
+    311.4155,
+    17.3396,
+    -289.4856
+   ],
+   "q": [
+    0.0,
+    -0.656059,
+    0.0,
+    0.754709
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   },
+   "readable": "kpp_log",
+   "note": "the guard's log on the booth desk"
+  },
+  {
+   "id": "Note_GenProcedure",
+   "model": "Item_NoteForm",
+   "p": [
+    394.8284,
+    18.222,
+    -335.3912
+   ],
+   "q": [
+    0.0,
+    -0.656059,
+    0.0,
+    0.754709
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     0.003,
+     -0.0
+    ],
+    "size": [
+     0.148,
+     0.006,
+     0.21
+    ]
+   },
+   "readable": "gen_procedure",
+   "note": "on top of the genset control panel"
+  },
+  {
+   "id": "Jerrycan_Yard",
+   "model": "Item_Jerrycan20",
+   "p": [
+    398.781,
+    16.3573,
+    -340.8948
+   ],
+   "q": [
+    0.0,
+    -0.777146,
+    0.0,
+    0.62932
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     0.26,
+     -0.0
+    ],
+    "size": [
+     0.355,
+     0.52,
+     0.175
+    ]
+   },
+   "massKg": 4.0,
+   "fuelL": 0,
+   "capacityL": 20,
+   "grip": [
+    0.035,
+    0.504,
+    -0.0
+   ],
+   "spout": [
+    -0.1393,
+    0.5193,
+    -0.0
+   ],
+   "note": "empty, on the drip tray under the pump nozzle"
+  },
+  {
+   "id": "Padlock_Barrier",
+   "model": "Item_Padlock",
+   "p": [
+    305.1519,
+    17.0659,
+    -281.385
+   ],
+   "q": [
+    0.0,
+    -0.656059,
+    0.0,
+    0.754709
+   ],
+   "collider": {
+    "center": [
+     -0.0,
+     -0.035,
+     -0.0
+    ],
+    "size": [
+     0.05,
+     0.07,
+     0.025
+    ]
+   },
+   "massKg": 0.2,
+   "lockedWith": "Schranke",
+   "note": "through the staple of the rest post and the eye on the arm; unlocked it drops into the hand"
+  }
+ ],
+ "interactables": [
+  {
+   "id": "KeyBox",
+   "model": "Checkpoint",
+   "child": "IX_KeyBoxDoor_303",
+   "kind": "door",
+   "p": [
+    313.6042,
+    18.2376,
+    -291.0848
+   ],
+   "note": "key cabinet in the booth: hooks Schranke, Hauptgebäude, Garage, Generator (items), Stationsleiter empty"
+  },
+  {
+   "id": "Barrier_Padlock",
+   "model": "Barrier",
+   "kind": "lock",
+   "key": "Schranke",
+   "item": "Padlock_Barrier",
+   "blocks": "IX_BarrierArm_82"
+  },
+  {
+   "id": "Barrier_Arm",
+   "model": "Barrier",
+   "child": "IX_BarrierArm_82",
+   "kind": "hinge",
+   "note": "lift by hand once the padlock is off"
+  },
+  {
+   "id": "Gate",
+   "model": "Gate",
+   "child": "IX_Gate_81",
+   "kind": "slide",
+   "note": "heavy: two players faster"
+  },
+  {
+   "id": "Booth_PassWindow",
+   "model": "Checkpoint",
+   "child": "IX_BoothWindow_302",
+   "kind": "slide"
+  },
+  {
+   "id": "Pump_FuelTanks",
+   "model": "FuelTanks",
+   "child": "IX_PumpLever_301",
+   "kind": "pump",
+   "rateLps": 0.5,
+   "label": "Handpumpe Diesel",
+   "nozzle": [
+    399.0208,
+    17.0673,
+    -340.6255
+   ],
+   "operatorPos": [
+    398.3415,
+    16.3273,
+    -340.4291
+   ],
+   "rule": "lever held (use): +0.5 L/s into a jerrycan whose collider centre is within 0.45 m (horizontal) of the nozzle and at most 0.7 m below it, standing or held; the empty yard can stands 0.36 m off"
+  },
+  {
+   "id": "Gen_FillNeck",
+   "model": "GenContainer",
+   "child": "IX_GenFillCap_300",
+   "kind": "cap",
+   "label": "Tagestank 60 l",
+   "neck": [
+    396.079,
+    17.31,
+    -336.7676
+   ],
+   "stand": [
+    395.9705,
+    16.33,
+    -337.54
+   ],
+   "capacityL": 60,
+   "startL": 0,
+   "burnLph": 3.5,
+   "rule": "lid open; the user holds a jerrycan with fuel (origin within 1.2 m of the neck) and holds the use-with-item input (FOREST_U3_UNITY F4.5): 1 L/s into the day tank; stand = where the player stands (reference only)"
+  },
+  {
+   "id": "Gen_Start",
+   "model": "GenContainer",
+   "child": "IX_GenStart_86",
+   "kind": "lever",
+   "rule": "starts only with fuel in the day tank"
+  },
+  {
+   "id": "Gen_MainSwitch",
+   "model": "GenContainer",
+   "child": "IX_MainSwitch_90",
+   "kind": "switch"
+  },
+  {
+   "id": "Gen_Breakers",
+   "model": "GenContainer",
+   "children": [
+    "IX_Breaker_87",
+    "IX_Breaker_88",
+    "IX_Breaker_89"
+   ],
+   "kind": "switch"
+  },
+  {
+   "id": "MainDoor_Lock",
+   "model": "BaseMain",
+   "kind": "lock",
+   "key": "Hauptgebäude",
+   "blocks": "IX_MainDoor_1",
+   "rule": "use the door with the key in hand (use-with-item input) -> unlocked for the session; see locks"
+  },
+  {
+   "id": "MainDoor_Bar",
+   "model": "BaseMain_Opening",
+   "child": "IX_MainDoorBar_311",
+   "kind": "bar",
+   "blocks": "IX_MainDoor_1",
+   "rule": "0 deg = across the brackets (door barred), lifted (> 45 deg) = free; starts lifted (layout flag open, turned in Awake); lowering it needs the door closed"
+  },
+  {
+   "id": "Heat_Stop",
+   "model": "BaseMain",
+   "child": "IX_HeatingStop_131",
+   "kind": "switch",
+   "note": "outside the boiler room door (exists); starts on, the burner needs it on"
+  },
+  {
+   "id": "Heat_FillValve",
+   "model": "BaseMain_Opening",
+   "child": "IX_HeatFill_307",
+   "kind": "valve",
+   "gauge": "IX_HeatGauge_309",
+   "rule": "open: pressure rises 0.1 bar/s to 1.5 bar (needle 0..270 deg = 0..4 bar); over 2.5 bar the safety valve hisses"
+  },
+  {
+   "id": "Heat_Panel",
+   "model": "BaseMain_Opening",
+   "kind": "panel",
+   "pump": "IX_HeatPump_304",
+   "burner": "IX_HeatBurner_305",
+   "thermostat": "IX_HeatThermostat_306",
+   "faultLamp": {
+    "p": [
+     339.2372,
+     15.0083,
+     -358.5295
+    ],
+    "material": "M_HeatFault"
+   },
+   "rule": "toggles -25 / +25 deg = off / on; thermostat 0..270 deg = 5..30 C"
+  },
+  {
+   "id": "Heat_BurnerReset",
+   "model": "BaseMain_Opening",
+   "child": "IX_BurnerReset_308",
+   "kind": "button",
+   "rule": "first burner start goes to STÖRUNG (lamp on), press reset, the second start lights"
+  },
+  {
+   "id": "Heat_TempGauge",
+   "model": "BaseMain_Opening",
+   "child": "IX_HeatTempGauge_310",
+   "kind": "gauge",
+   "rule": "0..270 deg = 0..120 C (boiler water)"
+  }
+ ],
+ "locks": [
+  {
+   "part": "IX_BarrierArm_82",
+   "by": "Padlock_Barrier",
+   "key": "Schranke"
+  },
+  {
+   "part": "IX_MainDoor_1",
+   "key": "Hauptgebäude"
+  },
+  {
+   "part": "IX_ExitDoor_2",
+   "key": "Hauptgebäude"
+  },
+  {
+   "part": "IX_GarageDoor_19",
+   "key": "Hauptgebäude"
+  },
+  {
+   "part": "IX_GarageGate_18",
+   "key": "Hauptgebäude"
+  },
+  {
+   "part": "IX_ContSideDoor_85",
+   "key": "Generator"
+  },
+  {
+   "part": "IX_ContDoorL_83",
+   "key": "Generator"
+  },
+  {
+   "part": "IX_ContDoorR_84",
+   "key": "Generator"
+  },
+  {
+   "part": "IX_GarageSideDoor_93",
+   "key": "Garage"
+  },
+  {
+   "part": "IX_GarageDoor_92",
+   "key": "Garage"
+  },
+  {
+   "part": "IX_MainDoor_1",
+   "by": "IX_MainDoorBar_311",
+   "rule": "also locked while the bar is down (target < 0.5)"
+  }
+ ],
+ "zones": [
+  {
+   "id": "Padlock_Barrier",
+   "p": [
+    305.1519,
+    17.0309,
+    -281.385
+   ],
+   "q": [
+    0.0,
+    -0.656059,
+    0.0,
+    0.754709
+   ],
+   "size": [
+    0.12,
+    0.14,
+    0.1
+   ],
+   "kind": "lock",
+   "label": "Навесной замок",
+   "use": "key Schranke in hand (use with the item in hand) -> unlock"
+  },
+  {
+   "id": "Phone_KPP",
+   "p": [
+    311.4634,
+    17.4876,
+    -288.7854
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    0.3,
+    0.16,
+    0.26
+   ],
+   "kind": "momentary",
+   "label": "Телефон",
+   "use": "pick up the receiver (X05)"
+  },
+  {
+   "id": "Sleep_1",
+   "p": [
+    347.9179,
+    20.8043,
+    -356.1141
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    0.5,
+    0.25,
+    0.8
+   ],
+   "kind": "seat",
+   "label": "Койка",
+   "use": "lie down / get up (S10); lying pose: sleep.spots[0] (mattress centre), head to the west wall"
+  },
+  {
+   "id": "Sleep_2",
+   "p": [
+    347.9179,
+    21.7043,
+    -356.1141
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    0.5,
+    0.25,
+    0.8
+   ],
+   "kind": "seat",
+   "label": "Койка",
+   "use": "lie down / get up (S10); lying pose: sleep.spots[1] (mattress centre), head to the west wall"
+  },
+  {
+   "id": "Sleep_3",
+   "p": [
+    347.6465,
+    20.8043,
+    -358.0452
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    0.5,
+    0.25,
+    0.8
+   ],
+   "kind": "seat",
+   "label": "Койка",
+   "use": "lie down / get up (S10); lying pose: sleep.spots[2] (mattress centre), head to the west wall"
+  },
+  {
+   "id": "Sleep_4",
+   "p": [
+    347.6465,
+    21.7043,
+    -358.0452
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    0.5,
+    0.25,
+    0.8
+   ],
+   "kind": "seat",
+   "label": "Койка",
+   "use": "lie down / get up (S10); lying pose: sleep.spots[3] (mattress centre), head to the west wall"
+  }
+ ],
+ "rooms": [
+  {
+   "name": "Windfang",
+   "p": [
+    346.8604,
+    18.3443,
+    -357.5307
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    2.4,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Leitstand",
+   "p": [
+    339.2106,
+    18.3443,
+    -356.4556
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    12.75,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Flur_EG",
+   "p": [
+    340.0,
+    18.3443,
+    -360.0
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    15.3,
+    3.2,
+    2.0
+   ]
+  },
+  {
+   "name": "Lager",
+   "p": [
+    344.2801,
+    18.3443,
+    -364.0349
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    5.7,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Serverraum",
+   "p": [
+    334.7735,
+    18.3443,
+    -362.6989
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    5.7,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Garage",
+   "p": [
+    352.7249,
+    18.1943,
+    -361.7884
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    9.7,
+    3.2,
+    9.4
+   ]
+  },
+  {
+   "name": "Treppenhaus",
+   "p": [
+    339.6973,
+    18.3443,
+    -362.1538
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    3.4,
+    3.2,
+    2.05
+   ]
+  },
+  {
+   "name": "Kaserne",
+   "p": [
+    345.0532,
+    21.7443,
+    -357.2768
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    6.05,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Kueche",
+   "p": [
+    337.4034,
+    21.7443,
+    -356.2017
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    9.1,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Flur_OG",
+   "p": [
+    340.0,
+    21.7443,
+    -360.0
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    15.3,
+    3.2,
+    2.0
+   ]
+  },
+  {
+   "name": "Waschraum",
+   "p": [
+    344.2801,
+    21.7443,
+    -364.0349
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    5.7,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Stationsleiter",
+   "p": [
+    334.7735,
+    21.7443,
+    -362.6989
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    5.7,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Heizung",
+   "p": [
+    337.6509,
+    15.3443,
+    -356.2364
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    9.6,
+    3.2,
+    4.5
+   ]
+  },
+  {
+   "name": "Flur_UG",
+   "p": [
+    337.1777,
+    15.3443,
+    -359.6034
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    9.6,
+    3.2,
+    2.0
+   ]
+  },
+  {
+   "name": "Schaltraum",
+   "p": [
+    334.7735,
+    15.3443,
+    -362.6989
+   ],
+   "q": [
+    0.0,
+    0.069756,
+    0.0,
+    0.997564
+   ],
+   "size": [
+    5.7,
+    3.2,
+    4.5
+   ]
+  }
+ ],
+ "sleep": {
+  "room": "Kaserne",
+  "rule": "all living players lie in a bunk -> fade out -> night events -> morning 06:30",
+  "spots": [
+   {
+    "p": [
+     347.2742,
+     20.6843,
+     -356.0237
+    ]
+   },
+   {
+    "p": [
+     347.2742,
+     21.5843,
+     -356.0237
+    ]
+   },
+   {
+    "p": [
+     347.0028,
+     20.6843,
+     -357.9547
+    ]
+   },
+   {
+    "p": [
+     347.0028,
+     21.5843,
+     -357.9547
+    ]
+   }
+  ]
+ },
+ "steps": [
+  {
+   "id": "S1_Stalled",
+   "goal": "the car will not start",
+   "done": "players left the car",
+   "hint": "area map in the glovebox with the Forsthütte marked; the hut lantern is visible between the trees (92 m)"
+  },
+  {
+   "id": "S2_Hut",
+   "goal": "get fuel",
+   "done": "Jerrycan_Hut carried to within 3 m of the car",
+   "hint": "lantern at the open door, FORSTHÜTTE sign"
+  },
+  {
+   "id": "S3_Refuel",
+   "goal": "refuel",
+   "done": "car fuel >= 5 L",
+   "rule": "cap open; without the funnel half spills (stain + smell)"
+  },
+  {
+   "id": "S4_Start",
+   "goal": "start the engine",
+   "done": "engine running",
+   "rule": "car side"
+  },
+  {
+   "id": "S5_Drive",
+   "goal": "drive 1.15 km to the station",
+   "done": "car within 15 m of the barrier"
+  },
+  {
+   "id": "S6_KPP",
+   "goal": "get in",
+   "done": "barrier up and gate open",
+   "rule": "key cabinet IX_KeyBoxDoor_303: Key_Schranke unlocks Padlock_Barrier, lift IX_BarrierArm_82, slide IX_Gate_81"
+  },
+  {
+   "id": "S7_Power",
+   "goal": "power the station",
+   "done": "IX_MainSwitch_75 on with the generator running",
+   "rule": "day tank empty: IX_PumpLever_301 (hand pump) -> Jerrycan_Yard -> IX_GenFillCap_300 (filler) -> IX_GenStart_86 -> IX_MainSwitch_90 -> IX_MainSwitch_75 (main building)"
+  },
+  {
+   "id": "S8_Heat",
+   "goal": "heating",
+   "done": "boiler burning and thermostat >= 18 C",
+   "rule": "IX_HeatingStop_131 on, IX_HeatFill_307 to 1.5 bar, IX_HeatPump_304 on, IX_HeatBurner_305 on -> STÖRUNG -> IX_BurnerReset_308 -> burns; thermostat >= 18 C; radiators warm in ~5 game minutes"
+  },
+  {
+   "id": "S9_Close",
+   "goal": "close the building for the night",
+   "done": "main door barred (IX_MainDoorBar_311 at 0), all shutters down, garage gate closed",
+   "rule": "electric shutters (Leitstand, Küche, Stationsleiter) need power"
+  },
+  {
+   "id": "S10_Sleep",
+   "goal": "sleep",
+   "done": "all living players in bunks",
+   "next": "morning: first task (later)"
+  }
+ ],
+ "scares": [
+  {
+   "id": "X01_Lantern",
+   "where": "hut",
+   "trigger": "Jerrycan_Hut picked up",
+   "effect": "the lantern outside goes out (stays out)",
+   "once": true,
+   "light": "Light_lantern (TowerHut prefabLights tag lantern) + glow M_Glow_Lantern + lens M_Lantern",
+   "off": "light and glow disabled, lens material M_Lantern -> M_LanternOff, the M_Lantern flicker no longer drives it"
+  },
+  {
+   "id": "X02_Crossing",
+   "where": "road 700 m",
+   "p": [
+    -52.52,
+    10.21,
+    139.02
+   ],
+   "trigger": "car passes road 620 m with headlights on",
+   "effect": "tall thin figure crosses the road 80 m ahead left to right in 2 s and is gone; no tracks",
+   "once": true
+  },
+  {
+   "id": "X03_BackSeat",
+   "where": "car",
+   "trigger": "car between road 920 and 1000 m, back seats empty, driver looks into the mirror or turns > 120 deg",
+   "effect": "Apparition on the rear seat for 0.6 s (mirror / head turn only)",
+   "once": true
+  },
+  {
+   "id": "X04_Ribs",
+   "where": "road 996 m (FogRibs)",
+   "p": [
+    142.62,
+    9.45,
+    -67.53
+   ],
+   "trigger": "car enters FogRibs",
+   "effect": "engine coughs, headlights dim for 2 s, low creak from the bones",
+   "once": true
+  },
+  {
+   "id": "X05_Phone",
+   "where": "KPP booth",
+   "p": [
+    311.4634,
+    17.4876,
+    -288.7854
+   ],
+   "trigger": "a player within 8 m of the booth",
+   "effect": "the booth phone rings twice, the bell outside too (no power); picked up (zone Phone_KPP): silence, then breathing",
+   "once": true,
+   "bell": [
+    310.7327,
+    19.0376,
+    -290.248
+   ]
+  },
+  {
+   "id": "X06_Roof",
+   "where": "base, before power",
+   "trigger": "a player in the stair tower before S7 is done",
+   "effect": "footsteps across the main roof (soundPath, ~1.4 m/s), stop at the roof door IX_RoofDoor_17",
+   "once": true,
+   "box": {
+    "p": [
+     339.6973,
+     20.0443,
+     -362.1538
+    ],
+    "q": [
+     0.0,
+     0.069756,
+     0.0,
+     0.997564
+    ],
+    "size": [
+     3.4,
+     6.6,
+     2.05
+    ],
+    "note": "stair tower, ground to upper floor"
+   },
+   "soundPath": [
+    {
+     "p": [
+      333.9342,
+      23.6943,
+      -354.3003
+     ]
+    },
+    {
+     "p": [
+      337.4467,
+      23.6943,
+      -356.6117
+     ]
+    },
+    {
+     "p": [
+      340.0278,
+      23.6943,
+      -359.8019
+     ]
+    },
+    {
+     "p": [
+      340.4531,
+      23.6943,
+      -360.8715
+     ]
+    }
+   ]
+  },
+  {
+   "id": "X07_Knock",
+   "where": "base",
+   "trigger": "S9 done; pick a shuttered room with no player in it",
+   "effect": "three knocks on one closed shutter curtain (IX_Shutter_<room>_*) of a room with no player in it; outside there is nothing",
+   "once": true,
+   "rooms": [
+    "Leitstand",
+    "Lager",
+    "Kaserne",
+    "Kueche",
+    "Waschraum",
+    "Stationsleiter",
+    "Flur_OG"
+   ]
+  },
+  {
+   "id": "X08_Radio",
+   "where": "Leitstand",
+   "trigger": "game time 23:40 with power on",
+   "effect": "the control-room radio turns on by itself: static, a counting voice in German for 4 s",
+   "once": true
+  },
+  {
+   "id": "X09_Corridor",
+   "where": "OG corridor (sleep)",
+   "trigger": "sleep starts",
+   "effect": "at the start of the night the lights of Kaserne and Flur_OG are switched off; X09: the OG corridor light switches on by itself (room Flur_OG on, needs power) and stays on; slow steps pass the barracks door (soundPath)",
+   "once": true,
+   "room": "Flur_OG",
+   "lightSwitch": "IX_LightSwitch_Flur_OG_95",
+   "soundPath": [
+    {
+     "p": [
+      333.0681,
+      20.1943,
+      -359.0258
+     ]
+    },
+    {
+     "p": [
+      346.9319,
+      20.1943,
+      -360.9742
+     ]
+    }
+   ]
+  },
+  {
+   "id": "X10_Door",
+   "where": "Kaserne (sleep)",
+   "trigger": "X09 + 20 s",
+   "effect": "the barracks door IX_Door_10 swings open slowly onto the lit, empty corridor (NetworkDoor cannot stop midway: fully, poweredTravelTime 6 s, Command(true, DoorDrive.Powered)); 5 s later the corridor light goes off",
+   "once": true,
+   "door": "IX_Door_10"
+  },
+  {
+   "id": "X11_Morning",
+   "where": "base (morning)",
+   "trigger": "wake up",
+   "effect": "muddy boot prints (decals, hidden until now) from the barred main door to the barracks; the kitchen shutters are up (IX_Shutter_Kueche_* open, switch IX_ShutterSwitch_Kueche_129 at 1)",
+   "once": true,
+   "shutterSwitch": "IX_ShutterSwitch_Kueche_129",
+   "decals": [
+    {
+     "id": "X11_prints_1",
+     "room": "Windfang",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      347.0622,
+      16.7563,
+      -356.0949
+     ],
+     "q": [
+      0.0,
+      0.069756,
+      0.0,
+      0.997564
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_2",
+     "room": "Windfang",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      346.9425,
+      16.7523,
+      -356.9465
+     ],
+     "q": [
+      0.0,
+      0.069756,
+      0.0,
+      0.997564
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_3",
+     "room": "Windfang",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      346.8228,
+      16.7563,
+      -357.7981
+     ],
+     "q": [
+      0.0,
+      0.069756,
+      0.0,
+      0.997564
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_4",
+     "room": "Windfang",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      346.7032,
+      16.7563,
+      -358.6498
+     ],
+     "q": [
+      0.0,
+      0.069756,
+      0.0,
+      0.997564
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_5",
+     "room": "Windfang",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      346.5835,
+      16.7523,
+      -359.5014
+     ],
+     "q": [
+      0.0,
+      0.069756,
+      0.0,
+      0.997564
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_6",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      346.4638,
+      16.7563,
+      -360.353
+     ],
+     "q": [
+      0.0,
+      0.069756,
+      0.0,
+      0.997564
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_7",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      345.8653,
+      16.7523,
+      -360.5895
+     ],
+     "q": [
+      0.0,
+      0.744311,
+      0.0,
+      0.667833
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_8",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      345.0104,
+      16.7523,
+      -360.4965
+     ],
+     "q": [
+      0.0,
+      0.744311,
+      0.0,
+      0.667833
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_9",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      344.1554,
+      16.7523,
+      -360.4034
+     ],
+     "q": [
+      0.0,
+      0.744311,
+      0.0,
+      0.667833
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_10",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      343.3004,
+      16.7523,
+      -360.3104
+     ],
+     "q": [
+      0.0,
+      0.744311,
+      0.0,
+      0.667833
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_11",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      342.4455,
+      16.7523,
+      -360.2174
+     ],
+     "q": [
+      0.0,
+      0.744311,
+      0.0,
+      0.667833
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_12",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      341.5906,
+      16.7523,
+      -360.1244
+     ],
+     "q": [
+      0.0,
+      0.744311,
+      0.0,
+      0.667833
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_13",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      340.7356,
+      16.7523,
+      -360.0314
+     ],
+     "q": [
+      0.0,
+      0.744311,
+      0.0,
+      0.667833
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_14",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      340.021,
+      16.7523,
+      -360.1307
+     ],
+     "q": [
+      0.0,
+      0.101056,
+      0.0,
+      0.994881
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_15",
+     "room": "Flur_EG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      339.8629,
+      16.7523,
+      -360.9757
+     ],
+     "q": [
+      0.0,
+      0.069756,
+      0.0,
+      0.997564
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_16",
+     "room": "Flur_OG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      339.7835,
+      20.1483,
+      -361.2826
+     ],
+     "q": [
+      0.0,
+      0.996345,
+      0.0,
+      -0.085416
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_17",
+     "room": "Flur_OG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      339.9297,
+      20.1523,
+      -360.435
+     ],
+     "q": [
+      0.0,
+      0.996345,
+      0.0,
+      -0.085416
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_18",
+     "room": "Flur_OG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      340.5479,
+      20.1523,
+      -360.1713
+     ],
+     "q": [
+      0.0,
+      -0.692773,
+      0.0,
+      0.721156
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_19",
+     "room": "Flur_OG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      341.4072,
+      20.1523,
+      -360.2056
+     ],
+     "q": [
+      0.0,
+      -0.692773,
+      0.0,
+      0.721156
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_20",
+     "room": "Flur_OG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      342.2666,
+      20.1523,
+      -360.24
+     ],
+     "q": [
+      0.0,
+      -0.692773,
+      0.0,
+      0.721156
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_21",
+     "room": "Flur_OG",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      343.0104,
+      20.1523,
+      -360.136
+     ],
+     "q": [
+      0.0,
+      0.997564,
+      0.0,
+      -0.069756
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_22",
+     "room": "Kaserne",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      343.1301,
+      20.1563,
+      -359.2844
+     ],
+     "q": [
+      0.0,
+      0.997564,
+      0.0,
+      -0.069756
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    },
+    {
+     "id": "X11_prints_23",
+     "room": "Kaserne",
+     "cell": "prints",
+     "label": "Грязные следы",
+     "kind": "lever",
+     "material": "M_BV_Decal",
+     "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+     ],
+     "p": [
+      343.2991,
+      20.1523,
+      -358.442
+     ],
+     "q": [
+      0.0,
+      0.993373,
+      0.0,
+      -0.114937
+     ],
+     "size": 0.9,
+     "normal": [
+      0.0,
+      1.0,
+      0.0
+     ]
+    }
+   ]
+  }
+ ]
+}
