@@ -15,11 +15,26 @@ EditorBuildSettings:
     path: Assets/Snow/Bench/P02_PhysicsBench.unity
     guid: b496d3d0a00d4254bb3587fa4a74dbf4
   - enabled: 1
+    path: Assets/Locations/BaseV2/Scenes/BaseV2.unity
+    guid: 2113cdb859edabf44a6930fca62c887e
+  - enabled: 1
+    path: Assets/Locations/AboveClouds/Scenes/AboveClouds.unity
+    guid: 9d14c5550cd90d541813d394b9603d03
+  - enabled: 1
+    path: Assets/Locations/CoalPit/Scenes/CoalPit.unity
+    guid: 63da4ea6a24f9fd4fa6c788594e1c5c7
+  - enabled: 1
+    path: Assets/Locations/Dam/Scenes/Dam.unity
+    guid: 4c884d6468960bf4f9b748f10e6a9827
+  - enabled: 1
+    path: Assets/Locations/Forest/Scenes/Forest.unity
+    guid: 67b6eee8526e0114b862d24783433f68
+  - enabled: 1
     path: Assets/Snow/Bench/P03_PlaneBench.unity
     guid: 6f38e0b60c802fd4c8165b37becf1efc
   - enabled: 1
-    path: Assets/Locations/BaseV2/Scenes/BaseV2.unity
-    guid: 2113cdb859edabf44a6930fca62c887e
+    path: Assets/Locations/Town/Scenes/Town.unity
+    guid: afe8a197947b0394693f170f61017286
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

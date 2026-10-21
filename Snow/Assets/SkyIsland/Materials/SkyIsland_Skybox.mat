@@ -35,6 +35,10 @@ Material:
     - _CloudScale: 0.35
     - _CloudSpeed: 0.004
     - _Exposure: 1
+    - _StarDensity: 0.06
+    - _StarIntensity: 0
+    - _StarScale: 220
+    - _StarSize: 0.32
     - _SunDisc: 0.6
     - _SunDiscPower: 3000
     - _SunGlow: 0.07
@@ -43,6 +47,7 @@ Material:
     - _BandColor: {r: 0.4901088, g: 0.4209136, b: 0.1600776, a: 1}
     - _BelowColor: {r: 0.37804854, g: 0.32457134, b: 0.11774101, a: 1}
     - _HorizonColor: {r: 0.451667, g: 0.39004794, b: 0.14282566, a: 1}
+    - _StarColor: {r: 0.8, g: 0.85, b: 1, a: 1}
     - _SunColor: {r: 1, g: 0.93574095, b: 0.70141065, a: 1}
     - _SunDir: {r: -0.30613104, g: 0.34214646, b: -0.8883803, a: 0}
     - _ZenithColor: {r: 0.36236143, g: 0.30943927, b: 0.10612615, a: 1}

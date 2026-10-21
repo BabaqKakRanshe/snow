@@ -415,6 +415,9 @@ PrefabInstance:
       addedObject: {fileID: 8373943099250165656}
     - targetCorrespondingSourceObject: {fileID: 586744084743280577, guid: 4d73363231fbe944ab0adf0801263354, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 6966912775167210399}
+    - targetCorrespondingSourceObject: {fileID: 586744084743280577, guid: 4d73363231fbe944ab0adf0801263354, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5388587435434833759}
     - targetCorrespondingSourceObject: {fileID: 586744084743280577, guid: 4d73363231fbe944ab0adf0801263354, type: 3}
       insertIndex: -1
@@ -558,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2645056852
+  GlobalObjectIdHash: 2588800217
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -757,6 +760,7 @@ MonoBehaviour:
   - {fileID: 2883443251469157569}
   jerryCanRing: {fileID: 7432735576705784438}
   paxFoldTime: 0.5
+  hobbsStartHours: 1520
 --- !u!114 &8373943099250165656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +789,26 @@ MonoBehaviour:
   - {fileID: 8833019117669702870, guid: 319149af6b3fbde429f5b4219704556a, type: 3}
   startInstalled: 1
   holdReach: 3
+--- !u!114 &6966912775167210399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160135626854800582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e528f85d61978cb40826fae78dff6d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicle: {fileID: 2646005427578888151}
+  textColor:
+    serializedVersion: 2
+    rgba: 4290051980
+  background:
+    serializedVersion: 2
+    rgba: 4279244294
+  glow: {r: 0.55, g: 1.4, b: 0.9, a: 1}
 --- !u!114 &5388587435434833759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,56 +847,56 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   items:
   - prefab: {fileID: 5756665665694822087, guid: 1ddd2f73dfbc4c14e8a1526eb2bade2d, type: 3}
-    place: 0
-    offset: {x: -0.126, y: 1.09, z: 0.5}
+    place: 1
+    offset: {x: -2.2, y: 0, z: 0.9}
     yaw: 0
-    socket: 
+    socket: Socket_Exit_Cargo_L
     stackOn: 
     setKit: 0
     kitSets: 0
     kitFuelLitres: 0
   - prefab: {fileID: 5865489142394851166, guid: d7e34b435484cfc4f97b91f2d0953afb, type: 3}
-    place: 0
-    offset: {x: -0.146, y: 1.09, z: -0.12}
+    place: 1
+    offset: {x: -2.2, y: 0, z: 0}
     yaw: 0
-    socket: 
+    socket: Socket_Exit_Cargo_L
     stackOn: 
     setKit: 0
     kitSets: 0
     kitFuelLitres: 0
   - prefab: {fileID: 7286367207059567937, guid: 5b4b0beb1f0f8074fac3510e1c5ff386, type: 3}
-    place: 0
-    offset: {x: 0.42, y: 1.09, z: 0.2}
+    place: 1
+    offset: {x: -2.2, y: 0, z: -0.9}
     yaw: 0
-    socket: 
+    socket: Socket_Exit_Cargo_L
     stackOn: 
     setKit: 0
     kitSets: 0
     kitFuelLitres: 0
   - prefab: {fileID: 6364864251356955326, guid: 7a710708149bf9544aa53d9961dabd72, type: 3}
-    place: 0
-    offset: {x: -0.126, y: 1.09, z: 0.48}
+    place: 1
+    offset: {x: -3.1, y: 0, z: 0.9}
     yaw: 0
-    socket: 
-    stackOn: Cargo_Case1_Net
+    socket: Socket_Exit_Cargo_L
+    stackOn: 
     setKit: 0
     kitSets: 0
     kitFuelLitres: 0
   - prefab: {fileID: 748606816463943621, guid: b5a9db668c2b8d7488fe64f050f7672c, type: 3}
-    place: 0
-    offset: {x: -0.106, y: 1.09, z: -0.1}
+    place: 1
+    offset: {x: -3.1, y: 0, z: 0}
     yaw: 0
-    socket: 
-    stackOn: Cargo_Case2_Net
+    socket: Socket_Exit_Cargo_L
+    stackOn: 
     setKit: 0
     kitSets: 0
     kitFuelLitres: 0
   - prefab: {fileID: 8006626787367044842, guid: 6a988c0667c90fc479a9c3317b8e0073, type: 3}
-    place: 0
-    offset: {x: -0.086, y: 1.09, z: 0.05}
+    place: 1
+    offset: {x: -3.1, y: 0, z: -0.9}
     yaw: 0
-    socket: 
-    stackOn: Cargo_Case4_Net
+    socket: Socket_Exit_Cargo_L
+    stackOn: 
     setKit: 0
     kitSets: 0
     kitFuelLitres: 0
@@ -886,10 +910,10 @@ MonoBehaviour:
     kitSets: 0
     kitFuelLitres: 0
   - prefab: {fileID: 3125431790505031735, guid: 685f606a8923c6242a7edccf573a7b84, type: 3}
-    place: 1
+    place: 3
     offset: {x: 0, y: 0, z: 0}
     yaw: 0
-    socket: Socket_Ladder_Fuel_L
+    socket: Ladder
     stackOn: 
     setKit: 0
     kitSets: 0

@@ -1,0 +1,163 @@
+{
+ "_doc": "Forest look v2 (linear colours): PSX hybrid. Back-lit low moon, teal-slate linear fog lighter than the forest, navy sky with moon, stars and a horizon glow; warm practicals. psx: internal 240 lines, 15-bit, Bayer 4x4.",
+ "fog": {
+  "mode": "Linear",
+  "start": 15.0,
+  "end": 220.0,
+  "density": 0.0075,
+  "color": [
+   0.034,
+   0.05,
+   0.058
+  ],
+  "glowFloor": 0.25
+ },
+ "sky": {
+  "horizon": [
+   0.05,
+   0.068,
+   0.088
+  ],
+  "band": [
+   0.058,
+   0.076,
+   0.096
+  ],
+  "zenith": [
+   0.005,
+   0.009,
+   0.018
+  ],
+  "below": [
+   0.034,
+   0.05,
+   0.058
+  ],
+  "bandHeight": 0.06,
+  "bandWidth": 0.12,
+  "cloudScale": 0.35,
+  "cloudContrast": 0.35,
+  "cloudSpeed": 0.002,
+  "sunColor": [
+   0.7,
+   0.78,
+   1.0
+  ],
+  "sunGlow": 0.1,
+  "sunGlowPower": 12.0,
+  "sunDisc": 0.9,
+  "sunDiscPower": 9000.0,
+  "starIntensity": 0.35,
+  "starDensity": 0.07,
+  "starScale": 240.0,
+  "starSize": 0.32,
+  "starColor": [
+   0.75,
+   0.82,
+   1.0
+  ]
+ },
+ "sun": {
+  "dir_blender": [
+   0.6017,
+   -0.702,
+   -0.3811
+  ],
+  "color": [
+   0.7,
+   0.76,
+   0.9
+  ],
+  "intensity": 0.6,
+  "angle": 1.0,
+  "shadowStrength": 0.8,
+  "dir_unity": [
+   -0.6017,
+   -0.3811,
+   0.702
+  ]
+ },
+ "ambient": {
+  "sky": [
+   0.078,
+   0.1,
+   0.138
+  ],
+  "equator": [
+   0.052,
+   0.072,
+   0.078
+  ],
+  "ground": [
+   0.03,
+   0.036,
+   0.033
+  ]
+ },
+ "weights": {
+  "ambient": 1.0,
+  "sun": 1.0,
+  "local": 1.0,
+  "emit": 1.0
+ },
+ "post": {
+  "exposure": 1.15,
+  "contrast": 7.0,
+  "tonemap": "Neutral",
+  "bloom": {
+   "threshold": 0.8,
+   "intensity": 1.0,
+   "scatter": 0.72,
+   "tint": [
+    1.0,
+    0.88,
+    0.76
+   ],
+   "clamp": 65472.0,
+   "highQuality": true
+  },
+  "vignette": {
+   "intensity": 0.3,
+   "smoothness": 0.45,
+   "color": [
+    0.004,
+    0.006,
+    0.012
+   ],
+   "rounded": false
+  },
+  "grain": {
+   "type": "Medium1",
+   "intensity": 0.0,
+   "response": 0.8
+  },
+  "chromaticAberration": 0.0,
+  "lut": "Forest_LUT32.png",
+  "lutContribution": 1.0
+ },
+ "fogByAltitude": {
+  "center": [
+   0.0,
+   0.0
+  ],
+  "radii": [
+   700.0,
+   700.0
+  ],
+  "topY": 22.0,
+  "heightRange": 40.0,
+  "distanceRange": 400.0,
+  "airFactor": 0.55
+ },
+ "camera": {
+  "far": 3000.0
+ },
+ "localLightScale": 1.0,
+ "emissionScale": 1.0,
+ "psx": {
+  "height": 240,
+  "colorBits": 5,
+  "dither": 1.0,
+  "pointTextures": true
+ }
+}

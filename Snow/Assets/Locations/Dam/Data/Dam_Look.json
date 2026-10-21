@@ -1,0 +1,150 @@
+{
+ "_doc": "Dam look (linear colours). Blue hour turning to night, teal spray mist, cold moon, white LED floods, warm turbine hall.",
+ "fog": {
+  "mode": "Exponential",
+  "density": 0.0013,
+  "color": [
+   0.0472,
+   0.1481,
+   0.1369
+  ]
+ },
+ "sky": {
+  "horizon": [
+   0.0708,
+   0.2222,
+   0.2054
+  ],
+  "band": [
+   0.03,
+   0.06,
+   0.066
+  ],
+  "zenith": [
+   0.006,
+   0.01,
+   0.016
+  ],
+  "below": [
+   0.0472,
+   0.1481,
+   0.1369
+  ],
+  "bandHeight": 0.1,
+  "bandWidth": 0.12,
+  "cloudScale": 0.32,
+  "cloudContrast": 0.3,
+  "cloudSpeed": 0.003,
+  "sunColor": [
+   0.7,
+   0.86,
+   1.0
+  ],
+  "sunGlow": 0.05,
+  "sunGlowPower": 9.0,
+  "sunDisc": 0.5,
+  "sunDiscPower": 5000.0
+ },
+ "sun": {
+  "dir_blender": [
+   -0.579,
+   0.579,
+   -0.574
+  ],
+  "color": [
+   0.66,
+   0.82,
+   1.0
+  ],
+  "intensity": 0.34,
+  "angle": 3.0,
+  "dir_unity": [
+   0.579,
+   -0.574,
+   -0.579
+  ]
+ },
+ "ambient": {
+  "sky": [
+   0.056,
+   0.086,
+   0.096
+  ],
+  "equator": [
+   0.04,
+   0.058,
+   0.064
+  ],
+  "ground": [
+   0.014,
+   0.017,
+   0.018
+  ]
+ },
+ "weights": {
+  "ambient": 1.0,
+  "sun": 1.0,
+  "local": 1.0,
+  "emit": 1.0
+ },
+ "post": {
+  "exposure": 1.0,
+  "contrast": 13.0,
+  "tonemap": "Neutral",
+  "bloom": {
+   "threshold": 0.85,
+   "intensity": 1.3,
+   "scatter": 0.74,
+   "tint": [
+    0.86,
+    0.96,
+    1.0
+   ],
+   "clamp": 65472.0,
+   "highQuality": true
+  },
+  "vignette": {
+   "intensity": 0.34,
+   "smoothness": 0.45,
+   "color": [
+    0.004,
+    0.01,
+    0.012
+   ],
+   "rounded": false
+  },
+  "grain": {
+   "type": "Medium1",
+   "intensity": 0.22,
+   "response": 0.8
+  },
+  "chromaticAberration": 0.07,
+  "lut": "Dam_LUT32.png",
+  "lutContribution": 1.0
+ },
+ "fogByAltitude": {
+  "center": [
+   0.0,
+   0.0
+  ],
+  "radii": [
+   500.0,
+   700.0
+  ],
+  "topY": 175.0,
+  "heightRange": 260.0,
+  "distanceRange": 300.0,
+  "airFactor": 0.3
+ },
+ "camera": {
+  "far": 4000.0
+ },
+ "localLightScale": 1.0,
+ "emissionScale": 1.0,
+ "psx": {
+  "height": 240,
+  "colorBits": 5,
+  "dither": 1.0,
+  "pointTextures": false
+ }
+}

@@ -25,6 +25,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _FogFloor: 0
     - _Intensity: 1.3
     - _NearFade: 3
     - _Softness: 2.6

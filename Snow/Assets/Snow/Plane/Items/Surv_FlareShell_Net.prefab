@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1996581540624023355}
   - component: {fileID: 3149116319429238508}
   - component: {fileID: 2788040052326530733}
+  - component: {fileID: 6826567909891192387}
   m_Layer: 0
   m_Name: Surv_FlareShell_Net
   m_TagString: Untagged
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3566832356
+  GlobalObjectIdHash: 3533414570
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -230,6 +231,23 @@ MonoBehaviour:
   securedMarker: {fileID: 0}
   jointBreakForce: 30000
   targetTimeout: 0.5
+--- !u!114 &6826567909891192387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179701885998336203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a43a97b5f916a4eb102c40d64cb1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  kind: 3
+  flareSeconds: 60
+  shotSpeed: 45
+  shotSeconds: 7
 --- !u!1 &6789216336109588764
 GameObject:
   m_ObjectHideFlags: 0

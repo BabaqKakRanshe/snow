@@ -1,0 +1,2895 @@
+{
+ "materials": [
+  {
+   "name": "M_Concrete",
+   "type": "lit",
+   "albedo": "shared:T_Concrete_A.png",
+   "normal": "shared:T_Concrete_N.png",
+   "mask": "shared:T_Concrete_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.1667,
+    0.1667
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Brick",
+   "type": "lit",
+   "albedo": "shared:T_Brick_A.png",
+   "normal": "shared:T_Brick_N.png",
+   "mask": "shared:T_Brick_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.85,
+    0.85,
+    0.85
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Steel",
+   "type": "lit",
+   "albedo": "shared:T_Steel_A.png",
+   "normal": "shared:T_Steel_N.png",
+   "mask": "shared:T_Steel_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Corrugated",
+   "type": "lit",
+   "albedo": "shared:T_Corrugated_A.png",
+   "normal": "shared:T_Corrugated_N.png",
+   "mask": "shared:T_Corrugated_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.25,
+    0.25
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintOlive",
+   "type": "lit",
+   "albedo": "shared:T_PaintOlive_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintWhite",
+   "type": "lit",
+   "albedo": "shared:T_PaintWhite_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Cable",
+   "type": "lit",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.02,
+    0.02,
+    0.018
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.38,
+   "metallic": 0.3,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_FencePanel",
+   "type": "lit",
+   "albedo": "shared:T_FencePanel_A.png",
+   "normal": "shared:T_FencePanel_N.png",
+   "mask": "shared:T_FencePanel_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.78,
+    0.78,
+    0.76
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_ChainLink",
+   "type": "cutout",
+   "albedo": "shared:T_ChainLink_A.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.35,
+   "metallic": 0.0,
+   "cutoff": 0.45,
+   "normalScale": 1.0,
+   "doubleSided": true,
+   "instancing": true,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_DeadWood",
+   "type": "lit",
+   "albedo": "shared:T_Bark_A.png",
+   "normal": "shared:T_Bark_N.png",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    0.5
+   ],
+   "color": [
+    0.95,
+    0.93,
+    0.9
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.22,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Bark",
+   "type": "lit",
+   "albedo": "shared:T_Bark_A.png",
+   "normal": "shared:T_Bark_N.png",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.18,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Spruce",
+   "type": "cutout",
+   "albedo": "shared:T_SpruceBranch_A.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.12,
+   "metallic": 0.0,
+   "cutoff": 0.42,
+   "normalScale": 1.0,
+   "doubleSided": true,
+   "instancing": true,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_SpruceImpostor",
+   "type": "cutout",
+   "albedo": "shared:T_SpruceImpostor_A.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.1,
+   "metallic": 0.0,
+   "cutoff": 0.42,
+   "normalScale": 1.0,
+   "doubleSided": true,
+   "instancing": true,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Windows",
+   "type": "lit",
+   "albedo": "shared:T_Windows_A.png",
+   "normal": "",
+   "mask": "shared:T_Windows_M.png",
+   "emissionMap": "shared:T_Windows_E.png",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    1.0,
+    0.9,
+    0.75
+   ],
+   "emissionIntensity": 3.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Light_Sodium",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.3,
+    0.22,
+    0.12
+   ],
+   "emission": [
+    1.0,
+    0.55,
+    0.18
+   ],
+   "emissionIntensity": 3.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Light_Red",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.2,
+    0.01,
+    0.005
+   ],
+   "emission": [
+    1.0,
+    0.03,
+    0.006
+   ],
+   "emissionIntensity": 3.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Lamp",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.58,
+    0.26
+   ],
+   "emission": [
+    1.0,
+    0.58,
+    0.26
+   ],
+   "emissionIntensity": 0.9,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Red",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.07,
+    0.02
+   ],
+   "emission": [
+    1.0,
+    0.07,
+    0.02
+   ],
+   "emissionIntensity": 1.3,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Flood",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.66,
+    0.34
+   ],
+   "emission": [
+    1.0,
+    0.66,
+    0.34
+   ],
+   "emissionIntensity": 1.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Rock",
+   "type": "lit",
+   "albedo": "shared:T_Rock_A.png",
+   "normal": "shared:T_Rock_N.png",
+   "mask": "shared:T_Rock_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.2,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Moss",
+   "type": "lit",
+   "albedo": "shared:T_Moss_A.png",
+   "normal": "shared:T_Moss_N.png",
+   "mask": "shared:T_Moss_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintRed",
+   "type": "lit",
+   "albedo": "shared:T_PaintRed_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintYellow",
+   "type": "lit",
+   "albedo": "shared:T_PaintYellow_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PlasterWhite",
+   "type": "lit",
+   "albedo": "shared:T_Plaster_A.jpg",
+   "normal": "shared:T_Plaster_N.png",
+   "mask": "shared:T_Plaster_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.95,
+    0.93,
+    0.88
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_WallPaint",
+   "type": "lit",
+   "albedo": "shared:T_WallPaint_A.jpg",
+   "normal": "",
+   "mask": "shared:T_WallPaint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1.0,
+    0.25
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_HouseWindows",
+   "type": "lit",
+   "albedo": "shared:T_HouseWindows_A.png",
+   "normal": "",
+   "mask": "shared:T_HouseWindows_M.png",
+   "emissionMap": "shared:T_HouseWindows_E.png",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionIntensity": 2.2,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_WoodPlanks",
+   "type": "lit",
+   "albedo": "shared:T_WoodSiding_A.jpg",
+   "normal": "shared:T_WoodSiding_N.png",
+   "mask": "shared:T_WoodSiding_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.46,
+    0.38,
+    0.3
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_WoodPole",
+   "type": "lit",
+   "albedo": "shared:T_BirchBark_A.jpg",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1.0,
+    0.5
+   ],
+   "color": [
+    0.3,
+    0.24,
+    0.2
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.2,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_WoodSleeper",
+   "type": "lit",
+   "albedo": "shared:T_WoodSiding_A.jpg",
+   "normal": "shared:T_WoodSiding_N.png",
+   "mask": "shared:T_WoodSiding_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.2,
+    0.16,
+    0.13
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Slate",
+   "type": "lit",
+   "albedo": "shared:T_Slate_A.jpg",
+   "normal": "shared:T_Slate_N.png",
+   "mask": "shared:T_Slate_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_RoofTar",
+   "type": "lit",
+   "albedo": "shared:T_Asphalt_A.jpg",
+   "normal": "shared:T_Asphalt_N.png",
+   "mask": "shared:T_Asphalt_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.35,
+    0.35
+   ],
+   "color": [
+    0.75,
+    0.75,
+    0.75
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Linoleum",
+   "type": "lit",
+   "albedo": "shared:T_Linoleum_A.jpg",
+   "normal": "",
+   "mask": "shared:T_Linoleum_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_ConcreteFloor",
+   "type": "lit",
+   "albedo": "shared:T_Concrete_A.png",
+   "normal": "shared:T_Concrete_N.png",
+   "mask": "shared:T_Concrete_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.1667,
+    0.1667
+   ],
+   "color": [
+    0.8,
+    0.8,
+    0.78
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.35,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PipeWrap",
+   "type": "lit",
+   "albedo": "shared:T_PipeWrap_A.jpg",
+   "normal": "shared:T_PipeWrap_N.png",
+   "mask": "shared:T_PipeWrap_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_GlassDark",
+   "type": "lit",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.02,
+    0.022,
+    0.025
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.92,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_GlassDirty",
+   "type": "transparent",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.09,
+    0.09,
+    0.08
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.7,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   },
+   "alpha": 0.6,
+   "alphaFromTexture": false
+  },
+  {
+   "name": "M_WindowLit",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.2,
+    0.17,
+    0.12
+   ],
+   "emission": [
+    1.0,
+    0.72,
+    0.42
+   ],
+   "emissionIntensity": 2.2,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_MimicPanel",
+   "type": "lit",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.05,
+    0.12,
+    0.09
+   ],
+   "emission": [
+    0.25,
+    0.9,
+    0.5
+   ],
+   "emissionIntensity": 0.8,
+   "smoothness": 0.6,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintYellowMetal",
+   "type": "lit",
+   "albedo": "shared:T_PaintYellow_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.92,
+    0.82,
+    0.7
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintOrangeMetal",
+   "type": "lit",
+   "albedo": "shared:T_PaintWhite_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.85,
+    0.3,
+    0.06
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintRedMetal",
+   "type": "lit",
+   "albedo": "shared:T_PaintRed_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintGreyMetal",
+   "type": "lit",
+   "albedo": "shared:T_PaintWhite_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.42,
+    0.43,
+    0.43
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintBrownMetal",
+   "type": "lit",
+   "albedo": "shared:T_PaintWhite_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.3,
+    0.17,
+    0.1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintGreenDark",
+   "type": "lit",
+   "albedo": "shared:T_PaintWhite_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.14,
+    0.24,
+    0.16
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintOliveDark",
+   "type": "lit",
+   "albedo": "shared:T_PaintWhite_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.16,
+    0.18,
+    0.12
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_PaintCream",
+   "type": "lit",
+   "albedo": "shared:T_PaintWhite_A.png",
+   "normal": "shared:T_Paint_N.png",
+   "mask": "shared:T_Paint_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    0.8,
+    0.74,
+    0.6
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Track",
+   "type": "lit",
+   "albedo": "shared:T_Steel_A.png",
+   "normal": "",
+   "mask": "shared:T_Steel_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.22,
+    0.21,
+    0.2
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.3,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Grille",
+   "type": "lit",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.05,
+    0.05,
+    0.05
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.6,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Rubber",
+   "type": "lit",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.025,
+    0.025,
+    0.025
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.25,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_CoalLoad",
+   "type": "lit",
+   "albedo": "T_CoalDetail_A.jpg",
+   "normal": "T_CoalDetail_N.png",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.45,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Rail",
+   "type": "lit",
+   "albedo": "shared:T_Steel_A.png",
+   "normal": "",
+   "mask": "shared:T_Steel_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.9,
+    0.85,
+    0.8
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.55,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Ballast",
+   "type": "lit",
+   "albedo": "shared:T_Ballast_A.jpg",
+   "normal": "shared:T_Ballast_N.png",
+   "mask": "shared:T_Ballast_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.55,
+    0.52,
+    0.5
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Rubble",
+   "type": "lit",
+   "albedo": "shared:T_Rubble_A.jpg",
+   "normal": "shared:T_Rubble_N.png",
+   "mask": "shared:T_Rubble_M.png",
+   "emissionMap": "",
+   "tiling": [
+    0.5,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Tarp",
+   "type": "lit",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.07,
+    0.085,
+    0.05
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.2,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_CoalSigns",
+   "type": "lit",
+   "albedo": "T_CoalSigns_A.png",
+   "normal": "",
+   "mask": "T_CoalSigns_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_CoalSignsNeon",
+   "type": "lit",
+   "albedo": "T_CoalSigns_A.png",
+   "normal": "",
+   "mask": "T_CoalSigns_M.png",
+   "emissionMap": "T_CoalSigns_E.png",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    1,
+    1,
+    1
+   ],
+   "emissionIntensity": 4.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Lamp_DRL",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.6,
+    0.7,
+    0.65
+   ],
+   "emission": [
+    0.8,
+    1.0,
+    0.92
+   ],
+   "emissionIntensity": 7.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Lamp_Sodium",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.3,
+    0.2,
+    0.1
+   ],
+   "emission": [
+    1.0,
+    0.55,
+    0.18
+   ],
+   "emissionIntensity": 7.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Lamp_Bulb",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.4,
+    0.3,
+    0.2
+   ],
+   "emission": [
+    1.0,
+    0.68,
+    0.36
+   ],
+   "emissionIntensity": 5.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Lamp_Amber",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.4,
+    0.2,
+    0.02
+   ],
+   "emission": [
+    1.0,
+    0.45,
+    0.05
+   ],
+   "emissionIntensity": 6.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Ember",
+   "type": "emissive",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.25,
+    0.06,
+    0.02
+   ],
+   "emission": [
+    1.0,
+    0.3,
+    0.06
+   ],
+   "emissionIntensity": 4.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_DRL",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.8,
+    1.0,
+    0.92
+   ],
+   "emission": [
+    0.8,
+    1.0,
+    0.92
+   ],
+   "emissionIntensity": 0.9,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Sodium",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.55,
+    0.18
+   ],
+   "emission": [
+    1.0,
+    0.55,
+    0.18
+   ],
+   "emissionIntensity": 1.05,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Bulb",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.68,
+    0.36
+   ],
+   "emission": [
+    1.0,
+    0.68,
+    0.36
+   ],
+   "emissionIntensity": 0.75,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Amber",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.45,
+    0.05
+   ],
+   "emission": [
+    1.0,
+    0.45,
+    0.05
+   ],
+   "emissionIntensity": 1.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Neon",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.08,
+    0.03
+   ],
+   "emission": [
+    1.0,
+    0.08,
+    0.03
+   ],
+   "emissionIntensity": 0.9,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Glow_Ember",
+   "type": "glow",
+   "albedo": "",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1.0,
+    0.32,
+    0.08
+   ],
+   "emission": [
+    1.0,
+    0.32,
+    0.08
+   ],
+   "emissionIntensity": 1.3,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 3.2,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_CoalTerrain",
+   "type": "lit",
+   "albedo": "T_CoalMacro_A.jpg",
+   "normal": "",
+   "mask": "T_CoalMacro_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "T_CoalDetail_A.jpg",
+    "normal": "T_CoalDetail_N.png",
+    "tiling": [
+     800.0,
+     600.0
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Weeds",
+   "type": "cutout",
+   "albedo": "shared:T_Weeds_Cut.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.85,
+    0.75,
+    0.6
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.1,
+   "metallic": 0.0,
+   "cutoff": 0.42,
+   "normalScale": 1.0,
+   "doubleSided": true,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Leaves",
+   "type": "cutout",
+   "albedo": "shared:T_Leaves_Cut.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.15,
+   "metallic": 0.0,
+   "cutoff": 0.42,
+   "normalScale": 1.0,
+   "doubleSided": true,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_BirchBark",
+   "type": "lit",
+   "albedo": "shared:T_BirchBark_A.jpg",
+   "normal": "shared:T_BirchBark_N.png",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1.0,
+    0.5
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.2,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Water",
+   "type": "transparent",
+   "albedo": "",
+   "normal": "shared:T_Asphalt_N.png",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    0.05,
+    0.05
+   ],
+   "color": [
+    0.008,
+    0.009,
+    0.01
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.94,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 0.2,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   },
+   "alpha": 0.9,
+   "alphaFromTexture": false
+  },
+  {
+   "name": "M_Bone_Coal",
+   "type": "lit",
+   "albedo": "shared:T_Giant_A.jpg",
+   "normal": "",
+   "mask": "shared:T_Giant_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    0.62,
+    0.58,
+    0.52
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "shared:T_BoneDetail_A.png",
+    "normal": "shared:T_BoneDetail_N.png",
+    "tiling": [
+     90.0,
+     90.0
+    ],
+    "normalScale": 0.8
+   }
+  },
+  {
+   "name": "M_Flesh",
+   "type": "lit",
+   "albedo": "T_Flesh_A.jpg",
+   "normal": "T_Flesh_N.png",
+   "mask": "T_Flesh_M.png",
+   "emissionMap": "",
+   "tiling": [
+    1.0,
+    1.0
+   ],
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.4,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  }
+ ],
+ "_doc": "CoalPit materials. Textures without prefix live in Assets/Locations/CoalPit/Textures, shared: in Assets/SkyIsland/Textures."
+}

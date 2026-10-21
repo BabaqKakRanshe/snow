@@ -334,6 +334,28 @@ namespace Snow.Player
             UseResultRpc(seq, ok, new FixedString128Bytes(reason ?? ""));
         }
 
+        /// <summary>Owner: the action of the survival item in hand (TEMPORARY left mouse button, user decision 16.10).</summary>
+        public void RequestItemAction(CargoItem item)
+        {
+            if (!IsOwner || item == null) return;
+            ItemActionRpc(item.NetworkObject, ++_seq);
+        }
+
+        [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Owner)]
+        void ItemActionRpc(NetworkObjectReference itemRef, uint seq, RpcParams rpc = default)
+        {
+            ulong sender = rpc.Receive.SenderClientId;
+            if (!Dedup.Accept(sender, seq)) return;
+            string reason = "Нет цели";
+            bool ok = false;
+            if (itemRef.TryGet(out NetworkObject no) && no.TryGetComponent(out Snow.Aircraft.SurvivalItem s) && no.TryGetComponent(out CargoItem c))
+            {
+                if (CargoItem.HeldBy(sender) != c) reason = "Возьмите предмет в руки";
+                else ok = s.ServerAction(sender, transform.position, out reason);
+            }
+            UseResultRpc(seq, ok, new FixedString128Bytes(reason ?? ""));
+        }
+
         /// <summary>Owner: the plane key out of the pocket onto the ground (G).</summary>
         public void RequestDropKey()
         {

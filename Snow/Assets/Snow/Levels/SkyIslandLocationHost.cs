@@ -12,11 +12,12 @@ namespace Snow.Levels
     /// <summary>
     /// Bridge between the openable parts of a location built by the Sky Island core (SkyIslandInteractable, light manager,
     /// power grid) and the game's networked interaction (zones on the Interact layer, PlayerNet.UseRpc, ServerUse). Sits on
-    /// the location root next to its NetworkObject; Tools / Snow / Integrate BaseV2 Level fills <see cref="parts"/>.
-    /// The server runs the core's own logic (Toggle: linked shutter curtains, room switches, the main switch) and publishes
-    /// the result: one bit per part without a NetworkDoor, the grid power and the room bits. Clients only copy that state
-    /// into the parts' fields and call SetRoom / SetPower: the core's Toggle / Open / Close / Follow raise onToggled, which
-    /// would flip a room or the grid a second time on a client (NET-01, NET-02). Doors replicate themselves (NetworkDoor).
+    /// the location root next to its NetworkObject; Tools / Snow / Integrate ... Level (LocationLevelBuilder) fills
+    /// <see cref="parts"/>. The server runs the core's own logic (Toggle: linked shutter curtains, room switches, the main
+    /// switch) and publishes the result: one bit per part without a NetworkDoor, the grid power and the room bits. Clients
+    /// only copy that state into the parts' fields and call SetRoom / SetPower: the core's Toggle / Open / Close / Follow
+    /// raise onToggled, which would flip a room or the grid a second time on a client (NET-01, NET-02). Doors with a
+    /// NetworkDoor replicate themselves; doors without one (sliding gates, the thousands of doors of Town) go the shared way.
     /// </summary>
     public class SkyIslandLocationHost : InteractionHost
     {
@@ -28,7 +29,7 @@ namespace Snow.Levels
             Furniture,
             /// <summary>A position without consequences yet (breakers, isolators, heating stop: OPEN).</summary>
             Positional,
-            /// <summary>The grid's switch (main switch): the core's power grid listens to it.</summary>
+            /// <summary>The grid's switch (main switch, generator start): the core's power grid listens to it.</summary>
             PowerSwitch,
             /// <summary>Room light switch: the light manager flips the room on every toggle.</summary>
             LightSwitch,
@@ -38,23 +39,36 @@ namespace Snow.Levels
             ShutterWinder,
             /// <summary>Shutter curtain: driven only, no zone.</summary>
             Shutter,
+            /// <summary>A door without a NetworkDoor (sliding gates, Town's doors): a bit like furniture, the part stays on its
+            /// own layer so a closed door holds the player. TEMPORARY: no obstruction check (LOCATIONS L4.1.2).</summary>
+            HostDoor,
         }
 
         [Serializable]
         public class Part
         {
-            [Tooltip("Zone id: the part's name when names are unique in the location, else a short generated id")] public string id;
+            [Tooltip("Zone id: the part's name when names are unique in the location, else a short generated id (p<n>)")] public string id;
             public SkyIslandInteractable part;
             [Tooltip("Doors only: the NetworkDoor on the part's object")] public NetworkDoor door;
             public Category category;
             [Tooltip("Light / shutter switches and winders: room name (light manager room for light switches)")] public string room;
             [Tooltip("State text at target 0 / 1 (Furniture, Positional, PowerSwitch)")] public string state0, state1;
             [Tooltip("Action text at target 0 / 1 (Furniture, Positional, PowerSwitch)")] public string action0, action1;
+            [Tooltip("State text of a locked part (empty: \"заперто\")")] public string lockedState;
+            [Tooltip("PowerSwitch: state text when on but the grid is down (empty: state1)")] public string state1NoPower;
+            [Tooltip("Doors: closed, opening, open, closing, blocked (empty: закрыта, открывается, открыта, закрывается, упёрлась)")]
+            public string[] doorStates;
         }
 
         public Part[] parts = new Part[0];
         [Tooltip("Room lights of the location (none: no room state is replicated)")] public SkyIslandLightManager lights;
         [Tooltip("Power grid of the location (none: no power state is replicated)")] public SkyIslandPowerGrid grid;
+        [Tooltip("Large locations (Town): the server sends the elements a use changed and reconciles everything once a " +
+                 "second; clients apply changed elements and reconcile once a second. Off: a full pass every frame")]
+        public bool incremental;
+
+        /// <summary>s: full reconcile period in incremental mode.</summary>
+        const float ReconcilePeriod = 1f;
 
         // server writes, everyone reads
         // a bit per part without a NetworkDoor, in the order of parts: part i is bit i % 64 of element i / 64. Bits, not a
@@ -70,6 +84,11 @@ namespace Snow.Levels
         string[] _syncedIds;
         int[] _syncedOf;                                               // part index -> synced index, -1 for doors
         uint _hash;
+        float _nextReconcile;
+
+        /// <summary>Under a location root lie the capsules of every tree: the embedded-zone table (zone x convex collider)
+        /// would take seconds to minutes on Forest and Town. Location zones stick out of their parts and need no embedding.</summary>
+        protected override bool UseEmbeddedZones => false;
 
         protected override void Awake()
         {
@@ -114,6 +133,12 @@ namespace Snow.Levels
             // the grid's Start forces startPowered: set before it runs, the lamps come up as on the host (no flash)
             if (grid != null) grid.startPowered = _power.Value;
             ApplyReplicated(true);
+            if (incremental) _bits.OnListChanged += OnBitsChanged;
+        }
+
+        public override void OnNetworkDespawn()
+        {
+            if (!IsServer && incremental) _bits.OnListChanged -= OnBitsChanged;
         }
 
         // ------------------------------------------------------------------ server
@@ -132,31 +157,55 @@ namespace Snow.Levels
             if (p.part.driven) { reason = "Управляется изнутри"; return false; }
             if (!p.part.HasPower) { reason = "Нет питания"; return false; }
             p.part.Toggle();                                           // the core does the rest: linked curtains, rooms, grid
-            Publish();
+            if (!incremental) Publish();
+            else
+            {
+                // the part and whatever it drives; anything else changes through the once-a-second reconcile
+                PublishWord(_syncedOf[i] >> 6);
+                if (p.part.linked != null)
+                    foreach (SkyIslandInteractable l in p.part.linked)
+                        if (l != null && _index.TryGetValue(IdOf(l), out int li) && _syncedOf[li] >= 0) PublishWord(_syncedOf[li] >> 6);
+                PublishGrid();
+            }
             return true;
         }
 
         void LateUpdate()
         {
             if (!IsSpawned) return;
-            if (IsServer) Publish();
-            else ApplyReplicated(false);
+            bool full = !incremental || Time.unscaledTime >= _nextReconcile;
+            if (full) _nextReconcile = Time.unscaledTime + ReconcilePeriod;
+            if (IsServer)
+            {
+                if (full) Publish();
+                else PublishGrid();
+            }
+            else if (full) ApplyReplicated(false);
+            else ApplyGrid();
         }
 
-        /// <summary>Server: what changed since the last frame goes out, whoever changed it (players, later scripted events).
-        /// No allocations in frames without changes.</summary>
+        /// <summary>Server: what changed since the last pass goes out, whoever changed it (players, later scripted events).
+        /// No allocations in passes without changes.</summary>
         void Publish()
         {
-            for (int e = 0; e < Words && e < _bits.Count; e++)
-            {
-                ulong word = Word(e);
-                ulong changed = word ^ _bits[e];
-                if (changed == 0UL) continue;
-                _bits[e] = word;
-                for (int b = 0; b < 64; b++)
-                    if ((changed & (1UL << b)) != 0)
-                        BenchLog.Event("loc_state", "word", e, "bit", b, "id", _syncedIds[e * 64 + b], "v", (word >> b) & 1UL);
-            }
+            for (int e = 0; e < Words && e < _bits.Count; e++) PublishWord(e);
+            PublishGrid();
+        }
+
+        void PublishWord(int e)
+        {
+            if (e < 0 || e >= _bits.Count) return;
+            ulong word = Word(e);
+            ulong changed = word ^ _bits[e];
+            if (changed == 0UL) return;
+            _bits[e] = word;
+            for (int b = 0; b < 64; b++)
+                if ((changed & (1UL << b)) != 0)
+                    BenchLog.Event("loc_state", "word", e, "bit", b, "id", _syncedIds[e * 64 + b], "v", (word >> b) & 1UL);
+        }
+
+        void PublishGrid()
+        {
             if (grid != null && _power.Value != grid.Powered)
             {
                 _power.Value = grid.Powered;
@@ -172,15 +221,24 @@ namespace Snow.Levels
 
         // ------------------------------------------------------------------ client
         /// <summary>Client: parts by their fields only (no Toggle / Follow: no onToggled, no driving, no power check),
-        /// grid and rooms through the core's setters. Compared every frame, so the arrival order of the variables and
+        /// grid and rooms through the core's setters. Compared on every pass, so the arrival order of the variables and
         /// whether the grid's Start has run do not matter. <paramref name="snap"/>: late join, no animation.</summary>
         void ApplyReplicated(bool snap)
         {
-            for (int i = 0; i < _synced.Length && (i >> 6) < _bits.Count; i++)
+            for (int e = 0; e < _bits.Count; e++) ApplyWord(e, snap);
+            ApplyGrid();
+        }
+
+        void ApplyWord(int e, bool snap)
+        {
+            if (e < 0 || e >= _bits.Count) return;
+            ulong word = _bits[e];
+            int end = Mathf.Min(_synced.Length, e * 64 + 64);
+            for (int i = e * 64; i < end; i++)
             {
                 SkyIslandInteractable p = _synced[i];
                 if (p == null) continue;
-                float t = ((_bits[i >> 6] >> (i & 63)) & 1UL) != 0 ? 1f : 0f;
+                float t = ((word >> (i & 63)) & 1UL) != 0 ? 1f : 0f;
                 if (snap)
                 {
                     p.openAmount = t;
@@ -194,6 +252,10 @@ namespace Snow.Levels
                     p.enabled = true;
                 }
             }
+        }
+
+        void ApplyGrid()
+        {
             if (grid != null && grid.Powered != _power.Value) grid.SetPower(_power.Value);
             if (lights == null) return;
             uint bits = _rooms.Value;
@@ -205,15 +267,32 @@ namespace Snow.Levels
             }
         }
 
+        /// <summary>Incremental mode, client: an element changed on the server.</summary>
+        void OnBitsChanged(NetworkListEvent<ulong> change)
+        {
+            if (change.Type == NetworkListEvent<ulong>.EventType.Value || change.Type == NetworkListEvent<ulong>.EventType.Add ||
+                change.Type == NetworkListEvent<ulong>.EventType.Insert)
+                ApplyWord(change.Index, false);
+            else ApplyReplicated(false);
+        }
+
         // ------------------------------------------------------------------ hints (client and server, replicated state)
         public override string Describe(string id)
         {
             if (!_index.TryGetValue(id, out int i)) return null;
             Part p = parts[i];
-            if (p.door != null) return DoorText(p.door.State);
+            if (p.part != null && p.part.locked) return string.IsNullOrEmpty(p.lockedState) ? "заперто" : p.lockedState;
+            if (p.door != null) return DoorText(p.door.State, p.doorStates);
             if (p.part == null) return null;
             switch (p.category)
             {
+                case Category.HostDoor:
+                {
+                    SkyIslandInteractable d = p.part;
+                    DoorState s = d.target > 0.5f ? (d.openAmount >= 0.999f ? DoorState.Open : DoorState.Opening)
+                                                  : (d.openAmount <= 0.001f ? DoorState.Closed : DoorState.Closing);
+                    return DoorText(s, p.doorStates);
+                }
                 case Category.LightSwitch:
                 {
                     bool on = lights != null && lights.IsRoomOn(p.room);
@@ -225,6 +304,9 @@ namespace Snow.Levels
                     return CurtainText(p.part, "опущены", "подняты", "едут");
                 case Category.ShutterWinder:
                     return CurtainText(p.part, "опущена", "поднята", "едет");
+                case Category.PowerSwitch:
+                    if (p.part.target > 0.5f && grid != null && !grid.Powered && !string.IsNullOrEmpty(p.state1NoPower)) return p.state1NoPower;
+                    return p.part.target > 0.5f ? p.state1 : p.state0;
                 default:
                     return p.part.target > 0.5f ? p.state1 : p.state0;
             }
@@ -237,11 +319,13 @@ namespace Snow.Levels
             if (p.door != null)
             {
                 bool opening = p.door.State == DoorState.Open || p.door.State == DoorState.Opening;
-                return opening ? "закрыть" : "открыть";
+                return DoorAction(p, opening);
             }
             if (p.part == null) return base.ActionText(id);
             switch (p.category)
             {
+                case Category.HostDoor:
+                    return DoorAction(p, p.part.target > 0.5f);
                 case Category.LightSwitch:
                     return lights != null && lights.IsRoomOn(p.room) ? "выключить" : "включить";
                 case Category.ShutterSwitch:
@@ -254,16 +338,26 @@ namespace Snow.Levels
             }
         }
 
-        static string DoorText(DoorState s)
+        static readonly string[] DefaultDoorStates = { "закрыта", "открывается", "открыта", "закрывается", "упёрлась" };
+
+        static string DoorText(DoorState s, string[] texts)
         {
+            if (texts == null || texts.Length < 5) texts = DefaultDoorStates;
             switch (s)
             {
-                case DoorState.Closed: return "закрыта";
-                case DoorState.Opening: return "открывается";
-                case DoorState.Open: return "открыта";
-                case DoorState.Closing: return "закрывается";
-                default: return "упёрлась";
+                case DoorState.Closed: return texts[0];
+                case DoorState.Opening: return texts[1];
+                case DoorState.Open: return texts[2];
+                case DoorState.Closing: return texts[3];
+                default: return texts[4];
             }
+        }
+
+        /// <summary>Open or opening: the close action (action1, else "закрыть"); otherwise the open one (action0, "открыть").</summary>
+        static string DoorAction(Part p, bool openOrOpening)
+        {
+            string a = openOrOpening ? p.action1 : p.action0;
+            return !string.IsNullOrEmpty(a) ? a : openOrOpening ? "закрыть" : "открыть";
         }
 
         /// <summary>State of the curtains a switch or winder drives: all down, all up, or moving / in between.</summary>
@@ -285,6 +379,14 @@ namespace Snow.Levels
         // ------------------------------------------------------------------ helpers
         int Words => (_synced.Length + 63) >> 6;
 
+        /// <summary>Id of a part the server toggled through a link (curtains): looked up once, linked parts are few.</summary>
+        string IdOf(SkyIslandInteractable part)
+        {
+            for (int i = 0; i < parts.Length; i++)
+                if (parts[i] != null && parts[i].part == part) return parts[i].id;
+            return string.Empty;
+        }
+
         /// <summary>Server: element e of the bit list from the parts' targets.</summary>
         ulong Word(int e)
         {
@@ -304,7 +406,8 @@ namespace Snow.Levels
             return bits;
         }
 
-        /// <summary>FNV-1a over the part ids and room names in replication order: host and client must agree.</summary>
+        /// <summary>FNV-1a over the part ids, the parts' object names (generated ids p&lt;n&gt; alone would not see a different
+        /// order) and room names in replication order: host and client must agree.</summary>
         uint LayoutHash()
         {
             uint h = 2166136261u;
@@ -313,7 +416,11 @@ namespace Snow.Levels
                 if (s != null) foreach (char c in s) { h ^= c; h *= 16777619u; }
                 h ^= 0x1F; h *= 16777619u;                             // separator
             }
-            foreach (Part p in parts) Add(p?.id);
+            foreach (Part p in parts)
+            {
+                Add(p?.id);
+                Add(p?.part != null ? p.part.name : null);
+            }
             if (lights != null) foreach (var r in lights.rooms) Add(r?.name);
             return h;
         }

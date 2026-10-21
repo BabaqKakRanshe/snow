@@ -30,6 +30,8 @@ namespace Snow.EditorTools
         // approach lights east of it. The plane lines up 30 m inside the east threshold and takes off to the west.
         static readonly Vector3 PlaneSpot = new Vector3(370f, 0f, 100f);
         static readonly Quaternion PlaneFacing = Quaternion.Euler(0f, -90f, 0f);
+        /// <summary>m: fall reset height (LOCATIONS L4.6).</summary>
+        const float FallY = -60f;
 
         [MenuItem("Tools/Snow/Integrate Sky Island Level")]
         public static void IntegrateMenu()
@@ -63,6 +65,7 @@ namespace Snow.EditorTools
                 if (old != null) Object.DestroyImmediate(old);
             }
 
+            BenchBuilder.EnsurePlayerTag();
             GameObject player = AssetDatabase.LoadAssetAtPath<GameObject>(BenchBuilder.PlayerPrefabPath);
             NetworkPrefabsList list = BenchBuilder.EnsurePrefabList(player);
             if (!list.PrefabList.Any(x => x.Prefab == variant)) list.Add(new NetworkPrefab { Prefab = variant });
@@ -113,6 +116,11 @@ namespace Snow.EditorTools
             // the cargo, and later the key, ladder and kits, come with the plane (PlaneLoadout on the variant)
 
             root.gameObject.AddComponent<SkyIslandPlayerCamera>().sceneCamera = sceneCam;
+
+            // walked off the island: back to a spawn point (runway and village at 0..20 m, relief from -2.7 m, nothing under it)
+            var fall = root.gameObject.AddComponent<LocationFallReset>();
+            fall.fallY = FallY;
+            fall.spawnRoot = spawnRoot;
 
             BenchBuilder.SaveNetworkScene(scene, ScenePath, true);
             Debug.Log($"[Snow] Sky Island level integrated: {ScenePath} (plane in one piece, {spawns.Count} spawn points), first in Build Settings.");

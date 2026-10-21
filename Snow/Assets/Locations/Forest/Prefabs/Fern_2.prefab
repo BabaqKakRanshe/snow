@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &705332089220787767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_Name
+      value: Fern_2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 80
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1978542511314858433}
+  m_SourcePrefab: {fileID: 100100000, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+--- !u!23 &7121577316948181986 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+  m_PrefabInstance: {fileID: 705332089220787767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8856393376220526398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c7d363fa540ea60d065db9b3cd8b9890, type: 3}
+  m_PrefabInstance: {fileID: 705332089220787767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &1978542511314858433
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856393376220526398}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.28612375, y: 0.36241618, z: -0.33651018}
+  m_Size: 2.8330202
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.02
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7121577316948181986}
+  m_Enabled: 1

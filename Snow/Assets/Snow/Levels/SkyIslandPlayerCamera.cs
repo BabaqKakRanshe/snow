@@ -46,6 +46,11 @@ namespace Snow.Levels
                 // every serialized field, so later core fields (linear fog, thin below...) come along without a code change
                 JsonUtility.FromJsonOverwrite(JsonUtility.ToJson(fogFrom), fog);
                 fog.target = cam;
+                // the core's fog events (Forest FogUnderHand, FogRibs) scale the controller they found first: the scene
+                // camera's, switched off below. Pointed at the player's, they thicken the fog he sees; otherwise his
+                // controller rewrites the fog every frame and the event has no effect (LOCATIONS QL11)
+                foreach (SkyIslandFogEvent e in FindObjectsByType<SkyIslandFogEvent>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                    if (e.fogController == null || e.fogController == fogFrom) e.fogController = fog;
             }
 
             if (copyPsxFrame && sceneCamera.TryGetComponent(out SkyIslandPSX psxFrom) && !cam.TryGetComponent(out SkyIslandPSX _))

@@ -75,6 +75,13 @@ namespace Snow.Interaction
         public virtual bool ZoneOpen(UtilityPlaneInteractable zone, Snow.Cargo.CargoItem held) => true;
 
         /// <summary>
+        /// Does this host look for zones embedded in its solids (<see cref="EmbeddedOnRay"/>)? The plane and the benches do.
+        /// A location host does not: every tree capsule of the map lies under it, and the zone x collider table would take
+        /// seconds to minutes to build; location zones stick out of their parts (LOCATIONS L4.4).
+        /// </summary>
+        protected virtual bool UseEmbeddedZones => true;
+
+        /// <summary>
         /// Zones whose centre lies inside one of this host's solid colliders, or whose box cuts into it (in the model: seat
         /// zones inside the seat cushions, pulls and rheostats inside the panel, inner door handles inside the door, the
         /// flap lever behind the pedestal hull). A ray that meets such a
@@ -85,6 +92,7 @@ namespace Snow.Interaction
                                   out UtilityPlaneInteractable zone)
         {
             zone = null;
+            if (!UseEmbeddedZones) return false;
             if (_embedded == null) BuildEmbedded();
             if (!_embedded.TryGetValue(solid, out var list)) return false;
             float best = float.MaxValue;

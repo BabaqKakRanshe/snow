@@ -1,0 +1,150 @@
+{
+ "_doc": "AboveClouds look (linear colours). Clear deep-blue sky, hard low afternoon sun, cloud sea below, thin aerial haze to the horizon.",
+ "fog": {
+  "mode": "Exponential",
+  "density": 0.00011,
+  "color": [
+   0.5,
+   0.6,
+   0.76
+  ]
+ },
+ "sky": {
+  "horizon": [
+   0.46,
+   0.58,
+   0.78
+  ],
+  "band": [
+   0.62,
+   0.7,
+   0.84
+  ],
+  "zenith": [
+   0.025,
+   0.08,
+   0.29
+  ],
+  "below": [
+   0.72,
+   0.77,
+   0.86
+  ],
+  "bandHeight": 0.01,
+  "bandWidth": 0.07,
+  "cloudScale": 0.3,
+  "cloudContrast": 0.0,
+  "cloudSpeed": 0.002,
+  "sunColor": [
+   1.0,
+   0.93,
+   0.8
+  ],
+  "sunGlow": 0.3,
+  "sunGlowPower": 7.0,
+  "sunDisc": 8.0,
+  "sunDiscPower": 3000.0
+ },
+ "sun": {
+  "dir_blender": [
+   0.5241,
+   0.7481,
+   -0.4071
+  ],
+  "color": [
+   1.0,
+   0.93,
+   0.82
+  ],
+  "intensity": 0.95,
+  "angle": 0.6,
+  "dir_unity": [
+   -0.5241,
+   -0.4071,
+   -0.7481
+  ]
+ },
+ "ambient": {
+  "sky": [
+   0.17,
+   0.24,
+   0.4
+  ],
+  "equator": [
+   0.25,
+   0.29,
+   0.35
+  ],
+  "ground": [
+   0.4,
+   0.42,
+   0.46
+  ]
+ },
+ "weights": {
+  "ambient": 1.0,
+  "sun": 1.0,
+  "local": 1.0,
+  "emit": 1.0
+ },
+ "post": {
+  "exposure": 0.0,
+  "contrast": 14.0,
+  "tonemap": "Neutral",
+  "bloom": {
+   "threshold": 1.0,
+   "intensity": 0.7,
+   "scatter": 0.65,
+   "tint": [
+    1.0,
+    0.98,
+    0.95
+   ],
+   "clamp": 65472.0,
+   "highQuality": true
+  },
+  "vignette": {
+   "intensity": 0.22,
+   "smoothness": 0.45,
+   "color": [
+    0.0,
+    0.01,
+    0.04
+   ],
+   "rounded": false
+  },
+  "grain": {
+   "type": "Medium1",
+   "intensity": 0.12,
+   "response": 0.8
+  },
+  "chromaticAberration": 0.04,
+  "lut": "AboveClouds_LUT32.png",
+  "lutContribution": 1.0
+ },
+ "fogByAltitude": {
+  "center": [
+   0.0,
+   0.0
+  ],
+  "radii": [
+   1400.0,
+   1400.0
+  ],
+  "topY": 0.0,
+  "heightRange": 400.0,
+  "distanceRange": 600.0,
+  "airFactor": 1.0
+ },
+ "camera": {
+  "far": 9000.0
+ },
+ "localLightScale": 1.0,
+ "emissionScale": 1.0,
+ "psx": {
+  "height": 240,
+  "colorBits": 5,
+  "dither": 1.0,
+  "pointTextures": false
+ }
+}

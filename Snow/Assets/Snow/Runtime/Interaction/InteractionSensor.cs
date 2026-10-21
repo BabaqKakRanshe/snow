@@ -149,6 +149,11 @@ namespace Snow.Interaction
                 else if (wheel < -0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Back);
             }
 
+            // left mouse button with a survival item in hand: its action (TEMPORARY, user decision 16.10)
+            if (ctx == InputContext.OnFoot && Held != null && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame
+                && Held.TryGetComponent(out Snow.Aircraft.SurvivalItem _))
+                net.RequestItemAction(Held);
+
             // G: the plane key out of the pocket onto the ground (TEMPORARY, §8.3 one pocket without UI)
             if (ctx == InputContext.OnFoot && Keyboard.current != null && Keyboard.current.gKey.wasPressedThisFrame)
                 net.RequestDropKey();
@@ -190,6 +195,7 @@ namespace Snow.Interaction
                     TargetPoint = point;
                     Hint = $"{cargo.label} ({cargo.massKg:0.##} кг) — {cargo.Describe()}";
                     if (cargo.TryGetComponent(out Snow.Aircraft.PlaneKey _)) Hint += "   [R] в карман, [G] выложить";
+                    if (cargo.TryGetComponent(out Snow.Aircraft.SurvivalItem si) && si.ActionText() is string act) Hint += $"   [ЛКМ в руках] {act}";
                     break;
                 case Grabbable grab:
                     TargetGrab = grab;

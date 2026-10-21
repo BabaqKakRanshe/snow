@@ -50,6 +50,8 @@ namespace Snow.Aircraft
         AircraftSystems _systems;
         FlightInstruments _instruments;
         CabinClimate _climate;
+        [Tooltip("Hobbs meter at session start, hours (TEMPORARY)")] public float hobbsStartHours = 1520.0f;
+        float _hobbs;
         PlaneWinterKitNet _kitNet;
         bool _held;                                    // И4: the kit holds the parked aircraft (anchor spring)
         Vector3 _holdPos;
@@ -110,6 +112,7 @@ namespace Snow.Aircraft
             _systems = new AircraftSystems(tuning, oat);
             _instruments = new FlightInstruments(tuning);
             _climate = new CabinClimate(tuning);
+            _hobbs = hobbsStartHours;
             _ap = new Autopilot(tuning.AutopilotGains);
             Body.linearDamping = 0f;                                  // PHYS-01: no hidden stabiliser (§8.1)
             Body.angularDamping = 0f;
@@ -212,6 +215,7 @@ namespace Snow.Aircraft
             Pour(dt);
 
             UpdateMass(false);
+            if (e.Combusting) _hobbs += dt / 3600f;                        // Hobbs meter: engine hours
             _climate.Step(oat, PeopleAboard(), e.Combusting, s.On(PlaneSwitch.Defrost) ? 1f : 0f, s.On(PlaneSwitch.CabinHeat) ? 1f : 0f, dt);
             Publish(dt, cg);
             if (Time.time >= _nextLog)
@@ -429,7 +433,7 @@ namespace Snow.Aircraft
                 NgPct = bus ? e.Ng : 0f, OilPsi = bus ? e.OilPsi : 0f, OilC = bus ? e.OilC : 0f,
                 FuelFlowPph = bus ? e.FuelFlowPph : 0f, FuelLGal = bus ? fuel.LeftL / Gal : 0f, FuelRGal = bus ? fuel.RightL / Gal : 0f,
                 Amps = el.BatteryAmps, OatC = EnvironmentProvider.TemperatureAt(cg.y), BusVolts = el.BusVolts,
-                SuctionInHg = _instruments.SuctionInHg, CompassDeg = _instruments.CompassDeg,
+                SuctionInHg = _instruments.SuctionInHg, CompassDeg = _instruments.CompassDeg, HobbsHours = _hobbs,
                 FogWindshield = _climate.Windshield, FogSide = _climate.Side,
                 Lamps = _systems.Lamps, BusPowered = bus,
                 StallWarning = bus && o.Airspeed > 8f && stallMargin < tuning.stallWarningMarginDeg,
@@ -667,15 +671,16 @@ namespace Snow.Aircraft
         }
 
         /// <summary>
-        /// Server, И3 K.7–K.8: troop seats get up inside. TEMPORARY: not while the aircraft moves (ground speed ≥ 0.5 m/s,
-        /// walking in a moving aircraft is DEFERRED). With the ladder stowed, L1/L2 get out through the open left cargo door.
+        /// Server, И3 K.7–K.8: troop seats get up inside. User decision 16.10: also in flight (the player stands on the
+        /// moving bay floor and rides with it, §7.6). With the ladder stowed, L1/L2 get out through the open left cargo
+        /// door — on the ground only (in the air that door leads nowhere).
         /// </summary>
         protected override bool ServerInsideExit(ulong client, SeatAnchor a, out Vector3 feet, out string reason)
         {
             feet = a.exit.position;
-            if (Telemetry.GroundSpeed >= 0.5f) { reason = "Самолёт движется"; return false; }
             if (Switches.LadderStowed && (a.seatId == "PaxSeat_L1" || a.seatId == "PaxSeat_L2"))
             {
+                if (!physics.Last.OnGround) { reason = "Мешает стремянка: в полёте не выйти"; return false; }
                 if (cargoDoorL == null || cargoDoorL.State != DoorState.Open) { reason = "Мешает стремянка: откройте левую грузовую дверь"; return false; }
                 if (exitCargoL != null && FindExitAt(exitCargoL, out feet)) { reason = null; return true; }
                 reason = "Нет места для выхода у левой грузовой двери";
@@ -711,11 +716,31 @@ namespace Snow.Aircraft
                     int i = System.Array.IndexOf(UtilityPlane.UtilityPlaneRig.RadioKnobNames, id);
                     if (i < 0) { reason = "Нет действия"; return false; }
                     s.SetRadioKnob(i, s.RadioKnob(i) + dir);
+                    TuneRadio(ref s, id, dir);
                     break;
                 }
             }
             SetSwitches(s, id, client);
             return true;
+        }
+
+        /// <summary>
+        /// The frequency knobs change what the screens show (user decision 16.10): COM outer 1 MHz / inner 25 kHz
+        /// (118.000–136.975), NAV outer 1 MHz / inner 50 kHz (108.00–117.95), ADF outer 100 kHz / inner 1 kHz (190–1799).
+        /// Inner knobs wrap within the megahertz, like the real sets. Volume and power knobs only turn (no radio audio yet).
+        /// </summary>
+        static void TuneRadio(ref PlaneSwitchState s, string id, int dir)
+        {
+            static int Wrap(int v, int n) => ((v % n) + n) % n;
+            switch (id)
+            {
+                case "Knob_Com_Outer": s.Com = (ushort)(Wrap(s.Com / 40 + dir, 19) * 40 + s.Com % 40); break;
+                case "Knob_Com_Inner": s.Com = (ushort)(s.Com / 40 * 40 + Wrap(s.Com % 40 + dir, 40)); break;
+                case "Knob_Nav_Outer": s.Nav = (ushort)(Wrap(s.Nav / 20 + dir, 10) * 20 + s.Nav % 20); break;
+                case "Knob_Nav_Inner": s.Nav = (ushort)(s.Nav / 20 * 20 + Wrap(s.Nav % 20 + dir, 20)); break;
+                case "Knob_ADF_Outer": s.Adf = (ushort)(190 + Wrap(s.Adf - 190 + 100 * dir, 1610)); break;
+                case "Knob_ADF_Inner": s.Adf = (ushort)(190 + Wrap(s.Adf - 190 + dir, 1610)); break;
+            }
         }
 
         // rheostat: a click steps up and wraps to off (P03 behaviour), the wheel back steps down
@@ -819,6 +844,9 @@ namespace Snow.Aircraft
                 case "Knob_HDG_Bug": return $"метка {s.HdgBug:000}°";
                 case "Knob_DG_Set": return $"курсовой {Telemetry.HeadingDeg:000}°, компас {Telemetry.CompassDeg:000}°";
                 case "Knob_XPDR_Mode": return XpdrModes[Mathf.Clamp(s.Xpdr, 0, 4)];
+                case "Knob_Com_Outer": case "Knob_Com_Inner": return $"COM {s.ComMHz:0.000}";
+                case "Knob_Nav_Outer": case "Knob_Nav_Inner": return $"NAV {s.NavMHz:0.00}";
+                case "Knob_ADF_Outer": case "Knob_ADF_Inner": return $"ADF {s.Adf}";
                 case "Rheo_Panel": return $"{s.RheoPanel * 100f:0}%";
                 case "Rheo_Flood": return $"{s.RheoFlood * 100f:0}%";
                 case "Lever_Prop": return s.PropLever > 0.75f ? "макс. обороты" : s.PropLever > 0.25f ? "средние" : "мин. обороты";
@@ -855,6 +883,7 @@ namespace Snow.Aircraft
                 if (id.StartsWith("Socket_Belt_")) return on ? "расстегнуть" : "застегнуть";
                 if (id.StartsWith("Visor_")) return on ? "поднять" : "опустить";
                 if (id == "Lever_Condition") return on ? "малый газ" : "останов";
+                if (id == "Glovebox_Lid") return on ? "закрыть" : "открыть";
                 return on ? "выключить" : "включить";
             }
             switch (id)

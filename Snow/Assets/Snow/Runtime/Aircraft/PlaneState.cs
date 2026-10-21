@@ -64,6 +64,11 @@ namespace Snow.Aircraft
         /// stowed on the bay floor (Socket_Stow_Ladder).</summary>
         public byte PaxSeats;
         public bool LadderStowed;
+        /// <summary>Radio frequencies set by the knobs (user decision 16.10: the screens show standard data).
+        /// Com: 25 kHz channel from 118.000 (0..759); Nav: 50 kHz channel from 108.00 (0..199); Adf: kHz 190..1799.</summary>
+        public ushort Com, Nav, Adf;
+        public float ComMHz => 118f + Com * 0.025f;
+        public float NavMHz => 108f + Nav * 0.05f;
         public bool PaxDown(int i) => (PaxSeats & (1 << i)) != 0;
 
         public const int RadioKnobCount = 13, RadioDetents = 24;
@@ -88,6 +93,9 @@ namespace Snow.Aircraft
             PropLever = 1f,
             FlapLever = 0,
             AltSetting = 2992,
+            Com = 192,      // 122.800 (TEMPORARY start frequencies)
+            Nav = 118,      // 113.90
+            Adf = 350,
         };
 
         public void NetworkSerialize<T>(BufferSerializer<T> s) where T : IReaderWriter
@@ -100,13 +108,15 @@ namespace Snow.Aircraft
             s.SerializeValue(ref AltSetting); s.SerializeValue(ref HdgBug); s.SerializeValue(ref DgKnob);
             s.SerializeValue(ref RadioA); s.SerializeValue(ref RadioB); s.SerializeValue(ref Xpdr);
             s.SerializeValue(ref PaxSeats); s.SerializeValue(ref LadderStowed);
+            s.SerializeValue(ref Com); s.SerializeValue(ref Nav); s.SerializeValue(ref Adf);
         }
 
         public bool Equals(PlaneSwitchState o) => Bits == o.Bits && RheoPanel == o.RheoPanel && RheoFlood == o.RheoFlood
                                                   && PropLever == o.PropLever && FlapLever == o.FlapLever
                                                   && AltSetting == o.AltSetting && HdgBug == o.HdgBug && DgKnob == o.DgKnob
                                                   && RadioA == o.RadioA && RadioB == o.RadioB && Xpdr == o.Xpdr
-                                                  && PaxSeats == o.PaxSeats && LadderStowed == o.LadderStowed;
+                                                  && PaxSeats == o.PaxSeats && LadderStowed == o.LadderStowed
+                                                  && Com == o.Com && Nav == o.Nav && Adf == o.Adf;
     }
 
     /// <summary>
@@ -129,6 +139,8 @@ namespace Snow.Aircraft
         public float BusVolts;
         /// <summary>И2: suction gauge inHg; magnetic compass card deg (lagging); glass fog 0..1 (windshield, other panes).</summary>
         public float SuctionInHg, CompassDeg, FogWindshield, FogSide;
+        /// <summary>Hobbs meter, engine hours (runs while the engine runs).</summary>
+        public float HobbsHours;
         /// <summary>Lamp_00..11 conditions (the Rig adds bus power and the test button).</summary>
         public ushort Lamps;
         public bool BusPowered, StallWarning, EngineRunning;
@@ -155,6 +167,7 @@ namespace Snow.Aircraft
             s.SerializeValue(ref FuelFlowPph); s.SerializeValue(ref FuelLGal); s.SerializeValue(ref FuelRGal);
             s.SerializeValue(ref Amps); s.SerializeValue(ref OatC); s.SerializeValue(ref BusVolts);
             s.SerializeValue(ref SuctionInHg); s.SerializeValue(ref CompassDeg); s.SerializeValue(ref FogWindshield); s.SerializeValue(ref FogSide);
+            s.SerializeValue(ref HobbsHours);
             s.SerializeValue(ref Lamps);
             s.SerializeValue(ref BusPowered); s.SerializeValue(ref StallWarning); s.SerializeValue(ref EngineRunning);
             s.SerializeValue(ref ApEngaged); s.SerializeValue(ref ApReason); s.SerializeValue(ref ApHeading); s.SerializeValue(ref ApAltFt);

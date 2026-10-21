@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dam_Skybox
+  m_Shader: {fileID: 4800000, guid: fd9c8ccfe7863ea975409877e5ce5d7a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CloudTex:
+        m_Texture: {fileID: 2800000, guid: 1d1f431241c448be365b1872bf912361, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BandHeight: 0.1
+    - _BandWidth: 0.12
+    - _CloudContrast: 0.3
+    - _CloudScale: 0.32
+    - _CloudSpeed: 0.003
+    - _Exposure: 1
+    - _StarDensity: 0.06
+    - _StarIntensity: 0
+    - _StarScale: 220
+    - _StarSize: 0.32
+    - _SunDisc: 0.5
+    - _SunDiscPower: 5000
+    - _SunGlow: 0.05
+    - _SunGlowPower: 9
+    m_Colors:
+    - _BandColor: {r: 0.18974826, g: 0.27169973, b: 0.28493488, a: 1}
+    - _BelowColor: {r: 0.2406162, g: 0.42104757, b: 0.4057024, a: 1}
+    - _HorizonColor: {r: 0.29502544, g: 0.50871867, b: 0.49055177, a: 1}
+    - _StarColor: {r: 0.8, g: 0.85, b: 1, a: 1}
+    - _SunColor: {r: 0.85430574, g: 0.93574095, b: 1, a: 1}
+    - _SunDir: {r: -0.57901216, g: 0.5740121, b: 0.5790121, a: 0}
+    - _ZenithColor: {r: 0.07016476, g: 0.09985279, b: 0.1333515, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

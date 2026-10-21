@@ -74,11 +74,13 @@ namespace Snow.EditorTools
                 Transform strap = go.GetComponentsInChildren<Transform>(true).FirstOrDefault(x => x.name == "Surv_Bag_Strap");
                 if (strap != null) { go.GetComponent<CargoItem>().stowedMarker = strap.gameObject; strap.gameObject.SetActive(false); }
             }));
-            Item(NetItem("Surv_Flashlight", "Surv_Flashlight_Net", 0.45f, "Фонарь"));
-            Item(NetItem("Surv_FlareGun", "Surv_FlareGun_Net", 0.6f, "Ракетница"));
-            Item(NetItem("Surv_FlareShell", "Surv_FlareShell_Net", 0.05f, "Патрон к ракетнице, 26.5 мм"));
-            Item(NetItem("Surv_Flare", "Surv_Flare_Net", 0.3f, "Фальшфейер"));
-            Item(NetItem("Surv_Shovel", "Surv_Shovel_Net", 1.5f, "Лопата"));
+            // user decision 16.10: the kit works at a basic level (SurvivalItem)
+            System.Action<GameObject> Kind(SurvivalKind k) => go => go.AddComponent<SurvivalItem>().kind = k;
+            Item(NetItem("Surv_Flashlight", "Surv_Flashlight_Net", 0.45f, "Фонарь", Kind(SurvivalKind.Flashlight)));
+            Item(NetItem("Surv_FlareGun", "Surv_FlareGun_Net", 0.6f, "Ракетница", Kind(SurvivalKind.FlareGun)));
+            Item(NetItem("Surv_FlareShell", "Surv_FlareShell_Net", 0.05f, "Патрон к ракетнице, 26.5 мм", Kind(SurvivalKind.FlareShell)));
+            Item(NetItem("Surv_Flare", "Surv_Flare_Net", 0.3f, "Фальшфейер", Kind(SurvivalKind.Flare)));
+            Item(NetItem("Surv_Shovel", "Surv_Shovel_Net", 1.5f, "Лопата", Kind(SurvivalKind.Shovel)));
             // И4 K4.2: game variants of the winter-kit carry forms (Prefabs/Kit/KitCarry_*, made by Install Winter Kit)
             foreach (var (key, label) in KitLabels)
             {
@@ -245,6 +247,7 @@ namespace Snow.EditorTools
             }
             else Debug.LogWarning("[Snow] WinterKit missing in UtilityPlane.prefab: run Tools/Utility Plane/Install Winter Kit, then rebuild");
 
+            root.AddComponent<RadioDisplays>().vehicle = vehicle;      // user decision 16.10: standard data on the radio screens
             var presentation = root.AddComponent<PlanePresentation>();
             presentation.vehicle = vehicle;
             presentation.cabinAudio = F("Socket_Audio_Cabin");
@@ -296,20 +299,18 @@ namespace Snow.EditorTools
             PlaneLoadout.Entry Kit(PlaneLoadout.Entry e, int sets, float litres) { e.setKit = true; e.kitSets = sets; e.kitFuelLitres = litres; return e; }
             PlaneLoadout.Entry Stow(string item, string stowId) => new PlaneLoadout.Entry { prefab = I(item), place = PlaneLoadout.Place.Stow, socket = stowId };
             GameObject C(int n) => cargo.FirstOrDefault(c => c.name == $"Cargo_Case{n}_Net");
-            PlaneLoadout.Entry Bay(int n, Vector3 offset, string stackOn = null) =>
-                new PlaneLoadout.Entry { prefab = C(n), place = PlaneLoadout.Place.Bay, offset = offset, stackOn = stackOn };
+            PlaneLoadout.Entry OnGround(int n, Vector3 offset) =>
+                new PlaneLoadout.Entry { prefab = C(n), place = PlaneLoadout.Place.Ground, socket = "Socket_Exit_Cargo_L", offset = offset };
             return new List<PlaneLoadout.Entry>
             {
-                Bay(1, new Vector3(-0.126f, 1.09f, 0.5f)),
-                Bay(2, new Vector3(-0.146f, 1.09f, -0.12f)),
-                Bay(5, new Vector3(0.42f, 1.09f, 0.2f)),
-                Bay(3, new Vector3(-0.126f, 1.09f, 0.48f), "Cargo_Case1_Net"),
-                Bay(4, new Vector3(-0.106f, 1.09f, -0.1f), "Cargo_Case2_Net"),
-                Bay(6, new Vector3(-0.086f, 1.09f, 0.05f), "Cargo_Case4_Net"),
+                // user decision 16.10: the ladder lives stowed in the bay, so the bench cases (cargo_layout.json would overlap
+                // it) wait on the ground by the left cargo door, ready to be loaded (TEMPORARY bench content)
+                OnGround(1, new Vector3(-2.2f, 0f, 0.9f)), OnGround(2, new Vector3(-2.2f, 0f, 0.0f)), OnGround(5, new Vector3(-2.2f, 0f, -0.9f)),
+                OnGround(3, new Vector3(-3.1f, 0f, 0.9f)), OnGround(4, new Vector3(-3.1f, 0f, 0.0f)), OnGround(6, new Vector3(-3.1f, 0f, -0.9f)),
                 // И2: the key starts in the host's pocket, the plane unlocked (TEMPORARY, §8.3)
                 new PlaneLoadout.Entry { prefab = I("PlaneKey_Net"), place = PlaneLoadout.Place.HostPocket },
-                // И3 H.6 TEMPORARY: one ladder on the ground at the left wing (where it lives is OPEN)
-                new PlaneLoadout.Entry { prefab = I("StepLadder_Net"), place = PlaneLoadout.Place.Ground, socket = "Socket_Ladder_Fuel_L" },
+                // user decision 16.10: the ladder starts stowed in the bay (troop seats 2 and 4 folded)
+                Stow("StepLadder_Net", "Ladder"),
                 // И3 L TEMPORARY: the survival kit in its places; flare and shell (no place of their own) loose on the bay floor
                 Stow("Surv_Flashlight_Net", "Flashlight"), Stow("Surv_FlareGun_Net", "FlareGun"), Stow("Surv_Shovel_Net", "Shovel"),
                 Stow("Surv_Bag_Net", "SurvivalBag"),

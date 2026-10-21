@@ -44,10 +44,28 @@ namespace Snow.EditorTools
         }
 
         // ------------------------------------------------------------------ player
+        /// <summary>The existing Player.prefab gets the Player tag on its root without a rebuild (LOCATIONS L4.5: the
+        /// core's fog event volumes react to it). True if the prefab had to change.</summary>
+        internal static bool EnsurePlayerTag()
+        {
+            GameObject asset = AssetDatabase.LoadAssetAtPath<GameObject>(PlayerPrefabPath);
+            if (asset == null || asset.CompareTag("Player")) return false;
+            GameObject root = PrefabUtility.LoadPrefabContents(PlayerPrefabPath);
+            try
+            {
+                root.tag = "Player";
+                PrefabUtility.SaveAsPrefabAsset(root, PlayerPrefabPath);
+            }
+            finally { PrefabUtility.UnloadPrefabContents(root); }
+            Debug.Log($"[Snow] {PlayerPrefabPath}: root tag Player (core fog event volumes).");
+            return true;
+        }
+
         internal static GameObject BuildPlayerPrefab()
         {
             var tuning = new MovementTuning();
-            var root = new GameObject("Player");
+            // built-in tag: the core's fog event volumes (Forest FogUnderHand, FogRibs) react to colliders tagged Player
+            var root = new GameObject("Player") { tag = "Player" };
 
             var cc = root.AddComponent<CharacterController>();
             cc.skinWidth = HLCharacterMotor.SkinWidth;
