@@ -8,6 +8,9 @@ namespace Snow.Seats
     public enum PilotCommand : byte
     {
         AutopilotToggle = 1,
+        /// <summary>Horn key (G) pressed / released: the van (VAN3 §4.4); vehicles without a horn refuse.</summary>
+        HornOn = 2,
+        HornOff = 3,
     }
 
     /// <summary>

@@ -1,0 +1,49 @@
+{
+ "version": 1,
+ "frame": "van space = Unity frame of the prefab root Van (x right, y up, z forward, metres, ground y = 0); body frame of VAN3_CONTRACT.md (x forward, y left, z up) -> (-y, z, x). Every part has an identity local rotation at rest: parent-local = van space - parent origin.",
+ "tris": 73541,
+ "meshes": 306,
+ "nodes": 308,
+ "boundsVanMin": [
+  -1.1699,
+  -0.0085,
+  -2.5909
+ ],
+ "boundsVanMax": [
+  1.1699,
+  2.61,
+  2.515
+ ],
+ "lengthM": 5.106,
+ "widthM": 2.34,
+ "heightM": 2.619,
+ "wheelbaseM": 2.4098,
+ "trackM": 1.6515,
+ "wheelRadiusM": 0.364,
+ "groundClearanceM": 0.3,
+ "saloonFloorY": 0.81,
+ "saloonCeilingY": [
+  2.03,
+  2.08
+ ],
+ "parts": 240,
+ "sockets": 200,
+ "colliders": 49,
+ "lights": 41,
+ "panes": 13,
+ "zones": 231,
+ "itemTypes": 43,
+ "stows": 50,
+ "interiorCenter": [
+  0.0,
+  1.42,
+  -0.07
+ ],
+ "interiorSize": [
+  1.8,
+  1.24,
+  4.04
+ ],
+ "interiorNote": "one box over the cab and the saloon (inner faces of walls, floor, roof, partition included): the _In / _Out rule of the zones",
+ "credit": "UAZ 3D model by tiunov.se (Sketchfab), CC BY 4.0, modified"
+}

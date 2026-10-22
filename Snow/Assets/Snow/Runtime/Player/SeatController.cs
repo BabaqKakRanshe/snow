@@ -91,9 +91,11 @@ namespace Snow.Player
             _yaw = Ramp(_yaw, f.Yaw);
             if (f.Autopilot && !last.Autopilot)
             {
+                // the plane: autopilot; the van: hazard lights (VAN3 §4.4)
                 if (IsPilot) net.RequestPilotCommand(PilotCommand.AutopilotToggle);
-                else sensor.ShowMessage("Автопилот — только из левого кресла");
+                else sensor.ShowMessage("Только с места пилота / водителя");
             }
+            if (f.Horn != last.Horn && IsPilot) net.RequestPilotCommand(f.Horn ? PilotCommand.HornOn : PilotCommand.HornOff);
             if (f.CursorToggle && !last.CursorToggle)
             {
                 var src = controller.Source;

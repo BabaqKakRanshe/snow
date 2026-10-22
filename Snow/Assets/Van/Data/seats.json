@@ -1,0 +1,295 @@
+{
+ "version": 1,
+ "frame": "van space = Unity frame of the prefab root Van (x right, y up, z forward, metres, ground y = 0); body frame of VAN3_CONTRACT.md (x forward, y left, z up) -> (-y, z, x). Every part has an identity local rotation at rest: parent-local = van space - parent origin.",
+ "note": "Sit_Driver drives; Sit_Passenger and the six saloon troop seats (must be down: foldPart = 0) ride. hip = seat point, eye = eyes of a seated player, facing = look direction, exit = where the player appears outside (cab seats, on the ground by the door) or stands up crouched inside (saloon: the saloon is 1.22-1.27 m high, nobody stands upright).",
+ "seats": [
+  {
+   "name": "Sit_Driver",
+   "seat": "Driver",
+   "role": "Driver",
+   "parent": "",
+   "hip": [
+    -0.53,
+    1.16,
+    1.12
+   ],
+   "hipLocal": [
+    -0.53,
+    1.16,
+    1.12
+   ],
+   "eye": [
+    -0.53,
+    1.86,
+    1.15
+   ],
+   "facing": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "exit": [
+    -1.45,
+    0.0,
+    1.3
+   ],
+   "door": "doorL",
+   "exitNote": "",
+   "foldPart": "",
+   "legPart": "",
+   "drives": true
+  },
+  {
+   "name": "Sit_Passenger",
+   "seat": "Passenger",
+   "role": "Passenger",
+   "parent": "",
+   "hip": [
+    0.53,
+    1.16,
+    1.12
+   ],
+   "hipLocal": [
+    0.53,
+    1.16,
+    1.12
+   ],
+   "eye": [
+    0.53,
+    1.86,
+    1.15
+   ],
+   "facing": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "exit": [
+    1.45,
+    0.0,
+    1.3
+   ],
+   "door": "doorP",
+   "exitNote": "",
+   "foldPart": "",
+   "legPart": "",
+   "drives": false
+  },
+  {
+   "name": "Sit_L1",
+   "seat": "L1",
+   "role": "Saloon",
+   "parent": "Seat_L1",
+   "hip": [
+    -0.65,
+    1.231,
+    -1.05
+   ],
+   "hipLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "eye": [
+    -0.6,
+    1.87,
+    -1.05
+   ],
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "exit": [
+    -0.15,
+    0.806,
+    -0.55
+   ],
+   "door": "doorSalon or the rear doors",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "foldPart": "Seat_L1",
+   "legPart": "Seat_L1_Leg",
+   "drives": false
+  },
+  {
+   "name": "Sit_L2",
+   "seat": "L2",
+   "role": "Saloon",
+   "parent": "Seat_L2",
+   "hip": [
+    -0.65,
+    1.231,
+    -0.57
+   ],
+   "hipLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "eye": [
+    -0.6,
+    1.87,
+    -0.57
+   ],
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "exit": [
+    0.0,
+    0.806,
+    -0.45
+   ],
+   "door": "doorSalon or the rear doors",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "foldPart": "Seat_L2",
+   "legPart": "Seat_L2_Leg",
+   "drives": false
+  },
+  {
+   "name": "Sit_L3",
+   "seat": "L3",
+   "role": "Saloon",
+   "parent": "Seat_L3",
+   "hip": [
+    -0.65,
+    1.231,
+    -0.09
+   ],
+   "hipLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "eye": [
+    -0.6,
+    1.87,
+    -0.09
+   ],
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "exit": [
+    0.0,
+    0.806,
+    -0.09
+   ],
+   "door": "doorSalon or the rear doors",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "foldPart": "Seat_L3",
+   "legPart": "Seat_L3_Leg",
+   "drives": false
+  },
+  {
+   "name": "Sit_L4",
+   "seat": "L4",
+   "role": "Saloon",
+   "parent": "Seat_L4",
+   "hip": [
+    -0.65,
+    1.231,
+    0.39
+   ],
+   "hipLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "eye": [
+    -0.6,
+    1.87,
+    0.39
+   ],
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "exit": [
+    0.0,
+    0.806,
+    0.39
+   ],
+   "door": "doorSalon or the rear doors",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "foldPart": "Seat_L4",
+   "legPart": "Seat_L4_Leg",
+   "drives": false
+  },
+  {
+   "name": "Sit_R1",
+   "seat": "R1",
+   "role": "Saloon",
+   "parent": "Seat_R1",
+   "hip": [
+    0.65,
+    1.231,
+    -1.0
+   ],
+   "hipLocal": [
+    -0.183,
+    0.005,
+    0.0
+   ],
+   "eye": [
+    0.6,
+    1.87,
+    -1.0
+   ],
+   "facing": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "exit": [
+    0.2,
+    0.806,
+    -0.55
+   ],
+   "door": "doorSalon or the rear doors",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "foldPart": "Seat_R1",
+   "legPart": "Seat_R1_Leg",
+   "drives": false
+  },
+  {
+   "name": "Sit_R2",
+   "seat": "R2",
+   "role": "Saloon",
+   "parent": "Seat_R2",
+   "hip": [
+    0.65,
+    1.231,
+    0.62
+   ],
+   "hipLocal": [
+    -0.183,
+    0.005,
+    0.0
+   ],
+   "eye": [
+    0.6,
+    1.87,
+    0.62
+   ],
+   "facing": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "exit": [
+    0.0,
+    0.806,
+    0.62
+   ],
+   "door": "doorSalon or the rear doors",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "foldPart": "Seat_R2",
+   "legPart": "Seat_R2_Leg",
+   "drives": false
+  }
+ ]
+}

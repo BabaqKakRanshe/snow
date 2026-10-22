@@ -1,0 +1,987 @@
+{
+ "version": 1,
+ "frame": "van space = Unity frame of the prefab root Van (x right, y up, z forward, metres, ground y = 0); body frame of VAN3_CONTRACT.md (x forward, y left, z up) -> (-y, z, x). Every part has an identity local rotation at rest: parent-local = van space - parent origin.",
+ "note": "BoxCollider per entry on its parent node (center / size in the parent frame). The body is a hollow box for riding inside: floor, walls, roof around the vent hatch, partition, arches, seats, table, stove, boxes; outside bumpers, underbody, tanks; the roof rack deck with a cut-out over the hatch, its light bar and load. Doors and the ladder ride on their doors. Items have no collider here: while stowed they get a kinematic one from their part box. Wheels: your wheel model (Data/vehicle.json).",
+ "colliders": [
+  {
+   "name": "COL_Floor",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    0.666,
+    -0.606
+   ],
+   "centerVan": [
+    0.0,
+    0.756,
+    -0.606
+   ],
+   "size": [
+    1.8,
+    0.1,
+    2.988
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_FloorCab",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    0.695,
+    1.434
+   ],
+   "centerVan": [
+    0.0,
+    0.785,
+    1.434
+   ],
+   "size": [
+    1.8,
+    0.1,
+    1.092
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_RoofRear",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    2.0005,
+    -1.365
+   ],
+   "centerVan": [
+    0.0,
+    2.0905,
+    -1.365
+   ],
+   "size": [
+    1.96,
+    0.119,
+    1.57
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofFront",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    2.0005,
+    0.83
+   ],
+   "centerVan": [
+    0.0,
+    2.0905,
+    0.83
+   ],
+   "size": [
+    1.96,
+    0.119,
+    2.24
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofHatchL",
+   "parent": "Kuzov",
+   "center": [
+    -0.39,
+    2.0005,
+    -0.435
+   ],
+   "centerVan": [
+    -0.39,
+    2.0905,
+    -0.435
+   ],
+   "size": [
+    1.18,
+    0.119,
+    0.29
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofHatchR",
+   "parent": "Kuzov",
+   "center": [
+    0.79,
+    2.0005,
+    -0.435
+   ],
+   "centerVan": [
+    0.79,
+    2.0905,
+    -0.435
+   ],
+   "size": [
+    0.38,
+    0.119,
+    0.29
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_WallL",
+   "parent": "Kuzov",
+   "center": [
+    -0.945,
+    1.331,
+    -0.615
+   ],
+   "centerVan": [
+    -0.945,
+    1.421,
+    -0.615
+   ],
+   "size": [
+    0.09,
+    1.23,
+    2.97
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_WallR_Rear",
+   "parent": "Kuzov",
+   "center": [
+    0.945,
+    1.331,
+    -1.3525
+   ],
+   "centerVan": [
+    0.945,
+    1.421,
+    -1.3525
+   ],
+   "size": [
+    0.09,
+    1.23,
+    1.495
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_WallR_Front",
+   "parent": "Kuzov",
+   "center": [
+    0.945,
+    1.331,
+    0.6195
+   ],
+   "centerVan": [
+    0.945,
+    1.421,
+    0.6195
+   ],
+   "size": [
+    0.09,
+    1.23,
+    0.501
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_CabFront",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    1.35,
+    2.05
+   ],
+   "centerVan": [
+    0.0,
+    1.44,
+    2.05
+   ],
+   "size": [
+    1.9,
+    1.2,
+    0.2
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_APillarL",
+   "parent": "Kuzov",
+   "center": [
+    -0.895,
+    1.35,
+    1.921
+   ],
+   "centerVan": [
+    -0.895,
+    1.44,
+    1.921
+   ],
+   "size": [
+    0.19,
+    1.2,
+    0.118
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_APillarR",
+   "parent": "Kuzov",
+   "center": [
+    0.895,
+    1.35,
+    1.921
+   ],
+   "centerVan": [
+    0.895,
+    1.44,
+    1.921
+   ],
+   "size": [
+    0.19,
+    1.2,
+    0.118
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_Dash",
+   "parent": "Dash",
+   "center": [
+    0.0,
+    1.216,
+    1.84
+   ],
+   "centerVan": [
+    0.0,
+    1.306,
+    1.84
+   ],
+   "size": [
+    1.69,
+    0.312,
+    0.28
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_Partition",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    1.043,
+    0.909
+   ],
+   "centerVan": [
+    0.0,
+    1.133,
+    0.909
+   ],
+   "size": [
+    1.8,
+    0.654,
+    0.042
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_ArchL",
+   "parent": "Kuzov",
+   "center": [
+    -0.775,
+    0.816,
+    -1.225
+   ],
+   "centerVan": [
+    -0.775,
+    0.906,
+    -1.225
+   ],
+   "size": [
+    0.25,
+    0.2,
+    0.65
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_ArchR",
+   "parent": "Kuzov",
+   "center": [
+    0.775,
+    0.816,
+    -1.225
+   ],
+   "centerVan": [
+    0.775,
+    0.906,
+    -1.225
+   ],
+   "size": [
+    0.25,
+    0.2,
+    0.65
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_CabSeatD",
+   "parent": "Kuzov",
+   "center": [
+    -0.54,
+    0.884,
+    1.175
+   ],
+   "centerVan": [
+    -0.54,
+    0.974,
+    1.175
+   ],
+   "size": [
+    0.52,
+    0.278,
+    0.45
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_CabSeatP",
+   "parent": "Kuzov",
+   "center": [
+    0.54,
+    0.884,
+    1.175
+   ],
+   "centerVan": [
+    0.54,
+    0.974,
+    1.175
+   ],
+   "size": [
+    0.52,
+    0.278,
+    0.45
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_CabSeatBackD",
+   "parent": "Kuzov",
+   "center": [
+    -0.54,
+    1.3615,
+    0.935
+   ],
+   "centerVan": [
+    -0.54,
+    1.4515,
+    0.935
+   ],
+   "size": [
+    0.52,
+    0.677,
+    0.09
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_CabSeatBackP",
+   "parent": "Kuzov",
+   "center": [
+    0.54,
+    1.3615,
+    0.935
+   ],
+   "centerVan": [
+    0.54,
+    1.4515,
+    0.935
+   ],
+   "size": [
+    0.52,
+    0.677,
+    0.09
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_SeatBacksL",
+   "parent": "Kuzov",
+   "center": [
+    -0.8545,
+    1.238,
+    -0.33
+   ],
+   "centerVan": [
+    -0.8545,
+    1.328,
+    -0.33
+   ],
+   "size": [
+    0.091,
+    0.276,
+    1.944
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_SeatBackR1",
+   "parent": "Kuzov",
+   "center": [
+    0.8545,
+    1.238,
+    -1.0
+   ],
+   "centerVan": [
+    0.8545,
+    1.328,
+    -1.0
+   ],
+   "size": [
+    0.091,
+    0.276,
+    0.504
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_SeatBackR2",
+   "parent": "Kuzov",
+   "center": [
+    0.8545,
+    1.238,
+    0.62
+   ],
+   "centerVan": [
+    0.8545,
+    1.328,
+    0.62
+   ],
+   "size": [
+    0.091,
+    0.276,
+    0.504
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_TableTop",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    1.3435,
+    -1.04
+   ],
+   "centerVan": [
+    0.0,
+    1.4335,
+    -1.04
+   ],
+   "size": [
+    0.44,
+    0.025,
+    0.4
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_TableLeg",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    1.0235,
+    -1.04
+   ],
+   "centerVan": [
+    0.0,
+    1.1135,
+    -1.04
+   ],
+   "size": [
+    0.05,
+    0.615,
+    0.05
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_Stove",
+   "parent": "Stove",
+   "center": [
+    0.0,
+    0.2725,
+    0.0
+   ],
+   "centerVan": [
+    -0.59,
+    1.0785,
+    -1.87
+   ],
+   "size": [
+    0.37,
+    0.545,
+    0.35
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_StovePipe",
+   "parent": "Stove",
+   "center": [
+    -0.04,
+    0.8925,
+    -0.05
+   ],
+   "centerVan": [
+    -0.63,
+    1.6985,
+    -1.92
+   ],
+   "size": [
+    0.11,
+    0.665,
+    0.11
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_WoodBox",
+   "parent": "WoodBox",
+   "center": [
+    0.0,
+    0.12,
+    0.0
+   ],
+   "centerVan": [
+    -0.22,
+    0.926,
+    -1.415
+   ],
+   "size": [
+    0.32,
+    0.24,
+    0.17
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_Cargo",
+   "parent": "Cargo",
+   "center": [
+    0.63,
+    1.066,
+    -1.75
+   ],
+   "centerVan": [
+    0.63,
+    1.156,
+    -1.75
+   ],
+   "size": [
+    0.38,
+    0.7,
+    0.58
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_Extinguisher",
+   "parent": "Kuzov",
+   "center": [
+    -0.76,
+    0.916,
+    0.825
+   ],
+   "centerVan": [
+    -0.76,
+    1.006,
+    0.825
+   ],
+   "size": [
+    0.12,
+    0.4,
+    0.11
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_BatteryBox",
+   "parent": "BatteryBox",
+   "center": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "centerVan": [
+    -0.708,
+    0.938,
+    0.39
+   ],
+   "size": [
+    0.324,
+    0.264,
+    0.304
+   ],
+   "group": "body"
+  },
+  {
+   "name": "COL_Underbody",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    0.498,
+    0.0
+   ],
+   "centerVan": [
+    0.0,
+    0.588,
+    0.0
+   ],
+   "size": [
+    1.2,
+    0.236,
+    4.2
+   ],
+   "group": "underbody"
+  },
+  {
+   "name": "COL_Tanks",
+   "parent": "FuelTanks",
+   "center": [
+    0.0,
+    0.0505,
+    0.0
+   ],
+   "centerVan": [
+    0.0,
+    0.5305,
+    0.235
+   ],
+   "size": [
+    1.702,
+    0.351,
+    0.77
+   ],
+   "group": "underbody"
+  },
+  {
+   "name": "COL_BumperF",
+   "parent": "Kit_Front",
+   "center": [
+    0.0,
+    0.6,
+    2.32
+   ],
+   "centerVan": [
+    0.0,
+    0.69,
+    2.32
+   ],
+   "size": [
+    1.98,
+    0.2,
+    0.26
+   ],
+   "group": "front"
+  },
+  {
+   "name": "COL_BullBar",
+   "parent": "Kit_Front",
+   "center": [
+    0.0,
+    0.88,
+    2.355
+   ],
+   "centerVan": [
+    0.0,
+    0.97,
+    2.355
+   ],
+   "size": [
+    0.96,
+    0.45,
+    0.05
+   ],
+   "group": "front"
+  },
+  {
+   "name": "COL_BumperR",
+   "parent": "Kuzov",
+   "center": [
+    0.0,
+    0.587,
+    -2.0675
+   ],
+   "centerVan": [
+    0.0,
+    0.677,
+    -2.0675
+   ],
+   "size": [
+    1.94,
+    0.212,
+    0.367
+   ],
+   "group": "underbody"
+  },
+  {
+   "name": "COL_RoofRackRear",
+   "parent": "Kit_RoofRack",
+   "center": [
+    0.0,
+    2.1925,
+    -1.166
+   ],
+   "centerVan": [
+    0.0,
+    2.2825,
+    -1.166
+   ],
+   "size": [
+    1.632,
+    0.025,
+    1.1
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofRackFront",
+   "parent": "Kit_RoofRack",
+   "center": [
+    0.0,
+    2.1925,
+    0.458
+   ],
+   "centerVan": [
+    0.0,
+    2.2825,
+    0.458
+   ],
+   "size": [
+    1.632,
+    0.025,
+    1.416
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofRackMidL",
+   "parent": "Kit_RoofRack",
+   "center": [
+    -0.333,
+    2.1925,
+    -0.433
+   ],
+   "centerVan": [
+    -0.333,
+    2.2825,
+    -0.433
+   ],
+   "size": [
+    0.966,
+    0.025,
+    0.366
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofRackMidR",
+   "parent": "Kit_RoofRack",
+   "center": [
+    0.733,
+    2.1925,
+    -0.433
+   ],
+   "centerVan": [
+    0.733,
+    2.2825,
+    -0.433
+   ],
+   "size": [
+    0.166,
+    0.025,
+    0.366
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_LightBar",
+   "parent": "Kit_RoofRack",
+   "center": [
+    0.0,
+    2.285,
+    1.22
+   ],
+   "centerVan": [
+    0.0,
+    2.375,
+    1.22
+   ],
+   "size": [
+    1.24,
+    0.14,
+    0.1
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofLoadCrate",
+   "parent": "Kit_RoofLoad",
+   "center": [
+    0.46,
+    2.37,
+    0.49
+   ],
+   "centerVan": [
+    0.46,
+    2.46,
+    0.49
+   ],
+   "size": [
+    0.48,
+    0.3,
+    0.54
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_RoofLoadBag",
+   "parent": "Kit_RoofLoad",
+   "center": [
+    -0.395,
+    2.33,
+    0.6
+   ],
+   "centerVan": [
+    -0.395,
+    2.42,
+    0.6
+   ],
+   "size": [
+    0.69,
+    0.22,
+    0.22
+   ],
+   "group": "roof"
+  },
+  {
+   "name": "COL_doorL",
+   "parent": "doorL",
+   "center": [
+    -0.02719,
+    -0.001,
+    -0.46198
+   ],
+   "centerVan": [
+    -0.925,
+    1.289,
+    1.3645
+   ],
+   "size": [
+    0.13,
+    1.362,
+    0.995
+   ],
+   "group": "door"
+  },
+  {
+   "name": "COL_doorP",
+   "parent": "doorP",
+   "center": [
+    0.02719,
+    -0.001,
+    -0.46198
+   ],
+   "centerVan": [
+    0.925,
+    1.289,
+    1.3645
+   ],
+   "size": [
+    0.13,
+    1.362,
+    0.995
+   ],
+   "group": "door"
+  },
+  {
+   "name": "COL_doorSalon",
+   "parent": "doorSalon",
+   "center": [
+    -0.01,
+    -0.009,
+    -0.466
+   ],
+   "centerVan": [
+    0.945,
+    1.351,
+    -0.118
+   ],
+   "size": [
+    0.09,
+    1.25,
+    0.974
+   ],
+   "group": "door"
+  },
+  {
+   "name": "COL_doorZL",
+   "parent": "doorZL",
+   "center": [
+    0.34597,
+    -0.04,
+    -0.00593
+   ],
+   "centerVan": [
+    -0.3565,
+    1.33,
+    -2.145
+   ],
+   "size": [
+    0.713,
+    1.24,
+    0.11
+   ],
+   "group": "door"
+  },
+  {
+   "name": "COL_dooZP",
+   "parent": "dooZP",
+   "center": [
+    -0.34522,
+    -0.04,
+    -0.00592
+   ],
+   "centerVan": [
+    0.3565,
+    1.33,
+    -2.145
+   ],
+   "size": [
+    0.713,
+    1.24,
+    0.11
+   ],
+   "group": "door"
+  },
+  {
+   "name": "COL_Ladder",
+   "parent": "doorZL",
+   "center": [
+    0.31247,
+    -0.04,
+    -0.09593
+   ],
+   "centerVan": [
+    -0.39,
+    1.33,
+    -2.235
+   ],
+   "size": [
+    0.408,
+    1.24,
+    0.03
+   ],
+   "group": "door"
+  }
+ ]
+}

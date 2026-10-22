@@ -1,0 +1,416 @@
+{
+ "note": "Panes of glass: one renderer each (lob = the windscreen). Masks on UV1 for every pane (side / rear panes: FOG, 0..1 per pane; lob: a copy of its own 0..1 UVs). uvU / uvV: uv = (dot(uvU.xyz, p) + uvU.w, dot(uvV.xyz, p) + uvV.w), p = the point in the pane's local frame (metres): where a palm or a ray meets the pane. Masks (alpha = when the texel freezes / snows over / fogs up; shown if alpha > 1 - amount): T_Van_Frost and T_Van_Snow (lob), T_Van_Fog (FOG panes); T_Van_Handprints: 2 x 2 atlas of hand prints (alpha); T_Van_WipeMap (lob UV0): R = Wiper_L angle / 100 at which its blade passes the texel, G = Wiper_R, 1 = never.",
+ "panes": [
+  {
+   "name": "lob",
+   "host": "",
+   "material": "M_PSX_Glass_Cab",
+   "cab": true,
+   "side": "front",
+   "centre": [
+    0.0,
+    1.7045,
+    1.78595
+   ],
+   "maskUv": 1,
+   "frost": true,
+   "snow": true,
+   "fog": true,
+   "wipers": true,
+   "handprint": "Handprint_lob",
+   "uvU": [
+    0.631313,
+    -0.0,
+    -0.0,
+    0.5
+   ],
+   "uvV": [
+    -0.0,
+    1.264961,
+    -1.111804,
+    0.444994
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_L1",
+   "host": "Kuzov",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "left",
+   "centre": [
+    -0.8932,
+    1.6938,
+    -1.095
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_L1",
+   "uvU": [
+    -0.081712,
+    0.005353,
+    -1.104572,
+    -0.791066
+   ],
+   "uvV": [
+    -0.183939,
+    2.17008,
+    -0.0,
+    -3.14461
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_L2",
+   "host": "Kuzov",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "left",
+   "centre": [
+    -0.8932,
+    1.6938,
+    -0.13125
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_L2",
+   "uvU": [
+    -0.120338,
+    0.007883,
+    -1.104572,
+    0.234913
+   ],
+   "uvV": [
+    0.0,
+    2.15803,
+    0.0,
+    -2.960995
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_L3",
+   "host": "Kuzov",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "left",
+   "centre": [
+    -0.8932,
+    1.6938,
+    0.6048
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_L3",
+   "uvU": [
+    0.36203,
+    -0.023715,
+    -2.36203,
+    2.289906
+   ],
+   "uvV": [
+    -0.0,
+    2.158031,
+    -0.0,
+    -2.960997
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_R1",
+   "host": "Kuzov",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "right",
+   "centre": [
+    0.8932,
+    1.6938,
+    -1.095
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_R1",
+   "uvU": [
+    0.046229,
+    0.003028,
+    1.104572,
+    1.66335
+   ],
+   "uvV": [
+    0.022909,
+    2.159531,
+    0.0,
+    -2.983864
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_R3",
+   "host": "Kuzov",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "right",
+   "centre": [
+    0.8932,
+    1.6938,
+    0.6048
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_R3",
+   "uvU": [
+    -0.071321,
+    -0.004672,
+    2.36203,
+    -0.857321
+   ],
+   "uvV": [
+    -0.095084,
+    2.151802,
+    0.0,
+    -2.866081
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_R2",
+   "host": "doorSalon",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "right",
+   "centre": [
+    0.8932,
+    1.6938,
+    -0.13125
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_R2",
+   "uvU": [
+    2.619131,
+    0.171572,
+    1.104572,
+    1.134009
+   ],
+   "uvV": [
+    -1e-06,
+    2.158031,
+    -0.0,
+    -0.220298
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_ZL",
+   "host": "doorZL",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "rear",
+   "centre": [
+    -0.34315,
+    1.6705,
+    -2.0637
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_doorZL",
+   "uvU": [
+    1.634149,
+    -0.0,
+    1e-06,
+    -0.087223
+   ],
+   "uvV": [
+    -0.0,
+    2.416633,
+    1e-06,
+    -0.226134
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_ZP",
+   "host": "dooZP",
+   "material": "M_PSX_Glass_Room",
+   "cab": false,
+   "side": "rear",
+   "centre": [
+    0.34355,
+    1.6705,
+    -2.0637
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "",
+   "uvU": [
+    1.634148,
+    -0.0,
+    1e-06,
+    1.08528
+   ],
+   "uvV": [
+    -0.0,
+    2.416633,
+    1e-06,
+    -0.226134
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_doorL",
+   "host": "doorL",
+   "material": "M_PSX_Glass_Cab",
+   "cab": true,
+   "side": "left",
+   "centre": [
+    -0.88135,
+    1.6938,
+    1.1177
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_doorL",
+   "uvU": [
+    -0.0,
+    0.0,
+    -2.581593,
+    -1.32984
+   ],
+   "uvV": [
+    -0.0,
+    2.158031,
+    0.0,
+    -0.371361
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_doorP",
+   "host": "doorP",
+   "material": "M_PSX_Glass_Cab",
+   "cab": true,
+   "side": "right",
+   "centre": [
+    0.88135,
+    1.6938,
+    1.1177
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "Handprint_doorP",
+   "uvU": [
+    -1e-06,
+    -0.0,
+    2.581593,
+    2.32984
+   ],
+   "uvV": [
+    0.0,
+    2.158036,
+    -0.0,
+    -0.371361
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_Window_doorL",
+   "host": "Window_doorL",
+   "material": "M_PSX_Glass_Cab",
+   "cab": true,
+   "side": "left",
+   "centre": [
+    -0.86335,
+    1.6938,
+    1.48795
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "",
+   "uvU": [
+    1e-06,
+    -0.0,
+    -2.831479,
+    0.5
+   ],
+   "uvV": [
+    -0.0,
+    2.158031,
+    -0.0,
+    0.5
+   ],
+   "uvFitError": 0.0
+  },
+  {
+   "name": "Glass_Window_doorP",
+   "host": "Window_doorP",
+   "material": "M_PSX_Glass_Cab",
+   "cab": true,
+   "side": "right",
+   "centre": [
+    0.86335,
+    1.6938,
+    1.48795
+   ],
+   "maskUv": 1,
+   "frost": false,
+   "snow": false,
+   "fog": true,
+   "wipers": false,
+   "handprint": "",
+   "uvU": [
+    -1e-06,
+    -0.0,
+    2.831478,
+    0.5
+   ],
+   "uvV": [
+    -0.0,
+    2.158034,
+    0.0,
+    0.5
+   ],
+   "uvFitError": 0.0
+  }
+ ],
+ "frostMask": "T_Van_Frost",
+ "snowMask": "T_Van_Snow",
+ "fogMask": "T_Van_Fog",
+ "handprints": "T_Van_Handprints",
+ "wipeMap": "T_Van_WipeMap",
+ "mirror": "RearMirror_Glass",
+ "mirrorCamera": "MirrorCam",
+ "radioDisplay": "Radio_Display"
+}

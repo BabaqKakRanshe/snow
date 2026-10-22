@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df80a7d94fecef94584d907d0e610859, type: 3}
+  m_Name: VanTuning
+  m_EditorClassIdentifier: 
+  massKg: 1950
+  centerOfMass: {x: 0, y: 0.88, z: 0.15}
+  inertia: {x: 4300, y: 4100, z: 1600}
+  personMassKg: 85
+  fuelKgPerLitre: 0.74
+  dragArea: 2.2
+  airDensity: 1.3
+  wheelCentres:
+  - {x: -0.8272, y: 0.3618, z: 1.2067}
+  - {x: 0.8243, y: 0.3618, z: 1.2067}
+  - {x: -0.8272, y: 0.3618, z: -1.2031}
+  - {x: 0.8243, y: 0.3618, z: -1.2031}
+  wheelRadius: 0.364
+  springRate: 42000
+  damperBump: 3500
+  damperRebound: 5000
+  bumpTravel: 0.1
+  bumpStop: 10
+  wheelInertia: 1.2
+  tyreStiffness: 120000
+  tyreDamping: 0.7
+  slipFull: 0.25
+  rollingResistance: 0.015
+  rollingResistanceSnow: 0.03
+  muRoad: 0.45
+  muPackedSnow: 0.32
+  muLooseSnow: 0.22
+  muIce: 0.1
+  muSandTrack: 0.8
+  chainsBonusSnow: 0.12
+  chainsBonusIce: 0.18
+  flatMuFactor: 0.6
+  flatRadiusLoss: 0.04
+  flatRollingFactor: 3
+  wheelbase: 2.4098
+  track: 1.6515
+  maxSteerDeg: 32
+  steerRate: 60
+  steerReturnRate: 90
+  steerFadeFromKmh: 40
+  steerFadeToKmh: 80
+  steerFadeMin: 0.5
+  torqueRpm:
+  - 600
+  - 1000
+  - 1500
+  - 2000
+  - 2500
+  - 3000
+  - 3500
+  - 4000
+  - 4300
+  torqueNm:
+  - 118
+  - 140
+  - 158
+  - 165
+  - 167
+  - 162
+  - 152
+  - 135
+  - 110
+  idleRpm: 600
+  cutoffRpm: 4200
+  stallRpm: 350
+  engineFrictionNm: 18
+  engineBrakeNmPer1000: 6
+  engineInertia: 0.18
+  idleThrottle: 0.18
+  idleGain: 0.002
+  clutchStiffness: 40
+  clutchCapacity: 1.3
+  clutchEngageFromRpm: 900
+  clutchEngageToRpm: 1500
+  pushEngageFromRpm: 100
+  pushEngageToRpm: 400
+  gearRatios:
+  - 4.124
+  - 2.641
+  - 1.58
+  - 1
+  reverseRatio: 5.224
+  shiftUpRpm: 3000
+  shiftUpFloor: 0.8
+  shiftDownRpm: 1300
+  shiftTime: 0.6
+  shiftLockout: 1.2
+  kickdownMaxRpm: 2700
+  kickdownPedal: 0.9
+  reverseHoldTime: 0.4
+  reverseEngageKmh: 1
+  transferHigh: 1
+  transferLow: 1.94
+  rangeShiftMaxKmh: 3
+  finalDrive: 5.125
+  brakeFrontNm: 2600
+  brakeRearNm: 1700
+  handbrakeNm: 1400
+  telemetryHz: 15
+  glassHz: 1

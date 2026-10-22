@@ -25,7 +25,7 @@ namespace Snow.EditorTools
         [Serializable] class Placed { public string m; public float[] p, q; }
         [Serializable] class Layout { public Placed[] prefabs; }
         [Serializable] class Zone { public string id; public float[] p, q; }
-        [Serializable] class Opening { public Zone[] zones; }
+        [Serializable] class Opening { public Zone[] zones, items; }
 
         static Vector3 V(float[] a) => new Vector3(a[0], a[1], a[2]);
         static Quaternion Q(float[] a) => new Quaternion(a[0], a[1], a[2], a[3]);
@@ -77,6 +77,16 @@ namespace Snow.EditorTools
                     zt.SetPositionAndRotation(T(V(z.p)), r * Q(z.q));
                     zonesMoved++;
                 }
+            // the static padlock copy on the barrier arm (ForestLevelStep puts it at the data position): with the barrier
+            // (client check 21.10 found it hanging at the old checkpoint)
+            Zone pad = opening?.items?.FirstOrDefault(i => i?.id == ForestItems.PadlockId && i.p != null && i.q != null);
+            ForestOpening fo = root.GetComponentInChildren<ForestOpening>(true);
+            bool padMoved = pad != null && fo != null && fo.padlockProxy != null;
+            if (padMoved)
+            {
+                fo.padlockProxy.transform.SetPositionAndRotation(T(V(pad.p)), r * Q(pad.q));
+                EditorUtility.SetDirty(fo.padlockProxy.transform);
+            }
 
             // level the ground under the booth and the barrier, clear the trees there
             Vector3 boothAt = T(V(booth.p)), barrierAt = T(V(barrier.p));
@@ -94,7 +104,7 @@ namespace Snow.EditorTools
             EditorUtility.SetDirty(rel);
             Debug.Log($"[Snow] Forest checkpoint: booth and barrier moved {Flat(newPivot - oldPivot):0} m out along the road " +
                       $"(to {newPivot}, turned {yaw:0.#}°; {Flat(newPivot - Base):0} m from the base, was {Flat(oldPivot - Base):0}); " +
-                      $"{zonesMoved} opening zones moved, ground levelled, {cleared} trees cleared; the yard's sliding gate stays.");
+                      $"{zonesMoved} opening zones{(padMoved ? " and the padlock copy" : "")} moved, ground levelled, {cleared} trees cleared; the yard's sliding gate stays.");
         }
 
         static float Flat(Vector3 d) => new Vector2(d.x, d.z).magnitude;

@@ -36,6 +36,8 @@ namespace Snow.Input
         public bool UseExit, CursorToggle;
         /// <summary>Autopilot on/off (TEMPORARY Z; the model has no autopilot switch of its own).</summary>
         public bool Autopilot;
+        /// <summary>Held: the horn (TEMPORARY G, VAN3 §4.4); vehicles without one ignore it.</summary>
+        public bool Horn;
         // cursor
         public Vector2 Pointer;
         public bool Click;

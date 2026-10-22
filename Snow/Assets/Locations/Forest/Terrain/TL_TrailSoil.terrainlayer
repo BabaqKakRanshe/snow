@@ -7,10 +7,10 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TL_TrailSoil
-  m_DiffuseTexture: {fileID: 2800000, guid: 6c63806d9c4f2f54598563175655abca, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: e3535a23c76ee584cad03d1f52a4cc14, type: 3}
   m_NormalMapTexture: {fileID: 0}
-  m_MaskMapTexture: {fileID: 2800000, guid: f6722bbdfd588224ca41634350d654ee, type: 3}
-  m_TileSize: {x: 0.9748829, y: 0.9748829}
+  m_MaskMapTexture: {fileID: 2800000, guid: 64eaa89e3321c0c45957c4620f4c6f03, type: 3}
+  m_TileSize: {x: 2, y: 2}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 1}
   m_Metallic: 0

@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: 93bd19095e44ae742b7475235c3b8e25
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PSX_Glass_Cab
+    second: {fileID: 2100000, guid: 65b8a13e70a37b041a02cba19b1d5686, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PSX_Glass_Room
+    second: {fileID: 2100000, guid: 5c1b94103abe21c4abed0c48532e3eb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Body
+    second: {fileID: 2100000, guid: 9d9abfee66aa5454da88cbd4e1b6e3af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Cabin
+    second: {fileID: 2100000, guid: 744ba62019470cf42a3d23b92d7c9b3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Gauges
+    second: {fileID: 2100000, guid: 04442a42d28457447ae5b8a9125825eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_LampBulb
+    second: {fileID: 2100000, guid: 65a8bb8d34b0105449f84d08eb3fdb1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Amber
+    second: {fileID: 2100000, guid: c5853755075552040b9b9df65d4c092b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Dome
+    second: {fileID: 2100000, guid: 1982e395795d38542a840a4b9eb42935, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Flare
+    second: {fileID: 2100000, guid: b765c5b0a78d91d4cb0b5d9892dafab4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Fog
+    second: {fileID: 2100000, guid: cf8df2ee482ad004db851fc35a02c266, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Hand
+    second: {fileID: 2100000, guid: cb8a36ede29cc0a438b0f82672e6735b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Head
+    second: {fileID: 2100000, guid: 113d6a4e2b54ff64b900b8d4205c9058, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Marker
+    second: {fileID: 2100000, guid: 516c82b4ff05ab147ab5349b9b434a35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Night
+    second: {fileID: 2100000, guid: d39c7686807d3b34ea2492e94bf41415, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Plate
+    second: {fileID: 2100000, guid: d7f125523a887b54887953279bd0b02f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Reverse
+    second: {fileID: 2100000, guid: a0272ae64309edf4cbfcfc34e8cbf60b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Spot
+    second: {fileID: 2100000, guid: 2a89eefbbe7448b469598ebb6866fbab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Tail
+    second: {fileID: 2100000, guid: 10c62ce3ba97eec449d785f0f3317302, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Torch
+    second: {fileID: 2100000, guid: 819319d2e489439428e2c7abb2223525, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Lens_Work
+    second: {fileID: 2100000, guid: 31033d66ee7e8534da8f04b44ae11330, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Mech
+    second: {fileID: 2100000, guid: 2cb1f51f37a59b042aad99e6459aa8a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_MirrorRT
+    second: {fileID: 2100000, guid: 48b807ed5c23af8469bdb798b48edd45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Needle
+    second: {fileID: 2100000, guid: 0314dd02a27039747a163b0cef04028e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Props
+    second: {fileID: 2100000, guid: 1ed395b88a53e7d47a2b8cf8b305d018, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_RadioDisplay
+    second: {fileID: 2100000, guid: f725ffa895fc13c4da23b0d47597045c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Seats
+    second: {fileID: 2100000, guid: ce9ce16688bb11e4e9ddf14f29a174d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Snow
+    second: {fileID: 2100000, guid: 088e4628374b177408535ff745dff510, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_StoveGlow
+    second: {fileID: 2100000, guid: e6e542abd6d5e1048bf60f8bce351133, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Trim
+    second: {fileID: 2100000, guid: b389fda3a7bd2e847b375c2752ed92e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Van_Wheel
+    second: {fileID: 2100000, guid: 4135f3efa03603d4fbec077896bfd81d, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 2
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

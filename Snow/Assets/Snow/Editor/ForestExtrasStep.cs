@@ -7,8 +7,8 @@ using UtilityPlane;
 namespace Snow.EditorTools
 {
     /// <summary>
-    /// Forest integration, the user's 21.10 additions: the day / night clock (<see cref="ForestDayNight"/>) and the pockets
-    /// (<see cref="ForestInventory"/>) on the Forest root next to the opening, and the checkpoint's power panel — a zone
+    /// Forest integration, the user's 21.10 additions: the day / night clock (<see cref="ForestDayNight"/>) on the Forest
+    /// root next to the opening (the pockets moved into the core: CargoItem, PlayerNet), and the checkpoint's power panel — a zone
     /// "KPP_Power" (owned by ForestOpening: without it the motorised barrier stays down) on the booth's door wall, with a copy
     /// of the generator container's main switch as its visible box. Running it again replaces, no duplicates.
     /// </summary>
@@ -23,9 +23,6 @@ namespace Snow.EditorTools
             if (!root.TryGetComponent(out ForestDayNight dn)) dn = root.gameObject.AddComponent<ForestDayNight>();
             dn.startHour = 2f;
             EditorUtility.SetDirty(dn);
-            if (!root.TryGetComponent(out ForestInventory inv)) inv = root.gameObject.AddComponent<ForestInventory>();
-            inv.items = root.GetComponent<ForestItems>();
-            EditorUtility.SetDirty(inv);
 
             Transform booth = root.Find("Structures/Checkpoint");
             Transform zones = root.Find("ForestZones");
@@ -57,7 +54,7 @@ namespace Snow.EditorTools
             ia.id = ForestOpening.KppPower;
             ia.kind = "toggle";
             ia.label = "Щиток КПП";
-            Debug.Log($"[Snow] Forest extras: day/night (start {dn.startHour:00}:00), pockets ({ForestInventory.Slots} slots), checkpoint power panel at {at} " +
+            Debug.Log($"[Snow] Forest extras: day/night (start {dn.startHour:00}:00), checkpoint power panel at {at} " +
                       $"({(sw != null ? "main switch copy" : "zone only")}).");
         }
     }

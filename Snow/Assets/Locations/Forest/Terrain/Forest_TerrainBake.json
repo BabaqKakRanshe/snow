@@ -2,8 +2,8 @@
     "worldX0": -600.0,
     "worldZ0": -1200.0,
     "tile": 600.0,
-    "originY": -88.0,
-    "sizeY": 140.0,
+    "originY": -84.0,
+    "sizeY": 136.0,
     "tilesX": 3,
     "tilesZ": 3,
     "tiles": [
@@ -102,5 +102,5 @@
         "Assets/Locations/Forest/Terrain/Prototypes/Pebbles_1.prefab",
         "Assets/Locations/Forest/Terrain/Prototypes/Pebbles_2.prefab"
     ],
-    "date": "2026-10-21 16:19"
+    "date": "2026-10-21 21:27"
 }

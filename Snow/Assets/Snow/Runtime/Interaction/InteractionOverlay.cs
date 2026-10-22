@@ -158,9 +158,14 @@ namespace Snow.Interaction
             }
             else if (target is CargoItem cargo)
             {
-                _title = $"{cargo.label} · {cargo.massKg:0} кг · {cargo.Describe()}";
-                _actions.Add("[E] держать — нести");
-                _actions.Add(cargo.State == CargoState.Secured ? "[R] открепить" : "[R] закрепить");
+                _title = $"{cargo.label} · {cargo.massKg:0.##} кг · {cargo.Describe()}";
+                if (cargo.Pocketable)
+                    _actions.Add(sensor.net != null && CargoItem.FreeSlot(sensor.net.OwnerClientId) < 0 ? "[E] взять — карманы полны" : "[E] взять");
+                else
+                {
+                    _actions.Add(sensor.HeldHeavy ? "[E] поставить то, что несёте" : "[E] нести обеими руками");
+                    _actions.Add(cargo.State == CargoState.Secured ? "[R] открепить" : "[R] закрепить");
+                }
             }
             else if (target is Grabbable grab)
             {

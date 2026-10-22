@@ -74,7 +74,7 @@ namespace Snow.Interaction
         /// Side rule of the model's zone names: a handle *_In is used from inside, *_Out from outside (§8.2, §8.3: later the
         /// lock refuses only the outside). Checked by the client's ray and again by the server (NET-01).
         /// </summary>
-        public bool SideAllows(string id, Vector3 eye)
+        public virtual bool SideAllows(string id, Vector3 eye)
         {
             if (id.EndsWith("_In", System.StringComparison.Ordinal)) return IsInside(eye);
             if (id.EndsWith("_Out", System.StringComparison.Ordinal)) return !IsInside(eye);
@@ -87,6 +87,12 @@ namespace Snow.Interaction
         /// troop seats). <paramref name="held"/> is the item the player carries, or null. Client ray and server both ask.
         /// </summary>
         public virtual bool ZoneOpen(UtilityPlaneInteractable zone, Snow.Cargo.CargoItem held) => true;
+
+        /// <summary>
+        /// Is this zone used only with the free cursor in a seat (Tab)? The van's cab switches, knobs, keys and levers (user
+        /// decision 21.10); off the cursor they are not there for the ray. The plane and the locations: never.
+        /// </summary>
+        public virtual bool CursorOnly(UtilityPlaneInteractable zone) => false;
 
         /// <summary>
         /// Does this host look for zones embedded in its solids (<see cref="EmbeddedOnRay"/>)? The plane and the benches do.

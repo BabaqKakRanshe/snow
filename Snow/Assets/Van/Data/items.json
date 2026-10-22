@@ -1,0 +1,1510 @@
+{
+ "version": 1,
+ "frame": "van space = Unity frame of the prefab root Van (x right, y up, z forward, metres, ground y = 0); body frame of VAN3_CONTRACT.md (x forward, y left, z up) -> (-y, z, x). Every part has an identity local rotation at rest: parent-local = van space - parent origin.",
+ "note": "Item types of the van kit. Prefabs/Items/VanItem_<type>.prefab: the source part (and its children) at the origin, a BoxCollider from its part box - no Rigidbody / network: the game makes its network variant (NetItem recipe). parts: every part of this type in the model (stowed in the van, or screwed on: caps, nuts, keys, plugs, wheels). massKg: empty; with capacityL x densityKgL of contents when full. tether: the item stays on a cord / cable of tetherM metres from the socket tetherFrom. lamp: the lamp of lights.json that travels with it.",
+ "types": [
+  {
+   "type": "Wheel",
+   "label": "Колесо",
+   "massKg": 31.0,
+   "hands": 2,
+   "prefab": "VanItem_Wheel",
+   "sourcePart": "SpareWheel",
+   "parts": [
+    "Wheel_FL",
+    "Wheel_FR",
+    "Wheel_RL",
+    "Wheel_RR",
+    "SpareWheel"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "WheelNut",
+   "label": "Гайка колеса",
+   "massKg": 0.08,
+   "hands": 1,
+   "prefab": "VanItem_WheelNut",
+   "sourcePart": "Wheel_FL_Nut_1",
+   "parts": [
+    "Wheel_FL_Nut_1",
+    "Wheel_FL_Nut_2",
+    "Wheel_FL_Nut_3",
+    "Wheel_FL_Nut_4",
+    "Wheel_FL_Nut_5",
+    "Wheel_FL_Nut_6",
+    "Wheel_FR_Nut_1",
+    "Wheel_FR_Nut_2",
+    "Wheel_FR_Nut_3",
+    "Wheel_FR_Nut_4",
+    "Wheel_FR_Nut_5",
+    "Wheel_FR_Nut_6",
+    "Wheel_RL_Nut_1",
+    "Wheel_RL_Nut_2",
+    "Wheel_RL_Nut_3",
+    "Wheel_RL_Nut_4",
+    "Wheel_RL_Nut_5",
+    "Wheel_RL_Nut_6",
+    "Wheel_RR_Nut_1",
+    "Wheel_RR_Nut_2",
+    "Wheel_RR_Nut_3",
+    "Wheel_RR_Nut_4",
+    "Wheel_RR_Nut_5",
+    "Wheel_RR_Nut_6"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "WingNut",
+   "label": "Барашек запаски",
+   "massKg": 0.15,
+   "hands": 1,
+   "prefab": "VanItem_WingNut",
+   "sourcePart": "SpareWheel_Nut",
+   "parts": [
+    "SpareWheel_Nut"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "SandLadder",
+   "label": "Сэнд-трак",
+   "massKg": 3.2,
+   "hands": 1,
+   "prefab": "VanItem_SandLadder",
+   "sourcePart": "SandLadder_1",
+   "parts": [
+    "SandLadder_1",
+    "SandLadder_2"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "WinchHook",
+   "label": "Крюк лебёдки",
+   "massKg": 0.8,
+   "hands": 1,
+   "prefab": "VanItem_WinchHook",
+   "sourcePart": "Winch_Hook",
+   "parts": [
+    "Winch_Hook"
+   ],
+   "tether": "cable",
+   "tetherFrom": "Winch_Fairlead",
+   "tetherM": 25.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "WorkLamp",
+   "label": "Переноска",
+   "massKg": 0.7,
+   "hands": 1,
+   "prefab": "VanItem_WorkLamp",
+   "sourcePart": "WorkLamp",
+   "parts": [
+    "WorkLamp"
+   ],
+   "tether": "cord",
+   "tetherFrom": "Plug_12V",
+   "tetherM": 5.0,
+   "lamp": "WorkLamp",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Map",
+   "label": "Карта",
+   "massKg": 0.05,
+   "hands": 1,
+   "prefab": "VanItem_Map",
+   "sourcePart": "Map",
+   "parts": [
+    "Map"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "van_map",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Logbook",
+   "label": "Путевой журнал",
+   "massKg": 0.25,
+   "hands": 1,
+   "prefab": "VanItem_Logbook",
+   "sourcePart": "Logbook",
+   "parts": [
+    "Logbook"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "van_logbook",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Flashlight",
+   "label": "Фонарь",
+   "massKg": 0.45,
+   "hands": 1,
+   "prefab": "VanItem_Flashlight",
+   "sourcePart": "Flashlight",
+   "parts": [
+    "Flashlight"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "Torch",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Flare",
+   "label": "Фальшфейер",
+   "massKg": 0.25,
+   "hands": 1,
+   "prefab": "VanItem_Flare",
+   "sourcePart": "Flare_1",
+   "parts": [
+    "Flare_1",
+    "Flare_2",
+    "Flare_3"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "Flare_N",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "RadioMic",
+   "label": "Тангента",
+   "massKg": 0.2,
+   "hands": 1,
+   "prefab": "VanItem_RadioMic",
+   "sourcePart": "Radio_Mic",
+   "parts": [
+    "Radio_Mic"
+   ],
+   "tether": "cord",
+   "tetherFrom": "Radio_Cord_Radio",
+   "tetherM": 1.2,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Kettle",
+   "label": "Чайник",
+   "massKg": 0.8,
+   "hands": 1,
+   "prefab": "VanItem_Kettle",
+   "sourcePart": "Kettle",
+   "parts": [
+    "Kettle"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 1.5,
+   "contents": "water",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Log",
+   "label": "Полено",
+   "massKg": 1.2,
+   "hands": 1,
+   "prefab": "VanItem_Log",
+   "sourcePart": "Log_1",
+   "parts": [
+    "Log_1",
+    "Log_2",
+    "Log_3",
+    "Log_4"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "DistributorCap",
+   "label": "Крышка трамблёра",
+   "massKg": 0.3,
+   "hands": 1,
+   "prefab": "VanItem_DistributorCap",
+   "sourcePart": "Engine_DistributorCap",
+   "parts": [
+    "Engine_DistributorCap"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "SparkPlug",
+   "label": "Свеча",
+   "massKg": 0.06,
+   "hands": 1,
+   "prefab": "VanItem_SparkPlug",
+   "sourcePart": "Engine_Plug_1",
+   "parts": [
+    "Engine_Plug_1",
+    "Engine_Plug_2",
+    "Engine_Plug_3",
+    "Engine_Plug_4"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Battery",
+   "label": "Аккумулятор",
+   "massKg": 18.0,
+   "hands": 2,
+   "prefab": "VanItem_Battery",
+   "sourcePart": "Battery",
+   "parts": [
+    "Battery"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": true,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Fuse",
+   "label": "Предохранитель",
+   "massKg": 0.005,
+   "hands": 1,
+   "prefab": "VanItem_Fuse",
+   "sourcePart": "Fuse_1",
+   "parts": [
+    "Fuse_1",
+    "Fuse_2",
+    "Fuse_3",
+    "Fuse_4",
+    "Fuse_5",
+    "Fuse_6",
+    "Fuse_7",
+    "Fuse_8",
+    "Spare_Fuse_1",
+    "Spare_Fuse_2",
+    "Spare_Fuse_3"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Jerrycan",
+   "label": "Канистра 20 л",
+   "massKg": 3.6,
+   "hands": 1,
+   "prefab": "VanItem_Jerrycan",
+   "sourcePart": "Jerrycan_1",
+   "parts": [
+    "Jerrycan_1",
+    "Jerrycan_2"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 20.0,
+   "contents": "petrol",
+   "densityKgL": 0.74,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Spout",
+   "label": "Лейка",
+   "massKg": 0.4,
+   "hands": 1,
+   "prefab": "VanItem_Spout",
+   "sourcePart": "Spout",
+   "parts": [
+    "Spout"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "ToolBox",
+   "label": "Ящик с инструментом",
+   "massKg": 3.0,
+   "hands": 1,
+   "prefab": "VanItem_ToolBox",
+   "sourcePart": "ToolBox",
+   "parts": [
+    "ToolBox"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Wrench",
+   "label": "Ключ 13/17",
+   "massKg": 0.35,
+   "hands": 1,
+   "prefab": "VanItem_Wrench",
+   "sourcePart": "Tool_Wrench",
+   "parts": [
+    "Tool_Wrench"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "PlugSpanner",
+   "label": "Свечной ключ",
+   "massKg": 0.3,
+   "hands": 1,
+   "prefab": "VanItem_PlugSpanner",
+   "sourcePart": "Tool_PlugSpanner",
+   "parts": [
+    "Tool_PlugSpanner"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Screwdriver",
+   "label": "Отвёртка",
+   "massKg": 0.15,
+   "hands": 1,
+   "prefab": "VanItem_Screwdriver",
+   "sourcePart": "Tool_Screwdriver",
+   "parts": [
+    "Tool_Screwdriver"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Pliers",
+   "label": "Пассатижи",
+   "massKg": 0.3,
+   "hands": 1,
+   "prefab": "VanItem_Pliers",
+   "sourcePart": "Tool_Pliers",
+   "parts": [
+    "Tool_Pliers"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "FanBelt",
+   "label": "Запасной ремень",
+   "massKg": 0.25,
+   "hands": 1,
+   "prefab": "VanItem_FanBelt",
+   "sourcePart": "Spare_Belt",
+   "parts": [
+    "Spare_Belt"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "FuseTin",
+   "label": "Жестянка с предохранителями",
+   "massKg": 0.1,
+   "hands": 1,
+   "prefab": "VanItem_FuseTin",
+   "sourcePart": "FuseTin",
+   "parts": [
+    "FuseTin"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Jack",
+   "label": "Домкрат",
+   "massKg": 4.5,
+   "hands": 1,
+   "prefab": "VanItem_Jack",
+   "sourcePart": "Jack",
+   "parts": [
+    "Jack"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "WheelBrace",
+   "label": "Баллонный ключ",
+   "massKg": 1.2,
+   "hands": 1,
+   "prefab": "VanItem_WheelBrace",
+   "sourcePart": "WheelBrace",
+   "parts": [
+    "WheelBrace"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "OilCan",
+   "label": "Канистра масла 5 л",
+   "massKg": 0.5,
+   "hands": 1,
+   "prefab": "VanItem_OilCan",
+   "sourcePart": "OilCan",
+   "parts": [
+    "OilCan"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 5.0,
+   "contents": "oil",
+   "densityKgL": 0.9,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "AntifreezeCan",
+   "label": "Канистра антифриза 5 л",
+   "massKg": 0.5,
+   "hands": 1,
+   "prefab": "VanItem_AntifreezeCan",
+   "sourcePart": "AntifreezeCan",
+   "parts": [
+    "AntifreezeCan"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 5.0,
+   "contents": "antifreeze",
+   "densityKgL": 1.07,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Shovel",
+   "label": "Лопата",
+   "massKg": 1.6,
+   "hands": 1,
+   "prefab": "VanItem_Shovel",
+   "sourcePart": "Shovel",
+   "parts": [
+    "Shovel"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "TowRope",
+   "label": "Буксировочная стропа",
+   "massKg": 2.2,
+   "hands": 1,
+   "prefab": "VanItem_TowRope",
+   "sourcePart": "TowRope",
+   "parts": [
+    "TowRope"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "CrankHandle",
+   "label": "Заводная рукоятка",
+   "massKg": 1.8,
+   "hands": 1,
+   "prefab": "VanItem_CrankHandle",
+   "sourcePart": "CrankHandle",
+   "parts": [
+    "CrankHandle"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "Blowtorch",
+   "label": "Паяльная лампа",
+   "massKg": 1.6,
+   "hands": 1,
+   "prefab": "VanItem_Blowtorch",
+   "sourcePart": "Blowtorch",
+   "parts": [
+    "Blowtorch"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.75,
+   "contents": "petrol",
+   "densityKgL": 0.74,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "ChainBag",
+   "label": "Сумка с цепями",
+   "massKg": 1.0,
+   "hands": 2,
+   "prefab": "VanItem_ChainBag",
+   "sourcePart": "ChainBag",
+   "parts": [
+    "ChainBag"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 12.0
+  },
+  {
+   "type": "SnowBrush",
+   "label": "Щётка со скребком",
+   "massKg": 0.3,
+   "hands": 1,
+   "prefab": "VanItem_SnowBrush",
+   "sourcePart": "SnowBrush",
+   "parts": [
+    "SnowBrush"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "RadiatorCap",
+   "label": "Пробка радиатора",
+   "massKg": 0.15,
+   "hands": 1,
+   "prefab": "VanItem_RadiatorCap",
+   "sourcePart": "Radiator_Cap",
+   "parts": [
+    "Radiator_Cap"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "FuelCap",
+   "label": "Крышка бака",
+   "massKg": 0.2,
+   "hands": 1,
+   "prefab": "VanItem_FuelCap",
+   "sourcePart": "FuelCap_L",
+   "parts": [
+    "FuelCap_L",
+    "FuelCap_R"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "OilFillerCap",
+   "label": "Крышка маслозаливной горловины",
+   "massKg": 0.05,
+   "hands": 1,
+   "prefab": "VanItem_OilFillerCap",
+   "sourcePart": "Engine_OilCap",
+   "parts": [
+    "Engine_OilCap"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "CoolantCap",
+   "label": "Крышка расширительного бачка",
+   "massKg": 0.05,
+   "hands": 1,
+   "prefab": "VanItem_CoolantCap",
+   "sourcePart": "Engine_CoolantCap",
+   "parts": [
+    "Engine_CoolantCap"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "AirFilterLid",
+   "label": "Крышка воздушного фильтра",
+   "massKg": 0.6,
+   "hands": 1,
+   "prefab": "VanItem_AirFilterLid",
+   "sourcePart": "Engine_AirFilterLid",
+   "parts": [
+    "Engine_AirFilterLid"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "IgnitionKey",
+   "label": "Ключ зажигания",
+   "massKg": 0.02,
+   "hands": 1,
+   "prefab": "VanItem_IgnitionKey",
+   "sourcePart": "Ignition_Key",
+   "parts": [
+    "Ignition_Key"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  },
+  {
+   "type": "MassKey",
+   "label": "Ключ массы",
+   "massKg": 0.03,
+   "hands": 1,
+   "prefab": "VanItem_MassKey",
+   "sourcePart": "MassSwitch_Key",
+   "parts": [
+    "MassSwitch_Key"
+   ],
+   "tether": "",
+   "tetherFrom": "",
+   "tetherM": 0.0,
+   "lamp": "",
+   "readable": "",
+   "capacityL": 0.0,
+   "contents": "",
+   "densityKgL": 0.0,
+   "charge": false,
+   "chainsKg": 0.0
+  }
+ ],
+ "stows": [
+  {
+   "stowId": "Winch_Hook",
+   "parent": "Kit_Front",
+   "position": [
+    0.0,
+    0.6,
+    2.46
+   ],
+   "accepts": "WinchHook",
+   "part": "Winch_Hook"
+  },
+  {
+   "stowId": "SandLadder_1",
+   "parent": "Kit_RoofRack",
+   "position": [
+    -0.22,
+    2.234,
+    -0.35
+   ],
+   "accepts": "SandLadder",
+   "part": "SandLadder_1"
+  },
+  {
+   "stowId": "SandLadder_2",
+   "parent": "Kit_RoofRack",
+   "position": [
+    -0.58,
+    2.234,
+    -0.35
+   ],
+   "accepts": "SandLadder",
+   "part": "SandLadder_2"
+  },
+  {
+   "stowId": "WorkLamp",
+   "parent": "Kuzov",
+   "position": [
+    0.58,
+    0.781,
+    1.56
+   ],
+   "accepts": "WorkLamp",
+   "part": "WorkLamp"
+  },
+  {
+   "stowId": "Map",
+   "parent": "Dash",
+   "position": [
+    0.4305,
+    1.124,
+    1.84
+   ],
+   "accepts": "Map",
+   "part": "Map"
+  },
+  {
+   "stowId": "Logbook",
+   "parent": "Dash",
+   "position": [
+    0.43,
+    1.1365,
+    1.84
+   ],
+   "accepts": "Logbook",
+   "part": "Logbook"
+  },
+  {
+   "stowId": "Flashlight",
+   "parent": "Dash",
+   "position": [
+    0.66,
+    1.146,
+    1.8
+   ],
+   "accepts": "Flashlight",
+   "part": "Flashlight"
+  },
+  {
+   "stowId": "Flare_1",
+   "parent": "Dash",
+   "position": [
+    0.645,
+    1.1345,
+    1.848
+   ],
+   "accepts": "Flare",
+   "part": "Flare_1"
+  },
+  {
+   "stowId": "Flare_2",
+   "parent": "Dash",
+   "position": [
+    0.645,
+    1.1345,
+    1.877
+   ],
+   "accepts": "Flare",
+   "part": "Flare_2"
+  },
+  {
+   "stowId": "Flare_3",
+   "parent": "Dash",
+   "position": [
+    0.645,
+    1.1345,
+    1.906
+   ],
+   "accepts": "Flare",
+   "part": "Flare_3"
+  },
+  {
+   "stowId": "Radio_Mic",
+   "parent": "Dash",
+   "position": [
+    0.285,
+    1.2496,
+    1.7469
+   ],
+   "accepts": "RadioMic",
+   "part": "Radio_Mic"
+  },
+  {
+   "stowId": "Kettle",
+   "parent": "Stove",
+   "position": [
+    0.085,
+    0.545,
+    0.08
+   ],
+   "accepts": "Kettle",
+   "part": "Kettle"
+  },
+  {
+   "stowId": "Log_1",
+   "parent": "WoodBox",
+   "position": [
+    0.0,
+    0.048,
+    -0.038
+   ],
+   "accepts": "Log",
+   "part": "Log_1"
+  },
+  {
+   "stowId": "Log_2",
+   "parent": "WoodBox",
+   "position": [
+    0.0,
+    0.048,
+    0.038
+   ],
+   "accepts": "Log",
+   "part": "Log_2"
+  },
+  {
+   "stowId": "Log_3",
+   "parent": "WoodBox",
+   "position": [
+    0.0,
+    0.118,
+    -0.038
+   ],
+   "accepts": "Log",
+   "part": "Log_3"
+  },
+  {
+   "stowId": "Log_4",
+   "parent": "WoodBox",
+   "position": [
+    0.0,
+    0.118,
+    0.038
+   ],
+   "accepts": "Log",
+   "part": "Log_4"
+  },
+  {
+   "stowId": "Engine_DistributorCap",
+   "parent": "Engine",
+   "position": [
+    -0.14,
+    0.17,
+    -0.19
+   ],
+   "accepts": "DistributorCap",
+   "part": "Engine_DistributorCap"
+  },
+  {
+   "stowId": "Battery",
+   "parent": "BatteryBox",
+   "position": [
+    -0.002,
+    -0.122,
+    0.0
+   ],
+   "accepts": "Battery",
+   "part": "Battery"
+  },
+  {
+   "stowId": "Fuse_1",
+   "parent": "FuseBox",
+   "position": [
+    -0.06,
+    0.0185,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_1"
+  },
+  {
+   "stowId": "Fuse_2",
+   "parent": "FuseBox",
+   "position": [
+    -0.02,
+    0.0185,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_2"
+  },
+  {
+   "stowId": "Fuse_3",
+   "parent": "FuseBox",
+   "position": [
+    0.02,
+    0.0185,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_3"
+  },
+  {
+   "stowId": "Fuse_4",
+   "parent": "FuseBox",
+   "position": [
+    0.06,
+    0.0185,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_4"
+  },
+  {
+   "stowId": "Fuse_5",
+   "parent": "FuseBox",
+   "position": [
+    -0.06,
+    -0.0255,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_5"
+  },
+  {
+   "stowId": "Fuse_6",
+   "parent": "FuseBox",
+   "position": [
+    -0.02,
+    -0.0255,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_6"
+  },
+  {
+   "stowId": "Fuse_7",
+   "parent": "FuseBox",
+   "position": [
+    0.02,
+    -0.0255,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_7"
+  },
+  {
+   "stowId": "Fuse_8",
+   "parent": "FuseBox",
+   "position": [
+    0.06,
+    -0.0255,
+    -0.0285
+   ],
+   "accepts": "Fuse",
+   "part": "Fuse_8"
+  },
+  {
+   "stowId": "Jerrycan_1",
+   "parent": "Kit_RoofRack",
+   "position": [
+    0.57,
+    2.3025,
+    -1.385
+   ],
+   "accepts": "Jerrycan",
+   "part": "Jerrycan_1"
+  },
+  {
+   "stowId": "Jerrycan_2",
+   "parent": "Kit_RoofRack",
+   "position": [
+    0.2,
+    2.3025,
+    -1.385
+   ],
+   "accepts": "Jerrycan",
+   "part": "Jerrycan_2"
+  },
+  {
+   "stowId": "Spout",
+   "parent": "Kit_RoofRack",
+   "position": [
+    -0.03,
+    2.24,
+    -1.5
+   ],
+   "accepts": "Spout",
+   "part": "Spout"
+  },
+  {
+   "stowId": "ToolBox",
+   "parent": "Kuzov",
+   "position": [
+    0.77,
+    0.716,
+    0.63
+   ],
+   "accepts": "ToolBox",
+   "part": "ToolBox"
+  },
+  {
+   "stowId": "Tool_Wrench",
+   "parent": "ToolBox",
+   "position": [
+    0.092,
+    0.011,
+    -0.09
+   ],
+   "accepts": "Wrench",
+   "part": "Tool_Wrench"
+  },
+  {
+   "stowId": "Tool_PlugSpanner",
+   "parent": "ToolBox",
+   "position": [
+    0.055,
+    0.019,
+    -0.11
+   ],
+   "accepts": "PlugSpanner",
+   "part": "Tool_PlugSpanner"
+  },
+  {
+   "stowId": "Tool_Screwdriver",
+   "parent": "ToolBox",
+   "position": [
+    0.008,
+    0.02,
+    -0.05
+   ],
+   "accepts": "Screwdriver",
+   "part": "Tool_Screwdriver"
+  },
+  {
+   "stowId": "Tool_Pliers",
+   "parent": "ToolBox",
+   "position": [
+    -0.05,
+    0.012,
+    -0.11
+   ],
+   "accepts": "Pliers",
+   "part": "Tool_Pliers"
+  },
+  {
+   "stowId": "Spare_Belt",
+   "parent": "ToolBox",
+   "position": [
+    0.03,
+    0.012,
+    0.11
+   ],
+   "accepts": "FanBelt",
+   "part": "Spare_Belt"
+  },
+  {
+   "stowId": "FuseTin",
+   "parent": "ToolBox",
+   "position": [
+    -0.07,
+    0.008,
+    0.11
+   ],
+   "accepts": "FuseTin",
+   "part": "FuseTin"
+  },
+  {
+   "stowId": "Spare_Fuse_1",
+   "parent": "FuseTin",
+   "position": [
+    0.012,
+    0.0075,
+    0.0
+   ],
+   "accepts": "Fuse",
+   "part": "Spare_Fuse_1"
+  },
+  {
+   "stowId": "Spare_Fuse_2",
+   "parent": "FuseTin",
+   "position": [
+    0.0,
+    0.0075,
+    0.0
+   ],
+   "accepts": "Fuse",
+   "part": "Spare_Fuse_2"
+  },
+  {
+   "stowId": "Spare_Fuse_3",
+   "parent": "FuseTin",
+   "position": [
+    -0.012,
+    0.0075,
+    0.0
+   ],
+   "accepts": "Fuse",
+   "part": "Spare_Fuse_3"
+  },
+  {
+   "stowId": "Jack",
+   "parent": "Kuzov",
+   "position": [
+    -0.8,
+    0.716,
+    -0.8
+   ],
+   "accepts": "Jack",
+   "part": "Jack"
+  },
+  {
+   "stowId": "WheelBrace",
+   "parent": "Kuzov",
+   "position": [
+    -0.62,
+    0.733,
+    -0.66
+   ],
+   "accepts": "WheelBrace",
+   "part": "WheelBrace"
+  },
+  {
+   "stowId": "OilCan",
+   "parent": "Kuzov",
+   "position": [
+    -0.825,
+    0.716,
+    -0.62
+   ],
+   "accepts": "OilCan",
+   "part": "OilCan"
+  },
+  {
+   "stowId": "AntifreezeCan",
+   "parent": "Kuzov",
+   "position": [
+    -0.82,
+    0.716,
+    -0.43
+   ],
+   "accepts": "AntifreezeCan",
+   "part": "AntifreezeCan"
+  },
+  {
+   "stowId": "Shovel",
+   "parent": "Kit_RoofRack",
+   "position": [
+    -0.3238,
+    2.228,
+    -1.2188
+   ],
+   "accepts": "Shovel",
+   "part": "Shovel"
+  },
+  {
+   "stowId": "TowRope",
+   "parent": "Kuzov",
+   "position": [
+    0.875,
+    1.58,
+    -1.78
+   ],
+   "accepts": "TowRope",
+   "part": "TowRope"
+  },
+  {
+   "stowId": "CrankHandle",
+   "parent": "Kuzov",
+   "position": [
+    -0.55,
+    1.3,
+    0.858
+   ],
+   "accepts": "CrankHandle",
+   "part": "CrankHandle"
+  },
+  {
+   "stowId": "Blowtorch",
+   "parent": "Kuzov",
+   "position": [
+    -0.8,
+    0.716,
+    -0.12
+   ],
+   "accepts": "Blowtorch",
+   "part": "Blowtorch"
+  },
+  {
+   "stowId": "ChainBag",
+   "parent": "Kuzov",
+   "position": [
+    0.76,
+    0.916,
+    -1.03
+   ],
+   "accepts": "ChainBag",
+   "part": "ChainBag"
+  },
+  {
+   "stowId": "SnowBrush",
+   "parent": "doorP",
+   "position": [
+    -0.05081,
+    -0.295,
+    -0.56648
+   ],
+   "accepts": "SnowBrush",
+   "part": "SnowBrush"
+  },
+  {
+   "stowId": "SpareWheel",
+   "parent": "dooZP",
+   "position": [
+    -0.34172,
+    -0.215,
+    -0.28042
+   ],
+   "accepts": "Wheel",
+   "part": "SpareWheel"
+  }
+ ]
+}

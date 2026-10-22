@@ -1048,9 +1048,14 @@ namespace Snow.Levels.Forest
             return host.InReach(zone, cc.PlayerObject.transform.position + Vector3.up * 1.4f);
         }
 
-        /// <summary>The key in hand or in the player's inventory (user 21.10: keys go into the inventory).</summary>
-        bool HasKey(ulong client, string key) =>
-            !string.IsNullOrEmpty(key) && (HeldKey(client) == key || (ForestInventory.Instance != null && ForestInventory.Instance.HasKey(client, key)));
+        /// <summary>The key in the player's hand or pockets (user 21.10: keys go into the pockets).</summary>
+        bool HasKey(ulong client, string key)
+        {
+            if (string.IsNullOrEmpty(key)) return false;
+            foreach (CargoItem item in CargoItem.All)
+                if (item.IsSpawned && item.CarriedBy(client) && item.TryGetComponent(out ForestItemTag tag) && tag.key == key) return true;
+            return HeldKey(client) == key;
+        }
 
         string HeldKey(ulong client)
         {

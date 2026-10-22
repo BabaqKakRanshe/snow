@@ -1,0 +1,5320 @@
+{
+ "version": 1,
+ "frame": "van space = Unity frame of the prefab root Van (x right, y up, z forward, metres, ground y = 0); body frame of VAN3_CONTRACT.md (x forward, y left, z up) -> (-y, z, x). Every part has an identity local rotation at rest: parent-local = van space - parent origin.",
+ "note": "Interaction zones the setup builds: IV_<id> under <parent>, trigger BoxCollider (center / size in the parent frame), layer Interact, VanInteractable {id, kind, side, label, part, socket, itemType}. kind: the game's (toggle, momentary, rotary, selector, pull, lever, hinge, door, cap, lock, seat, ladder, stow) + the van's: slot (use the item in hand here: pour, plug, insert, tow, jack point, the stove, brush snow / wipe a pane), hide (crouch / lie here), item (a road wheel to take off once its nuts are off). side: in / out / both - the _In / _Out rule (interior box in model_facts.json). Parts smaller than 2 cm get a 2 cm box.",
+ "zones": [
+  {
+   "id": "Horn_Button",
+   "kind": "momentary",
+   "side": "in",
+   "label": "Сигнал",
+   "parent": "Horn_Button",
+   "center": [
+    0.0,
+    0.0032,
+    -0.0009
+   ],
+   "size": [
+    0.0664,
+    0.0363,
+    0.0628
+   ],
+   "part": "Horn_Button",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Window_doorL",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Окно двери водителя",
+   "parent": "Window_doorL",
+   "center": [
+    0.004,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.0626,
+    0.4634,
+    0.3532
+   ],
+   "part": "Window_doorL",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Glass_Window_doorL"
+  },
+  {
+   "id": "Window_doorP",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Окно двери пассажира",
+   "parent": "Window_doorP",
+   "center": [
+    -0.004,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.0626,
+    0.4634,
+    0.3532
+   ],
+   "part": "Window_doorP",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Glass_Window_doorP"
+  },
+  {
+   "id": "doorSalon",
+   "kind": "door",
+   "side": "both",
+   "label": "Боковая дверь салона",
+   "parent": "doorSalon",
+   "center": [
+    -0.0475,
+    -0.0093,
+    -0.4661
+   ],
+   "size": [
+    0.1471,
+    1.25,
+    0.9746
+   ],
+   "part": "doorSalon",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "RoofHatch",
+   "kind": "door",
+   "side": "in",
+   "label": "Люк в крыше салона",
+   "parent": "RoofHatch",
+   "center": [
+    0.0,
+    -0.009,
+    -0.165
+   ],
+   "size": [
+    0.45,
+    0.064,
+    0.34
+   ],
+   "part": "RoofHatch",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Snow_Roof"
+  },
+  {
+   "id": "Radiator_Cap",
+   "kind": "cap",
+   "side": "out",
+   "label": "Пробка радиатора",
+   "parent": "Kit_Front",
+   "center": [
+    0.0,
+    1.1915,
+    2.1392
+   ],
+   "size": [
+    0.04,
+    0.0391,
+    0.0248
+   ],
+   "part": "Radiator_Cap",
+   "socket": "",
+   "itemType": "RadiatorCap",
+   "pane": "",
+   "coveredBy": "RadiatorHatch",
+   "insideOf": "Pour_Radiator"
+  },
+  {
+   "id": "RadiatorHatch",
+   "kind": "hinge",
+   "side": "out",
+   "label": "Лючок радиатора",
+   "parent": "RadiatorHatch",
+   "center": [
+    0.0,
+    -0.03,
+    0.0058
+   ],
+   "size": [
+    0.24,
+    0.0594,
+    0.02
+   ],
+   "part": "RadiatorHatch",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Winch_Clutch",
+   "kind": "lever",
+   "side": "out",
+   "label": "Муфта лебёдки",
+   "parent": "Winch_Clutch",
+   "center": [
+    0.0,
+    0.033,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.074,
+    0.02
+   ],
+   "part": "Winch_Clutch",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Winch_Hook",
+   "kind": "stow",
+   "side": "out",
+   "label": "Крюк лебёдки",
+   "parent": "Kit_Front",
+   "center": [
+    0.0,
+    0.5743,
+    2.4835
+   ],
+   "size": [
+    0.02,
+    0.0714,
+    0.063
+   ],
+   "part": "Winch_Hook",
+   "socket": "",
+   "itemType": "WinchHook",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "SandLadder_1",
+   "kind": "stow",
+   "side": "out",
+   "label": "Сэнд-трак",
+   "parent": "Kit_RoofRack",
+   "center": [
+    -0.22,
+    2.25,
+    -0.35
+   ],
+   "size": [
+    0.32,
+    0.06,
+    1.1
+   ],
+   "part": "SandLadder_1",
+   "socket": "",
+   "itemType": "SandLadder",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "SandLadder_2",
+   "kind": "stow",
+   "side": "out",
+   "label": "Сэнд-трак",
+   "parent": "Kit_RoofRack",
+   "center": [
+    -0.58,
+    2.25,
+    -0.35
+   ],
+   "size": [
+    0.32,
+    0.06,
+    1.1
+   ],
+   "part": "SandLadder_2",
+   "socket": "",
+   "itemType": "SandLadder",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "WorkLamp",
+   "kind": "stow",
+   "side": "in",
+   "label": "Переноска",
+   "parent": "Kuzov",
+   "center": [
+    0.58,
+    0.781,
+    1.6855
+   ],
+   "size": [
+    0.0764,
+    0.0667,
+    0.3539
+   ],
+   "part": "WorkLamp",
+   "socket": "",
+   "itemType": "WorkLamp",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glovebox_Lid",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Бардачок",
+   "parent": "Glovebox_Lid",
+   "center": [
+    0.0,
+    0.0739,
+    0.0142
+   ],
+   "size": [
+    0.44,
+    0.1504,
+    0.0285
+   ],
+   "part": "Glovebox_Lid",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Map",
+   "kind": "stow",
+   "side": "in",
+   "label": "Карта",
+   "parent": "Dash",
+   "center": [
+    0.4305,
+    1.124,
+    1.84
+   ],
+   "size": [
+    0.169,
+    0.02,
+    0.148
+   ],
+   "part": "Map",
+   "socket": "",
+   "itemType": "Map",
+   "pane": "",
+   "coveredBy": "Glovebox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Logbook",
+   "kind": "stow",
+   "side": "in",
+   "label": "Путевой журнал",
+   "parent": "Dash",
+   "center": [
+    0.43,
+    1.1365,
+    1.84
+   ],
+   "size": [
+    0.152,
+    0.02,
+    0.128
+   ],
+   "part": "Logbook",
+   "socket": "",
+   "itemType": "Logbook",
+   "pane": "",
+   "coveredBy": "Glovebox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Flashlight",
+   "kind": "stow",
+   "side": "in",
+   "label": "Фонарь",
+   "parent": "Dash",
+   "center": [
+    0.6615,
+    1.146,
+    1.8
+   ],
+   "size": [
+    0.203,
+    0.052,
+    0.052
+   ],
+   "part": "Flashlight",
+   "socket": "",
+   "itemType": "Flashlight",
+   "pane": "",
+   "coveredBy": "Glovebox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Flare_1",
+   "kind": "stow",
+   "side": "in",
+   "label": "Фальшфейер",
+   "parent": "Dash",
+   "center": [
+    0.645,
+    1.1345,
+    1.848
+   ],
+   "size": [
+    0.23,
+    0.029,
+    0.0276
+   ],
+   "part": "Flare_1",
+   "socket": "",
+   "itemType": "Flare",
+   "pane": "",
+   "coveredBy": "Glovebox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Flare_2",
+   "kind": "stow",
+   "side": "in",
+   "label": "Фальшфейер",
+   "parent": "Dash",
+   "center": [
+    0.645,
+    1.1345,
+    1.877
+   ],
+   "size": [
+    0.23,
+    0.029,
+    0.0276
+   ],
+   "part": "Flare_2",
+   "socket": "",
+   "itemType": "Flare",
+   "pane": "",
+   "coveredBy": "Glovebox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Flare_3",
+   "kind": "stow",
+   "side": "in",
+   "label": "Фальшфейер",
+   "parent": "Dash",
+   "center": [
+    0.645,
+    1.1345,
+    1.906
+   ],
+   "size": [
+    0.23,
+    0.029,
+    0.0276
+   ],
+   "part": "Flare_3",
+   "socket": "",
+   "itemType": "Flare",
+   "pane": "",
+   "coveredBy": "Glovebox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Radio_Volume",
+   "kind": "rotary",
+   "side": "in",
+   "label": "Рация: громкость",
+   "parent": "Radio_Volume",
+   "center": [
+    0.0,
+    0.0005,
+    -0.0059
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.02
+   ],
+   "part": "Radio_Volume",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Radio_Squelch",
+   "kind": "rotary",
+   "side": "in",
+   "label": "Рация: шумоподавитель",
+   "parent": "Radio_Squelch",
+   "center": [
+    0.0,
+    0.0005,
+    -0.0059
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.02
+   ],
+   "part": "Radio_Squelch",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Radio_ChDown",
+   "kind": "momentary",
+   "side": "in",
+   "label": "Рация: канал вниз",
+   "parent": "Radio_ChDown",
+   "center": [
+    0.0,
+    0.0002,
+    -0.0015
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.02
+   ],
+   "part": "Radio_ChDown",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Radio_ChUp",
+   "kind": "momentary",
+   "side": "in",
+   "label": "Рация: канал вверх",
+   "parent": "Radio_ChUp",
+   "center": [
+    0.0,
+    0.0002,
+    -0.0015
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.02
+   ],
+   "part": "Radio_ChUp",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Radio_Mic",
+   "kind": "stow",
+   "side": "in",
+   "label": "Тангента",
+   "parent": "Dash",
+   "center": [
+    0.285,
+    1.2409000000000001,
+    1.7470999999999999
+   ],
+   "size": [
+    0.055,
+    0.1129,
+    0.0395
+   ],
+   "part": "Radio_Mic",
+   "socket": "",
+   "itemType": "RadioMic",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Radio_Mic_PTT",
+   "kind": "momentary",
+   "side": "in",
+   "label": "Кнопка «говорить»",
+   "parent": "Radio_Mic_PTT",
+   "center": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.0411,
+    0.02
+   ],
+   "part": "Radio_Mic_PTT",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "RearMirror",
+   "kind": "rotary",
+   "side": "in",
+   "label": "Зеркало заднего вида",
+   "parent": "RearMirror",
+   "center": [
+    0.0009,
+    0.032,
+    0.0018
+   ],
+   "size": [
+    0.2198,
+    0.1281,
+    0.1123
+   ],
+   "part": "RearMirror",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "doorL",
+   "kind": "door",
+   "side": "both",
+   "label": "Дверь водителя",
+   "parent": "doorL",
+   "center": [
+    -0.1025,
+    -0.001,
+    -0.4621
+   ],
+   "size": [
+    0.3392,
+    1.3618,
+    0.9945
+   ],
+   "part": "doorL",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "doorP",
+   "kind": "door",
+   "side": "both",
+   "label": "Дверь пассажира",
+   "parent": "doorP",
+   "center": [
+    0.1025,
+    -0.001,
+    -0.4621
+   ],
+   "size": [
+    0.3392,
+    1.3618,
+    0.9945
+   ],
+   "part": "doorP",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "doorZL",
+   "kind": "door",
+   "side": "both",
+   "label": "Левая задняя дверь",
+   "parent": "doorZL",
+   "center": [
+    0.3456,
+    -0.04,
+    0.0178
+   ],
+   "size": [
+    0.7114,
+    1.24,
+    0.2554
+   ],
+   "part": "doorZL",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "dooZP",
+   "kind": "door",
+   "side": "both",
+   "label": "Правая задняя дверь",
+   "parent": "dooZP",
+   "center": [
+    -0.3456,
+    0.0037,
+    -0.0107
+   ],
+   "size": [
+    0.7114,
+    1.1351,
+    0.3124
+   ],
+   "part": "dooZP",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "StoveDoor",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Дверца печки",
+   "parent": "StoveDoor",
+   "center": [
+    0.1,
+    0.0,
+    0.0165
+   ],
+   "size": [
+    0.2,
+    0.22,
+    0.045
+   ],
+   "part": "StoveDoor",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "StoveDoor_Vent",
+   "kind": "pull",
+   "side": "in",
+   "label": "Поддувало на дверце",
+   "parent": "StoveDoor_Vent",
+   "center": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.07,
+    0.02,
+    0.02
+   ],
+   "part": "StoveDoor_Vent",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "StoveDoor"
+  },
+  {
+   "id": "Stove_AshPan",
+   "kind": "pull",
+   "side": "in",
+   "label": "Зольник",
+   "parent": "Stove_AshPan",
+   "center": [
+    0.0,
+    0.0,
+    -0.1064
+   ],
+   "size": [
+    0.18,
+    0.065,
+    0.2472
+   ],
+   "part": "Stove_AshPan",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Stove_Damper",
+   "kind": "rotary",
+   "side": "in",
+   "label": "Заслонка трубы",
+   "parent": "Stove_Damper",
+   "center": [
+    0.0,
+    0.0,
+    0.0688
+   ],
+   "size": [
+    0.022,
+    0.022,
+    0.1375
+   ],
+   "part": "Stove_Damper",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Kettle",
+   "kind": "stow",
+   "side": "in",
+   "label": "Чайник",
+   "parent": "Stove",
+   "center": [
+    0.085,
+    0.621,
+    0.1068
+   ],
+   "size": [
+    0.15,
+    0.152,
+    0.1963
+   ],
+   "part": "Kettle",
+   "socket": "",
+   "itemType": "Kettle",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Log_1",
+   "kind": "stow",
+   "side": "in",
+   "label": "Полено",
+   "parent": "WoodBox",
+   "center": [
+    0.0,
+    0.048,
+    -0.038
+   ],
+   "size": [
+    0.28,
+    0.07,
+    0.07
+   ],
+   "part": "Log_1",
+   "socket": "",
+   "itemType": "Log",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Log_2",
+   "kind": "stow",
+   "side": "in",
+   "label": "Полено",
+   "parent": "WoodBox",
+   "center": [
+    0.0,
+    0.048,
+    0.038
+   ],
+   "size": [
+    0.28,
+    0.07,
+    0.07
+   ],
+   "part": "Log_2",
+   "socket": "",
+   "itemType": "Log",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Log_3",
+   "kind": "stow",
+   "side": "in",
+   "label": "Полено",
+   "parent": "WoodBox",
+   "center": [
+    0.0,
+    0.118,
+    -0.038
+   ],
+   "size": [
+    0.28,
+    0.07,
+    0.07
+   ],
+   "part": "Log_3",
+   "socket": "",
+   "itemType": "Log",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Log_4",
+   "kind": "stow",
+   "side": "in",
+   "label": "Полено",
+   "parent": "WoodBox",
+   "center": [
+    0.0,
+    0.118,
+    0.038
+   ],
+   "size": [
+    0.28,
+    0.07,
+    0.07
+   ],
+   "part": "Log_4",
+   "socket": "",
+   "itemType": "Log",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_L1A",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_L1A",
+   "center": [
+    0.03,
+    -0.2567,
+    0.075
+   ],
+   "size": [
+    0.03,
+    0.5135,
+    0.1632
+   ],
+   "part": "Curtain_L1A",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_L1B",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_L1B",
+   "center": [
+    0.03,
+    -0.2567,
+    -0.075
+   ],
+   "size": [
+    0.03,
+    0.5135,
+    0.1632
+   ],
+   "part": "Curtain_L1B",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_L2A",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_L2A",
+   "center": [
+    0.03,
+    -0.2567,
+    0.075
+   ],
+   "size": [
+    0.03,
+    0.5135,
+    0.1632
+   ],
+   "part": "Curtain_L2A",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_L2B",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_L2B",
+   "center": [
+    0.03,
+    -0.2567,
+    -0.075
+   ],
+   "size": [
+    0.03,
+    0.5135,
+    0.1632
+   ],
+   "part": "Curtain_L2B",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_L3A",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_L3A",
+   "center": [
+    0.03,
+    -0.2567,
+    0.075
+   ],
+   "size": [
+    0.03,
+    0.5135,
+    0.1632
+   ],
+   "part": "Curtain_L3A",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_L3B",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_L3B",
+   "center": [
+    0.03,
+    -0.2567,
+    -0.075
+   ],
+   "size": [
+    0.03,
+    0.5135,
+    0.1632
+   ],
+   "part": "Curtain_L3B",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_R1A",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_R1A",
+   "center": [
+    -0.022,
+    -0.2567,
+    0.075
+   ],
+   "size": [
+    0.03,
+    0.5134,
+    0.15
+   ],
+   "part": "Curtain_R1A",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_R1B",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_R1B",
+   "center": [
+    -0.022,
+    -0.2567,
+    -0.075
+   ],
+   "size": [
+    0.03,
+    0.5134,
+    0.15
+   ],
+   "part": "Curtain_R1B",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_R2A",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_R2A",
+   "center": [
+    -0.022,
+    -0.2567,
+    0.075
+   ],
+   "size": [
+    0.03,
+    0.5134,
+    0.15
+   ],
+   "part": "Curtain_R2A",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_R2B",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_R2B",
+   "center": [
+    -0.022,
+    -0.2567,
+    -0.075
+   ],
+   "size": [
+    0.03,
+    0.5134,
+    0.15
+   ],
+   "part": "Curtain_R2B",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_R3A",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_R3A",
+   "center": [
+    -0.022,
+    -0.2567,
+    0.075
+   ],
+   "size": [
+    0.03,
+    0.5134,
+    0.15
+   ],
+   "part": "Curtain_R3A",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Curtain_R3B",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Шторка",
+   "parent": "Curtain_R3B",
+   "center": [
+    -0.022,
+    -0.2567,
+    -0.075
+   ],
+   "size": [
+    0.03,
+    0.5134,
+    0.15
+   ],
+   "part": "Curtain_R3B",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_AirFilterLid",
+   "kind": "cap",
+   "side": "in",
+   "label": "Крышка воздушного фильтра",
+   "parent": "Engine",
+   "center": [
+    0.13,
+    0.363,
+    0.0
+   ],
+   "size": [
+    0.2462,
+    0.042,
+    0.25
+   ],
+   "part": "Engine_AirFilterLid",
+   "socket": "",
+   "itemType": "AirFilterLid",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": "EngineCover"
+  },
+  {
+   "id": "Engine_DistributorCap",
+   "kind": "stow",
+   "side": "in",
+   "label": "Крышка трамблёра",
+   "parent": "Engine",
+   "center": [
+    -0.14,
+    0.2,
+    -0.19
+   ],
+   "size": [
+    0.08,
+    0.06,
+    0.08
+   ],
+   "part": "Engine_DistributorCap",
+   "socket": "",
+   "itemType": "DistributorCap",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Plug_1",
+   "kind": "cap",
+   "side": "in",
+   "label": "Свеча 1",
+   "parent": "Engine",
+   "center": [
+    -0.1096,
+    0.195,
+    -0.14
+   ],
+   "size": [
+    0.0372,
+    0.0419,
+    0.02
+   ],
+   "part": "Engine_Plug_1",
+   "socket": "",
+   "itemType": "SparkPlug",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Lead_1",
+   "kind": "pull",
+   "side": "in",
+   "label": "Провод свечи 1",
+   "parent": "Engine_Lead_1",
+   "center": [
+    -0.0207,
+    0.0406,
+    -0.0142
+   ],
+   "size": [
+    0.0599,
+    0.0978,
+    0.0432
+   ],
+   "part": "Engine_Lead_1",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": "Engine_Lead_4"
+  },
+  {
+   "id": "Engine_Plug_2",
+   "kind": "cap",
+   "side": "in",
+   "label": "Свеча 2",
+   "parent": "Engine",
+   "center": [
+    -0.1096,
+    0.195,
+    -0.045
+   ],
+   "size": [
+    0.0372,
+    0.0419,
+    0.02
+   ],
+   "part": "Engine_Plug_2",
+   "socket": "",
+   "itemType": "SparkPlug",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Lead_2",
+   "kind": "pull",
+   "side": "in",
+   "label": "Провод свечи 2",
+   "parent": "Engine_Lead_2",
+   "center": [
+    -0.0154,
+    0.0406,
+    -0.08
+   ],
+   "size": [
+    0.0492,
+    0.0978,
+    0.1747
+   ],
+   "part": "Engine_Lead_2",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": "Engine_Lead_4"
+  },
+  {
+   "id": "Engine_Plug_3",
+   "kind": "cap",
+   "side": "in",
+   "label": "Свеча 3",
+   "parent": "Engine",
+   "center": [
+    -0.1096,
+    0.195,
+    0.05
+   ],
+   "size": [
+    0.0372,
+    0.0419,
+    0.02
+   ],
+   "part": "Engine_Plug_3",
+   "socket": "",
+   "itemType": "SparkPlug",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Lead_3",
+   "kind": "pull",
+   "side": "in",
+   "label": "Провод свечи 3",
+   "parent": "Engine_Lead_3",
+   "center": [
+    -0.0153,
+    0.0406,
+    -0.1092
+   ],
+   "size": [
+    0.0491,
+    0.0978,
+    0.233
+   ],
+   "part": "Engine_Lead_3",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": "Engine_Lead_4"
+  },
+  {
+   "id": "Engine_Plug_4",
+   "kind": "cap",
+   "side": "in",
+   "label": "Свеча 4",
+   "parent": "Engine",
+   "center": [
+    -0.1096,
+    0.195,
+    0.145
+   ],
+   "size": [
+    0.0372,
+    0.0419,
+    0.02
+   ],
+   "part": "Engine_Plug_4",
+   "socket": "",
+   "itemType": "SparkPlug",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Lead_4",
+   "kind": "pull",
+   "side": "in",
+   "label": "Провод свечи 4",
+   "parent": "Engine_Lead_4",
+   "center": [
+    -0.0208,
+    0.0406,
+    -0.1752
+   ],
+   "size": [
+    0.06,
+    0.0978,
+    0.3651
+   ],
+   "part": "Engine_Lead_4",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Belt",
+   "kind": "slot",
+   "side": "in",
+   "label": "Ремень вентилятора",
+   "parent": "Engine",
+   "center": [
+    0.05595,
+    0.0062,
+    0.262
+   ],
+   "size": [
+    0.2261,
+    0.2586,
+    0.074
+   ],
+   "part": "Engine_Belt",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Dipstick",
+   "kind": "pull",
+   "side": "in",
+   "label": "Щуп",
+   "parent": "Engine_Dipstick",
+   "center": [
+    -0.0453,
+    -0.167,
+    -0.0192
+   ],
+   "size": [
+    0.1224,
+    0.4293,
+    0.0912
+   ],
+   "part": "Engine_Dipstick",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_OilCap",
+   "kind": "cap",
+   "side": "in",
+   "label": "Крышка маслозаливной горловины",
+   "parent": "Engine",
+   "center": [
+    -0.03,
+    0.276,
+    0.14
+   ],
+   "size": [
+    0.048,
+    0.032,
+    0.048
+   ],
+   "part": "Engine_OilCap",
+   "socket": "",
+   "itemType": "OilFillerCap",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": "Pour_Oil"
+  },
+  {
+   "id": "Engine_CoolantCap",
+   "kind": "cap",
+   "side": "in",
+   "label": "Крышка расширительного бачка",
+   "parent": "Engine",
+   "center": [
+    0.205,
+    0.2785,
+    -0.215
+   ],
+   "size": [
+    0.0361,
+    0.02,
+    0.038
+   ],
+   "part": "Engine_CoolantCap",
+   "socket": "",
+   "itemType": "CoolantCap",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": "Pour_Coolant"
+  },
+  {
+   "id": "Engine_PrimerLever",
+   "kind": "momentary",
+   "side": "in",
+   "label": "Рычаг ручной подкачки бензонасоса",
+   "parent": "Engine_PrimerLever",
+   "center": [
+    0.0,
+    -0.025,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.05,
+    0.02
+   ],
+   "part": "Engine_PrimerLever",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "EngineCover",
+   "kind": "door",
+   "side": "in",
+   "label": "Кожух двигателя",
+   "parent": "EngineCover",
+   "center": [
+    0.0,
+    -0.1,
+    0.291
+   ],
+   "size": [
+    0.57,
+    0.2,
+    0.582
+   ],
+   "part": "EngineCover",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "MassSwitch_Key",
+   "kind": "selector",
+   "side": "in",
+   "label": "Ключ массы",
+   "parent": "BatteryBox",
+   "center": [
+    0.18,
+    0.038,
+    0.08
+   ],
+   "size": [
+    0.036,
+    0.024,
+    0.07
+   ],
+   "part": "MassSwitch_Key",
+   "socket": "",
+   "itemType": "MassKey",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "BatteryBox_Lid",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Крышка ящика АКБ",
+   "parent": "BatteryBox_Lid",
+   "center": [
+    0.1545,
+    0.006,
+    0.0
+   ],
+   "size": [
+    0.311,
+    0.03,
+    0.31
+   ],
+   "part": "BatteryBox_Lid",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "Seat_L4",
+   "insideOf": ""
+  },
+  {
+   "id": "Battery",
+   "kind": "stow",
+   "side": "in",
+   "label": "Аккумулятор",
+   "parent": "BatteryBox",
+   "center": [
+    -0.002,
+    0.010200000000000015,
+    0.0
+   ],
+   "size": [
+    0.175,
+    0.2644,
+    0.278
+   ],
+   "part": "Battery",
+   "socket": "",
+   "itemType": "Battery",
+   "pane": "",
+   "coveredBy": "BatteryBox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Battery_ClampPos",
+   "kind": "pull",
+   "side": "in",
+   "label": "Клемма «плюс»",
+   "parent": "Battery_ClampPos",
+   "center": [
+    0.0345,
+    -0.098,
+    0.006
+   ],
+   "size": [
+    0.105,
+    0.234,
+    0.048
+   ],
+   "part": "Battery_ClampPos",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "BatteryBox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Battery_ClampNeg",
+   "kind": "pull",
+   "side": "in",
+   "label": "Клемма «минус»",
+   "parent": "Battery_ClampNeg",
+   "center": [
+    0.0355,
+    -0.1055,
+    0.007
+   ],
+   "size": [
+    0.103,
+    0.219,
+    0.046
+   ],
+   "part": "Battery_ClampNeg",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "BatteryBox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "FuseBox_Lid",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Крышка блока предохранителей",
+   "parent": "FuseBox_Lid",
+   "center": [
+    0.0,
+    0.052,
+    0.0
+   ],
+   "size": [
+    0.184,
+    0.104,
+    0.02
+   ],
+   "part": "FuseBox_Lid",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Fuse_1",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «фары»",
+   "parent": "FuseBox",
+   "center": [
+    -0.06,
+    0.0185,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_1",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Fuse_2",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «противотуманки»",
+   "parent": "FuseBox",
+   "center": [
+    -0.02,
+    0.0185,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_2",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": "Hide_Footwell_P"
+  },
+  {
+   "id": "Fuse_3",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «прожекторы»",
+   "parent": "FuseBox",
+   "center": [
+    0.02,
+    0.0185,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_3",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": "Hide_Footwell_P"
+  },
+  {
+   "id": "Fuse_4",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «люстра»",
+   "parent": "FuseBox",
+   "center": [
+    0.06,
+    0.0185,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_4",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": "Hide_Footwell_P"
+  },
+  {
+   "id": "Fuse_5",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «рабочий свет»",
+   "parent": "FuseBox",
+   "center": [
+    -0.06,
+    -0.0255,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_5",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": ""
+  },
+  {
+   "id": "Fuse_6",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «салон»",
+   "parent": "FuseBox",
+   "center": [
+    -0.02,
+    -0.0255,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_6",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": "Hide_Footwell_P"
+  },
+  {
+   "id": "Fuse_7",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «печка»",
+   "parent": "FuseBox",
+   "center": [
+    0.02,
+    -0.0255,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_7",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": "Hide_Footwell_P"
+  },
+  {
+   "id": "Fuse_8",
+   "kind": "stow",
+   "side": "in",
+   "label": "Предохранитель «дворник»",
+   "parent": "FuseBox",
+   "center": [
+    0.06,
+    -0.0255,
+    -0.0285
+   ],
+   "size": [
+    0.028,
+    0.02,
+    0.02
+   ],
+   "part": "Fuse_8",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "FuseBox_Lid",
+   "insideOf": "Hide_Footwell_P"
+  },
+  {
+   "id": "Ignition_Key",
+   "kind": "selector",
+   "side": "in",
+   "label": "Ключ зажигания",
+   "parent": "DashControls",
+   "center": [
+    -0.14961,
+    0.01239,
+    -0.017529999999999997
+   ],
+   "size": [
+    0.026,
+    0.02,
+    0.0389
+   ],
+   "part": "Ignition_Key",
+   "socket": "",
+   "itemType": "IgnitionKey",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Knob_Choke",
+   "kind": "pull",
+   "side": "in",
+   "label": "Подсос",
+   "parent": "Knob_Choke",
+   "center": [
+    0.0,
+    0.0039,
+    -0.0221
+   ],
+   "size": [
+    0.0266,
+    0.0292,
+    0.0452
+   ],
+   "part": "Knob_Choke",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Knob_Throttle",
+   "kind": "pull",
+   "side": "in",
+   "label": "Ручной газ",
+   "parent": "Knob_Throttle",
+   "center": [
+    0.0,
+    0.0039,
+    -0.0221
+   ],
+   "size": [
+    0.0266,
+    0.0292,
+    0.0452
+   ],
+   "part": "Knob_Throttle",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Handbrake",
+   "kind": "pull",
+   "side": "in",
+   "label": "Ручник",
+   "parent": "Handbrake",
+   "center": [
+    0.0,
+    0.0054,
+    -0.0306
+   ],
+   "size": [
+    0.11,
+    0.0226,
+    0.0624
+   ],
+   "part": "Handbrake",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "FuelCap_L",
+   "kind": "cap",
+   "side": "out",
+   "label": "Крышка левого бака",
+   "parent": "FuelFiller_L",
+   "center": [
+    -0.0375,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.023,
+    0.068,
+    0.068
+   ],
+   "part": "FuelCap_L",
+   "socket": "",
+   "itemType": "FuelCap",
+   "pane": "",
+   "coveredBy": "FuelFlap_L",
+   "insideOf": "Pour_Fuel_L"
+  },
+  {
+   "id": "FuelFlap_L",
+   "kind": "hinge",
+   "side": "out",
+   "label": "Лючок левого бака",
+   "parent": "FuelFlap_L",
+   "center": [
+    -0.0008,
+    0.0,
+    -0.08
+   ],
+   "size": [
+    0.02,
+    0.16,
+    0.16
+   ],
+   "part": "FuelFlap_L",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "FuelCap_R",
+   "kind": "cap",
+   "side": "out",
+   "label": "Крышка правого бака",
+   "parent": "FuelFiller_R",
+   "center": [
+    0.0375,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.023,
+    0.068,
+    0.068
+   ],
+   "part": "FuelCap_R",
+   "socket": "",
+   "itemType": "FuelCap",
+   "pane": "",
+   "coveredBy": "FuelFlap_R",
+   "insideOf": "Pour_Fuel_R"
+  },
+  {
+   "id": "FuelFlap_R",
+   "kind": "hinge",
+   "side": "out",
+   "label": "Лючок правого бака",
+   "parent": "FuelFlap_R",
+   "center": [
+    0.0008,
+    0.0,
+    -0.08
+   ],
+   "size": [
+    0.02,
+    0.16,
+    0.16
+   ],
+   "part": "FuelFlap_R",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "TankValve_Lever",
+   "kind": "selector",
+   "side": "in",
+   "label": "Кран баков",
+   "parent": "TankValve_Lever",
+   "center": [
+    0.0,
+    0.026,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.068,
+    0.02
+   ],
+   "part": "TankValve_Lever",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Hide_Footwell_D"
+  },
+  {
+   "id": "Jerrycan_1",
+   "kind": "stow",
+   "side": "out",
+   "label": "Канистра 20 л",
+   "parent": "Kit_RoofRack",
+   "center": [
+    0.57,
+    2.3025,
+    -1.4082
+   ],
+   "size": [
+    0.345,
+    0.174,
+    0.5163
+   ],
+   "part": "Jerrycan_1",
+   "socket": "",
+   "itemType": "Jerrycan",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Jerrycan_2",
+   "kind": "stow",
+   "side": "out",
+   "label": "Канистра 20 л",
+   "parent": "Kit_RoofRack",
+   "center": [
+    0.2,
+    2.3025,
+    -1.4082
+   ],
+   "size": [
+    0.345,
+    0.174,
+    0.5163
+   ],
+   "part": "Jerrycan_2",
+   "socket": "",
+   "itemType": "Jerrycan",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Spout",
+   "kind": "stow",
+   "side": "out",
+   "label": "Лейка",
+   "parent": "Kit_RoofRack",
+   "center": [
+    -0.0817,
+    2.24,
+    -1.351
+   ],
+   "size": [
+    0.1643,
+    0.064,
+    0.3579
+   ],
+   "part": "Spout",
+   "socket": "",
+   "itemType": "Spout",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "TransferLever_Axle",
+   "kind": "lever",
+   "side": "in",
+   "label": "Раздатка, передний мост",
+   "parent": "TransferLever_Axle",
+   "center": [
+    0.0,
+    0.0885,
+    -0.0293
+   ],
+   "size": [
+    0.04,
+    0.1829,
+    0.1186
+   ],
+   "part": "TransferLever_Axle",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "TransferLever_Range",
+   "kind": "lever",
+   "side": "in",
+   "label": "Раздатка, ряд",
+   "parent": "TransferLever_Range",
+   "center": [
+    0.0,
+    0.0885,
+    -0.0293
+   ],
+   "size": [
+    0.04,
+    0.1829,
+    0.1186
+   ],
+   "part": "TransferLever_Range",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "ToolBox",
+   "kind": "stow",
+   "side": "in",
+   "label": "Ящик с инструментом",
+   "parent": "Kuzov",
+   "center": [
+    0.768,
+    0.7919999999999999,
+    0.63
+   ],
+   "size": [
+    0.244,
+    0.152,
+    0.42
+   ],
+   "part": "ToolBox",
+   "socket": "",
+   "itemType": "ToolBox",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "ToolBox_Lid",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Крышка ящика с инструментом",
+   "parent": "ToolBox_Lid",
+   "center": [
+    -0.122,
+    0.0244,
+    0.0
+   ],
+   "size": [
+    0.244,
+    0.0568,
+    0.424
+   ],
+   "part": "ToolBox_Lid",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Tool_Wrench",
+   "kind": "stow",
+   "side": "in",
+   "label": "Ключ 13/17",
+   "parent": "ToolBox",
+   "center": [
+    0.092,
+    0.011,
+    -0.095
+   ],
+   "size": [
+    0.032,
+    0.02,
+    0.206
+   ],
+   "part": "Tool_Wrench",
+   "socket": "",
+   "itemType": "Wrench",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Tool_PlugSpanner",
+   "kind": "stow",
+   "side": "in",
+   "label": "Свечной ключ с воротком",
+   "parent": "ToolBox",
+   "center": [
+    0.055,
+    0.019,
+    -0.1175
+   ],
+   "size": [
+    0.052,
+    0.025,
+    0.145
+   ],
+   "part": "Tool_PlugSpanner",
+   "socket": "",
+   "itemType": "PlugSpanner",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Tool_Screwdriver",
+   "kind": "stow",
+   "side": "in",
+   "label": "Отвёртка",
+   "parent": "ToolBox",
+   "center": [
+    0.008,
+    0.02,
+    -0.095
+   ],
+   "size": [
+    0.0208,
+    0.024,
+    0.19
+   ],
+   "part": "Tool_Screwdriver",
+   "socket": "",
+   "itemType": "Screwdriver",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Tool_Pliers",
+   "kind": "stow",
+   "side": "in",
+   "label": "Пассатижи",
+   "parent": "ToolBox",
+   "center": [
+    -0.05,
+    0.0125,
+    -0.1036
+   ],
+   "size": [
+    0.0509,
+    0.02,
+    0.1729
+   ],
+   "part": "Tool_Pliers",
+   "socket": "",
+   "itemType": "Pliers",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Spare_Belt",
+   "kind": "stow",
+   "side": "in",
+   "label": "Запасной ремень вентилятора",
+   "parent": "ToolBox",
+   "center": [
+    0.03,
+    0.012,
+    0.11
+   ],
+   "size": [
+    0.128,
+    0.02,
+    0.1279
+   ],
+   "part": "Spare_Belt",
+   "socket": "",
+   "itemType": "FanBelt",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "FuseTin",
+   "kind": "stow",
+   "side": "in",
+   "label": "Жестянка с тремя запасными предохранителями",
+   "parent": "ToolBox",
+   "center": [
+    -0.07,
+    0.017,
+    0.11
+   ],
+   "size": [
+    0.06,
+    0.02,
+    0.06
+   ],
+   "part": "FuseTin",
+   "socket": "",
+   "itemType": "FuseTin",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Spare_Fuse_1",
+   "kind": "stow",
+   "side": "in",
+   "label": "Запасной предохранитель",
+   "parent": "FuseTin",
+   "center": [
+    0.012,
+    0.0075,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.028
+   ],
+   "part": "Spare_Fuse_1",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Spare_Fuse_2",
+   "kind": "stow",
+   "side": "in",
+   "label": "Запасной предохранитель",
+   "parent": "FuseTin",
+   "center": [
+    0.0,
+    0.0075,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.028
+   ],
+   "part": "Spare_Fuse_2",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Spare_Fuse_3",
+   "kind": "stow",
+   "side": "in",
+   "label": "Запасной предохранитель",
+   "parent": "FuseTin",
+   "center": [
+    -0.012,
+    0.0075,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.028
+   ],
+   "part": "Spare_Fuse_3",
+   "socket": "",
+   "itemType": "Fuse",
+   "pane": "",
+   "coveredBy": "ToolBox_Lid",
+   "insideOf": "ToolBox"
+  },
+  {
+   "id": "Jack",
+   "kind": "stow",
+   "side": "in",
+   "label": "Домкрат",
+   "parent": "Kuzov",
+   "center": [
+    -0.8,
+    0.8059999999999999,
+    -0.7925000000000001
+   ],
+   "size": [
+    0.09,
+    0.18,
+    0.125
+   ],
+   "part": "Jack",
+   "socket": "",
+   "itemType": "Jack",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Jack_Screw",
+   "kind": "rotary",
+   "side": "in",
+   "label": "Винт в штоке",
+   "parent": "Jack_Screw",
+   "center": [
+    0.0,
+    -0.0615,
+    0.0
+   ],
+   "size": [
+    0.04,
+    0.137,
+    0.04
+   ],
+   "part": "Jack_Screw",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "WheelBrace",
+   "kind": "stow",
+   "side": "in",
+   "label": "Баллонный ключ",
+   "parent": "Kuzov",
+   "center": [
+    -0.5723,
+    0.733,
+    -0.654
+   ],
+   "size": [
+    0.1249,
+    0.034,
+    0.4219
+   ],
+   "part": "WheelBrace",
+   "socket": "",
+   "itemType": "WheelBrace",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "OilCan",
+   "kind": "stow",
+   "side": "in",
+   "label": "Канистра масла 5 л",
+   "parent": "Kuzov",
+   "center": [
+    -0.825,
+    0.848,
+    -0.62
+   ],
+   "size": [
+    0.11,
+    0.2641,
+    0.17
+   ],
+   "part": "OilCan",
+   "socket": "",
+   "itemType": "OilCan",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "AntifreezeCan",
+   "kind": "stow",
+   "side": "in",
+   "label": "Канистра антифриза 5 л",
+   "parent": "Kuzov",
+   "center": [
+    -0.82,
+    0.8452999999999999,
+    -0.43
+   ],
+   "size": [
+    0.12,
+    0.2586,
+    0.15
+   ],
+   "part": "AntifreezeCan",
+   "socket": "",
+   "itemType": "AntifreezeCan",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Shovel",
+   "kind": "stow",
+   "side": "out",
+   "label": "Лопата",
+   "parent": "Kit_RoofRack",
+   "center": [
+    -0.4224,
+    2.228,
+    -1.3211000000000002
+   ],
+   "size": [
+    0.7307,
+    0.044,
+    0.7624
+   ],
+   "part": "Shovel",
+   "socket": "",
+   "itemType": "Shovel",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "TowRope",
+   "kind": "stow",
+   "side": "in",
+   "label": "Буксировочная стропа",
+   "parent": "Kuzov",
+   "center": [
+    0.875,
+    1.482,
+    -1.78
+   ],
+   "size": [
+    0.044,
+    0.456,
+    0.26
+   ],
+   "part": "TowRope",
+   "socket": "",
+   "itemType": "TowRope",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "CrankHandle",
+   "kind": "stow",
+   "side": "in",
+   "label": "Заводная рукоятка",
+   "parent": "Kuzov",
+   "center": [
+    0.05499999999999994,
+    1.2055,
+    0.858
+   ],
+   "size": [
+    1.222,
+    0.211,
+    0.04
+   ],
+   "part": "CrankHandle",
+   "socket": "",
+   "itemType": "CrankHandle",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "CrankHole_Flap",
+   "kind": "hinge",
+   "side": "out",
+   "label": "Шторка отверстия под рукоятку",
+   "parent": "CrankHole_Flap",
+   "center": [
+    0.0,
+    -0.027,
+    -0.001
+   ],
+   "size": [
+    0.056,
+    0.062,
+    0.02
+   ],
+   "part": "CrankHole_Flap",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Crank_Hole"
+  },
+  {
+   "id": "Socket_12V_Cap",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Крышка розетки 12 В",
+   "parent": "Socket_12V_Cap",
+   "center": [
+    0.0,
+    -0.0134,
+    -0.0017
+   ],
+   "size": [
+    0.0257,
+    0.0272,
+    0.02
+   ],
+   "part": "Socket_12V_Cap",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Plug_12V"
+  },
+  {
+   "id": "Heater_Temp",
+   "kind": "selector",
+   "side": "in",
+   "label": "Температура печки",
+   "parent": "Heater_Temp",
+   "center": [
+    0.0,
+    0.0007,
+    -0.006
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.02
+   ],
+   "part": "Heater_Temp",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Heater_Fan",
+   "kind": "selector",
+   "side": "in",
+   "label": "Вентилятор печки",
+   "parent": "Heater_Fan",
+   "center": [
+    0.0,
+    0.0007,
+    -0.006
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.02
+   ],
+   "part": "Heater_Fan",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Heater_Air",
+   "kind": "rotary",
+   "side": "in",
+   "label": "Заслонка печки",
+   "parent": "Heater_Air",
+   "center": [
+    0.0,
+    0.0004,
+    -0.006
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.02
+   ],
+   "part": "Heater_Air",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Blowtorch",
+   "kind": "stow",
+   "side": "in",
+   "label": "Паяльная лампа",
+   "parent": "Kuzov",
+   "center": [
+    -0.8,
+    0.828,
+    -0.1615
+   ],
+   "size": [
+    0.1072,
+    0.224,
+    0.287
+   ],
+   "part": "Blowtorch",
+   "socket": "",
+   "itemType": "Blowtorch",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Blowtorch_Pump",
+   "kind": "momentary",
+   "side": "in",
+   "label": "Насос лампы",
+   "parent": "Blowtorch_Pump",
+   "center": [
+    0.0,
+    0.0395,
+    0.0
+   ],
+   "size": [
+    0.02,
+    0.079,
+    0.044
+   ],
+   "part": "Blowtorch_Pump",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Blowtorch_Take"
+  },
+  {
+   "id": "Blowtorch_Valve",
+   "kind": "rotary",
+   "side": "in",
+   "label": "Вентиль лампы",
+   "parent": "Blowtorch_Valve",
+   "center": [
+    0.0,
+    0.013,
+    0.0
+   ],
+   "size": [
+    0.0247,
+    0.026,
+    0.026
+   ],
+   "part": "Blowtorch_Valve",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Engine_Drain",
+   "kind": "selector",
+   "side": "in",
+   "label": "Сливной краник",
+   "parent": "Engine_Drain",
+   "center": [
+    -0.012,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.024,
+    0.04,
+    0.02
+   ],
+   "part": "Engine_Drain",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "ChainBag",
+   "kind": "stow",
+   "side": "in",
+   "label": "Сумка с цепями",
+   "parent": "Kuzov",
+   "center": [
+    0.76,
+    0.9873000000000001,
+    -1.0183
+   ],
+   "size": [
+    0.13,
+    0.1426,
+    0.2834
+   ],
+   "part": "ChainBag",
+   "socket": "",
+   "itemType": "ChainBag",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Roof",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Roof",
+   "center": [
+    0.0,
+    -0.01805,
+    0.0829
+   ],
+   "size": [
+    1.86,
+    0.2923,
+    3.8742
+   ],
+   "part": "Snow_Roof",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Visor",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Visor",
+   "center": [
+    0.0,
+    0.011,
+    -0.09715
+   ],
+   "size": [
+    1.4314,
+    0.087,
+    0.2057
+   ],
+   "part": "Snow_Visor",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Bumper",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Bumper",
+   "center": [
+    0.0,
+    0.00485,
+    -0.02335
+   ],
+   "size": [
+    1.96,
+    0.0717,
+    0.1533
+   ],
+   "part": "Snow_Bumper",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Head_L",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Head_L",
+   "center": [
+    -0.0006,
+    0.0124,
+    0.0093
+   ],
+   "size": [
+    0.1731,
+    0.1865,
+    0.0444
+   ],
+   "part": "Snow_Head_L",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Head_R",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Head_R",
+   "center": [
+    0.0006,
+    0.0124,
+    0.0093
+   ],
+   "size": [
+    0.1731,
+    0.1865,
+    0.0444
+   ],
+   "part": "Snow_Head_R",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Spot_L",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Spot_L",
+   "center": [
+    0.0,
+    0.0109,
+    0.017
+   ],
+   "size": [
+    0.156,
+    0.1654,
+    0.028
+   ],
+   "part": "Snow_Spot_L",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Fog_L",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Fog_L",
+   "center": [
+    0.0,
+    0.004,
+    0.015
+   ],
+   "size": [
+    0.14,
+    0.072,
+    0.024
+   ],
+   "part": "Snow_Fog_L",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Spot_R",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Spot_R",
+   "center": [
+    0.0,
+    0.0109,
+    0.017
+   ],
+   "size": [
+    0.156,
+    0.1654,
+    0.028
+   ],
+   "part": "Snow_Spot_R",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Snow_Fog_R",
+   "kind": "slot",
+   "side": "out",
+   "label": "Снег",
+   "parent": "Snow_Fog_R",
+   "center": [
+    0.0,
+    0.004,
+    0.015
+   ],
+   "size": [
+    0.14,
+    0.072,
+    0.024
+   ],
+   "part": "Snow_Fog_R",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "SnowBrush",
+   "kind": "stow",
+   "side": "both",
+   "label": "Щётка со скребком",
+   "parent": "doorP",
+   "center": [
+    -0.05081,
+    -0.27999999999999997,
+    -0.56648
+   ],
+   "size": [
+    0.022,
+    0.09,
+    0.46
+   ],
+   "part": "SnowBrush",
+   "socket": "",
+   "itemType": "SnowBrush",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "doorP"
+  },
+  {
+   "id": "Lock_doorL",
+   "kind": "lock",
+   "side": "in",
+   "label": "Кнопка блокировки",
+   "parent": "Lock_doorL",
+   "center": [
+    0.0095,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.027,
+    0.024,
+    0.0228
+   ],
+   "part": "Lock_doorL",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "doorL"
+  },
+  {
+   "id": "Lock_doorP",
+   "kind": "lock",
+   "side": "in",
+   "label": "Кнопка блокировки",
+   "parent": "Lock_doorP",
+   "center": [
+    -0.0095,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.027,
+    0.024,
+    0.0228
+   ],
+   "part": "Lock_doorP",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "doorP"
+  },
+  {
+   "id": "Lock_doorSalon",
+   "kind": "lock",
+   "side": "in",
+   "label": "Кнопка блокировки",
+   "parent": "Lock_doorSalon",
+   "center": [
+    -0.0095,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.027,
+    0.024,
+    0.0228
+   ],
+   "part": "Lock_doorSalon",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "doorSalon"
+  },
+  {
+   "id": "Lock_doorZL",
+   "kind": "lock",
+   "side": "in",
+   "label": "Кнопка блокировки",
+   "parent": "Lock_doorZL",
+   "center": [
+    0.0,
+    0.0,
+    0.0095
+   ],
+   "size": [
+    0.0228,
+    0.024,
+    0.027
+   ],
+   "part": "Lock_doorZL",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "doorZL"
+  },
+  {
+   "id": "Lock_dooZP",
+   "kind": "lock",
+   "side": "in",
+   "label": "Кнопка блокировки",
+   "parent": "Lock_dooZP",
+   "center": [
+    0.0,
+    0.0,
+    0.0095
+   ],
+   "size": [
+    0.0228,
+    0.024,
+    0.027
+   ],
+   "part": "Lock_dooZP",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "dooZP"
+  },
+  {
+   "id": "Toggle_Head",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «фары»",
+   "parent": "Toggle_Head",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Head",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Toggle_Fog",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «противотуманки»",
+   "parent": "Toggle_Fog",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Fog",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Toggle_Spot",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «прожекторы»",
+   "parent": "Toggle_Spot",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Spot",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Toggle_Roof",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «люстра»",
+   "parent": "Toggle_Roof",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Roof",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Toggle_Work",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «рабочий свет»",
+   "parent": "Toggle_Work",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Work",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Toggle_Cabin",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «салон»",
+   "parent": "Toggle_Cabin",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Cabin",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Toggle_Stove",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «печка (вентилятор)»",
+   "parent": "Toggle_Stove",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Stove",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Toggle_Wiper",
+   "kind": "toggle",
+   "side": "in",
+   "label": "Тумблер «дворники»",
+   "parent": "Toggle_Wiper",
+   "center": [
+    0.0,
+    -0.0041,
+    -0.0099
+   ],
+   "size": [
+    0.02,
+    0.02,
+    0.0224
+   ],
+   "part": "Toggle_Wiper",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Seat_L1",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Откидное сиденье",
+   "parent": "Seat_L1",
+   "center": [
+    0.1794,
+    -0.0208,
+    0.0
+   ],
+   "size": [
+    0.3821,
+    0.0685,
+    0.499
+   ],
+   "part": "Seat_L1",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Sit_L1"
+  },
+  {
+   "id": "Seat_L2",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Откидное сиденье",
+   "parent": "Seat_L2",
+   "center": [
+    0.1794,
+    -0.0208,
+    0.0
+   ],
+   "size": [
+    0.3821,
+    0.0685,
+    0.499
+   ],
+   "part": "Seat_L2",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Hide_Bench_L2"
+  },
+  {
+   "id": "Seat_L3",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Откидное сиденье",
+   "parent": "Seat_L3",
+   "center": [
+    0.1794,
+    -0.0208,
+    0.0
+   ],
+   "size": [
+    0.3821,
+    0.0685,
+    0.499
+   ],
+   "part": "Seat_L3",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Sit_L3"
+  },
+  {
+   "id": "Seat_L4",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Откидное сиденье",
+   "parent": "Seat_L4",
+   "center": [
+    0.1794,
+    -0.0208,
+    0.0
+   ],
+   "size": [
+    0.3821,
+    0.0685,
+    0.499
+   ],
+   "part": "Seat_L4",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Sit_L4"
+  },
+  {
+   "id": "Seat_R1",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Откидное сиденье",
+   "parent": "Seat_R1",
+   "center": [
+    -0.1794,
+    -0.0208,
+    0.0
+   ],
+   "size": [
+    0.3821,
+    0.0685,
+    0.499
+   ],
+   "part": "Seat_R1",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Sit_R1"
+  },
+  {
+   "id": "Seat_R2",
+   "kind": "hinge",
+   "side": "in",
+   "label": "Откидное сиденье",
+   "parent": "Seat_R2",
+   "center": [
+    -0.1794,
+    -0.0208,
+    0.0
+   ],
+   "size": [
+    0.3821,
+    0.0685,
+    0.499
+   ],
+   "part": "Seat_R2",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Sit_R2"
+  },
+  {
+   "id": "Wheel_FL",
+   "kind": "item",
+   "side": "out",
+   "label": "Колесо",
+   "parent": "Steer_FL",
+   "center": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.3427,
+    0.7276,
+    0.7276
+   ],
+   "part": "Wheel_FL",
+   "socket": "",
+   "itemType": "Wheel",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Wheel_FL_Nut_1",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FL",
+   "center": [
+    -0.08144,
+    0.0,
+    0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FL_Nut_1",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FL"
+  },
+  {
+   "id": "Wheel_FL_Nut_2",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FL",
+   "center": [
+    -0.08144,
+    0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FL_Nut_2",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FL"
+  },
+  {
+   "id": "Wheel_FL_Nut_3",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FL",
+   "center": [
+    -0.08144,
+    0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FL_Nut_3",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FL"
+  },
+  {
+   "id": "Wheel_FL_Nut_4",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FL",
+   "center": [
+    -0.08144,
+    0.0,
+    -0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FL_Nut_4",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FL"
+  },
+  {
+   "id": "Wheel_FL_Nut_5",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FL",
+   "center": [
+    -0.08144,
+    -0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FL_Nut_5",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FL"
+  },
+  {
+   "id": "Wheel_FL_Nut_6",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FL",
+   "center": [
+    -0.08144,
+    -0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FL_Nut_6",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FL"
+  },
+  {
+   "id": "Wheel_FR",
+   "kind": "item",
+   "side": "out",
+   "label": "Колесо",
+   "parent": "Steer_FR",
+   "center": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.3427,
+    0.7276,
+    0.7276
+   ],
+   "part": "Wheel_FR",
+   "socket": "",
+   "itemType": "Wheel",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Wheel_FR_Nut_1",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FR",
+   "center": [
+    0.08144,
+    0.0,
+    0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FR_Nut_1",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FR"
+  },
+  {
+   "id": "Wheel_FR_Nut_2",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FR",
+   "center": [
+    0.08144,
+    0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FR_Nut_2",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FR"
+  },
+  {
+   "id": "Wheel_FR_Nut_3",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FR",
+   "center": [
+    0.08144,
+    0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FR_Nut_3",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FR"
+  },
+  {
+   "id": "Wheel_FR_Nut_4",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FR",
+   "center": [
+    0.08144,
+    0.0,
+    -0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FR_Nut_4",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FR"
+  },
+  {
+   "id": "Wheel_FR_Nut_5",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FR",
+   "center": [
+    0.08144,
+    -0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FR_Nut_5",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FR"
+  },
+  {
+   "id": "Wheel_FR_Nut_6",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_FR",
+   "center": [
+    0.08144,
+    -0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_FR_Nut_6",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_FR"
+  },
+  {
+   "id": "Wheel_RL",
+   "kind": "item",
+   "side": "out",
+   "label": "Колесо",
+   "parent": "Kuzov",
+   "center": [
+    -0.82723,
+    0.27176,
+    -1.20308
+   ],
+   "size": [
+    0.3427,
+    0.7276,
+    0.7276
+   ],
+   "part": "Wheel_RL",
+   "socket": "",
+   "itemType": "Wheel",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Wheel_RL_Nut_1",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RL",
+   "center": [
+    -0.08144,
+    0.0,
+    0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RL_Nut_1",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RL"
+  },
+  {
+   "id": "Wheel_RL_Nut_2",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RL",
+   "center": [
+    -0.08144,
+    0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RL_Nut_2",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RL"
+  },
+  {
+   "id": "Wheel_RL_Nut_3",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RL",
+   "center": [
+    -0.08144,
+    0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RL_Nut_3",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RL"
+  },
+  {
+   "id": "Wheel_RL_Nut_4",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RL",
+   "center": [
+    -0.08144,
+    0.0,
+    -0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RL_Nut_4",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RL"
+  },
+  {
+   "id": "Wheel_RL_Nut_5",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RL",
+   "center": [
+    -0.08144,
+    -0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RL_Nut_5",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RL"
+  },
+  {
+   "id": "Wheel_RL_Nut_6",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RL",
+   "center": [
+    -0.08144,
+    -0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RL_Nut_6",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RL"
+  },
+  {
+   "id": "Wheel_RR",
+   "kind": "item",
+   "side": "out",
+   "label": "Колесо",
+   "parent": "Kuzov",
+   "center": [
+    0.8243,
+    0.27176,
+    -1.20308
+   ],
+   "size": [
+    0.3427,
+    0.7276,
+    0.7276
+   ],
+   "part": "Wheel_RR",
+   "socket": "",
+   "itemType": "Wheel",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Wheel_RR_Nut_1",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RR",
+   "center": [
+    0.08144,
+    0.0,
+    0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RR_Nut_1",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RR"
+  },
+  {
+   "id": "Wheel_RR_Nut_2",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RR",
+   "center": [
+    0.08144,
+    0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RR_Nut_2",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RR"
+  },
+  {
+   "id": "Wheel_RR_Nut_3",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RR",
+   "center": [
+    0.08144,
+    0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RR_Nut_3",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RR"
+  },
+  {
+   "id": "Wheel_RR_Nut_4",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RR",
+   "center": [
+    0.08144,
+    0.0,
+    -0.084
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RR_Nut_4",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RR"
+  },
+  {
+   "id": "Wheel_RR_Nut_5",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RR",
+   "center": [
+    0.08144,
+    -0.07275,
+    -0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RR_Nut_5",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RR"
+  },
+  {
+   "id": "Wheel_RR_Nut_6",
+   "kind": "cap",
+   "side": "out",
+   "label": "Гайка колеса",
+   "parent": "Wheel_RR",
+   "center": [
+    0.08144,
+    -0.07275,
+    0.042
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "Wheel_RR_Nut_6",
+   "socket": "",
+   "itemType": "WheelNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Wheel_RR"
+  },
+  {
+   "id": "SpareWheel",
+   "kind": "stow",
+   "side": "out",
+   "label": "Запаска",
+   "parent": "dooZP",
+   "center": [
+    -0.34172,
+    -0.215,
+    -0.28042
+   ],
+   "size": [
+    0.3427,
+    0.7276,
+    0.7276
+   ],
+   "part": "SpareWheel",
+   "socket": "",
+   "itemType": "Wheel",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "SpareWheel_Nut",
+   "kind": "cap",
+   "side": "out",
+   "label": "Барашек кронштейна запаски",
+   "parent": "dooZP",
+   "center": [
+    -0.35372000000000003,
+    -0.215,
+    -0.38422
+   ],
+   "size": [
+    0.0241,
+    0.0246,
+    0.0213
+   ],
+   "part": "SpareWheel_Nut",
+   "socket": "",
+   "itemType": "WingNut",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "SpareWheel"
+  },
+  {
+   "id": "Jack_Take",
+   "kind": "item",
+   "side": "both",
+   "label": "Забрать домкрат",
+   "parent": "Jack",
+   "center": [
+    0.0,
+    0.09,
+    0.0075
+   ],
+   "size": [
+    0.09,
+    0.18,
+    0.125
+   ],
+   "part": "Jack",
+   "socket": "",
+   "itemType": "Jack",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Blowtorch_Take",
+   "kind": "item",
+   "side": "both",
+   "label": "Забрать паяльную лампу",
+   "parent": "Blowtorch",
+   "center": [
+    0.0,
+    0.112,
+    -0.0415
+   ],
+   "size": [
+    0.1072,
+    0.224,
+    0.287
+   ],
+   "part": "Blowtorch",
+   "socket": "",
+   "itemType": "Blowtorch",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": "Blowtorch"
+  },
+  {
+   "id": "Pour_Radiator",
+   "kind": "slot",
+   "side": "out",
+   "label": "Радиатор (залить)",
+   "parent": "Kit_Front",
+   "center": [
+    0.0,
+    1.2029,
+    2.1625
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Pour_Radiator",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "RadiatorHatch",
+   "insideOf": ""
+  },
+  {
+   "id": "Hook_Radio_Mic",
+   "kind": "slot",
+   "side": "in",
+   "label": "Крючок тангенты",
+   "parent": "Radio_MicHook",
+   "center": [
+    0.0,
+    0.0014,
+    -0.013
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Hook_Radio_Mic",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Pour_Oil",
+   "kind": "slot",
+   "side": "in",
+   "label": "Масло (залить)",
+   "parent": "Engine",
+   "center": [
+    -0.03,
+    0.29,
+    0.14
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Pour_Oil",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Pour_Coolant",
+   "kind": "slot",
+   "side": "in",
+   "label": "Бачок (залить)",
+   "parent": "Engine",
+   "center": [
+    0.205,
+    0.3,
+    -0.215
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Pour_Coolant",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "EngineCover",
+   "insideOf": ""
+  },
+  {
+   "id": "Pour_Fuel_L",
+   "kind": "slot",
+   "side": "out",
+   "label": "Горловина левого бака",
+   "parent": "FuelFiller_L",
+   "center": [
+    -0.046,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Pour_Fuel_L",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "FuelFlap_L",
+   "insideOf": ""
+  },
+  {
+   "id": "Pour_Fuel_R",
+   "kind": "slot",
+   "side": "out",
+   "label": "Горловина правого бака",
+   "parent": "FuelFiller_R",
+   "center": [
+    0.046,
+    0.0,
+    0.0
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Pour_Fuel_R",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "FuelFlap_R",
+   "insideOf": ""
+  },
+  {
+   "id": "Jack_PumpSocket",
+   "kind": "slot",
+   "side": "both",
+   "label": "Домкрат: качать баллонным ключом",
+   "parent": "Jack",
+   "center": [
+    0.0,
+    0.03,
+    0.07
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Jack_PumpSocket",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Tow_Hook_FL",
+   "kind": "slot",
+   "side": "out",
+   "label": "Буксирный крюк",
+   "parent": "",
+   "center": [
+    -0.72,
+    0.545,
+    2.395
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Tow_Hook_FL",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Tow_Hook_FR",
+   "kind": "slot",
+   "side": "out",
+   "label": "Буксирный крюк",
+   "parent": "",
+   "center": [
+    0.72,
+    0.545,
+    2.395
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Tow_Hook_FR",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Tow_Rear",
+   "kind": "slot",
+   "side": "out",
+   "label": "Буксирная проушина",
+   "parent": "",
+   "center": [
+    0.0,
+    0.67,
+    -2.27
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Tow_Rear",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Crank_Hole",
+   "kind": "slot",
+   "side": "out",
+   "label": "Отверстие под рукоятку",
+   "parent": "",
+   "center": [
+    0.0,
+    0.61,
+    2.36
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Crank_Hole",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "CrankHole_Flap",
+   "insideOf": ""
+  },
+  {
+   "id": "Plug_12V",
+   "kind": "slot",
+   "side": "in",
+   "label": "Розетка 12 В",
+   "parent": "",
+   "center": [
+    0.24,
+    1.1761,
+    1.7378
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Plug_12V",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "Socket_12V_Cap",
+   "insideOf": ""
+  },
+  {
+   "id": "Heat_OilPan",
+   "kind": "slot",
+   "side": "out",
+   "label": "Поддон двигателя (греть)",
+   "parent": "",
+   "center": [
+    0.0,
+    0.52,
+    1.19
+   ],
+   "size": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "part": "",
+   "socket": "Heat_OilPan",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Stove_Load",
+   "kind": "slot",
+   "side": "in",
+   "label": "Топка",
+   "parent": "Stove",
+   "center": [
+    0.0,
+    0.31,
+    0.2
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.1
+   ],
+   "part": "",
+   "socket": "Stove_Load",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "StoveDoor",
+   "insideOf": ""
+  },
+  {
+   "id": "Hide_Footwell_P",
+   "kind": "hide",
+   "side": "in",
+   "label": "Спрятаться",
+   "parent": "Kuzov",
+   "center": [
+    0.48,
+    0.8,
+    1.55
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "part": "",
+   "socket": "Hide_Footwell_P",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Hide_Footwell_D",
+   "kind": "hide",
+   "side": "in",
+   "label": "Спрятаться",
+   "parent": "Kuzov",
+   "center": [
+    -0.48,
+    0.8,
+    1.47
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "part": "",
+   "socket": "Hide_Footwell_D",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Hide_CabSeat",
+   "kind": "hide",
+   "side": "in",
+   "label": "Спрятаться",
+   "parent": "Kuzov",
+   "center": [
+    0.53,
+    1.04,
+    1.12
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "part": "",
+   "socket": "Hide_CabSeat",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Hide_Bench_L2",
+   "kind": "hide",
+   "side": "in",
+   "label": "Спрятаться",
+   "parent": "Seat_L2",
+   "center": [
+    0.173,
+    0.034,
+    0.0
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "part": "",
+   "socket": "Hide_Bench_L2",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Hide_Aisle",
+   "kind": "hide",
+   "side": "in",
+   "label": "Спрятаться",
+   "parent": "Kuzov",
+   "center": [
+    -0.05,
+    0.76,
+    -0.35
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "part": "",
+   "socket": "Hide_Aisle",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Hide_RearRight",
+   "kind": "hide",
+   "side": "in",
+   "label": "Спрятаться",
+   "parent": "Kuzov",
+   "center": [
+    0.25,
+    0.76,
+    -1.8
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "part": "",
+   "socket": "Hide_RearRight",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_Driver",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "",
+   "center": [
+    -0.53,
+    1.3599999999999999,
+    1.12
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_Driver",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_Passenger",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "",
+   "center": [
+    0.53,
+    1.3599999999999999,
+    1.12
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_Passenger",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_L1",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "Seat_L1",
+   "center": [
+    0.183,
+    0.20500000000000002,
+    0.0
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_L1",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_L2",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "Seat_L2",
+   "center": [
+    0.183,
+    0.20500000000000002,
+    0.0
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_L2",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_L3",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "Seat_L3",
+   "center": [
+    0.183,
+    0.20500000000000002,
+    0.0
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_L3",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_L4",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "Seat_L4",
+   "center": [
+    0.183,
+    0.20500000000000002,
+    0.0
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_L4",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_R1",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "Seat_R1",
+   "center": [
+    -0.183,
+    0.20500000000000002,
+    0.0
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_R1",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Sit_R2",
+   "kind": "seat",
+   "side": "in",
+   "label": "Сесть",
+   "parent": "Seat_R2",
+   "center": [
+    -0.183,
+    0.20500000000000002,
+    0.0
+   ],
+   "size": [
+    0.5,
+    0.55,
+    0.5
+   ],
+   "part": "",
+   "socket": "Sit_R2",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Jack_Point_FL",
+   "kind": "slot",
+   "side": "out",
+   "label": "Под домкрат",
+   "parent": "Kuzov",
+   "center": [
+    -0.45,
+    0.2889,
+    1.2067
+   ],
+   "size": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "part": "",
+   "socket": "Jack_Point_FL",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Jack_Point_FR",
+   "kind": "slot",
+   "side": "out",
+   "label": "Под домкрат",
+   "parent": "Kuzov",
+   "center": [
+    0.45,
+    0.286,
+    1.2067
+   ],
+   "size": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "part": "",
+   "socket": "Jack_Point_FR",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Jack_Point_RL",
+   "kind": "slot",
+   "side": "out",
+   "label": "Под домкрат",
+   "parent": "Kuzov",
+   "center": [
+    -0.45,
+    0.3096,
+    -1.2031
+   ],
+   "size": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "part": "",
+   "socket": "Jack_Point_RL",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Jack_Point_RR",
+   "kind": "slot",
+   "side": "out",
+   "label": "Под домкрат",
+   "parent": "Kuzov",
+   "center": [
+    0.45,
+    0.313,
+    -1.2031
+   ],
+   "size": [
+    0.3,
+    0.2,
+    0.3
+   ],
+   "part": "",
+   "socket": "Jack_Point_RR",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_lob",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "lob",
+   "center": [
+    0.0,
+    1.6145,
+    1.78595
+   ],
+   "size": [
+    1.6036,
+    0.4764,
+    0.4169
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "lob",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_L1",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_L1",
+   "center": [
+    -0.8932,
+    1.6038,
+    -1.095
+   ],
+   "size": [
+    0.0504,
+    0.4834,
+    0.9254
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_L1",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_L2",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_L2",
+   "center": [
+    -0.8932,
+    1.6038,
+    -0.13125
+   ],
+   "size": [
+    0.0504,
+    0.4834,
+    0.9253
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_L2",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_L3",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_L3",
+   "center": [
+    -0.8932,
+    1.6038,
+    0.6048
+   ],
+   "size": [
+    0.0504,
+    0.4834,
+    0.4434
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_L3",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_R1",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_R1",
+   "center": [
+    0.8932,
+    1.6038,
+    -1.095
+   ],
+   "size": [
+    0.0504,
+    0.4834,
+    0.9254
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_R1",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_R3",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_R3",
+   "center": [
+    0.8932,
+    1.6038,
+    0.6048
+   ],
+   "size": [
+    0.0504,
+    0.4834,
+    0.4434
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_R3",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_R2",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_R2",
+   "center": [
+    -0.0618,
+    0.3338,
+    -0.47925
+   ],
+   "size": [
+    0.0504,
+    0.4834,
+    0.9253
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_R2",
+   "coveredBy": "",
+   "insideOf": "doorSalon"
+  },
+  {
+   "id": "Glass_ZL",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_ZL",
+   "center": [
+    0.35932,
+    0.3005,
+    0.07537
+   ],
+   "size": [
+    0.6319,
+    0.4338,
+    0.09860000000000001
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_ZL",
+   "coveredBy": "",
+   "insideOf": "doorZL"
+  },
+  {
+   "id": "Glass_ZP",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_ZP",
+   "center": [
+    -0.35817,
+    0.3005,
+    0.07538
+   ],
+   "size": [
+    0.6319,
+    0.4338,
+    0.09860000000000001
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_ZP",
+   "coveredBy": "",
+   "insideOf": "dooZP"
+  },
+  {
+   "id": "Glass_doorL",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_doorL",
+   "center": [
+    0.01646,
+    0.4038,
+    -0.70878
+   ],
+   "size": [
+    0.0741,
+    0.4834,
+    0.40740000000000004
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_doorL",
+   "coveredBy": "",
+   "insideOf": "doorL"
+  },
+  {
+   "id": "Glass_doorP",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_doorP",
+   "center": [
+    -0.01646,
+    0.4038,
+    -0.70878
+   ],
+   "size": [
+    0.0741,
+    0.4834,
+    0.40740000000000004
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_doorP",
+   "coveredBy": "",
+   "insideOf": "doorP"
+  },
+  {
+   "id": "Glass_Window_doorL",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_Window_doorL",
+   "center": [
+    -1e-05,
+    2e-05,
+    1e-05
+   ],
+   "size": [
+    0.0747,
+    0.4834,
+    0.37310000000000004
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_Window_doorL",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Glass_Window_doorP",
+   "kind": "slot",
+   "side": "both",
+   "label": "Стекло",
+   "parent": "Glass_Window_doorP",
+   "center": [
+    1e-05,
+    2e-05,
+    1e-05
+   ],
+   "size": [
+    0.0747,
+    0.4834,
+    0.37310000000000004
+   ],
+   "part": "",
+   "socket": "",
+   "itemType": "",
+   "pane": "Glass_Window_doorP",
+   "coveredBy": "",
+   "insideOf": ""
+  },
+  {
+   "id": "Ladder_doorZL",
+   "kind": "ladder",
+   "side": "out",
+   "label": "Лестница на багажник",
+   "parent": "doorZL",
+   "center": [
+    0.31247,
+    -0.04,
+    -0.09593
+   ],
+   "size": [
+    0.608,
+    1.54,
+    0.23
+   ],
+   "part": "doorZL",
+   "socket": "",
+   "itemType": "",
+   "pane": "",
+   "coveredBy": "",
+   "insideOf": ""
+  }
+ ]
+}

@@ -15,7 +15,7 @@ namespace Snow.Input
         InputActionAsset _asset;
         InputActionMap _onFoot, _seat, _cursor;
         InputAction _move, _footLook, _jump, _crouch, _sprint, _walk, _use, _secure, _footZoom, _seatZoom, _footReveal, _seatReveal;
-        InputAction _pitch, _roll, _yaw, _throttle, _seatLook, _useExit, _cursorToggle, _brake, _trim, _autopilot;
+        InputAction _pitch, _roll, _yaw, _throttle, _seatLook, _useExit, _cursorToggle, _brake, _trim, _autopilot, _horn;
         InputAction _point, _click;
         InputContext _context = InputContext.None;
         bool _focused = true;
@@ -55,6 +55,7 @@ namespace Snow.Input
             _brake = _seat.FindAction("Brake", true);
             _trim = _seat.FindAction("Trim", true);
             _autopilot = _seat.FindAction("Autopilot", true);
+            _horn = _seat.FindAction("Horn", true);
             _point = _cursor.FindAction("Point", true);
             _click = _cursor.FindAction("Click", true);
         }
@@ -130,6 +131,7 @@ namespace Snow.Input
                 f.Reveal = _seatReveal.IsPressed();
                 f.CursorToggle = _cursorToggle.IsPressed();
                 f.Autopilot = _autopilot.IsPressed();
+                f.Horn = _horn.IsPressed();
                 // the cursor takes the mouse: no head look while it is on (INPUT-02)
                 if (!_cursor.enabled) f.LookDelta = _seatLook.ReadValue<Vector2>();
             }

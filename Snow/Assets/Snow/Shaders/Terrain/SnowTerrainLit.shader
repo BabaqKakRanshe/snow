@@ -10,6 +10,13 @@ Shader "Snow/Terrain/Lit Macro"
         // Snow: no-tile sampling (each spot reads its layers at one of several random offsets, picked by world noise)
         _NoTile("No-Tile", Range(0, 1)) = 1
         _NoTileScale("No-Tile Noise Scale (m)", Float) = 40
+        // Snow, research 2 (21.10): crisp texels near, filtered far; height blend inside a pass with a dithered edge
+        _GroundTexSize("Ground Texture Size (px)", Float) = 64
+        _SharpTexel("Sharp Texels", Range(0, 1)) = 1
+        _GroundHeightBlend("Height Blend Strength", Range(0, 2)) = 0.8
+        _GroundBlendDepth("Height Blend Depth", Range(0.01, 1)) = 0.15
+        _GroundDither("Height Blend Dither", Range(0, 1)) = 0.3
+        _MacroSteps("Macro Steps (0 = smooth)", Float) = 3
 
         [HideInInspector] [ToggleUI] _EnableHeightBlend("EnableHeightBlend", Float) = 0.0
         _HeightTransition("Height Transition", Range(0, 1.0)) = 0.0

@@ -116,7 +116,20 @@ namespace Snow.Levels
                     foreach (float r in new[] { 1f / 6f, 1f, 6f, 60f })
                         if (GUILayout.Button(r < 1f ? "1 ч / 6 мин" : $"{r:0} ч / мин")) dn.ServerSetRate(r);
                     GUILayout.EndHorizontal();
+                    GUILayout.Label("Длина суток", _head);
+                    GUILayout.BeginHorizontal();
+                    foreach (var len in ForestDayNight.DayLengths)
+                        if (GUILayout.Button(len.name)) dn.ServerSetDayLength(len.minutes);
+                    GUILayout.EndHorizontal();
+                    GUILayout.Label($"Скорость ночи ×{dn.NightSpeed:0.##}", _head);
+                    GUILayout.BeginHorizontal();
+                    foreach (float m in new[] { 0.5f, 1f, 2f, 4f })
+                        if (GUILayout.Button($"×{m:0.#}")) dn.ServerSetNightSpeed(m);
+                    GUILayout.EndHorizontal();
                 }
+                GUILayout.Label($"Яркость ночи (у себя) {ForestDayNight.NightBrightness:0.00}", _head);
+                float nb = GUILayout.HorizontalSlider(ForestDayNight.NightBrightness, 0f, 1f);
+                if (Mathf.Abs(nb - ForestDayNight.NightBrightness) > 0.01f) ForestDayNight.NightBrightness = nb;
             }
             GUILayout.EndScrollView();
             GUILayout.EndArea();

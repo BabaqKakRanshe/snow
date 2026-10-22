@@ -56,10 +56,15 @@ namespace Snow.EditorTools
         const float DarkTileRatio = 1.3f;
         // generated surroundings: fractal noise continuing the package's edge
         const float BlendRange = 120f;
+        const int ErosionDrops = 250000, ThermalPasses = 10, BoulderCount = 2500;   // research 2 (21.10): relief of the new land
         static readonly float[] NoiseScale = { 260f, 110f, 45f }, NoiseAmp = { 16f, 6f, 2f };
         // density (TEMPORARY, best practice 21.10): generated forest 320 stems/ha, saplings 2–8 m in the package square,
         // ground cover ferns + weeds per m² of free floor
-        const float GenTreeSpacing = 5.6f, SaplingSpacing = 8f, SaplingChance = 0.75f, FernsPerM2 = 0.06f, WeedsPerM2 = 0.05f;
+        const float GenTreeSpacing = 5.6f, SaplingSpacing = 8f, SaplingChance = 0.3f, FernsPerM2 = 0.06f, WeedsPerM2 = 0.05f;
+        // a taller forest (user 21.10, "модели маленькие" -> "лес выше"): ~40 % of the trees were under 10 m. Understory (bushes,
+        // species under 10 m) is at most this share of the generated forest, saplings are sparser (0.75 -> 0.3 per 8 m cell)
+        // and generated trees grow at 0.9–1.3 of the model instead of 0.75–1.25
+        const float UnderstoryShare = 0.15f, GenScaleMin = 0.9f, GenScaleRange = 0.4f;
         const float PrefabClear = 22f, BaseClear = 48f;                 // m: no saplings / extra cover around buildings
 
         static readonly string[] TreeSpecies = { "Spruce_", "SpruceHC_", "Fir_", "Birch_", "Dead_", "Bush_" };
@@ -72,6 +77,14 @@ namespace Snow.EditorTools
         static readonly string[] DetailOrder = { "Fern_1", "Fern_2", "Weeds_1", "Weeds_2", "Weeds_3", "Branches_1", "Branches_2", "Pebbles_1", "Pebbles_2" };
         static readonly string[] Saplings = { "Spruce_13", "Fir_4", "SpruceHC_17" };
 
+        /// <summary>Bushes and species whose model is under 10 m (the number in the name is the height: Fir_4, Fir_7).</summary>
+        static bool Understory(string m)
+        {
+            if (m.StartsWith("Bush_", StringComparison.Ordinal)) return true;
+            string digits = new string(m.Substring(m.LastIndexOf('_') + 1).TakeWhile(char.IsDigit).ToArray());
+            return int.TryParse(digits, out int h) && h < 10;
+        }
+
         // stripes of the road textures (u across the strip): ruts and the trail's dark middle (K3.5)
         static readonly Vector2[] RutU = { new Vector2(0.25f, 0.31f), new Vector2(0.69f, 0.75f) };
         static readonly Vector2 TrackU = new Vector2(0.375f, 0.625f);
@@ -81,8 +94,15 @@ namespace Snow.EditorTools
         static readonly Vector2[] TrackCols = { new Vector2(0.42f, 0.56f) };
 
         enum Kind { Ground, Road, Trail, Asphalt, Marker }
-        const int LFloor = 0, LFloorDark = 1, LRock = 2, LGravel = 3, LRuts = 4, LSoil = 5, LTrack = 6, LAsphalt = 7, Layers = 8;
-        static readonly string[] LayerNames = { "TL_ForestFloor", "TL_ForestFloorDark", "TL_Rock", "TL_RoadGravel", "TL_RoadRuts", "TL_TrailSoil", "TL_TrailTrack", "TL_Asphalt" };
+        // Terrain Lit draws 4 layers per pass: pass 0 holds the boundaries that matter (floor, floor under crowns, road, trail;
+        // the shader height-blends inside a pass), pass 1 the rest (research 2, 21.10)
+        const int LFloor = 0, LFloorDark = 1, LGravel = 2, LSoil = 3, LRock = 4, LRuts = 5, LTrack = 6, LAsphalt = 7, Layers = 8;
+        static readonly string[] LayerNames = { "TL_ForestFloor", "TL_ForestFloorDark", "TL_RoadGravel", "TL_TrailSoil", "TL_Rock", "TL_RoadRuts", "TL_TrailTrack", "TL_Asphalt" };
+        // ground textures drawn by tools/forest_ground_textures.py (64 px tiles; tone, contrast and masks in the files)
+        static readonly string[] GroundNames = { "Floor", "FloorDark", "Gravel", "Soil", "Rock", "Ruts", "Track", "Asphalt" };
+        const string GroundFolder = Folder + "/Ground";
+        const float GroundPxPerM = 32f;                                 // research 2: 64 px/m blurred into mips 3-6 m away
+        const int EdgeBlur = 2;                                         // texels: road / trail edge wander (~1 m)
 
         bool _heights = true, _paint = true, _vegetation = true;
 
@@ -150,6 +170,7 @@ namespace Snow.EditorTools
             public float[,] heights;                                   // [gz, gx] world metres over the whole world
             public bool[,] solid;                                      // [gz, gx] per quad: a surface (holes under the basement)
             public TriGrid grid;
+            public float[,] relief;                                    // generated land's weight per height sample (0 in the square)
             public Layout layout;
             public readonly TerrainData[,] tiles = new TerrainData[TilesX, TilesZ];
             public readonly StringBuilder report = new StringBuilder();
@@ -212,6 +233,7 @@ namespace Snow.EditorTools
                 meta.sizeY = ctx.sizeY;
                 WriteHeights(ctx);
                 FitSupports(ctx);
+                Hillshade(ctx);
             }
             else
             {
@@ -224,6 +246,7 @@ namespace Snow.EditorTools
             else ctx.R("paint: kept (assets)");
             if (doVeg) Vegetation(ctx, meta);
             else ctx.R("vegetation: kept (assets)");
+            if (doPaint) DarkUnderCrowns(ctx);                          // after the trees: the floor under conifers follows them
 
             meta.date = DateTime.Now.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
             File.WriteAllText(MetaPath, JsonUtility.ToJson(meta, true));
@@ -359,32 +382,119 @@ namespace Snow.EditorTools
                   $"{holes} uncovered samples filled, {holeQuads} hole quads ({(holeQuads * st * st).ToString("0", ctx.ci)} m², under the main building's basement)");
         }
 
-        /// <summary>Generated land around the package's square: the edge height of the square carried outwards plus fractal
-        /// noise that fades in over <see cref="BlendRange"/> m, so the tiles meet the square without a step.</summary>
-        static void Surroundings(Ctx ctx)
+        /// <summary>The relief (research 2, 21.10; <see cref="ForestRelief"/>): selgas, a hill, a bog and two ravines on the five
+        /// generated tiles faded into the square's edge over <see cref="BlendRange"/> m; erosion on the new land; micro relief
+        /// everywhere off roads, trails, asphalt, the yard and buildings; then the hand sculpt layer (unless capturing it).
+        /// Sets the terrain's Y range.</summary>
+        static void Surroundings(Ctx ctx, bool hand = true)
         {
             float st = ctx.step;
             int gx0 = GX(-Half), gx1 = GX(Half), gz0 = GZ(-Half), gz1 = GZ(Half);
+            Progress("Relief", 0.15f);
+            ctx.relief = ForestRelief.Generate(ctx.heights, GN, st, WorldX0, WorldZ0, gx0, gx1, gz0, gz1, BlendRange);
+            Progress("Erosion", 0.2f);
+            ctx.R(ForestRelief.Erode(ctx.heights, ctx.relief, GN, st, ErosionDrops, ThermalPasses, 2110));
+            Progress("Micro relief", 0.25f);
+            ctx.R(ForestRelief.Micro(ctx.heights, FreeMask(ctx), ctx.relief, GN, st, WorldX0, WorldZ0, 2111));
+            if (hand) ctx.R(ForestRelief.ApplyHand(ctx.heights, GN) ? $"hand sculpt: {ForestRelief.HandPath} added" : "hand sculpt: none");
             float lo = float.MaxValue, hi = float.MinValue;
-            for (int z = 0; z < GN; z++)
-                for (int x = 0; x < GN; x++)
-                {
-                    float wx = WorldX0 + x * st, wz = WorldZ0 + z * st;
-                    if (x >= gx0 && x <= gx1 && z >= gz0 && z <= gz1) { lo = Mathf.Min(lo, ctx.heights[z, x]); hi = Mathf.Max(hi, ctx.heights[z, x]); continue; }
-                    int bx = Mathf.Clamp(x, gx0, gx1), bz = Mathf.Clamp(z, gz0, gz1);
-                    float bwx = WorldX0 + bx * st, bwz = WorldZ0 + bz * st;
-                    float d = Mathf.Sqrt((wx - bwx) * (wx - bwx) + (wz - bwz) * (wz - bwz));
-                    float w = Mathf.SmoothStep(0f, 1f, d / BlendRange);
-                    float y = ctx.heights[bz, bx] + w * (Noise(wx, wz) - Noise(bwx, bwz));
-                    ctx.heights[z, x] = y;
-                    lo = Mathf.Min(lo, y);
-                    hi = Mathf.Max(hi, y);
-                }
+            foreach (float y in ctx.heights) { lo = Mathf.Min(lo, y); hi = Mathf.Max(hi, y); }
             ctx.bottom = Mathf.Floor(lo - BelowMin);
             ctx.sizeY = Mathf.Ceil(hi + AboveMax - ctx.bottom);
-            ctx.R($"surroundings: 5 generated tiles, fractal noise (scales {string.Join("/", NoiseScale)} m, amplitudes {string.Join("/", NoiseAmp)} m) " +
-                  $"faded in over {BlendRange} m from the square's edge; world Y {lo.ToString("0.0", ctx.ci)} .. {hi.ToString("0.0", ctx.ci)}; " +
-                  $"terrain origin Y {ctx.bottom.ToString(ctx.ci)}, size Y {ctx.sizeY.ToString(ctx.ci)}, height step {(ctx.sizeY / 65535f * 1000f).ToString("0.0", ctx.ci)} mm");
+            ctx.R($"relief: selgas NW-SE, a hill, a bog and two ravines on the 5 generated tiles, faded in over {BlendRange} m from the square's smoothed edge; " +
+                  $"world Y {lo.ToString("0.0", ctx.ci)} .. {hi.ToString("0.0", ctx.ci)}; terrain origin Y {ctx.bottom.ToString(ctx.ci)}, size Y {ctx.sizeY.ToString(ctx.ci)}, " +
+                  $"height step {(ctx.sizeY / 65535f * 1000f).ToString("0.0", ctx.ci)} mm");
+        }
+
+        /// <summary>Where the micro relief may go, per height sample 0..1: 0 on roads, trails and asphalt (their meshes), in
+        /// the yard, around buildings and over the basement's hole, with a soft ~3.5 m margin.</summary>
+        static float[,] FreeMask(Ctx ctx)
+        {
+            float st = ctx.step;
+            var keep = new float[GN, GN];
+            foreach (Src s in ctx.src)
+            {
+                if (s.kind != Kind.Road && s.kind != Kind.Trail && s.kind != Kind.Asphalt) continue;
+                for (int k = 0; k < s.t.Length; k += 3)
+                {
+                    Vector3 a = s.v[s.t[k]], b = s.v[s.t[k + 1]], c = s.v[s.t[k + 2]];
+                    int x0 = Mathf.Max(0, Mathf.FloorToInt((Mathf.Min(a.x, Mathf.Min(b.x, c.x)) - WorldX0) / st));
+                    int x1 = Mathf.Min(GN - 1, Mathf.CeilToInt((Mathf.Max(a.x, Mathf.Max(b.x, c.x)) - WorldX0) / st));
+                    int z0 = Mathf.Max(0, Mathf.FloorToInt((Mathf.Min(a.z, Mathf.Min(b.z, c.z)) - WorldZ0) / st));
+                    int z1 = Mathf.Min(GN - 1, Mathf.CeilToInt((Mathf.Max(a.z, Mathf.Max(b.z, c.z)) - WorldZ0) / st));
+                    for (int z = z0; z <= z1; z++)
+                        for (int x = x0; x <= x1; x++)
+                            if (keep[z, x] < 1f && Bary(s, k, WorldX0 + x * (double)st, WorldZ0 + z * (double)st, out _, out _, out _)) keep[z, x] = 1f;
+                }
+            }
+            void Disc(Vector2 c, float r)
+            {
+                int cx = Mathf.RoundToInt((c.x - WorldX0) / st), cz = Mathf.RoundToInt((c.y - WorldZ0) / st), n = Mathf.CeilToInt(r / st);
+                for (int z = Mathf.Max(0, cz - n); z <= Mathf.Min(GN - 1, cz + n); z++)
+                    for (int x = Mathf.Max(0, cx - n); x <= Mathf.Min(GN - 1, cx + n); x++)
+                        if ((x - cx) * (x - cx) + (z - cz) * (z - cz) <= n * n) keep[z, x] = 1f;
+            }
+            if (ctx.layout.prefabs != null)
+                foreach (Placed p in ctx.layout.prefabs)
+                {
+                    if (p?.p == null) continue;
+                    Vector3 at = ForestYardPlan.Structures.Contains(p.m) && ForestYardPlan.InYard(V3(p.p)) ? ForestYardPlan.Map(V3(p.p)) : V3(p.p);
+                    Disc(new Vector2(at.x, at.z), p.m == "BaseMain" ? 45f : 12f);
+                }
+            Disc(new Vector2(ForestYardPlan.Centre.x, ForestYardPlan.Centre.z), 105f);
+            for (int z = 0; z < GN - 1; z++)
+                for (int x = 0; x < GN - 1; x++)
+                    if (!ctx.solid[z, x]) keep[z, x] = keep[z, x + 1] = keep[z + 1, x] = keep[z + 1, x + 1] = 1f;
+            // soft margin: box blur (running sums, radius 6 samples) and a steep ramp
+            const int r = 6;
+            var tmp = new float[GN, GN];
+            for (int z = 0; z < GN; z++)
+            {
+                float sum = 0f;
+                for (int x = -r; x <= r; x++) sum += keep[z, Mathf.Clamp(x, 0, GN - 1)];
+                for (int x = 0; x < GN; x++)
+                {
+                    tmp[z, x] = sum / (2 * r + 1);
+                    sum += keep[z, Mathf.Min(GN - 1, x + r + 1)] - keep[z, Mathf.Max(0, x - r)];
+                }
+            }
+            var free = new float[GN, GN];
+            for (int x = 0; x < GN; x++)
+            {
+                float sum = 0f;
+                for (int z = -r; z <= r; z++) sum += tmp[Mathf.Clamp(z, 0, GN - 1), x];
+                for (int z = 0; z < GN; z++)
+                {
+                    free[z, x] = 1f - Mathf.Clamp01(sum / (2 * r + 1) * 2.5f);
+                    sum += tmp[Mathf.Min(GN - 1, z + r + 1), x] - tmp[Mathf.Max(0, z - r), x];
+                }
+            }
+            return free;
+        }
+
+        /// <summary>A hillshade of the whole map (light from the north-west, 45°), 1024² PNG under docs/dev/Audit/forest_relief/,
+        /// for checking the relief by eye after a bake.</summary>
+        static void Hillshade(Ctx ctx)
+        {
+            const int n = 1024;
+            float st = ctx.step;
+            var tex = new Texture2D(n, n, TextureFormat.RGB24, false);
+            Vector3 light = new Vector3(-1f, 1.4f, 1f).normalized;
+            float k = (GN - 1f) / (n - 1f);
+            for (int j = 0; j < n; j++)
+                for (int i = 0; i < n; i++)
+                {
+                    int x = Mathf.Clamp(Mathf.RoundToInt(i * k), 1, GN - 2), z = Mathf.Clamp(Mathf.RoundToInt(j * k), 1, GN - 2);
+                    float dx = (ctx.heights[z, x + 1] - ctx.heights[z, x - 1]) / (2f * st), dz = (ctx.heights[z + 1, x] - ctx.heights[z - 1, x]) / (2f * st);
+                    float shade = Mathf.Clamp01(Vector3.Dot(new Vector3(-dx, 1f, -dz).normalized, light));
+                    float rel = ctx.relief != null ? ctx.relief[z, x] : 0f;
+                    tex.SetPixel(i, j, new Color(shade * (0.85f + 0.15f * rel), shade, shade * (1f - 0.15f * rel)));
+                }
+            string dir = Path.GetFullPath(Path.Combine(Application.dataPath, "../../docs/dev/Audit/forest_relief"));
+            Directory.CreateDirectory(dir);
+            File.WriteAllBytes(Path.Combine(dir, "hillshade.png"), tex.EncodeToPNG());
+            Object.DestroyImmediate(tex);
+            ctx.R($"hillshade: {Path.Combine(dir, "hillshade.png")}");
         }
 
         static float Noise(float x, float z)
@@ -497,52 +607,16 @@ namespace Snow.EditorTools
         static void Paint(Ctx ctx)
         {
             Progress("Layer textures", 0.45f);
-            float groundUvPerM = Median(ctx.src.Where(s => s.kind == Kind.Ground).SelectMany(UvDensity).ToList());
-            float asphaltUvPerM = Median(ctx.src.Where(s => s.kind == Kind.Asphalt).SelectMany(UvDensity).ToList());
-            Src road = ctx.src.First(s => s.kind == Kind.Road), trail = ctx.src.First(s => s.kind == Kind.Trail);
-            float rockUvPerM = RockDensity();
-            Texture2D gravelSrc = Load(Tex + "T_RoadGravel_A_px.png"), soilSrc = Load(Tex + "T_TrailSoil_A_px.png");
-            Texture2D soilMaskSrc = Load(Tex + "T_TrailSoil_M_px.png");
-            float roadPxPerM = Mathf.Sqrt(gravelSrc.width * road.gradU * gravelSrc.height * road.gradV);
-            float trailPxPerM = Mathf.Sqrt(soilSrc.width * trail.gradU * soilSrc.height * trail.gradV);
-            float floorTile = 1f / (groundUvPerM * 600f);              // M_ForestTerrain detail tiling 600
-            float asphaltTile = 1f / (asphaltUvPerM * 0.25f);          // M_Asphalt tiling 0.25
-            float rockTile = rockUvPerM > 0f ? 1f / rockUvPerM : 2f;   // M_Rock tiling 1
-            float roadTile = TileTex / roadPxPerM, trailTile = TileTex / trailPxPerM;
-            ctx.R($"pixel density: ground detail {(128f / floorTile).ToString("0.0", ctx.ci)} px/m (tile {floorTile.ToString("0.000", ctx.ci)} m); " +
-                  $"road {roadPxPerM.ToString("0.0", ctx.ci)} px/m (width {(1f / road.gradU).ToString("0.00", ctx.ci)} m); " +
-                  $"trail {trailPxPerM.ToString("0.0", ctx.ci)} px/m (width {(1f / trail.gradU).ToString("0.00", ctx.ci)} m); asphalt tile {asphaltTile.ToString("0.000", ctx.ci)} m; rock tile {rockTile.ToString("0.000", ctx.ci)} m");
-
-            Texture2D tGravel = Tiles("T_TL_RoadGravel_px", gravelSrc, null, GravelCols, 101, false, out _);
-            Texture2D tRuts = Tiles("T_TL_RoadRuts_px", gravelSrc, null, RutCols, 102, false, out _, 4);
-            Texture2D tSoil = Tiles("T_TL_TrailSoil_px", soilSrc, soilMaskSrc, SoilCols, 103, true, out Texture2D mSoil);
-            Texture2D tTrack = Tiles("T_TL_TrailTrack_px", soilSrc, soilMaskSrc, TrackCols, 104, true, out Texture2D mTrack, 4);
-            Texture2D mRock = UrpMask("T_TL_Rock_M_px", Load(Tex + "T_Rock_M_px.png"));
-            Texture2D mAsphalt = UrpMask("T_TL_Asphalt_M_px", Load(Tex + "T_Asphalt_M_px.png"));
-
+            // research 2 (21.10): the old tiles had a luminance sd of 3-8 / 255 and a tone set by remap; the new ones carry
+            // tone and contrast themselves (remap 1), 32 px/m, and masks with occlusion, height (height blend) and smoothness
+            float tile = TileTex / GroundPxPerM;
             Texture2D macroA = Load(Tex + "T_ForestMacro_A.jpg"), macroM = Load(Tex + "T_ForestMacro_M.png");
-            Texture2D detail = Load(Tex + "T_ForestDetail_A_px.png"), floor = Load(Tex + "T_ForestFloor_A_px.png");
-            Tones(macroA, macroM, out Tone light, out Tone dark, out float gLight, out float gDark);
-            Color detailRaw = Mean(detail, false);
-            Color floorLin = Mean(floor, true);
-            Color lightTarget = light.lin * 2f * detailRaw;
-            Vector4 floorRemap = new Vector4(lightTarget.r / floorLin.r, lightTarget.g / floorLin.g, lightTarget.b / floorLin.b, 1f);
-            Vector4 darkRemap = new Vector4(dark.lin.r * 2f, dark.lin.g * 2f, dark.lin.b * 2f, 1f);
-            ctx.R($"floor tones (linear): light {Fmt(ctx, lightTarget)}, AO {light.ao.ToString("0.00", ctx.ci)}, smoothness {light.smooth.ToString("0.000", ctx.ci)}; " +
-                  $"dark macro x2 {Fmt(ctx, dark.lin * 2f)}, AO {dark.ao.ToString("0.00", ctx.ci)}, smoothness {dark.smooth.ToString("0.000", ctx.ci)}");
-
-            var asphaltColor = new Vector4(0.6571f, 0.6568f, 0.6207f, 1f);
-            TerrainLayer[] layers =
-            {
-                Layer(LFloor, AssetDatabase.LoadAssetAtPath<Texture2D>(Tex + "T_ForestFloor_A_px.png"), null, floorTile, floorRemap, light.smooth, light.ao),
-                Layer(LFloorDark, AssetDatabase.LoadAssetAtPath<Texture2D>(Tex + "T_ForestDetail_A_px.png"), null, floorTile * DarkTileRatio, darkRemap, dark.smooth, dark.ao),
-                Layer(LRock, AssetDatabase.LoadAssetAtPath<Texture2D>(Tex + "T_Rock_A_px.png"), mRock, rockTile, Vector4.one, 0f, 1f),
-                Layer(LGravel, tGravel, null, roadTile, Vector4.one, 0f, 1f),
-                Layer(LRuts, tRuts, null, roadTile, Vector4.one, 0f, 1f),
-                Layer(LSoil, tSoil, mSoil, trailTile, Vector4.one, 0f, 1f),
-                Layer(LTrack, tTrack, mTrack, trailTile, Vector4.one, 0f, 1f),
-                Layer(LAsphalt, AssetDatabase.LoadAssetAtPath<Texture2D>(Tex + "T_Asphalt_A_px.png"), mAsphalt, asphaltTile, asphaltColor, 0f, 1f),
-            };
+            Tones(macroA, macroM, out _, out _, out float gLight, out float gDark);
+            var layers = new TerrainLayer[Layers];
+            for (int l = 0; l < Layers; l++)
+                layers[l] = Layer(l, GroundTexture($"{GroundFolder}/T_GR_{GroundNames[l]}_A.png", true),
+                                  GroundTexture($"{GroundFolder}/T_GR_{GroundNames[l]}_M.png", false), tile, Vector4.one, 0f, 1f);
+            ctx.R($"ground: {Layers} layers from {GroundFolder} (tools/forest_ground_textures.py), {GroundPxPerM.ToString("0", ctx.ci)} px/m, tile {tile.ToString("0.###", ctx.ci)} m");
             EnsureMaterial();
             var sum = new double[Layers];
             for (int ix = 0; ix < TilesX; ix++)
@@ -553,7 +627,7 @@ namespace Snow.EditorTools
                     td.terrainLayers = layers;
                     PaintTile(ctx, td, TileOrigin(ix, iz, 0f), macroM, gLight, gDark, sum);
                 }
-            foreach (Texture2D t in new[] { gravelSrc, soilSrc, soilMaskSrc, macroA, macroM, detail, floor }) Object.DestroyImmediate(t);
+            foreach (Texture2D t in new[] { macroA, macroM }) Object.DestroyImmediate(t);
             double total = sum.Sum();
             ctx.R($"paint: {AlphaRes}² per tile, texel {ctx.texel.ToString("0.0000", ctx.ci)} m; share by layer: " +
                   string.Join(", ", Enumerable.Range(0, Layers).Select(l => $"{LayerNames[l]} {(sum[l] / total * 100).ToString("0.00", ctx.ci)} %")) +
@@ -615,12 +689,23 @@ namespace Snow.EditorTools
                         }
                 }
             }
+            // ragged road and trail edges (research 2, 21.10): coverage blurred over a few texels and cut at a noisy threshold,
+            // so the edge wanders by up to ~1 m instead of following the mesh's straight line; the light floor is the shoulder
+            float[] roadB = BoxBlur(cov, n, 0, EdgeBlur), trailB = BoxBlur(cov, n, 1, EdgeBlur);
+            float[,] hs = td.GetHeights(0, 0, TileRes, TileRes);
+            float sy = td.size.y;
             var map = new float[n, n, Layers];
             for (int z = 0; z < n; z++)
                 for (int x = 0; x < n; x++)
                 {
                     int i = z * n + x;
-                    float r = Mathf.Min(cov[i * 3], 1f), t = Mathf.Min(cov[i * 3 + 1], 1f), a = Mathf.Min(cov[i * 3 + 2], 1f);
+                    float ex = ox + (x + 0.5f) * tx, ez = oz + (z + 0.5f) * tx;
+                    float en = Mathf.PerlinNoise(ex / 1.7f + 3.1f, ez / 1.7f + 8.3f) * 0.65f + Mathf.PerlinNoise(ex / 0.6f + 1.9f, ez / 0.6f + 4.4f) * 0.35f;
+                    float thr = 0.5f + (en - 0.5f) * 0.8f;
+                    float rRag = roadB[i] > 0f ? Mathf.SmoothStep(0f, 1f, (roadB[i] - thr + 0.1f) / 0.2f) : 0f;
+                    float tRag = trailB[i] > 0f ? Mathf.SmoothStep(0f, 1f, (trailB[i] - thr + 0.1f) / 0.2f) : 0f;
+                    bool shoulder = (roadB[i] > 0.02f && rRag < 0.5f) || (trailB[i] > 0.02f && tRag < 0.5f);
+                    float r = rRag, t = tRag, a = Mathf.Min(cov[i * 3 + 2], 1f);
                     float total = r + t + a;
                     if (total > 1f) { r /= total; t /= total; a /= total; total = 1f; }
                     float ruts = cov[i * 3] > 0f ? r * Mathf.Clamp01(rut[i] / cov[i * 3]) : 0f;
@@ -628,6 +713,11 @@ namespace Snow.EditorTools
                     float rest = 1f - total;
                     float slope = td.GetSteepness((x + 0.5f) / n, (z + 0.5f) / n);
                     float rock = rest * Mathf.Clamp01((slope - RockFrom) / (RockTo - RockFrom));
+                    // research 2: bare rock on convex brows of the steeper sides too (bedrock showing on selga crests)
+                    int hx = Mathf.Clamp(x, 3, TileRes - 4), hz = Mathf.Clamp(z, 3, TileRes - 4);
+                    float lap = (hs[hz, hx + 3] + hs[hz, hx - 3] + hs[hz + 3, hx] + hs[hz - 3, hx] - 4f * hs[hz, hx]) * sy;
+                    float brow = Mathf.SmoothStep(0f, 1f, (-lap - 0.08f) / 0.25f) * Mathf.SmoothStep(0f, 1f, (slope - 16f) / 12f);
+                    rock = Mathf.Max(rock, rest * brow * 0.85f);
                     float floorW = rest - rock;
                     float darkK;
                     if (hasMacro[i]) darkK = Mathf.Clamp01((gLight - Sample(macroM, macroUv[i]).g) / Mathf.Max(0.05f, gLight - gDark));
@@ -638,6 +728,8 @@ namespace Snow.EditorTools
                         float pn = Mathf.PerlinNoise(wx / 9f + 11.3f, wz / 9f + 7.1f) * 0.7f + Mathf.PerlinNoise(wx / 31f + 3.7f, wz / 31f + 5.9f) * 0.3f;
                         darkK = Mathf.SmoothStep(0f, 1f, (pn - 0.38f) / 0.16f);
                     }
+                    darkK = Mathf.Max(darkK, ForestRelief.BogWeight(ex, ez));   // the bog: dark wet litter
+                    if (shoulder) darkK = 0f;                           // light floor along roads and trails
                     float darkW = floorW * darkK;
                     map[z, x, LFloor] = floorW - darkW;
                     map[z, x, LFloorDark] = darkW;
@@ -761,6 +853,146 @@ namespace Snow.EditorTools
                 w = Mathf.Max(w, Mathf.Clamp01((half + edge - d) / edge));
             }
             return w;
+        }
+
+        /// <summary>Brush work on the tiles that should survive a re-bake: the current tiles minus the bake's own heights
+        /// (recomputed in memory without the hand layer) go to <see cref="ForestRelief.HandPath"/>; the next bake adds them.
+        /// The integration's levelling (yard, checkpoint) and the bake's support fixes are part of the delta too - harmless,
+        /// they set the same heights again.</summary>
+        [MenuItem("Tools/Snow/Forest/Capture Hand Sculpt")]
+        static void CaptureHandSculptMenu()
+        {
+            if (!EditorUtility.DisplayDialog("Capture Hand Sculpt", "Save the difference between the Forest tiles and the bake as the hand sculpt layer?\n" +
+                                             ForestRelief.HandPath, "Save", "Cancel")) return;
+            CaptureHandSculpt();
+        }
+
+        public static bool CaptureHandSculpt()
+        {
+            try
+            {
+                var model = AssetDatabase.LoadAssetAtPath<GameObject>(ModelPath);
+                BakeMeta meta = LoadMeta();
+                if (model == null || meta == null) { Debug.LogError("[Snow] Forest hand sculpt: no model or no bake meta."); return false; }
+                var ctx = new Ctx();
+                if (!ReadSources(model.transform, ctx)) return false;
+                ctx.layout = JsonUtility.FromJson<Layout>(File.ReadAllText(LayoutPath));
+                for (int ix = 0; ix < TilesX; ix++)
+                    for (int iz = 0; iz < TilesZ; iz++)
+                        ctx.tiles[ix, iz] = AssetDatabase.LoadAssetAtPath<TerrainData>(TilePath(ix, iz));
+                Rasterise(ctx);
+                Surroundings(ctx, false);
+                var delta = new float[GN, GN];
+                for (int ix = 0; ix < TilesX; ix++)
+                    for (int iz = 0; iz < TilesZ; iz++)
+                    {
+                        float[,] hs = ctx.tiles[ix, iz].GetHeights(0, 0, TileRes, TileRes);
+                        int ox = ix * (TileRes - 1), oz = iz * (TileRes - 1);
+                        for (int z = 0; z < TileRes; z++)
+                            for (int x = 0; x < TileRes; x++)
+                                delta[oz + z, ox + x] = meta.originY + hs[z, x] * meta.sizeY - ctx.heights[oz + z, ox + x];
+                    }
+                int changed = ForestRelief.SaveHand(delta, GN);
+                AssetDatabase.ImportAsset(ForestRelief.HandPath);
+                Debug.Log($"[Snow] Forest hand sculpt: {changed} samples differ from the bake by 2 cm or more, saved to {ForestRelief.HandPath}.");
+                return true;
+            }
+            finally { EditorUtility.ClearProgressBar(); }
+        }
+
+
+        /// <summary>A ground texture of tools/forest_ground_textures.py with its import settings: Bilinear + aniso 8 + mips (the
+        /// shader keeps texels sharp up close and lets anisotropic filtering average them far away), no compression.</summary>
+        static Texture2D GroundTexture(string path, bool srgb)
+        {
+            var ti = (TextureImporter)AssetImporter.GetAtPath(path);
+            if (ti == null) throw new FileNotFoundException($"{path}: run tools/forest_ground_textures.py first");
+            if (ti.sRGBTexture != srgb || ti.filterMode != FilterMode.Bilinear || ti.anisoLevel != 8 || !ti.mipmapEnabled ||
+                ti.textureCompression != TextureImporterCompression.Uncompressed || ti.wrapMode != TextureWrapMode.Repeat)
+            {
+                ti.textureType = TextureImporterType.Default;
+                ti.sRGBTexture = srgb;
+                ti.filterMode = FilterMode.Bilinear;
+                ti.anisoLevel = 8;
+                ti.mipmapEnabled = true;
+                ti.wrapMode = TextureWrapMode.Repeat;
+                ti.textureCompression = TextureImporterCompression.Uncompressed;
+                ti.SaveAndReimport();
+            }
+            return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        }
+
+        /// <summary>Separable box blur (radius r texels) of one slot of the interleaved coverage, clamped to 0..1.</summary>
+        static float[] BoxBlur(float[] cov, int n, int slot, int r)
+        {
+            var a = new float[n * n];
+            var b = new float[n * n];
+            for (int i = 0; i < n * n; i++) a[i] = Mathf.Min(cov[i * 3 + slot], 1f);
+            for (int z = 0; z < n; z++)
+                for (int x = 0; x < n; x++)
+                {
+                    float s = 0f;
+                    int c = 0;
+                    for (int k = Mathf.Max(0, x - r); k <= Mathf.Min(n - 1, x + r); k++) { s += a[z * n + k]; c++; }
+                    b[z * n + x] = s / c;
+                }
+            for (int z = 0; z < n; z++)
+                for (int x = 0; x < n; x++)
+                {
+                    float s = 0f;
+                    int c = 0;
+                    for (int k = Mathf.Max(0, z - r); k <= Mathf.Min(n - 1, z + r); k++) { s += b[k * n + x]; c++; }
+                    a[z * n + x] = s / c;
+                }
+            return a;
+        }
+
+        /// <summary>Deep needle litter under conifers (research 2, 21.10): around every spruce or fir the light floor turns into
+        /// the dark one over a disc ~0.11 of the tree's height (1.2-3.2 m), the rim dithered with a 4 x 4 Bayer threshold so it
+        /// reads as litter, not as a soft halo. Runs after the trees whenever the tiles are painted (paint resets the weights).</summary>
+        static void DarkUnderCrowns(Ctx ctx)
+        {
+            Progress("Floor under crowns", 0.97f);
+            float[] bayer = { 0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5 };
+            int n = AlphaRes, stamped = 0;
+            float tx = ctx.texel;
+            for (int ix = 0; ix < TilesX; ix++)
+                for (int iz = 0; iz < TilesZ; iz++)
+                {
+                    TerrainData td = ctx.tiles[ix, iz];
+                    TreePrototype[] protos = td.treePrototypes;
+                    var height = new float[protos.Length];
+                    for (int p = 0; p < protos.Length; p++)
+                    {
+                        string nm = protos[p].prefab != null ? protos[p].prefab.name : "";
+                        if (!nm.StartsWith("Spruce", StringComparison.Ordinal) && !nm.StartsWith("Fir_", StringComparison.Ordinal)) continue;
+                        foreach (Renderer rr in protos[p].prefab.GetComponentsInChildren<Renderer>()) height[p] = Mathf.Max(height[p], rr.bounds.size.y);
+                    }
+                    float[,,] map = td.GetAlphamaps(0, 0, n, n);
+                    foreach (TreeInstance inst in td.treeInstances)
+                    {
+                        float h = height[inst.prototypeIndex] * inst.heightScale;
+                        if (h <= 0f) continue;
+                        float rad = Mathf.Clamp(0.11f * h, 1.2f, 3.2f);
+                        float cx = inst.position.x * Tile, cz = inst.position.z * Tile;
+                        int x0 = Mathf.Max(0, Mathf.FloorToInt((cx - rad) / tx)), x1 = Mathf.Min(n - 1, Mathf.CeilToInt((cx + rad) / tx));
+                        int z0 = Mathf.Max(0, Mathf.FloorToInt((cz - rad) / tx)), z1 = Mathf.Min(n - 1, Mathf.CeilToInt((cz + rad) / tx));
+                        for (int z = z0; z <= z1; z++)
+                            for (int x = x0; x <= x1; x++)
+                            {
+                                float dx = (x + 0.5f) * tx - cx, dz = (z + 0.5f) * tx - cz;
+                                float d = Mathf.Sqrt(dx * dx + dz * dz) / rad;
+                                if (d >= 1f) continue;
+                                float f = Mathf.Clamp01((1f - d) * 1.6f + ((bayer[(z & 3) * 4 + (x & 3)] + 0.5f) / 16f - 0.5f) * 0.6f);
+                                float move = map[z, x, LFloor] * f;
+                                map[z, x, LFloor] -= move;
+                                map[z, x, LFloorDark] += move;
+                            }
+                        stamped++;
+                    }
+                    td.SetAlphamaps(0, 0, map);
+                }
+            ctx.R($"floor under crowns: {stamped} spruces and firs darken the floor around them (disc 0.11 x height, 1.2-3.2 m, dithered rim)");
         }
 
         static TerrainLayer Layer(int index, Texture2D albedo, Texture2D mask, float tile, Vector4 remap, float smoothness, float ao)
@@ -1098,6 +1330,15 @@ namespace Snow.EditorTools
             var mix = L.trees.Where(e => e?.m != null && TreeSpecies.Any(p => e.m.StartsWith(p, StringComparison.Ordinal)))
                              .GroupBy(e => e.m).Select(g => (m: g.Key, n: g.Count())).OrderBy(g => g.m, StringComparer.Ordinal).ToList();
             int mixTotal = mix.Sum(g => g.n);
+            int smallN = mix.Where(g => Understory(g.m)).Sum(g => g.n), tallN = mixTotal - smallN;
+            float smallMax = UnderstoryShare / (1f - UnderstoryShare) * tallN;
+            if (smallN > smallMax && tallN > 0)
+            {
+                float k = smallMax / smallN;
+                mix = mix.Select(g => (g.m, n: Understory(g.m) ? Mathf.Max(1, Mathf.RoundToInt(g.n * k * 100f)) : g.n * 100)).ToList();
+                ctx.R($"generated forest: understory {smallN * 100f / mixTotal:0}% of the package mix cut to {UnderstoryShare * 100f:0}%");
+                mixTotal = mix.Sum(g => g.n);
+            }
             var rockMix = L.rocks.Where(e => e?.m != null && !PlacedOnly.Any(p => e.m.StartsWith(p, StringComparison.Ordinal)) && (RockTrees.Any(p => e.m.StartsWith(p, StringComparison.Ordinal)) ||
                                                                  e.m.StartsWith("Branches_", StringComparison.Ordinal) || e.m.StartsWith("Pebbles_", StringComparison.Ordinal)))
                                  .GroupBy(e => e.m).Select(g => (m: g.Key, perHa: g.Count() / area)).OrderBy(g => g.m, StringComparer.Ordinal).ToList();
@@ -1144,7 +1385,9 @@ namespace Snow.EditorTools
                     int pick = rnd.Next(mixTotal), acc = 0;
                     string m = mix[mix.Count - 1].m;
                     foreach (var g in mix) { acc += g.n; if (pick < acc) { m = g.m; break; } }
-                    if (AddTree(m, px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, 0.75f + R01() * 0.5f)) genTrees++;
+                    float bw = ForestRelief.BogWeight(px, pz);                  // the bog: sparse, mostly dead trees
+                    if (bw > 0f && !m.StartsWith("Dead_", StringComparison.Ordinal) && R01() < bw * 0.85f) continue;
+                    if (AddTree(m, px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, GenScaleMin + R01() * GenScaleRange)) genTrees++;
                 }
             // rocks, stumps, snags, branches, pebbles at the package's densities
             float newArea = (TilesX * Tile * TilesZ * Tile - Size * Size) / 10000f;
@@ -1160,6 +1403,42 @@ namespace Snow.EditorTools
                     if (tree ? AddTree(g.m, px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, s) : AddDetail(g.m, px, pz, s)) { k++; if (tree) genRocks++; else genDetails++; }
                 }
             }
+            // research 2 (21.10): boulders on the steeper sides of the new land (moraine on the selgas), and more branches and
+            // pebbles on the free floor of the whole map (ground clutter breaks the floor up better than any texture)
+            float SlopeAt(float x, float z)
+            {
+                int ix = Mathf.Clamp(Mathf.FloorToInt((x - WorldX0) / Tile), 0, TilesX - 1), iz = Mathf.Clamp(Mathf.FloorToInt((z - WorldZ0) / Tile), 0, TilesZ - 1);
+                Vector3 o = TileOrigin(ix, iz, 0f);
+                return ctx.tiles[ix, iz].GetSteepness((x - o.x) / Tile, (z - o.z) / Tile);
+            }
+            int boulders = 0, clutter = 0;
+            string[] boulderModels = rockMix.Where(g => g.m.StartsWith("Rock_", StringComparison.Ordinal)).Select(g => g.m).ToArray();
+            if (boulderModels.Length > 0)
+                for (int tries = 0; boulders < BoulderCount && tries < BoulderCount * 10; tries++)
+                {
+                    float px = WorldX0 + R01() * TilesX * Tile, pz = WorldZ0 + R01() * TilesZ * Tile;
+                    if (InData(px, pz) || occupied.Contains(Cell(px, pz))) continue;
+                    float sl = SlopeAt(px, pz);
+                    if (sl < 18f || sl > 44f) continue;
+                    if (AddTree(boulderModels[rnd.Next(boulderModels.Length)], px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, 0.5f + R01() * 1.6f))
+                    {
+                        boulders++;
+                        occupied.Add(Cell(px, pz));
+                    }
+                }
+            float mapHa = TilesX * Tile * TilesZ * Tile / 10000f;
+            foreach ((string m, float perHa) in new[] { ("Branches_1", 14f), ("Branches_2", 14f), ("Pebbles_1", 10f), ("Pebbles_2", 10f) })
+            {
+                int n = Mathf.RoundToInt(perHa * mapHa);
+                for (int k = 0, tries = 0; k < n && tries < n * 4; tries++)
+                {
+                    float px = WorldX0 + R01() * TilesX * Tile, pz = WorldZ0 + R01() * TilesZ * Tile;
+                    if (!FreeFloor(px, pz, 35f) || NearBuilding(px, pz)) continue;
+                    if (AddDetail(m, px, pz, 0.8f + R01() * 0.5f)) { k++; clutter++; }
+                }
+            }
+            ctx.R($"relief extras: {boulders} boulders on 18-44° slopes of the new land, {clutter} more branches / pebbles over the map (48/ha)");
+
             // 2b. the old yard's clearing outside the smaller yard grows over (ForestYardPlan): forest of the same mix and density
             int infill = 0;
             {
@@ -1174,7 +1453,7 @@ namespace Snow.EditorTools
                         int pick = rnd.Next(mixTotal), acc = 0;
                         string m = mix[mix.Count - 1].m;
                         foreach (var g in mix) { acc += g.n; if (pick < acc) { m = g.m; break; } }
-                        if (AddTree(m, px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, 0.75f + R01() * 0.5f)) infill++;
+                        if (AddTree(m, px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, GenScaleMin + R01() * GenScaleRange)) infill++;
                     }
             }
             ctx.R($"old yard clearing outside the smaller yard: {infill} trees");

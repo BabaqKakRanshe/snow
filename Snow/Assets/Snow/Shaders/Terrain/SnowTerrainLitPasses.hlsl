@@ -148,17 +148,47 @@ void InitializeBakedGIData(Varyings IN, inout InputData inputData)
 // the seams between offsets do not pick a wrong mip. Set from the fragment before SplatmapMix.
 static float snowNoTileK = 0.0;
 
+// Snow (research 2, 21.10): sharp texels with bilinear filtering (after bgolus) - inside a texel the uv snaps to its centre,
+// across the last fraction of a screen pixel it slides to the next one, so up close the pixel art stays crisp and far away
+// the mips and anisotropic filtering (taken from the true derivatives) average it instead of a point-filtered shimmer
+float2 SnowSharp(float2 uv, float2 dx, float2 dy)
+{
+    if (_SharpTexel < 0.5h)
+        return uv;
+    float size = max(_GroundTexSize, 1.0);
+    float2 t = uv * size;
+    float2 box = clamp((abs(dx) + abs(dy)) * size, 1e-5, 1.0);
+    float2 tx = t - 0.5 * box;
+    float2 off = saturate((frac(tx) - (1.0 - box)) / box);
+    return (floor(tx) + 0.5 + off) / size;
+}
+
+// 4 x 4 Bayer threshold 0..1 at a screen pixel (the PS1 frame is 360 lines, so a cell is a few screen pixels)
+half SnowBayer(uint2 p)
+{
+    const half m[16] = { 0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5 };
+    return (m[(p.y & 3u) * 4u + (p.x & 3u)] + 0.5h) / 16.0h;
+}
+
 half4 SnowNoTile(TEXTURE2D_PARAM(tex, smp), float2 uv)
 {
-    if (_NoTile < 0.5h)
-        return SAMPLE_TEXTURE2D(tex, smp, uv);
+    // gradients outside the branch and one exit: no "potentially uninitialized" warning on D3D
     float2 dx = ddx(uv), dy = ddy(uv);
-    float l = snowNoTileK * 8.0;
-    float ia = floor(l), f = frac(l);
-    float2 offa = sin(float2(3.0, 7.0) * ia), offb = sin(float2(3.0, 7.0) * (ia + 1.0));
-    half4 a = SAMPLE_TEXTURE2D_GRAD(tex, smp, uv + offa, dx, dy);
-    half4 b = SAMPLE_TEXTURE2D_GRAD(tex, smp, uv + offb, dx, dy);
-    return lerp(a, b, smoothstep(0.35h, 0.65h, half(f) - 0.1h * dot(a - b, 1.0h)));
+    half4 c;
+    if (_NoTile < 0.5h)
+    {
+        c = SAMPLE_TEXTURE2D_GRAD(tex, smp, SnowSharp(uv, dx, dy), dx, dy);
+    }
+    else
+    {
+        float l = snowNoTileK * 8.0;
+        float ia = floor(l), f = frac(l);
+        float2 offa = sin(float2(3.0, 7.0) * ia), offb = sin(float2(3.0, 7.0) * (ia + 1.0));
+        half4 a = SAMPLE_TEXTURE2D_GRAD(tex, smp, SnowSharp(uv + offa, dx, dy), dx, dy);
+        half4 b = SAMPLE_TEXTURE2D_GRAD(tex, smp, SnowSharp(uv + offb, dx, dy), dx, dy);
+        c = lerp(a, b, smoothstep(0.35h, 0.65h, half(f) - 0.1h * dot(a - b, 1.0h)));
+    }
+    return c;
 }
 
 void NormalMapMix(float4 uvSplat01, float4 uvSplat23, inout half4 splatControl, inout half3 mixedNormal)
@@ -382,10 +412,10 @@ void ComputeMasks(out half4 masks[4], half4 hasMask, Varyings IN)
     masks[3] = 0.5h;
 
 #ifdef _MASKMAP
-    masks[0] = lerp(masks[0], SAMPLE_TEXTURE2D(_Mask0, sampler_Mask0, IN.uvSplat01.xy), hasMask.x);
-    masks[1] = lerp(masks[1], SAMPLE_TEXTURE2D(_Mask1, sampler_Mask0, IN.uvSplat01.zw), hasMask.y);
-    masks[2] = lerp(masks[2], SAMPLE_TEXTURE2D(_Mask2, sampler_Mask0, IN.uvSplat23.xy), hasMask.z);
-    masks[3] = lerp(masks[3], SAMPLE_TEXTURE2D(_Mask3, sampler_Mask0, IN.uvSplat23.zw), hasMask.w);
+    masks[0] = lerp(masks[0], SnowNoTile(TEXTURE2D_ARGS(_Mask0, sampler_Mask0), IN.uvSplat01.xy), hasMask.x);
+    masks[1] = lerp(masks[1], SnowNoTile(TEXTURE2D_ARGS(_Mask1, sampler_Mask0), IN.uvSplat01.zw), hasMask.y);
+    masks[2] = lerp(masks[2], SnowNoTile(TEXTURE2D_ARGS(_Mask2, sampler_Mask0), IN.uvSplat23.xy), hasMask.z);
+    masks[3] = lerp(masks[3], SnowNoTile(TEXTURE2D_ARGS(_Mask3, sampler_Mask0), IN.uvSplat23.zw), hasMask.w);
 #endif
 
     masks[0] *= _MaskMapRemapScale0.rgba;
@@ -427,7 +457,9 @@ void SplatmapFragment(
 
     half4 hasMask = half4(_LayerHasMask0, _LayerHasMask1, _LayerHasMask2, _LayerHasMask3);
     half4 masks[4];
+    snowNoTileK = SAMPLE_TEXTURE2D(_MacroTex, sampler_MacroTex, IN.positionWS.xz / max(_NoTileScale, 1.0)).b;
     ComputeMasks(masks, hasMask, IN);
+    uint2 snowPx = (uint2)IN.clipPos.xy;
 
     float2 splatUV = (IN.uvMainAndLM.xy * (_Control_TexelSize.zw - 1.0f) + 0.5f) * _Control_TexelSize.xy;
     half4 splatControl = SAMPLE_TEXTURE2D(_Control, sampler_Control, splatUV);
@@ -438,11 +470,28 @@ void SplatmapFragment(
     if (_NumLayersCount <= 4)
         HeightBasedSplatModify(splatControl, masks);
 #endif
+    // Snow (research 2, 21.10): height blend inside this pass whatever the layer count (the bake puts floor, floor under
+    // crowns, road and trail in one pass): weight plus height, the highest wins within a narrow depth, so stones and needles
+    // poke through the edge; each layer's height gets its own Bayer offset, so the edge breaks into pixels, not a soft fade.
+    // The pass's total weight is kept, so the additive pass with the other four layers still sums to one.
+    if (_GroundHeightBlend > 0.0h)
+    {
+        half passSum = dot(splatControl, 1.0h);
+        if (passSum > 0.001h)
+        {
+            half4 w = splatControl / passSum;
+            half4 dither = half4(SnowBayer(snowPx), SnowBayer(snowPx + uint2(2, 1)), SnowBayer(snowPx + uint2(1, 3)), SnowBayer(snowPx + uint2(3, 2))) - 0.5h;
+            half4 h = half4(masks[0].b, masks[1].b, masks[2].b, masks[3].b) + dither * _GroundDither;
+            half4 hw = w + h * _GroundHeightBlend * step(0.0001h, w);
+            half top = max(max(hw.x, hw.y), max(hw.z, hw.w)) - _GroundBlendDepth;
+            half4 b = max(hw - top, 0.0h) * step(0.0001h, w);
+            splatControl = b / max(dot(b, 1.0h), 0.0001h) * passSum;
+        }
+    }
 
     half weight;
     half4 mixedDiffuse;
     half4 defaultSmoothness;
-    snowNoTileK = SAMPLE_TEXTURE2D(_MacroTex, sampler_MacroTex, IN.positionWS.xz / max(_NoTileScale, 1.0)).b;
     SplatmapMix(IN.uvMainAndLM, IN.uvSplat01, IN.uvSplat23, splatControl, weight, mixedDiffuse, defaultSmoothness, normalTS);
     half3 albedo = mixedDiffuse.rgb;
 #ifndef TERRAIN_SPLAT_BASEPASS
@@ -452,6 +501,9 @@ void SplatmapFragment(
         half m1 = SAMPLE_TEXTURE2D(_MacroTex, sampler_MacroTex, wxz / max(_MacroScale.x, 1.0)).r;
         half m2 = SAMPLE_TEXTURE2D(_MacroTex, sampler_MacroTex, wxz / max(_MacroScale.y, 1.0) + float2(0.37, 0.71)).g;
         half macro = (m1 * 0.65h + m2 * 0.35h) * 2.0h;
+        // research 2: crisp patches (Bayer-stepped) instead of a soft camouflage wash
+        if (_MacroSteps > 0.5h)
+            macro = floor(macro * _MacroSteps + SnowBayer(snowPx)) / _MacroSteps;
         albedo *= lerp(1.0h, macro, _MacroStrength);
     }
 #endif

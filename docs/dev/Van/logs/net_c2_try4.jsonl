@@ -1,0 +1,5 @@
+{"t":23.5393,"role":"none","cid":0,"ev":"start","args":"host=False client=True addr=127.0.0.1:7797 sim=(0ms,0ms,0%) bot=goto:-2.3:1.0:0.1;players:3;look:Sit_Driver;use;wait:2;log:v03;exit;wait:2;goto:-2.6:4.4;goto:2.6:4.4;goto:2.6:0.9;goto:1.6:0.9:0.1;look:doorP;use;wait:2;look:Sit_Passenger;use;wait:1;log:pseated;forceaxes:1:1:0:0:3;wait:80;log:end;exit;wait:2;log:outside log=F:/ClaudeGames/snow/docs/dev/Van/logs/net_c2.jsonl quit=0 trace=False wind=","batch":false,"fixedDt":0.0083,"tickRate":30}
+{"t":25.5668,"role":"client","cid":0,"ev":"start_client","ok":true,"address":"127.0.0.1","port":7797}
+{"t":38.8547,"role":"client","cid":0,"ev":"disconnected","client":0,"reason":"[Disconnect Event][Client-0][TransportClientId-4294967296][ClosedByRemote] Connection was closed by remote endpoint."}
+{"t":616.9306,"role":"client","cid":0,"ev":"start_client","ok":true,"address":"127.0.0.1","port":7797}
+{"t":616.9692,"role":"client","cid":0,"ev":"disconnected","client":0,"reason":"Session is full (4 players)"}

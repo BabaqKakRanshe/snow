@@ -1,0 +1,546 @@
+{
+ "version": 1,
+ "note": "kind: lit (URP Lit, PSX atlas, Point), emissive (Lit + emission the rig drives), lens (lamp lens: atlas + emission map, per-lens emission from the rig), glass (Van/Glass shader: frost, snow, fog, hand prints, wipers), mirror (render texture of MirrorCam), display (the radio LCD: base + emission = the texture the rig draws, UV0 0..1 over the glass).",
+ "materials": [
+  {
+   "name": "M_PSX_Glass_Cab",
+   "baseMap": "",
+   "emissionMap": "",
+   "color": [
+    0.16,
+    0.2,
+    0.22
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 0.42,
+   "kind": "glass",
+   "smoothness": 0.9
+  },
+  {
+   "name": "M_PSX_Glass_Room",
+   "baseMap": "",
+   "emissionMap": "",
+   "color": [
+    0.16,
+    0.2,
+    0.22
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 0.42,
+   "kind": "glass",
+   "smoothness": 0.9
+  },
+  {
+   "name": "M_Van_Body",
+   "baseMap": "T_Van_Body_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.38
+  },
+  {
+   "name": "M_Van_Cabin",
+   "baseMap": "T_Van_Cabin_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.15
+  },
+  {
+   "name": "M_Van_Gauges",
+   "baseMap": "T_Van_Gauges_BaseColor",
+   "emissionMap": "T_Van_Gauges_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "emissive",
+   "smoothness": 0.5
+  },
+  {
+   "name": "M_Van_LampBulb",
+   "baseMap": "",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    0.8,
+    0.52
+   ],
+   "emissionColor": [
+    1.0,
+    0.8,
+    0.52
+   ],
+   "alpha": 1.0,
+   "kind": "emissive",
+   "smoothness": 0.5
+  },
+  {
+   "name": "M_Van_Lens_Amber",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Dome",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Flare",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Fog",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Hand",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Head",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Marker",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Night",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Plate",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Reverse",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Spot",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Tail",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Torch",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Lens_Work",
+   "baseMap": "T_Van_Lens_BaseColor",
+   "emissionMap": "T_Van_Lens_Emission",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lens",
+   "smoothness": 0.75
+  },
+  {
+   "name": "M_Van_Mech",
+   "baseMap": "T_Van_Mech_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.3
+  },
+  {
+   "name": "M_Van_MirrorRT",
+   "baseMap": "",
+   "emissionMap": "",
+   "color": [
+    0.62,
+    0.64,
+    0.66
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "mirror",
+   "smoothness": 0.95
+  },
+  {
+   "name": "M_Van_Needle",
+   "baseMap": "",
+   "emissionMap": "",
+   "color": [
+    0.95,
+    0.3,
+    0.06
+   ],
+   "emissionColor": [
+    1.0,
+    0.35,
+    0.08
+   ],
+   "alpha": 1.0,
+   "kind": "emissive",
+   "smoothness": 0.5
+  },
+  {
+   "name": "M_Van_Props",
+   "baseMap": "T_Van_Props_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.2
+  },
+  {
+   "name": "M_Van_RadioDisplay",
+   "baseMap": "",
+   "emissionMap": "",
+   "color": [
+    0.05,
+    0.07,
+    0.05
+   ],
+   "emissionColor": [
+    0.55,
+    1.0,
+    0.45
+   ],
+   "alpha": 1.0,
+   "kind": "display",
+   "smoothness": 0.7
+  },
+  {
+   "name": "M_Van_Seats",
+   "baseMap": "T_Van_Seats_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.25
+  },
+  {
+   "name": "M_Van_Snow",
+   "baseMap": "T_Van_Snow_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.1
+  },
+  {
+   "name": "M_Van_StoveGlow",
+   "baseMap": "",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    0.42,
+    0.1
+   ],
+   "emissionColor": [
+    1.0,
+    0.42,
+    0.1
+   ],
+   "alpha": 1.0,
+   "kind": "emissive",
+   "smoothness": 0.5
+  },
+  {
+   "name": "M_Van_Trim",
+   "baseMap": "T_Van_Trim_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.3
+  },
+  {
+   "name": "M_Van_Wheel",
+   "baseMap": "T_Van_Wheel_BaseColor",
+   "emissionMap": "",
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emissionColor": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "alpha": 1.0,
+   "kind": "lit",
+   "smoothness": 0.15
+  }
+ ]
+}

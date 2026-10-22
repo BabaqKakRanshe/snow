@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Snow.Cargo;
 using Snow.Doors;
 using Snow.Player;
@@ -31,6 +32,9 @@ namespace Snow.Net
         string _menuPort;
         string _menuError;
         int _spawned;
+        // server: approved clients still waiting for OnClientConnectedCallback (realtime of approval)
+        readonly Dictionary<ulong, float> _pending = new Dictionary<ulong, float>();
+        readonly List<ulong> _pendingDue = new List<ulong>();
 
         void Awake()
         {
@@ -41,7 +45,11 @@ namespace Snow.Net
             _ut = GetComponent<UnityTransport>();
             _nm.NetworkConfig.ConnectionApproval = true;
             _nm.ConnectionApprovalCallback = Approve;
-            _nm.OnClientConnectedCallback += id => BenchLog.Event("connected", "client", id);
+            _nm.OnClientConnectedCallback += id =>
+            {
+                _pending.Remove(id);
+                BenchLog.Event("connected", "client", id);
+            };
             _nm.OnClientDisconnectCallback += id => BenchLog.Event("disconnected", "client", id, "reason", _nm.DisconnectReason);
             BenchLog.Open(Args.LogPath);
             BenchLog.Event("start", "args", Args.ToString(), "batch", Application.isBatchMode, "fixedDt", Time.fixedDeltaTime,
@@ -59,6 +67,7 @@ namespace Snow.Net
         public void StartHost()
         {
             Configure();
+            _pending.Clear();                                      // client ids start again from 1
             _ut.SetConnectionData("127.0.0.1", Args.Port, "0.0.0.0");
             BenchLog.Role = "host";
             bool ok = _nm.StartHost();
@@ -97,6 +106,7 @@ namespace Snow.Net
                 response.Position = sp.position;
                 response.Rotation = sp.rotation;
             }
+            if (response.Approved) _pending[request.ClientNetworkId] = Time.realtimeSinceStartup;
             BenchLog.Event("approve", "client", request.ClientNetworkId, "approved", response.Approved, "players", players);
         }
 
@@ -111,6 +121,7 @@ namespace Snow.Net
                 enabled = false;
                 return;
             }
+            if (_nm.IsServer) DropStaleClients();
             if (!_nm.IsListening || Time.realtimeSinceStartup < _nextLog) return;
             _nextLog = Time.realtimeSinceStartup + logInterval;
             if (_nm.IsServer)
@@ -123,6 +134,26 @@ namespace Snow.Net
                 BenchLog.Event("rtt", "client", _nm.LocalClientId, "ms", _ut.GetCurrentRtt(NetworkManager.ServerClientId));
             }
             Snapshot();
+        }
+
+        /// <summary>A client that drops in the middle of its own join can still get its player spawned after the disconnect
+        /// event (seen 21.10 under full CPU load: "disconnected 1" then "player_spawn 1", no "connected 1"); the entry then
+        /// stays in ConnectedClients, holds one of the MaxPlayers seats and its player object stays in the world. An approved
+        /// client that has not finished connecting within the scene load timeout (+10 s) is disconnected by the server.</summary>
+        void DropStaleClients()
+        {
+            if (_pending.Count == 0) return;
+            float limit = _nm.NetworkConfig.LoadSceneTimeOut + 10f, now = Time.realtimeSinceStartup;
+            _pendingDue.Clear();
+            foreach (var kv in _pending)
+                if (now - kv.Value > limit) _pendingDue.Add(kv.Key);
+            foreach (ulong id in _pendingDue)
+            {
+                _pending.Remove(id);
+                if (id == NetworkManager.ServerClientId || !_nm.ConnectedClients.ContainsKey(id)) continue;   // the host; gone the normal way
+                BenchLog.Event("stale_client_dropped", "client", id, "after", limit);
+                _nm.DisconnectClient(id, "Connection did not complete");
+            }
         }
 
         /// <summary>Every player object as this process sees it (own one simulated, others interpolated).</summary>

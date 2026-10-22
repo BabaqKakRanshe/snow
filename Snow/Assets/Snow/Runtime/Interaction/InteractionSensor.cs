@@ -15,8 +15,12 @@ namespace Snow.Interaction
     /// volume on the Interact layer, a physical item or nothing. Solid geometry in front blocks it. E on foot, a short F
     /// or the left button in a seat. The server decides. <see cref="Pick"/> is the one rule of what a ray from this
     /// player's eye reaches; the hover card and the Alt reveal use the same rule, so they cannot disagree.
-    /// With an item in hand on foot (E holds it) the left button uses the zone under the ray with that item (FOREST_U3
-    /// F4.5: pour from a jerrycan, unlock with a key, scrub with a rag); the ray passes through the held item.
+    /// Items (user 21.10, after Lethal Company / Phasmophobia): E is a press, never a hold. A pocket-sized item goes into
+    /// the hand and a pocket slot (drawn by HeldItemView, listed by PocketsHud); Q puts it away, 1–8 or the wheel take
+    /// another one out, G throws it. A heavy thing is carried in front with both hands: E takes it, E or G puts it down.
+    /// The hand shows a taken item at once and the server confirms (or says no and it goes back).
+    /// With an item in hand on foot the left button uses the zone under the ray with that item (FOREST_U3 F4.5: pour from
+    /// a jerrycan, unlock with a key, scrub with a rag); the ray passes through the held item.
     /// </summary>
     public class InteractionSensor : MonoBehaviour
     {
@@ -24,6 +28,7 @@ namespace Snow.Interaction
         public PlayerController controller;
         public FirstPersonView view;
         [Tooltip("Layers the use ray can hit; triggers count (interaction volumes are triggers)")] public LayerMask mask = ~0;
+        [Tooltip("s: a taken item stays in the hand this long without the server's answer, then goes back")] public float confirmTimeout = 0.75f;
 
         public InteractionHost TargetHost { get; private set; }
         public string TargetId { get; private set; }
@@ -32,8 +37,15 @@ namespace Snow.Interaction
         public CargoItem TargetCargo { get; private set; }
         public Vector3 TargetPoint { get; private set; }
         public string Hint { get; private set; }
-        /// <summary>The cargo item this player holds (GRAB-01), null if none.</summary>
+        /// <summary>The item this player holds (GRAB-01): in the hand (pocket-sized) or in front with both hands; null if none.</summary>
         public CargoItem Held { get; private set; }
+        /// <summary>The held item is heavy: carried in front, both hands busy.</summary>
+        public bool HeldHeavy => Held != null && !Held.Pocketable;
+        /// <summary>Last pocket slot asked for with 1–8 or the wheel (-1: put away), and when (PocketsHud: the slot pops at once).</summary>
+        public int RequestedSlot { get; private set; } = -1;
+        public float RequestedAt { get; private set; } = -10f;
+        /// <summary>When the last short message (mostly a refusal) was shown.</summary>
+        public float MessageAt { get; private set; } = -10f;
 
         [Tooltip("m: how far past the surface of a solid part a ray still reaches a zone embedded in it (model: seat zones " +
                  "3 cm inside the cushion, the fuel shutoff pull 5 cm inside the pedestal)")]
@@ -51,6 +63,11 @@ namespace Snow.Interaction
         string _lmbId;
         float _lmbTime, _lmbHold;
         float _holdDistance;
+        float _heldSince;
+        bool _heldConfirmed;
+        bool _handPose;
+        Vector3 _handPosition;
+        Quaternion _handRotation;
         readonly RaycastHit[] _hits = new RaycastHit[16];
 
         void OnEnable()
@@ -63,25 +80,44 @@ namespace Snow.Interaction
         {
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.NetworkTickSystem != null)
                 NetworkManager.Singleton.NetworkTickSystem.Tick -= OnTick;
-            if (Held != null) { net.RequestRelease(Held); Held = null; }   // focus loss / despawn: nothing stays grabbed
+            if (HeldHeavy) net.RequestRelease(Held);                 // despawn: nothing heavy stays grabbed; the hand keeps its item
+            Held = null;
         }
 
-        /// <summary>The hand target: in front of the eye at the distance the item was taken from.</summary>
+        /// <summary>The hand target of a heavy thing: in front of the eye at the distance it was taken from.</summary>
         public Vector3 HandTarget => view.EyePosition + view.EyeRotation * Vector3.forward * _holdDistance;
+
+        /// <summary>HeldItemView, every frame: where the item in the hand is drawn (sent to the server each tick).</summary>
+        public void SetHandPose(Vector3 position, Quaternion rotation)
+        {
+            _handPose = true;
+            _handPosition = position;
+            _handRotation = rotation;
+        }
+
+        public void ClearHandPose() => _handPose = false;
 
         // hand target once per network tick, unreliable (GRAB-01 over NET-02)
         void OnTick()
         {
             if (Held == null) return;
-            if (Held.State == CargoState.Secured) { Held = null; return; }   // someone secured it: our grab ended on the server
-            if (Held.TryGetComponent(out Snow.Aircraft.PlaneKey key) && key.Holder != Snow.Aircraft.PlaneKey.None) { Held = null; return; }   // pocketed
-            net.SendGrabTarget(Held, HandTarget);
+            if (HeldHeavy) net.SendGrabTarget(Held, HandTarget, view.EyeRotation);
+            else if (_handPose) net.SendGrabTarget(Held, _handPosition, _handRotation);
+        }
+
+        /// <summary>The server put an item into this player's hands (PlayerNet.ServerGiveItem).</summary>
+        public void AcceptGiven(CargoItem item, float holdDistance)
+        {
+            SetHeld(item, true);
+            _holdDistance = Mathf.Clamp(holdDistance, GrabMath.MinHold, GrabMath.MaxHold);
+            BenchLog.Event("given_item", "item", item.name);
         }
 
         public void ShowMessage(string text, float seconds = 2f)
         {
             _message = text;
             _messageUntil = Time.time + seconds;
+            MessageAt = Time.time;
         }
 
         /// <summary>A short F in the seat: press and release on the current target.</summary>
@@ -96,6 +132,30 @@ namespace Snow.Interaction
             if (TargetVolume != null && TargetVolume.kind == "momentary") net.RequestUse(TargetHost, TargetId, UsePhase.Release);
         }
 
+        void SetHeld(CargoItem item, bool confirmed)
+        {
+            Held = item;
+            _heldSince = Time.time;
+            _heldConfirmed = confirmed;
+        }
+
+        // the hands as the server has them: a taken item waits for its answer a moment; one the server let go (thrown,
+        // pocketed, used up, secured) or never gave leaves the hand; one the server put there (a pocket slot, a van part)
+        // comes in
+        void Reconcile(InputContext ctx)
+        {
+            ulong me = net.OwnerClientId;
+            if (Held != null && !Held.IsSpawned) Held = null;
+            if (Held != null)
+            {
+                if (Held.GrabbedBy(me)) _heldConfirmed = true;
+                else if (_heldConfirmed || Time.time - _heldSince > confirmTimeout) Held = null;
+            }
+            if (ctx != InputContext.OnFoot || (Held != null && !_heldConfirmed)) return;
+            CargoItem hand = CargoItem.InHandOf(me);
+            if (hand != null && hand != Held) SetHeld(hand, true);
+        }
+
         void Update()
         {
             if (controller == null || controller.Source == null) return;
@@ -108,19 +168,26 @@ namespace Snow.Interaction
                 : new Ray(view.EyePosition, view.EyeRotation * Vector3.forward);
             Resolve(ray);
 
-            // out of the on-foot context (seated, menu): the server already let the item go (PlayerNet.ServerSeated)
+            // out of the on-foot context (seated, menu): the server already put the item away (PlayerNet.ServerSeated)
             if (ctx != InputContext.OnFoot)
             {
                 if (Held != null) Held = null;
                 ReleaseLeft();
             }
+            Reconcile(ctx);
 
             bool down, up;
             if (ctx == InputContext.OnFoot) { down = f.Use && !last.Use; up = !f.Use && last.Use; }
             else if (ctx == InputContext.SeatCursor) { down = f.Click && !last.Click; up = !f.Click && last.Click; }
             else { down = up = false; }                              // seat without cursor: SeatController calls Tap()
 
-            if (down && TargetHost != null)
+            if (down && HeldHeavy)
+            {
+                // E again: put the heavy thing down (a press, not a held key: Game Accessibility Guidelines, XAG 107)
+                net.RequestRelease(Held);
+                Held = null;
+            }
+            else if (down && TargetHost != null)
             {
                 net.RequestUse(TargetHost, TargetId, UsePhase.Press);
                 _pressSent = true;
@@ -131,11 +198,7 @@ namespace Snow.Interaction
             }
             else if (down && TargetCargo != null && ctx == InputContext.OnFoot)
             {
-                // hold E: grab the item at the point the ray hit (GRAB-01), in the item's own space
-                Held = TargetCargo;
-                _holdDistance = Mathf.Clamp(Vector3.Distance(view.EyePosition, TargetPoint), GrabMath.MinHold, GrabMath.MaxHold);
-                net.RequestGrab(Held, Held.transform.InverseTransformPoint(TargetPoint));
-                BenchLog.Event("grab_request", "item", Held.name, "point", TargetPoint);
+                TakeItem(TargetCargo);
             }
             else if (down && TargetGrab != null)
             {
@@ -148,19 +211,16 @@ namespace Snow.Interaction
                 if (_pressHost != null) net.RequestUse(_pressHost, _pressId, UsePhase.Release);
                 _pressHost = null;
             }
-            if (up && Held != null)
-            {
-                net.RequestRelease(Held);
-                Held = null;
-            }
 
-            // mouse wheel on a knob (И2 F, ENGINEERING): one step per notch, up = clockwise, down = back
-            if (TargetHost != null && TargetVolume != null && (TargetVolume.kind == "rotary" || TargetVolume.kind == "selector")
-                && Mouse.current != null && ctx != InputContext.None)
+            // mouse wheel on a knob (И2 F, ENGINEERING): one step per notch, up = clockwise, down = back; elsewhere on foot
+            // it goes through the pockets
+            if (Mouse.current != null && ctx != InputContext.None)
             {
                 float wheel = Mouse.current.scroll.ReadValue().y;
-                if (wheel > 0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Press);
-                else if (wheel < -0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Back);
+                bool knob = TargetHost != null && TargetVolume != null && (TargetVolume.kind == "rotary" || TargetVolume.kind == "selector");
+                if (knob && wheel > 0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Press);
+                else if (knob && wheel < -0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Back);
+                else if (!knob && ctx == InputContext.OnFoot && Mathf.Abs(wheel) > 0.01f) CycleSlot(wheel < 0f ? 1 : -1);
             }
 
             // left mouse button with an item in hand: the zone under the ray, used with that item (F4.5); otherwise a
@@ -184,21 +244,85 @@ namespace Snow.Interaction
             }
             else if (_lmbSent && (Held == null || Mouse.current == null || !Mouse.current.leftButton.isPressed)) ReleaseLeft();
 
-            // G: the plane key out of the pocket onto the ground (TEMPORARY, §8.3 one pocket without UI)
-            if (ctx == InputContext.OnFoot && Keyboard.current != null && Keyboard.current.gKey.wasPressedThisFrame)
-                net.RequestDropKey();
+            // pockets (TEMPORARY keys, after Lethal Company / Phasmophobia): G throw, Q put away, 1–8 take out
+            Keyboard kb = Keyboard.current;
+            if (ctx == InputContext.OnFoot && kb != null)
+            {
+                if (kb.gKey.wasPressedThisFrame && Held != null)
+                {
+                    net.RequestDrop();
+                    if (HeldHeavy) Held = null;
+                }
+                if (kb.qKey.wasPressedThisFrame)
+                {
+                    if (Held == null) ShowMessage("Q — убрать в карман то, что в руке");
+                    else if (HeldHeavy) ShowMessage("Слишком тяжело для кармана");
+                    else { net.RequestPocket(); Requested(-1); }
+                }
+                for (int s = 0; s < CargoItem.PocketSlots; s++)
+                    if (kb[(UnityEngine.InputSystem.Key)((int)UnityEngine.InputSystem.Key.Digit1 + s)].wasPressedThisFrame) TakeSlot(s);
+            }
 
-            // R: secure the held or looked-at item on the nearest tie-down, or release it from its tie-down (SECURE-01)
+            // R: secure the held or looked-at heavy item on the nearest tie-down, or release it from its tie-down (SECURE-01)
             if (ctx == InputContext.OnFoot && f.Secure && !last.Secure)
             {
-                CargoItem item = Held != null ? Held : TargetCargo;
-                if (item != null)
+                CargoItem item = HeldHeavy ? Held : TargetCargo;
+                if (item != null && item.Pocketable) ShowMessage("Мелочь не крепят: возьмите её [E]");
+                else if (item != null)
                 {
                     net.RequestSecure(item, item.State != CargoState.Secured);
                     if (item == Held) Held = null;                     // the server ends all grabs when it secures
                 }
-                else ShowMessage("Наведитесь на ящик (или держите его E) и нажмите R");
+                else ShowMessage("Наведитесь на ящик (или несите его) и нажмите R");
             }
+        }
+
+        // E on an item: a pocket-sized one flies into the hand at once (the server confirms), a heavy one is grabbed where
+        // the ray hit it (GRAB-01), in the item's own space
+        void TakeItem(CargoItem item)
+        {
+            if (item.Pocketable && !item.CarriedBy(net.OwnerClientId) && CargoItem.FreeSlot(net.OwnerClientId) < 0)
+            {
+                ShowMessage($"Карманы полны ({CargoItem.PocketSlots}): выбросьте что-нибудь [G]");
+                return;
+            }
+            SetHeld(item, false);
+            _holdDistance = Mathf.Clamp(Vector3.Distance(view.EyePosition, TargetPoint), GrabMath.MinHold, GrabMath.MaxHold);
+            net.RequestGrab(item, item.transform.InverseTransformPoint(TargetPoint));
+            BenchLog.Event("grab_request", "item", item.name, "point", TargetPoint);
+        }
+
+        void TakeSlot(int slot)
+        {
+            ulong me = net.OwnerClientId;
+            if (HeldHeavy) { ShowMessage("Руки заняты: сначала поставьте [E]"); return; }
+            if (CargoItem.InSlot(me, slot) == null) { ShowMessage($"Карман {slot + 1} пуст"); return; }
+            net.RequestSlot(slot);
+            Requested(slot);
+        }
+
+        // the wheel: to the next (or previous) pocket that has something in it
+        void CycleSlot(int step)
+        {
+            if (HeldHeavy) return;
+            ulong me = net.OwnerClientId;
+            CargoItem hand = CargoItem.InHandOf(me);
+            int from = hand != null ? hand.Slot : step > 0 ? -1 : CargoItem.PocketSlots;
+            for (int i = 1; i <= CargoItem.PocketSlots; i++)
+            {
+                int s = ((from + step * i) % CargoItem.PocketSlots + CargoItem.PocketSlots) % CargoItem.PocketSlots;
+                if (s == from) return;
+                if (CargoItem.InSlot(me, s) == null) continue;
+                net.RequestSlot(s);
+                Requested(s);
+                return;
+            }
+        }
+
+        void Requested(int slot)
+        {
+            RequestedSlot = slot;
+            RequestedAt = Time.time;
         }
 
         void ReleaseLeft()
@@ -231,8 +355,7 @@ namespace Snow.Interaction
                 case CargoItem cargo:
                     TargetCargo = cargo;
                     TargetPoint = point;
-                    Hint = $"{cargo.label} ({cargo.massKg:0.##} кг) — {cargo.Describe()}";
-                    if (cargo.TryGetComponent(out Snow.Aircraft.PlaneKey _)) Hint += "   [R] в карман, [G] выложить";
+                    Hint = $"{cargo.label} ({cargo.massKg:0.##} кг) — {cargo.Describe()}   [E] {(cargo.Pocketable ? "взять" : "нести")}";
                     if (cargo.TryGetComponent(out Snow.Aircraft.SurvivalItem si) && si.ActionText() is string act) Hint += $"   [ЛКМ в руках] {act}";
                     break;
                 case Grabbable grab:
@@ -302,17 +425,18 @@ namespace Snow.Interaction
             if (zone.kind == "seat" && controller.Source.Context != InputContext.OnFoot) return false;   // get out first
             if (zone.kind == "kit" && controller.Source.Context != InputContext.OnFoot) return false;    // winter kit: from outside only (K4.2)
             var host = zone.GetComponentInParent<InteractionHost>();
+            if (host != null && host.CursorOnly(zone) && controller.Source.Context != InputContext.SeatCursor) return false;   // Tab only
             return host != null && host.ZoneOpen(zone, Held) && host.SideAllows(zone.id, eye);
         }
 
-        /// <summary>The key or button that uses the target in the current context (E / F / ЛКМ; ЛКМ on foot with an item
-        /// in hand, F4.5).</summary>
+        /// <summary>The key or button that uses the target in the current context (E / F / ЛКМ; ЛКМ on foot while a heavy
+        /// thing takes both hands, F4.5).</summary>
         public string UseKey => Key();
 
         string Key()
         {
             InputContext ctx = controller.Source.Context;
-            if (ctx == InputContext.OnFoot) return Held != null ? "ЛКМ" : "E";
+            if (ctx == InputContext.OnFoot) return HeldHeavy ? "ЛКМ" : "E";
             return ctx == InputContext.SeatCursor ? "ЛКМ" : "F";
         }
 

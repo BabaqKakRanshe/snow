@@ -15,6 +15,12 @@ CBUFFER_START(UnityPerMaterial)
     half _MacroStrength;
     float _NoTileScale;
     half _NoTile;
+    float _GroundTexSize;
+    half _SharpTexel;
+    half _GroundHeightBlend;
+    half _GroundBlendDepth;
+    half _GroundDither;
+    half _MacroSteps;
 
     UNITY_TEXTURE_STREAMING_DEBUG_VARS_FOR_TEX(_Control);
     float4 _Splat0_TexelSize, _Splat1_TexelSize, _Splat2_TexelSize, _Splat3_TexelSize;

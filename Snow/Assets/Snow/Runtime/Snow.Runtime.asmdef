@@ -3,6 +3,7 @@
     "rootNamespace": "Snow",
     "references": [
         "UtilityPlane.Runtime",
+        "UazVan.Runtime",
         "Unity.InputSystem",
         "Unity.Netcode.Runtime",
         "Unity.Networking.Transport",

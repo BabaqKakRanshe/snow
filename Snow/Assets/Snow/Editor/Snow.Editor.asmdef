@@ -6,6 +6,7 @@
         "Snow.Levels",
         "SkyIsland.Runtime",
         "UtilityPlane.Runtime",
+        "UazVan.Runtime",
         "Unity.InputSystem",
         "Unity.Netcode.Runtime",
         "Unity.Networking.Transport",

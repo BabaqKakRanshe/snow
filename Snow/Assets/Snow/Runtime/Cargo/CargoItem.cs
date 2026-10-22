@@ -16,11 +16,23 @@ namespace Snow.Cargo
         Stowed,
     }
 
+    /// <summary>Where a pocket-sized item is with its player (user 21.10, pockets).</summary>
+    public enum CarryMode : byte
+    {
+        None,
+        Hand,
+        Pocket,
+    }
+
     /// <summary>
     /// A physical cargo item (CARGO-01, GRAB-01, SECURE-01, MASS-01). Always a separate dynamic body simulated by the server
     /// (network physics variant A, §11.2); clients see a kinematic copy (NetworkRigidbody). Its owner never changes.
     ///  - Carried: every grabbing player pulls his own grab point (item-local, where he took it) towards his hand with a
     ///    clamped spring-damper; one entry per player, so repeated presses never add force.
+    ///  - Pocket-sized (≤ PocketMaxKg, user 21.10): one player only, no spring. In the hand it is kinematic, collides with
+    ///    nothing and sits at the pose the owner's camera shows it at (HeldItemView); in a pocket it is hidden and rides
+    ///    with the player. Either way it holds one of his PocketSlots slots. The slot lives on the item, so the pockets
+    ///    need no list of their own: an item used up or despawned frees its slot by going away.
     ///  - Secured: snapped to a free tie-down socket and held by a FixedJoint to the vehicle body, so its mass keeps acting
     ///    on the vehicle through the joint (no mass is added to the vehicle anywhere: no double counting).
     /// </summary>
@@ -49,9 +61,32 @@ namespace Snow.Cargo
             public bool Equals(GrabNet o) => Client == o.Client && LocalPoint == o.LocalPoint;
         }
 
+        public struct CarryNet : INetworkSerializable, IEquatable<CarryNet>
+        {
+            public ulong Client;
+            public byte Slot;
+            public CarryMode Mode;
+
+            public void NetworkSerialize<T>(BufferSerializer<T> s) where T : IReaderWriter
+            {
+                s.SerializeValue(ref Client);
+                s.SerializeValue(ref Slot);
+                s.SerializeValue(ref Mode);
+            }
+
+            public bool Equals(CarryNet o) => Client == o.Client && Slot == o.Slot && Mode == o.Mode;
+        }
+
+        public const ulong Nobody = ulong.MaxValue;
+        /// <summary>Pockets of a player (user 21.10: small things "до 8 штук"); heavier things go in front, both hands.</summary>
+        public const int PocketSlots = 8;
+        /// <summary>kg: up to this an item goes into the hand and the pockets, TEMPORARY.</summary>
+        public const float PocketMaxKg = 3f;
+
         class Hand
         {
             public Vector3 Local, Target, TargetVelocity;
+            public Quaternion TargetRotation = Quaternion.identity;
             public float Time;
         }
 
@@ -60,8 +95,13 @@ namespace Snow.Cargo
         readonly NetworkList<GrabNet> _grabs = new NetworkList<GrabNet>();
         readonly NetworkVariable<FixedString64Bytes> _socket = new NetworkVariable<FixedString64Bytes>(default,
             NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+        readonly NetworkVariable<CarryNet> _carry = new NetworkVariable<CarryNet>(new CarryNet { Client = Nobody },
+            NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
         readonly Dictionary<ulong, Hand> _hands = new Dictionary<ulong, Hand>();
+        Renderer[] _renderers;
+        bool[] _rendererOn, _colliderOn;
+        CarryMode _shown;
         static readonly List<CargoItem> AllItems = new List<CargoItem>();
         StowPoint _stow;
         Collider[] _ignoredVehicle = System.Array.Empty<Collider>();
@@ -80,12 +120,54 @@ namespace Snow.Cargo
         /// <summary>Server: the stow point this item sits on, or null.</summary>
         public StowPoint Stow => _stow;
 
-        /// <summary>Server: the item this client is carrying, or null.</summary>
+        /// <summary>Server: the item this client is carrying (in the hand or in front with both hands), or null.</summary>
         public static CargoItem HeldBy(ulong client)
         {
             foreach (var item in AllItems)
                 if (item._hands.ContainsKey(client)) return item;
             return null;
+        }
+
+        public bool Pocketable => massKg <= PocketMaxKg;
+        public CarryMode Carry => _carry.Value.Mode;
+        public ulong CarryClient => _carry.Value.Client;
+        public int Slot => _carry.Value.Slot;
+        /// <summary>Any peer: in this client's hand or pocket.</summary>
+        public bool CarriedBy(ulong client) => Carry != CarryMode.None && CarryClient == client;
+
+        /// <summary>Any peer: this client has hold of it (a pocket-sized item in his hand, or carried in front).</summary>
+        public bool GrabbedBy(ulong client)
+        {
+            for (int i = 0; i < _grabs.Count; i++)
+                if (_grabs[i].Client == client) return true;
+            return false;
+        }
+
+        /// <summary>Any peer: the pocket-sized item in this client's hand, or null.</summary>
+        public static CargoItem InHandOf(ulong client)
+        {
+            foreach (var item in AllItems)
+                if (item.IsSpawned && item.Carry == CarryMode.Hand && item.CarryClient == client) return item;
+            return null;
+        }
+
+        /// <summary>Any peer: the item in this client's pocket slot (in the hand or not), or null.</summary>
+        public static CargoItem InSlot(ulong client, int slot)
+        {
+            foreach (var item in AllItems)
+                if (item.IsSpawned && item.CarriedBy(client) && item.Slot == slot) return item;
+            return null;
+        }
+
+        /// <summary>Any peer: this client's first free pocket slot, -1 if all are taken.</summary>
+        public static int FreeSlot(ulong client)
+        {
+            int used = 0;
+            foreach (var item in AllItems)
+                if (item.IsSpawned && item.CarriedBy(client)) used |= 1 << item.Slot;
+            for (int s = 0; s < PocketSlots; s++)
+                if ((used & (1 << s)) == 0) return s;
+            return -1;
         }
 
         void OnEnable() => AllItems.Add(this);
@@ -96,18 +178,37 @@ namespace Snow.Cargo
             _rb = GetComponent<Rigidbody>();
             _rb.mass = massKg;
             _colliders = GetComponentsInChildren<Collider>();
+            _colliderOn = new bool[_colliders.Length];
+            for (int i = 0; i < _colliders.Length; i++) _colliderOn[i] = _colliders[i].enabled;
+            _renderers = GetComponentsInChildren<Renderer>(true);
+            _rendererOn = new bool[_renderers.Length];
+            for (int i = 0; i < _renderers.Length; i++) _rendererOn[i] = _renderers[i].enabled;
         }
 
         public override void OnNetworkSpawn()
         {
             _state.OnValueChanged += (_, s) => ShowState(s);
             ShowState(_state.Value);
-            if (IsServer) NetworkManager.OnClientDisconnectCallback += ServerRelease;
+            _carry.OnValueChanged += (_, c) => ShowCarry(c.Mode);
+            ShowCarry(_carry.Value.Mode);
+            if (IsServer) NetworkManager.OnClientDisconnectCallback += ServerClientGone;
         }
 
         public override void OnNetworkDespawn()
         {
-            if (IsServer && NetworkManager != null) NetworkManager.OnClientDisconnectCallback -= ServerRelease;
+            if (IsServer && NetworkManager != null) NetworkManager.OnClientDisconnectCallback -= ServerClientGone;
+        }
+
+        // every peer: in a pocket nothing of it is seen; in the hand or a pocket nothing of it collides (the use rays of
+        // the other players do not find it, it does not push its player)
+        void ShowCarry(CarryMode mode)
+        {
+            for (int i = 0; i < _renderers.Length; i++)
+                if (_renderers[i] != null) _renderers[i].enabled = _rendererOn[i] && mode != CarryMode.Pocket;
+            for (int i = 0; i < _colliders.Length; i++)
+                if (_colliders[i] != null) _colliders[i].enabled = _colliderOn[i] && mode == CarryMode.None;
+            if (IsServer && mode != _shown) _rb.isKinematic = mode != CarryMode.None || State == CargoState.Stowed;
+            _shown = mode;
         }
 
         void ShowState(CargoState s)
@@ -121,7 +222,7 @@ namespace Snow.Cargo
             switch (State)
             {
                 case CargoState.Secured: return $"закреплён ({SocketId})";
-                case CargoState.Carried: return $"несут: {Carriers}";
+                case CargoState.Carried: return Carry != CarryMode.None ? "в руке" : $"несут: {Carriers}";
                 case CargoState.Stowed: return "на своём месте (взять — E)";
                 default: return "свободен";
             }
@@ -132,6 +233,7 @@ namespace Snow.Cargo
         {
             reason = null;
             if (State == CargoState.Secured) { reason = "Закреплён — сначала открепите [R]"; return false; }
+            if (Carry != CarryMode.None) { reason = "Это у другого игрока"; return false; }
             if (State == CargoState.Stowed) ServerUnstow();                // taken from its place by the item itself (И3 L.3)
             Vector3 world = transform.TransformPoint(localPoint);
             if (_hands.TryGetValue(client, out Hand h))
@@ -147,18 +249,117 @@ namespace Snow.Cargo
         public void ServerRelease(ulong client)
         {
             if (!_hands.Remove(client)) return;
+            // out of his hand by the game (used up, stowed, given away): a free body again where it is
+            if (CarriedBy(client) && Carry == CarryMode.Hand) SetCarry(Nobody, 0, CarryMode.None);
             SyncGrabs();
             if (_hands.Count == 0 && State == CargoState.Carried) _state.Value = CargoState.Loose;
             BenchLog.Event("cargo_release", "item", name, "client", client, "carriers", _hands.Count);
         }
 
-        public void ServerTarget(ulong client, Vector3 target)
+        void ServerClientGone(ulong client)
+        {
+            ServerRelease(client);
+            if (CarriedBy(client)) EndCarry();                         // a player who left does not take his pockets away
+        }
+
+        /// <summary>Server: where this client's hand wants the item; a pocket-sized item in the hand also takes the rotation.</summary>
+        public void ServerTarget(ulong client, Vector3 target, Quaternion rotation)
         {
             if (!_hands.TryGetValue(client, out Hand h)) return;
             float dt = Time.time - h.Time;
             h.TargetVelocity = dt > 1e-3f && dt < targetTimeout ? (target - h.Target) / dt : Vector3.zero;
             h.Target = target;
+            h.TargetRotation = rotation;
             h.Time = Time.time;
+        }
+
+        // ================================================================ server: hand and pockets (user 21.10)
+        /// <summary>Server: into this client's hand, in its pocket slot (a free one if it is not his yet).</summary>
+        public bool ServerTakeInHand(ulong client, out string reason)
+        {
+            if (!ServerClaim(client, out int slot, out reason)) return false;
+            if (State == CargoState.Stowed) ServerUnstow();
+            _hands.Clear();
+            _hands[client] = new Hand { Target = transform.position, TargetRotation = transform.rotation, Time = Time.time };
+            SyncGrabs();
+            _state.Value = CargoState.Carried;
+            SetCarry(client, slot, CarryMode.Hand);
+            BenchLog.Event("pocket_hand", "item", name, "client", client, "slot", slot);
+            return true;
+        }
+
+        /// <summary>Server: into this client's pocket — from his hand (same slot) or straight from the world (a free slot).</summary>
+        public bool ServerToPocket(ulong client, out string reason)
+        {
+            if (!ServerClaim(client, out int slot, out reason)) return false;
+            if (State == CargoState.Stowed) ServerUnstow();
+            _hands.Clear();
+            SyncGrabs();
+            _state.Value = CargoState.Carried;
+            SetCarry(client, slot, CarryMode.Pocket);
+            BenchLog.Event("pocket_in", "item", name, "client", client, "slot", slot);
+            return true;
+        }
+
+        /// <summary>Server: out of this client's hand into the world where it is, thrown with this velocity.</summary>
+        public void ServerDrop(ulong client, Vector3 velocity)
+        {
+            if (!CarriedBy(client) || Carry != CarryMode.Hand) return;
+            EndCarry();
+            _rb.linearVelocity = velocity;
+            _rb.angularVelocity = UnityEngine.Random.insideUnitSphere * 2f;
+            BenchLog.Event("pocket_drop", "item", name, "client", client, "v", velocity);
+        }
+
+        // may this client take the item into his hand or pockets, and into which slot?
+        bool ServerClaim(ulong client, out int slot, out string reason)
+        {
+            reason = null;
+            slot = -1;
+            if (!Pocketable) { reason = "Слишком тяжело для кармана: несите обеими руками"; return false; }
+            if (State == CargoState.Secured) { reason = "Закреплён — сначала открепите [R]"; return false; }
+            if (CarriedBy(client)) { slot = Slot; return true; }
+            if (Carry != CarryMode.None) { reason = "Это у другого игрока"; return false; }
+            if (_hands.Count > 0 && !_hands.ContainsKey(client)) { reason = "Это держит другой игрок"; return false; }
+            slot = FreeSlot(client);
+            if (slot < 0) { reason = $"Карманы полны ({PocketSlots})"; return false; }
+            return true;
+        }
+
+        void SetCarry(ulong client, int slot, CarryMode mode)
+        {
+            _carry.Value = new CarryNet { Client = client, Slot = (byte)Mathf.Max(0, slot), Mode = mode };
+            ShowCarry(mode);
+        }
+
+        // out of its player's hand or pocket: a free body again where it is
+        void EndCarry()
+        {
+            if (Carry == CarryMode.None) return;
+            _hands.Remove(CarryClient);
+            SyncGrabs();
+            SetCarry(Nobody, 0, CarryMode.None);
+            if (_hands.Count == 0 && State == CargoState.Carried) _state.Value = CargoState.Loose;
+        }
+
+        // server: in the hand the item sits at the pose its owner shows it at; in a pocket it rides with the player (late
+        // joiners and anything that looks for items by place find it with him, not where it was picked up)
+        void ServerFollow()
+        {
+            if (Carry == CarryMode.Hand)
+            {
+                if (!_hands.TryGetValue(CarryClient, out Hand h) || Time.time - h.Time > targetTimeout) return;
+                _rb.MovePosition(h.Target);
+                _rb.MoveRotation(h.TargetRotation);
+                return;
+            }
+            Transform p = NetworkManager.ConnectedClients.TryGetValue(CarryClient, out NetworkClient c) && c.PlayerObject != null
+                ? c.PlayerObject.transform : null;
+            if (p == null) return;                                       // the host's player not spawned yet: wait
+            Vector3 at = p.position + Vector3.up;
+            if ((transform.position - at).sqrMagnitude < 0.25f) return;    // half a metre: no network traffic for every step
+            _rb.position = at;
+            transform.position = at;
         }
 
         void SyncGrabs()
@@ -175,6 +376,11 @@ namespace Snow.Cargo
             if (IsSpawned && SnowNetworkBootstrap.Args != null && SnowNetworkBootstrap.Args.Trace && (_traceStep++ % 5) == 0)
                 BenchLog.Event("cpos", "item", name, "st", NetworkManager.ServerTime.Time, "p", transform.position,
                     "r", transform.eulerAngles, "s", State.ToString(), "srv", IsServer);
+            if (IsServer && IsSpawned && Carry != CarryMode.None)
+            {
+                ServerFollow();
+                return;
+            }
             if (IsServer && IsSpawned && State == CargoState.Stowed && _stow != null)
             {
                 // held in the socket pose every physics step (the socket may ride on a moving door, И3 L.4)
@@ -207,6 +413,7 @@ namespace Snow.Cargo
             reason = null;
             if (point.Occupant != null && point.Occupant != this) { reason = "Место занято"; return false; }
             if (State == CargoState.Secured) ServerUnsecure(client, out _);
+            if (Carry != CarryMode.None) SetCarry(Nobody, 0, CarryMode.None);
             _hands.Clear();
             SyncGrabs();
             Transform vehicle = point.transform.root;
@@ -279,6 +486,7 @@ namespace Snow.Cargo
             }
 
             // co-carriers let go explicitly before the item becomes rigidly attached (SECURE-01)
+            if (Carry != CarryMode.None) SetCarry(Nobody, 0, CarryMode.None);
             _hands.Clear();
             SyncGrabs();
             Rigidbody vehicle = socket != null ? socket.GetComponentInParent<Rigidbody>() : below.Body;

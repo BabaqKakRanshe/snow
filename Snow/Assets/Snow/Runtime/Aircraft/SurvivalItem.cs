@@ -51,6 +51,7 @@ namespace Snow.Aircraft
 
         Light _light;
         Transform _socket;
+        CargoItem _item;
         int _lensShown = -1;                                           // -1 unknown, 0 off, 1 on
 
         public bool On => _on.Value;
@@ -61,6 +62,7 @@ namespace Snow.Aircraft
 
         void Awake()
         {
+            _item = GetComponent<CargoItem>();
             string socket = kind == SurvivalKind.Flashlight ? "Socket_Light" : kind == SurvivalKind.Flare ? "Socket_Flame"
                           : kind == SurvivalKind.FlareGun ? "Socket_Muzzle" : null;
             if (socket == null) return;
@@ -86,15 +88,16 @@ namespace Snow.Aircraft
         void Update()
         {
             if (_light == null || !IsSpawned) return;
+            bool pocket = _item.Carry == CarryMode.Pocket;                 // a lit thing in a pocket does not shine out of it
             if (kind == SurvivalKind.Flashlight)
             {
-                _light.enabled = _on.Value;
+                _light.enabled = _on.Value && !pocket;
                 ShowLens(_on.Value);
             }
             else if (kind == SurvivalKind.Flare)
             {
                 bool burning = Burning;
-                _light.enabled = burning;
+                _light.enabled = burning && !pocket;
                 if (burning) _light.intensity = 10f * (0.8f + 0.2f * Mathf.PerlinNoise(Time.time * 9f, GetInstanceID() * 0.01f));
             }
         }

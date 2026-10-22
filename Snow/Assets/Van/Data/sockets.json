@@ -1,0 +1,10206 @@
+{
+ "version": 1,
+ "frame": "van space = Unity frame of the prefab root Van (x right, y up, z forward, metres, ground y = 0); body frame of VAN3_CONTRACT.md (x forward, y left, z up) -> (-y, z, x). Every part has an identity local rotation at rest: parent-local = van space - parent origin.",
+ "sockets": [
+  {
+   "name": "Hand_Wheel_L",
+   "kind": "hand",
+   "parent": "SteeringWheel",
+   "note": "",
+   "position": [
+    -0.703,
+    1.502,
+    1.517
+   ],
+   "positionLocal": [
+    -0.18,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Wheel_R",
+   "kind": "hand",
+   "parent": "SteeringWheel",
+   "note": "",
+   "position": [
+    -0.343,
+    1.502,
+    1.517
+   ],
+   "positionLocal": [
+    0.18,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Horn",
+   "kind": "hand",
+   "parent": "Horn_Button",
+   "note": "",
+   "position": [
+    -0.5228,
+    1.5378,
+    1.4994
+   ],
+   "positionLocal": [
+    0.0001,
+    0.0144,
+    -0.0071
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Audio_Horn",
+   "kind": "audio",
+   "parent": "Kit_Front",
+   "note": "horn behind the grille",
+   "position": [
+    -0.25,
+    0.95,
+    2.08
+   ],
+   "positionLocal": [
+    -0.25,
+    0.86,
+    2.08
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Window_doorL",
+   "kind": "hand",
+   "parent": "Window_doorL",
+   "note": "",
+   "position": [
+    -0.826,
+    1.6621,
+    1.6225
+   ],
+   "positionLocal": [
+    0.03734,
+    -0.03168,
+    0.13456
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Window_doorP",
+   "kind": "hand",
+   "parent": "Window_doorP",
+   "note": "",
+   "position": [
+    0.826,
+    1.6621,
+    1.6225
+   ],
+   "positionLocal": [
+    -0.03734,
+    -0.03168,
+    0.13456
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_doorSalon",
+   "kind": "hand",
+   "parent": "doorSalon",
+   "note": "",
+   "position": [
+    0.99,
+    1.3,
+    -0.518
+   ],
+   "positionLocal": [
+    0.035,
+    -0.06,
+    -0.866
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_RoofHatch",
+   "kind": "hand",
+   "parent": "RoofHatch",
+   "note": "",
+   "position": [
+    0.4,
+    2.1377,
+    -0.435
+   ],
+   "positionLocal": [
+    0.0,
+    -0.036,
+    -0.165
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_Radiator",
+   "kind": "pour",
+   "parent": "Kit_Front",
+   "note": "",
+   "position": [
+    0.0,
+    1.2929,
+    2.1625
+   ],
+   "positionLocal": [
+    0.0,
+    1.2029,
+    2.1625
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_RadiatorHatch",
+   "kind": "hand",
+   "parent": "RadiatorHatch",
+   "note": "",
+   "position": [
+    0.0,
+    1.2596,
+    2.1883
+   ],
+   "positionLocal": [
+    0.0,
+    -0.0507,
+    0.013
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Winch_Clutch",
+   "kind": "hand",
+   "parent": "Winch_Clutch",
+   "note": "",
+   "position": [
+    0.222,
+    0.755,
+    2.375
+   ],
+   "positionLocal": [
+    0.004,
+    0.065,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Winch_Fairlead",
+   "kind": "item_slot",
+   "parent": "",
+   "note": "the cable leaves the drum here (draw it to the hook)",
+   "position": [
+    0.0,
+    0.69,
+    2.452
+   ],
+   "positionLocal": [
+    0.0,
+    0.69,
+    2.452
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Winch_Hook",
+   "kind": "hand",
+   "parent": "Winch_Hook",
+   "note": "",
+   "position": [
+    0.0,
+    0.66,
+    2.49
+   ],
+   "positionLocal": [
+    0.0,
+    -0.03,
+    0.03
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_SandLadder_1_A",
+   "kind": "hand",
+   "parent": "SandLadder_1",
+   "note": "",
+   "position": [
+    -0.22,
+    2.344,
+    -0.85
+   ],
+   "positionLocal": [
+    0.0,
+    0.02,
+    -0.5
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_SandLadder_1_B",
+   "kind": "hand",
+   "parent": "SandLadder_1",
+   "note": "",
+   "position": [
+    -0.22,
+    2.344,
+    0.15
+   ],
+   "positionLocal": [
+    0.0,
+    0.02,
+    0.5
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_SandLadder_2_A",
+   "kind": "hand",
+   "parent": "SandLadder_2",
+   "note": "",
+   "position": [
+    -0.58,
+    2.344,
+    -0.85
+   ],
+   "positionLocal": [
+    0.0,
+    0.02,
+    -0.5
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_SandLadder_2_B",
+   "kind": "hand",
+   "parent": "SandLadder_2",
+   "note": "",
+   "position": [
+    -0.58,
+    2.344,
+    0.15
+   ],
+   "positionLocal": [
+    0.0,
+    0.02,
+    0.5
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_WorkLamp",
+   "kind": "hand",
+   "parent": "WorkLamp",
+   "note": "",
+   "position": [
+    0.58,
+    0.871,
+    1.62
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.06
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hook_WorkLamp",
+   "kind": "item_slot",
+   "parent": "WorkLamp",
+   "note": "hangs from here",
+   "position": [
+    0.56,
+    0.871,
+    1.86
+   ],
+   "positionLocal": [
+    -0.02,
+    0.0,
+    0.3
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Glovebox_Lid",
+   "kind": "hand",
+   "parent": "Glovebox_Lid",
+   "note": "",
+   "position": [
+    0.56,
+    1.3477,
+    1.7428
+   ],
+   "positionLocal": [
+    0.0,
+    0.1359,
+    0.003
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Map",
+   "kind": "hand",
+   "parent": "Map",
+   "note": "",
+   "position": [
+    0.38,
+    1.218,
+    1.8
+   ],
+   "positionLocal": [
+    -0.0505,
+    0.004,
+    -0.04
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Logbook",
+   "kind": "hand",
+   "parent": "Logbook",
+   "note": "",
+   "position": [
+    0.43,
+    1.235,
+    1.8
+   ],
+   "positionLocal": [
+    0.0,
+    0.0085,
+    -0.04
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Flashlight",
+   "kind": "hand",
+   "parent": "Flashlight",
+   "note": "",
+   "position": [
+    0.62,
+    1.236,
+    1.8
+   ],
+   "positionLocal": [
+    -0.04,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Flare_1",
+   "kind": "hand",
+   "parent": "Flare_1",
+   "note": "",
+   "position": [
+    0.57,
+    1.2245,
+    1.848
+   ],
+   "positionLocal": [
+    -0.075,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Flare_2",
+   "kind": "hand",
+   "parent": "Flare_2",
+   "note": "",
+   "position": [
+    0.57,
+    1.2245,
+    1.877
+   ],
+   "positionLocal": [
+    -0.075,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Flare_3",
+   "kind": "hand",
+   "parent": "Flare_3",
+   "note": "",
+   "position": [
+    0.57,
+    1.2245,
+    1.906
+   ],
+   "positionLocal": [
+    -0.075,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Radio_Volume",
+   "kind": "hand",
+   "parent": "Radio_Volume",
+   "note": "",
+   "position": [
+    0.0625,
+    1.2662,
+    1.7338
+   ],
+   "positionLocal": [
+    0.0,
+    0.0016,
+    -0.0149
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Radio_Squelch",
+   "kind": "hand",
+   "parent": "Radio_Squelch",
+   "note": "",
+   "position": [
+    0.0844,
+    1.2662,
+    1.7338
+   ],
+   "positionLocal": [
+    0.0,
+    0.0016,
+    -0.0149
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Radio_ChDown",
+   "kind": "hand",
+   "parent": "Radio_ChDown",
+   "note": "",
+   "position": [
+    0.0141,
+    1.2466,
+    1.7406
+   ],
+   "positionLocal": [
+    0.0,
+    0.0007,
+    -0.006
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Radio_ChUp",
+   "kind": "hand",
+   "parent": "Radio_ChUp",
+   "note": "",
+   "position": [
+    0.0313,
+    1.2466,
+    1.7406
+   ],
+   "positionLocal": [
+    0.0,
+    0.0007,
+    -0.006
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Audio_Radio",
+   "kind": "audio",
+   "parent": "Dash",
+   "note": "radio loudspeaker (static, voices)",
+   "position": [
+    0.0,
+    1.2608,
+    1.7684
+   ],
+   "positionLocal": [
+    0.0,
+    1.1708,
+    1.7684
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hook_Radio_Mic",
+   "kind": "item_slot",
+   "parent": "Radio_MicHook",
+   "note": "the mic hangs here",
+   "position": [
+    0.285,
+    1.3914,
+    1.7587
+   ],
+   "positionLocal": [
+    0.0,
+    0.0014,
+    -0.013
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Radio_Mic",
+   "kind": "hand",
+   "parent": "Radio_Mic",
+   "note": "",
+   "position": [
+    0.285,
+    1.3396,
+    1.7469
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Radio_Cord_Mic",
+   "kind": "item_slot",
+   "parent": "Radio_Mic",
+   "note": "coiled cord, mic end",
+   "position": [
+    0.285,
+    1.275,
+    1.7398
+   ],
+   "positionLocal": [
+    0.0,
+    -0.0646,
+    -0.0071
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Radio_Cord_Radio",
+   "kind": "item_slot",
+   "parent": "Dash",
+   "note": "coiled cord, radio end",
+   "position": [
+    0.085,
+    1.2391,
+    1.7458
+   ],
+   "positionLocal": [
+    0.085,
+    1.1491,
+    1.7458
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "MirrorCam",
+   "kind": "camera",
+   "parent": "RearMirror",
+   "note": "camera for the mirror render texture: looks along dir (the reflection of the driver's eye ray); fov 32; the back seat is in view: ghost scares show here",
+   "position": [
+    0.0087,
+    1.8811,
+    1.588
+   ],
+   "positionLocal": [
+    0.0087,
+    0.0011,
+    0.018
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    -0.0671,
+    -0.99775
+   ],
+   "hasUp": true,
+   "up": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 32,
+   "pane": ""
+  },
+  {
+   "name": "Hand_StoveDoor",
+   "kind": "hand",
+   "parent": "StoveDoor",
+   "note": "",
+   "position": [
+    -0.515,
+    1.126,
+    -1.665
+   ],
+   "positionLocal": [
+    0.175,
+    0.0,
+    0.039
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_StoveDoor_Vent",
+   "kind": "hand",
+   "parent": "StoveDoor_Vent",
+   "note": "",
+   "position": [
+    -0.585,
+    1.051,
+    -1.692
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.004
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Stove_AshPan",
+   "kind": "hand",
+   "parent": "Stove_AshPan",
+   "note": "",
+   "position": [
+    -0.59,
+    0.9435,
+    -1.68
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.02
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Stove_Damper",
+   "kind": "hand",
+   "parent": "Stove_Damper",
+   "note": "",
+   "position": [
+    -0.63,
+    1.54,
+    -1.795
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.125
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Kettle",
+   "kind": "hand",
+   "parent": "Kettle",
+   "note": "",
+   "position": [
+    -0.505,
+    1.501,
+    -1.79
+   ],
+   "positionLocal": [
+    0.0,
+    0.15,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_Kettle",
+   "kind": "pour",
+   "parent": "Kettle",
+   "note": "",
+   "position": [
+    -0.505,
+    1.426,
+    -1.665
+   ],
+   "positionLocal": [
+    0.0,
+    0.075,
+    0.125
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Log_1",
+   "kind": "hand",
+   "parent": "Log_1",
+   "note": "",
+   "position": [
+    -0.22,
+    0.889,
+    -1.453
+   ],
+   "positionLocal": [
+    0.0,
+    0.035,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Log_2",
+   "kind": "hand",
+   "parent": "Log_2",
+   "note": "",
+   "position": [
+    -0.22,
+    0.889,
+    -1.377
+   ],
+   "positionLocal": [
+    0.0,
+    0.035,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Log_3",
+   "kind": "hand",
+   "parent": "Log_3",
+   "note": "",
+   "position": [
+    -0.22,
+    0.959,
+    -1.453
+   ],
+   "positionLocal": [
+    0.0,
+    0.035,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Log_4",
+   "kind": "hand",
+   "parent": "Log_4",
+   "note": "",
+   "position": [
+    -0.22,
+    0.959,
+    -1.377
+   ],
+   "positionLocal": [
+    0.0,
+    0.035,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_L1A",
+   "kind": "hand",
+   "parent": "Curtain_L1A",
+   "note": "",
+   "position": [
+    -0.855,
+    1.7055,
+    -1.4477
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    0.11996
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_L1B",
+   "kind": "hand",
+   "parent": "Curtain_L1B",
+   "note": "",
+   "position": [
+    -0.855,
+    1.7055,
+    -0.7423
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    -0.11997
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_L2A",
+   "kind": "hand",
+   "parent": "Curtain_L2A",
+   "note": "",
+   "position": [
+    -0.855,
+    1.7055,
+    -0.4839
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    0.12
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_L2B",
+   "kind": "hand",
+   "parent": "Curtain_L2B",
+   "note": "",
+   "position": [
+    -0.855,
+    1.7055,
+    0.2214
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    -0.12003
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_L3A",
+   "kind": "hand",
+   "parent": "Curtain_L3A",
+   "note": "",
+   "position": [
+    -0.855,
+    1.7055,
+    0.4931
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    0.12
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_L3B",
+   "kind": "hand",
+   "parent": "Curtain_L3B",
+   "note": "",
+   "position": [
+    -0.855,
+    1.7055,
+    0.7165
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    -0.11997
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_R1A",
+   "kind": "hand",
+   "parent": "Curtain_R1A",
+   "note": "",
+   "position": [
+    0.855,
+    1.7055,
+    -1.4477
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    0.11996
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_R1B",
+   "kind": "hand",
+   "parent": "Curtain_R1B",
+   "note": "",
+   "position": [
+    0.855,
+    1.7055,
+    -0.7423
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    -0.11997
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_R2A",
+   "kind": "hand",
+   "parent": "Curtain_R2A",
+   "note": "",
+   "position": [
+    0.855,
+    1.7055,
+    -0.4839
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    0.12
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_R2B",
+   "kind": "hand",
+   "parent": "Curtain_R2B",
+   "note": "",
+   "position": [
+    0.855,
+    1.7055,
+    0.2214
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    -0.12003
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_R3A",
+   "kind": "hand",
+   "parent": "Curtain_R3A",
+   "note": "",
+   "position": [
+    0.855,
+    1.7055,
+    0.4931
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    0.12
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Curtain_R3B",
+   "kind": "hand",
+   "parent": "Curtain_R3B",
+   "note": "",
+   "position": [
+    0.855,
+    1.7055,
+    0.7165
+   ],
+   "positionLocal": [
+    0.0,
+    -0.24997,
+    -0.11997
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Plug_1",
+   "kind": "hand",
+   "parent": "Engine_Lead_1",
+   "note": "",
+   "position": [
+    -0.135,
+    0.938,
+    1.05
+   ],
+   "positionLocal": [
+    -0.012,
+    0.016,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Plug_2",
+   "kind": "hand",
+   "parent": "Engine_Lead_2",
+   "note": "",
+   "position": [
+    -0.135,
+    0.938,
+    1.145
+   ],
+   "positionLocal": [
+    -0.012,
+    0.016,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Plug_3",
+   "kind": "hand",
+   "parent": "Engine_Lead_3",
+   "note": "",
+   "position": [
+    -0.135,
+    0.938,
+    1.24
+   ],
+   "positionLocal": [
+    -0.012,
+    0.016,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Plug_4",
+   "kind": "hand",
+   "parent": "Engine_Lead_4",
+   "note": "",
+   "position": [
+    -0.135,
+    0.938,
+    1.335
+   ],
+   "positionLocal": [
+    -0.012,
+    0.016,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Dipstick",
+   "kind": "hand",
+   "parent": "Engine_Dipstick",
+   "note": "",
+   "position": [
+    0.2123,
+    1.0417,
+    1.4244
+   ],
+   "positionLocal": [
+    0.0073,
+    0.0267,
+    0.0044
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_Oil",
+   "kind": "pour",
+   "parent": "Engine",
+   "note": "",
+   "position": [
+    -0.03,
+    1.0,
+    1.33
+   ],
+   "positionLocal": [
+    -0.03,
+    0.29,
+    0.14
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_Coolant",
+   "kind": "pour",
+   "parent": "Engine",
+   "note": "",
+   "position": [
+    0.205,
+    1.01,
+    0.975
+   ],
+   "positionLocal": [
+    0.205,
+    0.3,
+    -0.215
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_EngineCover",
+   "kind": "hand",
+   "parent": "EngineCover",
+   "note": "",
+   "position": [
+    0.0,
+    1.13,
+    1.485
+   ],
+   "positionLocal": [
+    0.0,
+    -0.07,
+    0.58
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_MassSwitch",
+   "kind": "hand",
+   "parent": "MassSwitch_Key",
+   "note": "",
+   "position": [
+    -0.513,
+    0.976,
+    0.47
+   ],
+   "positionLocal": [
+    0.045,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_BatteryLid",
+   "kind": "hand",
+   "parent": "BatteryBox_Lid",
+   "note": "",
+   "position": [
+    -0.61,
+    1.1,
+    0.39
+   ],
+   "positionLocal": [
+    0.255,
+    0.021,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Battery",
+   "kind": "hand",
+   "parent": "Battery",
+   "note": "",
+   "position": [
+    -0.71,
+    1.076,
+    0.39
+   ],
+   "positionLocal": [
+    0.0,
+    0.26,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_ClampPos",
+   "kind": "hand",
+   "parent": "Battery_ClampPos",
+   "note": "",
+   "position": [
+    -0.67,
+    1.043,
+    0.285
+   ],
+   "positionLocal": [
+    0.0,
+    0.01,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_ClampNeg",
+   "kind": "hand",
+   "parent": "Battery_ClampNeg",
+   "note": "",
+   "position": [
+    -0.67,
+    1.043,
+    0.495
+   ],
+   "positionLocal": [
+    0.0,
+    0.01,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_FuseBox",
+   "kind": "hand",
+   "parent": "FuseBox_Lid",
+   "note": "",
+   "position": [
+    0.3,
+    1.095,
+    1.675
+   ],
+   "positionLocal": [
+    0.0,
+    0.052,
+    -0.013
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Ignition",
+   "kind": "hand",
+   "parent": "Ignition_Key",
+   "note": "",
+   "position": [
+    -0.4,
+    1.2059,
+    1.716
+   ],
+   "positionLocal": [
+    0.0,
+    0.0039,
+    -0.0348
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Handbrake",
+   "kind": "hand",
+   "parent": "Handbrake",
+   "note": "",
+   "position": [
+    -0.74,
+    1.1811,
+    1.6931
+   ],
+   "positionLocal": [
+    0.0,
+    0.0061,
+    -0.0547
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_FuelFlap_L",
+   "kind": "hand",
+   "parent": "FuelFlap_L",
+   "note": "",
+   "position": [
+    -1.0035,
+    0.872,
+    0.143
+   ],
+   "positionLocal": [
+    -0.004,
+    -0.06,
+    -0.08
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_Fuel_L",
+   "kind": "pour",
+   "parent": "FuelFiller_L",
+   "note": "the spout goes in here, 56 l tank",
+   "position": [
+    -1.007,
+    0.932,
+    0.143
+   ],
+   "positionLocal": [
+    -0.046,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_FuelFlap_R",
+   "kind": "hand",
+   "parent": "FuelFlap_R",
+   "note": "",
+   "position": [
+    1.0035,
+    0.83,
+    0.55
+   ],
+   "positionLocal": [
+    0.004,
+    -0.06,
+    -0.08
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_Fuel_R",
+   "kind": "pour",
+   "parent": "FuelFiller_R",
+   "note": "the spout goes in here, 56 l tank",
+   "position": [
+    1.007,
+    0.89,
+    0.55
+   ],
+   "positionLocal": [
+    0.046,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_TankValve",
+   "kind": "hand",
+   "parent": "TankValve_Lever",
+   "note": "",
+   "position": [
+    -0.62,
+    0.97,
+    1.521
+   ],
+   "positionLocal": [
+    0.0,
+    0.05,
+    0.006
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Jerrycan_1",
+   "kind": "hand",
+   "parent": "Jerrycan_1",
+   "note": "",
+   "position": [
+    0.57,
+    2.3925,
+    -1.66
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    -0.275
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Spout_Jerrycan_1",
+   "kind": "item_slot",
+   "parent": "Jerrycan_1",
+   "note": "the spout screws on here",
+   "position": [
+    0.705,
+    2.3925,
+    -1.645
+   ],
+   "positionLocal": [
+    0.135,
+    0.0,
+    -0.26
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Jerrycan_2",
+   "kind": "hand",
+   "parent": "Jerrycan_2",
+   "note": "",
+   "position": [
+    0.2,
+    2.3925,
+    -1.66
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    -0.275
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Spout_Jerrycan_2",
+   "kind": "item_slot",
+   "parent": "Jerrycan_2",
+   "note": "the spout screws on here",
+   "position": [
+    0.335,
+    2.3925,
+    -1.645
+   ],
+   "positionLocal": [
+    0.135,
+    0.0,
+    -0.26
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Spout",
+   "kind": "hand",
+   "parent": "Spout",
+   "note": "",
+   "position": [
+    -0.03,
+    2.33,
+    -1.4
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.1
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Foot_Clutch",
+   "kind": "foot",
+   "parent": "Pedal_Clutch",
+   "note": "",
+   "position": [
+    -0.665,
+    0.9354,
+    1.7713
+   ],
+   "positionLocal": [
+    0.0,
+    -0.1946,
+    -0.1567
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Foot_Brake",
+   "kind": "foot",
+   "parent": "Pedal_Brake",
+   "note": "",
+   "position": [
+    -0.435,
+    0.9354,
+    1.7713
+   ],
+   "positionLocal": [
+    0.0,
+    -0.1946,
+    -0.1567
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Foot_Gas",
+   "kind": "foot",
+   "parent": "Pedal_Gas",
+   "note": "",
+   "position": [
+    -0.335,
+    0.9866,
+    1.7713
+   ],
+   "positionLocal": [
+    0.0,
+    0.1446,
+    0.0713
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_GearLever",
+   "kind": "hand",
+   "parent": "GearLever",
+   "note": "",
+   "position": [
+    -0.16,
+    1.3089,
+    1.5534
+   ],
+   "positionLocal": [
+    0.0,
+    0.2769,
+    -0.1066
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_TransferLever_Axle",
+   "kind": "hand",
+   "parent": "TransferLever_Axle",
+   "note": "",
+   "position": [
+    0.06,
+    1.16,
+    1.57
+   ],
+   "positionLocal": [
+    0.0,
+    0.158,
+    -0.07
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_TransferLever_Range",
+   "kind": "hand",
+   "parent": "TransferLever_Range",
+   "note": "",
+   "position": [
+    0.125,
+    1.16,
+    1.57
+   ],
+   "positionLocal": [
+    0.0,
+    0.158,
+    -0.07
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_ToolBox",
+   "kind": "hand",
+   "parent": "ToolBox_Lid",
+   "note": "carry handle",
+   "position": [
+    0.77,
+    1.0,
+    0.63
+   ],
+   "positionLocal": [
+    -0.122,
+    0.046,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Wrench",
+   "kind": "hand",
+   "parent": "Tool_Wrench",
+   "note": "",
+   "position": [
+    0.862,
+    0.823,
+    0.54
+   ],
+   "positionLocal": [
+    0.0,
+    0.006,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_PlugSpanner",
+   "kind": "hand",
+   "parent": "Tool_PlugSpanner",
+   "note": "",
+   "position": [
+    0.825,
+    0.835,
+    0.575
+   ],
+   "positionLocal": [
+    0.0,
+    0.01,
+    0.055
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Screwdriver",
+   "kind": "hand",
+   "parent": "Tool_Screwdriver",
+   "note": "",
+   "position": [
+    0.778,
+    0.838,
+    0.58
+   ],
+   "positionLocal": [
+    0.0,
+    0.012,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Pliers",
+   "kind": "hand",
+   "parent": "Tool_Pliers",
+   "note": "",
+   "position": [
+    0.72,
+    0.824,
+    0.57
+   ],
+   "positionLocal": [
+    0.0,
+    0.006,
+    0.05
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Spare_Belt",
+   "kind": "hand",
+   "parent": "Spare_Belt",
+   "note": "",
+   "position": [
+    0.742,
+    0.822,
+    0.74
+   ],
+   "positionLocal": [
+    -0.058,
+    0.004,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_FuseTin",
+   "kind": "hand",
+   "parent": "FuseTin",
+   "note": "",
+   "position": [
+    0.7,
+    0.834,
+    0.74
+   ],
+   "positionLocal": [
+    0.0,
+    0.02,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Jack",
+   "kind": "hand",
+   "parent": "Jack",
+   "note": "",
+   "position": [
+    -0.76,
+    0.926,
+    -0.8
+   ],
+   "positionLocal": [
+    0.04,
+    0.12,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Jack_PumpSocket",
+   "kind": "item_slot",
+   "parent": "Jack",
+   "note": "WheelBrace goes in here",
+   "position": [
+    -0.8,
+    0.836,
+    -0.73
+   ],
+   "positionLocal": [
+    0.0,
+    0.03,
+    0.07
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Jack_Screw",
+   "kind": "hand",
+   "parent": "Jack_Screw",
+   "note": "",
+   "position": [
+    -0.8,
+    1.048,
+    -0.8
+   ],
+   "positionLocal": [
+    0.0,
+    0.007,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_WheelBrace",
+   "kind": "hand",
+   "parent": "WheelBrace",
+   "note": "",
+   "position": [
+    -0.53,
+    0.823,
+    -0.45
+   ],
+   "positionLocal": [
+    0.09,
+    0.0,
+    0.21
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_OilCan",
+   "kind": "pour",
+   "parent": "OilCan",
+   "note": "",
+   "position": [
+    -0.825,
+    1.068,
+    -0.57
+   ],
+   "positionLocal": [
+    0.0,
+    0.262,
+    0.05
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_OilCan",
+   "kind": "hand",
+   "parent": "OilCan",
+   "note": "",
+   "position": [
+    -0.825,
+    1.068,
+    -0.645
+   ],
+   "positionLocal": [
+    0.0,
+    0.262,
+    -0.025
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_AntifreezeCan",
+   "kind": "pour",
+   "parent": "AntifreezeCan",
+   "note": "",
+   "position": [
+    -0.82,
+    1.053,
+    -0.385
+   ],
+   "positionLocal": [
+    0.0,
+    0.247,
+    0.045
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_AntifreezeCan",
+   "kind": "hand",
+   "parent": "AntifreezeCan",
+   "note": "",
+   "position": [
+    -0.82,
+    1.056,
+    -0.455
+   ],
+   "positionLocal": [
+    0.0,
+    0.25,
+    -0.025
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Shovel_Grip",
+   "kind": "hand",
+   "parent": "Shovel",
+   "note": "",
+   "position": [
+    -0.1323,
+    2.318,
+    -1.0145
+   ],
+   "positionLocal": [
+    0.1915,
+    0.0,
+    0.2043
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Shovel_Shaft",
+   "kind": "hand",
+   "parent": "Shovel",
+   "note": "",
+   "position": [
+    -0.3238,
+    2.318,
+    -1.2188
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_TowRope",
+   "kind": "hand",
+   "parent": "TowRope",
+   "note": "",
+   "position": [
+    0.845,
+    1.8,
+    -1.78
+   ],
+   "positionLocal": [
+    -0.03,
+    0.13,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Tow_Hook_FL",
+   "kind": "item_slot",
+   "parent": "",
+   "note": "red tow hook, front left",
+   "position": [
+    -0.72,
+    0.545,
+    2.395
+   ],
+   "positionLocal": [
+    -0.72,
+    0.545,
+    2.395
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Tow_Hook_FR",
+   "kind": "item_slot",
+   "parent": "",
+   "note": "red tow hook, front right",
+   "position": [
+    0.72,
+    0.545,
+    2.395
+   ],
+   "positionLocal": [
+    0.72,
+    0.545,
+    2.395
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Tow_Rear",
+   "kind": "item_slot",
+   "parent": "",
+   "note": "rear bumper towing eye",
+   "position": [
+    0.0,
+    0.67,
+    -2.27
+   ],
+   "positionLocal": [
+    0.0,
+    0.67,
+    -2.27
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Crank_Grip",
+   "kind": "hand",
+   "parent": "CrankHandle",
+   "note": "",
+   "position": [
+    0.591,
+    1.21,
+    0.858
+   ],
+   "positionLocal": [
+    1.141,
+    -0.18,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Crank_Hole",
+   "kind": "item_slot",
+   "parent": "",
+   "note": "insert the handle along -x; the flap must be up",
+   "position": [
+    0.0,
+    0.61,
+    2.36
+   ],
+   "positionLocal": [
+    0.0,
+    0.61,
+    2.36
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Crank_Ratchet",
+   "kind": "item_slot",
+   "parent": "",
+   "note": "the tip pin engages here; turning it turns the engine",
+   "position": [
+    0.0,
+    0.61,
+    1.474
+   ],
+   "positionLocal": [
+    0.0,
+    0.61,
+    1.474
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_CrankHole_Flap",
+   "kind": "hand",
+   "parent": "CrankHole_Flap",
+   "note": "",
+   "position": [
+    0.0,
+    0.6,
+    2.34
+   ],
+   "positionLocal": [
+    0.0,
+    -0.04,
+    0.003
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Plug_12V",
+   "kind": "item_slot",
+   "parent": "",
+   "note": "12 V socket: the inspection lamp plug goes in here",
+   "position": [
+    0.24,
+    1.1761,
+    1.7378
+   ],
+   "positionLocal": [
+    0.24,
+    1.1761,
+    1.7378
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Heater_Temp",
+   "kind": "hand",
+   "parent": "Heater_Temp",
+   "note": "",
+   "position": [
+    -0.105,
+    1.1977,
+    1.7262
+   ],
+   "positionLocal": [
+    0.0,
+    0.0017,
+    -0.0149
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Heater_Fan",
+   "kind": "hand",
+   "parent": "Heater_Fan",
+   "note": "",
+   "position": [
+    0.0012,
+    1.1987,
+    1.7263
+   ],
+   "positionLocal": [
+    0.0,
+    0.0017,
+    -0.0149
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Heater_Air",
+   "kind": "hand",
+   "parent": "Heater_Air",
+   "note": "",
+   "position": [
+    0.086,
+    1.2027,
+    1.7267
+   ],
+   "positionLocal": [
+    0.0,
+    0.0017,
+    -0.0149
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Blowtorch",
+   "kind": "hand",
+   "parent": "Blowtorch",
+   "note": "",
+   "position": [
+    -0.8,
+    0.881,
+    -0.03
+   ],
+   "positionLocal": [
+    0.0,
+    0.075,
+    0.09
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Blowtorch_Pump",
+   "kind": "hand",
+   "parent": "Blowtorch_Pump",
+   "note": "",
+   "position": [
+    -0.8,
+    1.018,
+    -0.15
+   ],
+   "positionLocal": [
+    0.0,
+    0.079,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Blowtorch_Valve",
+   "kind": "hand",
+   "parent": "Blowtorch_Valve",
+   "note": "",
+   "position": [
+    -0.8,
+    1.049,
+    -0.18
+   ],
+   "positionLocal": [
+    0.0,
+    0.026,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Pour_Blowtorch",
+   "kind": "pour",
+   "parent": "Blowtorch",
+   "note": "petrol in here",
+   "position": [
+    -0.8,
+    0.956,
+    -0.098
+   ],
+   "positionLocal": [
+    0.0,
+    0.15,
+    0.022
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Blowtorch_Flame",
+   "kind": "vfx",
+   "parent": "Blowtorch",
+   "note": "flame out along -x of the item",
+   "position": [
+    -0.8,
+    1.011,
+    -0.305
+   ],
+   "positionLocal": [
+    0.0,
+    0.205,
+    -0.185
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Heat_OilPan",
+   "kind": "heat",
+   "parent": "",
+   "note": "hold the blowtorch flame here (under the skid plate of the sump) for a cold start",
+   "position": [
+    0.0,
+    0.52,
+    1.19
+   ],
+   "positionLocal": [
+    0.0,
+    0.52,
+    1.19
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Engine_Drain",
+   "kind": "hand",
+   "parent": "Engine_Drain",
+   "note": "",
+   "position": [
+    -0.124,
+    0.64,
+    1.31
+   ],
+   "positionLocal": [
+    -0.024,
+    0.015,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Drain_Engine",
+   "kind": "vfx",
+   "parent": "Engine",
+   "note": "coolant runs out here",
+   "position": [
+    -0.13,
+    0.605,
+    1.31
+   ],
+   "positionLocal": [
+    -0.13,
+    -0.105,
+    0.12
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.30113,
+    -0.95358,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "VFX_Exhaust",
+   "kind": "vfx",
+   "parent": "Exhaust",
+   "note": "exhaust smoke; thick white steam for the first minute of a cold start",
+   "position": [
+    0.452,
+    0.512,
+    -2.21
+   ],
+   "positionLocal": [
+    0.052,
+    -0.048,
+    -1.61
+   ],
+   "hasDir": true,
+   "dir": [
+    0.04008,
+    -0.27053,
+    -0.96188
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_ChainBag",
+   "kind": "hand",
+   "parent": "ChainBag",
+   "note": "",
+   "position": [
+    0.76,
+    1.141,
+    -1.03
+   ],
+   "positionLocal": [
+    0.0,
+    0.135,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_SnowBrush",
+   "kind": "hand",
+   "parent": "SnowBrush",
+   "note": "",
+   "position": [
+    0.847,
+    0.995,
+    1.28
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.02
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Audio_Engine",
+   "kind": "audio",
+   "parent": "EngineBay",
+   "note": "engine (idle, revs, the crank turning it over)",
+   "position": [
+    0.0,
+    0.84,
+    1.19
+   ],
+   "positionLocal": [
+    0.0,
+    0.0755,
+    -0.0175
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Audio_Heater",
+   "kind": "audio",
+   "parent": "Dash",
+   "note": "heater fan",
+   "position": [
+    0.0,
+    1.29,
+    1.8
+   ],
+   "positionLocal": [
+    0.0,
+    1.2,
+    1.8
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Audio_Wipers",
+   "kind": "audio",
+   "parent": "Kuzov",
+   "note": "wiper motor",
+   "position": [
+    0.0,
+    1.49,
+    1.99
+   ],
+   "positionLocal": [
+    0.0,
+    1.4,
+    1.99
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Audio_Stove",
+   "kind": "audio",
+   "parent": "Stove",
+   "note": "stove: fire, the door, ticking iron",
+   "position": [
+    -0.59,
+    1.106,
+    -1.86
+   ],
+   "positionLocal": [
+    0.0,
+    0.3,
+    0.01
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Audio_Tyres",
+   "kind": "audio",
+   "parent": "Kuzov",
+   "note": "tyres on snow / ice (follow the speed)",
+   "position": [
+    0.0,
+    0.49,
+    0.0
+   ],
+   "positionLocal": [
+    0.0,
+    0.4,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Fire_Stove",
+   "kind": "vfx",
+   "parent": "Stove",
+   "note": "fire in the stove (VFX); lamp LIGHT_Stove (type stove) is its light; StoveGlow lights up",
+   "position": [
+    -0.59,
+    1.086,
+    -1.86
+   ],
+   "positionLocal": [
+    0.0,
+    0.28,
+    0.01
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Stove_Load",
+   "kind": "item_slot",
+   "parent": "Stove",
+   "note": "logs go in here (door open)",
+   "position": [
+    -0.59,
+    1.116,
+    -1.67
+   ],
+   "positionLocal": [
+    0.0,
+    0.31,
+    0.2
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "VFX_EngineSteam",
+   "kind": "vfx",
+   "parent": "EngineBay",
+   "note": "steam out of the engine bay when it boils over (through the cover seams, or straight up with the cover open)",
+   "position": [
+    0.0,
+    1.22,
+    1.19
+   ],
+   "positionLocal": [
+    0.0,
+    0.4555,
+    -0.0175
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "VFX_RadiatorSteam",
+   "kind": "vfx",
+   "parent": "Kit_Front",
+   "note": "steam out of the radiator hatch",
+   "position": [
+    0.0,
+    1.4,
+    2.14
+   ],
+   "positionLocal": [
+    0.0,
+    1.31,
+    2.14
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.8,
+    0.6
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hide_Footwell_P",
+   "kind": "hide",
+   "parent": "Kuzov",
+   "note": "down in the passenger footwell",
+   "position": [
+    0.48,
+    0.89,
+    1.55
+   ],
+   "positionLocal": [
+    0.48,
+    0.8,
+    1.55
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    0.45,
+    1.11,
+    1.48
+   ],
+   "hasFacing": true,
+   "facing": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "crouch",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hide_Footwell_D",
+   "kind": "hide",
+   "parent": "Kuzov",
+   "note": "down behind the pedals",
+   "position": [
+    -0.48,
+    0.89,
+    1.47
+   ],
+   "positionLocal": [
+    -0.48,
+    0.8,
+    1.47
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.45,
+    1.11,
+    1.42
+   ],
+   "hasFacing": true,
+   "facing": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "crouch",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hide_CabSeat",
+   "kind": "hide",
+   "parent": "Kuzov",
+   "note": "curled up on the passenger seat",
+   "position": [
+    0.53,
+    1.13,
+    1.12
+   ],
+   "positionLocal": [
+    0.53,
+    1.04,
+    1.12
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    0.36,
+    1.28,
+    1.12
+   ],
+   "hasFacing": true,
+   "facing": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "lie",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hide_Bench_L2",
+   "kind": "hide",
+   "parent": "Seat_L2",
+   "note": "flat across the folding seats L2 and L3 (both must be down)",
+   "position": [
+    -0.66,
+    1.26,
+    -0.57
+   ],
+   "positionLocal": [
+    0.173,
+    0.034,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.66,
+    1.36,
+    -0.8
+   ],
+   "hasFacing": true,
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "lie",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hide_Aisle",
+   "kind": "hide",
+   "parent": "Kuzov",
+   "note": "flat on the saloon floor",
+   "position": [
+    -0.05,
+    0.85,
+    -0.35
+   ],
+   "positionLocal": [
+    -0.05,
+    0.76,
+    -0.35
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.05,
+    0.95,
+    -0.75
+   ],
+   "hasFacing": true,
+   "facing": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "lie",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hide_RearRight",
+   "kind": "hide",
+   "parent": "Kuzov",
+   "note": "crouched by the rear doors behind the cargo",
+   "position": [
+    0.25,
+    0.85,
+    -1.8
+   ],
+   "positionLocal": [
+    0.25,
+    0.76,
+    -1.8
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    0.25,
+    1.23,
+    -1.74
+   ],
+   "hasFacing": true,
+   "facing": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "crouch",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Lock_doorL",
+   "kind": "hand",
+   "parent": "Lock_doorL",
+   "note": "",
+   "position": [
+    -0.8511,
+    1.39,
+    1.3
+   ],
+   "positionLocal": [
+    0.022,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Lock_doorP",
+   "kind": "hand",
+   "parent": "Lock_doorP",
+   "note": "",
+   "position": [
+    0.8511,
+    1.39,
+    1.3
+   ],
+   "positionLocal": [
+    -0.022,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Lock_doorSalon",
+   "kind": "hand",
+   "parent": "Lock_doorSalon",
+   "note": "",
+   "position": [
+    0.8823,
+    1.36,
+    -0.5
+   ],
+   "positionLocal": [
+    -0.022,
+    0.0,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Lock_doorZL",
+   "kind": "hand",
+   "parent": "Lock_doorZL",
+   "note": "",
+   "position": [
+    -0.12,
+    1.36,
+    -2.0674
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.022
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Lock_dooZP",
+   "kind": "hand",
+   "parent": "Lock_dooZP",
+   "note": "",
+   "position": [
+    0.12,
+    1.36,
+    -2.0674
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    0.022
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Head",
+   "kind": "hand",
+   "parent": "Toggle_Head",
+   "note": "",
+   "position": [
+    -0.1575,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Fog",
+   "kind": "hand",
+   "parent": "Toggle_Fog",
+   "note": "",
+   "position": [
+    -0.1125,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Spot",
+   "kind": "hand",
+   "parent": "Toggle_Spot",
+   "note": "",
+   "position": [
+    -0.0675,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Roof",
+   "kind": "hand",
+   "parent": "Toggle_Roof",
+   "note": "",
+   "position": [
+    -0.0225,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Work",
+   "kind": "hand",
+   "parent": "Toggle_Work",
+   "note": "",
+   "position": [
+    0.0225,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Cabin",
+   "kind": "hand",
+   "parent": "Toggle_Cabin",
+   "note": "",
+   "position": [
+    0.0675,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Stove",
+   "kind": "hand",
+   "parent": "Toggle_Stove",
+   "note": "",
+   "position": [
+    0.1125,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_Toggle_Wiper",
+   "kind": "hand",
+   "parent": "Toggle_Wiper",
+   "note": "",
+   "position": [
+    0.1575,
+    1.3299,
+    1.7318
+   ],
+   "positionLocal": [
+    0.0,
+    0.0022,
+    -0.0199
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_Driver",
+   "kind": "sit",
+   "parent": "",
+   "note": "cab seat; look forward",
+   "position": [
+    -0.53,
+    1.16,
+    1.12
+   ],
+   "positionLocal": [
+    -0.53,
+    1.16,
+    1.12
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.53,
+    1.86,
+    1.15
+   ],
+   "hasFacing": true,
+   "facing": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "hasExit": true,
+   "exit": [
+    -1.45,
+    0.0,
+    1.3
+   ],
+   "door": "doorL",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_Passenger",
+   "kind": "sit",
+   "parent": "",
+   "note": "cab seat; look forward",
+   "position": [
+    0.53,
+    1.16,
+    1.12
+   ],
+   "positionLocal": [
+    0.53,
+    1.16,
+    1.12
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    0.53,
+    1.86,
+    1.15
+   ],
+   "hasFacing": true,
+   "facing": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "hasExit": true,
+   "exit": [
+    1.45,
+    0.0,
+    1.3
+   ],
+   "door": "doorP",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_L1",
+   "kind": "sit",
+   "parent": "Seat_L1",
+   "note": "folding troop seat (must be down)",
+   "position": [
+    -0.65,
+    1.231,
+    -1.05
+   ],
+   "positionLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.6,
+    1.87,
+    -1.05
+   ],
+   "hasFacing": true,
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": true,
+   "exit": [
+    -0.15,
+    0.806,
+    -0.55
+   ],
+   "door": "doorSalon or the rear doors",
+   "pose": "",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_L2",
+   "kind": "sit",
+   "parent": "Seat_L2",
+   "note": "folding troop seat (must be down)",
+   "position": [
+    -0.65,
+    1.231,
+    -0.57
+   ],
+   "positionLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.6,
+    1.87,
+    -0.57
+   ],
+   "hasFacing": true,
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": true,
+   "exit": [
+    0.0,
+    0.806,
+    -0.45
+   ],
+   "door": "doorSalon or the rear doors",
+   "pose": "",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_L3",
+   "kind": "sit",
+   "parent": "Seat_L3",
+   "note": "folding troop seat (must be down)",
+   "position": [
+    -0.65,
+    1.231,
+    -0.09
+   ],
+   "positionLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.6,
+    1.87,
+    -0.09
+   ],
+   "hasFacing": true,
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": true,
+   "exit": [
+    0.0,
+    0.806,
+    -0.09
+   ],
+   "door": "doorSalon or the rear doors",
+   "pose": "",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_L4",
+   "kind": "sit",
+   "parent": "Seat_L4",
+   "note": "folding troop seat (must be down)",
+   "position": [
+    -0.65,
+    1.231,
+    0.39
+   ],
+   "positionLocal": [
+    0.183,
+    0.005,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    -0.6,
+    1.87,
+    0.39
+   ],
+   "hasFacing": true,
+   "facing": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": true,
+   "exit": [
+    0.0,
+    0.806,
+    0.39
+   ],
+   "door": "doorSalon or the rear doors",
+   "pose": "",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_R1",
+   "kind": "sit",
+   "parent": "Seat_R1",
+   "note": "folding troop seat (must be down)",
+   "position": [
+    0.65,
+    1.231,
+    -1.0
+   ],
+   "positionLocal": [
+    -0.183,
+    0.005,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    0.6,
+    1.87,
+    -1.0
+   ],
+   "hasFacing": true,
+   "facing": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": true,
+   "exit": [
+    0.2,
+    0.806,
+    -0.55
+   ],
+   "door": "doorSalon or the rear doors",
+   "pose": "",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Sit_R2",
+   "kind": "sit",
+   "parent": "Seat_R2",
+   "note": "folding troop seat (must be down)",
+   "position": [
+    0.65,
+    1.231,
+    0.62
+   ],
+   "positionLocal": [
+    -0.183,
+    0.005,
+    0.0
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": true,
+   "eye": [
+    0.6,
+    1.87,
+    0.62
+   ],
+   "hasFacing": true,
+   "facing": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": true,
+   "exit": [
+    0.0,
+    0.806,
+    0.62
+   ],
+   "door": "doorSalon or the rear doors",
+   "pose": "",
+   "exitNote": "preferred spot to stand up (crouched: the saloon is low); if another player is there, slide along the aisle",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_SpareWheel",
+   "kind": "hand",
+   "parent": "SpareWheel",
+   "note": "",
+   "position": [
+    0.36,
+    1.455,
+    -2.5895
+   ],
+   "positionLocal": [
+    0.0,
+    0.3,
+    -0.17
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Hand_SpareWheel_Nut",
+   "kind": "hand",
+   "parent": "SpareWheel_Nut",
+   "note": "",
+   "position": [
+    0.36,
+    1.155,
+    -2.5533
+   ],
+   "positionLocal": [
+    0.0,
+    0.0,
+    -0.03
+   ],
+   "hasDir": false,
+   "dir": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Jack_Point_FL",
+   "kind": "jack",
+   "parent": "Kuzov",
+   "note": "under the axle housing: stand the jack here, turn Jack_Screw out, then pump Jack_Ram until the saddle meets the axle and lifts it (reach 0.46 m)",
+   "position": [
+    -0.45,
+    0.3789,
+    1.2067
+   ],
+   "positionLocal": [
+    -0.45,
+    0.2889,
+    1.2067
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Jack_Point_FR",
+   "kind": "jack",
+   "parent": "Kuzov",
+   "note": "under the axle housing: stand the jack here, turn Jack_Screw out, then pump Jack_Ram until the saddle meets the axle and lifts it (reach 0.46 m)",
+   "position": [
+    0.45,
+    0.376,
+    1.2067
+   ],
+   "positionLocal": [
+    0.45,
+    0.286,
+    1.2067
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Jack_Point_RL",
+   "kind": "jack",
+   "parent": "Kuzov",
+   "note": "under the axle housing: stand the jack here, turn Jack_Screw out, then pump Jack_Ram until the saddle meets the axle and lifts it (reach 0.46 m)",
+   "position": [
+    -0.45,
+    0.3996,
+    -1.2031
+   ],
+   "positionLocal": [
+    -0.45,
+    0.3096,
+    -1.2031
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Jack_Point_RR",
+   "kind": "jack",
+   "parent": "Kuzov",
+   "note": "under the axle housing: stand the jack here, turn Jack_Screw out, then pump Jack_Ram until the saddle meets the axle and lifts it (reach 0.46 m)",
+   "position": [
+    0.45,
+    0.403,
+    -1.2031
+   ],
+   "positionLocal": [
+    0.45,
+    0.313,
+    -1.2031
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_Roof_1",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.0,
+    2.1459,
+    -1.55
+   ],
+   "positionLocal": [
+    0.0,
+    2.0559,
+    -1.55
+   ],
+   "hasDir": true,
+   "dir": [
+    0.001,
+    1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_Roof_2",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.0,
+    2.1459,
+    -0.75
+   ],
+   "positionLocal": [
+    0.0,
+    2.0559,
+    -0.75
+   ],
+   "hasDir": true,
+   "dir": [
+    0.001,
+    1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_Roof_3",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.0,
+    2.1459,
+    0.05
+   ],
+   "positionLocal": [
+    0.0,
+    2.0559,
+    0.05
+   ],
+   "hasDir": true,
+   "dir": [
+    0.001,
+    1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_Roof_4",
+   "kind": "knock",
+   "parent": "Kit_RoofRack",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.0,
+    2.302,
+    0.85
+   ],
+   "positionLocal": [
+    0.0,
+    2.212,
+    0.85
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.86602,
+    0.50001
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_Roof_5",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.0,
+    2.1459,
+    1.55
+   ],
+   "positionLocal": [
+    0.0,
+    2.0559,
+    1.55
+   ],
+   "hasDir": true,
+   "dir": [
+    0.001,
+    1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_WallL_1",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    -0.9093,
+    1.64,
+    -1.6
+   ],
+   "positionLocal": [
+    -0.9093,
+    1.55,
+    -1.6
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99769,
+    0.06798,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_WallL_2",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    -0.8967,
+    1.64,
+    -0.9
+   ],
+   "positionLocal": [
+    -0.8967,
+    1.55,
+    -0.9
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_WallL_3",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    -0.8967,
+    1.64,
+    -0.1
+   ],
+   "positionLocal": [
+    -0.8967,
+    1.55,
+    -0.1
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_WallL_4",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    -0.8967,
+    1.64,
+    0.6
+   ],
+   "positionLocal": [
+    -0.8967,
+    1.55,
+    0.6
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_WallR_1",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.9093,
+    1.64,
+    -1.6
+   ],
+   "positionLocal": [
+    0.9093,
+    1.55,
+    -1.6
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99769,
+    0.06798,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_WallR_2",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.8967,
+    1.64,
+    -1.0
+   ],
+   "positionLocal": [
+    0.8967,
+    1.55,
+    -1.0
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_WallR_3",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.8967,
+    1.64,
+    0.6
+   ],
+   "positionLocal": [
+    0.8967,
+    1.55,
+    0.6
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_doorSalon",
+   "kind": "knock",
+   "parent": "doorSalon",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.9553,
+    1.34,
+    -0.12
+   ],
+   "positionLocal": [
+    0.0003,
+    -0.02,
+    -0.468
+   ],
+   "hasDir": true,
+   "dir": [
+    0.98612,
+    0.16602,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_doorZL",
+   "kind": "knock",
+   "parent": "doorZL",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    -0.35,
+    1.39,
+    -2.138
+   ],
+   "positionLocal": [
+    0.35247,
+    0.02,
+    0.00107
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.44921,
+    -0.89342
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_dooZP",
+   "kind": "knock",
+   "parent": "dooZP",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.3,
+    1.84,
+    -2.0447
+   ],
+   "positionLocal": [
+    -0.40172,
+    0.47,
+    0.09438
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.31593,
+    -0.94878
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_doorL",
+   "kind": "knock",
+   "parent": "doorL",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    -0.9518,
+    1.29,
+    1.35
+   ],
+   "positionLocal": [
+    -0.05399,
+    0.0,
+    -0.47648
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99673,
+    0.07798,
+    0.02099
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_doorP",
+   "kind": "knock",
+   "parent": "doorP",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.9518,
+    1.29,
+    1.35
+   ],
+   "positionLocal": [
+    0.05399,
+    0.0,
+    -0.47648
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99673,
+    0.07798,
+    0.02099
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Knock_Floor",
+   "kind": "knock",
+   "parent": "Kuzov",
+   "note": "something knocks / scratches here from outside (sound, dent decal)",
+   "position": [
+    0.0,
+    0.6098,
+    -0.6
+   ],
+   "positionLocal": [
+    0.0,
+    0.5198,
+    -0.6
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": ""
+  },
+  {
+   "name": "Handprint_R1",
+   "kind": "decal",
+   "parent": "Kuzov",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    0.8932,
+    1.6938,
+    -1.095
+   ],
+   "positionLocal": [
+    0.8932,
+    1.6038,
+    -1.095
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_R1"
+  },
+  {
+   "name": "Handprint_R2",
+   "kind": "decal",
+   "parent": "doorSalon",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    0.8932,
+    1.6938,
+    -0.1312
+   ],
+   "positionLocal": [
+    -0.0618,
+    0.3338,
+    -0.4792
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_R2"
+  },
+  {
+   "name": "Handprint_R3",
+   "kind": "decal",
+   "parent": "Kuzov",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    0.8932,
+    1.6938,
+    0.6048
+   ],
+   "positionLocal": [
+    0.8932,
+    1.6038,
+    0.6048
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_R3"
+  },
+  {
+   "name": "Handprint_L1",
+   "kind": "decal",
+   "parent": "Kuzov",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    -0.8932,
+    1.6938,
+    -1.095
+   ],
+   "positionLocal": [
+    -0.8932,
+    1.6038,
+    -1.095
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_L1"
+  },
+  {
+   "name": "Handprint_L2",
+   "kind": "decal",
+   "parent": "Kuzov",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    -0.8932,
+    1.6938,
+    -0.1312
+   ],
+   "positionLocal": [
+    -0.8932,
+    1.6038,
+    -0.1312
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_L2"
+  },
+  {
+   "name": "Handprint_L3",
+   "kind": "decal",
+   "parent": "Kuzov",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    -0.8932,
+    1.6938,
+    0.6048
+   ],
+   "positionLocal": [
+    -0.8932,
+    1.6038,
+    0.6048
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99789,
+    0.06499,
+    0.0
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_L3"
+  },
+  {
+   "name": "Handprint_lob",
+   "kind": "decal",
+   "parent": "lob",
+   "note": "hand print from outside on the windscreen: lob has no FOG layer - use its main UV (0..1, as the frost / snow masks) for the print",
+   "position": [
+    -0.25,
+    1.77,
+    1.824
+   ],
+   "positionLocal": [
+    -0.25,
+    1.68,
+    1.824
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.06999,
+    0.44291,
+    0.89383
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "lob"
+  },
+  {
+   "name": "Handprint_doorL",
+   "kind": "decal",
+   "parent": "doorL",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    -0.886,
+    1.71,
+    1.1
+   ],
+   "positionLocal": [
+    0.01181,
+    0.42,
+    -0.72648
+   ],
+   "hasDir": true,
+   "dir": [
+    -0.99727,
+    0.06502,
+    0.03501
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_doorL"
+  },
+  {
+   "name": "Handprint_doorP",
+   "kind": "decal",
+   "parent": "doorP",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    0.886,
+    1.71,
+    1.1
+   ],
+   "positionLocal": [
+    -0.01181,
+    0.42,
+    -0.72648
+   ],
+   "hasDir": true,
+   "dir": [
+    0.99727,
+    0.06502,
+    0.03501
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_doorP"
+  },
+  {
+   "name": "Handprint_doorZL",
+   "kind": "decal",
+   "parent": "doorZL",
+   "note": "hand print from outside: decal from T_Van_Handprints on the fogged glass (FOG UVs)",
+   "position": [
+    -0.35,
+    1.71,
+    -2.0668
+   ],
+   "positionLocal": [
+    0.35247,
+    0.34,
+    0.07227
+   ],
+   "hasDir": true,
+   "dir": [
+    0.0,
+    0.24606,
+    -0.96925
+   ],
+   "hasUp": false,
+   "up": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasEye": false,
+   "eye": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasFacing": false,
+   "facing": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hasExit": false,
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "door": "",
+   "pose": "",
+   "exitNote": "",
+   "fov": 0.0,
+   "pane": "Glass_ZL"
+  }
+ ]
+}

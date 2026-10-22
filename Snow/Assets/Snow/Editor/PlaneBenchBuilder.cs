@@ -371,11 +371,15 @@ namespace Snow.EditorTools
             return prefab;
         }
 
-        internal static GameObject NetItem(string source, string name, float massKg, string label, System.Action<GameObject> extra = null, string folder = ItemsFolder)
+        internal static GameObject NetItem(string source, string name, float massKg, string label, System.Action<GameObject> extra = null, string folder = ItemsFolder) =>
+            // itemKey: what stow points accept (Data/stowage.json prefab)
+            NetItemFrom($"Assets/UtilityPlane/Prefabs/{source}.prefab", System.IO.Path.GetFileName(source), name, massKg, label, extra, folder);
+
+        /// <summary>The NetItem recipe for any model prefab (the van's kit uses it too, VAN3 В1.4).</summary>
+        internal static GameObject NetItemFrom(string src, string itemKey, string name, float massKg, string label, System.Action<GameObject> extra, string folder)
         {
-            string src = $"Assets/UtilityPlane/Prefabs/{source}.prefab";
             var model = AssetDatabase.LoadAssetAtPath<GameObject>(src);
-            if (model == null) { Debug.LogWarning($"[Snow] {src} missing: run Tools/Utility Plane/Build Materials + Prefabs"); return null; }
+            if (model == null) { Debug.LogWarning($"[Snow] {src} missing: run the model's Build Materials + Prefabs menu"); return null; }
             var go = (GameObject)PrefabUtility.InstantiatePrefab(model);
             PrefabUtility.UnpackPrefabInstance(go, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
             go.name = name;
@@ -391,7 +395,7 @@ namespace Snow.EditorTools
             var item = go.AddComponent<CargoItem>();
             item.label = label;
             item.massKg = massKg;
-            item.itemKey = System.IO.Path.GetFileName(source);         // what stow points accept (Data/stowage.json prefab)
+            item.itemKey = itemKey;
             extra?.Invoke(go);
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(go, $"{folder}/{name}.prefab");
             Object.DestroyImmediate(go);

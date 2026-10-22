@@ -1,0 +1,457 @@
+{"t":3.9373,"role":"none","cid":0,"ev":"start","args":"host=True client=False addr=127.0.0.1:7797 sim=(0ms,0ms,0%) bot= log=F:/ClaudeGames/snow/docs/dev/Van/logs/atv08_zones.jsonl quit=0 trace=False wind=","batch":false,"fixedDt":0.0083,"tickRate":30}
+{"t":4.3746,"role":"host","cid":0,"ev":"approve","client":0,"approved":true,"players":0}
+{"t":4.4065,"role":"host","cid":0,"ev":"player_spawn","owner":0,"local":true,"p":[-2.6,0,1.6]}
+{"t":4.4211,"role":"host","cid":0,"ev":"van_spawn","state":"Bench","p":[0,0,0]}
+{"t":4.428,"role":"host","cid":0,"ev":"connected","client":0}
+{"t":4.4282,"role":"host","cid":0,"ev":"start_host","ok":true,"port":7797}
+{"t":4.4443,"role":"host","cid":0,"ev":"van_state","p":[0,0,0],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0,"mass":1950,"axle":false,"low":false}
+{"t":4.4904,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-2.6,0,1.6],"tick":126}
+{"t":4.4911,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":4.4912,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":4.4913,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":4.4914,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":4.4915,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":4.4917,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":-1,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,0,0],"r":[0,0,0]}
+{"t":6.5638,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-2.6,0,1.6],"tick":195}
+{"t":6.5642,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":6.5643,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":6.5644,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":6.5645,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":6.5646,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":6.5647,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":-1,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,0.0156,0],"r":[-0.0023,0,-0.0017]}
+{"t":7.0372,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0094,-0.001],"kmh":0.0995,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":-0.0626,"mass":1950,"axle":false,"low":false}
+{"t":7.2919,"role":"host","cid":0,"ev":"van_bench_start","scenario":"zones"}
+{"t":7.2937,"role":"host","cid":0,"ev":"van_handbrake","on":true,"by":"bench"}
+{"t":7.2948,"role":"host","cid":0,"ev":"van_teleport","p":[0,0.05,0],"r":[0,0,0]}
+{"t":7.2964,"role":"host","cid":0,"ev":"van_engine","running":false,"by":"bench"}
+{"t":7.5422,"role":"host","cid":0,"ev":"van_state","p":[0,0.0091,-0.0003],"kmh":-0.0406,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":-0.2914,"mass":1950,"axle":false,"low":false}
+{"t":7.5642,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-2.6,0,1.6],"tick":226}
+{"t":7.5646,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":7.5647,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":7.5648,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":7.5648,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":7.5649,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":7.5651,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":-1,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,0.003,-0.0006],"r":[359.7216,0.0006,359.9893]}
+{"t":8.0525,"role":"host","cid":0,"ev":"van_state","p":[0,0.0036,0.0016],"kmh":-0.0229,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.1187,"mass":1950,"axle":false,"low":false}
+{"t":8.5586,"role":"host","cid":0,"ev":"van_state","p":[0,0.0019,0.0002],"kmh":0.0057,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":-0.0485,"mass":1950,"axle":false,"low":false}
+{"t":8.565,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-2.6,0,1.6],"tick":256}
+{"t":8.5653,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":8.5655,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":8.5656,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":8.5657,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":8.5657,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":8.5659,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":-1,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,0.0019,0.0003],"r":[359.95,0.0005,359.9861]}
+{"t":8.8064,"role":"host","cid":0,"ev":"seated","seat":"Sit_Driver","role":"Pilot"}
+{"t":8.8067,"role":"host","cid":0,"ev":"seat_enter","client":0,"seat":"Sit_Driver","role":"Pilot"}
+{"t":9.0672,"role":"host","cid":0,"ev":"van_state","p":[0.0001,-0.0033,0.0003],"kmh":0.0638,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2046,"mass":2035,"axle":false,"low":false}
+{"t":9.5009,"role":"host","cid":0,"ev":"van_zone","zone":"Battery","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":9.5021,"role":"host","cid":0,"ev":"van_control","zone":"BatteryBox_Lid","from":0,"to":1,"state":"открыта","client":0}
+{"t":9.5666,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5364,1.149,1.1263],"tick":286}
+{"t":9.567,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":9.5671,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":9.5672,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":9.5673,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":9.5674,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":9.5675,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[-0.0001,-0.0027,0.0008],"r":[0.2738,0.001,0.3091]}
+{"t":9.575,"role":"host","cid":0,"ev":"van_state","p":[-0.0001,-0.0027,0.0008],"kmh":-0.0287,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2705,"mass":2035,"axle":false,"low":false}
+{"t":9.7043,"role":"host","cid":0,"ev":"van_zone","zone":"BatteryBox_Lid","ok":true,"reason":"","before":"закрыта","during":"открыта","after":"открыта","result":"changed"}
+{"t":9.7047,"role":"host","cid":0,"ev":"van_control","zone":"Battery_ClampPos","from":0,"to":1,"state":"сняты","client":0}
+{"t":9.9207,"role":"host","cid":0,"ev":"van_zone","zone":"Battery_ClampPos","ok":true,"reason":"","before":"надеты","during":"сняты","after":"сняты","result":"changed"}
+{"t":9.9209,"role":"host","cid":0,"ev":"van_control","zone":"Curtain_L1A","from":0,"to":1,"state":"задёрнуты","client":0}
+{"t":10.0873,"role":"host","cid":0,"ev":"van_state","p":[0.0001,-0.0027,0.0005],"kmh":0.0098,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2167,"mass":2035,"axle":false,"low":false}
+{"t":10.122,"role":"host","cid":0,"ev":"van_zone","zone":"Curtain_L1A","ok":true,"reason":"","before":"открыты","during":"задёрнуты","after":"задёрнуты","result":"changed"}
+{"t":10.1222,"role":"host","cid":0,"ev":"van_control","zone":"EngineCover","from":0,"to":1,"state":"защёлки открыты","client":0}
+{"t":10.3254,"role":"host","cid":0,"ev":"van_zone","zone":"EngineCover","ok":true,"reason":"","before":"на защёлках","during":"защёлки открыты","after":"защёлки открыты","result":"changed"}
+{"t":10.5287,"role":"host","cid":0,"ev":"van_zone","zone":"Engine_DistributorCap","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":10.5289,"role":"host","cid":0,"ev":"van_control","zone":"Engine_Lead_1","from":0,"to":1,"state":"сняты","client":0}
+{"t":10.5669,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5352,1.15,1.1256],"tick":316}
+{"t":10.5673,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":10.5674,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":10.5675,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":10.5676,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":10.5677,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":10.5678,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2464,0.0013,0.2549]}
+{"t":10.5918,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":-0.0028,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2455,"mass":2035,"axle":false,"low":false}
+{"t":10.7315,"role":"host","cid":0,"ev":"van_zone","zone":"Engine_Lead_1","ok":true,"reason":"","before":"на свечах","during":"сняты","after":"сняты","result":"changed"}
+{"t":10.7317,"role":"host","cid":0,"ev":"van_control","zone":"FuelFlap_L","from":0,"to":1,"state":"лючок открыт","client":0}
+{"t":10.9344,"role":"host","cid":0,"ev":"van_zone","zone":"FuelFlap_L","ok":true,"reason":"","before":"закрыт","during":"лючок открыт","after":"лючок открыт","result":"changed"}
+{"t":10.9346,"role":"host","cid":0,"ev":"van_control","zone":"FuelFlap_R","from":0,"to":1,"state":"лючок открыт","client":0}
+{"t":11.1006,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0027,0.0006],"kmh":0.0006,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2324,"mass":2035,"axle":false,"low":false}
+{"t":11.1361,"role":"host","cid":0,"ev":"van_zone","zone":"FuelFlap_R","ok":true,"reason":"","before":"закрыт","during":"лючок открыт","after":"лючок открыт","result":"changed"}
+{"t":11.1363,"role":"host","cid":0,"ev":"van_control","zone":"FuseBox_Lid","from":0,"to":1,"state":"открыта","client":0}
+{"t":11.3392,"role":"host","cid":0,"ev":"van_zone","zone":"FuseBox_Lid","ok":true,"reason":"","before":"закрыта","during":"открыта","after":"открыта","result":"changed"}
+{"t":11.5421,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_1","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":11.5675,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1503,1.1254],"tick":347}
+{"t":11.5679,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":11.568,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":11.5681,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":11.5682,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":11.5683,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":11.5684,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2376,0.0014,0.2435]}
+{"t":11.6082,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2374,"mass":2035,"axle":false,"low":false}
+{"t":11.7442,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_2","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":11.9469,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_3","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":12.1176,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0027,0.0006],"kmh":-0.0001,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":12.1504,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_4","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":12.3537,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_5","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":12.5553,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_6","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":12.5689,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":377}
+{"t":12.5693,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":12.5694,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":12.5695,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":12.5696,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":12.5697,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":12.5698,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2363,0.0014,0.2439]}
+{"t":12.6257,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0.0001,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":12.7591,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_7","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":12.9624,"role":"host","cid":0,"ev":"van_zone","zone":"Fuse_8","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":12.9626,"role":"host","cid":0,"ev":"van_control","zone":"Glovebox_Lid","from":0,"to":1,"state":"открыта","client":0}
+{"t":13.1341,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":12,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":13.1652,"role":"host","cid":0,"ev":"van_zone","zone":"Glovebox_Lid","ok":true,"reason":"","before":"закрыта","during":"открыта","after":"открыта","result":"changed"}
+{"t":13.1654,"role":"host","cid":0,"ev":"van_control","zone":"Handbrake","from":1,"to":0,"state":"отпущен","client":0}
+{"t":13.3683,"role":"host","cid":0,"ev":"van_zone","zone":"Handbrake","ok":true,"reason":"","before":"затянут","during":"отпущен","after":"отпущен","result":"changed"}
+{"t":13.3685,"role":"host","cid":0,"ev":"van_control","zone":"Heater_Fan","from":0,"to":1,"state":"вентилятор 1","client":0}
+{"t":13.5702,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":407}
+{"t":13.5706,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":13.5707,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":13.5708,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":13.5709,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":13.571,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":13.5711,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":13.5713,"role":"host","cid":0,"ev":"van_zone","zone":"Heater_Fan","ok":true,"reason":"","before":"вентилятор 0","during":"вентилятор 1","after":"вентилятор 1","result":"changed"}
+{"t":13.5714,"role":"host","cid":0,"ev":"van_control","zone":"Horn_Button","from":0,"to":1,"state":"звучит","client":0}
+{"t":13.6422,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":13.6718,"role":"host","cid":0,"ev":"van_control","zone":"Horn_Button","from":1,"to":0,"state":"","client":0}
+{"t":13.7725,"role":"host","cid":0,"ev":"van_zone","zone":"Horn_Button","ok":true,"reason":"","before":"","during":"звучит","after":"","result":"changed"}
+{"t":13.7727,"role":"host","cid":0,"ev":"van_control","zone":"Ignition_Key","from":0,"to":1,"state":"I","client":0}
+{"t":13.9746,"role":"host","cid":0,"ev":"van_zone","zone":"Ignition_Key","ok":true,"reason":"","before":"0 — выключено","during":"I","after":"I","result":"changed"}
+{"t":14.1501,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":14.1792,"role":"host","cid":0,"ev":"van_zone","zone":"Jack_Point_FL","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":14.3821,"role":"host","cid":0,"ev":"van_zone","zone":"Jack_Point_FR","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":14.5722,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":437}
+{"t":14.5726,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":14.5727,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":14.5728,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":14.5729,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":14.573,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":14.5731,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":14.5835,"role":"host","cid":0,"ev":"van_zone","zone":"Jack_Point_RL","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":14.6596,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":14.7864,"role":"host","cid":0,"ev":"van_zone","zone":"Jack_Point_RR","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":14.9873,"role":"host","cid":0,"ev":"van_zone","zone":"Jack_Screw","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":15.1689,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":15.19,"role":"host","cid":0,"ev":"van_zone","zone":"Jack_Take","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":15.3938,"role":"host","cid":0,"ev":"van_zone","zone":"Jerrycan_1","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":15.5734,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":467}
+{"t":15.5737,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":15.5738,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":15.574,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":15.5741,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":15.5742,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":15.5743,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":15.595,"role":"host","cid":0,"ev":"van_zone","zone":"Jerrycan_2","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":15.5952,"role":"host","cid":0,"ev":"van_control","zone":"MassSwitch_Key","from":1,"to":0,"state":"масса выключена","client":0}
+{"t":15.6758,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":15.7979,"role":"host","cid":0,"ev":"van_zone","zone":"MassSwitch_Key","ok":true,"reason":"","before":"масса включена","during":"масса выключена","after":"масса выключена","result":"changed"}
+{"t":15.7981,"role":"host","cid":0,"ev":"van_control","zone":"Radio_Volume","from":0,"to":1,"state":"громкость 1","client":0}
+{"t":16.0018,"role":"host","cid":0,"ev":"van_zone","zone":"Radio_Volume","ok":true,"reason":"","before":"выключена","during":"громкость 1","after":"громкость 1","result":"changed"}
+{"t":16.002,"role":"host","cid":0,"ev":"van_control","zone":"Seat_L4","from":0,"to":1,"state":"сложено (под ним ящик АКБ)","client":0}
+{"t":16.1833,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":16.2034,"role":"host","cid":0,"ev":"van_zone","zone":"Seat_L4","ok":true,"reason":"","before":"разложено","during":"сложено (под ним ящик АКБ)","after":"сложено (под ним ящик АКБ)","result":"changed"}
+{"t":16.4068,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_Driver","ok":false,"reason":"Вы уже сидите","before":"занято (игрок 0)","during":"занято (игрок 0)","after":"занято (игрок 0)","result":"refused"}
+{"t":16.5743,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":497}
+{"t":16.5747,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":16.5748,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":16.575,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":16.575,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":16.5751,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":16.5753,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":16.6078,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_L1","ok":false,"reason":"Вы уже сидите","before":"свободно","during":"свободно","after":"свободно","result":"refused"}
+{"t":16.6924,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":16.8095,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_L2","ok":false,"reason":"Вы уже сидите","before":"свободно","during":"свободно","after":"свободно","result":"refused"}
+{"t":17.013,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_L3","ok":false,"reason":"Вы уже сидите","before":"свободно","during":"свободно","after":"свободно","result":"refused"}
+{"t":17.2004,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":17.2149,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_L4","ok":true,"reason":"","before":"свободно","during":"свободно","after":"свободно","result":"no_change"}
+{"t":17.4157,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_Passenger","ok":false,"reason":"Вы уже сидите","before":"свободно","during":"свободно","after":"свободно","result":"refused"}
+{"t":17.5757,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":527}
+{"t":17.5761,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":17.5762,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":17.5763,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":17.5764,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":17.5764,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":17.5766,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":17.6191,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_R1","ok":false,"reason":"Вы уже сидите","before":"свободно","during":"свободно","after":"свободно","result":"refused"}
+{"t":17.7081,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":17.8205,"role":"host","cid":0,"ev":"van_zone","zone":"Sit_R2","ok":false,"reason":"Вы уже сидите","before":"свободно","during":"свободно","after":"свободно","result":"refused"}
+{"t":18.0231,"role":"host","cid":0,"ev":"van_zone","zone":"SpareWheel","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":18.2164,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":18.2258,"role":"host","cid":0,"ev":"van_zone","zone":"Spare_Fuse_1","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":18.4269,"role":"host","cid":0,"ev":"van_zone","zone":"Spare_Fuse_2","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":18.5807,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":557}
+{"t":18.5814,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":18.5815,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":18.5817,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":18.5819,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":18.5822,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":18.5824,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":18.6348,"role":"host","cid":0,"ev":"van_zone","zone":"Spare_Fuse_3","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":18.6351,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Cabin","from":0,"to":1,"state":"включён","client":0}
+{"t":18.7281,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":18.8362,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Cabin","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":18.8364,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Fog","from":0,"to":1,"state":"включён","client":0}
+{"t":19.0382,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Fog","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":19.0384,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Head","from":0,"to":1,"state":"включён","client":0}
+{"t":19.234,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":19.2395,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Head","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":19.2397,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Roof","from":0,"to":1,"state":"включён","client":0}
+{"t":19.4433,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Roof","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":19.4435,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Spot","from":0,"to":1,"state":"включён","client":0}
+{"t":19.5815,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":587}
+{"t":19.5818,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":19.582,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":19.5821,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":19.5822,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":19.5822,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":19.5824,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":19.6468,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Spot","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":19.647,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Stove","from":0,"to":1,"state":"включён","client":0}
+{"t":19.7429,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":19.848,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Stove","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":19.8482,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Wiper","from":0,"to":1,"state":"включён","client":0}
+{"t":20.0538,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Wiper","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":20.054,"role":"host","cid":0,"ev":"van_control","zone":"Toggle_Work","from":0,"to":1,"state":"включён","client":0}
+{"t":20.2508,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":false,"low":false}
+{"t":20.2593,"role":"host","cid":0,"ev":"van_zone","zone":"Toggle_Work","ok":true,"reason":"","before":"выключен","during":"включён","after":"включён","result":"changed"}
+{"t":20.2595,"role":"host","cid":0,"ev":"van_control","zone":"ToolBox_Lid","from":0,"to":1,"state":"открыта","client":0}
+{"t":20.4621,"role":"host","cid":0,"ev":"van_zone","zone":"ToolBox_Lid","ok":true,"reason":"","before":"закрыта","during":"открыта","after":"открыта","result":"changed"}
+{"t":20.4623,"role":"host","cid":0,"ev":"van_control","zone":"TransferLever_Axle","from":0,"to":1,"state":"передний мост включён","client":0}
+{"t":20.5825,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":617}
+{"t":20.5829,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":20.5831,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":20.5832,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":20.5832,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":20.5833,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":20.5835,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":20.6638,"role":"host","cid":0,"ev":"van_zone","zone":"TransferLever_Axle","ok":true,"reason":"","before":"передний мост выключен","during":"передний мост включён","after":"передний мост включён","result":"changed"}
+{"t":20.664,"role":"host","cid":0,"ev":"van_control","zone":"TransferLever_Range","from":0,"to":1,"state":"ряд L (пониженный)","client":0}
+{"t":20.7598,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":20.867,"role":"host","cid":0,"ev":"van_zone","zone":"TransferLever_Range","ok":true,"reason":"","before":"ряд H (повышенный)","during":"ряд L (пониженный)","after":"ряд L (пониженный)","result":"changed"}
+{"t":21.071,"role":"host","cid":0,"ev":"van_zone","zone":"Wheel_FL","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":21.2683,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":21.2734,"role":"host","cid":0,"ev":"van_zone","zone":"Wheel_FR","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":21.4745,"role":"host","cid":0,"ev":"van_zone","zone":"Wheel_RL","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":21.5838,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":647}
+{"t":21.5842,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Closed","pos":0}
+{"t":21.5843,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":21.5844,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Closed","pos":0}
+{"t":21.5845,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Closed","pos":0}
+{"t":21.5845,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":21.5847,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":21.6772,"role":"host","cid":0,"ev":"van_zone","zone":"Wheel_RR","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":21.6774,"role":"host","cid":0,"ev":"van_control","zone":"Winch_Clutch","from":0,"to":1,"state":"свободный ход (трос разматывается)","client":0}
+{"t":21.7759,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":21.8804,"role":"host","cid":0,"ev":"van_zone","zone":"Winch_Clutch","ok":true,"reason":"","before":"муфта включена","during":"свободный ход (трос разматывается)","after":"свободный ход (трос разматывается)","result":"changed"}
+{"t":22.082,"role":"host","cid":0,"ev":"van_zone","zone":"Winch_Hook","ok":false,"reason":"Пока не работает (предметы — следующие этапы)","before":"пока не работает","during":"пока не работает","after":"пока не работает","result":"refused"}
+{"t":22.083,"role":"host","cid":0,"ev":"door_cmd","door":"dooZP","toggle":true,"drive":"Manual","state":"Opening"}
+{"t":22.2842,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":22.2848,"role":"host","cid":0,"ev":"van_zone","zone":"dooZP","ok":true,"reason":"","before":"закрыта","during":"открывается","after":"открывается","result":"changed"}
+{"t":22.2849,"role":"host","cid":0,"ev":"door_cmd","door":"doorL","toggle":true,"drive":"Manual","state":"Opening"}
+{"t":22.4862,"role":"host","cid":0,"ev":"van_zone","zone":"doorL","ok":true,"reason":"","before":"закрыта","during":"открывается","after":"открывается","result":"changed"}
+{"t":22.4864,"role":"host","cid":0,"ev":"door_cmd","door":"doorP","toggle":true,"drive":"Manual","state":"Opening"}
+{"t":22.5847,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":677}
+{"t":22.585,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Opening","pos":0.0833}
+{"t":22.5851,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Closed","pos":0}
+{"t":22.5852,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Opening","pos":0.25}
+{"t":22.5853,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Opening","pos":0.4236}
+{"t":22.5854,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Closed","pos":0}
+{"t":22.5855,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":22.6901,"role":"host","cid":0,"ev":"van_zone","zone":"doorP","ok":true,"reason":"","before":"закрыта","during":"открывается","after":"открывается","result":"changed"}
+{"t":22.6903,"role":"host","cid":0,"ev":"door_cmd","door":"doorSalon","toggle":true,"drive":"Manual","state":"Opening"}
+{"t":22.7932,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":22.8923,"role":"host","cid":0,"ev":"van_zone","zone":"doorSalon","ok":true,"reason":"","before":"закрыта","during":"открывается","after":"открывается","result":"changed"}
+{"t":22.8925,"role":"host","cid":0,"ev":"door_cmd","door":"doorZL","toggle":true,"drive":"Manual","state":"Opening"}
+{"t":23.0945,"role":"host","cid":0,"ev":"van_zone","zone":"doorZL","ok":true,"reason":"","before":"закрыта","during":"открывается","after":"открывается","result":"changed"}
+{"t":23.0948,"role":"host","cid":0,"ev":"van_bench","test":"zones","total":68,"changed":33,"refused":34,"noChange":1}
+{"t":23.0951,"role":"host","cid":0,"ev":"exit_request","seq":1}
+{"t":23.0969,"role":"host","cid":0,"ev":"exit_refused","client":0,"reason":"Дверь закрыта"}
+{"t":23.099,"role":"host","cid":0,"ev":"use_result","seq":1,"ok":false,"reason":"Дверь закрыта"}
+{"t":23.2833,"role":"host","cid":0,"ev":"door_state","door":"dooZP","state":"Open","pos":1}
+{"t":23.2998,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":23.4928,"role":"host","cid":0,"ev":"door_state","door":"doorL","state":"Open","pos":1}
+{"t":23.5848,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5349,1.1504,1.1254],"tick":707}
+{"t":23.5852,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Opening","pos":0.9167}
+{"t":23.5853,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Opening","pos":0.5764}
+{"t":23.5855,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":23.5855,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":23.5856,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Opening","pos":0.75}
+{"t":23.5858,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0,-0.0028,0.0006],"r":[0.2362,0.0015,0.2444]}
+{"t":23.6928,"role":"host","cid":0,"ev":"door_state","door":"doorP","state":"Open","pos":1}
+{"t":23.81,"role":"host","cid":0,"ev":"van_state","p":[0,-0.0028,0.0006],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":false,"steer":0,"clutch":0,"slide":0,"lock":0,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":23.8928,"role":"host","cid":0,"ev":"door_state","door":"doorSalon","state":"Open","pos":1}
+{"t":24.0952,"role":"host","cid":0,"ev":"van_handbrake","on":true,"by":"bench"}
+{"t":24.0954,"role":"host","cid":0,"ev":"van_teleport","p":[0,0,0],"r":[0,0,0]}
+{"t":24.0955,"role":"host","cid":0,"ev":"van_bench_done","scenario":"zones"}
+{"t":24.1005,"role":"host","cid":0,"ev":"door_state","door":"doorZL","state":"Open","pos":1}
+{"t":24.3181,"role":"host","cid":0,"ev":"van_state","p":[0.0003,0.032,-0.0001],"kmh":-0.0512,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":-0.1028,"mass":2035,"axle":true,"low":true}
+{"t":24.585,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5358,1.1384,1.1229],"tick":737}
+{"t":24.5854,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":24.5855,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":24.5856,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":24.5857,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":24.5858,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":24.5859,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0153,-0.0007],"r":[0.1824,359.9899,0.29]}
+{"t":24.8264,"role":"host","cid":0,"ev":"van_state","p":[0.0002,-0.0048,0.0004],"kmh":0.0034,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.4298,"mass":2035,"axle":true,"low":true}
+{"t":25.335,"role":"host","cid":0,"ev":"van_state","p":[0.0004,-0.0031,-0.0003],"kmh":-0.0047,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.1631,"mass":2035,"axle":true,"low":true}
+{"t":25.5868,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5344,1.1511,1.1239],"tick":767}
+{"t":25.5872,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":25.5873,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":25.5874,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":25.5875,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":25.5876,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":25.5877,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0002],"r":[0.2083,359.9909,0.2261]}
+{"t":25.8416,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0029,-0.0001],"kmh":0.0047,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2579,"mass":2035,"axle":true,"low":true}
+{"t":26.3518,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":-0.0028,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2307,"mass":2035,"axle":true,"low":true}
+{"t":26.5872,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5347,1.1505,1.1244],"tick":797}
+{"t":26.5875,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":26.5877,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":26.5877,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":26.5878,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":26.5879,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":26.5881,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0027,-0.0001],"r":[0.2297,359.9909,0.2402]}
+{"t":26.8583,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0.0013,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2374,"mass":2035,"axle":true,"low":true}
+{"t":27.3665,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":-0.0006,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":27.5874,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1245],"tick":827}
+{"t":27.5878,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":27.5879,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":27.588,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":27.5881,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":27.5882,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":27.5883,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2353,359.9909,0.2445]}
+{"t":27.8768,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0.0002,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":28.3838,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":-0.0001,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":28.5877,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":857}
+{"t":28.5881,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":28.5882,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":28.5883,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":28.5884,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":28.5885,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":28.5887,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2361,359.9909,0.2445]}
+{"t":28.8929,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2357,"mass":2035,"axle":true,"low":true}
+{"t":29.4013,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":29.5895,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":887}
+{"t":29.5899,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":29.5901,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":29.5901,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":29.5902,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":29.5904,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":29.5906,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":29.9101,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":30.4179,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":30.5897,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":917}
+{"t":30.5901,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":30.5902,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":30.5903,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":30.5904,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":30.5905,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":30.5907,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":30.9249,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":31.4338,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":31.5912,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":947}
+{"t":31.5916,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":31.5917,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":31.5918,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":31.5919,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":31.592,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":31.5922,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":31.943,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":32.4509,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":32.5936,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":977}
+{"t":32.594,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":32.5941,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":32.5942,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":32.5943,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":32.5944,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":32.5946,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":32.9589,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":33.4679,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":33.5943,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1007}
+{"t":33.5947,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":33.5948,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":33.5949,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":33.595,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":33.5951,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":33.5952,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":33.9765,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":34.4841,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":34.5946,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1037}
+{"t":34.595,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":34.5951,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":34.5952,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":34.5953,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":34.5954,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":34.5955,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":34.9941,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":35.5011,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":35.5959,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1067}
+{"t":35.5963,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":35.5964,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":35.5965,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":35.5966,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":35.5967,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":35.5968,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":36.0097,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":36.5178,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":36.5967,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1097}
+{"t":36.5971,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":36.5973,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":36.5974,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":36.5975,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":36.5976,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":36.5978,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":37.0263,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":37.5334,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":37.5981,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1127}
+{"t":37.5985,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":37.5987,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":37.5988,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":37.5988,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":37.5989,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":37.5991,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":38.043,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":38.5499,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":38.5988,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1157}
+{"t":38.5991,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":38.5993,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":38.5994,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":38.5994,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":38.5995,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":38.5997,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":39.0596,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":39.5667,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":39.601,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1188}
+{"t":39.6014,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":39.6015,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":39.6016,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":39.6017,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":39.6017,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":39.6019,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":40.0758,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":40.5832,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":40.6011,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1218}
+{"t":40.6014,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":40.6016,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":40.6017,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":40.6017,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":40.6018,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":40.602,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":41.0918,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":41.6023,"role":"host","cid":0,"ev":"van_state","p":[0.0003,-0.0028,-0.0001],"kmh":0,"rpm":0,"gear":1,"gas":0,"brake":0,"hand":true,"steer":0,"clutch":0,"slide":0,"lock":15,"air":0,"pitchDeg":0.2366,"mass":2035,"axle":true,"low":true}
+{"t":41.603,"role":"host","cid":0,"ev":"pos","owner":0,"local":true,"p":[-0.5348,1.1504,1.1246],"tick":1248}
+{"t":41.6034,"role":"host","cid":0,"ev":"door","door":"doorP","state":"Open","pos":1}
+{"t":41.6036,"role":"host","cid":0,"ev":"door","door":"doorZL","state":"Open","pos":1}
+{"t":41.6037,"role":"host","cid":0,"ev":"door","door":"doorL","state":"Open","pos":1}
+{"t":41.6038,"role":"host","cid":0,"ev":"door","door":"dooZP","state":"Open","pos":1}
+{"t":41.6038,"role":"host","cid":0,"ev":"door","door":"doorSalon","state":"Open","pos":1}
+{"t":41.604,"role":"host","cid":0,"ev":"vehicle","name":"VanVehicle","seat0":0,"seat1":-1,"pitch":0,"roll":0,"yaw":0,"throttle":0,"rejectedAxes":0,"p":[0.0003,-0.0028,-0.0001],"r":[0.2362,359.9909,0.2444]}
+{"t":41.6405,"role":"host","cid":0,"ev":"player_despawn","owner":0}
+{"t":41.6581,"role":"host","cid":0,"ev":"disconnected","client":0,"reason":"[Disconnect Event][Client-0][TransportClientId-0][TransportShutdown] NetworkConnectionManager was shutdown. The transport was shutdown."}

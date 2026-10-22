@@ -7,17 +7,17 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TL_ForestFloorDark
-  m_DiffuseTexture: {fileID: 2800000, guid: 05f2ae42625f75d17ee0f6eb1239dfcc, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: f703f1ad1a22a3a489c154644d8ceda3, type: 3}
   m_NormalMapTexture: {fileID: 0}
-  m_MaskMapTexture: {fileID: 0}
-  m_TileSize: {x: 2.6153607, y: 2.6153607}
+  m_MaskMapTexture: {fileID: 2800000, guid: 27d7672dc5aa21b4b8a77872afeda58e, type: 3}
+  m_TileSize: {x: 2, y: 2}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 1}
   m_Metallic: 0
-  m_Smoothness: 0.039859448
+  m_Smoothness: 0
   m_NormalScale: 1
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
-  m_DiffuseRemapMax: {x: 0.0692662, y: 0.0636498, z: 0.039588373, w: 1}
+  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
-  m_MaskMapRemapMax: {x: 1, y: 0.47127348, z: 1, w: 1}
+  m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}
   m_SmoothnessSource: 1
