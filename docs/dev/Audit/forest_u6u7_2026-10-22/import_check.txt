@@ -1,0 +1,50 @@
+  Apparition mats: M_Apparition 
+  GenContainer mats: M_BV_BlueMetal M_BV_Brass M_BV_Copper M_BV_Galvanized M_BV_GreenMetal M_BV_RedMetal M_BV_Safety M_BV_SteelDark M_BV_SteelGrey M_BV_StripeOlive M_BV_WhiteMetal M_BV_YellowMetal M_Cable M_ChainLink M_Concrete M_ContainerGrey M_ContainerU3 M_ContainerU3Dark M_EngineIron M_FX_Cage M_FX_CastAlu M_FX_Polyester M_FabricGrey M_GCont_Cont M_GCont_Diesel M_GCont_Genset M_GCont_Needle M_GCont_Panel M_GCont_Props M_GensetYellow M_GlassClear M_GlassDark M_Grating M_Grille M_HutTimber M_LEDOff M_Lamp_BulbOff M_Lamp_FluorOff M_MetalGrey M_ObsSigns M_PaintRedMetal M_PaintWhite M_PaintYellowMetal M_Paper M_PlasticBlack M_RackGrey M_Radiator M_Rubber M_Rust M_ScreenOff M_Steel M_StoveIron 
+  Item_Flashlight mats: M_Item_Props M_PaintOliveDark M_Rubber M_Steel M_StoveIron M_TorchLens 
+  Item_RadioSet mats: M_Item_Panel M_Item_Props M_RadioDisplay 
+U6 models 86: normals Import 86, convertUnits 86, generate colliders 1 (GenContainer), remapped to Materials/URP same name 86; issues: 
+  ConcreteFence_Wicket mats: M_Fence_Barbed M_Fence_ChainLink M_Fence_Concrete 
+U7 models 22: normals Import 22, convertUnits 22, generate colliders 22 (), remapped to Materials/URP same name 22; issues: 
+U6 T_GCont_Cont_A_px 1024x1024 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=9.33 MiB
+U6 T_GCont_Genset_A_px 512x512 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=2.33 MiB
+U6 T_GCont_Props_A_px 512x512 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=2.33 MiB
+U6 T_GCont_Panel_A_px 512x512 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=2.33 MiB
+U6 T_Item_Props_A_px 512x512 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=1.00 MiB
+U6 T_Item_Panel_A_px 512x512 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=1.00 MiB
+U6 T_Item_Panel_E_px 512x512 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=1.00 MiB
+U6 T_Fig_Figure_A_px 256x256 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=0.25 MiB
+U7 T_Base_ChainLink_A_px 64x64 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Base_Barbed_A_px 64x67 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Base_Rust_A_px 64x12 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.01 MiB
+U7 T_Kpp_ChainLink_A_px 64x64 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Kpp_Barbed_A_px 64x46 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.03 MiB
+U7 T_Yard_ChainLink_A_px 64x64 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Yard_Barbed_A_px 64x46 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.03 MiB
+U7 T_Road_ChainLink_A_px 64x64 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Road_Barbed_A_px 64x54 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Fence_ChainLink_A_px 64x64 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Fence_Barbed_A_px 64x66 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.04 MiB
+U7 T_Fence_ChainBarbed_A_px 64x67 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.02 MiB
+U7 T_Fence_Razor_A_px 64x12 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGBA32 alphaTransp=True preserveCov=True cutoff=0.42 mem=0.01 MiB
+U7 T_Fence_Concrete_A_px 1024x1024 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=9.33 MiB
+U7 T_Fence_Props_A_px 512x512 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=2.33 MiB
+U7 T_Fence_Panel_A_px 256x256 .png shape=Texture2D filter=Point compr=Uncompressed mips=True fmt=RGB24 alphaTransp=False preserveCov=False cutoff=0.50 mem=0.58 MiB
+U6 new textures memory 19.59 MiB
+M_Base_ChainLink: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Base_Barbed: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Base_Rust: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Kpp_ChainLink: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Kpp_Barbed: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Yard_ChainLink: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Yard_Barbed: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Road_ChainLink: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Road_Barbed: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Fence_ChainLink: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Fence_Barbed: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Fence_ChainBarbed: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_Fence_Razor: shader Universal Render Pipeline/Lit cull 2 alphaClip 1 cutoff 0.50 emission False
+M_RadioDisplay: shader Universal Render Pipeline/Lit cull 2 alphaClip 0 cutoff 0.50 emission False
+M_RadioDisplayOn: shader Universal Render Pipeline/Lit cull 2 alphaClip 0 cutoff 0.50 emission True
+M_TorchLensOn: shader Universal Render Pipeline/Lit cull 2 alphaClip 0 cutoff 0.50 emission True
+M_Apparition: shader Universal Render Pipeline/Lit cull 2 alphaClip 0 cutoff 0.50 emission False
+

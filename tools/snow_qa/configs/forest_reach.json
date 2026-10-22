@@ -1,0 +1,27 @@
+{
+ "region": [
+  60,
+  -490,
+  490,
+  20
+ ],
+ "step": 0.5,
+ "start": [
+  109.8,
+  -43.1
+ ],
+ "goals": {
+  "B road 15 m behind the barrier": [
+   156.1,
+   -72.8
+  ],
+  "C in front of the base gate": [
+   314.3,
+   -301.2
+  ],
+  "D inside the base": [
+   311.1,
+   -324.0
+  ]
+ }
+}

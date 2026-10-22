@@ -1,0 +1,43 @@
+base_md5 OK  Assets/Locations/Forest/Textures/T_Base_ChainLink_A_px.png 0c095e108a85c9dd81d2761efd404063 (want 0c095e108a85c9dd81d2761efd404063)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Base_Barbed_A_px.png b6ee110f8eeee04ee70f586ee4490146 (want b6ee110f8eeee04ee70f586ee4490146)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Base_Rust_A_px.png cc4fa592645ec382a581d7e02b2db705 (want cc4fa592645ec382a581d7e02b2db705)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Kpp_ChainLink_A_px.png 0c095e108a85c9dd81d2761efd404063 (want 0c095e108a85c9dd81d2761efd404063)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Kpp_Barbed_A_px.png a629f3711cfb39438e605f480a165395 (want a629f3711cfb39438e605f480a165395)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Yard_ChainLink_A_px.png 0c095e108a85c9dd81d2761efd404063 (want 0c095e108a85c9dd81d2761efd404063)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Yard_Barbed_A_px.png a629f3711cfb39438e605f480a165395 (want a629f3711cfb39438e605f480a165395)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Road_ChainLink_A_px.png 0c095e108a85c9dd81d2761efd404063 (want 0c095e108a85c9dd81d2761efd404063)
+base_md5 OK  Assets/Locations/Forest/Textures/T_Road_Barbed_A_px.png 7d0344f1344c0d9c27ec1925a8598e41 (want 7d0344f1344c0d9c27ec1925a8598e41)
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Materials.json 61122a42c7306be60719020f48751ba6 (want 61122a42c7306be60719020f48751ba6)
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Layout.json f77339cce507c441fe1cc4c1ad39fa9d (want f77339cce507c441fe1cc4c1ad39fa9d)
+base_md5 OK  Assets/Locations/Forest/README.md 9c8761f3e76eb31af1a59da5f93df819 (want 9c8761f3e76eb31af1a59da5f93df819)
+new (absent in project): Assets/Locations/Forest/Models/Abatis.fbx
+new (absent in project): Assets/Locations/Forest/Models/Abatis_b.fbx
+new (absent in project): Assets/Locations/Forest/Models/ChainFence.fbx
+new (absent in project): Assets/Locations/Forest/Models/ChainFence_Torn.fbx
+new (absent in project): Assets/Locations/Forest/Models/ConcreteFence.fbx
+new (absent in project): Assets/Locations/Forest/Models/ConcreteFence_Broken.fbx
+new (absent in project): Assets/Locations/Forest/Models/ConcreteFence_Plain.fbx
+new (absent in project): Assets/Locations/Forest/Models/ConcreteFence_Sign.fbx
+new (absent in project): Assets/Locations/Forest/Models/ConcreteFence_Socket.fbx
+new (absent in project): Assets/Locations/Forest/Models/ConcreteFence_Wicket.fbx
+new (absent in project): Assets/Locations/Forest/Models/ConcreteFence_b.fbx
+new (absent in project): Assets/Locations/Forest/Models/Hedgehog.fbx
+new (absent in project): Assets/Locations/Forest/Models/RoadBlock_Cube.fbx
+new (absent in project): Assets/Locations/Forest/Models/RoadBlock_FBS.fbx
+new (absent in project): Assets/Locations/Forest/Models/RoadBlock_Jersey.fbx
+new (absent in project): Assets/Locations/Forest/Models/RoadBlock_Jersey_Striped.fbx
+new (absent in project): Assets/Locations/Forest/Models/Sign_Halt.fbx
+new (absent in project): Assets/Locations/Forest/Models/Sign_NoEntry.fbx
+new (absent in project): Assets/Locations/Forest/Models/TankTooth.fbx
+new (absent in project): Assets/Locations/Forest/Models/TankTooth_b.fbx
+new (absent in project): Assets/Locations/Forest/Models/WireBarricade.fbx
+new (absent in project): Assets/Locations/Forest/Models/WireCoil.fbx
+new (absent in project): Assets/Locations/Forest/Textures/T_Fence_Concrete_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Fence_Props_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Fence_Panel_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Fence_ChainLink_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Fence_Barbed_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Fence_ChainBarbed_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Fence_Razor_A_px.png
+existing paths with matching guid checked: 17; new paths: 29
+RESULT PASS bad=0

@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Item_Props
+    second: {fileID: 2100000, guid: 09f7e9df2f57dc847a82e21a35e725fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Jerrycan
     second: {fileID: 2100000, guid: 562a677a2af97a74da6a0dac64fbdd84, type: 2}
   - first:

@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Item_Props
+    second: {fileID: 2100000, guid: 09f7e9df2f57dc847a82e21a35e725fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Paper
     second: {fileID: 2100000, guid: 4c435e7014376654d8dd58a06504be88, type: 2}
   - first:

@@ -1,0 +1,7 @@
+walker: 860 x 1020 cells of 0.5 m, free 863846, reachable 859160, start free, 2.0 s
+A outside, road 40 m before the barrier (109.8; -43.1): reachable from outside
+B road 15 m behind the barrier (156.1; -72.8): reachable from outside
+C in front of the base gate (314.3; -301.2): reachable from outside
+D inside the base (311.1; -324.0): reachable from outside
+wicket opening (355.2; -412.1): reachable from outside
+path A->B, 175 cells; every 20th: (109.3; -43.8) (99.3; -53.8) (89.3; -63.8) (98.3; -73.8) (108.3; -83.8) (118.3; -93.8) (128.3; -99.3) (138.3; -90.8) (148.3; -80.8) 

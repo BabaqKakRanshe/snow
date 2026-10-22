@@ -122,8 +122,43 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_GCont_Cont
+    second: {fileID: 2100000, guid: 4e656107de733014c87f480919f1cb8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GCont_Diesel
+    second: {fileID: 2100000, guid: f3c9982188aa7e049bf423f562047e4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GCont_Genset
+    second: {fileID: 2100000, guid: 7e242c24ed7be8147a535a0c310e916b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GCont_Needle
+    second: {fileID: 2100000, guid: 096de63ddc10b5a4995fabf8c76a2c54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GCont_Panel
+    second: {fileID: 2100000, guid: 00d5bc92f3824674892a5b2fbfaded55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GCont_Props
+    second: {fileID: 2100000, guid: b171f5cfdf5820448a25537fe07f8235, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_GensetYellow
     second: {fileID: 2100000, guid: b94b04e7313dee044819bd2d16a63bec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_GlassClear
+    second: {fileID: 2100000, guid: 1ab9ae3ad9f806d4099d6369ea49239d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

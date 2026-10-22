@@ -1,0 +1,8 @@
+radio at (339.566, 17.489, -354.854) (data (339.566, 17.489, -354.854), d 0,000 m), yaw 188,0 (angle to data 0,00), mass 6,0 kg, свободен; materials Item_RadioSet:M_Item_Props Item_RadioSet:M_Item_Panel Item_RadioSet:M_RadioDisplay 
+radio_display_off True
+Item_RadioSet slot 2 -> null
+radio_display_on_temp True
+
+grab Leitstand_RadioSet_1: True  held True
+held by host True at (339.57, 17.49, -354.85)
+release Leitstand_RadioSet_1

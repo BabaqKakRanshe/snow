@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Item_Props
+    second: {fileID: 2100000, guid: 09f7e9df2f57dc847a82e21a35e725fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Steel
     second: {fileID: 2100000, guid: 1bad7fcdb580f854ca7a8613bbbbd6bb, type: 2}
   materials:

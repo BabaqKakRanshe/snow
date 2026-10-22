@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Item_Props
+    second: {fileID: 2100000, guid: 09f7e9df2f57dc847a82e21a35e725fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_LaminateDark
     second: {fileID: 2100000, guid: a6161bd91f6f9b24b904d494781bff5e, type: 2}
   - first:

@@ -1,0 +1,6 @@
+van: 860 x 1020 cells of 0.5 m, free 847981, reachable 700312, start free, 6.5 s
+A outside, road 40 m before the barrier (109.8; -43.1): reachable from outside
+B road 15 m behind the barrier (156.1; -72.8): closed off
+C in front of the base gate (314.3; -301.2): closed off
+D inside the base (311.1; -324.0): closed off
+wicket opening (355.2; -412.1): reachable from outside

@@ -1,0 +1,13 @@
+point            who     CPU ms before -> after | GPU ms before -> after | draw calls before -> after
+base             host      7.6 ->   8.8 |  3.3 ->  4.8 | 2436 -> 2462
+base             client    7.9 ->   8.6 |  4.4 ->  5.2 | 2442 -> 2462
+gc_W             host      8.2 ->   6.5 |  3.9 ->  3.7 | 693 -> 838
+gc_W             client   12.6 ->   7.4 |  4.7 ->  4.4 | 688 -> 841
+leitstand        host      8.3 ->   7.7 |  4.7 ->  4.6 | 1724 -> 1844
+leitstand        client    8.5 ->   8.1 |  4.9 ->  5.0 | 1726 -> 1850
+gate_out         host      8.1 ->   8.4 |  4.5 ->  5.0 | 2300 -> 2604
+gate_out         client    8.2 ->   8.0 |  4.5 ->  5.1 | 2299 -> 2600
+kpp_approach     host      9.2 ->  11.2 |  6.6 ->  7.5 | 2861 -> 3908
+kpp_approach     client    9.5 ->  11.0 |  6.1 ->  6.5 | 2865 -> 3906
+road_mid_NE      host      8.9 ->   8.2 |  4.9 ->  5.1 | 714 -> 1013
+road_mid_NE      client    8.8 ->   7.6 |  5.2 ->  4.5 | 714 -> 1013

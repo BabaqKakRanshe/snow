@@ -1,0 +1,19 @@
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Materials.json 76a84cfa1e032c6d3f4cdde2709992ba (want 76a84cfa1e032c6d3f4cdde2709992ba)
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Layout.json 3ba2a3448d786cd04ce1c26e71c0ec09 (want 3ba2a3448d786cd04ce1c26e71c0ec09)
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Opening.json f6b2734f0d615b14a92e9e1818ccdc27 (want f6b2734f0d615b14a92e9e1818ccdc27)
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Items.json a71b7d060cf5638432e4e19bd0dd8a2b (want a71b7d060cf5638432e4e19bd0dd8a2b)
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Dressing.json a36ca992dfcc608e2d2daf26be52fafa (want a36ca992dfcc608e2d2daf26be52fafa)
+base_md5 OK  Assets/Locations/Forest/Data/Forest_Notes.json 1d46315c90b1521a782612544cecab76 (want 1d46315c90b1521a782612544cecab76)
+base_md5 OK  Assets/Locations/Forest/README.md a3e201291196e2ddbf056d633521265e (want a3e201291196e2ddbf056d633521265e)
+new (absent in project): Assets/Locations/Forest/Models/Apparition.fbx
+new (absent in project): Assets/Locations/Forest/Models/Item_RadioSet.fbx
+new (absent in project): Assets/Locations/Forest/Textures/T_GCont_Cont_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_GCont_Genset_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_GCont_Props_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_GCont_Panel_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Item_Props_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Item_Panel_A_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Item_Panel_E_px.png
+new (absent in project): Assets/Locations/Forest/Textures/T_Fig_Figure_A_px.png
+existing paths with matching guid checked: 96; new paths: 10
+RESULT PASS bad=0

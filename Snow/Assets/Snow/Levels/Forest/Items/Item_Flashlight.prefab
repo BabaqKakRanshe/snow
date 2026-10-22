@@ -64,11 +64,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 80a0d6e66b9f89e429362c99fa6ccdd9, type: 2}
-  - {fileID: 2100000, guid: d4a342e230f83724fb59758b23029a62, type: 2}
-  - {fileID: 2100000, guid: 1bad7fcdb580f854ca7a8613bbbbd6bb, type: 2}
+  - {fileID: 2100000, guid: 09f7e9df2f57dc847a82e21a35e725fa, type: 2}
   - {fileID: 2100000, guid: 2b7e1bcc096b28045a0c4796b398bc96, type: 2}
-  - {fileID: 2100000, guid: 1380971d597ac184abd14732f66b7e5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1848825329
+  GlobalObjectIdHash: 3523533454
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -322,7 +319,7 @@ MonoBehaviour:
   shotSpeed: 45
   shotSeconds: 7
   lensRenderer: {fileID: 2698571134666418841}
-  lensSlot: 3
+  lensSlot: 1
   lensOn: {fileID: 2100000, guid: b5ccf1063ec51c74c83e86807f010ae7, type: 2}
   lensOff: {fileID: 2100000, guid: 2b7e1bcc096b28045a0c4796b398bc96, type: 2}
 --- !u!1 &6153895933889721614

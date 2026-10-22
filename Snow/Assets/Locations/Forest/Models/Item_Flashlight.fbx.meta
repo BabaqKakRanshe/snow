@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Item_Props
+    second: {fileID: 2100000, guid: 09f7e9df2f57dc847a82e21a35e725fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_PaintOliveDark
     second: {fileID: 2100000, guid: 80a0d6e66b9f89e429362c99fa6ccdd9, type: 2}
   - first:

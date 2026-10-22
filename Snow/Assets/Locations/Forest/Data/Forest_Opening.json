@@ -307,15 +307,15 @@
    "id": "Note_GenProcedure",
    "model": "Item_NoteForm",
    "p": [
-    394.8284,
-    18.222,
-    -335.3912
+    394.0422,
+    18.082,
+    -335.1292
    ],
    "q": [
     0.0,
-    -0.656059,
+    0.104528,
     0.0,
-    0.754709
+    0.994522
    ],
    "collider": {
     "center": [
@@ -469,18 +469,18 @@
    "model": "GenContainer",
    "child": "IX_GenFillCap_300",
    "kind": "cap",
-   "label": "Tagestank 60 l",
+   "label": "Tagestank 100 l",
    "neck": [
-    396.079,
-    17.31,
-    -336.7676
+    397.4793,
+    17.5,
+    -332.7898
    ],
    "stand": [
-    395.9705,
+    398.222,
     16.33,
-    -337.54
+    -332.8942
    ],
-   "capacityL": 60,
+   "capacityL": 100,
    "startL": 0,
    "burnLph": 3.5,
    "rule": "lid open; the user holds a jerrycan with fuel (origin within 1.2 m of the neck) and holds the use-with-item input (FOREST_U3_UNITY F4.5): 1 L/s into the day tank; stand = where the player stands (reference only)"
@@ -1155,14 +1155,29 @@
    ],
    "trigger": "car passes road 620 m with headlights on",
    "effect": "tall thin figure crosses the road 80 m ahead left to right in 2 s and is gone; no tracks",
-   "once": true
+   "once": true,
+   "figure": {
+    "model": "Apparition",
+    "clip": "Walk",
+    "clipSpeedMps": 1.587,
+    "note": "the Walk clip at speed 1 keeps the feet still at this speed; faster: Animator speed = v / clipSpeedMps (the 2 s crossing) - see FOREST_U6_UNITY.md, appendix V (Приложение В)"
+   }
   },
   {
    "id": "X03_BackSeat",
    "where": "car",
    "trigger": "car between road 920 and 1000 m, back seats empty, driver looks into the mirror or turns > 120 deg",
    "effect": "Apparition on the rear seat for 0.6 s (mirror / head turn only)",
-   "once": true
+   "once": true,
+   "figure": {
+    "model": "Apparition",
+    "clips": [
+     "Sit",
+     "SitLook"
+    ],
+    "seat": "van3 Sit_L1 .. Sit_L4 (the left bench)",
+    "note": "the object origin on the seat point, facing the bench's front (the aisle); Sit, then SitLook (0.6 s): the head turns to the cab - see FOREST_U6_UNITY.md, appendix V (Приложение В)"
+   }
   },
   {
    "id": "X04_Ribs",
@@ -1270,7 +1285,18 @@
    "where": "Leitstand",
    "trigger": "game time 23:40 with power on",
    "effect": "the control-room radio turns on by itself: static, a counting voice in German for 4 s",
-   "once": true
+   "once": true,
+   "radio": {
+    "prop": "Leitstand_RadioSet_1",
+    "model": "Item_RadioSet",
+    "displayOff": "M_RadioDisplay",
+    "displayOn": "M_RadioDisplayOn",
+    "speaker": [
+     0.0,
+     0.12,
+     -0.06
+    ]
+   }
   },
   {
    "id": "X09_Corridor",

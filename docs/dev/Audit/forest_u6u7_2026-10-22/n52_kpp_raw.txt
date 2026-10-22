@@ -1,0 +1,15 @@
+touch Barrier: deepest 0,000 m 
+touch Checkpoint: deepest 0,000 m 
+KPP power zone 152.7683 11.01021 -66.5097
+feet (153.67, 9.81, -66.51) look (152.77, 11.01, -66.51)
+KPP_Power Press: True  -> включён
+arm (143.5149, 10.44351, -64.67514)
+feet (145.02, 9.27, -63.17) look (143.52, 10.44, -64.68)
+Padlock_Barrier Press: True  -> снят
+IX_BarrierArm_82 Press: True  -> поднимается
+ 0.0s touch Barrier: deepest 0,000 m 
+ 1.3s touch Barrier: deepest 0,000 m 
+ 2.6s touch Barrier: deepest 0,000 m 
+ 3.9s touch Barrier: deepest 0,000 m 
+ 5.2s touch Barrier: deepest 0,000 m 
+IX_BarrierArm_82: поднят

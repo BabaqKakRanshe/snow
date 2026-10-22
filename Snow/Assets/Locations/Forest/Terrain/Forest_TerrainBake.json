@@ -42,7 +42,6 @@
         "Assets/Locations/Forest/Terrain/Prototypes/OldFence_b.prefab",
         "Assets/Locations/Forest/Terrain/Prototypes/OldFence_c.prefab",
         "Assets/Locations/Forest/Terrain/Prototypes/EuroPost.prefab",
-        "Assets/Locations/Forest/Terrain/Prototypes/FenceChain.prefab",
         "Assets/Locations/Forest/Terrain/Prototypes/Rock_3.prefab",
         "Assets/Locations/Forest/Terrain/Prototypes/Rock_4.prefab",
         "Assets/Locations/Forest/Terrain/Prototypes/Rock_1.prefab",
@@ -102,5 +101,5 @@
         "Assets/Locations/Forest/Terrain/Prototypes/Pebbles_1.prefab",
         "Assets/Locations/Forest/Terrain/Prototypes/Pebbles_2.prefab"
     ],
-    "date": "2026-10-21 21:27"
+    "date": "2026-10-22 12:17"
 }

@@ -1,0 +1,9 @@
+scene Assets/Locations/Forest/Scenes/Forest.unity dataPath F:/ClaudeGames/snow/Snow/Assets
+Gate parent=Structures p=(313.235; 16.018; -309.111) yaw=8.00
+Barrier parent=Structures p=(143.515; 9.274; -64.675) yaw=302.67
+Checkpoint parent=Structures p=(151.081; 9.660; -65.844) yaw=302.67
+GenContainer parent=Structures p=(378.160; 16.296; -341.499) yaw=8.00
+  check Barrier: dist 0.008 m, angle 0.000 deg
+  check Gate: dist 0.005 m, angle 0.000 deg
+build scene 0: Assets/SkyIsland/Scenes/SkyIsland.unity enabled=True
+

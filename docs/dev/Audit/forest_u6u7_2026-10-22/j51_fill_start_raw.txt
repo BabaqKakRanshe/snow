@@ -1,0 +1,27 @@
+host has: Flashlight_Hut carry None; Key_Schranke carry Pocket; Key_Hauptgebaeude carry Pocket; Key_Generator carry Pocket; 
+release Flashlight_Hut
+flashlight dropped: свободен
+release Jerrycan_Yard
+held now: none
+neck (381.6724, 17.46581, -339.0191)
+IX_GenFillCap_300: закрыта; в баке 0 л
+feet (382.42, 16.30, -339.02) look (381.67, 17.47, -339.02)
+IX_GenFillCap_300 local rot (0.0, 0.0, 0.0)
+IX_GenFillCap_300 Press: True  -> открыта; в баке 0 л
+IX_GenFillCap_300 local rot (0.0, 0.0, 110.0)
+feet (382.70, 16.30, -340.45) look (381.80, 16.51, -340.45)
+grab Jerrycan_Yard: True  held True
+feet (382.42, 16.30, -339.02) look (381.67, 17.47, -339.02)
+at (381.80, 16.51, -340.44)
+IX_GenFillCap_300 Press: False ѕоднесите канистру к горловине -> открыта; в баке 0 л
+at (381.80, 16.51, -340.44)
+IX_GenFillCap_300 Release: True  -> открыта; в баке 0 л
+yard can 20,0 l
+release Jerrycan_Yard
+grid False; container lights lit 0/4, halos on 0/4, LED-on slots 0; gen остановлен; бак пуст; cap открыта; в баке 0 л
+feet (378.17, 16.61, -340.19) look (378.17, 17.61, -341.09)
+IX_GenStart_86 Press: False Ѕак пуст -> остановлен; бак пуст
+IX_GenStart_86 local rot (0.0, 0.0, 0.0)
+IX_MainSwitch_90 local rot (0.0, 0.0, 60.0)
+grid False; container lights lit 0/4, halos on 0/4, LED-on slots 0; gen остановлен; бак пуст; cap открыта; в баке 0 л
+IX_MainSwitch_75: включЄн, сети нет

@@ -64,10 +64,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1bad7fcdb580f854ca7a8613bbbbd6bb, type: 2}
-  - {fileID: 2100000, guid: 05c22620be680d84aa1566875325a4d4, type: 2}
-  - {fileID: 2100000, guid: 627dd6cb8ccd9254c81acfec8d818670, type: 2}
-  - {fileID: 2100000, guid: 4c435e7014376654d8dd58a06504be88, type: 2}
+  - {fileID: 2100000, guid: 09f7e9df2f57dc847a82e21a35e725fa, type: 2}
+  - {fileID: 2100000, guid: eeabd5a9a0fae6945932704380ebf834, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3477063409
+  GlobalObjectIdHash: 2425568860
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0

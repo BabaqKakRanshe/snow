@@ -57,7 +57,10 @@ namespace Snow.EditorTools
             float dy = Ground(tiles, meta, site) - Ground(tiles, meta, oldPivot);
             Vector3 newPivot = new Vector3(site.x, oldPivot.y + dy, site.z);
             // a second run measures ground it levelled itself: keep the height of the first run at the same site
-            if (root.TryGetComponent(out ForestRelocation prev) && Flat(prev.newPivot - newPivot) < 0.1f && prev.newPivot.y != 0f) newPivot.y = prev.newPivot.y;
+            // (ForestPlacedHeights first: it survives a rebuild, the component does not)
+            ForestPlacedHeights.Data kept = ForestPlacedHeights.Load();
+            if (Flat(kept.newPivot - newPivot) < 0.1f && kept.newPivot.y != 0f) newPivot.y = kept.newPivot.y;
+            else if (root.TryGetComponent(out ForestRelocation prev) && Flat(prev.newPivot - newPivot) < 0.1f && prev.newPivot.y != 0f) newPivot.y = prev.newPivot.y;
             Quaternion r = Quaternion.Euler(0f, yaw, 0f);
             Vector3 T(Vector3 p) => newPivot + r * (p - oldPivot);
 
@@ -102,6 +105,8 @@ namespace Snow.EditorTools
             rel.yaw = yaw;
             rel.radius = GroupRadius;
             EditorUtility.SetDirty(rel);
+            kept.newPivot = newPivot;
+            ForestPlacedHeights.Save(kept);
             Debug.Log($"[Snow] Forest checkpoint: booth and barrier moved {Flat(newPivot - oldPivot):0} m out along the road " +
                       $"(to {newPivot}, turned {yaw:0.#}°; {Flat(newPivot - Base):0} m from the base, was {Flat(oldPivot - Base):0}); " +
                       $"{zonesMoved} opening zones{(padMoved ? " and the padlock copy" : "")} moved, ground levelled, {cleared} trees cleared; the yard's sliding gate stays.");

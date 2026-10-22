@@ -1,0 +1,12 @@
+touch Gate: deepest 0,000 m 
+gate leaf (320.1665, 16.01845, -310.0854)
+feet (321.17, 16.30, -313.09) look (320.17, 16.02, -310.09)
+IX_Gate_81 Press: True  -> едут
+ 0.0s touch Gate: deepest 0,000 m 
+ 1.5s touch Gate: deepest 0,000 m 
+ 3.0s touch Gate: deepest 0,000 m 
+ 4.5s touch Gate: deepest 0,000 m 
+ 6.0s touch Gate: deepest 0,000 m 
+ 7.5s touch Gate: deepest 0,000 m 
+IX_Gate_81: открыты
+(313.6308, 16.01845, -309.1668)

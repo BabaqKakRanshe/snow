@@ -1,0 +1,13 @@
+[Snow] Forest opening: 10 scripted parts, 2 extra zones, 56 decals (33 grime, 23 X11), 11 locks, padlock proxy on IX_BarrierArm_82.
+[Snow] Forest bunks: 4 seats (ForestBunks).
+[Snow] Forest step: hut lantern glass TowerHut/Lantern slot 1 (M_Lantern), 1 glow(s), 1 light(s); STÖRUNG lamp BaseMain_Opening slot 1, BaseMain_Opening/IX_BurnerReset_308 slot 1 (M_HeatFault); IX_Door_10 poweredTravelTime 6 s.
+[Snow] Forest terrain: 3x3 tiles of 600 m, 8 layers, 93772 trees, 363199 details; removed from the scene: 0 ground mesh objects, vegetation group (0), 0 rocks / stumps / snags / logs / fences / posts / branches / pebbles.
+[Snow] Forest terrain: 13 prototype materials instanced, 4 reflection probes re-baked, 0 prototypes re-bound, rendering layer mask 2, tree / detail distance 120 / 35 m.
+[Snow] Forest checkpoint: booth and barrier moved 274 m out along the road (to (143.51, 9.27, -64.68), turned -65,3°; 355 m from the base, was 83); 2 opening zones and the padlock copy moved, ground levelled, 0 trees cleared; the yard's sliding gate stays.
+[Snow] Forest yard: 20 structures drawn in x0,7071 towards the main building (yard area / 2), 5 pushed apart where the drawn-in footprints overlapped, power line scaled with them, ground levelled, 0 trees cleared; asphalt and chain-link from the bake.
+[Snow] Forest beams: 11 lamps (6 yard, 5 antennas), up to 8 in view within 80 m, atmosphere 0,3, gain 14.
+[Snow] Forest grade: Volume ForestGrade (priority 11): saturation -32, split toning (cold shadows, amber highlights, balance -30), cold shadow lift.
+[Snow] Forest extras: day/night (start 02:00), checkpoint power panel at (152.77, 11.01, -66.51) (main switch copy).
+[Snow] Forest day/night: sky shader Snow/Forest/Sky, day grade Volume (priority 12, weight by hour), 4 of 4 reflection probes baked at 12:00 as the day set.
+[Snow] Forest level integrated: Assets/Locations/Forest/Scenes/Forest.unity (32 doors, 152 zones, 131 synced parts, 16 rooms, 0 proximity groups, fall reset Y -112,2, 4 spawn points), appended to Build Settings.
+[Agent] integ True in 12 s; scene dirty=False

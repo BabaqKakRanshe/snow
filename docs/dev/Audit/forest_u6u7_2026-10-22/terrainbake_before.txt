@@ -1,0 +1,20 @@
+Forest terrain bake 2026-10-21 21:26; 3 x 3 tiles of 600 m from (-600, -1200); parts: heights paint vegetation
+source: Assets/Locations/Forest/Models/Forest_Terrain.fbx: 64 tiles, 338214 triangles; Y -82.24 .. 50.99 m
+heights: 3073 x 3073 samples over 1800 x 1800 m, step 0.5859 m; package square: 684 uncovered samples filled, 687 hole quads (236 m², under the main building's basement)
+erosion: 250000 droplets (lifetime 40, brush r 3), 36827 m³-samples moved; thermal 10 passes to 38°, last pass 137057 slides
+micro relief: hummocks 0,2-0,38 m (square / new land), 777 windthrows (pit + root mound), none on roads, trails, asphalt, the yard and around buildings
+hand sculpt: none
+relief: selgas NW-SE, a hill, a bog and two ravines on the 5 generated tiles, faded in over 120 m from the square's smoothed edge; world Y -82.2 .. 51.0; terrain origin Y -84, size Y 136, height step 2.1 mm
+supports: 49012 (prefabs 57, rocks 5862, tree roots 43101); tolerance 5 cm on flat (<15°) prefabs/rocks/fences, 15 cm elsewhere; over before 1174, 7099 cell corrections, over after 8, max 1.886 m
+accuracy, 99978 random points of the package square |SampleHeight + Y - mesh|: p50 0.014 m, p95 0.101 m, max 0.634 m
+hillshade: F:\ClaudeGames\snow\docs\dev\Audit\forest_relief\hillshade.png
+ground: 8 layers from Assets/Locations/Forest/Terrain/Ground (tools/forest_ground_textures.py), 32 px/m, tile 2 m
+paint: 1024² per tile, texel 0.5859 m; share by layer: TL_ForestFloor 41.34 %, TL_ForestFloorDark 54.39 %, TL_RoadGravel 0.15 %, TL_TrailSoil 0.10 %, TL_Rock 3.78 %, TL_RoadRuts 0.09 %, TL_TrailTrack 0.10 %, TL_Asphalt 0.04 %; outside the package square the floor tone follows noise and rock the slope
+layout: 26375 trees and bushes, 3591 rocks / stumps / snags / logs / fences / posts as Terrain trees (log tilt in 5° prototype bins), 18887 details (ferns, weeds, branches, pebbles); out of the world: 1; yard drawn in x0,7071 (area / 2): 106 chain-link sections kept, 107 overlapping or in the gate opening dropped
+generated forest: understory 33% of the package mix cut to 15%
+relief extras: 1986 boulders on 18-44° slopes of the new land, 15552 more branches / pebbles over the map (48/ha)
+old yard clearing outside the smaller yard: 426 trees
+generated: 52027 trees on the new tiles (~5,6 m grid), 3930 rocks / stumps / snags and 2705 branches / pebbles at the package's densities, 5598 saplings in the package square (~47/ha), 326698 ferns and weeds of ground cover (~0,11/m² of free floor)
+prototypes: 72 trees (SpruceHC_29 15541, SpruceHC_21 4754, Spruce_21b 5429, Birch_19 1192, Dead_10 3420, SpruceHC_25 11344, Spruce_21 2857, Dead_18 3505, Spruce_17 1025, Spruce_25 3875, SpruceHC_17 2913, Birch_16 1348, Spruce_29 1949, Birch_13 1207, Dead_14 3425, Spruce_13 2328, Fir_7 5257, Fir_4 7052, Bush_1 2871, Bush_2 3134, OldFence 98, OldFence_b 98, OldFence_c 98, EuroPost 48, FenceChain 106, Rock_3 1219, Rock_4 1281, Rock_1 1279, Rock_2 1268, Snag_3 322, Snag_2 371, Stump 351, Log_16_t0_-25 5, Log_8_t0_-10 33, Log_8_t0_5 70, Log_16 776, Log_12_t0_5 73, Log_16_t0_-10 25, Log_8 789, Log_12_t0_10 23, Log_12_t0_-5 70, Log_8_t0_-5 78, Log_16_t0_-5 71, Log_16_t0_5 74, Log_12_t0_-10 15, Log_16_t0_-15 6, Log_12_t0_20 11, Log_12 717, Log_16_t0_10 22, Log_8_t0_15 14, Log_8_t0_25 4, Log_8_t0_-15 12, Log_16_t0_20 8, Log_8_t0_10 9, Log_12_t0_30 1, Log_12_t0_-15 8, Log_8_t0_-25 5, Log_16_t0_25 4, Log_16_t0_15 9, Log_12_t0_-20 3, Log_12_t0_25 6, Log_16_t0_-20 4, Log_16_t0_30 1, Log_8_t0_20 6, Log_12_t0_15 7, Log_8_t0_-20 3, Log_12_t0_40 1, Log_16_t0_75 1, Log_12_t0_45 1, Log_12_t0_65 1, Log_12_t0_60 1, Log_8_t0_55 1); 9 details (Fern_1 93836, Fern_2 93671, Weeds_1 52321, Weeds_2 51671, Weeds_3 51925, Branches_1 6640, Branches_2 6654, Pebbles_1 3564, Pebbles_2 3560); details 512² per tile (1.17 m cells), instance count mode, max 16 per cell
+floor under crowns: 64324 spruces and firs darken the floor around them (disc 0.11 x height, 1.2-3.2 m, dithered rim)
+done in 52 s: 93933 trees, 363842 details over 9 tiles

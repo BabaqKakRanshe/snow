@@ -1,0 +1,39 @@
+N4.6 controls:
+5801	ConcreteFence_Socket	Rocks	(276.473; 16.307; -303.945)	0.0000	0.000	OK
+5664	ConcreteFence_Socket	Rocks	(416.517; 16.228; -323.627)	0.0000	0.000	OK
+5704	ConcreteFence_Socket	Rocks	(403.133; 16.248; -418.856)	0.0000	0.000	OK
+5743	ConcreteFence_Socket	Rocks	(263.090; 16.260; -399.174)	0.0000	0.000	OK
+5650	ConcreteFence	Rocks	(309.129; 15.979; -308.534)	0.0000	0.000	OK
+5703	ConcreteFence	Rocks	(322.282; 16.019; -310.383)	0.0000	0.000	OK
+5781	ConcreteFence_Wicket	Rocks	(355.224; 16.246; -412.123)	0.0000	0.000	OK
+5852	ConcreteFence	Rocks	(144.675; 9.273; -62.865)	0.0000	0.000	OK
+5853	ConcreteFence_Socket	Rocks	(140.142; 9.273; -69.937)	0.0000	0.000	OK
+6181	TankTooth	Rocks	(275.534; 16.323; -302.660)	0.0000	0.000	OK
+6064	TankTooth	Rocks	(415.135; 16.255; -322.091)	0.0000	0.000	OK
+5979	TankTooth	Rocks	(287.952; 6.915; -180.696)	0.0000	0.000	OK
+5876	Sign_Halt	Rocks	(110.552; 9.014; -56.800)	0.0000	0.000	OK
+N4.7 ground, dy = p.y - terrain (m): model n min median max tiles
+Abatis	5	-0.001	+0.002	+0.003	['Forest_TerrainData_1_1']
+Abatis_b	5	-0.005	-0.001	+0.002	['Forest_TerrainData_1_1']
+ConcreteFence	122	-0.268	+0.000	+0.005	['Forest_TerrainData_1_1']
+ConcreteFence_Broken	3	+0.000	+0.000	+0.000	['Forest_TerrainData_1_1']
+ConcreteFence_Sign	9	+0.000	+0.000	+0.042	['Forest_TerrainData_1_1']
+ConcreteFence_Socket	7	-0.040	-0.017	+0.000	['Forest_TerrainData_1_1']
+ConcreteFence_Wicket	1	+0.000	+0.000	+0.000	['Forest_TerrainData_1_1']
+ConcreteFence_b	75	-0.137	+0.000	+0.001	['Forest_TerrainData_1_1']
+Hedgehog	10	-0.002	+0.001	+0.006	['Forest_TerrainData_1_1']
+RoadBlock_Cube	2	+0.000	+0.016	+0.031	['Forest_TerrainData_1_1']
+RoadBlock_FBS	4	+0.000	+0.293	+0.586	['Forest_TerrainData_1_1']
+RoadBlock_Jersey	2	+0.000	+0.000	+0.000	['Forest_TerrainData_1_1']
+RoadBlock_Jersey_Striped	2	+0.000	+0.000	+0.001	['Forest_TerrainData_1_1']
+Sign_Halt	1	-0.000	-0.000	-0.000	['Forest_TerrainData_1_1']
+Sign_NoEntry	1	-0.004	-0.004	-0.004	['Forest_TerrainData_1_1']
+TankTooth	242	-0.050	+0.000	+0.009	['Forest_TerrainData_1_1']
+TankTooth_b	34	-0.030	+0.000	+0.010	['Forest_TerrainData_1_1']
+WireBarricade	2	-0.000	-0.000	+0.000	['Forest_TerrainData_1_1']
+WireCoil	6	-0.007	-0.000	+0.000	['Forest_TerrainData_1_1']
+N4.7 out of tolerance (>3 cm off the expected): 4
+   (5651, 'ConcreteFence_b', -0.062, 'Forest_TerrainData_1_1')
+   (5849, 'ConcreteFence', -0.049, 'Forest_TerrainData_1_1')
+   (5855, 'ConcreteFence_Sign', 0.042, 'Forest_TerrainData_1_1')
+   (5871, 'RoadBlock_Cube', 0.031, 'Forest_TerrainData_1_1')

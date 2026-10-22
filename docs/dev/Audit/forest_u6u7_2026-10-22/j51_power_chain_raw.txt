@@ -1,0 +1,72 @@
+feet (152.74, 9.81, -67.30) look (151.74, 10.86, -67.90)
+IX_BoothDoor_74 Press: True  -> открывается
+feet (153.70, 9.81, -65.37) look (152.70, 11.46, -65.97)
+IX_KeyBoxDoor_303 Press: True  -> открыт
+feet (153.34, 9.81, -66.00) look (152.54, 11.61, -66.30)
+grab Key_Generator: True  held False
+pocket Key_Generator: True 
+feet (153.45, 11.36, -65.83) look (152.65, 11.61, -66.13)
+grab Key_Hauptgebaeude: True  held False
+pocket Key_Hauptgebaeude: True 
+feet (153.50, 11.43, -65.75) look (152.70, 11.61, -66.05)
+grab Key_Schranke: True  held False
+pocket Key_Schranke: True 
+IX_ContDoorL_83 local rot (0.0, 0.0, 0.0)
+feet (373.74, 16.30, -339.88) look (375.34, 17.74, -339.88)
+IX_ContDoorL_83 Press: True  -> открывается
+IX_ContDoorL_83 local rot (0.0, 160.0, 0.0)
+IX_ContDoorL_83: открыта
+IX_ContDoorR_84 local rot (0.0, 0.0, 0.0)
+feet (373.40, 16.30, -342.30) look (375.00, 17.74, -342.30)
+IX_ContDoorR_84 Press: True  -> открывается
+IX_ContDoorR_84 local rot (0.0, 190.0, 0.0)
+IX_ContDoorR_84: открыта
+IX_ContSideDoor_85 local rot (0.0, 0.0, 0.0)
+feet (382.97, 16.30, -340.31) look (381.37, 17.62, -340.31)
+IX_ContSideDoor_85 Press: True  -> открывается
+IX_ContSideDoor_85 local rot (0.0, 100.0, 0.0)
+IX_ContSideDoor_85: открыта
+pump lever (381.0147, 17.31311, -346.64)
+feet (381.91, 16.44, -346.64) look (381.02, 17.31, -346.64)
+IX_PumpLever_301 Press: True  -> под пистолетом канистра 0 / 20 л
+IX_PumpLever_301 Release: True  -> под пистолетом канистра 20 / 20 л
+yard can 20,0 l
+fill cap (381.713, 17.67181, -339.0248), neck (381.6724, 17.46581, -339.0191)
+IX_GenFillCap_300 local rot (0.0, 0.0, 0.0)
+feet (382.42, 16.30, -339.02) look (381.67, 17.47, -339.02)
+IX_GenFillCap_300 Press: True  -> открыта; в баке 0 л
+IX_GenFillCap_300 local rot (0.0, 0.0, 110.0)
+feet (381.63, 16.29, -347.00) look (380.73, 16.32, -347.00)
+grab Jerrycan_Yard: True  held False
+feet (382.42, 16.30, -339.02) look (381.67, 17.47, -339.02)
+at (381.80, 16.51, -340.44)
+IX_GenFillCap_300 Press: True  -> закрыта; в баке 0 л
+at (381.80, 16.51, -340.44)
+IX_GenFillCap_300 Release: True  -> закрыта; в баке 0 л
+release Jerrycan_Yard
+grid False; container lights lit 0/4, halos on 0/4, LED-on slots 0; gen остановлен; бак пуст; cap закрыта; в баке 0 л
+IX_GenStart_86 local rot (0.0, 0.0, 0.0)
+feet (378.17, 16.61, -340.19) look (378.17, 17.61, -341.09)
+IX_GenStart_86 Press: False Бак пуст -> остановлен; бак пуст
+IX_GenStart_86 local rot (0.0, 0.0, 0.0)
+IX_MainSwitch_90 local rot (0.0, 0.0, 0.0)
+feet (376.78, 16.61, -341.42) look (376.78, 17.86, -342.32)
+IX_MainSwitch_90 Press: True  -> включён, сети нет
+IX_MainSwitch_90 local rot (0.0, 0.0, 60.0)
+grid False; container lights lit 0/4, halos on 0/4, LED-on slots 0; gen остановлен; бак пуст; cap закрыта; в баке 0 л
+IX_Breaker_87 Press: True  -> выключен
+IX_Breaker_87 Press: True  -> включён
+IX_Breaker_87 local rot (0.0, 0.0, 0.0) -> IX_Breaker_87 local rot (300.0, 0.0, 0.0) -> IX_Breaker_87 local rot (0.0, 0.0, 0.0)
+IX_Breaker_88 Press: True  -> выключен
+IX_Breaker_88 Press: True  -> включён
+IX_Breaker_88 local rot (0.0, 0.0, 0.0) -> IX_Breaker_88 local rot (300.0, 0.0, 0.0) -> IX_Breaker_88 local rot (0.0, 0.0, 0.0)
+IX_Breaker_89 Press: True  -> выключен
+IX_Breaker_89 Press: True  -> включён
+IX_Breaker_89 local rot (0.0, 0.0, 0.0) -> IX_Breaker_89 local rot (300.0, 0.0, 0.0) -> IX_Breaker_89 local rot (0.0, 0.0, 0.0)
+feet (347.73, 16.74, -353.57) look (347.73, 16.75, -355.07)
+IX_MainDoor_1 Press: True  -> открывается
+switch 75 at (334.7141, 14.6443, -364.5587)
+feet (335.71, 13.74, -364.56) look (334.71, 14.64, -364.56)
+IX_MainSwitch_75 Press: True  -> включён, сети нет
+IX_MainSwitch_75: включён, сети нет
+grid False; container lights lit 0/4, halos on 0/4, LED-on slots 0; gen остановлен; бак пуст; cap закрыта; в баке 0 л

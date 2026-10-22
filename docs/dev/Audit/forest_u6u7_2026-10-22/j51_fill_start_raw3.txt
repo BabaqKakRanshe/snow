@@ -1,0 +1,11 @@
+grab Jerrycan_Yard: True  held True
+feet (382.42, 17.94, -339.02) look (381.67, 17.47, -339.02)
+press True 
+открыта; в баке 9,7 л can 10,2
+IX_GenFillCap_300 Release: True  -> открыта; в баке 9,7 л
+release Jerrycan_Yard
+grid False; container lights lit 0/4, halos on 0/4, LED-on slots 0; gen остановлен; в баке 9,7 л; cap открыта; в баке 9,7 л
+feet (378.17, 16.61, -340.19) look (378.17, 17.61, -341.09)
+IX_GenStart_86 Press: True  -> работает; в баке 9,7 л
+IX_GenStart_86 local rot (308.0, 0.0, 0.0)
+grid True; container lights lit 4/4, halos on 4/4, LED-on slots 1; gen работает; в баке 9,7 л; cap открыта; в баке 9,7 л

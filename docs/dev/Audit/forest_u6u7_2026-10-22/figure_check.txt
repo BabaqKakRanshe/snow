@@ -1,0 +1,12 @@
+clip SitLook: length 0.583 s, 24 fps, loop False
+clip Sit: length 0.042 s, 24 fps, loop True
+clip Stand: length 0.042 s, 24 fps, loop True
+clip Walk: length 1.250 s, 24 fps, loop True
+Stand: feet (-0.110; 0.090; -0.020) (0.110; 0.090; -0.020), head (0.000; 1.982; 0.178), mesh y 0.000..2.231
+Sit: feet (-0.178; -0.321; 0.612) (0.178; -0.321; 0.612), hips (0.000; 0.190; 0.000), chest (0.000; 0.553; 0.186), head (0.000; 0.403; 0.528), mesh y -0.425..0.666, z -0.140..1.110
+SitLook: head pos start (0.000; 0.403; 0.528) end (0.000; 0.507; 0.624); head yaw change -77.9 deg (signed about +Y; + = to the figure's left if it faces +Z? see note); head up start (0.421; -0.899; 0.123) end (0.034; -0.080; 0.996); shoulder L (-0.030; 0.541; 0.446) R (0.030; 0.541; 0.446)
+SitLook end: head bone axes fwd (-0.996; 0.084; 0.041) up (0.034; -0.080; 0.996) right (-0.087; -0.993; -0.077)
+Walk seam: foot L start-end 0.0000 m, R 0.0000 m
+Walk: cycle 1.250 s, feet z range -0.629..0.312 (stride 0.941 m), stance foot z speed median -1.541 m/s (object at +1.59 m/s forward -> world slip 0.049 m/s if forward is +Z, -3.131 if -Z)
+figure forward (root +Z in world) (0.000; 0.000; 1.000); snapshots in F:\ClaudeGames\snow\docs\dev\Audit\forest_u6u7_2026-10-22\figure
+

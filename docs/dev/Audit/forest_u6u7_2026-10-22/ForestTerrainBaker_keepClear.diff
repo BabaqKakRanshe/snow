@@ -1,0 +1,131 @@
+diff --git a/Snow/Assets/Snow/Editor/ForestTerrainBaker.cs b/Snow/Assets/Snow/Editor/ForestTerrainBaker.cs
+index bd48c05..a552e8a 100644
+--- a/Snow/Assets/Snow/Editor/ForestTerrainBaker.cs
++++ b/Snow/Assets/Snow/Editor/ForestTerrainBaker.cs
+@@ -140,7 +140,11 @@ namespace Snow.EditorTools
+ 
+         // ------------------------------------------------------------------ data
+         [Serializable] class Placed { public string m; public float[] p, q; public float s; }
+-        [Serializable] class Layout { public Placed[] trees, rocks, prefabs; }
++        [Serializable] class Layout { public Placed[] trees, rocks, prefabs; public U7 u7; }
++        /// <summary>Update 7: a strip along one fence / tank-trap piece (segment a-b in plan, distance r) the bake's own
++        /// planting keeps off.</summary>
++        [Serializable] class Strip { public float[] a, b; public float r; }
++        [Serializable] class U7 { public Strip[] keepClear; }
+         [Serializable] public class BakeMeta
+         {
+             public float worldX0 = WorldX0, worldZ0 = WorldZ0, tile = Tile, originY, sizeY;
+@@ -1298,6 +1302,10 @@ namespace Snow.EditorTools
+                 if (!TreeSpecies.Any(p => e.m.StartsWith(p, StringComparison.Ordinal))) continue;
+                 if (AddTree(e.m, e.p[0], e.p[1], e.p[2], Yaw(e.q), s)) { layoutTrees++; occupied.Add(Cell(e.p[0], e.p[2])); }
+             }
++            // update 7: the 2 m cells the u7.keepClear strips touch; the bake's own planting (old yard regrowth, saplings,
++            // clutter, ground cover) keeps off them, the layout's trees and rocks stay as the data has them
++            var keepClear = KeepClearCells(L, Cell);
++            int clearInfill = 0, clearSaplings = 0, clearClutter = 0, clearCover = 0;
+             HashSet<Placed> yardFence = YardFence(L);
+             int fencesDropped = L.rocks.Count(e => e?.m == "FenceChain") - yardFence.Count;
+             foreach (Placed e in L.rocks)
+@@ -1434,7 +1442,9 @@ namespace Snow.EditorTools
+                 {
+                     float px = WorldX0 + R01() * TilesX * Tile, pz = WorldZ0 + R01() * TilesZ * Tile;
+                     if (!FreeFloor(px, pz, 35f) || NearBuilding(px, pz)) continue;
+-                    if (AddDetail(m, px, pz, 0.8f + R01() * 0.5f)) { k++; clutter++; }
++                    float cs = 0.8f + R01() * 0.5f;
++                    if (keepClear.Contains(Cell(px, pz))) { k++; clearClutter++; continue; }
++                    if (AddDetail(m, px, pz, cs)) { k++; clutter++; }
+                 }
+             }
+             ctx.R($"relief extras: {boulders} boulders on 18-44° slopes of the new land, {clutter} more branches / pebbles over the map (48/ha)");
+@@ -1453,7 +1463,9 @@ namespace Snow.EditorTools
+                         int pick = rnd.Next(mixTotal), acc = 0;
+                         string m = mix[mix.Count - 1].m;
+                         foreach (var g in mix) { acc += g.n; if (pick < acc) { m = g.m; break; } }
+-                        if (AddTree(m, px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, GenScaleMin + R01() * GenScaleRange)) infill++;
++                        float rot = R01() * Mathf.PI * 2f, sc = GenScaleMin + R01() * GenScaleRange;
++                        if (keepClear.Contains(Cell(px, pz))) { clearInfill++; continue; }
++                        if (AddTree(m, px, HeightAt(px, pz), pz, rot, sc)) infill++;
+                     }
+             }
+             ctx.R($"old yard clearing outside the smaller yard: {infill} trees");
+@@ -1466,7 +1478,10 @@ namespace Snow.EditorTools
+                     if (R01() > SaplingChance) continue;
+                     float px = x + (R01() - 0.5f) * SaplingSpacing * 0.9f, pz = z + (R01() - 0.5f) * SaplingSpacing * 0.9f;
+                     if (occupied.Contains(Cell(px, pz)) || NearBuilding(px, pz) || !FreeFloor(px, pz, 32f)) continue;
+-                    if (AddTree(Saplings[rnd.Next(Saplings.Length)], px, HeightAt(px, pz), pz, R01() * Mathf.PI * 2f, 0.3f + R01() * 0.35f)) saplings++;
++                    string sm = Saplings[rnd.Next(Saplings.Length)];
++                    float rot = R01() * Mathf.PI * 2f, sc = 0.3f + R01() * 0.35f;
++                    if (keepClear.Contains(Cell(px, pz))) { clearSaplings++; continue; }
++                    if (AddTree(sm, px, HeightAt(px, pz), pz, rot, sc)) saplings++;
+                 }
+             // 4. ground cover: ferns and weeds on the free floor of every tile (~0.11 per m²)
+             int cover = 0;
+@@ -1484,12 +1499,17 @@ namespace Snow.EditorTools
+                             if (roll >= pf + pw) continue;
+                             if (!FreeFloor(px, pz, 38f) || (InData(px, pz) && NearBuilding(px, pz))) continue;
+                             string m = roll < pf ? (R01() < 0.5f ? "Fern_1" : "Fern_2") : DetailOrder[2 + rnd.Next(3)];
+-                            if (AddDetail(m, px, pz, 0.8f + R01() * 0.45f)) cover++;
++                            float cs = 0.8f + R01() * 0.45f;
++                            if (keepClear.Contains(Cell(px, pz))) { clearCover++; continue; }
++                            if (AddDetail(m, px, pz, cs)) cover++;
+                         }
+                 }
+             ctx.R($"generated: {genTrees} trees on the new tiles (~{GenTreeSpacing} m grid), {genRocks} rocks / stumps / snags and {genDetails} branches / pebbles " +
+                   $"at the package's densities, {saplings} saplings in the package square (~{SaplingChance / (SaplingSpacing * SaplingSpacing) * 10000f:0}/ha), " +
+                   $"{cover} ferns and weeds of ground cover (~{FernsPerM2 + WeedsPerM2:0.00}/m² of free floor)");
++            ctx.R($"u7 keep-clear: {L.u7?.keepClear?.Length ?? 0} strips, {keepClear.Count} cells of 2 m; kept off them: {clearInfill} old yard trees, " +
++                  $"{clearSaplings} saplings, {clearClutter} branches / pebbles, {clearCover} ferns and weeds (the new land's planting never reaches " +
++                  $"the strips: they lie in the package square)");
+ 
+             // prototypes and instances per tile
+             var tprotos = protoPaths.Select(p => new TreePrototype { prefab = AssetDatabase.LoadAssetAtPath<GameObject>(p), bendFactor = 0f }).ToArray();
+@@ -1530,6 +1550,49 @@ namespace Snow.EditorTools
+ 
+         static Vector3 V3(float[] a) => new Vector3(a[0], a[1], a[2]);
+ 
++        /// <summary>2 m cells (<paramref name="cell"/> keys) within r of any u7.keepClear segment (exact segment-to-square distance).</summary>
++        static HashSet<long> KeepClearCells(Layout L, Func<float, float, long> cell)
++        {
++            var cells = new HashSet<long>();
++            if (L.u7?.keepClear == null) return cells;
++            foreach (Strip k in L.u7.keepClear)
++            {
++                if (k?.a == null || k.b == null || k.a.Length < 2 || k.b.Length < 2) continue;
++                Vector2 a = new Vector2(k.a[0], k.a[1]), b = new Vector2(k.b[0], k.b[1]);
++                int x0 = Mathf.FloorToInt((Mathf.Min(a.x, b.x) - k.r) / 2f), x1 = Mathf.FloorToInt((Mathf.Max(a.x, b.x) + k.r) / 2f);
++                int z0 = Mathf.FloorToInt((Mathf.Min(a.y, b.y) - k.r) / 2f), z1 = Mathf.FloorToInt((Mathf.Max(a.y, b.y) + k.r) / 2f);
++                for (int cx = x0; cx <= x1; cx++)
++                    for (int cz = z0; cz <= z1; cz++)
++                        if (SegmentToSquare(a, b, new Vector2(cx * 2f, cz * 2f), 2f) <= k.r) cells.Add(cell(cx * 2f + 1f, cz * 2f + 1f));
++            }
++            return cells;
++        }
++
++        /// <summary>Distance from segment a-b to the axis-aligned square [lo, lo + size]² (0 when they touch).</summary>
++        static float SegmentToSquare(Vector2 a, Vector2 b, Vector2 lo, float size)
++        {
++            Vector2 hi = lo + new Vector2(size, size);
++            bool Inside(Vector2 p) => p.x >= lo.x && p.x <= hi.x && p.y >= lo.y && p.y <= hi.y;
++            if (Inside(a) || Inside(b)) return 0f;
++            float PointToSquare(Vector2 p) => new Vector2(Mathf.Max(lo.x - p.x, 0f, p.x - hi.x), Mathf.Max(lo.y - p.y, 0f, p.y - hi.y)).magnitude;
++            float PointToSeg(Vector2 p)
++            {
++                Vector2 d = b - a;
++                float t = d.sqrMagnitude > 1e-8f ? Mathf.Clamp01(Vector2.Dot(p - a, d) / d.sqrMagnitude) : 0f;
++                return (a + d * t - p).magnitude;
++            }
++            Vector2[] c = { lo, new Vector2(hi.x, lo.y), hi, new Vector2(lo.x, hi.y) };
++            for (int i = 0; i < 4; i++)                                   // the segment crosses an edge
++            {
++                Vector2 p = c[i], q = c[(i + 1) % 4], r = b - a, e = q - p;
++                float den = r.x * e.y - r.y * e.x;
++                if (Mathf.Abs(den) < 1e-8f) continue;
++                float t = ((p.x - a.x) * e.y - (p.y - a.y) * e.x) / den, u = ((p.x - a.x) * r.y - (p.y - a.y) * r.x) / den;
++                if (t >= 0f && t <= 1f && u >= 0f && u <= 1f) return 0f;
++            }
++            return Mathf.Min(Mathf.Min(PointToSquare(a), PointToSquare(b)), Mathf.Min(Mathf.Min(PointToSeg(c[0]), PointToSeg(c[1])), Mathf.Min(PointToSeg(c[2]), PointToSeg(c[3]))));
++        }
++
+         /// <summary>Chain-link sections of the smaller yard: drawn in towards the building they would overlap by a third, so
+         /// going round the yard only sections at least 2.7 m from the last kept one stay; none in the moved gate's opening.</summary>
+         static HashSet<Placed> YardFence(Layout L)

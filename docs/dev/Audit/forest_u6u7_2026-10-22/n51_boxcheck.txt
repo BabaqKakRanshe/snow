@@ -1,0 +1,10 @@
+FREE teeth_post_NE (345.44; 7.95; -244.61)
+FREE teeth_post_NE (345.61; 7.99; -244.79)
+FREE teeth_post_NE (345.77; 8.03; -244.98)
+FREE teeth_post_NE (345.94; 8.08; -245.16)
+FREE teeth_post_NE (346.11; 8.12; -245.35)
+FREE teeth_post_NE (346.28; 8.16; -245.54)
+teeth_post_NE: 1539 points, 6 free
+teeth_rest_NW: 1035 points, 0 free
+KPP_post: 121 points, 0 free
+KPP_rest: 121 points, 0 free

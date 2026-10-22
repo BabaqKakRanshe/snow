@@ -47,6 +47,7 @@ namespace Snow.EditorTools
             var radius = new List<float>();
             var placed = new List<Transform>();
             int moved = 0, cleared = 0;
+            ForestPlacedHeights.Data kept = ForestPlacedHeights.Load();
             foreach (Transform t in structures.Cast<Transform>().ToArray())
             {
                 if (!ForestYardPlan.Structures.Contains(t.name)) continue;
@@ -59,7 +60,9 @@ namespace Snow.EditorTools
                 float dy = ForestRelocationStepGround(tiles, meta, plan) - ForestRelocationStepGround(tiles, meta, orig);
                 Vector3 at = new Vector3(plan.x, orig.y + dy, plan.z);
                 // a second run measures ground it levelled itself: keep the first run's height for the same structure
-                if (root.TryGetComponent(out ForestRelocation prev) && prev.yardFrom != null)
+                // (ForestPlacedHeights first: it survives a rebuild, the component does not)
+                if (ForestPlacedHeights.YardHeight(kept, orig, out float keptY)) at.y = keptY;
+                else if (root.TryGetComponent(out ForestRelocation prev) && prev.yardFrom != null)
                     for (int k = 0; k < prev.yardFrom.Length && k < prev.yardTo.Length; k++)
                         if (Flat(prev.yardFrom[k] - orig) < 0.05f) { at.y = prev.yardTo[k].y; break; }
                 t.SetPositionAndRotation(at, new Quaternion(e.q[0], e.q[1], e.q[2], e.q[3]));
@@ -95,6 +98,9 @@ namespace Snow.EditorTools
             rel.yardTo = to.ToArray();
             rel.yardRadius = radius.ToArray();
             EditorUtility.SetDirty(rel);
+            kept.yardFrom = rel.yardFrom;
+            kept.yardTo = rel.yardTo;
+            ForestPlacedHeights.Save(kept);
             Debug.Log($"[Snow] Forest yard: {moved} structures drawn in x{ForestYardPlan.Scale} towards the main building (yard area / 2), " +
                       $"{pushed} pushed apart where the drawn-in footprints overlapped, power line scaled with them, ground levelled, {cleared} trees cleared; asphalt and chain-link from the bake.");
         }

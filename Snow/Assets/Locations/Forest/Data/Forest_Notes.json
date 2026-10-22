@@ -23,8 +23,8 @@
    "title": "Notstrom — Inbetriebnahme / Аварийное питание — запуск",
    "author": "Technik",
    "date": "",
-   "de": "1. Tagestank füllen: Handpumpe am Tanklager, Kanister, Einfüllkasten außen am Container (HEIZÖL).\n2. Vorglühen 10 s, dann Hebel START am Generatorpult.\n3. Leistungsschalter im Container EIN.\n4. Hauptschalter im Hauptgebäude, Schaltraum UG.\nTagestank 60 l reicht für ca. 17 Stunden.",
-   "ru": "1. Заправить расходный бак: ручной насос у баков ГСМ, канистра, заливной лючок снаружи контейнера (HEIZÖL).\n2. Прогрев 10 с, затем рычаг START на пульте генератора.\n3. Рубильник в контейнере — ВКЛ.\n4. Главный рубильник в основном корпусе, щитовая в подвале.\n60 л хватает примерно на 17 часов."
+   "de": "1. Tagestank füllen: Handpumpe am Tanklager, Kanister, Einfüllkasten außen am Container (DIESEL).\n2. Vorglühen 10 s, dann Schlüssel am Generatorpult auf START.\n3. Leistungsschalter im Container EIN.\n4. Hauptschalter im Hauptgebäude, Schaltraum UG.\nTagestank 100 l reicht für ca. 28 Stunden.",
+   "ru": "1. Заправить расходный бак: ручной насос у баков ГСМ, канистра, заливной лючок снаружи контейнера (DIESEL).\n2. Прогрев 10 с, затем ключ на пульте генератора — в положение START.\n3. Рубильник в контейнере — ВКЛ.\n4. Главный рубильник в основном корпусе, щитовая в подвале.\n100 л хватает примерно на 28 часов."
   },
   {
    "id": "lobby_notice",

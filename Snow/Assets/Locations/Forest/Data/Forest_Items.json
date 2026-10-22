@@ -21,7 +21,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 308
+   "tris": 458
   },
   {
    "model": "Item_Backpack",
@@ -42,7 +42,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 268
+   "tris": 502
   },
   {
    "model": "Item_BinderBlue",
@@ -63,7 +63,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 104
+   "tris": 92
   },
   {
    "model": "Item_BinderRed",
@@ -84,7 +84,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 104
+   "tris": 92
   },
   {
    "model": "Item_Book",
@@ -105,7 +105,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 12
+   "tris": 48
   },
   {
    "model": "Item_BookOpen",
@@ -126,7 +126,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 24,
+   "tris": 76,
    "readable": true
   },
   {
@@ -148,7 +148,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 36
+   "tris": 138
   },
   {
    "model": "Item_Boots",
@@ -169,7 +169,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 264
+   "tris": 794
   },
   {
    "model": "Item_BottleBeer",
@@ -190,7 +190,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 188
+   "tris": 356
   },
   {
    "model": "Item_BottleBeerLying",
@@ -211,7 +211,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 188
+   "tris": 354
   },
   {
    "model": "Item_BottleSchnapps",
@@ -232,7 +232,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 188
+   "tris": 256
   },
   {
    "model": "Item_BottleWater",
@@ -253,7 +253,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 168
+   "tris": 272
   },
   {
    "model": "Item_BoxLarge",
@@ -274,7 +274,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 12
+   "tris": 162
   },
   {
    "model": "Item_BoxOpen",
@@ -295,7 +295,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 36
+   "tris": 188
   },
   {
    "model": "Item_BoxSmall",
@@ -316,7 +316,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 12
+   "tris": 162
   },
   {
    "model": "Item_BreadMouldy",
@@ -337,7 +337,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 104
+   "tris": 222
   },
   {
    "model": "Item_Broom",
@@ -358,7 +358,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 468
+   "tris": 492
   },
   {
    "model": "Item_Bucket",
@@ -379,7 +379,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 172
+   "tris": 428
   },
   {
    "model": "Item_BucketWater",
@@ -400,7 +400,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 216
+   "tris": 448
   },
   {
    "model": "Item_Butts",
@@ -421,7 +421,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 192
+   "tris": 269
   },
   {
    "model": "Item_CableReel",
@@ -442,7 +442,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 264
+   "tris": 452
   },
   {
    "model": "Item_CanCrushed",
@@ -463,7 +463,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 76
+   "tris": 292
   },
   {
    "model": "Item_CanGreen",
@@ -484,7 +484,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 240
+   "tris": 256
   },
   {
    "model": "Item_CanRed",
@@ -505,7 +505,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 240
+   "tris": 256
   },
   {
    "model": "Item_CardboardFlat",
@@ -526,7 +526,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 12
+   "tris": 24
   },
   {
    "model": "Item_Cards",
@@ -547,7 +547,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 96
+   "tris": 108
   },
   {
    "model": "Item_CigPack",
@@ -589,7 +589,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 12
+   "tris": 108
   },
   {
    "model": "Item_Clipboard",
@@ -610,7 +610,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 26,
+   "tris": 236,
    "readable": true
   },
   {
@@ -632,7 +632,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 48
+   "tris": 1012
   },
   {
    "model": "Item_Dustpan",
@@ -653,7 +653,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 76
+   "tris": 60
   },
   {
    "model": "Item_Envelope",
@@ -674,7 +674,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 12
+   "tris": 136
   },
   {
    "model": "Item_Flashlight",
@@ -695,7 +695,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 448,
+   "tris": 388,
    "light": {
     "p": [
      -0.133,
@@ -751,7 +751,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 72
+   "tris": 260
   },
   {
    "model": "Item_Headphones",
@@ -772,7 +772,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 200
+   "tris": 408
   },
   {
    "model": "Item_Jar",
@@ -793,7 +793,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 228
+   "tris": 258
   },
   {
    "model": "Item_Jerrycan20",
@@ -814,7 +814,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 692,
+   "tris": 502,
    "capacityL": 20.0,
    "massEmptyKg": 4.0,
    "massFullKg": 18.5,
@@ -848,7 +848,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 240
+   "tris": 580
   },
   {
    "model": "Item_Key_Garage",
@@ -869,7 +869,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 200,
+   "tris": 362,
    "key": "Garage"
   },
   {
@@ -891,7 +891,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 200,
+   "tris": 362,
    "key": "Generator"
   },
   {
@@ -913,7 +913,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 200,
+   "tris": 362,
    "key": "Hauptgebäude"
   },
   {
@@ -935,7 +935,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 200,
+   "tris": 362,
    "key": "Schranke"
   },
   {
@@ -957,7 +957,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 12
+   "tris": 88
   },
   {
    "model": "Item_Medicine",
@@ -999,7 +999,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 384
+   "tris": 1064
   },
   {
    "model": "Item_MugGreen",
@@ -1020,7 +1020,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 190
+   "tris": 290
   },
   {
    "model": "Item_MugTipped",
@@ -1041,7 +1041,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 190
+   "tris": 290
   },
   {
    "model": "Item_MugWhite",
@@ -1062,7 +1062,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 190
+   "tris": 290
   },
   {
    "model": "Item_Newspaper",
@@ -1083,7 +1083,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 12
+   "tris": 88
   },
   {
    "model": "Item_NewspaperOpen",
@@ -1104,7 +1104,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 24
+   "tris": 360
   },
   {
    "model": "Item_Note",
@@ -1125,7 +1125,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 8,
+   "tris": 136,
    "readable": true
   },
   {
@@ -1147,7 +1147,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 8,
+   "tris": 136,
    "readable": true
   },
   {
@@ -1169,7 +1169,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 100
+   "tris": 248
   },
   {
    "model": "Item_Padlock",
@@ -1190,7 +1190,7 @@
    },
    "kind": "opening",
    "clean": false,
-   "tris": 134
+   "tris": 312
   },
   {
    "model": "Item_PaintCan",
@@ -1211,7 +1211,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 212
+   "tris": 296
   },
   {
    "model": "Item_Pan",
@@ -1232,7 +1232,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 136
+   "tris": 422
   },
   {
    "model": "Item_PaperBall",
@@ -1253,7 +1253,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 24
+   "tris": 80
   },
   {
    "model": "Item_PaperBallB",
@@ -1274,7 +1274,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 32
+   "tris": 80
   },
   {
    "model": "Item_PaperStack",
@@ -1295,7 +1295,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 96
+   "tris": 192
   },
   {
    "model": "Item_PhotoFrame",
@@ -1316,7 +1316,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 58
+   "tris": 520
   },
   {
    "model": "Item_PhotoLoose",
@@ -1337,7 +1337,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 12,
+   "tris": 60,
    "readable": true
   },
   {
@@ -1359,7 +1359,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 80
+   "tris": 400
   },
   {
    "model": "Item_PlateDirty",
@@ -1380,7 +1380,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 120
+   "tris": 524
   },
   {
    "model": "Item_Pot",
@@ -1401,7 +1401,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 304
+   "tris": 488
   },
   {
    "model": "Item_Radio",
@@ -1422,7 +1422,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 148
+   "tris": 276
   },
   {
    "model": "Item_Rag",
@@ -1443,7 +1443,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 16
+   "tris": 436
   },
   {
    "model": "Item_RopeCoil",
@@ -1464,7 +1464,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 320
+   "tris": 1232
   },
   {
    "model": "Item_Rug",
@@ -1485,7 +1485,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 2
+   "tris": 732
   },
   {
    "model": "Item_Sack",
@@ -1506,7 +1506,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 36
+   "tris": 316
   },
   {
    "model": "Item_Screwdriver",
@@ -1527,7 +1527,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 56
+   "tris": 108
   },
   {
    "model": "Item_Soap",
@@ -1548,7 +1548,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 44
+   "tris": 124
   },
   {
    "model": "Item_StickyNote",
@@ -1569,7 +1569,7 @@
    },
    "kind": "paper",
    "clean": false,
-   "tris": 12,
+   "tris": 32,
    "readable": true
   },
   {
@@ -1591,7 +1591,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 152
+   "tris": 316
   },
   {
    "model": "Item_TinLying",
@@ -1612,7 +1612,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 140
+   "tris": 346
   },
   {
    "model": "Item_TinOpen",
@@ -1633,7 +1633,7 @@
    },
    "kind": "trash",
    "clean": true,
-   "tris": 140
+   "tris": 384
   },
   {
    "model": "Item_ToiletRolls",
@@ -1654,7 +1654,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 312
+   "tris": 372
   },
   {
    "model": "Item_Toolbox",
@@ -1675,7 +1675,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 196
+   "tris": 224
   },
   {
    "model": "Item_ToothCup",
@@ -1696,7 +1696,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 96
+   "tris": 202
   },
   {
    "model": "Item_Towel",
@@ -1738,7 +1738,7 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 138
+   "tris": 314
   },
   {
    "model": "Item_WoodCrate",
@@ -1759,7 +1759,7 @@
    },
    "kind": "prop",
    "clean": false,
-   "tris": 540
+   "tris": 240
   },
   {
    "model": "Item_Wrench",
@@ -1780,7 +1780,37 @@
    },
    "kind": "tool",
    "clean": false,
-   "tris": 52
+   "tris": 92
+  },
+  {
+   "model": "Item_RadioSet",
+   "label": "Рация",
+   "itemKey": "Item_RadioSet",
+   "massKg": 6.0,
+   "collider": {
+    "center": [
+     0.0,
+     0.06,
+     0.001
+    ],
+    "size": [
+     0.324,
+     0.12,
+     0.242
+    ]
+   },
+   "kind": "prop",
+   "clean": false,
+   "tris": 828,
+   "display": {
+    "off": "M_RadioDisplay",
+    "on": "M_RadioDisplayOn"
+   },
+   "speaker": [
+    0.0,
+    0.12,
+    -0.06
+   ]
   }
  ]
 }

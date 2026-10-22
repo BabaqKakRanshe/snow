@@ -1,0 +1,5 @@
+items in the world 231, moving > 5 cm/s 0, below terrain > 30 cm 11 Heizung_Rag_1@(339.4, 13.7, -356.5) Heizung_OilCan_1@(337.2, 13.7, -355.5) Heizung_Wrench_1@(340.0, 13.7, -357.5) Flur_UG_Broom_1@(341.7, 13.7, -361.1) Flur_UG_Dustpan_1@(339.6, 13.7, -359.6) Schaltraum_Toolbox_1@(334.9, 13.7, -361.9) Schaltraum_Screwdriver_1@(333.7, 13.7, -363.3) Schaltraum_PaperStack_1@(334.2, 13.7, -362.2) Schaltraum_Clipboard_1@(332.3, 13.7, -361.4) boiler_procedure@(335.4, 13.7, -356.8) switchroom_note@(335.1, 13.7, -362.3) 
+Funnel_Hut at (-473.40, 29.80, 403.14) up (0.00, -1.00, 0.00)
+Note_GenProcedure world (378.235, 18.048, -341.359) container-local (0.055, 1.752, 0.150) (data: (0.055; 1.752; 0.150)) yaw rel 4.0
+flashlight lens M_TorchLens -> on: M_TorchLens light False -> off: M_TorchLens light False
+
