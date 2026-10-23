@@ -1,0 +1,207 @@
+﻿id;группа;место;объект;точка;что звучит;вид;простр;микшер;источник;этап;статус;документ
+A001;База;Генераторный контейнер;GenContainer;Audio_Fan;fan roar and the belt (squeal when loose);петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A002;База;Генераторный контейнер;GenContainer;Audio_Engine;diesel: glow tick, cranking, knock, idle 1500 rpm, labouring under load, dying;петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A003;База;Генераторный контейнер;GenContainer;Audio_Alternator;alternator whine, rises with the load;петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A004;База;Генераторный контейнер;GenContainer;Audio_Board;hum of the busbar, the clack of the breakers, the changeover thunk, a breaker tripping;петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A005;База;Генераторный контейнер;GenContainer;Audio_DrumPump;clank of the crank, gurgle, splash in the tank;разовые;3D;SFX/World;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A006;База;Генераторный контейнер;GenContainer;Audio_Exhaust;exhaust beat at the stack, the flap rattling;петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A007;База;Генераторный контейнер;GenContainer;Audio_Louvre;louvre blades rattling in the wind / in the fan blast;петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A008;База;Генераторный контейнер;GenContainer;Audio_Door;cargo doors: the bars and cams, hinges groaning, wind;петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A009;База;Генераторный контейнер;GenContainer;Audio_SideDoor;side door: the latch, the hinges;разовые;3D;SFX/World;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A010;База;Генераторный контейнер;GenContainer;Audio_Roof;steel roof: ticks and booms in the cold, needles and cones dropping, footsteps up there;разовые;3D;SFX/World;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A011;База;Генераторный контейнер;GenContainer;Audio_Wind;wind through the two intake louvres in the north box's doors;петля + разовые;3D;Ambience;библиотека;демо;нет;GENCONT_FOREST_CONTRACT.md
+A012;База;Главный корпус;BaseMain;Audio_Burner;the oil burner: ignition click, the roar, the fault hum;петля + разовые;3D;Ambience;библиотека;демо;нет;MAIN_CONTRACT.md
+A013;База;Главный корпус;BaseMain;Audio_Boiler;the boiler ticks as it heats and cools;разовые;3D;SFX/World;библиотека;демо;нет;MAIN_CONTRACT.md
+A014;База;Главный корпус;BaseMain;Audio_ServerRacks;fans and relays in the racks (with power);разовые;3D;SFX/World;библиотека;демо;нет;MAIN_CONTRACT.md
+A015;База;Главный корпус;BaseMain;Audio_Fridge;the fridge hums and clicks (with power);петля + разовые;3D;Ambience;библиотека;демо;нет;MAIN_CONTRACT.md
+A016;База;Главный корпус;BaseMain;Audio_Chimney;wind in the flue;петля + разовые;3D;Ambience;библиотека;демо;нет;MAIN_CONTRACT.md
+A017;База;Главный корпус;BaseMain;Audio_GarageGate;the gate: springs, the steel rattles;разовые;3D;SFX/World;библиотека;демо;нет;MAIN_CONTRACT.md
+A018;База;Двор;Pump;Audio_Pump;насос: всхлип-щелчок на каждом ходе, бульканье в канистре;разовые;3D;SFX/World;библиотека;демо;нет;YARD_CONTRACT.md
+A019;База;Двор;FuelTanks;Audio_Tank_T1;"бак 1 гудит, если по нему стукнуть; плеск";петля + разовые;3D;Ambience;библиотека;демо;нет;YARD_CONTRACT.md
+A020;База;Двор;FuelTanks;Audio_Tank_T2;бак 2 почти пуст: стук отдаётся гулко;петля + разовые;3D;Ambience;библиотека;демо;нет;YARD_CONTRACT.md
+A021;База;Двор;FuelTanks;Audio_Stile;шаги по оцинкованной решётке перехода;разовые;3D;SFX/World;библиотека;демо;нет;YARD_CONTRACT.md
+A022;База;Двор;Trafo;Audio_TrafoHum;гул трансформатора, когда линия под напряжением (в прологе тихо: станция на генераторе);петля + разовые;3D;Ambience;библиотека;демо;нет;YARD_CONTRACT.md
+A023;База;Двор;IX_TrafoGate_91;Audio_TrafoGate;скрип петель калитки;разовые;3D;SFX/World;библиотека;демо;нет;YARD_CONTRACT.md
+A024;База;Двор;Trafo;Audio_Wires;провода гудят на ветру, изоляторы трещат в дождь;петля + разовые;3D;Ambience;библиотека;демо;нет;YARD_CONTRACT.md
+A025;База;Вертолётка, мачта, шахта;Hatch;Audio_ShaftVent;the shaft breathes through the vent: a low draught, now and then a knock from below;петля + разовые;3D;Ambience;библиотека;демо;нет;BASE_CONTRACT.md
+A026;База;Вертолётка, мачта, шахта;Hatch;Audio_HatchLock;the padlock knocks against the staple in the wind;петля + разовые;3D;Ambience;библиотека;демо;нет;BASE_CONTRACT.md
+A027;База;Вертолётка, мачта, шахта;Helipad;Audio_Windsock;the windsock flaps, the swivel squeaks;петля + разовые;3D;Ambience;библиотека;демо;нет;BASE_CONTRACT.md
+A028;База;Вертолётка, мачта, шахта;RadioMast;Audio_MastGuys;the guys hum in the wind, ice drops from the lattice;петля + разовые;3D;Ambience;библиотека;демо;нет;BASE_CONTRACT.md
+A029;База;Вертолётка, мачта, шахта;PowerPole;Audio_LineHum;the line hums when the generator runs (the power grid on), the insulators crackle in rain;петля + разовые;3D;Ambience;библиотека;демо;нет;BASE_CONTRACT.md
+A030;База;Гараж;Garage;Audio_GarageGate;the gate: the springs, the steel rattles, the lock rods;разовые;3D;SFX/World;библиотека;демо;нет;GARAGE_CONTRACT.md
+A031;База;Гараж;Garage;Audio_GarageFluor;the fittings hum (with power);петля + разовые;3D;Ambience;библиотека;демо;нет;GARAGE_CONTRACT.md
+A032;База;Гараж;Garage;Audio_GarageRoof;rain and wind on the steel roof and walls;петля + разовые;3D;Ambience;библиотека;демо;нет;GARAGE_CONTRACT.md
+A033;База;КПП;Checkpoint;Audio_Phone;телефон: два звонка (звонок 70-х), в трубке тишина, потом дыхание (X05);разовые;3D;SFX/World;библиотека;демо;нет;KPP_CONTRACT.md
+A034;База;КПП;Checkpoint;Audio_PhoneBell;звонок снаружи звенит вместе с телефоном (X05);разовые;3D;SFX/World;библиотека;демо;нет;KPP_CONTRACT.md
+A035;База;КПП;Checkpoint;Audio_Fluor;лампа: гудит и щёлкает, пока мигает;петля + разовые;3D;Ambience;библиотека;демо;нет;KPP_CONTRACT.md
+A036;База;КПП;Checkpoint;Audio_Radio;рация: шипение, кто-то считает (журнал охраны);разовые;3D;SFX/World;библиотека + ИИ-голос;демо;нет;KPP_CONTRACT.md
+A037;База;КПП;Checkpoint;Audio_BoothDoor;дверь: защёлка, петли;разовые;3D;SFX/World;библиотека;демо;нет;KPP_CONTRACT.md
+A038;База;КПП;Checkpoint;Audio_Roof;жестяная крыша: дождь, иглы, шаги;разовые;3D;SFX/World;библиотека;демо;нет;KPP_CONTRACT.md
+A039;База;КПП;Barrier;Audio_Barrier;шлагбаум: скрипит вал, противовес глухо стукает наверху;разовые;3D;SFX/World;библиотека;демо;нет;KPP_CONTRACT.md
+A040;База;КПП;IX_Gate_81;Audio_Gate;колёса скрежещут по рельсу, дребезжит сетка;разовые;3D;SFX/World;библиотека;демо;нет;KPP_CONTRACT.md
+A041;База;КПП;Gate;Audio_GateCatch;ловитель лязгает, когда ворота закрываются;разовые;3D;SFX/World;библиотека;демо;нет;KPP_CONTRACT.md
+A042;Лес;Избушка;TowerHut;Audio_Lantern;фонарь: шипит пламя, скрипит дужка на ветру;петля + разовые;3D;Ambience;библиотека;демо;нет;HUT_CONTRACT.md
+A043;Лес;Избушка;TowerHut;Audio_Stove;печка: треск, металл тикает, нагреваясь и остывая;петля + разовые;3D;Ambience;библиотека;демо;нет;HUT_CONTRACT.md
+A044;Лес;Избушка;TowerHut;Audio_Roof;жестяная крыша: дождь, иглы и шишки, ветки скребут, шаги по крыше;разовые;3D;SFX/World;библиотека;демо;нет;HUT_CONTRACT.md
+A045;Лес;Избушка;TowerHut;Audio_Door;дверь: скрип петель, хлопает на ветру;разовые;3D;SFX/World;библиотека;демо;нет;HUT_CONTRACT.md
+A046;Лес;Избушка;TowerHut;Audio_Window;окно: ветер в раме, стук по стеклу;петля + разовые;3D;Ambience;библиотека;демо;нет;HUT_CONTRACT.md
+A047;Лес;Дорога;Bridge30;Audio_BridgePlanks;the deck: loose planks knock under feet and wheels;разовые;3D;SFX/World;библиотека;демо;нет;ROAD_CONTRACT.md
+A048;Лес;Дорога;Bridge30;Audio_BridgeCreek;the stream in the ravine under the bridge;петля + разовые;3D;Ambience;библиотека;демо;нет;ROAD_CONTRACT.md
+A049;Лес;Дорога;Bridge30;Audio_BridgeTimber;the timber creaks in the cold;разовые;3D;SFX/World;библиотека;демо;нет;ROAD_CONTRACT.md
+A050;Лес;Дорога;ZoneGate;Audio_GateChain;the chain and the padlock knock against the tubes in the wind;петля + разовые;3D;Ambience;библиотека;демо;нет;ROAD_CONTRACT.md
+A051;Лес;Дорога;ZoneGate;Audio_GateWire;the barbed wire hums in the wind;петля + разовые;3D;Ambience;библиотека;демо;нет;ROAD_CONTRACT.md
+A052;Лес;Дорога;OverlookDeck;Audio_OverlookWind;wind over the lake, the binoculars' cap rattles;петля + разовые;3D;Ambience;библиотека;демо;нет;ROAD_CONTRACT.md
+A053;Лес;Дорога;FallenTree;Audio_Windfall;the gap in the windfall (the road between the cuts);петля + разовые;3D;Ambience;библиотека;демо;нет;ROAD_CONTRACT.md
+A054;Лес;Дальние объекты;Dish_1;Audio_Dish_1_Drive;the azimuth drives: a hum, now and then a clunk (the dish never turns);петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A055;Лес;Дальние объекты;Dish_2;Audio_Dish_2_Drive;the azimuth drives: a hum, now and then a clunk (the dish never turns);петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A056;Лес;Дальние объекты;Dish_3;Audio_Dish_3_Drive;the azimuth drives: a hum, now and then a clunk (the dish never turns);петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A057;Лес;Дальние объекты;Dish_4;Audio_Dish_4_Drive;the azimuth drives: a hum, now and then a clunk (the dish never turns);петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A058;Лес;Дальние объекты;Dish_5;Audio_Dish_5_Drive;the azimuth drives: a hum, now and then a clunk (the dish never turns);петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A059;Лес;Дальние объекты;Radome;Audio_RadomeHum;the shelter's air conditioner;петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A060;Лес;Дальние объекты;RelayMast;Audio_RelayWind;wind in the lattice, the feeders knock;петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A061;Лес;Дальние объекты;MeteoStation;Audio_MeteoCups;the anemometer's cups whirr, the vane creaks;петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A062;Лес;Дальние объекты;LookoutTower;Audio_LookoutCab;the cab's windows rattle, the tower creaks in the wind;петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A063;Лес;Дальние объекты;PumpHouse;Audio_PumpHum;the pump (silent unless the power grid is on);разовые;3D;SFX/World;библиотека;демо;нет;FAR_CONTRACT.md
+A064;Лес;Дальние объекты;Chapel;Audio_ChapelBell;the bell knocks in the wind;петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A065;Лес;Дальние объекты;Cabin;Audio_CabinStove;the cold stove ticks;разовые;3D;SFX/World;библиотека;демо;нет;FAR_CONTRACT.md
+A066;Лес;Дальние объекты;Campsite;Audio_CampTent;the tent's fabric flaps;петля + разовые;3D;Ambience;библиотека;демо;нет;FAR_CONTRACT.md
+A067;Фургон;Буханка;Kit_Front;Audio_Horn;"сигнал; в метель по нему находят машину";петля + разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT.md
+A068;Фургон;Буханка;Dash;Audio_Radio;рация: шипение, шумодав, щелчки каналов, голоса;петля + разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT.md
+A069;Фургон;Буханка;EngineBay;Audio_Engine;УМЗ-451М: стартер (слабый аккумулятор — медленнее, разряжен — щелчки), схватывает, холостые 600, обороты до 4200 под нагрузкой и без, троит, глохнет, свист ремня, пар;петля + разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT.md
+A070;Фургон;Буханка;Dash;Audio_Heater;вентилятор печки;петля + разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT.md
+A071;Фургон;Буханка;Kuzov;Audio_Wipers;дворники, 40 ходов в минуту;петля + разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT.md
+A072;Фургон;Буханка;Stove;Audio_Stove;буржуйка в салоне: дверца, заслонка, треск огня, дым;петля + разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT.md
+A073;Фургон;Буханка;Kuzov;Audio_Tyres;шины на 5 поверхностях (утоптанный снег, дорога, рыхлый снег, лёд, песок), занос, цепи;петля + разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT.md
+A074;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Radio;cabin speaker under the overhead console (radio voices);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A075;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Headset_P;pilot headset hanging behind the seat (whispers);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A076;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Headset_C;right headset hanging behind the seat;петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A077;Самолёт;Самолёт;UtilityPlane;Socket_Audio_StallHorn;stall warning horn, upper left corner of the windshield;петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A078;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Bay;cargo bay (creaks, cargo shifting);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A079;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Roof;on top of the wing centre section (steps);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A080;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Belly;under the cabin floor (knocks);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A081;Самолёт;Самолёт;UtilityPlane;Socket_Audio_ELT;emergency locator transmitter in the tail cone;петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A082;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Wind_L;left door seal (whistle);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A083;Самолёт;Самолёт;UtilityPlane;Socket_Audio_Wind_R;right door seal (whistle);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A084;Самолёт;Самолёт;UtilityPlane;Socket_Audio_FuelTank_L;left wing tank (sloshing);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A085;Самолёт;Самолёт;UtilityPlane;Socket_Audio_FuelTank_R;right wing tank (sloshing);петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;UtilityPlane/Data/horror.json
+A086;Игрок;;Шаги;;снег утоптанный: ходьба, присед, бег (8–12 вариантов на режим);набор;3D сеть;SFX/Player;библиотека;демо;нет;"RESEARCH_AUDIO §4.6; MONSTERS.md:58"
+A087;Игрок;;Шаги;;снег рыхлый / глубокий;набор;3D сеть;SFX/Player;библиотека;демо;нет;RESEARCH_AUDIO §4.6
+A088;Игрок;;Шаги;;"наст и лёд; слой «скрип» при ясном морозе";набор;3D сеть;SFX/Player;библиотека;демо;нет;RESEARCH_SURVIVAL.md:136
+A089;Игрок;;Шаги;;лесная подстилка / земля тропы;набор;3D сеть;SFX/Player;библиотека;демо;нет;слои террейна ForestFloor, TrailSoil
+A090;Игрок;;Шаги;;гравий (дорога, крыша X06);набор;3D сеть;SFX/Player;библиотека;демо;нет;"RoadGravel; FOREST_OPENING X06"
+A091;Игрок;;Шаги;;асфальт;набор;3D сеть;SFX/Player;библиотека;демо;нет;слой Asphalt
+A092;Игрок;;Шаги;;камень;набор;3D сеть;SFX/Player;библиотека;демо;нет;слой Rock
+A093;Игрок;;Шаги;;грязь, лужа, колея;набор;3D сеть;SFX/Player;библиотека;демо;нет;RoadRuts
+A094;Игрок;;Шаги;;дерево: доски, мост, пол избушки;набор;3D сеть;SFX/Player;библиотека;демо;нет;ROAD_CONTRACT
+A095;Игрок;;Шаги;;линолеум;набор;3D сеть;SFX/Player;библиотека;демо;нет;MAIN_CONTRACT:41
+A096;Игрок;;Шаги;;плитка;набор;3D сеть;SFX/Player;библиотека;демо;нет;MAIN_CONTRACT
+A097;Игрок;;Шаги;;бетон (гараж, котельная);набор;3D сеть;SFX/Player;библиотека;демо;нет;MAIN_CONTRACT
+A098;Игрок;;Шаги;;металл: лист, решётка, пол контейнера, кузов;набор;3D сеть;SFX/Player;библиотека;демо;нет;YARD_CONTRACT Audio_Stile
+A099;Игрок;;Тело;;прыжок и приземление по силе (лёгкое, жёсткое);набор;3D сеть;SFX/Player;библиотека;демо;нет;HLCharacterMotor.LastLandingSpeed
+A100;Игрок;;Тело;;шорох одежды и снаряжения при движении;набор;3D;SFX/Player;библиотека;демо;нет;RESEARCH_AUDIO §4.6
+A101;Игрок;;Тело;;лестница: ступени, руки по перилам;набор;3D;SFX/Player;библиотека;демо;нет;HLCharacterMotor.Ladder
+A102;Игрок;;Тело;;дыхание: спокойное, отдышка после бега;набор;2D свой / 3D чужой;SFX/Player;библиотека;демо;нет;QUESTIONS_VOICE 2
+A103;Игрок;;Тело;;холод: пар изо рта, дрожь, стук зубов;набор;2D свой / 3D чужой;SFX/Player;библиотека;демо;нет;VISION.md §8
+A104;Игрок;;Тело;;кашель, кряхтение при усилии, боль;набор;3D сеть;SFX/Player;библиотека;демо;нет;QUESTIONS_VOICE 2–3
+A105;Игрок;;Тело;;еда и питьё (горячий чай, хруст);набор;3D;SFX/Player;библиотека;демо;нет;QUESTIONS_2 4–5
+A106;Игрок;;Тело;;смерть: падение, удар, затемнение, тишина 1–2 с;разовые;2D;SFX/Player;библиотека;демо;нет;VISION.md:27
+A107;Игрок;;Тело;;пробуждение в кровати, сон (затемнение);разовые;2D;SFX/Player;библиотека;демо;нет;ForestBunks
+A108;Игрок;;Тело;;утащили в лес: крик удаляется;разовые;3D сеть;SFX/Monster;библиотека;демо;нет;MONSTERS.md:32
+A109;Игрок;;Тело;;падение с края, сброс позиции;разовые;2D;SFX/Player;библиотека;полная;нет;LocationFallReset.cs
+A110;Предметы;;Стекло, керамика;;взять / положить / бросить / удар мягкий и сильный / разбить;набор;3D сеть;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A111;Предметы;;Металл лёгкий;;банки, консервы, кружка: взять / удар / катится;набор;3D сеть;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A112;Предметы;;Металл тяжёлый;;инструменты, ящик с инструментами, кастрюля, ведро;набор;3D сеть;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A113;Предметы;;Бумага, картон;;папки, газеты, коробки: взять / бросить / листать;набор;3D сеть;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A114;Предметы;;Записка;;открыть / закрыть в NoteReader;разовые;2D;SFX/UI;библиотека;демо;нет;NoteReader.cs
+A115;Предметы;;Мягкое;;одежда, мешки, рюкзак, тряпка: взять / упасть;набор;3D сеть;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A116;Предметы;;Дерево;;ящик 6 кг, доски: взять / удар;набор;3D сеть;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A117;Предметы;;Ключи, замок;;звяканье ключей, открыть, «заперто»;набор;3D сеть;SFX/World;библиотека;демо;нет;SkyIslandInteractable.onLocked
+A118;Предметы;;Канистра 20 л;;плеск при переноске, заливка (слот fuelPour), пролив;набор;3D сеть;SFX/World;библиотека;демо;слот в коде, клипа нет;"FuelCan.cs; ForestOpening.fuelPour"
+A119;Предметы;;Мешок для мусора;;шуршание, предмет пропадает (слот trashRustle);разовые;3D сеть;SFX/World;библиотека;демо;слот в коде, клипа нет;TrashBag.cs
+A120;Предметы;;Швабра, метла;;тереть пол 2 с, тряпкой протереть;петля;3D сеть;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A121;Предметы;;Фонарь;;щелчок вкл/выкл, смена линзы;разовые;3D сеть;SFX/World;библиотека;демо;нет;SurvivalItem.cs
+A122;Предметы;;Чайник, термос;;кипение, свист, налить;петля + разовые;3D;SFX/World;библиотека;демо;нет;ITEMS_CONTRACT.md
+A123;Предметы;;Ракетница, фальшфейер;;"выстрел, полёт, перезарядка; зажечь, горение 60 с";петля + разовые;3D сеть;SFX/World;библиотека;полная;нет;SignalFlareEffect.cs
+A124;Предметы;;Рация ручная;;вкл, шумодав, тангента вкл/выкл, батарейка садится;разовые;3D сеть;Voice/Radio;библиотека;демо;нет;VISION.md:29
+A125;Предметы;;Карманы;;взять, в карман, сменить слот, бросить, отказ (заменить синтезированные);разовые;2D;SFX/UI;библиотека;демо;заглушка (синтез в коде);PocketsHud.cs
+A126;Предметы;;Зимний комплект самолёта;;чехлы (ткань), заглушки, колодки, растяжки, подогреватель ~25 с;набор;3D сеть;SFX/World;библиотека;полная;нет;UtilityPlaneWinterKit.cs
+A127;База;;Двери;;дверь на петлях: открыть, закрыть, скрип (86 шт.);набор;3D сеть;SFX/World;библиотека;демо;нет;"NetworkDoor; 131 интерактив"
+A128;База;;Двери;;сдвижные двери и ящики (26 шт.);набор;3D сеть;SFX/World;библиотека;демо;нет;131 интерактив
+A129;База;;Двери;;засов главной двери, навесной замок;разовые;3D сеть;SFX/World;библиотека;демо;нет;MAIN_CONTRACT
+A130;База;;Ставни;;рольставни: ремённые (6), моторные (3);петля + разовые;3D сеть;SFX/World;библиотека;демо;нет;MAIN_CONTRACT
+A131;База;;Свет;;выключатель, рубильник (×3);разовые;3D сеть;SFX/World;библиотека;демо;нет;MAIN_CONTRACT
+A132;База;;Свет;;лампа дневного света: стартер, мигание, гудение дросселя;петля + разовые;3D;Ambience/Beds;библиотека;демо;нет;SkyIslandLightFixture.Event
+A133;База;;Свет;;натриевая лампа двора: прогрев 1,5 мин;петля;3D;Ambience/Beds;библиотека;демо;нет;README_BaseV2:241
+A134;База;;Свет;;лампа лопается (Ламповый), аварийный свет;разовые;3D сеть;SFX/World;библиотека;демо;нет;ENTITIES.md
+A135;База;;Котельная;;клапан, рост давления, шипение 2,5 бар, насос, горелка, STÖRUNG, сброс (слоты);петля + разовые;3D сеть;SFX/World;библиотека;демо;слот в коде, клипа нет;ForestOpening.cs Hiss/Burner*
+A136;База;;Котельная;;петля котла (слот boilerLoop), батареи тикают;петля;3D;Ambience/Beds;библиотека;демо;слот в коде, клипа нет;ForestOpening.boilerLoop
+A137;База;;Генератор;;пуск, петля работы (слот dieselLoop), останов, разгон под нагрузкой;петля + разовые;3D сеть;SFX/World;библиотека;демо;слот в коде, клипа нет;ForestOpening DieselStart/Stop
+A138;База;;Тревога;;сирена, кнопка «тихо», маячок;петля + разовые;3D сеть;SFX/World;библиотека;демо;нет;EVENTS.md:11–20
+A139;База;;Тревога;;пожарный звонок в коридоре;петля;3D сеть;SFX/World;библиотека;полная;нет;MAIN_CONTRACT:41
+A140;База;;Техника;;микроволновка сама включилась: гул, звонок (E09);петля + разовые;3D сеть;SFX/World;библиотека;полная;нет;EVENTS.md E09
+A141;База;;Техника;;красный телефон начальника;разовые;3D сеть;SFX/World;библиотека;демо;нет;DAYS.md
+A142;База;;Техника;;факс: печать прогноза и заданий;разовые;3D сеть;SFX/World;библиотека;демо;нет;VISION.md
+A143;База;;Техника;;старый ПК: вентилятор, жёсткий диск, клавиатура, писк почты;петля + разовые;3D;SFX/World;библиотека;демо;нет;VISION.md:36
+A144;База;;Техника;;мини-игры ПК: Funker (морзянка), Labyrinth, Schneemann;разовые;2D;SFX/UI;библиотека;полная;нет;VISION.md
+A145;База;;Громкоговоритель;;щелчок включения, гонг, объявления (голос), обрыв;разовые;3D сеть;Voice/Loudspeaker;ИИ-голос + библиотека;демо;нет;VISION.md:29
+A146;База;;Фон помещений;;тон комнаты по питанию: с сетью / без сети (ветер и капли);петля;2D зона;Ambience/Beds;библиотека;демо;нет;FOREST_BASE_DRESSING_GUIDE:249
+A147;База;;Фон помещений;;капли, ветер в щелях окон, щелчки реле;разовые;3D;Ambience/OneShots;библиотека;демо;нет;FOREST_BASE_DRESSING_GUIDE §4.4
+A148;База;;Стук;;стук по точкам Knock_* (ставни, окна, двери, крыши, ~70 точек): по металлу, дереву, стеклу;набор;3D сеть;SFX/Monster;библиотека;демо;нет;"FOREST_OPENING X07; *_CONTRACT knock"
+A149;Фургон;;Двери;;"двери: водитель, пассажир, сдвижная, задние; замки, люк, стёкла, бардачок";набор;3D сеть;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT
+A150;Фургон;;Кабина;;2 ключа, 8 тумблеров, поворотник и аварийка, предохранители;разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_INTEGRATION_UNITY
+A151;Фургон;;Трансмиссия;;КПП, раздатка, ручник-трещотка, педали;разовые;3D;SFX/Vehicle;библиотека;демо;нет;VAN3_CONTRACT
+A152;Фургон;;Ремонт;;ручной пуск кривым стартером, домкрат, баллонный ключ, лебёдка, буксир, прокол;набор;3D сеть;SFX/Vehicle;библиотека;полная;нет;VAN3_INTEGRATION_UNITY
+A153;Фургон;;Салон;;"паяльная лампа: насос, рёв; шторки; чайник";петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;VAN3_CONTRACT
+A154;Фургон;;Кабина изнутри;;дребезг кузова по неровности, ветер снаружи (снапшот VanCabin);петля;2D;SFX/Vehicle;библиотека;демо;нет;RESEARCH_AUDIO §4.8
+A155;Фургон;;Хоррор;;удары по 19 точкам Knock_* (крыша, стены, двери, пол);набор;3D сеть;SFX/Monster;библиотека;демо;нет;VAN3_INTEGRATION_UNITY:401
+A156;Лес;;Фон;;ветер: слой ровный, порывы, ветер на гребне (по погоде и высоте);петля;2D;Ambience/Wind;библиотека;демо;нет;RESEARCH_AUDIO §4.7
+A157;Лес;;Фон;;ельник: шум крон, скрип стволов рядом при порывах;петля + разовые;3D;Ambience/Wind;библиотека;демо;нет;FOREST_BASE_DRESSING_GUIDE:25
+A158;Лес;;Фон;;день: птицы, дятел, вороны;разовые;3D вокруг;Ambience/OneShots;библиотека;демо;нет;FOREST_BASE_DRESSING_GUIDE:190
+A159;Лес;;Фон;;сумерки и ночь: совы, треск веток вдали, олени;разовые;3D вокруг;Ambience/OneShots;библиотека;демо;нет;FOREST_BASE_DRESSING_GUIDE:193
+A160;Лес;;Фон;;снег падает с веток, мороз трещит в стволах;разовые;3D вокруг;Ambience/OneShots;библиотека;демо;нет;RESEARCH_AUDIO §2 (The Long Dark)
+A161;Лес;;Фон;;река и ручьи;петля;3D;Ambience/Beds;библиотека;демо;нет;FOREST_BASE_DRESSING_GUIDE:25
+A162;Лес;;Кости гиганта;;скрип костей на холоде, снег съезжает с рёбер (E11, X04);разовые;3D сеть;SFX/World;библиотека;демо;нет;ENTITIES.md #11
+A163;Лес;;Озеро;;лёд: скрип, треск, шаги подо льдом (Тень подо льдом);разовые;3D;SFX/World;библиотека;полная;нет;ENTITIES.md #10
+A164;Погода;;Ясный мороз;;тишина, скрипучий снег, далёкие звуки слышнее;петля;2D;Ambience/Wind;библиотека;демо;нет;VISION.md §9
+A165;Погода;;Снегопад;;мягкий шелест, приглушённый мир;петля;2D;Ambience/Wind;библиотека;демо;нет;VISION.md §9
+A166;Погода;;Туман;;сырая тишина, звуки ближе и глуше;петля;2D;Ambience/Wind;библиотека;демо;нет;VISION.md §9
+A167;Погода;;Метель;;вой ветра, снег по одежде и стёклам, хлопки;петля + разовые;2D + 3D;Ambience/Wind;библиотека;демо;нет;VISION.md §9
+A168;Погода;;Предвестник метели;;ветер растёт, низкий гул, птицы и вороны замолкают (3–5 мин);петля;2D;Ambience/Wind;библиотека;демо;нет;VISION.md:200
+A169;Погода;;Обледенение;;сбивать лёд с антенн, лёд падает;разовые;3D сеть;SFX/World;библиотека;полная;нет;VISION.md §9
+A170;Погода;;Сияние;;мёртвая техника оживает, голоса в эфире;петля + разовые;3D;Ambience/Beds;библиотека;полная;нет;VISION.md §9
+A171;Монстры;;Холодный;;бродит: сухой хруст суставов, короткий выдох носом (слышно с 30 м);набор;3D сеть;SFX/Monster;библиотека;демо;нет;MONSTERS.md
+A172;Монстры;;Холодный;;насторожен / охотится: свой звук на каждое состояние;набор;3D сеть;SFX/Monster;библиотека;демо;нет;RESEARCH_AUDIO §2
+A173;Монстры;;Холодный;;шаги по снегу и полу, предупреждение перед захватом, волочение;набор;3D сеть;SFX/Monster;библиотека;демо;нет;MONSTERS.md
+A174;Монстры;;Лесник;;шарканье, бормотание, звякают украденные вещи;набор;3D сеть;SFX/Monster;библиотека;демо;нет;MONSTERS.md
+A175;Монстры;;Лесник;;шаги в коридоре X09 (слот), скрип двери X10 (слот barracksDoorCreak);разовые;3D сеть;SFX/Monster;библиотека;демо;слот в коде, клипа нет;ForestOpening.cs
+A176;Монстры;;Двойник;;БЕЗЗВУЧЕН — примета (звук не нужен, проверить, что шаги не играют);—;—;—;—;демо;—;MONSTERS.md:58
+A177;Монстры;;Неправильный олень;;копыта (по желанию), удар о машину;разовые;3D сеть;SFX/Monster;библиотека;полная;нет;MONSTERS.md
+A178;Монстры;;Невесомые;;скрип ремней, поворот головы;разовые;3D сеть;SFX/Monster;библиотека;полная;нет;MONSTERS.md
+A179;Монстры;;Галлюцинации;;шаги, шёпот — глуше и без направления (другое микширование);набор;2D;SFX/Monster;библиотека;полная;нет;ENTITIES.md:29–31
+A180;Монстры;;Курьер;;вертолёт ночью вдалеке, никто не видит;петля;3D;SFX/World;библиотека;полная;нет;ENTITIES.md #8
+A181;Пролог;;X01;;фонарь гаснет (слот LanternOut);разовые;3D сеть;SFX/World;библиотека;демо;слот в коде, клипа нет;ForestOpening.cs:778
+A182;Пролог;;X04;;мотор чихает в тумане, фары тускнеют, кости скрипят;разовые;3D сеть;SFX/Vehicle;библиотека;демо;нет;FOREST_OPENING X04
+A183;Пролог;;X05;;телефон и звонок снаружи, дыхание в трубке (слоты PhoneRing, Bell, Breath);разовые;3D сеть;SFX/World;библиотека;демо;слот в коде, клипа нет;ForestOpening.cs:365,788
+A184;Пролог;;X06;;шаги по гравию крыши (слот RoofSteps);петля;3D сеть;SFX/Monster;библиотека;демо;слот в коде, клипа нет;ForestOpening.cs:797
+A185;Пролог;;X07;;три стука в металлическую ставню (слот Knock);разовые;3D сеть;SFX/Monster;библиотека;демо;слот в коде, клипа нет;ForestOpening.cs:807
+A186;Пролог;;X08;;радио считает по-немецки в 23:40;разовые;3D сеть;Voice/Radio;ИИ-голос;демо;нет;"FOREST_U6_UNITY:190; QUESTIONS_VOICE 4–5"
+A187;Пролог;;Насос;;скрип ручного насоса (слот pumpCreak);разовые;3D сеть;SFX/World;библиотека;демо;слот в коде, клипа нет;ForestOpening.pumpCreak
+A188;Sky Island;;Голос острова;;автомат по-немецки и по-английски: неисправности, меню 1979;разовые;3D;Voice/Loudspeaker;ИИ-голос;полная;нет;RESEARCH_HORROR §4.2
+A189;Sky Island;;Фон;;ветер на высоте, хор радиопомех в тумане;петля;2D;Ambience/Wind;библиотека;полная;нет;RESEARCH_HORROR §4.2
+A190;Sky Island;;Машины;;холодильные машины, компрессор, распылитель пыли, балласт, аварийный дизель;петля + разовые;3D;SFX/World;библиотека;полная;нет;RESEARCH_HORROR §4.2
+A191;Sky Island;;Радар;;вращение радара;петля;3D;SFX/World;библиотека;полная;нет;SkyIslandRadarRotator
+A192;Sky Island;;Гигант;;дыхание гиганта (тише на холоде), скрип конструкции при потере высоты;петля + разовые;3D;SFX/World;библиотека;полная;нет;RESEARCH_HORROR §4.2
+A193;Sky Island;;Гарнизон;;перекличка в пустой казарме, Садовник на полосе;разовые;3D;SFX/World;ИИ-голос + библиотека;полная;нет;RESEARCH_HORROR §4.2
+A194;Самолёт;;Двигатель;;турбовинт: стартер, розжиг, раскрутка, винт, реверс, срыв, горячий запуск;петля + разовые;3D сеть;SFX/Vehicle;библиотека;полная;нет;TurbopropEngine.cs
+A195;Самолёт;;Кабина;;15 тумблеров, селекторы, РУДы, 13 ручек радио с щелчками, ремни;разовые;3D;SFX/Vehicle;библиотека;полная;нет;PLANE_FULL_INTEGRATION AT-I1
+A196;Самолёт;;Полёт;;касание полосы, шасси, ветер и дождь по обшивке, болтанка, сигнал двери;петля + разовые;3D;SFX/Vehicle;библиотека;полная;нет;PLANE_FULL_INTEGRATION:146
+A197;Самолёт;;Сигнал сваливания;;заменить синтезированный тон записью (по желанию);петля;3D;SFX/Vehicle;библиотека;полная;заглушка (синтез в коде);PlanePresentation.cs
+A198;Интерфейс;;Меню;;старый ПК: гул ЭЛТ, загрузка, жёсткий диск, клавиатура, мышь;петля + разовые;2D;SFX/UI;библиотека;демо;нет;VISION.md:36
+A199;Интерфейс;;Наведение;;наведение на предмет (по желанию), подтверждение, отмена;разовые;2D;SFX/UI;библиотека;демо;нет;InteractionOverlay.cs
+A200;Интерфейс;;Конец демо;;открытка, кукла поворачивает голову;разовые;2D;SFX/UI;библиотека;демо;нет;VISION.md:150
+A201;Музыка;;Меню;;тема меню;петля;2D;Music;ИИ-музыка;демо;нет;QUESTIONS_4 17–19
+A202;Музыка;;База;;тихий эмбиент в спокойное время;петля;2D;Music;ИИ-музыка;демо;нет;QUESTIONS_4 17
+A203;Музыка;;Опасность;;3–4 синхронных слоя по уровню опасности;петля;2D;Music;ИИ-музыка;демо;нет;QUESTIONS_4 18
+A204;Музыка;;Радиоприёмник;;песни и передачи в приёмнике (если решим);петля;3D;Music;ИИ-музыка / лицензия;полная;нет;QUESTIONS_2 83–84
+A205;Голос;;Голосовой чат;;по расстоянию, рация, громкоговоритель: обработка (не клипы);—;3D / 2D;Voice;код;демо;—;"RESEARCH_AUDIO §4.10; QUESTIONS_VOICE"
+A206;Голос;;Начальник;;реплики начальника (~200–300 на язык);разовые;2D рация;Voice/Radio;ИИ-голос;демо;нет;QUESTIONS_VOICE 8, 21
