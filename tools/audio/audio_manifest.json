@@ -1,0 +1,79 @@
+{
+  "note": "Package 1 (QUESTIONS_4: SFX only from free packs; the user kept these files in package1_listen). Runtime settings apply only when a cue is created in the library; later tweaks in the inspector are kept. Build: python tools/audio/build_audio.py",
+  "roots": {
+    "listen": "F:/ClaudeGames/snow_audio_library/package1_listen",
+    "nox": "D:/Downloads/!Torrent/!SOUNDS/Essentials_Series_NOX_SOUND/Essentials_Series_NOX_SOUND"
+  },
+  "defaults": {
+    "oneshot": { "rate": 22050, "channels": 1, "maxSec": 12, "peakDb": -3 },
+    "bed": { "rate": 22050, "channels": 2, "start": 5, "len": 90, "xfade": 4, "lufs": -24 },
+    "loop": { "rate": 22050, "channels": 1, "start": 5, "len": 30, "xfade": 2, "lufs": -20 }
+  },
+  "cues": [
+    { "id": "step.snow.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Snow_Hard_Walk_*.wav", "nox:**/Footsteps_Iceland_Walk_Snow_Grass_Mono_*.wav"], "set": { "volume": [0.55, 0.7], "pitch": [0.93, 1.07], "maxDistance": 25 } },
+    { "id": "step.snow.run", "type": "oneshot", "src": ["nox:**/Footsteps_Snow_Hard_Run_*.wav", "nox:**/Footsteps_Iceland_Run_Snow_Grass_Mono_*.wav"], "set": { "volume": [0.7, 0.85], "pitch": [0.93, 1.07], "maxDistance": 35 } },
+    { "id": "step.snow.land", "type": "oneshot", "src": ["nox:**/Footsteps_Snow_Hard_Jump_Land_*.wav"], "set": { "volume": [0.8, 0.9], "pitch": [0.95, 1.05], "maxDistance": 35 } },
+
+    { "id": "step.frozen.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Iceland_Walk_Gravel_Frozen_Mono_*.wav", "listen:02_*/07__*.wav"], "set": { "volume": [0.55, 0.7], "pitch": [0.93, 1.07], "maxDistance": 25 } },
+    { "id": "step.frozen.run", "type": "oneshot", "src": ["nox:**/Footsteps_Iceland_Run_Gravel_Frozen_Mono_*.wav"], "set": { "volume": [0.7, 0.85], "pitch": [0.93, 1.07], "maxDistance": 35 } },
+    { "id": "step.frozen.land", "type": "oneshot", "src": ["nox:**/Footsteps_Iceland_Jump_Land_Gravel_Frozen_Mono_*.wav"], "set": { "volume": [0.8, 0.9], "pitch": [0.95, 1.05], "maxDistance": 35 } },
+
+    { "id": "step.gravel.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Gravel_Walk_*.wav"], "set": { "volume": [0.55, 0.7], "pitch": [0.93, 1.07], "maxDistance": 25 } },
+    { "id": "step.gravel.run", "type": "oneshot", "src": ["nox:**/Footsteps_Gravel_Run_*.wav"], "set": { "volume": [0.7, 0.85], "pitch": [0.93, 1.07], "maxDistance": 35 } },
+    { "id": "step.gravel.land", "type": "oneshot", "src": ["nox:**/Footsteps_Gravel/**/Footsteps_Jump_Land_*.wav"], "set": { "volume": [0.8, 0.9], "pitch": [0.95, 1.05], "maxDistance": 35 } },
+
+    { "id": "step.wood.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Wood_Walk_*.wav"], "set": { "volume": [0.55, 0.7], "pitch": [0.93, 1.07], "maxDistance": 25 } },
+    { "id": "step.wood.run", "type": "oneshot", "src": ["nox:**/Footsteps_Wood_Run_*.wav"], "set": { "volume": [0.7, 0.85], "pitch": [0.93, 1.07], "maxDistance": 35 } },
+    { "id": "step.wood.land", "type": "oneshot", "src": ["nox:**/Footsteps_Wood_Jump_Land_*.wav"], "set": { "volume": [0.8, 0.9], "pitch": [0.95, 1.05], "maxDistance": 35 } },
+
+    { "id": "step.tile.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Tile_Walk_*.wav"], "set": { "volume": [0.5, 0.65], "pitch": [0.93, 1.07], "maxDistance": 25 } },
+    { "id": "step.tile.run", "type": "oneshot", "src": ["nox:**/Footsteps_Tile_Run_*.wav"], "set": { "volume": [0.65, 0.8], "pitch": [0.93, 1.07], "maxDistance": 35 } },
+    { "id": "step.tile.land", "type": "oneshot", "src": ["nox:**/Footsteps_Tile_Jump_Land_*.wav"], "set": { "volume": [0.8, 0.9], "pitch": [0.95, 1.05], "maxDistance": 35 } },
+
+    { "id": "step.metal.walk", "type": "oneshot", "src": ["nox:**/Footsteps_MetalV1_Walk_*.wav"], "set": { "volume": [0.5, 0.65], "pitch": [0.93, 1.07], "maxDistance": 30 } },
+    { "id": "step.metal.run", "type": "oneshot", "src": ["nox:**/Footsteps_MetalV1_Run_*.wav"], "set": { "volume": [0.65, 0.8], "pitch": [0.93, 1.07], "maxDistance": 40 } },
+    { "id": "step.metal.land", "type": "oneshot", "src": ["nox:**/Footsteps_MetalV1_Jump_Land_*.wav"], "set": { "volume": [0.8, 0.9], "pitch": [0.95, 1.05], "maxDistance": 40 } },
+
+    { "id": "step.dirt.walk", "type": "oneshot", "src": ["nox:**/Footsteps_DirtyGround_Walk_*.wav"], "set": { "volume": [0.55, 0.7], "pitch": [0.93, 1.07], "maxDistance": 25 } },
+    { "id": "step.dirt.run", "type": "oneshot", "src": ["nox:**/Footsteps_DirtyGround_Run_*.wav"], "set": { "volume": [0.7, 0.85], "pitch": [0.93, 1.07], "maxDistance": 35 } },
+    { "id": "step.dirt.land", "type": "oneshot", "src": ["nox:**/Footsteps_DirtyGround_Jump_Land_*.wav"], "set": { "volume": [0.8, 0.9], "pitch": [0.95, 1.05], "maxDistance": 35 } },
+
+    { "id": "step.grass.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Walk_Grass_Mono_*.wav", "nox:**/Footsteps_Iceland_Walk_Grass_Mono_*.wav"], "set": { "volume": [0.5, 0.65], "pitch": [0.93, 1.07], "maxDistance": 20 } },
+    { "id": "step.grass.land", "type": "oneshot", "src": ["nox:**/Footsteps_Grass_Jump_Land_*.wav"], "set": { "volume": [0.75, 0.85], "pitch": [0.95, 1.05], "maxDistance": 30 } },
+    { "id": "step.leaves.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Leaves_Walk_*.wav"], "set": { "volume": [0.5, 0.65], "pitch": [0.93, 1.07], "maxDistance": 20 } },
+    { "id": "step.mud.walk", "type": "oneshot", "src": ["nox:**/Footsteps_Mud_Walk_*.wav"], "set": { "volume": [0.55, 0.7], "pitch": [0.93, 1.07], "maxDistance": 25 } },
+
+    { "id": "amb.forest.wind", "type": "bed", "src": ["listen:10_*/10__*.wav"], "proc": { "start": 30, "len": 150 }, "set": { "bus": "Ambience", "volume": [0.55, 0.55] } },
+    { "id": "amb.forest.gusts", "type": "bed", "src": ["listen:10_*/02__*.wav"], "proc": { "start": 5, "len": 120 }, "set": { "bus": "Ambience", "volume": [0.5, 0.5] } },
+    { "id": "amb.wind.storm", "type": "bed", "src": ["listen:10_*/01__*.wav"], "proc": { "start": 5, "len": 150 }, "set": { "bus": "Ambience", "volume": [0.6, 0.6] } },
+    { "id": "amb.forest.day", "type": "bed", "src": ["listen:12_*/10__*.wav", "listen:12_*/02__*.wav"], "proc": { "start": 3, "len": 80 }, "set": { "bus": "Ambience", "volume": [0.35, 0.35] } },
+    { "id": "amb.forest.night", "type": "bed", "src": ["listen:12_*/01__*.wav"], "proc": { "start": 5, "len": 120 }, "set": { "bus": "Ambience", "volume": [0.3, 0.3] } },
+    { "id": "amb.night.howl", "type": "bed", "src": ["listen:11_*/01__*.wav"], "proc": { "start": 10, "len": 150 }, "set": { "bus": "Ambience", "volume": [0.2, 0.2] } },
+    { "id": "amb.indoor.tone", "type": "bed", "src": ["listen:15_*/07__*.wav"], "proc": { "start": 5, "len": 90 }, "set": { "bus": "Ambience", "volume": [0.4, 0.4] } },
+
+    { "id": "os.tree.creak", "type": "oneshot", "src": ["listen:13_*/01__*.wav", "listen:13_*/03__*.wav", "listen:13_*/06__*.wav"], "proc": { "maxSec": 10 }, "set": { "bus": "Ambience", "volume": [0.4, 0.7], "pitch": [0.85, 1.1], "minDistance": 4, "maxDistance": 70 } },
+    { "id": "os.branch", "type": "oneshot", "src": ["listen:13_*/02__*.wav", "listen:13_*/05__*.wav", "listen:13_*/09__*.wav"], "proc": { "maxSec": 6 }, "set": { "bus": "Ambience", "volume": [0.35, 0.6], "pitch": [0.85, 1.15], "minDistance": 3, "maxDistance": 60 } },
+    { "id": "os.treefall", "type": "oneshot", "src": ["listen:13_*/04__*.wav", "listen:13_*/08__*.wav"], "proc": { "maxSec": 12 }, "set": { "bus": "Ambience", "volume": [0.5, 0.7], "pitch": [0.85, 1.0], "minDistance": 20, "maxDistance": 200 } },
+
+    { "id": "forest.phone.ring", "type": "oneshot", "src": ["listen:22_*/02__*.wav"], "set": { "volume": [0.9, 0.9], "pitch": [1, 1], "maxDistance": 30 } },
+    { "id": "forest.phone.bell", "type": "oneshot", "src": ["listen:22_*/01__*.wav"], "proc": { "maxSec": 8 }, "set": { "volume": [1, 1], "pitch": [0.9, 0.9], "minDistance": 3, "maxDistance": 70 } },
+    { "id": "forest.phone.breath", "type": "oneshot", "src": ["listen:23_*/07__*.wav"], "set": { "volume": [0.8, 0.8], "pitch": [0.9, 0.9], "maxDistance": 6 } },
+    { "id": "forest.knock", "type": "oneshot", "src": ["listen:24_*/01__*.wav"], "set": { "volume": [1, 1], "pitch": [0.85, 0.95], "minDistance": 3, "maxDistance": 40 } },
+    { "id": "forest.lantern.out", "type": "oneshot", "src": ["listen:26_*/02__*.wav"], "proc": { "maxSec": 6 }, "set": { "volume": [0.7, 0.7], "pitch": [1.2, 1.2], "maxDistance": 20 } },
+    { "id": "forest.hiss", "type": "oneshot", "src": ["listen:26_*/09__*.wav"], "proc": { "maxSec": 6 }, "set": { "volume": [0.8, 0.8], "pitch": [1.1, 1.1], "maxDistance": 30 } },
+    { "id": "forest.burner.fault", "type": "oneshot", "src": ["listen:15_*/03__*.wav"], "proc": { "maxSec": 5 }, "set": { "volume": [0.7, 0.7], "pitch": [1, 1], "maxDistance": 20 } },
+    { "id": "forest.boiler.loop", "type": "loop", "src": ["listen:26_*/03__*.wav"], "proc": { "start": 5, "len": 30 }, "set": { "volume": [0.6, 0.6], "minDistance": 2, "maxDistance": 18 } },
+    { "id": "forest.diesel.start", "type": "oneshot", "src": ["listen:25_*/01__*.wav"], "proc": { "start": 0, "maxSec": 5 }, "set": { "volume": [1, 1], "pitch": [1, 1], "minDistance": 3, "maxDistance": 60 } },
+    { "id": "forest.diesel.loop", "type": "loop", "src": ["listen:25_*/01__*.wav"], "proc": { "start": 10, "len": 40 }, "set": { "volume": [0.85, 0.85], "minDistance": 3, "maxDistance": 60 } },
+    { "id": "forest.diesel.stop", "type": "oneshot", "src": ["listen:25_*/01__*.wav"], "proc": { "start": 61, "maxSec": 8 }, "set": { "volume": [1, 1], "pitch": [1, 1], "minDistance": 3, "maxDistance": 60 } },
+    { "id": "forest.pump.creak", "type": "oneshot", "src": ["listen:27_*/03__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.6, 0.75], "pitch": [0.9, 1.1], "maxDistance": 20 } },
+    { "id": "forest.fuel.pour", "type": "oneshot", "src": ["listen:21_*/08__*.wav"], "proc": { "maxSec": 6 }, "set": { "volume": [0.7, 0.7], "pitch": [0.9, 0.9], "maxDistance": 15 } },
+    { "id": "forest.trash.rustle", "type": "oneshot", "src": ["listen:20_*/08__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.7, 0.8], "pitch": [0.9, 1.1], "maxDistance": 12 } },
+    { "id": "forest.door.creak", "type": "oneshot", "src": ["listen:27_*/08__*.wav"], "set": { "volume": [0.9, 0.9], "pitch": [0.9, 0.9], "maxDistance": 25 } },
+
+    { "id": "item.impact.metal", "type": "oneshot", "src": ["listen:19_*/01__*.wav", "listen:19_*/05__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.9, 1.1], "maxDistance": 30, "noise": 5 } },
+    { "id": "item.impact.glass", "type": "oneshot", "src": ["listen:24_*/08__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.9, 1.15], "maxDistance": 25, "noise": 5 } },
+    { "id": "item.impact.paper", "type": "oneshot", "src": ["listen:20_*/05__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.9, 1.1], "maxDistance": 20, "noise": 5 } },
+    { "id": "item.impact.wood", "type": "oneshot", "src": ["listen:19_*/07__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.85, 1.1], "maxDistance": 25, "noise": 5 } }
+  ]
+}

@@ -37,6 +37,16 @@ movable parts with pivot/axis/travel, `COL_` for colliders. Ask the agent itself
 Когда всё готово — последним шагом создай файл F:\ClaudeGames\snow\source\assets\<pack>\DONE.txt со списком файлов.
 ```
 
+## Context of a place (rework models where they stand)
+
+When the request is about models on the map (rework, restyle, fit to neighbours), first export the place with the
+Blender Context tool (`tools/blender_context/README.md`): `ue.run_long('return Snow.EditorTools.BlenderContextExport.Export("<area>", true);')`
+for a preset in `tools/blender_context/areas.json` (add one if missing), or `ExportAroundSelection(size, true)`.
+It writes `source/context/<area>/context.blend` (every object where Unity has it, Empty per object with
+`unity_path`/`prefab`/`fbx`/`sources` properties, terrain with paint, trees, lamps), `README.md` for the agent and
+`shots/`. In the message add: `Контекст места: F:\ClaudeGames\snow\source\context\<area>\ (открой context.blend, README.md там же)`.
+Export again before each request: the folder is regenerated, never edited by hand.
+
 ## Waiting for the result
 
 Don't poll the chat page. Wait on the filesystem with Monitor (until-loop on `source/assets/<pack>/DONE.txt`, check every ~60 s), or check when the user says it's done. Then read the contract, view sheets with Read, and integrate per the contract.

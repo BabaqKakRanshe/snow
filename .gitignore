@@ -32,3 +32,6 @@ Desktop.ini
 .DS_Store
 __pycache__/
 *.pyc
+
+# Dear ImGui window layout of the dev pult (written next to the Unity project / the player exe)
+imgui.ini
