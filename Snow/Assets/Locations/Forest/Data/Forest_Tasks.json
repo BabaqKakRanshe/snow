@@ -1,0 +1,114 @@
+{
+    "about": "Forest tasks (docs/gdd/QUESTS.md, MVP 23.10.2026). A task shows up when every task in 'after' is done; it is done when ANY fact in 'done' is set (facts come from ForestOpening steps). 'until' = deadline hour, -1 none. Hints come one by one after the given minutes without progress. Text is Russian; English lines live in Snow_Loc_en.txt. 'hintsBy': 'radio' = the hints are spoken by ForestRadio (voice), TaskBoard gives none.",
+    "guidedHintMinutes": 5,
+    "memoryHintMinutes": 15,
+    "tasks": [
+        {
+            "id": "fuel",
+            "day": 1,
+            "from": "Памятка смены",
+            "title": "Найти бензин",
+            "text": "Машина заглохла, бак пуст. Найти бензин и доехать до базы.",
+            "until": -1,
+            "after": [],
+            "done": [
+                "forest.S2",
+                "forest.S6"
+            ],
+            "hints": [
+                "В бардачке машины лежит карта. Хижина у дороги обведена.",
+                "Между ёлками светит фонарь хижины. Дверь открыта.",
+                "Канистра в хижине. Без воронки половина прольётся."
+            ]
+        },
+        {
+            "id": "kpp",
+            "day": 1,
+            "from": "Памятка смены",
+            "title": "Открыть КПП",
+            "text": "Шлагбаум на замке. Открыть КПП и проехать на базу.",
+            "until": -1,
+            "after": [
+                "fuel"
+            ],
+            "done": [
+                "forest.S6"
+            ],
+            "hints": [
+                "Ключи хранятся в будке КПП.",
+                "Шлагбаум с мотором. У будки свой щиток питания.",
+                "Ключ «Schranke» снимает замок. Ворота откатываются руками."
+            ]
+        },
+        {
+            "id": "power",
+            "day": 1,
+            "from": "Памятка смены",
+            "title": "Дать питание",
+            "text": "База без света. Запустить генератор и подать питание.",
+            "until": -1,
+            "after": [
+                "kpp"
+            ],
+            "done": [
+                "forest.S7"
+            ],
+            "hints": [
+                "Генератор — в контейнере во дворе. Ключ «Generator» с КПП.",
+                "Бак генератора пуст. Ручной насос стоит у баков с топливом.",
+                "Порядок пуска — на бланке у пульта генератора. Потом оба рубильника."
+            ]
+        },
+        {
+            "id": "heat",
+            "day": 1,
+            "from": "Памятка смены",
+            "title": "Включить отопление",
+            "text": "В корпусе холодно. Запустить котёл.",
+            "until": -1,
+            "after": [
+                "power"
+            ],
+            "done": [
+                "forest.S8"
+            ],
+            "hints": [],
+            "hintsBy": "radio"
+        },
+        {
+            "id": "lock",
+            "day": 1,
+            "from": "Памятка смены",
+            "title": "Закрыть базу на ночь",
+            "text": "Темнеет. Закрыть базу: засов, ставни, ворота гаража.",
+            "until": -1,
+            "after": [
+                "heat"
+            ],
+            "done": [
+                "forest.S9"
+            ],
+            "hints": [],
+            "hintsBy": "radio"
+        },
+        {
+            "id": "sleep",
+            "day": 1,
+            "from": "Памятка смены",
+            "title": "Лечь спать",
+            "text": "База закрыта. Лечь спать в казарме. Утром — почта на ПК.",
+            "until": -1,
+            "after": [
+                "lock"
+            ],
+            "done": [
+                "forest.S10"
+            ],
+            "hints": [
+                "Казарма на втором этаже, там четыре койки.",
+                "Ночь наступает, когда легли все.",
+                "Лечь — подойти к койке и нажать E."
+            ]
+        }
+    ]
+}

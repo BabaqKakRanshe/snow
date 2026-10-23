@@ -31,8 +31,9 @@ namespace Snow.EditorTools
             split.shadows.Override(new Color(0.42f, 0.58f, 0.62f));
             split.highlights.Override(new Color(0.66f, 0.55f, 0.42f));
             split.balance.Override(-30f);
+            // 22.10 («ночь слишком яркая»): the cold tint stays, the shadow lift (w 0.02) is gone - it kept the night off true black
             var smh = Get<ShadowsMidtonesHighlights>(profile);
-            smh.shadows.Override(new Vector4(0.96f, 1f, 1.06f, 0.02f));
+            smh.shadows.Override(new Vector4(0.96f, 1f, 1.06f, 0f));
             EditorUtility.SetDirty(profile);
             AssetDatabase.SaveAssets();
 
@@ -46,7 +47,7 @@ namespace Snow.EditorTools
             v.weight = 1f;
             v.sharedProfile = profile;
             EditorUtility.SetDirty(v);
-            Debug.Log("[Snow] Forest grade: Volume ForestGrade (priority 11): saturation -32, split toning (cold shadows, amber highlights, balance -30), cold shadow lift.");
+            Debug.Log("[Snow] Forest grade: Volume ForestGrade (priority 11): saturation -32, split toning (cold shadows, amber highlights, balance -30), cold shadow tint (no lift).");
         }
 
         static T Get<T>(VolumeProfile p) where T : VolumeComponent

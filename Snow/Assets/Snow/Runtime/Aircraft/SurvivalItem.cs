@@ -1,5 +1,7 @@
 using Snow.Cargo;
+using Snow.Character;
 using Snow.Net;
+using Snow.World;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -76,6 +78,7 @@ namespace Snow.Aircraft
             {
                 _light.type = LightType.Spot; _light.range = 30f; _light.spotAngle = 38f; _light.innerSpotAngle = 14f;
                 _light.intensity = 12f; _light.color = new Color(1f, 0.93f, 0.8f); _light.shadows = LightShadows.None;
+                go.AddComponent<LightBeam>();                              // the beam in the fog (user 23.10)
             }
             else
             {
@@ -185,6 +188,7 @@ namespace Snow.Aircraft
             l.GetUniversalAdditionalLightData().renderingLayers = uint.MaxValue;
             l.type = LightType.Point; l.range = 120f; l.intensity = 400f; l.color = new Color(1f, 0.2f, 0.1f); l.shadows = LightShadows.None;
             go.AddComponent<SignalFlareEffect>().Init(dir.normalized * shotSpeed, shotSeconds);
+            CameraShake.AddAt(from, 0.35f, 4f);                         // the shooter's (and a neighbour's) kick
         }
     }
 }

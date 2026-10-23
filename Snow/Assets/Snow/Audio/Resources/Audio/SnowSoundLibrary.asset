@@ -1,0 +1,1095 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4087aab614d4a4b94b50089ca9480a, type: 3}
+  m_Name: SnowSoundLibrary
+  m_EditorClassIdentifier: 
+  cues:
+  - id: amb.forest.day
+    clips:
+    - {fileID: 8300000, guid: 6d6ed71bc0130ee42a899fef9f9de788, type: 3}
+    - {fileID: 8300000, guid: 7ae58bb4a220afa4d8fe06be0d808e25, type: 3}
+    volume: {x: 0.35, y: 0.35}
+    pitch: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 1
+    priority: 40
+    noise: 0
+  - id: amb.forest.gusts
+    clips:
+    - {fileID: 8300000, guid: eec72e7f5f3f0a54284bd510fa1016e8, type: 3}
+    volume: {x: 0.5, y: 0.5}
+    pitch: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 1
+    priority: 40
+    noise: 0
+  - id: amb.forest.night
+    clips:
+    - {fileID: 8300000, guid: ecceabf339084b248b2714afce99ac0d, type: 3}
+    volume: {x: 0.3, y: 0.3}
+    pitch: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 1
+    priority: 40
+    noise: 0
+  - id: amb.forest.wind
+    clips:
+    - {fileID: 8300000, guid: 125b8c6da55f0734fa757596fb0de42f, type: 3}
+    volume: {x: 0.55, y: 0.55}
+    pitch: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 1
+    priority: 40
+    noise: 0
+  - id: amb.indoor.tone
+    clips:
+    - {fileID: 8300000, guid: b76640a939f643a4db5f7e784456f0bc, type: 3}
+    volume: {x: 0.4, y: 0.4}
+    pitch: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 1
+    priority: 40
+    noise: 0
+  - id: amb.night.howl
+    clips:
+    - {fileID: 8300000, guid: 0531bd011ca6afb438b355f1f1ca435c, type: 3}
+    volume: {x: 0.2, y: 0.2}
+    pitch: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 1
+    priority: 40
+    noise: 0
+  - id: amb.wind.storm
+    clips:
+    - {fileID: 8300000, guid: 198b4a8fa5188934cb65640ac5dab223, type: 3}
+    volume: {x: 0.6, y: 0.6}
+    pitch: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 1
+    priority: 40
+    noise: 0
+  - id: forest.boiler.loop
+    clips:
+    - {fileID: 8300000, guid: d8561e447d38c294b99918bc41b04298, type: 3}
+    volume: {x: 0.6, y: 0.6}
+    pitch: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 2
+    maxDistance: 18
+    bus: 0
+    priority: 90
+    noise: 0
+  - id: forest.burner.fault
+    clips:
+    - {fileID: 8300000, guid: fc620bafcf5beb44a8a3867f499fde09, type: 3}
+    volume: {x: 0.7, y: 0.7}
+    pitch: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 20
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.diesel.loop
+    clips:
+    - {fileID: 8300000, guid: e18532ef91bd6e04586654721fcbe342, type: 3}
+    volume: {x: 0.85, y: 0.85}
+    pitch: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 3
+    maxDistance: 60
+    bus: 0
+    priority: 90
+    noise: 0
+  - id: forest.diesel.start
+    clips:
+    - {fileID: 8300000, guid: 1f2570c28d8405b4e8ee5a45cf5767e8, type: 3}
+    volume: {x: 1, y: 1}
+    pitch: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 3
+    maxDistance: 60
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.diesel.stop
+    clips:
+    - {fileID: 8300000, guid: 7917b56bcc1dab647967ec2441173a14, type: 3}
+    volume: {x: 1, y: 1}
+    pitch: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 3
+    maxDistance: 60
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.door.creak
+    clips:
+    - {fileID: 8300000, guid: abb83950d8d7ea04f938652d13930601, type: 3}
+    volume: {x: 0.9, y: 0.9}
+    pitch: {x: 0.9, y: 0.9}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.fuel.pour
+    clips:
+    - {fileID: 8300000, guid: adfe81396923e3d42a1e19f0dcbfcb11, type: 3}
+    volume: {x: 0.7, y: 0.7}
+    pitch: {x: 0.9, y: 0.9}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 15
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.hiss
+    clips:
+    - {fileID: 8300000, guid: d97ce06b607e7ce4c8f5487ac2041670, type: 3}
+    volume: {x: 0.8, y: 0.8}
+    pitch: {x: 1.1, y: 1.1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.knock
+    clips:
+    - {fileID: 8300000, guid: cc4514f0aea040c42bed37086d04a782, type: 3}
+    volume: {x: 1, y: 1}
+    pitch: {x: 0.85, y: 0.95}
+    spatial: 1
+    minDistance: 3
+    maxDistance: 40
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.lantern.out
+    clips:
+    - {fileID: 8300000, guid: 85ba73a62a387234e9b4d3f2288f7ca4, type: 3}
+    volume: {x: 0.7, y: 0.7}
+    pitch: {x: 1.2, y: 1.2}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 20
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.phone.bell
+    clips:
+    - {fileID: 8300000, guid: 1f6acb67c8fead648a462ba20e564b6c, type: 3}
+    volume: {x: 1, y: 1}
+    pitch: {x: 0.9, y: 0.9}
+    spatial: 1
+    minDistance: 3
+    maxDistance: 70
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.phone.breath
+    clips:
+    - {fileID: 8300000, guid: 47b8ebf20bf857945837e026c1d10487, type: 3}
+    volume: {x: 0.8, y: 0.8}
+    pitch: {x: 0.9, y: 0.9}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 6
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.phone.ring
+    clips:
+    - {fileID: 8300000, guid: 65d72c1fdb3300040b28dc4c816868f4, type: 3}
+    volume: {x: 0.9, y: 0.9}
+    pitch: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.pump.creak
+    clips:
+    - {fileID: 8300000, guid: a40d5c86c81d5cb4ea0a5ac0fa9454a9, type: 3}
+    volume: {x: 0.6, y: 0.75}
+    pitch: {x: 0.9, y: 1.1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 20
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: forest.trash.rustle
+    clips:
+    - {fileID: 8300000, guid: 2b3283de6e17ff943a638ef619459277, type: 3}
+    volume: {x: 0.7, y: 0.8}
+    pitch: {x: 0.9, y: 1.1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 12
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: item.impact.glass
+    clips:
+    - {fileID: 8300000, guid: 8d7a0101b284f764ea349dfb109ca61e, type: 3}
+    volume: {x: 0.5, y: 0.8}
+    pitch: {x: 0.9, y: 1.15}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 128
+    noise: 5
+  - id: item.impact.metal
+    clips:
+    - {fileID: 8300000, guid: 7036e81c3602d4f4f9d2f96519b26ae0, type: 3}
+    - {fileID: 8300000, guid: fbc00a293b7e13a4fb0b563b51eb10ca, type: 3}
+    volume: {x: 0.5, y: 0.8}
+    pitch: {x: 0.9, y: 1.1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 0
+    priority: 128
+    noise: 5
+  - id: item.impact.paper
+    clips:
+    - {fileID: 8300000, guid: 983ff8d3572d2f8438e4aa0e5a927168, type: 3}
+    volume: {x: 0.5, y: 0.8}
+    pitch: {x: 0.9, y: 1.1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 20
+    bus: 0
+    priority: 128
+    noise: 5
+  - id: item.impact.wood
+    clips:
+    - {fileID: 8300000, guid: a0c30ce9d48b79549b6eec675aa89429, type: 3}
+    volume: {x: 0.5, y: 0.8}
+    pitch: {x: 0.85, y: 1.1}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 128
+    noise: 5
+  - id: os.branch
+    clips:
+    - {fileID: 8300000, guid: 800c1baa261b1004fbb6148e835d2c61, type: 3}
+    - {fileID: 8300000, guid: 78ca3576db7083449be395842528aedd, type: 3}
+    - {fileID: 8300000, guid: aac1afa2a78bed444bf0e04803743852, type: 3}
+    volume: {x: 0.35, y: 0.6}
+    pitch: {x: 0.85, y: 1.15}
+    spatial: 1
+    minDistance: 3
+    maxDistance: 60
+    bus: 1
+    priority: 128
+    noise: 0
+  - id: os.tree.creak
+    clips:
+    - {fileID: 8300000, guid: cc6c80f70d4cd42409ccbf1bb73af4b0, type: 3}
+    - {fileID: 8300000, guid: 0709c2f1a2181aa42a6c273c93913ce8, type: 3}
+    - {fileID: 8300000, guid: 89bb0b090bf4e6646afdde41a5550a72, type: 3}
+    volume: {x: 0.4, y: 0.7}
+    pitch: {x: 0.85, y: 1.1}
+    spatial: 1
+    minDistance: 4
+    maxDistance: 70
+    bus: 1
+    priority: 128
+    noise: 0
+  - id: os.treefall
+    clips:
+    - {fileID: 8300000, guid: c166d6146074cea4f8382e0da328499b, type: 3}
+    - {fileID: 8300000, guid: 0bcf515595327744a80cfefd1b3e471a, type: 3}
+    volume: {x: 0.5, y: 0.7}
+    pitch: {x: 0.85, y: 1}
+    spatial: 1
+    minDistance: 20
+    maxDistance: 200
+    bus: 1
+    priority: 128
+    noise: 0
+  - id: step.dirt.land
+    clips:
+    - {fileID: 8300000, guid: d860156bbdd79bb43931cb9e53ee4885, type: 3}
+    - {fileID: 8300000, guid: 92659e715b1ea4c41b412f36fd048478, type: 3}
+    - {fileID: 8300000, guid: 2f91f17f5f65ed5498f62b13b3af7f95, type: 3}
+    volume: {x: 0.8, y: 0.9}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.dirt.run
+    clips:
+    - {fileID: 8300000, guid: 4e0b2f93ad868d64da86a4d5dc30cd0c, type: 3}
+    - {fileID: 8300000, guid: a15c8111024e1f4418ba8f8d6d8523ef, type: 3}
+    - {fileID: 8300000, guid: 9b835544549efdc4ca342ce6f90a85c8, type: 3}
+    - {fileID: 8300000, guid: 5e68c3542d956ea4a94065fecd964382, type: 3}
+    - {fileID: 8300000, guid: 2be613d56667c454c81bbdd564c046dd, type: 3}
+    - {fileID: 8300000, guid: b62aae1881e3f6644a513f93807ccba7, type: 3}
+    - {fileID: 8300000, guid: 53466ba59bfe8a14fad674a33ab9fffa, type: 3}
+    - {fileID: 8300000, guid: 146e5f96af3017743b50530047444cc7, type: 3}
+    - {fileID: 8300000, guid: c491311c3364ed74aa84648f47b0d981, type: 3}
+    - {fileID: 8300000, guid: 861a008a8ba4f86478389be45dedd7e1, type: 3}
+    volume: {x: 0.7, y: 0.85}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.dirt.walk
+    clips:
+    - {fileID: 8300000, guid: 18e4134c6aed0054cb73f388f81959ef, type: 3}
+    - {fileID: 8300000, guid: a6efbae011e4c8a41a23ffe2cebb05ee, type: 3}
+    - {fileID: 8300000, guid: c1fabb1dc8142bd43afe279209816da8, type: 3}
+    - {fileID: 8300000, guid: ee01624398f9d5e419727998a8f4ec14, type: 3}
+    - {fileID: 8300000, guid: 577a2b8da6599164c92914a92d012c1a, type: 3}
+    - {fileID: 8300000, guid: 4456557155417344987da49a4a101245, type: 3}
+    - {fileID: 8300000, guid: 21ea43ad982a87041ab713a1bf1f4a5f, type: 3}
+    - {fileID: 8300000, guid: 5bb1e23bcd3b21c49ad7a72c6bc7689e, type: 3}
+    - {fileID: 8300000, guid: 795f20d05af278e46b872e2c7cd0c08c, type: 3}
+    - {fileID: 8300000, guid: 41677e3a63aced94d8f0869456de3387, type: 3}
+    volume: {x: 0.55, y: 0.7}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.forest.land
+    clips:
+    - {fileID: 8300000, guid: 2d9bbafc2ae0a5d4295786d5942b49c5, type: 3}
+    - {fileID: 8300000, guid: f02f3b7f460441d48b0669ebaa35a98a, type: 3}
+    - {fileID: 8300000, guid: a3e5caef8f6b0004387297938c68aae0, type: 3}
+    - {fileID: 8300000, guid: be8cf10ee070dd34f9aeaa6a2f441b45, type: 3}
+    - {fileID: 8300000, guid: 7d0da2878901cae498d04db57f9a9cd4, type: 3}
+    - {fileID: 8300000, guid: e6a72710a21457b479d76a74f9094ad6, type: 3}
+    - {fileID: 8300000, guid: 54dcac97701763b49b8b445812d14797, type: 3}
+    - {fileID: 8300000, guid: 5508346c470817d4480d18da6fbfe604, type: 3}
+    - {fileID: 8300000, guid: 4bffe1bfbd12042409930f5179d4acf8, type: 3}
+    - {fileID: 8300000, guid: b3d978ee06646d64cb0e43f32967f0a3, type: 3}
+    - {fileID: 8300000, guid: d860156bbdd79bb43931cb9e53ee4885, type: 3}
+    - {fileID: 8300000, guid: 92659e715b1ea4c41b412f36fd048478, type: 3}
+    - {fileID: 8300000, guid: 2f91f17f5f65ed5498f62b13b3af7f95, type: 3}
+    volume: {x: 0.75, y: 0.85}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: step.forest.run
+    clips:
+    - {fileID: 8300000, guid: 4e0b2f93ad868d64da86a4d5dc30cd0c, type: 3}
+    - {fileID: 8300000, guid: a15c8111024e1f4418ba8f8d6d8523ef, type: 3}
+    - {fileID: 8300000, guid: 9b835544549efdc4ca342ce6f90a85c8, type: 3}
+    - {fileID: 8300000, guid: 5e68c3542d956ea4a94065fecd964382, type: 3}
+    - {fileID: 8300000, guid: 2be613d56667c454c81bbdd564c046dd, type: 3}
+    - {fileID: 8300000, guid: b62aae1881e3f6644a513f93807ccba7, type: 3}
+    - {fileID: 8300000, guid: 53466ba59bfe8a14fad674a33ab9fffa, type: 3}
+    - {fileID: 8300000, guid: 146e5f96af3017743b50530047444cc7, type: 3}
+    - {fileID: 8300000, guid: c491311c3364ed74aa84648f47b0d981, type: 3}
+    - {fileID: 8300000, guid: 861a008a8ba4f86478389be45dedd7e1, type: 3}
+    volume: {x: 0.7, y: 0.85}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: step.forest.walk
+    clips:
+    - {fileID: 8300000, guid: ee2997e578c2335469e1d545922c6b92, type: 3}
+    - {fileID: 8300000, guid: 39c8c9f64a80a2541848f094d5387dad, type: 3}
+    - {fileID: 8300000, guid: aa22857f314f1dd4190fe4703b651d52, type: 3}
+    - {fileID: 8300000, guid: 382ac494294f7034fae13eaa5a929fd9, type: 3}
+    - {fileID: 8300000, guid: c9c5d0d368dd147448f1972e927f297e, type: 3}
+    - {fileID: 8300000, guid: dd6b15aa407c4d24eae9a36088de8c8f, type: 3}
+    - {fileID: 8300000, guid: 18e4134c6aed0054cb73f388f81959ef, type: 3}
+    - {fileID: 8300000, guid: a6efbae011e4c8a41a23ffe2cebb05ee, type: 3}
+    - {fileID: 8300000, guid: c1fabb1dc8142bd43afe279209816da8, type: 3}
+    - {fileID: 8300000, guid: ee01624398f9d5e419727998a8f4ec14, type: 3}
+    - {fileID: 8300000, guid: 577a2b8da6599164c92914a92d012c1a, type: 3}
+    - {fileID: 8300000, guid: 4456557155417344987da49a4a101245, type: 3}
+    - {fileID: 8300000, guid: 21ea43ad982a87041ab713a1bf1f4a5f, type: 3}
+    - {fileID: 8300000, guid: 5bb1e23bcd3b21c49ad7a72c6bc7689e, type: 3}
+    - {fileID: 8300000, guid: 795f20d05af278e46b872e2c7cd0c08c, type: 3}
+    - {fileID: 8300000, guid: 41677e3a63aced94d8f0869456de3387, type: 3}
+    - {fileID: 8300000, guid: dae29afcb085ff24f97f62315d712009, type: 3}
+    - {fileID: 8300000, guid: c30d53f688ce1b24699bbe24ead72769, type: 3}
+    - {fileID: 8300000, guid: 9f44e6a9d246eb0459170054ac5296aa, type: 3}
+    - {fileID: 8300000, guid: 9edaffbdcae0da440b7d8488e2df1437, type: 3}
+    - {fileID: 8300000, guid: f4277a8ee27433749b20c540dc6eabff, type: 3}
+    - {fileID: 8300000, guid: 0e1ef083a8bec634db34a7fba2d7ca2b, type: 3}
+    - {fileID: 8300000, guid: 97abec02fe35fff4689f381e45ee6a5f, type: 3}
+    - {fileID: 8300000, guid: bbd1d2e96a0a4dd48a4cbcbb6d4412f6, type: 3}
+    - {fileID: 8300000, guid: c0ba92c81ec3cca4190f5cbd1fe48544, type: 3}
+    - {fileID: 8300000, guid: 69b45ad8e9b37624fb28b2fc45ef95af, type: 3}
+    volume: {x: 0.5, y: 0.65}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 20
+    bus: 0
+    priority: 128
+    noise: 0
+  - id: step.frozen.land
+    clips:
+    - {fileID: 8300000, guid: f557e87ffad5ebc4bb649d54becfdba3, type: 3}
+    - {fileID: 8300000, guid: 73e094a9ef9d74c45a18a87e8e04b2e9, type: 3}
+    - {fileID: 8300000, guid: a16e2c318cf36b84fa10e461e7e587bd, type: 3}
+    - {fileID: 8300000, guid: f4f868a1ca3db0f4bbb350abc33f1798, type: 3}
+    - {fileID: 8300000, guid: 07b8e5dc18a3de5449257b73e596446c, type: 3}
+    volume: {x: 0.8, y: 0.9}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.frozen.run
+    clips:
+    - {fileID: 8300000, guid: 5f66f9394ddad83449952b8e45b9c7d6, type: 3}
+    - {fileID: 8300000, guid: c141cf53767462249945d75fcf969bf6, type: 3}
+    - {fileID: 8300000, guid: 157cfdb6ecb4c514d834ae571cfbbecf, type: 3}
+    - {fileID: 8300000, guid: ee4dcc68b6ee5f94fba8c050b11d3edc, type: 3}
+    - {fileID: 8300000, guid: 4f91dfed45b350e48b1af9ca13339b1d, type: 3}
+    - {fileID: 8300000, guid: 3ea769476fca10a47b1a15a2884db3f5, type: 3}
+    - {fileID: 8300000, guid: e9bd37924a6c2db4281f04a8881d856a, type: 3}
+    - {fileID: 8300000, guid: d79cac38d3d9c374cbf960511c8b82c8, type: 3}
+    - {fileID: 8300000, guid: 218cfaca5fdd6bc4fa7457dba006ba56, type: 3}
+    - {fileID: 8300000, guid: 18783b8f970dc0042b94c8ebe9dc8d0f, type: 3}
+    volume: {x: 0.7, y: 0.85}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.frozen.walk
+    clips:
+    - {fileID: 8300000, guid: 2d8f7a52ddd4d554baebfd343db3bb1c, type: 3}
+    - {fileID: 8300000, guid: 66a1833e33d477e4dbfeeccbdc4de932, type: 3}
+    - {fileID: 8300000, guid: 2036770a89db55a48838c14d83ce71ca, type: 3}
+    - {fileID: 8300000, guid: 5364e967aef67bb45bfe6ac38189be17, type: 3}
+    - {fileID: 8300000, guid: 12dec656309e61749a9a03ec93053f41, type: 3}
+    - {fileID: 8300000, guid: 0251c20e8922d0b45b0f377dabb25c67, type: 3}
+    - {fileID: 8300000, guid: 5223a912fcc237a4f92838319831c5ca, type: 3}
+    - {fileID: 8300000, guid: ec3e3c3c3b413da448ff8f0fd158cc31, type: 3}
+    - {fileID: 8300000, guid: 600c836431099f8468a2d76b982dfd5c, type: 3}
+    - {fileID: 8300000, guid: bd0b3e866025e484c8448c8e48bed958, type: 3}
+    - {fileID: 8300000, guid: be18401e94147be4099951b5262c4a3c, type: 3}
+    volume: {x: 0.55, y: 0.7}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.grass.land
+    clips:
+    - {fileID: 8300000, guid: 2d9bbafc2ae0a5d4295786d5942b49c5, type: 3}
+    - {fileID: 8300000, guid: f02f3b7f460441d48b0669ebaa35a98a, type: 3}
+    - {fileID: 8300000, guid: a3e5caef8f6b0004387297938c68aae0, type: 3}
+    - {fileID: 8300000, guid: be8cf10ee070dd34f9aeaa6a2f441b45, type: 3}
+    - {fileID: 8300000, guid: 7d0da2878901cae498d04db57f9a9cd4, type: 3}
+    - {fileID: 8300000, guid: e6a72710a21457b479d76a74f9094ad6, type: 3}
+    - {fileID: 8300000, guid: 54dcac97701763b49b8b445812d14797, type: 3}
+    - {fileID: 8300000, guid: 5508346c470817d4480d18da6fbfe604, type: 3}
+    - {fileID: 8300000, guid: 4bffe1bfbd12042409930f5179d4acf8, type: 3}
+    - {fileID: 8300000, guid: b3d978ee06646d64cb0e43f32967f0a3, type: 3}
+    volume: {x: 0.75, y: 0.85}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.grass.walk
+    clips:
+    - {fileID: 8300000, guid: dae29afcb085ff24f97f62315d712009, type: 3}
+    - {fileID: 8300000, guid: c30d53f688ce1b24699bbe24ead72769, type: 3}
+    - {fileID: 8300000, guid: 9f44e6a9d246eb0459170054ac5296aa, type: 3}
+    - {fileID: 8300000, guid: 9edaffbdcae0da440b7d8488e2df1437, type: 3}
+    - {fileID: 8300000, guid: f4277a8ee27433749b20c540dc6eabff, type: 3}
+    - {fileID: 8300000, guid: 0e1ef083a8bec634db34a7fba2d7ca2b, type: 3}
+    - {fileID: 8300000, guid: 97abec02fe35fff4689f381e45ee6a5f, type: 3}
+    - {fileID: 8300000, guid: bbd1d2e96a0a4dd48a4cbcbb6d4412f6, type: 3}
+    - {fileID: 8300000, guid: c0ba92c81ec3cca4190f5cbd1fe48544, type: 3}
+    - {fileID: 8300000, guid: 69b45ad8e9b37624fb28b2fc45ef95af, type: 3}
+    - {fileID: 8300000, guid: 5caf95e702e808f40b04e0a1c6ba7f9d, type: 3}
+    - {fileID: 8300000, guid: 8ad2e79015803e24cab4c83eb40637c8, type: 3}
+    - {fileID: 8300000, guid: 880f11ddd4b2e914aacd2c33ab198fa0, type: 3}
+    - {fileID: 8300000, guid: 79b190c9ea8f39241bf7a31f9d575393, type: 3}
+    - {fileID: 8300000, guid: 430832021994b8a4e8e561f95e3dcfed, type: 3}
+    - {fileID: 8300000, guid: d40496c83760cf74db0e5cf4d422a721, type: 3}
+    - {fileID: 8300000, guid: 13b6ec65e341514439ad476f7cb0d9c4, type: 3}
+    - {fileID: 8300000, guid: a09a4dd33ae16c046b0df33f043b5bf8, type: 3}
+    - {fileID: 8300000, guid: 63f38d82c12088f41bdc0fece76eb493, type: 3}
+    - {fileID: 8300000, guid: 0ec18e756d6cc7e4385f651021bec74d, type: 3}
+    - {fileID: 8300000, guid: 2d0102680de47e248aa3a25a7d1d4395, type: 3}
+    - {fileID: 8300000, guid: 5b7eee48becb1c74ea65bc78a4230348, type: 3}
+    - {fileID: 8300000, guid: e3dde859cb169864c8fe208ed3b022b7, type: 3}
+    - {fileID: 8300000, guid: a4a412cbcd6fc014e811626bd0bdb34d, type: 3}
+    - {fileID: 8300000, guid: a5fc0541a167b244bbe230a4f284dbe9, type: 3}
+    - {fileID: 8300000, guid: 90493c15716478145a0682ee937f5a10, type: 3}
+    - {fileID: 8300000, guid: 00844ed1a798f3845880790338be9161, type: 3}
+    - {fileID: 8300000, guid: 665a6ab246dddfc4b9f889dc0956cb6d, type: 3}
+    - {fileID: 8300000, guid: 7761b83030c90d240bd3b5a2f228bdfe, type: 3}
+    - {fileID: 8300000, guid: 002d3ffd6855be240bb7aadffa7bd7d5, type: 3}
+    - {fileID: 8300000, guid: 8d18888ad5fcc944c9b64b767280391f, type: 3}
+    - {fileID: 8300000, guid: 16c1493a323ea6245b407813f1c41b6b, type: 3}
+    - {fileID: 8300000, guid: 68e2f719ed9028c47b3821bf47c87fb0, type: 3}
+    - {fileID: 8300000, guid: 2875f96a3d76371448e7cc535e9bf1c6, type: 3}
+    - {fileID: 8300000, guid: 7a65b62007928804ba58c1562172e517, type: 3}
+    - {fileID: 8300000, guid: c25e84e97d115794ab2773036c646aaa, type: 3}
+    - {fileID: 8300000, guid: 5a171d86fc316bc4fb131a286a19f148, type: 3}
+    - {fileID: 8300000, guid: d3da79a4a80011449988ecd9d37acd5e, type: 3}
+    - {fileID: 8300000, guid: a9beb0769a462534eb2c8a6b2c3b717d, type: 3}
+    - {fileID: 8300000, guid: 58ef21acf2c6e5e46b5d38731e19bdf7, type: 3}
+    - {fileID: 8300000, guid: 832019fc2800afb43bf52c27fabc09f4, type: 3}
+    - {fileID: 8300000, guid: 21c30a6ad6030d94fb92d233ff93f308, type: 3}
+    - {fileID: 8300000, guid: b7f9c9c8c081ee04d926ad6d628eeaf0, type: 3}
+    - {fileID: 8300000, guid: 84b018e12c22a11488362769adad84a9, type: 3}
+    - {fileID: 8300000, guid: bcc1b19f848187f4d97b48503a23573b, type: 3}
+    - {fileID: 8300000, guid: 08ed7191416b42247be65d6dac67a9e3, type: 3}
+    - {fileID: 8300000, guid: dddc42bd8be205249a6db7222493660b, type: 3}
+    - {fileID: 8300000, guid: 8e4d609b231bd1e4fa7293de064eecb4, type: 3}
+    - {fileID: 8300000, guid: 592695a8e01cde84bba128e7b4bc3f81, type: 3}
+    - {fileID: 8300000, guid: b71dda55236fc1f42babda2c9b196c8d, type: 3}
+    - {fileID: 8300000, guid: 0bea9ba518ef0d04c88a281c7c33498e, type: 3}
+    - {fileID: 8300000, guid: 3704fb75ae4cc3d40b06a5ffefbfb10e, type: 3}
+    - {fileID: 8300000, guid: 02ba5302c26e24f409e8c2c57f8c792c, type: 3}
+    - {fileID: 8300000, guid: 8392de31fd9f1a84da414323d489e315, type: 3}
+    - {fileID: 8300000, guid: 64152eab0ab1d5c4789148cce75e72b6, type: 3}
+    - {fileID: 8300000, guid: fd0281eddab6ff74e8d153184893f7d4, type: 3}
+    - {fileID: 8300000, guid: 85ecc67b8c936e44896bf75771811ec4, type: 3}
+    - {fileID: 8300000, guid: f3baa11bfe553e742ad2b51801e327e4, type: 3}
+    - {fileID: 8300000, guid: 94bb8e1eb59f1e740b8f9858d751203a, type: 3}
+    - {fileID: 8300000, guid: 3a5def2ae4316a541932f299746384ed, type: 3}
+    volume: {x: 0.5, y: 0.65}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 20
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.gravel.land
+    clips:
+    - {fileID: 8300000, guid: c509050bf35bac44a9818944fdf57ac1, type: 3}
+    - {fileID: 8300000, guid: b9fbc70f1dcfb074d8b91c96b1374954, type: 3}
+    - {fileID: 8300000, guid: 2d5d48f4cbe9c4a42b5e46c600323381, type: 3}
+    volume: {x: 0.8, y: 0.9}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.gravel.run
+    clips:
+    - {fileID: 8300000, guid: 8ee7da71f1653a64197075908048d575, type: 3}
+    - {fileID: 8300000, guid: ae077233082977e489e564558850c1b9, type: 3}
+    - {fileID: 8300000, guid: c82fcedea334daf42819562c77e2215c, type: 3}
+    - {fileID: 8300000, guid: 70178009afaffb447a95f660c9d89892, type: 3}
+    - {fileID: 8300000, guid: 05ff569b8102f6342a6d819c9a575026, type: 3}
+    - {fileID: 8300000, guid: 986ce10968d4ace4d9788284840e6a18, type: 3}
+    - {fileID: 8300000, guid: 71324d84d0cba5e45aa2f03bf3ea631f, type: 3}
+    - {fileID: 8300000, guid: 55113759d052db04995afddf385c53be, type: 3}
+    - {fileID: 8300000, guid: 47c46de41e6c69342bd78040c2c1bf07, type: 3}
+    - {fileID: 8300000, guid: 31b2d91654dbdb54892c8acc41a9640b, type: 3}
+    volume: {x: 0.7, y: 0.85}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.gravel.walk
+    clips:
+    - {fileID: 8300000, guid: 40449389ec5971946b0f8c5c01aa5a83, type: 3}
+    - {fileID: 8300000, guid: f4fb8eb7fcef2e6418fe54eece63a407, type: 3}
+    - {fileID: 8300000, guid: 6379b3917415bff49876caa4aae23fe9, type: 3}
+    - {fileID: 8300000, guid: 681337ce89646d54784fbd73f3c364ba, type: 3}
+    - {fileID: 8300000, guid: 0c89b31704ff4d442ae4f5d01bbc856c, type: 3}
+    - {fileID: 8300000, guid: 0cfd3cf4264df9144b41102d3631d62c, type: 3}
+    - {fileID: 8300000, guid: 9205e5aa64f862c44a8f7416b51fe3c5, type: 3}
+    - {fileID: 8300000, guid: 711c4d3629106f548bddde34e492d7e8, type: 3}
+    - {fileID: 8300000, guid: 87668da72e30d2040a9951c6ec486227, type: 3}
+    - {fileID: 8300000, guid: 64ed483b7ae192b4eb2a5b8c6953a7e6, type: 3}
+    volume: {x: 0.55, y: 0.7}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.leaves.walk
+    clips:
+    - {fileID: 8300000, guid: ee2997e578c2335469e1d545922c6b92, type: 3}
+    - {fileID: 8300000, guid: 39c8c9f64a80a2541848f094d5387dad, type: 3}
+    - {fileID: 8300000, guid: aa22857f314f1dd4190fe4703b651d52, type: 3}
+    - {fileID: 8300000, guid: 382ac494294f7034fae13eaa5a929fd9, type: 3}
+    - {fileID: 8300000, guid: c9c5d0d368dd147448f1972e927f297e, type: 3}
+    - {fileID: 8300000, guid: dd6b15aa407c4d24eae9a36088de8c8f, type: 3}
+    volume: {x: 0.5, y: 0.65}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 20
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.metal.land
+    clips:
+    - {fileID: 8300000, guid: eb2a5f234b1ef704ea05d9e017f80603, type: 3}
+    - {fileID: 8300000, guid: c7462b23588cd314c8603539be65535d, type: 3}
+    - {fileID: 8300000, guid: 6ca4c2e3fff79464999c2fe869c0123c, type: 3}
+    - {fileID: 8300000, guid: 19be285a3c644324e9e99a9d4b9373d8, type: 3}
+    volume: {x: 0.8, y: 0.9}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 40
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.metal.run
+    clips:
+    - {fileID: 8300000, guid: 9c77e50a129369f43b17e9b81d1f1709, type: 3}
+    - {fileID: 8300000, guid: 833a1ac4f5499434e922f7823569f809, type: 3}
+    - {fileID: 8300000, guid: 9a97c75afd71986498a9cd6b1f60b744, type: 3}
+    - {fileID: 8300000, guid: 703be7cdf63f1494b96cd72ce6a03902, type: 3}
+    - {fileID: 8300000, guid: 9ddc5e2a28abc3c4384b2130627c4c60, type: 3}
+    - {fileID: 8300000, guid: 47baf4e9fc9cb704d87042c164628638, type: 3}
+    - {fileID: 8300000, guid: 33438becfc9516844b9bc59356547259, type: 3}
+    - {fileID: 8300000, guid: 96cb516a1f39e504a95be13a6aac02db, type: 3}
+    - {fileID: 8300000, guid: 1ea7bb83a518fe64c8bfff1975a551e0, type: 3}
+    - {fileID: 8300000, guid: c25a394282e6a6a4f92a8f4e9216058d, type: 3}
+    - {fileID: 8300000, guid: 9483fa4547f06bf4f88747e5ff3a197d, type: 3}
+    - {fileID: 8300000, guid: 44b1b9a16eb71374bb9a46a2a950b0a9, type: 3}
+    - {fileID: 8300000, guid: f58862f436cb22541a946da346283488, type: 3}
+    - {fileID: 8300000, guid: 948fcde511ff863468f28f07a3f485f2, type: 3}
+    - {fileID: 8300000, guid: 709ca4dae2c345d4f85c1e0f52e73491, type: 3}
+    volume: {x: 0.65, y: 0.8}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 40
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.metal.walk
+    clips:
+    - {fileID: 8300000, guid: 63aec08517afbae46b0a2e3f7883cc1b, type: 3}
+    - {fileID: 8300000, guid: bb25e37eb7f8b0b41aec8628b653f6c7, type: 3}
+    - {fileID: 8300000, guid: e809e2cf054c6ec4ea4c60274037017e, type: 3}
+    - {fileID: 8300000, guid: abae6cf9ce7bca44187dc2d1d52e14b9, type: 3}
+    - {fileID: 8300000, guid: d3153b3d9911c4e4cb9445a1d93a88b5, type: 3}
+    - {fileID: 8300000, guid: d0267036ddcf71e4cb37e6e71735796a, type: 3}
+    - {fileID: 8300000, guid: 463e0193f25a78440a4ea871819789ce, type: 3}
+    - {fileID: 8300000, guid: 8d57f1c476eeb354ba4c8c0f332f2fe4, type: 3}
+    - {fileID: 8300000, guid: 4b59c45319c4f4845a5e1582ac865833, type: 3}
+    - {fileID: 8300000, guid: a4329cf2c1f98b94d9bb2b4cf4a5bfe1, type: 3}
+    - {fileID: 8300000, guid: 71c747f916fc72b4599b4ed1cb8641d9, type: 3}
+    - {fileID: 8300000, guid: cad5015c0f0426047ae3433c8ca7446e, type: 3}
+    - {fileID: 8300000, guid: 7ea95de9f0299bc4d89a816f73500135, type: 3}
+    - {fileID: 8300000, guid: ca32a6f92a2146a45a38710ca8546d3a, type: 3}
+    - {fileID: 8300000, guid: 4891ef2ce40d97e4f96eaa1b94a8e2cb, type: 3}
+    volume: {x: 0.5, y: 0.65}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 30
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.mud.walk
+    clips:
+    - {fileID: 8300000, guid: 4b3b919a7d06b1945abfe8c4b3fefef1, type: 3}
+    - {fileID: 8300000, guid: 623102a3b32b73f48ad3fd47b61ab6f6, type: 3}
+    - {fileID: 8300000, guid: 413889861aac2204bb9132ec269de31f, type: 3}
+    - {fileID: 8300000, guid: 2696b5cadd419074bbcb116b747bc421, type: 3}
+    - {fileID: 8300000, guid: 57a2ca536cda11a49976092f17b30ef0, type: 3}
+    - {fileID: 8300000, guid: a42d4d24fe4bd974d9b6594b6fe86518, type: 3}
+    - {fileID: 8300000, guid: 9e1b5ce981d0b7b429ced92a40e98e69, type: 3}
+    - {fileID: 8300000, guid: a190aacd01f7f5e40b019ea900fa5201, type: 3}
+    - {fileID: 8300000, guid: 5619f55c9d5650b48962f4e41c11a815, type: 3}
+    - {fileID: 8300000, guid: a5e0dcc58ca6a1c47969b4c8251004af, type: 3}
+    volume: {x: 0.55, y: 0.7}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.snow.land
+    clips:
+    - {fileID: 8300000, guid: c2b3744f4a9986f4d8a89bf8249a5fd9, type: 3}
+    - {fileID: 8300000, guid: 47eabe2c845fb9a43b50676dea3c27b0, type: 3}
+    - {fileID: 8300000, guid: f5ef1fa4649bd1949a47686866a68dc5, type: 3}
+    - {fileID: 8300000, guid: b660413fc84547b4999f7b3423109ab4, type: 3}
+    - {fileID: 8300000, guid: 380ab0c7de65dd24dba2c2c0b0f47947, type: 3}
+    volume: {x: 0.8, y: 0.9}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.snow.run
+    clips:
+    - {fileID: 8300000, guid: bf24580b8dc2bf84f85193095aa6853e, type: 3}
+    - {fileID: 8300000, guid: b069df8a4a5587b488101c0888315464, type: 3}
+    - {fileID: 8300000, guid: 69afe7e91d6514c41be706e2aa539a4b, type: 3}
+    - {fileID: 8300000, guid: 154ab8c4e433843409289a2cc356d1bd, type: 3}
+    - {fileID: 8300000, guid: 8890b68a37a7f34419af2dd389864a58, type: 3}
+    - {fileID: 8300000, guid: c339e7872c1b0a345803b396d625fb69, type: 3}
+    - {fileID: 8300000, guid: 25a195759316b0d47952440b4ed4dd2e, type: 3}
+    - {fileID: 8300000, guid: 11d74c286b7549f448bef95ca633b9de, type: 3}
+    - {fileID: 8300000, guid: fd31098ef5954874594e9223ec1cdcec, type: 3}
+    - {fileID: 8300000, guid: 1c8af62d6a022144abe3425875f6c27e, type: 3}
+    - {fileID: 8300000, guid: 0966696d97c6d334bbd89f82e1fd9526, type: 3}
+    - {fileID: 8300000, guid: ff40d0be49a34e8428cd870614ebcfc4, type: 3}
+    - {fileID: 8300000, guid: 8ee986d204531be458011a8554a83a2e, type: 3}
+    - {fileID: 8300000, guid: 1a9594946aabeba4ab76644551f3ca57, type: 3}
+    - {fileID: 8300000, guid: f33f9f3109135ae4dac787f7df356d32, type: 3}
+    - {fileID: 8300000, guid: 2984a5da8b49d7b41b182369e8d21f60, type: 3}
+    - {fileID: 8300000, guid: 2ba8265b7bedc0443b7aa67b3a67a7f9, type: 3}
+    - {fileID: 8300000, guid: 8ffaf5057ce0059408c84fed8e670b87, type: 3}
+    - {fileID: 8300000, guid: 3d41fce867ad97742af468e59ffd3fc5, type: 3}
+    - {fileID: 8300000, guid: 9f5adb6e34b5a7146a16f002ed5eb519, type: 3}
+    - {fileID: 8300000, guid: b7d237946928e6f4ba9bc3a09a24f773, type: 3}
+    volume: {x: 0.7, y: 0.85}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.snow.walk
+    clips:
+    - {fileID: 8300000, guid: fcb6714c07343bc4d85c01f70f3d686e, type: 3}
+    - {fileID: 8300000, guid: 53c5f1ed4a18fc248951847a5d2c4848, type: 3}
+    - {fileID: 8300000, guid: 7a4ba070a216e6f49b695cf8185e1069, type: 3}
+    - {fileID: 8300000, guid: e036dcc42f7daf246be96af92e0a6fb1, type: 3}
+    - {fileID: 8300000, guid: 6d306973aa86d674dbae903e60ea8432, type: 3}
+    - {fileID: 8300000, guid: f9cedf83494d81b4c82c0025cc0f0260, type: 3}
+    - {fileID: 8300000, guid: edb8ca5e2c6879a408fa9eceb03d3f0d, type: 3}
+    - {fileID: 8300000, guid: 5bf0e7a8c0002284885006fa73c5ea1d, type: 3}
+    - {fileID: 8300000, guid: 6732ce21dca3b3e48bf4cc4459e0066b, type: 3}
+    - {fileID: 8300000, guid: 6b4ecb9b06607184b970ffae3f263a1f, type: 3}
+    - {fileID: 8300000, guid: 8810a5a5f6b5fc44a94f3892daebbeec, type: 3}
+    - {fileID: 8300000, guid: 9fb6e97e32d4fa84a91e7b465eb11a66, type: 3}
+    - {fileID: 8300000, guid: 09b68957bc877e843880dc8c0f915eb1, type: 3}
+    - {fileID: 8300000, guid: fcca62d1dd3723f4a82a11be550da040, type: 3}
+    - {fileID: 8300000, guid: bbe0788acb902b34a9952dbdf6962fa1, type: 3}
+    - {fileID: 8300000, guid: daeb7d7664d277b40a13e1ff908a09b2, type: 3}
+    - {fileID: 8300000, guid: 52b8fd2682353cd41a8e7f3221960f4a, type: 3}
+    - {fileID: 8300000, guid: 336ae0e539160c34a82d55ed9bda3944, type: 3}
+    - {fileID: 8300000, guid: 15be2452799a0e24687011e068e9974e, type: 3}
+    - {fileID: 8300000, guid: 843e3a1ec27a8b7468682c3432c6dbbb, type: 3}
+    - {fileID: 8300000, guid: bf0930eacbdfab04ab7327fb77f8a955, type: 3}
+    - {fileID: 8300000, guid: ea11410817a2a8345bd7fe9c2345563b, type: 3}
+    volume: {x: 0.55, y: 0.7}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.tile.land
+    clips:
+    - {fileID: 8300000, guid: 5fa6c470df867904cb2c125b63c2d02c, type: 3}
+    - {fileID: 8300000, guid: ef8272ef651614a4195544716542326a, type: 3}
+    - {fileID: 8300000, guid: 7893e6b94a0768c45af13c4abbff18ad, type: 3}
+    volume: {x: 0.8, y: 0.9}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.tile.run
+    clips:
+    - {fileID: 8300000, guid: c0dc0e0f7eb8ac94aa5bed12191ce2db, type: 3}
+    - {fileID: 8300000, guid: c0cb03ad87f8b7d45bfe7ba113e5b013, type: 3}
+    - {fileID: 8300000, guid: 242c9fa72baf30649930fec64085221c, type: 3}
+    - {fileID: 8300000, guid: 4bb683fb37e58204da45deed57fbc5c4, type: 3}
+    - {fileID: 8300000, guid: 5f2897f6d42974446a199a7edb365e73, type: 3}
+    - {fileID: 8300000, guid: 0a3c96edf5a44604494138fc86f76a17, type: 3}
+    volume: {x: 0.65, y: 0.8}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.tile.walk
+    clips:
+    - {fileID: 8300000, guid: bbedbb5cd0b875a4793b6cd3a92d1b83, type: 3}
+    - {fileID: 8300000, guid: ff1df16ad2f03064c814a41bac501768, type: 3}
+    - {fileID: 8300000, guid: 300dbc9f30dd2384595d472a004f679a, type: 3}
+    - {fileID: 8300000, guid: bb76cea8cc98bef46b3619b6e3cb5dfd, type: 3}
+    - {fileID: 8300000, guid: 98f488be812f6514a89238847b69bd06, type: 3}
+    - {fileID: 8300000, guid: d213530d2125fbe4585d91ad1951595c, type: 3}
+    - {fileID: 8300000, guid: 4b1c816cc817dfe41a55a6e4f6d45da0, type: 3}
+    - {fileID: 8300000, guid: 14ce54d6139173b4a8ac636d8202f6fa, type: 3}
+    volume: {x: 0.5, y: 0.65}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.wood.land
+    clips:
+    - {fileID: 8300000, guid: 8114846609f113641aaac5bc1b6e9967, type: 3}
+    - {fileID: 8300000, guid: 73249f254e74c6f48a114e00a2f35ce3, type: 3}
+    volume: {x: 0.8, y: 0.9}
+    pitch: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.wood.run
+    clips:
+    - {fileID: 8300000, guid: 9c2f94af8c7ac4b4987b8e8f1be5a01a, type: 3}
+    - {fileID: 8300000, guid: 9b7e1fbea23fa804592da6baef391a25, type: 3}
+    - {fileID: 8300000, guid: 02cc488364eb9dd42bd932c438cd649d, type: 3}
+    - {fileID: 8300000, guid: a4e2cc06f3ef5a54190bd2d381702700, type: 3}
+    - {fileID: 8300000, guid: 18371d541f87a104d99d5d53de5d2485, type: 3}
+    - {fileID: 8300000, guid: 5c38f82741597f24aa9fbbf4704a8cd9, type: 3}
+    - {fileID: 8300000, guid: 48f2e112341f6494f98ba414931b3715, type: 3}
+    - {fileID: 8300000, guid: ded65addab2ae56489bec72a73b0341b, type: 3}
+    - {fileID: 8300000, guid: b790174e0e0e16c40a64212be3e90fae, type: 3}
+    - {fileID: 8300000, guid: e485a1a07bf2c1c408408ccb070c3f6b, type: 3}
+    volume: {x: 0.7, y: 0.85}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 35
+    bus: 0
+    priority: 60
+    noise: 0
+  - id: step.wood.walk
+    clips:
+    - {fileID: 8300000, guid: b1237e232558dbf41a981adced16f33d, type: 3}
+    - {fileID: 8300000, guid: 9d1d966873943e34e86bcb158414567a, type: 3}
+    - {fileID: 8300000, guid: e566a7c7b0029834594fe008c991add3, type: 3}
+    - {fileID: 8300000, guid: 6ff3830907c5a6c42923826f3814f1f5, type: 3}
+    - {fileID: 8300000, guid: aa494c2109f924d40bf0a6242485e108, type: 3}
+    - {fileID: 8300000, guid: fac49da6cde1d6f4595468f03d8a1dc4, type: 3}
+    - {fileID: 8300000, guid: b1d550bc7a3145e4da97c0d317a20551, type: 3}
+    - {fileID: 8300000, guid: 7edd8ed03a4f8f64caf2918fde3543e4, type: 3}
+    - {fileID: 8300000, guid: 992b14eaa6e34794fb88156bdcc8d5e4, type: 3}
+    - {fileID: 8300000, guid: f1c385c60e9ada44fb1907a465d19702, type: 3}
+    volume: {x: 0.55, y: 0.7}
+    pitch: {x: 0.93, y: 1.07}
+    spatial: 1
+    minDistance: 1.5
+    maxDistance: 25
+    bus: 0
+    priority: 60
+    noise: 0
+  steps:
+  - surface: Forest
+    walk: step.forest.walk
+    run: step.forest.run
+    land: step.forest.land
+  - surface: Snow
+    walk: step.snow.walk
+    run: step.snow.run
+    land: step.snow.land
+  - surface: Frozen
+    walk: step.frozen.walk
+    run: step.frozen.run
+    land: step.frozen.land
+  - surface: Gravel
+    walk: step.gravel.walk
+    run: step.gravel.run
+    land: step.gravel.land
+  - surface: Wood
+    walk: step.wood.walk
+    run: step.wood.run
+    land: step.wood.land
+  - surface: Tile
+    walk: step.tile.walk
+    run: step.tile.run
+    land: step.tile.land
+  - surface: Metal
+    walk: step.metal.walk
+    run: step.metal.run
+    land: step.metal.land
+  - surface: Dirt
+    walk: step.dirt.walk
+    run: step.dirt.run
+    land: step.dirt.land
+  - surface: Grass
+    walk: step.grass.walk
+    run: 
+    land: step.grass.land
+  - surface: Leaves
+    walk: step.leaves.walk
+    run: step.dirt.run
+    land: step.grass.land
+  - surface: Mud
+    walk: step.mud.walk
+    run: step.dirt.run
+    land: step.dirt.land
+  terrainLayers:
+  - layer: TL_ForestFloor
+    surface: Forest
+  - layer: TL_ForestFloorDark
+    surface: Forest
+  - layer: TL_TrailSoil
+    surface: Dirt
+  - layer: TL_TrailTrack
+    surface: Dirt
+  - layer: TL_RoadRuts
+    surface: Mud
+  - layer: TL_RoadGravel
+    surface: Gravel
+  - layer: TL_Rock
+    surface: Gravel
+  - layer: TL_Asphalt
+    surface: Tile
+  keywords:
+  - keyword: rm_stationsleiter
+    surface: Wood
+  - keyword: main_roof
+    surface: Gravel
+  - keyword: roof
+    surface: Gravel
+  - keyword: gravel
+    surface: Gravel
+  - keyword: kies
+    surface: Gravel
+  - keyword: rock
+    surface: Gravel
+  - keyword: grating
+    surface: Metal
+  - keyword: grate
+    surface: Metal
+  - keyword: metal
+    surface: Metal
+  - keyword: steel
+    surface: Metal
+  - keyword: stahl
+    surface: Metal
+  - keyword: blech
+    surface: Metal
+  - keyword: container
+    surface: Metal
+  - keyword: board
+    surface: Wood
+  - keyword: plank
+    surface: Wood
+  - keyword: wood
+    surface: Wood
+  - keyword: holz
+    surface: Wood
+  - keyword: parkett
+    surface: Wood
+  - keyword: dielen
+    surface: Wood
+  - keyword: crate
+    surface: Wood
+  - keyword: rm_
+    surface: Tile
+  - keyword: tile
+    surface: Tile
+  - keyword: fliese
+    surface: Tile
+  - keyword: linol
+    surface: Tile
+  - keyword: concrete
+    surface: Tile
+  - keyword: beton
+    surface: Tile
+  - keyword: asphalt
+    surface: Tile
+  - keyword: floor
+    surface: Tile
+  - keyword: snow
+    surface: Snow
+  - keyword: schnee
+    surface: Snow
+  - keyword: frozen
+    surface: Frozen
+  - keyword: glatteis
+    surface: Frozen
+  - keyword: grass
+    surface: Grass
+  - keyword: mud
+    surface: Mud
+  - keyword: schlamm
+    surface: Mud
+  - keyword: dirt
+    surface: Dirt
+  - keyword: soil
+    surface: Dirt
+  - keyword: erde
+    surface: Dirt
+  - keyword: leaves
+    surface: Leaves
+  - keyword: laub
+    surface: Leaves
+  outdoorDefault: Forest
+  indoorDefault: Tile
+  defaultLand: step.dirt.land

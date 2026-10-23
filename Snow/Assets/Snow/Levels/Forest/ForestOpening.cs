@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using SkyIsland;
+using Snow.Audio;
 using Snow.Cargo;
 using Snow.Doors;
 using Snow.Interaction;
 using Snow.Net;
 using Snow.Player;
+using Snow.Tasks;
 using Unity.Netcode;
 using UnityEngine;
 using Part = Snow.Levels.SkyIslandLocationHost.Part;
@@ -109,6 +111,9 @@ namespace Snow.Levels.Forest
 
         /// <summary>0 evening, 1 night, 2 morning (the day / night cycle jumps to the morning with it).</summary>
         public byte Phase => _phase.Value;
+
+        /// <summary>Is step S<paramref name="n"/> (1..10) done? S7 power, S8 heating, S9 the base closed (ForestRadio).</summary>
+        public bool StepDone(int n) => n >= 1 && n <= 10 && (_stepsDone.Value & (1u << (n - 1))) != 0;
         readonly NetworkVariable<double> _nightStart = new NetworkVariable<double>(-1d);
         readonly NetworkVariable<bool> _phoneRinging = new NetworkVariable<bool>();
         readonly NetworkVariable<bool> _lanternOn = new NetworkVariable<bool>(true);
@@ -148,6 +153,10 @@ namespace Snow.Levels.Forest
         Vector3[] _walkPath;
         int _walkSeg;
         float _walkT;
+        string _walkCue;                                               // steps along the path from the sound library
+        float _walkStep;
+        SoundLoop _dieselLoop, _boilerLoop;
+        float _genOnSince = -1f, _pumpPhase, _pourSoundAt;
 
         static readonly CultureInfo Ru = CultureInfo.GetCultureInfo("ru-RU");
 
@@ -155,6 +164,7 @@ namespace Snow.Levels.Forest
         void Awake()
         {
             Instance = this;
+            if (!TryGetComponent(out ForestRadio _)) gameObject.AddComponent<ForestRadio>();   // the control-desk radio (voice)
             foreach (string id in new[] { GenStart, FillCap, PumpLever, HeatPump, Burner, Thermostat, FillValve, BurnerReset, PressureGauge, TempGauge, PadlockZone, PhoneZone, KppPower })
                 _owned.Add(id);
             for (int i = 0; i < decalIds.Length; i++)
@@ -230,6 +240,7 @@ namespace Snow.Levels.Forest
         public override void OnNetworkSpawn()
         {
             Resolve();
+            TaskBoard.Hour = () => ForestDayNight.Instance != null ? ForestDayNight.Instance.Hour : -1f;
             if (IsServer) ServerStart();
             // scripted parts show their state at once (the toggles' 0 is -25°, not the model's middle pose)
             Snap(_pumpLever, 0.5f);
@@ -620,6 +631,7 @@ namespace Snow.Levels.Forest
                     {
                         _fillCan.ServerAdd(-move);
                         _tank += move;
+                        if (Time.time >= _pourSoundAt) { _pourSoundAt = Time.time + 5f; SnowAudio.ServerPlay("forest.fuel.pour", _neck); }
                     }
                 }
             }
@@ -698,6 +710,51 @@ namespace Snow.Levels.Forest
             BenchLog.Event("forest_power", "generator", false, "why", why, "tankL", _tank);
         }
 
+        // ------------------------------------------------------------------ dev pult (host)
+        public bool GeneratorRunning => _genRunning.Value;
+        public float DayTankL => _dayTankL.Value;
+        public bool KppPowered => _kppPower.Value;
+
+        /// <summary>Server, dev pult «База»: on = a full day tank, the generator running, every power switch of the location
+        /// on (locks ignored), the checkpoint panel on and every room lit; off = the generator stops (the grid goes down
+        /// with it, room switches stay as they are).</summary>
+        public void DevPower(bool on)
+        {
+            if (!IsServer || host == null) return;                    // nothing half-applied without the location host
+            Resolve();
+            if (!on)
+            {
+                if (_genRunning.Value) StopGenerator("dev");
+                return;
+            }
+            _tank = TankL;
+            if (!_genRunning.Value)
+            {
+                _genStart?.part.Open();
+                _genRunning.Value = true;
+                Sound(Sfx.DieselStart, _genStart != null ? _genStart.part.transform.position : transform.position);
+            }
+            foreach (Part p in host.parts)
+            {
+                if (p?.part == null || p.category != Category.PowerSwitch || p.part.IsOpen) continue;
+                bool locked = p.part.locked;
+                p.part.locked = false;
+                p.part.Open();                                         // the grid recounts its switches
+                p.part.locked = locked;
+            }
+            _kppPower.Value = true;
+            if (host.lights != null)
+                foreach (var r in host.lights.rooms)
+                    if (r != null && !host.lights.IsRoomOn(r.name)) host.lights.SetRoom(r.name, true);
+            BenchLog.Event("forest_power", "dev", true, "grid", host.Powered);
+        }
+
+        /// <summary>Server, dev pult: one room's lights (the host replicates the room bits).</summary>
+        public void DevRoom(string room, bool on)
+        {
+            if (IsServer && host != null && host.lights != null) host.lights.SetRoom(room, on);
+        }
+
         void LogClean()
         {
             ulong bits = _decalsHidden.Value;
@@ -712,6 +769,7 @@ namespace Snow.Levels.Forest
         public void ServerTrashed(CargoItem item)
         {
             _trash.Value++;
+            if (item != null) SnowAudio.ServerPlay("forest.trash.rustle", item.transform.position);
             LogClean();
         }
 
@@ -744,6 +802,7 @@ namespace Snow.Levels.Forest
             uint b = Bit(s);
             if ((done & b) != 0) return done;
             BenchLog.Event("forest_step", "step", s.ToString(), "t", Time.time);
+            TaskBoard.ServerSet("forest." + s, 1);                    // Forest_Tasks.json reads the steps as facts
             return done | b;
         }
 
@@ -868,6 +927,7 @@ namespace Snow.Levels.Forest
             if (t >= 26d && !ScareDone(Scare.X10))
             {
                 if (_barracksDoor?.door != null) _barracksDoor.door.Command(true, DoorDrive.Powered);   // whole and slow: 6 s
+                if (_barracksDoor?.part != null) SnowAudio.ServerPlay("forest.door.creak", _barracksDoor.part.transform.position);
                 MarkScare(Scare.X10);
             }
             if (t >= 31d && !_corridorOff)
@@ -943,6 +1003,8 @@ namespace Snow.Levels.Forest
             Target(_burnerPart, _burnerSwitch.Value, snap);
             Target(_reset, NetworkManager.ServerTime.Time < _resetUntil.Value, snap);
             if (!IsServer) Target(_genStart, _genRunning.Value, snap);
+
+            Machines();
 
             // the STÖRUNG lamp
             int fault = _burner.Value == 1 ? 1 : 0;
@@ -1126,15 +1188,17 @@ namespace Snow.Levels.Forest
         {
             Resolve();
             AudioClip clip = Clip((Sfx)what);
+            string cue = Cue((Sfx)what);
             switch ((Sfx)what)
             {
-                case Sfx.RoofSteps: StartWalk(_x06?.soundPath, clip); break;
-                case Sfx.CorridorSteps: StartWalk(_x09?.soundPath, clip); break;
+                case Sfx.RoofSteps: StartWalk(_x06?.soundPath, clip, cue); break;
+                case Sfx.CorridorSteps: StartWalk(_x09?.soundPath, clip, cue); break;
                 default:                                               // the knock slot holds all three knocks
                     if (clip != null) AudioSource.PlayClipAtPoint(clip, at);
+                    else SnowAudio.Play(cue, at);
                     break;
             }
-            if (clip == null) BenchLog.Event("forest_sound", "id", ((Sfx)what).ToString(), "clip", "none", "p", at);
+            if (clip == null && !SnowAudio.Has(cue)) BenchLog.Event("forest_sound", "id", ((Sfx)what).ToString(), "clip", "none", "p", at);
         }
 
         AudioClip Clip(Sfx s)
@@ -1157,10 +1221,30 @@ namespace Snow.Levels.Forest
             }
         }
 
-        /// <summary>Steps along a path at ~1.4 m/s: a looping source carried over the points.</summary>
-        void StartWalk(ForestPoint[] path, AudioClip clip)
+        /// <summary>The sound library's cue for a slot left empty (tools/audio, package 1).</summary>
+        static string Cue(Sfx s)
         {
-            if (path == null || path.Length < 2 || clip == null) return;
+            switch (s)
+            {
+                case Sfx.PhoneRing: return "forest.phone.ring";
+                case Sfx.Bell: return "forest.phone.bell";
+                case Sfx.Breath: return "forest.phone.breath";
+                case Sfx.RoofSteps: return "step.gravel.walk";
+                case Sfx.Knock: return "forest.knock";
+                case Sfx.CorridorSteps: return "step.tile.walk";
+                case Sfx.DieselStart: return "forest.diesel.start";
+                case Sfx.DieselStop: return "forest.diesel.stop";
+                case Sfx.LanternOut: return "forest.lantern.out";
+                case Sfx.Hiss: return "forest.hiss";
+                case Sfx.BurnerFault: return "forest.burner.fault";
+                default: return null;                                  // BurnerIgnite: nothing picked yet
+            }
+        }
+
+        /// <summary>Steps along a path at ~1.4 m/s: a looping clip carried over the points, or the cue's steps every 0.75 m.</summary>
+        void StartWalk(ForestPoint[] path, AudioClip clip, string cue)
+        {
+            if (path == null || path.Length < 2 || (clip == null && !SnowAudio.Has(cue))) return;
             _walkPath = new Vector3[path.Length];
             for (int i = 0; i < path.Length; i++) _walkPath[i] = ForestData.V3(path[i].p);
             if (_walker == null)
@@ -1171,16 +1255,18 @@ namespace Snow.Levels.Forest
                 _walker.spatialBlend = 1f;
                 _walker.loop = true;
             }
+            _walkCue = clip == null ? cue : null;
             _walker.clip = clip;
             _walker.transform.position = _walkPath[0];
-            _walker.Play();
+            if (clip != null) _walker.Play();
             _walkSeg = 0;
             _walkT = 0f;
+            _walkStep = 0.75f;
         }
 
         void Walk()
         {
-            if (_walker == null || _walkPath == null || !_walker.isPlaying) return;
+            if (_walker == null || _walkPath == null || (!_walker.isPlaying && _walkCue == null)) return;
             Vector3 a = _walkPath[_walkSeg], b = _walkPath[_walkSeg + 1];
             float len = Mathf.Max(0.01f, Vector3.Distance(a, b));
             _walkT += 1.4f * Time.deltaTime / len;
@@ -1188,11 +1274,34 @@ namespace Snow.Levels.Forest
             {
                 _walkT = 0f;
                 _walkSeg++;
-                if (_walkSeg >= _walkPath.Length - 1) { _walker.Stop(); return; }
+                if (_walkSeg >= _walkPath.Length - 1) { _walker.Stop(); _walkCue = null; return; }
                 a = _walkPath[_walkSeg];
                 b = _walkPath[_walkSeg + 1];
             }
             _walker.transform.position = Vector3.Lerp(a, b, _walkT);
+            if (_walkCue != null && (_walkStep += 1.4f * Time.deltaTime) >= 0.75f)
+            {
+                _walkStep = 0f;
+                SnowAudio.Play(_walkCue, _walker.transform.position);
+            }
+        }
+
+        /// <summary>Every peer: the generator and the boiler run audibly; the hand pump creaks on every stroke.</summary>
+        void Machines()
+        {
+            bool gen = _genRunning.Value;
+            if (gen && _genOnSince < 0f) _genOnSince = Time.time;
+            else if (!gen) _genOnSince = -1f;
+            if (_dieselLoop == null && _genStart != null) _dieselLoop = SoundLoop.Create("forest.diesel.loop", _genStart.part.transform, Vector3.zero, true);
+            if (_dieselLoop != null) _dieselLoop.Switch(gen && Time.time - _genOnSince > 2.5f);   // after the start clip
+            if (_boilerLoop == null && _burnerPart != null) _boilerLoop = SoundLoop.Create("forest.boiler.loop", _burnerPart.part.transform, Vector3.zero, true);
+            if (_boilerLoop != null) _boilerLoop.Switch(_burner.Value == 2);
+            if (_pumping.Value && _pumpLever != null)
+            {
+                float phase = Mathf.Repeat(Time.time * 6f / (2f * Mathf.PI), 1f);   // the lever rocks with sin(6 t)
+                if (phase < _pumpPhase) SnowAudio.Play("forest.pump.creak", _pumpLever.part.transform.position);
+                _pumpPhase = phase;
+            }
         }
 
         // ------------------------------------------------------------------ the night's fade (each peer its own, IMGUI)
@@ -1211,13 +1320,10 @@ namespace Snow.Levels.Forest
             else return;
             GUI.color = new Color(0f, 0f, 0f, Mathf.Clamp01(a));
             GUI.DrawTexture(new Rect(0f, 0f, Screen.width, Screen.height), Texture2D.whiteTexture);
-            if (t >= 45f && t < 48f)
-            {
-                GUI.color = new Color(0.9f, 0.88f, 0.8f, 1f);
-                var style = new GUIStyle(GUI.skin.label) { fontSize = 40, alignment = TextAnchor.MiddleCenter };
-                GUI.Label(new Rect(0f, Screen.height * 0.45f, Screen.width, 60f), "06:30", style);
-            }
             GUI.color = Color.white;
+            if (t >= 45f && t < 48f)                                   // UI pick 23.10, version 1: the time alone, centred
+                Hud.Label(new Rect(0f, Mathf.Round(Screen.height * 0.45f), Screen.width, Hud.Px(70f)), "06:30",
+                          Hud.Text(56, false, TextAnchor.MiddleCenter), new Color(0.92f, 0.9f, 0.84f));
         }
     }
 }

@@ -5,6 +5,7 @@ using SkyIsland;
 using Snow.Levels;
 using Snow.Levels.Forest;
 using Snow.Seats;
+using Snow.Tasks;
 using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Snow.EditorTools
     /// <summary>
     /// The Forest's own step of Tools / Snow / Integrate Location Level / Forest (FOREST_U3 F5.1.2, FOREST_U4 G3.4), after
     /// the shared parts, zones and spawns, before the save; a rerun replaces everything it made:
-    ///  - ForestOpening, ForestItems and NoteReader on the Forest root with their links; the data stay JSON TextAssets read
+    ///  - ForestOpening, ForestItems, NoteReader and TaskBoard (Forest_Tasks.json) on the Forest root with their links; the data stay JSON TextAssets read
     ///    in play by JsonUtility (ENGINEERING: one source, nothing copied into the scene);
     ///  - zones without parts (Forest/ForestZones: padlock, phone); the four bunks as seats of their own root network
     ///    object ForestBunks (the seat system parents players to it);
@@ -60,6 +61,8 @@ namespace Snow.EditorTools
             var opening = Ensure<ForestOpening>(root.gameObject);
             var items = Ensure<ForestItems>(root.gameObject);
             var reader = Ensure<NoteReader>(root.gameObject);
+            var board = Ensure<TaskBoard>(root.gameObject);
+            board.tasks = AssetDatabase.LoadAssetAtPath<TextAsset>($"{DataFolder}/Forest_Tasks.json");
             items.opening = openingAsset;
             items.dressing = dressingAsset;
             items.prefabs = ItemPrefabs();

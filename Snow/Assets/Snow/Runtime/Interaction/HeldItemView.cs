@@ -38,6 +38,8 @@ namespace Snow.Interaction
         void LateUpdate()
         {
             CargoItem item = sensor != null ? sensor.Held : null;
+            // a heavy thing carried in front weighs on the camera (user 23.10, QUESTIONS_5.md 33): 5 kg nothing, 40 kg full
+            if (view != null) view.CarryLoad = item != null && !item.Pocketable ? Mathf.InverseLerp(5f, 40f, item.massKg) : 0f;
             Camera cam = view != null ? view.cam : null;
             if (item == null || !item.Pocketable || cam == null || !cam.enabled)
             {

@@ -60,9 +60,19 @@ namespace Snow.Net
         {
             if (Args.Host) StartHost();
             else if (Args.Client) StartClient(Args.Address);
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            Snow.Dev.DevPult.Add("Сеть", 90, _page ??= DrawPage);
+            if (!Args.Automatic && !_nm.IsListening) Snow.Dev.DevPult.Show("Сеть");   // the start screen of a manual run
+#endif
         }
 
-        void OnDestroy() => BenchLog.Close();
+        void OnDestroy()
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            Snow.Dev.DevPult.Remove("Сеть", _page);
+#endif
+            BenchLog.Close();
+        }
 
         public void StartHost()
         {
@@ -182,8 +192,44 @@ namespace Snow.Net
             }
         }
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        System.Action _page;
+
+        /// <summary>Dev pult page «Сеть»: the same as the fallback window below, plus the session state once it runs.</summary>
+        void DrawPage()
+        {
+            if (_nm.IsListening)
+            {
+                Snow.Dev.DevUi.Text(_nm.IsHost ? $"Хост, порт {Args.Port}, игроков {_nm.ConnectedClientsIds.Count}" :
+                    _nm.IsConnectedClient ? $"Клиент #{_nm.LocalClientId}, порт {Args.Port}" : "Подключение…");
+                return;
+            }
+            _menuPort ??= Args.Port.ToString();
+            Snow.Dev.DevUi.Input("Порт (хост и подключение)", ref _menuPort, 6);
+            if (ushort.TryParse(_menuPort, out ushort port)) Args.Port = port;
+            if (Snow.Dev.DevUi.Button("Host"))
+            {
+                StartHost();
+                if (_nm.IsListening) Snow.Dev.DevPult.Hide();
+            }
+            Snow.Dev.DevUi.Input("Адрес сервера", ref _menuAddress);
+            Snow.Dev.DevUi.Input("Задержка в одну сторону, мс (этот процесс)", ref _menuDelay, 6);
+            if (Snow.Dev.DevUi.Button("Join"))
+            {
+                int.TryParse(_menuDelay, out Args.SimDelayMs);
+                StartClient(_menuAddress);
+                if (_nm.IsListening) Snow.Dev.DevPult.Hide();
+            }
+            if (!string.IsNullOrEmpty(_menuError)) Snow.Dev.DevUi.Text(_menuError);
+        }
+#endif
+
+        /// <summary>Fallback start window: release builds, or the dev pult failed to start.</summary>
         void OnGUI()
         {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            if (Snow.Dev.DevPult.Running) return;
+#endif
             if (Args == null || Args.Automatic || _nm == null || _nm.IsListening) return;
             GUILayout.BeginArea(new Rect(20, 20, 300, 300), "Snow network bench (dev)", GUI.skin.window);
             if (_menuPort == null) _menuPort = Args.Port.ToString();
@@ -203,7 +249,7 @@ namespace Snow.Net
             if (!string.IsNullOrEmpty(_menuError))
             {
                 GUI.color = new Color(1f, 0.6f, 0.4f);
-                GUILayout.Label(_menuError);
+                GUILayout.Label(Loc.T(_menuError));
                 GUI.color = Color.white;
             }
             GUILayout.EndArea();

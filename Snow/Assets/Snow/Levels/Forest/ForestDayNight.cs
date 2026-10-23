@@ -24,8 +24,15 @@ namespace Snow.Levels.Forest
     ///    night speed multiplier (night hours pass faster or slower, as DayZ does), day length presets and a local night
     ///    brightness setting (cheat menu; PlayerPrefs).
     /// The opening's morning (ForestOpening phase 2, 06:30) moves the clock there.
+    /// Darker night (22.10, «ночь слишком яркая: не страшно, всё видно без фар»; three solutions in one pass):
+    ///  1. Calibration over Forest_Look (the package data stays as delivered): moonlight, ambient, sky, fog colour and
+    ///     reflections of the night, night exposure 0 instead of the look's +0.6 EV.
+    ///  2. Night kinds (ForestDayNight.Nights.cs): the server picks dark / normal / bright for the next night at full day.
+    ///  3. The player's light leads: canopy cover darkens the ground under the trees (<see cref="ForestCanopy"/>), the eyes
+    ///     adapt to the frame (<see cref="ForestEyeAdaptation"/>), the darkest values are crushed to true black so a raised
+    ///     monitor gamma shows nothing (ForestDayNight.Post.cs, a runtime Volume).
     /// </summary>
-    public class ForestDayNight : NetworkBehaviour
+    public partial class ForestDayNight : NetworkBehaviour
     {
         [Tooltip("Hour at the start of a session (deep night)")] public float startHour = 2f;
         [Tooltip("Game hours per real minute (0.1667: one game hour in six minutes; TEMPORARY)")] public float hoursPerMinute = 1f / 6f;
@@ -50,6 +57,20 @@ namespace Snow.Levels.Forest
         public Color dawnAmbientSky = new Color(0.3f, 0.27f, 0.3f), dawnAmbientEquator = new Color(0.26f, 0.21f, 0.19f), dawnAmbientGround = new Color(0.09f, 0.08f, 0.07f);
         public Color dawnFog = new Color(0.3f, 0.27f, 0.28f);
         public Color dawnHorizon = new Color(0.62f, 0.42f, 0.33f), dawnBand = new Color(0.7f, 0.5f, 0.38f), dawnZenith = new Color(0.22f, 0.25f, 0.36f), dawnBelow = new Color(0.25f, 0.2f, 0.2f);
+
+        [Header("Night calibration (22.10, over Forest_Look)")]
+        [Tooltip("Moonlight at night (the look has 0.6, half the day sun; 0 keeps the look's)")] public float nightMoonIntensity = 0.18f;
+        [Tooltip("The look's night ambient and reflections, scaled (linear)")] public float nightAmbientScale = 0.5f;
+        [Tooltip("The look's night sky colours, scaled (linear)")] public float nightSkyScale = 0.6f;
+        [Tooltip("Night fog colour, linear: darker than the forest, so the fog hides instead of glowing (the look's 0.034, 0.05, 0.058)")]
+        public Color nightFog = new Color(0.012f, 0.016f, 0.02f);
+        [Tooltip("Post exposure at night, EV (the look's +0.6 lifted the whole night 1.5x); by day the day grade's")] public float nightExposure = 0f;
+        [Tooltip("Black crush at night (lift, linear, after exposure): the darkest values become true black")] public float nightCrush = 0.0015f;
+
+        [Header("Canopy (22.10)")]
+        [Tooltip("Ambient on the ground under full canopy cover, night / day")] public Vector2 canopyAmbient = new Vector2(0.35f, 0.6f);
+        [Tooltip("Share of the moon / sun the cover takes off the ground beyond the trees' shadow distance, night / day")]
+        public Vector2 canopyDirect = new Vector2(0.85f, 0.6f);
 
         [Header("Set by the integration")]
         public Shader forestSky;
@@ -95,6 +116,9 @@ namespace Snow.Levels.Forest
         Gradient _gSky, _gEq, _gGround, _gFog, _gHorizon, _gBand, _gZenith, _gBelow;
         bool _captured, _morningDone, _wasDay, _dayProbes;
         float _shownHour = -100f;
+        float _moonIntensity, _reflIntensity;                            // the calibrated moon; the look's reflection intensity
+        float[] _probeIntensity = new float[0];
+        ForestCanopy _canopy;
         static readonly int Horizon = Shader.PropertyToID("_HorizonColor"), Band = Shader.PropertyToID("_BandColor"), Zenith = Shader.PropertyToID("_ZenithColor"),
                             Below = Shader.PropertyToID("_BelowColor"), SunDir = Shader.PropertyToID("_SunDir"), SunColor = Shader.PropertyToID("_SunColor"),
                             SunDisc = Shader.PropertyToID("_SunDisc"), SunDiscPower = Shader.PropertyToID("_SunDiscPower"), SunGlow = Shader.PropertyToID("_SunGlow"),
@@ -111,8 +135,15 @@ namespace Snow.Levels.Forest
             }
         }
 
-        /// <summary>The server's threat level now (0..1, night 1).</summary>
-        public float Threat => threatByHour.Evaluate(Hour);
+        /// <summary>The server's threat level now (0..1, night 1; a bright night is calmer, see <see cref="NightKind.threat"/>).</summary>
+        public float Threat
+        {
+            get
+            {
+                float h = Hour;
+                return Mathf.Clamp01(threatByHour.Evaluate(h) * Mathf.Lerp(1f, CurrentNight.threat, 1f - DayFactor(h)));
+            }
+        }
 
         /// <summary>0 at night, 1 by day.</summary>
         public static float DayFactor(float hour)
@@ -164,7 +195,8 @@ namespace Snow.Levels.Forest
                 _epochHour.Value = startHour;
                 _rate.Value = hoursPerMinute / 60f;
                 _nightMul.Value = nightSpeed;
-                BenchLog.Event("daynight", "start", startHour, "rate_h_per_min", hoursPerMinute, "night_speed", nightSpeed);
+                _kind.Value = (byte)ClampKind(startNightKind);
+                BenchLog.Event("daynight", "start", startHour, "rate_h_per_min", hoursPerMinute, "night_speed", nightSpeed, "night_kind", _kind.Value);
             }
         }
 
@@ -212,6 +244,8 @@ namespace Snow.Levels.Forest
                 _nightIntensity = _sun.intensity;
                 _nightShadow = _sun.shadowStrength;
             }
+            _moonIntensity = nightMoonIntensity > 0f ? nightMoonIntensity : _nightIntensity;
+            _reflIntensity = RenderSettings.reflectionIntensity;
             _nightSky = RenderSettings.ambientSkyColor;
             _nightEq = RenderSettings.ambientEquatorColor;
             _nightGround = RenderSettings.ambientGroundColor;
@@ -260,18 +294,34 @@ namespace Snow.Levels.Forest
                     _sky.SetFloat(SunGlowPower, 6f);
                 }
             }
-            _gSky = Grad(_nightSky, dawnAmbientSky.gamma, dayAmbientSky.gamma);
-            _gEq = Grad(_nightEq, dawnAmbientEquator.gamma, dayAmbientEquator.gamma);
-            _gGround = Grad(_nightGround, dawnAmbientGround.gamma, dayAmbientGround.gamma);
-            _gFog = Grad(_nightFog, dawnFog.gamma, dayFog.gamma);
-            _gHorizon = Grad(nH, dawnHorizon.gamma, dayHorizon.gamma);
-            _gBand = Grad(nB, dawnBand.gamma, dayBand.gamma);
-            _gZenith = Grad(nZ, dawnZenith.gamma, dayZenith.gamma);
-            _gBelow = Grad(nBl, dawnBelow.gamma, dayBelow.gamma);
+            // the night keys calibrated (solution 1); the look's own values stay in _night* for Restore
+            _gSky = Grad(Lin(_nightSky, nightAmbientScale), dawnAmbientSky.gamma, dayAmbientSky.gamma);
+            _gEq = Grad(Lin(_nightEq, nightAmbientScale), dawnAmbientEquator.gamma, dayAmbientEquator.gamma);
+            _gGround = Grad(Lin(_nightGround, nightAmbientScale), dawnAmbientGround.gamma, dayAmbientGround.gamma);
+            _gFog = Grad(nightFog.gamma, dawnFog.gamma, dayFog.gamma);
+            _gHorizon = Grad(Lin(nH, nightSkyScale), dawnHorizon.gamma, dayHorizon.gamma);
+            _gBand = Grad(Lin(nB, nightSkyScale), dawnBand.gamma, dayBand.gamma);
+            _gZenith = Grad(Lin(nZ, nightSkyScale), dawnZenith.gamma, dayZenith.gamma);
+            _gBelow = Grad(Lin(nBl, nightSkyScale), dawnBelow.gamma, dayBelow.gamma);
             if (probes != null && nightProbeTextures != null && dayProbeTextures != null &&
                 probes.Length == nightProbeTextures.Length && probes.Length == dayProbeTextures.Length)
                 _dayProbes = true;
+            _probeIntensity = new float[probes != null ? probes.Length : 0];
+            for (int i = 0; i < _probeIntensity.Length; i++) _probeIntensity[i] = probes[i] != null ? probes[i].intensity : 1f;
             _wasDay = DayFactor(startHour) > 0.5f;
+            if (Application.isPlaying && !Application.isBatchMode)          // a headless bench or server renders nothing
+            {
+                // solution 3: the cover map under the trees and the eyes (local, nothing over the network)
+                if (!TryGetComponent(out _canopy)) _canopy = gameObject.AddComponent<ForestCanopy>();
+                if (!TryGetComponent(out _eyes)) _eyes = gameObject.AddComponent<ForestEyeAdaptation>();
+            }
+        }
+
+        /// <summary>A gamma-space colour (RenderSettings, materials) scaled in linear light.</summary>
+        static Color Lin(Color c, float k)
+        {
+            Color l = c.linear;
+            return new Color(l.r * k, l.g * k, l.b * k, c.a).gamma;
         }
 
         /// <summary>Every property both shaders declare, copied by type; the rest of <paramref name="dst"/> keeps its defaults.</summary>
@@ -333,7 +383,11 @@ namespace Snow.Levels.Forest
             RenderSettings.fogEndDistance = _nightFogEnd;
             if (_fogCtl != null) { _fogCtl.groundStart = _ctlStart; _fogCtl.groundEnd = _ctlEnd; }
             SetProbes(false);
+            RenderSettings.reflectionIntensity = _reflIntensity;
+            for (int i = 0; i < _probeIntensity.Length && i < probes.Length; i++)
+                if (probes[i] != null) probes[i].intensity = _probeIntensity[i];
             if (dayVolume != null) dayVolume.weight = 0f;
+            DestroyPost();
             _captured = false;
         }
 
@@ -342,6 +396,7 @@ namespace Snow.Levels.Forest
         public void EditorPreview(float hour)
         {
             if (!_captured) Capture();
+            UpdateNightKind(DayFactor(hour), 0f);
             Apply(hour, true);
         }
 
@@ -358,7 +413,8 @@ namespace Snow.Levels.Forest
                 _morningDone = true;
                 if (hour > 18f || hour < 6.5f) { ServerSetHour(6.5f); hour = 6.5f; }
             }
-            bool slow = Mathf.Abs(Mathf.DeltaAngle(hour * 15f, _shownHour * 15f)) >= 0.25f;    // sky, probes, volume: every ~1 game minute
+            bool blending = UpdateNightKind(DayFactor(hour), Time.deltaTime);
+            bool slow = blending || Mathf.Abs(Mathf.DeltaAngle(hour * 15f, _shownHour * 15f)) >= 0.25f;    // sky, probes, volume: every ~1 game minute
             Apply(hour, slow);
             if (slow) _shownHour = hour;
         }
@@ -397,7 +453,7 @@ namespace Snow.Levels.Forest
                 {
                     _sun.transform.rotation = moonRot;
                     _sun.color = _nightSun;
-                    _sun.intensity = _nightIntensity * moonK * (1f + bright);
+                    _sun.intensity = _moonIntensity * _kMoon * moonK * (1f + bright);
                     _sun.shadowStrength = _nightShadow * moonK;
                 }
             }
@@ -405,14 +461,23 @@ namespace Snow.Levels.Forest
             // ambient and fog every frame (cheap: Trilight, no GI to update)
             float t = hour / 24f;
             float lift = 1f + bright * 1.5f * night;
-            RenderSettings.ambientSkyColor = _gSky.Evaluate(t) * lift;
-            RenderSettings.ambientEquatorColor = _gEq.Evaluate(t) * lift;
-            RenderSettings.ambientGroundColor = _gGround.Evaluate(t) * lift;
-            RenderSettings.fogColor = _gFog.Evaluate(t);
+            float amb = Mathf.Lerp(1f, _kAmbient, night);                                       // the night kind
+            RenderSettings.ambientSkyColor = Lin(_gSky.Evaluate(t), amb) * lift;
+            RenderSettings.ambientEquatorColor = Lin(_gEq.Evaluate(t), amb) * lift;
+            RenderSettings.ambientGroundColor = Lin(_gGround.Evaluate(t), amb) * lift;
+            RenderSettings.fogColor = Lin(_gFog.Evaluate(t), Mathf.Lerp(1f, _kFog, night));
             float fs = Mathf.Lerp(_nightFogStart, dayFogRange.x, d), fe = Mathf.Lerp(_nightFogEnd, dayFogRange.y, d);
             if (_fogCtl != null) { _fogCtl.groundStart = fs; _fogCtl.groundEnd = fe; }       // it scales them by altitude and fog events
             else { RenderSettings.fogStartDistance = fs; RenderSettings.fogEndDistance = fe; }
             if (dayVolume != null) dayVolume.weight = d;
+
+            // reflections follow the ambient (the night probes were baked with the look's brighter night)
+            float refl = Mathf.Lerp(nightAmbientScale * _kAmbient, 1f, d) * lift;
+            RenderSettings.reflectionIntensity = _reflIntensity * refl;
+            for (int i = 0; i < _probeIntensity.Length && i < probes.Length; i++)
+                if (probes[i] != null) probes[i].intensity = _probeIntensity[i] * refl;
+            if (_canopy != null) _canopy.SetStrength(Mathf.Lerp(canopyAmbient.x, canopyAmbient.y, d), Mathf.Lerp(canopyDirect.x, canopyDirect.y, d));
+            if (Application.isPlaying) UpdatePost(d, night, bright);
 
             bool isDay = d > 0.5f;
             if (isDay != _wasDay)
@@ -427,11 +492,12 @@ namespace Snow.Levels.Forest
             }
             if (!slow || _sky == null) return;
 
-            _sky.SetColor(Horizon, _gHorizon.Evaluate(t));
-            _sky.SetColor(Band, _gBand.Evaluate(t));
-            _sky.SetColor(Zenith, _gZenith.Evaluate(t));
-            if (_sky.HasProperty(Below)) _sky.SetColor(Below, _gBelow.Evaluate(t));
-            if (_sky.HasProperty(Stars)) _sky.SetFloat(Stars, _nightStars * night);
+            float skyK = Mathf.Lerp(1f, _kSky, night);
+            _sky.SetColor(Horizon, Lin(_gHorizon.Evaluate(t), skyK));
+            _sky.SetColor(Band, Lin(_gBand.Evaluate(t), skyK));
+            _sky.SetColor(Zenith, Lin(_gZenith.Evaluate(t), skyK));
+            if (_sky.HasProperty(Below)) _sky.SetColor(Below, Lin(_gBelow.Evaluate(t), skyK));
+            if (_sky.HasProperty(Stars)) _sky.SetFloat(Stars, _nightStars * night * _kStars);
             if (_sky.HasProperty(StarAngle)) _sky.SetFloat(StarAngle, t * Mathf.PI * 2f);
             _sky.SetVector(SunDir, -(sunRot * Vector3.forward));
             _sky.SetColor(SunColor, daySunSky.gamma * sunK);
@@ -440,7 +506,7 @@ namespace Snow.Levels.Forest
                 _sky.SetVector(MoonDir, -(moonRot * Vector3.forward));
                 // the moon fades by day and below the horizon
                 Color baseMoon = _skyAsset != null && _skyAsset.HasProperty(SunColor) ? _skyAsset.GetColor(SunColor) : Color.white;
-                _sky.SetColor(MoonColor, baseMoon * moonK * night);
+                _sky.SetColor(MoonColor, baseMoon * moonK * night * _kDisc);
             }
         }
 

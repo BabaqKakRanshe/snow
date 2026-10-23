@@ -3,7 +3,6 @@ using System.Globalization;
 using Snow.Net;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Snow.World
 {
@@ -15,7 +14,7 @@ namespace Snow.World
     /// No reduction near the ground (PHYS-02.7). Atmosphere: ISA lapse from a sea-level temperature and pressure.
     ///
     /// The settings are server state, replicated so every peer's windsock agrees. TEMPORARY test control (developer
-    /// tool): F9 on the host opens a panel with presets; -snow-wind KT,FROMDEG,GUSTKT,TURBMS on the command line.
+    /// tool): the dev pult (~) page «Погода» on the host; -snow-wind KT,FROMDEG,GUSTKT,TURBMS on the command line.
     /// </summary>
     public class EnvironmentProvider : NetworkBehaviour
     {
@@ -48,7 +47,7 @@ namespace Snow.World
         readonly NetworkVariable<Settings> _settings = new NetworkVariable<Settings>(default,
             NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
-        bool _panel;
+        Action _page;
         public static EnvironmentProvider Current { get; private set; }
         public Settings Now => IsSpawned ? _settings.Value : initial;
 
@@ -62,6 +61,9 @@ namespace Snow.World
 
         public override void OnNetworkSpawn()
         {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            Snow.Dev.DevPult.Add("Погода", 50, _page ??= DrawPage);
+#endif
             if (!IsServer) return;
             Settings s = initial;
             string arg = SnowNetworkBootstrap.Args != null ? SnowNetworkBootstrap.Args.Wind : null;
@@ -124,34 +126,27 @@ namespace Snow.World
         public static float PressureAt(float h) => Current != null ? Current.PressurePa(h) : 101325f * Mathf.Pow(Mathf.Max(0.1f, 1f - 2.26e-5f * h), 5.2559f);
         public static float TemperatureAt(float h) => Current != null ? Current.TemperatureC(h) : -10f - 0.0065f * h;
 
-        // ---------------------------------------------------------------- developer panel (host)
-        void Update()
-        {
-            if (IsServer && Keyboard.current != null && Keyboard.current.f9Key.wasPressedThisFrame) _panel = !_panel;
-        }
+        // ---------------------------------------------------------------- dev pult page «Погода» (changes: host)
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        public override void OnNetworkDespawn() => Snow.Dev.DevPult.Remove("Погода", _page);
 
-        void OnGUI()
+        void DrawPage()
         {
-            if (!_panel || !IsServer) return;
             Settings s = Now;
-            GUILayout.BeginArea(new Rect(Screen.width - 330, 20, 310, 330), "Погода (dev, F9)", GUI.skin.window);
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Штиль")) s = new Settings { SeaLevelC = s.SeaLevelC, SeaLevelHpa = s.SeaLevelHpa };
-            if (GUILayout.Button("Бок. 15 уз")) { s.SpeedMs = 15f * Kt; s.FromDeg = 90f; s.GustMs = 0f; s.TurbulenceMs = 0.5f; }
-            if (GUILayout.Button("Буря")) { s.SpeedMs = 35f * Kt; s.FromDeg = 60f; s.GustMs = 15f * Kt; s.TurbulenceMs = 4f; }
-            GUILayout.EndHorizontal();
-            GUILayout.Label($"Ветер {s.SpeedMs / Kt:0} уз");
-            s.SpeedMs = GUILayout.HorizontalSlider(s.SpeedMs / Kt, 0f, 60f) * Kt;
-            GUILayout.Label($"Откуда {s.FromDeg:0}° (0 = с +Z)");
-            s.FromDeg = Mathf.Round(GUILayout.HorizontalSlider(s.FromDeg, 0f, 359f));
-            GUILayout.Label($"Порывы +{s.GustMs / Kt:0} уз");
-            s.GustMs = GUILayout.HorizontalSlider(s.GustMs / Kt, 0f, 30f) * Kt;
-            GUILayout.Label($"Турбулентность {s.TurbulenceMs:0.0} м/с");
-            s.TurbulenceMs = GUILayout.HorizontalSlider(s.TurbulenceMs, 0f, 8f);
-            GUILayout.Label($"Температура у земли {s.SeaLevelC:0} °C");
-            s.SeaLevelC = Mathf.Round(GUILayout.HorizontalSlider(s.SeaLevelC, -40f, 30f));
-            GUILayout.EndArea();
-            if (!s.Equals(Now)) Apply(s);
+            bool host = Snow.Dev.DevUi.HostOnly() && IsServer;
+            if (Snow.Dev.DevUi.Button("Штиль", host)) s = new Settings { SeaLevelC = s.SeaLevelC, SeaLevelHpa = s.SeaLevelHpa };
+            Snow.Dev.DevUi.Row();
+            if (Snow.Dev.DevUi.Button("Бок. 15 уз", host)) { s.SpeedMs = 15f * Kt; s.FromDeg = 90f; s.GustMs = 0f; s.TurbulenceMs = 0.5f; }
+            Snow.Dev.DevUi.Row();
+            if (Snow.Dev.DevUi.Button("Буря", host)) { s.SpeedMs = 35f * Kt; s.FromDeg = 60f; s.GustMs = 15f * Kt; s.TurbulenceMs = 4f; }
+            float kt = s.SpeedMs / Kt, gust = s.GustMs / Kt;
+            if (Snow.Dev.DevUi.Slider("Ветер, уз", ref kt, 0f, 60f, "%.0f", host)) s.SpeedMs = kt * Kt;
+            if (Snow.Dev.DevUi.Slider("Откуда, ° (0 = с +Z)", ref s.FromDeg, 0f, 359f, "%.0f", host)) s.FromDeg = Mathf.Round(s.FromDeg);
+            if (Snow.Dev.DevUi.Slider("Порывы +, уз", ref gust, 0f, 30f, "%.0f", host)) s.GustMs = gust * Kt;
+            Snow.Dev.DevUi.Slider("Турбулентность, м/с", ref s.TurbulenceMs, 0f, 8f, "%.1f", host);
+            if (Snow.Dev.DevUi.Slider("Температура у земли, °C", ref s.SeaLevelC, -40f, 30f, "%.0f", host)) s.SeaLevelC = Mathf.Round(s.SeaLevelC);
+            if (host && !s.Equals(Now)) Apply(s);
         }
+#endif
     }
 }

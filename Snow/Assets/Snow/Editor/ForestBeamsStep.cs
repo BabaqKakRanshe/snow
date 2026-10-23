@@ -20,10 +20,12 @@ namespace Snow.EditorTools
 
         public static void Run(Transform root)
         {
-            Transform structures = root.Find("Structures");
-            Light[] lamps = structures == null ? new Light[0] : structures.GetComponentsInChildren<Light>(true)
-                .Where(l => l.name.StartsWith("Light_power", System.StringComparison.Ordinal) && Owners.Contains(OwnerOf(l.transform, structures)))
-                .OrderBy(l => OwnerOf(l.transform, structures), System.StringComparer.Ordinal).ThenBy(l => l.transform.position.x).ToArray();
+            Transform structures = root.Find("Structures"), dress = root.Find(ForestYardDressStep.RootName);
+            // the yard's lamps: the package's six (Structures) and the dressing's fence lamps (ForestYardDress)
+            Light[] lamps = new[] { structures, dress }.Where(g => g != null).SelectMany(g => g.GetComponentsInChildren<Light>(true)
+                .Where(l => l.name.StartsWith("Light_power", System.StringComparison.Ordinal) && Owners.Contains(OwnerOf(l.transform, g)))
+                .Select(l => (light: l, owner: OwnerOf(l.transform, g))))
+                .OrderBy(x => x.owner, System.StringComparer.Ordinal).ThenBy(x => x.light.transform.position.x).Select(x => x.light).ToArray();
             var mat = AssetDatabase.LoadAssetAtPath<Material>(MaterialPath);
             if (mat == null)
             {
@@ -37,7 +39,7 @@ namespace Snow.EditorTools
             beams.beamMaterial = mat;
             beams.gain = Gain;
             EditorUtility.SetDirty(beams);
-            int poles = lamps.Count(l => OwnerOf(l.transform, structures) == "LightPole");
+            int poles = lamps.Count(l => OwnerOf(l.transform, structures) == "LightPole" || (dress != null && OwnerOf(l.transform, dress) == "LightPole"));
             Debug.Log($"[Snow] Forest beams: {lamps.Length} lamps ({poles} yard, {lamps.Length - poles} antennas), up to {beams.maxBeams} " +
                       $"in view within {beams.maxDistance:0} m, atmosphere {beams.atmosphere:0.##}, gain {beams.gain:0.#}.");
         }

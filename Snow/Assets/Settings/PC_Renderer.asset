@@ -26,6 +26,7 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 7200000, guid: b9a23f869c4fd45f19c5ada54dd82176, type: 3}
   m_RendererFeatures:
   - {fileID: 7833122117494664109}
+  - {fileID: 11400000, guid: e9715c0c1f24ece4db779658940bf4d1, type: 2}
   m_RendererFeatureMap: ad6b866f10d7b46c
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
@@ -71,9 +72,9 @@ MonoBehaviour:
     AfterOpaque: 0
     Source: 1
     NormalSamples: 1
-    Intensity: 0.4
+    Intensity: 1
     DirectLightingStrength: 0.25
-    Radius: 0.3
+    Radius: 0.5
     Samples: 1
     BlurQuality: 0
     Falloff: 100

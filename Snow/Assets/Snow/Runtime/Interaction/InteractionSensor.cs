@@ -30,6 +30,12 @@ namespace Snow.Interaction
         [Tooltip("Layers the use ray can hit; triggers count (interaction volumes are triggers)")] public LayerMask mask = ~0;
         [Tooltip("s: a taken item stays in the hand this long without the server's answer, then goes back")] public float confirmTimeout = 0.75f;
 
+        /// <summary>The digit keys belong to another menu now (the radio reply, Snow.Voice.VoiceHud): no pocket from 1–8.</summary>
+        public static bool DigitsTaken;
+        /// <summary>A note is open in the reader (Snow.Levels.Forest.NoteReader): T and Esc are its keys, the radio reply
+        /// menu leaves them alone. Stays true through the frame the note closes.</summary>
+        public static bool ReaderOpen;
+
         public InteractionHost TargetHost { get; private set; }
         public string TargetId { get; private set; }
         public UtilityPlaneInteractable TargetVolume { get; private set; }
@@ -259,7 +265,7 @@ namespace Snow.Interaction
                     else if (HeldHeavy) ShowMessage("Слишком тяжело для кармана");
                     else { net.RequestPocket(); Requested(-1); }
                 }
-                for (int s = 0; s < CargoItem.PocketSlots; s++)
+                for (int s = 0; s < CargoItem.PocketSlots && !DigitsTaken; s++)
                     if (kb[(UnityEngine.InputSystem.Key)((int)UnityEngine.InputSystem.Key.Digit1 + s)].wasPressedThisFrame) TakeSlot(s);
             }
 
@@ -440,39 +446,53 @@ namespace Snow.Interaction
             return ctx == InputContext.SeatCursor ? "ЛКМ" : "F";
         }
 
+        /// <summary>0..1 while a held action runs (Use held on a hold zone, or the left button with an item); -1 otherwise.</summary>
+        public float HoldProgress
+        {
+            get
+            {
+                if (_lmbSent && _lmbHold > 0f) return Mathf.Clamp01((Time.time - _lmbTime) / _lmbHold);
+                if (_pressSent && _pressHold > 0f) return Mathf.Clamp01((Time.time - _pressTime) / _pressHold);
+                return -1f;
+            }
+        }
+
+        /// <summary>Set each frame by InteractionOverlay while its hover card is up: the card draws the hold bar itself.</summary>
+        [System.NonSerialized] public bool HoldShownByCard;
+
+        /// <summary>Screen rect of the hover card and its target this frame (zero size: none); server replies go below it.</summary>
+        [System.NonSerialized] public Rect CardRect;
+
         void OnGUI()
         {
-            if (Application.isBatchMode) return;
-            // aim point: where the use ray goes (not with the free cursor, which is its own pointer)
+            if (Application.isBatchMode || Event.current.type != EventType.Repaint) return;
+            // aim point: where the use ray goes (not with the free cursor, which is its own pointer); warm over a target
             if (controller != null && controller.Source != null && controller.Source.Context != InputContext.SeatCursor
                 && controller.Source.Context != InputContext.None)
             {
-                float cx = Screen.width * 0.5f, cy = Screen.height * 0.5f;
-                GUI.color = new Color(0f, 0f, 0f, 0.6f);
-                GUI.DrawTexture(new Rect(cx - 3f, cy - 3f, 6f, 6f), Texture2D.whiteTexture);
-                GUI.color = TargetHost != null || TargetCargo != null ? new Color(1f, 0.85f, 0.3f) : Color.white;
-                GUI.DrawTexture(new Rect(cx - 2f, cy - 2f, 4f, 4f), Texture2D.whiteTexture);
-                GUI.color = Color.white;
+                float cx = Mathf.Round(Screen.width * 0.5f), cy = Mathf.Round(Screen.height * 0.5f);
+                bool onTarget = TargetHost != null || TargetCargo != null;
+                float d = Hud.Px(onTarget ? 6f : 4f), o = Hud.Px(2f);
+                Hud.Fill(new Rect(cx - d * 0.5f - o, cy - d * 0.5f - o, d + 2f * o, d + 2f * o), new Color(0f, 0f, 0f, 0.65f));
+                Hud.Fill(new Rect(cx - d * 0.5f, cy - d * 0.5f, d, d), onTarget ? Hud.Warm : Color.white);
             }
-            // held action (winter kit): a progress bar under the aim point while the button is held
-            bool lmbBar = _lmbSent && _lmbHold > 0f;
-            if ((_pressSent && _pressHold > 0f) || lmbBar)
+            // held action without a hover card (the card shows its own bar): a bar under the aim point
+            float k = HoldProgress;
+            if (k >= 0f && !HoldShownByCard)
             {
-                float k = lmbBar ? Mathf.Clamp01((Time.time - _lmbTime) / _lmbHold) : Mathf.Clamp01((Time.time - _pressTime) / _pressHold);
-                var bar = new Rect(Screen.width * 0.5f - 100f, Screen.height * 0.55f, 200f, 8f);
-                GUI.color = new Color(0f, 0f, 0f, 0.6f); GUI.DrawTexture(bar, Texture2D.whiteTexture);
-                GUI.color = new Color(1f, 0.85f, 0.3f); GUI.DrawTexture(new Rect(bar.x, bar.y, bar.width * k, bar.height), Texture2D.whiteTexture);
-                GUI.color = Color.white;
+                float w = Hud.Px(260f), h = Hud.Px(8f);
+                Hud.Bar(new Rect(Mathf.Round((Screen.width - w) * 0.5f), Mathf.Round(Screen.height * 0.55f), w, h), k);
             }
-            var style = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontSize = 18 };
-            var rect = new Rect(0, Screen.height * 0.58f, Screen.width, 30);
             // the hover card (name, state, actions) is InteractionOverlay; here only server replies and short notes
             if (Time.time >= _messageUntil || string.IsNullOrEmpty(_message)) return;
-            GUI.color = new Color(0f, 0f, 0f, 0.6f);
-            GUI.Label(new Rect(rect.x + 1, rect.y + 1, rect.width, rect.height), _message, style);
-            GUI.color = new Color(1f, 0.8f, 0.4f);
-            GUI.Label(rect, _message, style);
-            GUI.color = Color.white;
+            string message = Loc.T(_message);                     // server replies come in Russian too
+            GUIStyle st = Hud.Text(22);
+            float tw = Mathf.Min(Hud.Size(message, st).x, Screen.width - 2f * Hud.SafeX), ph = Hud.Px(40f);
+            var plate = new Rect(Mathf.Round((Screen.width - tw) * 0.5f) - Hud.Px(19f), Mathf.Round(Screen.height * 0.58f), tw + Hud.Px(35f), ph);
+            if (CardRect.width > 0f && plate.Overlaps(CardRect))                 // not over the target or its card
+                plate.y = Mathf.Min(CardRect.yMax + Hud.Px(10f), Screen.height - ph - Hud.SafeY);
+            Hud.Panel(plate, 1f, true);
+            Hud.Label(new Rect(plate.x + Hud.Px(19f), plate.y, tw, ph), message, st, Color.white);
         }
     }
 }

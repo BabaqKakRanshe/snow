@@ -35,6 +35,16 @@ namespace Snow.Player
         static readonly CommandDeduplicator Dedup = new CommandDeduplicator();
         readonly NetworkVariable<bool> _seatedNet = new NetworkVariable<bool>(false,
             NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+        // the owner's ragdoll is down (PlayerRagdoll); where his head looks: pitch and seat yaw, 0.01° each (user 23.10:
+        // other players see where you look up and down, QUESTIONS_5.md 36)
+        readonly NetworkVariable<bool> _ragdollNet = new NetworkVariable<bool>(false,
+            NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        readonly NetworkVariable<int> _headLook = new NetworkVariable<int>(0,
+            NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        PlayerRagdoll _ragdoll;
+        Transform _headPivot;
+        Renderer _marker;
+        float _headNext;
         uint _seq;
         NetworkObject _platform;             // owner: the vehicle we asked to stand on
         Vector3 _lastServerPos;
@@ -46,6 +56,8 @@ namespace Snow.Player
         public static PlayerNet Local { get; private set; }
         public bool ServerSeatedNow => _serverVehicle != null;
         public bool Seated => _seatedNet.Value;
+        public PlayerRagdoll Ragdoll => _ragdoll;
+        public bool RagdollDown => _ragdollNet.Value;
 
         static readonly Color[] Colors =
         {
@@ -107,8 +119,22 @@ namespace Snow.Player
             }
             _lastServerPos = transform.position;
             _lastServerTime = Time.time;
+            Transform marker = transform.Find("Body/FacingMarker");
+            if (marker != null) _marker = marker.GetComponent<Renderer>();
+            if (!local && marker != null)
+            {
+                // the facing marker turns with the head, so the others see where this player looks
+                _headPivot = new GameObject("HeadLook").transform;
+                _headPivot.SetParent(transform, false);
+                _headPivot.localPosition = Vector3.up * 1.64f;
+                marker.SetParent(_headPivot, true);
+            }
+            _ragdoll = gameObject.AddComponent<PlayerRagdoll>();
+            _ragdoll.Init(this);
+            _ragdollNet.OnValueChanged += (_, down) => { if (!IsOwner) _ragdoll.ShowRemote(down); };
             _seatedNet.OnValueChanged += (_, seated) => ShowSeated(seated);
             ShowSeated(_seatedNet.Value);
+            if (!local) _ragdoll.ShowRemote(_ragdollNet.Value);
             BenchLog.Event("player_spawn", "owner", OwnerClientId, "local", local, "p", transform.position);
         }
 
@@ -122,7 +148,8 @@ namespace Snow.Player
                 body.transform.localScale = new Vector3(motor.tuning.radius * 2f, seated ? 0.45f : h * 0.5f, motor.tuning.radius * 2f);
                 body.transform.localPosition = Vector3.up * (HLCharacterMotor.SkinWidth + (seated ? 0.45f : h * 0.5f));
             }
-            if (IsOwner) return;
+            if (_headPivot != null) _headPivot.localPosition = Vector3.up * (seated ? 0.83f : 1.64f);
+            if (IsOwner || _ragdollNet.Value) return;
             // the server's copy of a remote player leaving a seat is still on the seat inside the vehicle until the owner's
             // next position arrives: a collider switched on there makes PhysX push the vehicle out of it (VAN3 21.10: a client
             // exit threw the van 7 m up). So the server switches it on only once the copy stands at the approved exit point.
@@ -147,11 +174,13 @@ namespace Snow.Player
         {
             if (Local == this) Local = null;
             if (IsServer) Dedup.Forget(OwnerClientId);
+            if (_ragdoll != null) Destroy(_ragdoll);
             BenchLog.Event("player_despawn", "owner", OwnerClientId);
         }
 
         void Update()
         {
+            if (IsSpawned) HeadLook();
             if (IsSpawned && IsServer && !IsOwner) ServerColliderAfterExit();
             // AT-HL1 evidence: how the server sees a remote player, every rendered frame
             if (IsSpawned && IsServer && !IsOwner && SnowNetworkBootstrap.Args != null && SnowNetworkBootstrap.Args.Trace)
@@ -176,6 +205,74 @@ namespace Snow.Player
             }
             _lastServerPos = transform.position;
             _lastServerTime = Time.time;
+        }
+
+        // ================================================================ head look and ragdoll
+        // owner: head pitch and seat yaw at most 15 times a second, only when they moved; others: the marker follows
+        void HeadLook()
+        {
+            if (IsOwner)
+            {
+                if (Time.time < _headNext || view == null) return;
+                _headNext = Time.time + 1f / 15f;
+                int packed = (ushort)(short)Mathf.Clamp(Mathf.RoundToInt(view.Pitch * 100f), -9000, 9000)
+                           | ((ushort)(short)Mathf.Clamp(Mathf.RoundToInt(view.SeatYaw * 100f), -18000, 18000) << 16);
+                if (packed != _headLook.Value) _headLook.Value = packed;
+                return;
+            }
+            if (_headPivot == null) return;
+            int v = _headLook.Value;
+            float pitch = (short)(v & 0xFFFF) / 100f, yaw = (short)((v >> 16) & 0xFFFF) / 100f;
+            _headPivot.localRotation = Quaternion.Slerp(_headPivot.localRotation, Quaternion.Euler(pitch, yaw, 0f),
+                1f - Mathf.Pow(2f, -Time.deltaTime / 0.06f));
+        }
+
+        /// <summary>Owner: the ragdoll went down or got up (every peer shows it, late joiners too).</summary>
+        public void SetRagdollNet(bool down)
+        {
+            if (!IsOwner) return;
+            if (IsSpawned) _ragdollNet.Value = down;
+            ShowCapsule(!down);
+        }
+
+        /// <summary>The capsule and its facing marker: hidden while the mannequin lies in their place. On other peers the
+        /// collider goes with them (the body is elsewhere).</summary>
+        public void ShowCapsule(bool show)
+        {
+            if (body != null) body.enabled = show;
+            if (_marker != null) _marker.enabled = show;
+            if (!IsOwner) motor.Controller.enabled = show && !_seatedNet.Value;
+        }
+
+        /// <summary>Owner, every network tick while down: the mannequin's pose to everybody else.</summary>
+        public void SendRagdollPose(RagdollPose pose)
+        {
+            if (IsOwner && IsSpawned) RagdollPoseRpc(pose);
+        }
+
+        [Rpc(SendTo.NotOwner, InvokePermission = RpcInvokePermission.Owner, Delivery = RpcDelivery.Unreliable)]
+        void RagdollPoseRpc(RagdollPose pose)
+        {
+            if (_ragdoll != null) _ragdoll.ReceivePose(pose);
+        }
+
+        /// <summary>
+        /// Server: knock this player down as a ragdoll (a creature's hit, an explosion; cause Death keeps him down until
+        /// the death system calls <see cref="PlayerRagdoll.EndDeath"/> on the owner). impulse: m/s given to the chest.
+        /// </summary>
+        public void ServerKnockdown(Vector3 impulse, RagdollCause cause)
+        {
+            if (!IsServer || !IsSpawned || _serverVehicle != null) return;
+            BenchLog.Event("knockdown", "owner", OwnerClientId, "cause", cause.ToString(), "impulse", impulse);
+            KnockRpc(impulse, cause);
+        }
+
+        [Rpc(SendTo.Owner)]
+        void KnockRpc(Vector3 impulse, RagdollCause cause)
+        {
+            if (_ragdoll == null) return;
+            if (cause != RagdollCause.Key) CameraShake.Add(0.8f);
+            _ragdoll.Begin(motor.Velocity, impulse, cause);
         }
 
         // ================================================================ owner → server

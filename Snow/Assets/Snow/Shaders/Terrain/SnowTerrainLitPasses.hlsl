@@ -7,6 +7,22 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityGBuffer.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
 
+// Snow (22.10, darker night): canopy cover under the trees, globals from ForestCanopy (Params.x = 0 when no map is set).
+// Ambient on the ground goes down with the cover; beyond the trees' shadow distance the cover also takes the main light off.
+TEXTURE2D(_SnowCanopyTex);
+SAMPLER(sampler_SnowCanopyTex);
+float4 _SnowCanopyRect;     // xy: world xz of the map's corner, zw: 1 / size in m
+float4 _SnowCanopyParams;   // x: on, y: ambient under full cover, z: share of the main light taken beyond the shadow distance
+float4 _SnowCanopyFade;     // x: m from the camera where the cover starts standing in for shadows, y: 1 / fade length
+
+half SnowCanopyCover(float3 positionWS)
+{
+    if (_SnowCanopyParams.x < 0.5)
+        return 0.0h;
+    float2 uv = (positionWS.xz - _SnowCanopyRect.xy) * _SnowCanopyRect.zw;
+    return SAMPLE_TEXTURE2D_LOD(_SnowCanopyTex, sampler_SnowCanopyTex, uv, 0).r;
+}
+
 struct Attributes
 {
     float4 positionOS : POSITION;
@@ -541,6 +557,8 @@ void SplatmapFragment(
 #endif
 
     InitializeBakedGIData(IN, inputData);
+    half snowCanopy = SnowCanopyCover(inputData.positionWS);
+    inputData.bakedGI *= lerp(1.0h, (half)_SnowCanopyParams.y, snowCanopy);
 
 #ifdef TERRAIN_GBUFFER
 
@@ -569,6 +587,17 @@ void SplatmapFragment(
 #else
 
     half4 color = UniversalFragmentPBR(inputData, albedo, metallic, /* specular */ half3(0.0h, 0.0h, 0.0h), smoothness, occlusion, /* emission */ half3(0, 0, 0), alpha);
+
+    // Snow (22.10): beyond the trees' shadow distance the canopy takes its share of the main light back off
+    half snowCanopyDirect = snowCanopy * (half)_SnowCanopyParams.z * (half)saturate((distance(inputData.positionWS, _WorldSpaceCameraPos) - _SnowCanopyFade.x) * _SnowCanopyFade.y);
+    if (snowCanopyDirect > 0.001h)
+    {
+        half snowAlpha = alpha;
+        BRDFData snowBrdf;
+        InitializeBRDFData(albedo, metallic, half3(0.0h, 0.0h, 0.0h), smoothness, snowAlpha, snowBrdf);
+        Light snowMain = GetMainLight(inputData.shadowCoord, inputData.positionWS, inputData.shadowMask);
+        color.rgb = max(color.rgb - LightingPhysicallyBased(snowBrdf, snowMain, inputData.normalWS, inputData.viewDirectionWS) * snowCanopyDirect, 0.0h);
+    }
 
     SplatmapFinalColor(color, inputData.fogCoord);
 

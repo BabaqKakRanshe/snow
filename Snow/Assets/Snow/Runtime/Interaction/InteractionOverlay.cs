@@ -47,10 +47,9 @@ namespace Snow.Interaction
         readonly List<string> _actions = new List<string>();
         readonly Vector3[] _corners = new Vector3[8];
         float _nextScan;
-        bool _hasHover;
+        bool _hasHover, _reveal;
         Rect _hoverRect;
         string _title;
-        GUIStyle _titleStyle, _actionStyle, _nameStyle;
 
         void LateUpdate()
         {
@@ -58,10 +57,17 @@ namespace Snow.Interaction
             _arrows.Clear();
             _arrowAngles.Clear();
             _hasHover = false;
+            _reveal = false;
+            if (sensor != null) sensor.HoldShownByCard = false;
             Camera cam = view != null ? view.cam : null;
-            if (Application.isBatchMode || cam == null || !cam.enabled || sensor == null || controller == null || controller.Source == null) return;
-            if (controller.Source.Context == InputContext.None) return;
+            if (Application.isBatchMode || cam == null || !cam.enabled || sensor == null || controller == null || controller.Source == null
+                || controller.Source.Context == InputContext.None)
+            {
+                if (sensor != null) sensor.CardRect = default;        // no card drawn: messages go back to their own place
+                return;
+            }
             bool reveal = controller.Frame.Reveal;
+            _reveal = reveal;
 
             // hover card
             Component target = sensor.TargetVolume != null ? sensor.TargetVolume
@@ -70,8 +76,10 @@ namespace Snow.Interaction
             if (target != null && (reveal || !cardOnlyWithAlt) && ScreenRect(Bounds(target), cam, out _hoverRect))
             {
                 _hasHover = true;
+                sensor.HoldShownByCard = true;                    // the hold bar goes inside the card
                 Describe(target);
             }
+            if (!_hasHover) sensor.CardRect = default;            // else OnGUI keeps it (a frame old at most)
             if (!reveal) return;
 
             // reveal key: everything the player could reach from here
@@ -137,13 +145,13 @@ namespace Snow.Interaction
             _arrowAngles.Add(angle);
         }
 
-        static string Name(Component c) => c switch
+        static string Name(Component c) => Loc.T(c switch
         {
             UtilityPlaneInteractable z => z.label,
             CargoItem cargo => cargo.label,
             Grabbable g => g.label,
             _ => null,
-        };
+        });
 
         void Describe(Component target)
         {
@@ -153,24 +161,24 @@ namespace Snow.Interaction
             {
                 InteractionHost host = sensor.TargetHost;
                 string state = host != null ? host.Describe(zone.id) : null;
-                _title = string.IsNullOrEmpty(state) ? zone.label : $"{zone.label} — {state}";
-                _actions.Add($"[{key}] {(host != null ? host.ActionText(zone.id) : "использовать")}");
+                _title = string.IsNullOrEmpty(state) ? Loc.T(zone.label) : $"{Loc.T(zone.label)} — {Loc.T(state)}";
+                _actions.Add($"[{Loc.T(key)}] {Loc.T(host != null ? host.ActionText(zone.id) : "использовать")}");
             }
             else if (target is CargoItem cargo)
             {
-                _title = $"{cargo.label} · {cargo.massKg:0.##} кг · {cargo.Describe()}";
+                _title = Loc.T($"{cargo.label} · {cargo.massKg:0.##} кг · {cargo.Describe()}");
                 if (cargo.Pocketable)
-                    _actions.Add(sensor.net != null && CargoItem.FreeSlot(sensor.net.OwnerClientId) < 0 ? "[E] взять — карманы полны" : "[E] взять");
+                    _actions.Add(Loc.T(sensor.net != null && CargoItem.FreeSlot(sensor.net.OwnerClientId) < 0 ? "[E] взять — карманы полны" : "[E] взять"));
                 else
                 {
-                    _actions.Add(sensor.HeldHeavy ? "[E] поставить то, что несёте" : "[E] нести обеими руками");
-                    _actions.Add(cargo.State == CargoState.Secured ? "[R] открепить" : "[R] закрепить");
+                    _actions.Add(Loc.T(sensor.HeldHeavy ? "[E] поставить то, что несёте" : "[E] нести обеими руками"));
+                    _actions.Add(Loc.T(cargo.State == CargoState.Secured ? "[R] открепить" : "[R] закрепить"));
                 }
             }
             else if (target is Grabbable grab)
             {
-                _title = grab.label;
-                _actions.Add("нельзя взять");
+                _title = Loc.T(grab.label);
+                _actions.Add(Loc.T("нельзя взять"));
             }
         }
 
@@ -222,94 +230,127 @@ namespace Snow.Interaction
             return true;
         }
 
-        // ---------------------------------------------------------------- drawing
+        // ---------------------------------------------------------------- drawing (Hud look; UI pick 23.10: version 2 card)
         void OnGUI()
         {
             if (Event.current.type != EventType.Repaint) return;
-            EnsureStyles();
 
             float named = namedRadius * Screen.height;
             for (int i = 0; i < _marks.Count; i++)
             {
                 Mark m = _marks[i];
-                Corners(m.Rect, revealColor, 2f);
-                if (i < namedMarks && m.CenterDistance <= named && !string.IsNullOrEmpty(m.Name))
-                    Label(new Vector2(m.Rect.x, m.Rect.yMax + 2f), m.Name, _nameStyle, 0.6f);
+                Hud.Corners(m.Rect, revealColor, Hud.Px(2f), Hud.Px(12f));
+                if (i < namedMarks && m.CenterDistance <= named && !string.IsNullOrEmpty(m.Name)) NameTag(m.Rect, m.Name);
             }
             for (int i = 0; i < _arrows.Count; i++) Arrow(_arrows[i], _arrowAngles[i]);
+            if (_reveal) RevealHint();
+            if (_hasHover) Card();
+        }
 
-            if (!_hasHover) return;
-            Corners(_hoverRect, frameColor, 3f);
-            // name and state under the frame, actions to the right of it; every box clamped inside the screen
-            Label(new Vector2(_hoverRect.x, _hoverRect.yMax + 4f), _title, _titleStyle, panelColor.a);
-            float y = _hoverRect.y;
+        // a revealed thing's name on a small plate under its marks
+        static void NameTag(Rect mark, string name)
+        {
+            GUIStyle st = Hud.Text(15, false, TextAnchor.MiddleCenter);
+            float w = Hud.Size(name, st).x + Hud.Px(14f), h = Hud.Px(24f);
+            Rect r = Clamp(new Rect(mark.center.x - w * 0.5f, mark.yMax + Hud.Px(4f), w, h));
+            Hud.Panel(r);
+            Hud.Label(r, name, st, new Color(1f, 1f, 1f, 0.9f));
+        }
+
+        // while the reveal key is held: what it does, top left
+        void RevealHint()
+        {
+            string text = Loc.T(string.Format("держать — всё, что можно взять в {0:0} м", revealRadius));
+            float h = Hud.Px(36f), pad = Hud.Px(12f);
+            var r = new Rect(Hud.SafeX, Hud.SafeY, Hud.KeyTextWidth("B", text, 18) + 2f * pad, h);
+            Hud.Panel(r);
+            Hud.KeyText(r.x + pad, r.y, h, "B", text, 18, Color.white);
+        }
+
+        // corner marks on the target (at least 56 px, so a small switch still gets a frame) and the card beside it:
+        // name, state, a divider, the actions with their keys, the hold bar while a held action runs
+        void Card()
+        {
+            Rect t = _hoverRect;
+            float min = Hud.Px(56f);
+            if (t.width < min) { t.x -= (min - t.width) * 0.5f; t.width = min; }
+            if (t.height < min) { t.y -= (min - t.height) * 0.5f; t.height = min; }
+            Hud.Corners(t, frameColor, Hud.Px(3f), Hud.Px(26f));
+
+            SplitTitle(_title, out string name, out string state);
+            bool hasState = !string.IsNullOrEmpty(state);
+            GUIStyle nameSt = Hud.Text(22, true), stateSt = Hud.Text(18);
+            float padL = Hud.Px(17f), padR = Hud.Px(14f), padT = Hud.Px(10f), padB = Hud.Px(12f);
+            float nameH = Hud.Px(28f), stateH = Hud.Px(24f), rowH = Hud.Px(32f), gap = Hud.Px(6f), line = Mathf.Max(1f, Hud.Px(1f));
+            float inner = Hud.Size(name, nameSt).x;
+            if (hasState) inner = Mathf.Max(inner, Hud.Size(state, stateSt).x);
             foreach (string a in _actions)
             {
-                Vector2 size = Size(a, _actionStyle);
-                float x = _hoverRect.xMax + 6f;
-                if (x + size.x > Screen.width - 4f) x = _hoverRect.x - size.x - 6f;
-                Label(new Vector2(x, y), a, _actionStyle, panelColor.a);
-                y += size.y + 2f;
+                Hud.SplitKey(a, out string k, out string txt);
+                inner = Mathf.Max(inner, Hud.KeyTextWidth(k, txt, 22));
             }
-        }
+            float hold = sensor != null ? sensor.HoldProgress : -1f;
+            float w = Mathf.Max(Hud.Px(290f), inner + padL + padR);
+            float h = padT + nameH + (hasState ? stateH : 0f) + gap * 2f + line + _actions.Count * rowH + (hold >= 0f ? Hud.Px(14f) : 0f) + padB;
+            float x = t.xMax + Hud.Px(14f);
+            if (x + w > Screen.width - Hud.Px(8f)) x = t.x - Hud.Px(14f) - w;
+            Rect r = Clamp(new Rect(x, t.y, w, h));
+            Hud.Panel(r, 1f, true);
+            if (sensor != null) sensor.CardRect = Rect.MinMaxRect(Mathf.Min(t.xMin, r.xMin), Mathf.Min(t.yMin, r.yMin), Mathf.Max(t.xMax, r.xMax), Mathf.Max(t.yMax, r.yMax));
 
-        void EnsureStyles()
-        {
-            if (_titleStyle != null) return;
-            // single line, no clipping: the box is sized to the text (the default label wraps and cut the text, 30.09)
-            _titleStyle = new GUIStyle(GUI.skin.label)
+            float cx = r.x + padL, cy = r.y + padT, cw = w - padL - padR;
+            Hud.Label(new Rect(cx, cy, cw, nameH), name, nameSt, Color.white);
+            cy += nameH;
+            if (hasState)
             {
-                fontSize = 16, alignment = TextAnchor.MiddleLeft, wordWrap = false, clipping = TextClipping.Overflow,
-                padding = new RectOffset(8, 8, 4, 4), margin = new RectOffset(0, 0, 0, 0),
-            };
-            _titleStyle.normal.textColor = Color.white;
-            _actionStyle = new GUIStyle(_titleStyle) { fontSize = 15 };
-            _nameStyle = new GUIStyle(_titleStyle) { fontSize = 13, padding = new RectOffset(5, 5, 2, 2) };
+                Hud.Label(new Rect(cx, cy, cw, stateH), state, stateSt, Hud.StateColor);
+                cy += stateH;
+            }
+            cy += gap;
+            Hud.Divider(cx, cy, cw);
+            cy += line + gap;
+            foreach (string a in _actions)
+            {
+                bool hasKey = Hud.SplitKey(a, out string k, out string txt);
+                Hud.KeyText(cx, cy, rowH, k, txt, 22, hasKey ? Color.white : Hud.Muted);
+                cy += rowH;
+            }
+            if (hold >= 0f) Hud.Bar(new Rect(cx, cy + Hud.Px(6f), cw, Hud.Px(6f)), hold);
         }
 
-        static Vector2 Size(string text, GUIStyle style)
+        // "Шкафчик с ключами — закрыт" / "Кружка · 0,3 кг · свободен": the name, then the state after the first separator
+        static void SplitTitle(string title, out string name, out string state)
         {
-            Vector2 s = style.CalcSize(new GUIContent(text));
-            return new Vector2(Mathf.Ceil(s.x) + 2f, Mathf.Ceil(s.y) + 2f);
+            name = title ?? "";
+            state = null;
+            int i = name.IndexOf(" — ", System.StringComparison.Ordinal);
+            if (i < 0) i = name.IndexOf(" · ", System.StringComparison.Ordinal);
+            if (i < 0) return;
+            state = name.Substring(i + 3);
+            name = name.Substring(0, i);
         }
 
-        void Label(Vector2 at, string text, GUIStyle style, float alpha)
+        static Rect Clamp(Rect r)
         {
-            if (string.IsNullOrEmpty(text)) return;
-            Vector2 s = Size(text, style);
-            var r = new Rect(Mathf.Clamp(at.x, 4f, Mathf.Max(4f, Screen.width - s.x - 4f)),
-                             Mathf.Clamp(at.y, 4f, Mathf.Max(4f, Screen.height - s.y - 4f)), s.x, s.y);
-            GUI.color = new Color(panelColor.r, panelColor.g, panelColor.b, alpha);
-            GUI.DrawTexture(r, Texture2D.whiteTexture);
-            GUI.color = Color.white;
-            GUI.Label(r, text, style);
+            float m = Hud.Px(8f);
+            r.x = Mathf.Clamp(r.x, m, Mathf.Max(m, Screen.width - r.width - m));
+            r.y = Mathf.Clamp(r.y, m, Mathf.Max(m, Screen.height - r.height - m));
+            return r;
         }
 
         void Arrow(Vector2 at, float angle)
         {
             // a chevron pointing outwards: two short bars rotated about the edge point
+            float l = Hud.Px(14f), t = Hud.Px(3f);
             Matrix4x4 saved = GUI.matrix;
             GUIUtility.RotateAroundPivot(angle, at);
             GUI.color = revealColor;
             GUIUtility.RotateAroundPivot(35f, at);
-            GUI.DrawTexture(new Rect(at.x - 14f, at.y - 1.5f, 14f, 3f), Texture2D.whiteTexture);
+            GUI.DrawTexture(new Rect(at.x - l, at.y - t * 0.5f, l, t), Texture2D.whiteTexture);
             GUIUtility.RotateAroundPivot(-70f, at);
-            GUI.DrawTexture(new Rect(at.x - 14f, at.y - 1.5f, 14f, 3f), Texture2D.whiteTexture);
+            GUI.DrawTexture(new Rect(at.x - l, at.y - t * 0.5f, l, t), Texture2D.whiteTexture);
             GUI.matrix = saved;
             GUI.color = Color.white;
         }
-
-        static void Corners(Rect r, Color color, float t)
-        {
-            float l = Mathf.Min(14f, Mathf.Min(r.width, r.height) * 0.3f);
-            GUI.color = color;
-            Tex(r.x, r.y, l, t); Tex(r.x, r.y, t, l);
-            Tex(r.xMax - l, r.y, l, t); Tex(r.xMax - t, r.y, t, l);
-            Tex(r.x, r.yMax - t, l, t); Tex(r.x, r.yMax - l, t, l);
-            Tex(r.xMax - l, r.yMax - t, l, t); Tex(r.xMax - t, r.yMax - l, t, l);
-            GUI.color = Color.white;
-        }
-
-        static void Tex(float x, float y, float w, float h) => GUI.DrawTexture(new Rect(x, y, w, h), Texture2D.whiteTexture);
     }
 }

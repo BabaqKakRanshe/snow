@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.psydack.uimgui": "https://github.com/psydack/uimgui.git#f3d18ef6c13232f88e36c69e3f5f3190061f557e",
     "com.unity.ai.assistant": "2.20.0-pre.1",
     "com.unity.ai.inference": "2.6.1",
     "com.unity.ai.navigation": "2.0.10",

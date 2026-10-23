@@ -28,7 +28,7 @@ namespace Snow.EditorTools
         static readonly string[] MeshGround = { "Forest_Road", "Forest_BasePaved" };
 
         // the light cones (K6.4) and the grade volume ride the same hook: installed whether or not a terrain is baked
-        static ForestTerrainStep() => ForestTerrainHook.run = (scene, root) => { Run(scene, root); ForestRelocationStep.Run(root); ForestYardStep.Run(root); ForestBeamsStep.Run(root); ForestGradeStep.Run(root); ForestExtrasStep.Run(root); ForestDayNightStep.Run(root); };
+        static ForestTerrainStep() => ForestTerrainHook.run = (scene, root) => { Run(scene, root); ForestRelocationStep.Run(root); ForestYardStep.Run(root); ForestYardDressStep.Run(root); ForestViewpointsStep.Run(root); ForestBeamsStep.Run(root); ForestGradeStep.Run(root); ForestExtrasStep.Run(root); ForestDayNightStep.Run(root); };
 
         public static void Run(Scene scene, Transform root)
         {

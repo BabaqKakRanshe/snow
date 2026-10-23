@@ -12,9 +12,10 @@ namespace Snow.Aircraft
     /// <summary>
     /// Replicated state → UtilityPlaneRig fields on every peer (§6 PlanePresentation, VIEW-01). It never computes
     /// physics: surfaces show the actuator positions, needles the sensor readings, lamps and lights what the systems give.
-    /// Also the stall warning horn (§10.1) and, behind F10, the developer telemetry overlay (not a HUD: off by default).
-    /// For the local player in this plane: a help card (H) with the start checklist ticked from the real switch and
-    /// engine state, and the next control of the checklist outlined in the cockpit (29.09 "не знаю как завести").
+    /// Also the stall warning horn (§10.1) and, on the dev pult (~) page «Самолёт», the developer telemetry (not a HUD).
+    /// For the local player in this plane: the start checklist ticked from the real switch and engine state — by default
+    /// one line at the top with the next step, H opens the whole card, H again hides it (UI pick 23.10, version 3) — and
+    /// the next control of the checklist outlined in the cockpit while help shows (29.09 "не знаю как завести").
     ///
     /// Presentation smoothing only (30.09 "интерполяция для объектов с анимацией"): the replicated values arrive at the
     /// network tick (30 Hz) and discrete controls change in one step, so everything that moves is eased here per frame:
@@ -42,8 +43,9 @@ namespace Snow.Aircraft
         UtilityPlaneRig _rig;
         uint _shownBits = uint.MaxValue;
         AudioSource _horn;
-        bool _dev;
-        bool _helpHidden, _seatedHere, _pilotHere, _hinting;
+        bool _seatedHere, _pilotHere, _hinting;
+        int _helpMode;                       // 0 = the next step in one line, 1 = the whole card, 2 = hidden (H cycles)
+        bool HelpHidden => _helpMode == 2;
         bool _apShown;
         readonly List<(string id, string text, bool done)> _steps = new List<(string, string, bool)>();
         readonly Dictionary<string, float> _eased = new Dictionary<string, float>();
@@ -184,8 +186,6 @@ namespace Snow.Aircraft
                 if (t.StallWarning && !_horn.isPlaying) _horn.Play();
                 else if (!t.StallWarning && _horn.isPlaying) _horn.Stop();
             }
-            if (Keyboard.current != null && Keyboard.current.f10Key.wasPressedThisFrame) _dev = !_dev;
-            DevFogPrint();
             BenchView(s, t);
             UpdateHelp(s, t);
 
@@ -247,17 +247,15 @@ namespace Snow.Aircraft
         }
 
         /// <summary>
-        /// Dev only (И2 G.3 TEMPORARY, who prints on the glass is OPEN): with the telemetry overlay on (F10), P puts a palm
-        /// where the local player looks if a fogged pane is within 1 m (RaycastFog: the cabin colliders sit 5-20 cm in
-        /// front of the glass), O wipes all prints. The server sends the print to every peer.
+        /// Dev only (И2 G.3 TEMPORARY, who prints on the glass is OPEN): a palm where the local player looks if a fogged
+        /// pane is within 1 m (RaycastFog: the cabin colliders sit 5-20 cm in front of the glass), or wipe all prints. The
+        /// server sends the print to every peer.
         /// </summary>
-        void DevFogPrint()
+        void DevFogPrint(bool wipe)
         {
-            if (!_dev || Keyboard.current == null) return;
             PlayerNet local = PlayerNet.Local;
             if (local == null || local.view == null) return;
-            if (Keyboard.current.oKey.wasPressedThisFrame) { vehicle.RequestFogPrint(Vector3.zero, true); return; }
-            if (!Keyboard.current.pKey.wasPressedThisFrame) return;
+            if (wipe) { vehicle.RequestFogPrint(Vector3.zero, true); return; }
             var ray = new Ray(local.view.EyePosition, local.view.EyeRotation * Vector3.forward);
             if (_rig.RaycastFog(ray, 1f, out Vector3 point)) vehicle.RequestFogPrint(transform.InverseTransformPoint(point), false);
             else if (local.sensor != null) local.sensor.ShowMessage("Нет стекла ближе 1 м");
@@ -286,7 +284,7 @@ namespace Snow.Aircraft
             SeatAnchor seat = local != null && local.seatController != null ? local.seatController.Seat : null;
             _seatedHere = seat != null && seat.GetComponentInParent<PlaneVehicle>() == vehicle;
             _pilotHere = _seatedHere && seat.role == SeatRole.Pilot;
-            if (_seatedHere && Keyboard.current != null && Keyboard.current.hKey.wasPressedThisFrame) _helpHidden = !_helpHidden;
+            if (_seatedHere && Keyboard.current != null && !Snow.Input.SnowInput.UiOpen && Keyboard.current.hKey.wasPressedThisFrame) _helpMode = (_helpMode + 1) % 3;
 
             _steps.Clear();
             bool running = t.EngineRunning;
@@ -304,7 +302,7 @@ namespace Snow.Aircraft
             HoverOutline outline = local != null ? local.GetComponent<HoverOutline>() : null;
             if (outline == null) return;
             UtilityPlane.UtilityPlaneInteractable next = null;
-            if (_pilotHere && !_helpHidden)
+            if (_pilotHere && !HelpHidden)
                 foreach (var step in _steps)
                     if (!step.done) { vehicle.TryGetVolume(step.id, out next); break; }
             if (next != null) { outline.SetHint(next); _hinting = true; }
@@ -317,22 +315,100 @@ namespace Snow.Aircraft
             return local != null && local.humanInput != null ? local.humanInput.KeyName(action) : "?";
         }
 
+        static readonly (string key, string text)[] HelpKeysLine = { ("H", "весь список") };
+        static readonly (string key, string text)[] HelpKeysCard = { ("H", "скрыть") };
+
+        // UI pick 23.10, version 3 (Hud look): one line at the top with the next start step; H — the whole card; H — hidden
         void HelpCard()
         {
-            if (!_seatedHere || _helpHidden) return;
-            var sb = new System.Text.StringBuilder();
-            sb.Append("ПОДСКАЗКА   (H — скрыть)\n\n");
-            if (_pilotHere)
+            if (!_seatedHere || HelpHidden || Event.current.type != EventType.Repaint) return;
+            if (_helpMode == 0) HelpLine();
+            else HelpFull();
+        }
+
+        void HelpLine()
+        {
+            int done = 0, next = -1;
+            for (int i = 0; i < _steps.Count; i++)
             {
-                sb.Append("Запуск двигателя (следующий орган подсвечен голубым):\n");
+                if (_steps[i].done) done++;
+                else if (next < 0) next = i;
+            }
+            string lead = null, text;
+            if (!_pilotHere) text = Loc.T("Правое кресло: полётом управляет только левое. Тумблеры и двери — можно.");
+            else if (next < 0) return;                                        // the engine runs: nothing to say until H
+            else
+            {
+                lead = $"{done} / {_steps.Count}";                               // steps done (they are not done in order)
+                text = Loc.T("Следующее:") + " " + Loc.T(_steps[next].text);
+            }
+            GUIStyle leadSt = Hud.Text(16, true), st = Hud.Text(22);
+            float pad = Hud.Px(18f), sp = Hud.Px(14f), h = Hud.Px(44f);
+            float lw = lead != null ? Hud.Size(lead, leadSt).x + sp : 0f, tw = Hud.Size(text, st).x;
+            float kw = Hud.Hints(0f, 0f, h, HelpKeysLine, 16, 1f, false);
+            float w = pad * 2f + lw + tw + sp + kw;
+            var r = new Rect(Mathf.Round((Screen.width - w) * 0.5f), Hud.SafeY, w, h);
+            Hud.Panel(r);
+            float x = r.x + pad;
+            if (lead != null)
+            {
+                Hud.Label(new Rect(x, r.y, lw, h), lead, leadSt, Hud.Warm);
+                x += lw;
+            }
+            Hud.Label(new Rect(x, r.y, tw + 2f, h), text, st, Color.white);
+            Hud.Hints(x + tw + sp, r.y, h, HelpKeysLine, 16, 1f);
+        }
+
+        void HelpFull()
+        {
+            float w = Mathf.Min(Hud.Px(700f), Screen.width - 2f * Hud.SafeX), pad = Hud.Px(20f), rowH = Hud.Px(28f), headH = Hud.Px(30f);
+            float iw = w - 2f * pad, box = Hud.Px(20f);
+            GUIStyle head = Hud.Text(20, true), row = Hud.Text(18), rowNext = Hud.Text(18, true), cap = Hud.Text(13);
+            GUIStyle tail = Hud.Text(16, false, TextAnchor.UpperLeft, true);
+            string tailText = Loc.T(HelpTail());
+            float tailH = tail.CalcHeight(new GUIContent(tailText), iw);
+            int rows = _pilotHere ? _steps.Count : 0;
+            float h = pad + headH + (rows > 0 ? Hud.Px(24f) + rows * rowH : 0f) + Hud.Px(12f) + tailH + pad;
+            var r = new Rect(Screen.width - Hud.SafeX - w, Hud.SafeY, w, h);
+            Hud.Panel(r);
+            float x = r.x + pad, y = r.y + pad;
+            Hud.Label(new Rect(x, y, iw, headH), Loc.T("Подсказка"), head, Color.white);
+            float kw = Hud.Hints(0f, 0f, headH, HelpKeysCard, 16, 1f, false);
+            Hud.Hints(r.xMax - pad - kw, y, headH, HelpKeysCard, 16, 1f);
+            y += headH;
+            if (rows > 0)
+            {
+                Hud.Label(new Rect(x, y, iw, Hud.Px(24f)), Loc.T("Запуск двигателя (следующий орган подсвечен)").ToUpperInvariant(), cap, Hud.Muted);
+                y += Hud.Px(24f);
                 bool nextMarked = false;
                 foreach (var step in _steps)
                 {
-                    string mark = step.done ? "[x]" : nextMarked ? "[  ]" : ">>";
+                    bool next = !step.done && !nextMarked;
                     if (!step.done) nextMarked = true;
-                    sb.Append(mark).Append("  ").Append(step.text).Append('\n');
+                    var b = new Rect(x, y + Mathf.Round((rowH - box) * 0.5f), box, box);
+                    if (step.done)
+                    {
+                        Hud.Fill(b, new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, 0.2f));
+                        float k = Hud.Px(6f);
+                        Hud.Fill(new Rect(b.x + k, b.y + k, b.width - 2f * k, b.height - 2f * k), Hud.Warm);
+                    }
+                    else Hud.Outline(b, next ? Hud.Warm : new Color(1f, 1f, 1f, 0.35f), Mathf.Max(1f, Hud.Px(next ? 2f : 1.5f)));
+                    Color c = next ? Color.white : step.done ? new Color(1f, 1f, 1f, 0.55f) : new Color(1f, 1f, 1f, 0.85f);
+                    Hud.Label(new Rect(x + box + Hud.Px(10f), y, iw - box - Hud.Px(10f), rowH), Loc.T(step.text), next ? rowNext : row, c);
+                    y += rowH;
                 }
-                sb.Append("\nПолёт: W/S — штурвал от себя / на себя, A/D — крен, Q/E — педали,\n");
+            }
+            y += Hud.Px(12f);
+            Hud.Label(new Rect(x, y, iw, tailH), tailText, tail, new Color(1f, 1f, 1f, 0.85f));
+        }
+
+        // the flight and cabin keys under the start list (same lines as the old card)
+        string HelpTail()
+        {
+            var sb = new System.Text.StringBuilder();
+            if (_pilotHere)
+            {
+                sb.Append("Полёт: W/S — штурвал от себя / на себя, A/D — крен, Q/E — педали,\n");
                 sb.Append("Shift / Ctrl — газ, Space — тормоза, [ ] — триммер, закрылки — рычаг курсором.\n");
                 sb.Append(vehicle.Telemetry.ApEngaged
                     ? $"{Key("Seat/Autopilot")} — автопилот: ВКЛ, держит курс {vehicle.Telemetry.ApHeading:000}° и {vehicle.Telemetry.ApAltFt:0} ft (штурвал или Z — выключить)\n"
@@ -341,10 +417,8 @@ namespace Snow.Aircraft
             else sb.Append("Правое кресло: полётом управляет только левое. Тумблеры и двери — можно.\n");
             sb.Append("\nTab — курсор (ЛКМ — нажать, держать — для стартера) / обзор мышью\n");
             sb.Append("F — использовать то, на что смотрите;  держать F — выйти (дверь должна быть открыта)\n");
-            sb.Append($"{Key("Seat/Reveal")} — показать всё, с чем можно взаимодействовать;  {Key("Seat/Zoom")} — приблизить;  F10 — телеметрия");
-            var style = new GUIStyle(GUI.skin.box) { alignment = TextAnchor.UpperLeft, fontSize = 14, wordWrap = false, richText = false };
-            float w = 640f, h = _pilotHere ? 330f : 150f;
-            GUI.Box(new Rect(Screen.width - w - 12f, 12f, w, h), sb.ToString(), style);
+            sb.Append($"{Key("Seat/Reveal")} — показать всё, с чем можно взаимодействовать;  {Key("Seat/Zoom")} — приблизить;  ~ — телеметрия (дев-пульт)");
+            return sb.ToString();
         }
 
         // a 2.4 kHz tone pulsing 8 times a second
@@ -367,25 +441,36 @@ namespace Snow.Aircraft
         {
             if (vehicle == null || !vehicle.IsSpawned) return;
             HelpCard();
-            if (!_dev) return;
+        }
+
+        // ------------------------------------------------------------------ dev pult page «Самолёт» (pin it: telemetry over the game)
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        System.Action _page;
+
+        void OnEnable() => Snow.Dev.DevPult.Add("Самолёт", 60, _page ??= DrawPage, () => vehicle != null && vehicle.IsSpawned);
+        void OnDisable() => Snow.Dev.DevPult.Remove("Самолёт", _page);
+
+        void DrawPage()
+        {
             PlaneTelemetry t = vehicle.Telemetry;
             PlaneSwitchState s = vehicle.Switches;
             ControlState c = vehicle.Controls;
             EnvironmentProvider env = EnvironmentProvider.Current;
             string wind = env != null ? $"{env.Now.SpeedMs / EnvironmentProvider.Kt:0} уз с {env.Now.FromDeg:0}°, порывы +{env.Now.GustMs / EnvironmentProvider.Kt:0}, турб. {env.Now.TurbulenceMs:0.0}" : "нет";
-            string text =
-                $"ТЕЛЕМЕТРИЯ (dev, F10) — не HUD\n" +
+            Snow.Dev.DevUi.Text(
                 $"IAS {t.IasKt:0} kt   TAS {t.TrueAirspeed * 1.944f:0} kt   GS {t.GroundSpeed * 1.944f:0} kt   AoA {t.AlphaDeg:0.0}°\n" +
                 $"Alt {t.AltFt:0} ft   AGL {t.HeightAgl:0.0} m   VSI {t.VsiFpm:0} fpm   pitch {t.PitchDeg:0} bank {t.BankDeg:0}\n" +
                 $"Ng {t.NgPct:0.0}%   ITT {t.IttC:0}°C   TRQ {t.TorqueFtLb:0}   prop {t.PropRpm:0}   FF {t.FuelFlowPph:0} pph   {(t.EngineRunning ? "РАБОТАЕТ" : "не работает")}\n" +
                 $"шина {t.BusVolts:0.0} В   ток {t.Amps:0} А   заряд {t.BatteryCharge * 100f:0}%   топливо {t.FuelTotalL:0} л   масса {t.MassKg:0} кг\n" +
-                $"вакуум {t.SuctionInHg:0.0}   компас {t.CompassDeg:000}°   запотевание {t.FogWindshield * 100f:0} / {t.FogSide * 100f:0} %   Dev: P — отпечаток, O — стереть\n" +
+                $"вакуум {t.SuctionInHg:0.0}   компас {t.CompassDeg:000}°   запотевание {t.FogWindshield * 100f:0} / {t.FogSide * 100f:0} %\n" +
                 $"газ {c.Throttle * 100f:0}%   тормоз {c.Brake:0.0}   триммер {c.Trim:0.00}   закрылки {t.Flap:0}°   стоян. тормоз {(s.On(PlaneSwitch.ParkBrake) ? "ВЫТЯНУТ" : "нет")}\n" +
-                $"ветер {wind}\n" +
-                "Запуск: Tab — курсор. АКБ ВКЛ → краны баков открыты, перекрывной утоплен → насос ВКЛ → зажигание ВКЛ →\n" +
-                "держать СТАРТЕР (ЛКМ) до Ng ≥ 52% → отпустить. Стояночный тормоз — тяга Pull_ParkBrake. Тормоза — Space, триммер — [ ].";
-            var style = new GUIStyle(GUI.skin.box) { alignment = TextAnchor.UpperLeft, fontSize = 13, wordWrap = false };
-            GUI.Box(new Rect(10, 10, 760, 188), text, style);
+                $"ветер {wind}");
+            if (Snow.Dev.DevUi.Button("Отпечаток на стекле (куда смотрю)")) DevFogPrint(false);
+            Snow.Dev.DevUi.Row();
+            if (Snow.Dev.DevUi.Button("Стереть отпечатки")) DevFogPrint(true);
+            Snow.Dev.DevUi.Note("Запуск: Tab — курсор. АКБ ВКЛ → краны баков открыты, перекрывной утоплен → насос ВКЛ → зажигание ВКЛ →\n" +
+                                "держать СТАРТЕР (ЛКМ) до Ng ≥ 52% → отпустить. Стояночный тормоз — тяга Pull_ParkBrake. Тормоза — Space, триммер — [ ].");
         }
+#endif
     }
 }

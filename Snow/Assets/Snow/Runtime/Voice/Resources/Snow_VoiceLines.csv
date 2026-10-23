@@ -1,0 +1,127 @@
+id,speaker,concept,criteria,priority,channel,flags,then,en,ru,file,status,note
+kes_proto_01,kessler,session.start,,3,radio,,,"Hohenmoos, this is Kessler. Over.","Хоэнмоос, говорит Кесслер. Приём.",vo_kessler_proto_01_en.wav,draft,session start
+kes_proto_02,kessler,session.start,,3,radio,,,"Hohenmoos, Kessler here. Do you read? Over.","Хоэнмоос, это Кесслер. Слышите? Приём.",vo_kessler_proto_02_en.wav,draft,session start alt
+kes_proto_03,kessler,session.end,,3,radio,,,Kessler out.,"Кесслер, конец связи.",vo_kessler_proto_03_en.wav,draft,session end
+kes_proto_04,kessler,session.end,,3,radio,,,That's all. Out.,На этом всё. Конец связи.,vo_kessler_proto_04_en.wav,draft,session end alt
+kes_proto_05,kessler,reply.ack,,3,radio,,,Copy.,Принял.,vo_kessler_proto_05_en.wav,draft,player answered
+kes_proto_06,kessler,reply.ack,,3,radio,,,Understood.,Понял.,vo_kessler_proto_06_en.wav,draft,player answered alt
+kes_proto_07,kessler,reply.none,,3,radio,,,Hohenmoos? Answer the radio.,Хоэнмоос? Ответьте.,vo_kessler_proto_07_en.wav,draft,no answer 20 s
+kes_proto_08,kessler,reply.giveup,,3,radio,,,Fine. I'll call back.,Ладно. Перезвоню.,vo_kessler_proto_08_en.wav,draft,no answer twice
+kes_num_word,kessler,,,3,radio,,,Number,Номер,vox_kessler_en_number.wav,draft,"splice (splice, not picked by rules)"
+kes_num_0_mid,kessler,,,3,radio,,,zero,ноль,vox_kessler_en_0_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_0_end,kessler,,,3,radio,,,zero.,ноль.,vox_kessler_en_0_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_1_mid,kessler,,,3,radio,,,one,один,vox_kessler_en_1_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_1_end,kessler,,,3,radio,,,one.,один.,vox_kessler_en_1_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_2_mid,kessler,,,3,radio,,,two,два,vox_kessler_en_2_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_2_end,kessler,,,3,radio,,,two.,два.,vox_kessler_en_2_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_3_mid,kessler,,,3,radio,,,three,три,vox_kessler_en_3_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_3_end,kessler,,,3,radio,,,three.,три.,vox_kessler_en_3_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_4_mid,kessler,,,3,radio,,,four,четыре,vox_kessler_en_4_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_4_end,kessler,,,3,radio,,,four.,четыре.,vox_kessler_en_4_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_5_mid,kessler,,,3,radio,,,five,пять,vox_kessler_en_5_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_5_end,kessler,,,3,radio,,,five.,пять.,vox_kessler_en_5_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_6_mid,kessler,,,3,radio,,,six,шесть,vox_kessler_en_6_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_6_end,kessler,,,3,radio,,,six.,шесть.,vox_kessler_en_6_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_7_mid,kessler,,,3,radio,,,seven,семь,vox_kessler_en_7_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_7_end,kessler,,,3,radio,,,seven.,семь.,vox_kessler_en_7_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_8_mid,kessler,,,3,radio,,,eight,восемь,vox_kessler_en_8_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_8_end,kessler,,,3,radio,,,eight.,восемь.,vox_kessler_en_8_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_9_mid,kessler,,,3,radio,,,nine,девять,vox_kessler_en_9_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+kes_num_9_end,kessler,,,3,radio,,,nine.,девять.,vox_kessler_en_9_end.wav,draft,"splice digit end (splice, not picked by rules)"
+kes_num_q,kessler,,,3,radio,,,Do you copy?,Слышите?,vox_kessler_en_copy.wav,draft,"splice after number (splice, not picked by rules)"
+kes_num_who,kessler,,,3,radio,,,Who's on the radio? Number?,Кто на связи? Номер?,vox_kessler_en_who.wav,draft,"splice multiplayer (splice, not picked by rules)"
+kes_hello_01,kessler,hello,,4,radio,once,hello.2,Finally. I see your light on the board.,Наконец-то. Вижу ваш свет на пульте.,vo_kessler_hello_01_en.wav,draft,C02 power on
+kes_hello_02,kessler,hello.2,,4,radio,once,hello.3,"You're late. The road, I know. Everyone says the road.","Опоздали. Дорога, знаю. Все говорят — дорога.",vo_kessler_hello_02_en.wav,draft,then
+kes_hello_03,kessler,hello.3,,4,radio,once,hello.4,Get the boiler going before the pipes freeze. Journal is in the boiler room.,"Запустите котёл, пока трубы не замёрзли. Журнал — в котельной.",vo_kessler_hello_03_en.wav,draft,then
+kes_hello_04,kessler,hello.4,,4,radio,once,hello.5,"At night: bolt the doors, shutters down. All of them.","На ночь: двери на засов, ставни вниз. Все.",vo_kessler_hello_04_en.wav,draft,then
+kes_hello_05,kessler,hello.5,,4,radio,once,hello.6,Mail comes on the computer at seven thirty. Read it.,Почта приходит на компьютер в семь тридцать. Читайте.,vo_kessler_hello_05_en.wav,draft,then
+kes_hello_06,kessler,hello.6,,4,radio,once,code.intro,"And don't touch my coffee machine. It's broken, but it's mine.","И не трогайте мой кофейный автомат. Он сломан, но он мой.",vo_kessler_hello_06_en.wav,draft,then
+kes_code_intro,kessler,code.intro,,4,radio,once,code.list,"Code words. There's a list by the radio. I say the first half, you answer the second.","Кодовые слова. Лист у рации. Я называю первую половину, вы отвечаете второй.",vo_kessler_code_intro_en.wav,draft,after hello
+kes_code_list,kessler,code.list,,4,radio,once,,"Write down the list. Anyone who can't answer is not me, and not you.",Перепишите лист. Кто не может ответить — тот не я. И не вы.,vo_kessler_code_list_en.wav,draft,then
+kes_code_ask,kessler,code.ask,,4,radio,,,Countersign?,Отзыв?,vo_kessler_code_ask_en.wav,draft,before word
+kes_code_ok,kessler,code.ok,,4,radio,,,Correct.,Верно.,vo_kessler_code_ok_en.wav,draft,correct choice
+kes_code_bad,kessler,code.bad,,4,radio,,,Wrong. Again.,Неверно. Ещё раз.,vo_kessler_code_bad_en.wav,draft,wrong choice
+kes_code_w01,kessler,code.word,word=1,4,radio,,,Eis...,Eis…,vo_kessler_code_w01_en.wav,draft,first half (answer: berg)
+kes_code_w02,kessler,code.word,word=2,4,radio,,,Schnee...,Schnee…,vo_kessler_code_w02_en.wav,draft,first half (answer: mann)
+kes_code_w03,kessler,code.word,word=3,4,radio,,,Nord...,Nord…,vo_kessler_code_w03_en.wav,draft,first half (answer: licht)
+kes_code_w04,kessler,code.word,word=4,4,radio,,,Wind...,Wind…,vo_kessler_code_w04_en.wav,draft,first half (answer: mühle)
+kes_code_w05,kessler,code.word,word=5,4,radio,,,Fern...,Fern…,vo_kessler_code_w05_en.wav,draft,first half (answer: rohr)
+kes_code_w06,kessler,code.word,word=6,4,radio,,,Hoch...,Hoch…,vo_kessler_code_w06_en.wav,draft,first half (answer: moos)
+kes_code_w07,kessler,code.word,word=7,4,radio,,,Kalt...,Kalt…,vo_kessler_code_w07_en.wav,draft,first half (answer: front)
+kes_code_w08,kessler,code.word,word=8,4,radio,,,Stern...,Stern…,vo_kessler_code_w08_en.wav,draft,first half (answer: warte)
+kes_code_w09,kessler,code.word,word=9,4,radio,,,Funk...,Funk…,vo_kessler_code_w09_en.wav,draft,first half (answer: turm)
+kes_code_w10,kessler,code.word,word=10,4,radio,,,Holz...,Holz…,vo_kessler_code_w10_en.wav,draft,first half (answer: fäller)
+kes_morning_01,kessler,morning,,3,radio,,morning.tip,Morning. Mail is on the computer. Tasks are there.,Доброе утро. Почта на компьютере. Задания там.,vo_kessler_morning_01_en.wav,draft,day 2 07:35
+kes_morning_02,kessler,mail.unread,,3,radio,cd=600,,Did you read the mail? Then read the mail.,Почту прочитали? Тогда прочитайте почту.,vo_kessler_morning_02_en.wav,draft,mail unread 10 min
+kes_morning_03,kessler,morning.tip,,3,radio,,,Weather station first. Then the antenna.,Сначала метеостанция. Потом антенна.,vo_kessler_morning_03_en.wav,draft,alt
+kes_morning_04,kessler,morning.tip,,3,radio,,,Cold night? It gets colder. Dress properly.,Холодная ночь? Будет холоднее. Одевайтесь как следует.,vo_kessler_morning_04_en.wav,draft,alt
+kes_hint_c03a,kessler,hint,task=C03;stage=1,3,radio,,,The boiler. Did you open the feed valve? One and a half bar.,Котёл. Кран подпитки открыли? Полтора бара.,vo_kessler_hint_c03a_en.wav,draft,C03 no progress step 1
+kes_hint_c03b,kessler,hint,task=C03;stage=2,3,radio,,,"Emergency switch on the wall by the door. Then the pump, then the burner.","Аварийный выключатель на стене у двери. Потом насос, потом горелка.",vo_kessler_hint_c03b_en.wav,draft,C03 no progress step 2
+kes_hint_c04a,kessler,hint,task=C04;stage=1,3,radio,,,It's getting dark. Is the building closed?,Темнеет. Корпус закрыт?,vo_kessler_hint_c04a_en.wav,draft,C04 no progress step 1
+kes_hint_c04b,kessler,hint,task=C04;stage=2,3,radio,,,"Shutters: the strap, or the motor if you have power. And the garage gate.","Ставни: ремнём или приводом, если есть ток. И ворота гаража.",vo_kessler_hint_c04b_en.wav,draft,C04 no progress step 2
+kes_hint_c05a,kessler,hint,task=C05;stage=1,3,radio,,,The weather station is close. You can walk.,Метеостанция рядом. Можно пешком.,vo_kessler_hint_c05a_en.wav,draft,C05 no progress step 1
+kes_hint_c05b,kessler,hint,task=C05;stage=2,3,radio,,,"Thermometer, barometer, anemometer. All three on the form.","Термометр, барометр, анемометр. Все три — в бланк.",vo_kessler_hint_c05b_en.wav,draft,C05 no progress step 2
+kes_hint_c06a,kessler,hint,task=C06;stage=1,3,radio,,,"Antenna one. Take the van, it's too far on foot.","Антенна один. Берите фургон, пешком далеко.",vo_kessler_hint_c06a_en.wav,draft,C06 no progress step 1
+kes_hint_c06b,kessler,hint,task=C06;stage=2,3,radio,,,"Cassette in the cabinet, level on the needle, three minutes. Not two.","Кассету в шкаф, уровень по стрелке, три минуты. Не две.",vo_kessler_hint_c06b_en.wav,draft,C06 no progress step 2
+kes_hint_fax_a,kessler,hint,task=C06F;stage=1,3,radio,,,The tape doesn't send itself. Fax.,Кассета сама себя не отправит. Факс.,vo_kessler_hint_fax_a_en.wav,draft,C06 tape recorded not sent
+kes_hint_fax_b,kessler,hint,task=C06F;stage=2,3,radio,,,Fax is in the office. Number is on the sticker.,Факс в конторе. Номер на наклейке.,vo_kessler_hint_fax_b_en.wav,draft,C06 tape not sent step 2
+kes_hint_r3a,kessler,hint,task=R3;stage=1,3,radio,,,Where is my weather report?,Где моя метеосводка?,vo_kessler_hint_r3a_en.wav,draft,R3 no report
+kes_hint_r3b,kessler,hint,task=R3;stage=2,3,radio,,,"Readings on the form, form in the fax. Every morning.","Показания в бланк, бланк в факс. Каждое утро.",vo_kessler_hint_r3b_en.wav,draft,R3 no report step 2
+kes_react_01,kessler,react.report,result=ok,2,radio,,,Report received. Thank you.,Сводку получил. Спасибо.,vo_kessler_react_01_en.wav,draft,R3 report received
+kes_react_02,kessler,react.report,result=ok,2,radio,,,"Got your report. Handwriting is terrible, numbers are fine.","Сводку получил. Почерк ужасный, цифры в порядке.",vo_kessler_react_02_en.wav,draft,R3 received alt
+kes_react_03,kessler,react.report,result=late,2,radio,,,"Report is late. It's not a newspaper, it's data.","Сводка опоздала. Это не газета, это данные.",vo_kessler_react_03_en.wav,draft,R3 late
+kes_react_04,kessler,react.report,result=missing,2,radio,,,No report. Why is there no report?,Сводки нет. Почему сводки нет?,vo_kessler_react_04_en.wav,draft,R3 missing by noon
+kes_react_05,kessler,react.telemetry,result=ok,2,radio,,,Telemetry came through. Good.,Телеметрия пришла. Хорошо.,vo_kessler_react_05_en.wav,draft,C06 telemetry ok
+kes_react_06,kessler,react.telemetry,result=bad,2,radio,,,Telemetry is all noise. Check the level and do it again.,В телеметрии один шум. Проверьте уровень и запишите заново.,vo_kessler_react_06_en.wav,draft,C06 telemetry bad level
+kes_react_07,kessler,react.log,result=normal,2,radio,,,Normal. Good. I like normal.,Всё в норме. Хорошо. Люблю норму.,vo_kessler_react_07_en.wav,draft,player report choice: all normal
+kes_react_08,kessler,react.log,result=saw,2,radio,,,Deer. It was a deer. Write it in the log anyway.,Олень. Это был олень. Всё равно запишите в журнал.,vo_kessler_react_08_en.wav,draft,player report choice: saw something
+kes_storm_01,kessler,storm,,4,radio,once,storm.2,Storm by tonight. Keep the generator warm.,К ночи метель. Генератор держите в тепле.,vo_kessler_storm_01_en.wav,draft,day 2 evening forecast
+kes_storm_02,kessler,storm.2,,4,radio,once,storm.3,"If it stops, someone goes out and starts it. Not tomorrow. Tonight.",Если заглохнет — кто-то выходит и запускает. Не завтра. Ночью.,vo_kessler_storm_02_en.wav,draft,then
+kes_storm_03,kessler,storm.3,,4,radio,once,,And nobody answers unknown stations.,И никто не отвечает неизвестным станциям.,vo_kessler_storm_03_en.wav,draft,then
+kes_joke_01,kessler,idle,calm=1,1,radio,cd=1200,,The coffee machine ate my coins again. Third time this week.,Кофейный автомат опять съел мои монеты. Третий раз за неделю.,vo_kessler_joke_01_en.wav,draft,idle calm
+kes_joke_02,kessler,idle,calm=1,1,radio,cd=1200,,"If you find coffee at the base, it's mine. Leave it.",Найдёте на базе кофе — он мой. Не трогайте.,vo_kessler_joke_02_en.wav,draft,idle calm
+kes_joke_03,kessler,idle,calm=1,1,radio,cd=1200,,Twenty years of weather. It's always cold. Nobody listens.,Двадцать лет погоды. Всегда холодно. Никто не слушает.,vo_kessler_joke_03_en.wav,draft,idle calm
+kes_joke_04,kessler,idle,calm=1,1,radio,cd=1200,,The form has a box for 'remarks'. That's not for drawings.,В бланке есть графа «примечания». Она не для рисунков.,vo_kessler_joke_04_en.wav,draft,idle calm
+kes_joke_05,kessler,idle,calm=1;hurt=1,1,radio,cd=1200,,Try not to break anything. Including yourselves. Paperwork.,Постарайтесь ничего не сломать. Включая себя. Бумаги потом.,vo_kessler_joke_05_en.wav,draft,player hurt today
+kes_joke_06,kessler,idle,calm=1,1,radio,cd=1200,,New coffee machine was approved. In nineteen ninety-one. Still waiting.,Новый кофейный автомат одобрили. В девяносто первом. Жду.,vo_kessler_joke_06_en.wav,draft,idle calm
+kes_bad_01,kessler,bad_signal,,2,radio,,,...can't hear... repeat...,…не слышу… повторите…,vo_kessler_bad_01_en.wav,draft,storm or weak signal
+kes_bad_02,kessler,bad_signal,,2,radio,,,"...the line is bad, I'll call...","…связь плохая, я перезвоню…",vo_kessler_bad_02_en.wav,draft,storm or weak signal
+kes_bad_03,kessler,bad_signal,,2,radio,,,Hohenmoos? ...Hohenmoos...,Хоэнмоос? …Хоэнмоос…,vo_kessler_bad_03_en.wav,draft,storm or weak signal
+kes_resume_01,kessler,resume,,3,radio,,,Where was I. Yes.,"Так, на чём я… да.",vo_kessler_resume_01_en.wav,draft,conversation interrupted
+kes_resume_02,kessler,resume,,3,radio,,,"Are you listening? Again, then.",Вы слушаете? Тогда ещё раз.,vo_kessler_resume_02_en.wav,draft,conversation interrupted alt
+kes_resume_03,kessler,left_radio,,3,radio,cd=60,,Don't walk away from the radio while I'm talking.,"Не уходите от рации, пока я говорю.",vo_kessler_resume_03_en.wav,draft,player left radio
+kes_resume_04,kessler,resume,,3,radio,,,Right. Continuing.,Так. Продолжаю.,vo_kessler_resume_04_en.wav,draft,after long break
+rv_de_0_mid,radio_voice,,,2,radio,,,null,ноль,vox_de_0_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_0_end,radio_voice,,,2,radio,,,null.,ноль.,vox_de_0_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_1_mid,radio_voice,,,2,radio,,,eins,один,vox_de_1_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_1_end,radio_voice,,,2,radio,,,eins.,один.,vox_de_1_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_2_mid,radio_voice,,,2,radio,,,zwo,два,vox_de_2_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_2_end,radio_voice,,,2,radio,,,zwo.,два.,vox_de_2_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_3_mid,radio_voice,,,2,radio,,,drei,три,vox_de_3_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_3_end,radio_voice,,,2,radio,,,drei.,три.,vox_de_3_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_4_mid,radio_voice,,,2,radio,,,vier,четыре,vox_de_4_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_4_end,radio_voice,,,2,radio,,,vier.,четыре.,vox_de_4_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_5_mid,radio_voice,,,2,radio,,,fünnef,пять,vox_de_5_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_5_end,radio_voice,,,2,radio,,,fünnef.,пять.,vox_de_5_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_6_mid,radio_voice,,,2,radio,,,sechs,шесть,vox_de_6_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_6_end,radio_voice,,,2,radio,,,sechs.,шесть.,vox_de_6_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_7_mid,radio_voice,,,2,radio,,,sieben,семь,vox_de_7_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_7_end,radio_voice,,,2,radio,,,sieben.,семь.,vox_de_7_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_8_mid,radio_voice,,,2,radio,,,acht,восемь,vox_de_8_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_8_end,radio_voice,,,2,radio,,,acht.,восемь.,vox_de_8_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_9_mid,radio_voice,,,2,radio,,,neun,девять,vox_de_9_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_de_9_end,radio_voice,,,2,radio,,,neun.,девять.,vox_de_9_end.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_de_achtung,radio_voice,,,2,radio,,,Achtung!,Внимание!,vox_de_achtung.wav,draft,"header (splice, not picked by rules)"
+rv_de_ende,radio_voice,,,2,radio,,,Ende.,Конец.,vox_de_ende.wav,draft,"end (splice, not picked by rules)"
+rv_de_wdh,radio_voice,,,2,radio,,,Wiederholung.,Повторяю.,vox_de_wiederholung.wav,draft,"repeat (splice, not picked by rules)"
+rv_de_trennung,radio_voice,,,2,radio,,,Trennung.,Разделитель.,vox_de_trennung.wav,draft,"separator (splice, not picked by rules)"
+rv_de_ph_01,radio_voice,x08,,2,radio,,,[static] ...sieben... drei... [static],[помехи] …семь… три… [помехи],vo_radiovoice_x08_de.wav,draft,X08 first contact (4 s)
+rv_de_ph_02,radio_voice,numbers.header,,2,radio,,,Achtung. Achtung. Hier ist... [static],Внимание. Внимание. Говорит… [помехи],vo_radiovoice_header_de.wav,draft,header phrase
+rv_de_ph_03,radio_voice,numbers.end,,2,radio,,,Null null null null null. Ende.,Ноль ноль ноль ноль ноль. Конец.,vo_radiovoice_end_de.wav,draft,end with noise
+rv_de_ph_04,radio_voice,numbers.cut,,2,radio,,,...Wieder—,…Повто—,vo_radiovoice_cut_de.wav,draft,cut off
+rv_e12_01,radio_voice,e12,answer=0,2,radio,,,Copy. Copy. Copy.,Принято. Принято. Принято.,vo_radiovoice_e12_01_en.wav,draft,night reply chosen: copy
+rv_e12_02,radio_voice,e12,answer=1,2,radio,,,Who is this? ...Who is this?,Кто это? …Кто это?,vo_radiovoice_e12_02_en.wav,draft,night reply chosen: who is this
+rv_e12_03,radio_voice,e12,answer=2,2,radio,,,Wrong frequency. We are on the wrong frequency.,Не та частота. Мы на не той частоте.,vo_radiovoice_e12_03_en.wav,draft,night reply chosen: wrong frequency
+rv_e12_04,radio_voice,e12,answer=3,2,radio,,,The base is closed. The base is closed for the night.,База закрыта. База закрыта на ночь.,vo_radiovoice_e12_04_en.wav,draft,night reply chosen: base is closed
+rv_e12_05,radio_voice,e12,answer=4,2,radio,,,Countersign? ...Countersign?,Отзыв? …Отзыв?,vo_radiovoice_e12_05_en.wav,draft,night reply chosen: code word
+rv_e12_06,radio_voice,e12.lure,,2,radio,once,,Number... [player number]. Come outside.,Номер… [номер игрока]. Выйди наружу.,vo_radiovoice_e12_06_en.wav,draft,player number spliced

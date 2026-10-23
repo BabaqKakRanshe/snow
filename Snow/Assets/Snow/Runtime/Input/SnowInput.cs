@@ -14,16 +14,37 @@ namespace Snow.Input
 
         InputActionAsset _asset;
         InputActionMap _onFoot, _seat, _cursor;
-        InputAction _move, _footLook, _jump, _crouch, _sprint, _walk, _use, _secure, _footZoom, _seatZoom, _footReveal, _seatReveal;
+        InputAction _move, _footLook, _jump, _crouch, _sprint, _walk, _use, _secure, _footZoom, _seatZoom, _footReveal, _seatReveal, _ragdoll;
         InputAction _pitch, _roll, _yaw, _throttle, _seatLook, _useExit, _cursorToggle, _brake, _trim, _autopilot, _horn;
         InputAction _point, _click;
         InputContext _context = InputContext.None;
         bool _focused = true;
+        static bool s_uiOpen;
 
+        /// <summary>The context as the game sees it: None while a developer window holds the input (<see cref="UiOpen"/>),
+        /// so the interaction sensor, pockets and voice keys stay quiet too.</summary>
         public InputContext Context
         {
-            get => _context;
+            get => s_uiOpen ? InputContext.None : _context;
             set { _context = value; Apply(); }
+        }
+
+        /// <summary>A developer window (the pult, ~) holds mouse and keyboard: every action map off, the cursor free.
+        /// Closing it gives the player back the context he had.</summary>
+        public static bool UiOpen
+        {
+            get => s_uiOpen;
+            set
+            {
+                if (s_uiOpen == value) return;
+                s_uiOpen = value;
+                foreach (SnowInput i in FindObjectsByType<SnowInput>(FindObjectsSortMode.None)) i.Apply();
+                if (value)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+            }
         }
 
         void Awake()
@@ -45,6 +66,7 @@ namespace Snow.Input
             _seatZoom = _seat.FindAction("Zoom", true);
             _footReveal = _onFoot.FindAction("Reveal", true);
             _seatReveal = _seat.FindAction("Reveal", true);
+            _ragdoll = _onFoot.FindAction("Ragdoll", true);
             _pitch = _seat.FindAction("Pitch", true);
             _roll = _seat.FindAction("Roll", true);
             _yaw = _seat.FindAction("Yaw", true);
@@ -76,15 +98,16 @@ namespace Snow.Input
         void Apply()
         {
             if (_asset == null) return;
-            bool foot = _focused && _context == InputContext.OnFoot;
-            bool seat = _focused && (_context == InputContext.Seat || _context == InputContext.SeatCursor);
-            bool cursor = _focused && _context == InputContext.SeatCursor;
+            bool live = _focused && !s_uiOpen;
+            bool foot = live && _context == InputContext.OnFoot;
+            bool seat = live && (_context == InputContext.Seat || _context == InputContext.SeatCursor);
+            bool cursor = live && _context == InputContext.SeatCursor;
             Set(_onFoot, foot);
             Set(_seat, seat);
             Set(_cursor, cursor);
             if (_context == InputContext.None) return;
-            Cursor.lockState = cursor || !_focused ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = cursor || !_focused;
+            Cursor.lockState = cursor || !live ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = cursor || !live;
         }
 
         static void Set(InputActionMap map, bool on)
@@ -117,6 +140,7 @@ namespace Snow.Input
                 f.Secure = _secure.IsPressed();
                 f.Zoom = _footZoom.IsPressed();
                 f.Reveal = _footReveal.IsPressed();
+                f.Ragdoll = _ragdoll.IsPressed();
             }
             if (_seat.enabled)
             {

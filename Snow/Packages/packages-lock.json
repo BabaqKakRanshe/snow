@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.psydack.uimgui": {
+      "version": "https://github.com/psydack/uimgui.git#f3d18ef6c13232f88e36c69e3f5f3190061f557e",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f3d18ef6c13232f88e36c69e3f5f3190061f557e"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 1,

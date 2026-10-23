@@ -45,6 +45,8 @@ namespace Snow.Player
             if (view != null)
             {
                 view.ZoomHeld = f.Zoom;
+                view.SprintHeld = f.Sprint;
+                view.PanelMode = _source.Context == InputContext.SeatCursor;
                 view.AddLook(f.LookDelta);
             }
             if (motor != null && motor.enabled)

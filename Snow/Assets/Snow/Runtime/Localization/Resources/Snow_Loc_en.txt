@@ -1,0 +1,962 @@
+# Snow interface: Russian -> English (Snow.Loc). "russian<TAB>english" per line, 
+ = line break,
+# {0}, {1}... = holes (numbers or other translated text). Generated 22.10.2026 from code, scene labels and data JSON.
+Нет действия	No action
+Койка занята	Bunk taken
+свободна	free
+занята	taken
+лечь	lie down
+Тёмная (новолуние, облака)	Dark (new moon, clouds)
+Обычная	Normal
+Светлая (полнолуние, ясно)	Bright (full moon, clear)
+48 мин	48 min
+2 ч 24 мин	2 h 24 min
+4 ч 48 мин	4 h 48 min
+24 ч	24 h
+Заперто	Locked
+Нет питания	No power
+выключить	turn off
+включить	turn on
+закрыта	closed
+открыта	open
+закрыть	close
+открыть	open
+Бак пуст	Tank empty
+Тишина в трубке	Silence on the line
+Крышка закрыта	Cap closed
+Канистра пуста	Jerrycan empty
+Бак полон	Tank full
+Поднесите канистру к горловине	Bring the jerrycan to the filler neck
+Авария горелки — нажмите сброс	Burner fault — press reset
+Аварийный выключатель отопления выключен	Heating emergency switch is off
+Мало давления	Low pressure
+Насос выключен	Pump off
+Замок уже снят	Lock already removed
+Заперто на навесной замок	Padlocked
+Уже чисто	Already clean
+Нужна тряпка или швабра	Need a rag or mop
+Сначала закройте дверь	Close the door first
+Нет питания КПП — щиток на стене будки	No power at checkpoint — panel on the booth wall
+Заперто на засов	Bolted shut
+работает; в баке {0} л	running; {0} L in tank
+остановлен; бак пуст	stopped; tank empty
+остановлен; в баке {0} л	stopped; {0} L in tank
+{0}; в баке {1} л	{0}; {1} L in tank
+под пистолетом канистра {0} / {1} л	jerrycan under nozzle {0} / {1} L
+нет канистры под пистолетом	no jerrycan under nozzle
+включён	on
+выключен	off
+горит	lit
+выключена	off
+{0}; {1} бар	{0}; {1} bar
+открыт	open
+закрыт	closed
+заперт	locked
+снят	removed
+звонит	ringing
+опущен — дверь заперта	down — door locked
+поднят (опустить — при закрытой двери)	up (lower with the door closed)
+поднят	up
+заперта на засов	bolted
+держать: оттереть	hold: scrub
+остановить	stop
+запустить	start
+держать: залить	hold: pour
+держать: качать	hold: pump
+колесо: больше / меньше	wheel: more / less
+нажать	press
+отпереть ключом	unlock with key
+снять трубку	pick up handset
+[T] читать	[T] read
+[T] / [Esc] закрыть	[T] / [Esc] close
+Управляется изнутри	Controlled from inside
+Мешает игрок	Blocked by a player
+заперто	locked
+нет питания (включён)	no power (on)
+нет питания (выключен)	no power (off)
+свет горит	light on
+свет не горит	light off
+нет питания	no power
+опущены	down
+подняты	up
+едут	moving
+опущена	down
+поднята	up
+едет	moving
+опустить	lower
+поднять	raise
+открывается	opening
+закрывается	closing
+упёрлась	blocked
+Спавн	Spawn
+Чит-меню (F1)	Cheat menu (F1)
+Локации	Locations
+Точки — {0}	Points — {0}
+нет своего игрока (нажмите Host)	no local player (press Host)
+Время {0}:{1}	Time {0}:{1}
+(меняет хост)	(host only)
+1 ч / 6 мин	1 h / 6 min
+{0} ч / мин	{0} h / min
+Длина суток	Day length
+Скорость ночи ×{0}	Night speed ×{0}
+Яркость ночи (у себя) {0}	Night brightness (local) {0}
+Автопилот выключен	Autopilot off
+Автопилот отключён штурвалом	Autopilot disengaged by yoke
+Автопилот отключился: нет питания авионики	Autopilot disengaged: no avionics power
+Автопилот отключился: вышли за пределы	Autopilot disengaged: limits exceeded
+Автопилот отключён: пилот покинул кресло	Autopilot disengaged: pilot left the seat
+Автопилот: слишком большой крен или тангаж	Autopilot: bank or pitch too steep
+Нужна канистра в руках	Need a jerrycan in hand
+Jet A-1, наполнить канистру	Jet A-1, fill jerrycan
+наполнить канистру	fill jerrycan
+Ключ у другого игрока	Another player has the key
+Автопилот ВКЛ: курс {0}°, высота {1} ft	Autopilot ON: heading {0}°, altitude {1} ft
+Нет стекла ближе 1 м	No glass within 1 m
+АКБ — включить	Battery — turn on
+Краны баков — открыты (хотя бы один)	Tank valves — open (at least one)
+Перекрывной кран (красная тяга) — утоплен	Fuel shutoff (red pull handle) — pushed in
+Рычаг останова — МАЛЫЙ ГАЗ	Cutoff lever — IDLE
+Насос — включить	Pump — turn on
+Зажигание — включить	Ignition — turn on
+СТАРТЕР — держать ЛКМ, пока Ng не дойдёт до 52 %  (сейчас {0} %)	STARTER — hold LMB until Ng reaches 52 %  (now {0} %)
+Газ — Shift чуть вперёд, пока не погаснет GEN OFF (Ng > 55 %)	Throttle — Shift slightly forward until GEN OFF goes out (Ng > 55 %)
+Стояночный тормоз — утопить, можно рулить	Parking brake — push in, ready to taxi
+ПОДСКАЗКА   (H — скрыть)\n\n	HINT   (H — hide)\n\n
+Запуск двигателя (следующий орган подсвечен голубым):\n	Engine start (next control highlighted in blue):\n
+\nПолёт: W/S — штурвал от себя / на себя, A/D — крен, Q/E — педали,\n	\nFlight: W/S — yoke forward / back, A/D — roll, Q/E — pedals,\n
+Shift / Ctrl — газ, Space — тормоза, [ ] — триммер, закрылки — рычаг курсором.\n	Shift / Ctrl — throttle, Space — brakes, [ ] — trim, flaps — lever with cursor.\n
+{0} — автопилот: ВКЛ, держит курс {1}° и {2} ft (штурвал или Z — выключить)\n	{0} — autopilot: ON, holding heading {1}° and {2} ft (yoke or Z — turn off)\n
+{0} — автопилот: держит курс и высоту на момент включения (в полёте, нужна авионика)\n	{0} — autopilot: holds heading and altitude at engagement (in flight, needs avionics)\n
+Правое кресло: полётом управляет только левое. Тумблеры и двери — можно.\n	Right seat: only the left seat flies. Switches and doors are OK.\n
+\nTab — курсор (ЛКМ — нажать, держать — для стартера) / обзор мышью\n	\nTab — cursor (LMB — press, hold — for starter) / mouse look\n
+F — использовать то, на что смотрите;  держать F — выйти (дверь должна быть открыта)\n	F — use what you're looking at;  hold F — exit (door must be open)\n
+{0} — показать всё, с чем можно взаимодействовать;  {1} — приблизить;  F10 — телеметрия	{0} — show all interactables;  {1} — zoom;  F10 — telemetry
+{0} уз с {1}°, порывы +{2}, турб. {3}	{0} kt from {1}°, gusts +{2}, turb. {3}
+нет	none
+ТЕЛЕМЕТРИЯ (dev, F10) — не HUD\n	TELEMETRY (dev, F10) — not HUD\n
+РАБОТАЕТ	RUNNING
+не работает	not running
+шина {0} В   ток {1} А   заряд {2}%   топливо {3} л   масса {4} кг\n	bus {0} V   current {1} A   charge {2}%   fuel {3} L   mass {4} kg\n
+вакуум {0}   компас {1}°   запотевание {2} / {3} %   Dev: P — отпечаток, O — стереть\n	vacuum {0}   compass {1}°   fogging {2} / {3} %   Dev: P — print, O — wipe\n
+газ {0}%   тормоз {1}   триммер {2}   закрылки {3}°   стоян. тормоз {4}\n	throttle {0}%   brake {1}   trim {2}   flaps {3}°   park brake {4}\n
+ВЫТЯНУТ	PULLED
+ветер {0}\n	wind {0}\n
+Запуск: Tab — курсор. АКБ ВКЛ → краны баков открыты, перекрывной утоплен → насос ВКЛ → зажигание ВКЛ →\n	Start: Tab — cursor. Battery ON → tank valves open, fuel shutoff pushed in → pump ON → ignition ON →\n
+держать СТАРТЕР (ЛКМ) до Ng ≥ 52% → отпустить. Стояночный тормоз — тяга Pull_ParkBrake. Тормоза — Space, триммер — [ ].	hold STARTER (LMB) until Ng ≥ 52% → release. Parking brake — pull handle Pull_ParkBrake. Brakes — Space, trim — [ ].
+Сначала откройте крышку бака	Open the fuel cap first
+Нужна стремянка	Need a stepladder
+Здесь этого нет	Not here
+Автопилот — только из левого кресла	Autopilot — left seat only
+Автопилот: нужны АКБ и авионика	Autopilot: needs battery and avionics
+Автопилот: только в полёте	Autopilot: in flight only
+Кресло сложено	Seat folded
+РУД — клавиши Shift / Ctrl (только из левого кресла)	Throttle — Shift / Ctrl keys (left seat only)
+Сюда это не кладётся	Doesn't go here
+Место занято	Spot taken
+Сначала сложите кресла 2 и 4	Fold seats 2 and 4 first
+Мешает	Blocked
+Кресло занято	Seat taken
+Мешает стремянка	Stepladder in the way
+игрок	player
+груз	cargo
+Кольцо под стремянкой	Tie-down ring under the stepladder
+Кольцо под канистрой	Tie-down ring under the jerrycan
+Мешает стремянка: в полёте не выйти	Stepladder in the way: can't exit in flight
+Мешает стремянка: откройте левую грузовую дверь	Stepladder in the way: open the left cargo door
+Нет места для выхода у левой грузовой двери	No room to exit at the left cargo door
+Изнутри замок не закрыть	Can't lock from inside
+Заперто: нужен ключ	Locked: key needed
+Нужен ключ	Key needed
+стоит	in place
+снято	removed
+опущено	down
+сложено	folded
+вытянута	pulled
+утоплена	pushed in
+застёгнут	fastened
+расстёгнут	unfastened
+опущен	down
+ОСТАНОВ	CUTOFF
+МАЛЫЙ ГАЗ	IDLE
+ВКЛ	ON
+ВЫКЛ	OFF
+крутит	cranking
+отпущен	released
+нажата	pressed
+ОТКР	OPEN
+ЗАКР	CLOSED
+, дверь	, door
+открыто	open
+метка {0}°	bug {0}°
+курсовой {0}°, компас {1}°	heading {0}°, compass {1}°
+макс. обороты	max RPM
+средние	mid
+мин. обороты	min RPM
+нейтраль	neutral
+на кабрирование {0}%	nose up {0}%
+на пикирование {0}%	nose down {0}%
+снять (держать)	remove (hold)
+установить (держать)	install (hold)
+сесть	sit
+сложить	fold
+положить на место	put back
+утопить	push in
+вытянуть	pull
+расстегнуть	unfasten
+застегнуть	fasten
+малый газ	idle
+останов	cutoff
+держать (ЛКМ)	hold (LMB)
+держать — тест ламп	hold — lamp test
+ярче   (колесо — туда/обратно)	brighter   (wheel — back/forth)
+переключить   (колесо — туда/обратно)	switch   (wheel — back/forth)
+запереть ключом	lock with key
+переставить	move
+убрать	retract
+выпустить	extend
+в нейтраль   ([ ] — крутить)	to neutral   ([ ] — turn)
+повернуть   (колесо — туда/обратно)	turn   (wheel — back/forth)
+использовать	use
+Стартер не крутит. Снять:	Starter won't crank. Remove:
+Это сюда не ставится	Doesn't fit here
+Уже стоит	Already fitted
+Мешает заглушка воздухозаборника	Intake plug is in the way
+Мешает рукав подогревателя	Heater hose is in the way
+Сумка пуста	Bag is empty
+Возьмите вещь в руки	Take the item in hand
+Самолёт движется	Plane is moving
+Нет игрока	No player
+Только снаружи	Outside only
+Ракетница не заряжена	Flare gun is not loaded
+Рядом нет разряженной ракетницы	No unloaded flare gun nearby
+Фальшфейер догорел	Hand flare burned out
+Уже горит	Already burning
+Копать нечего: снежного покрова в проекте ещё нет	Nothing to dig: no snow cover in the project yet
+Это просто груз	It's just cargo
+выстрелить вверх	fire upward
+не заряжена	not loaded
+зарядить ракетницу рядом	load flare gun nearby
+догорел	burned out
+зажечь	light
+копать	dig
+Ящик	Crate
+закреплён ({0})	secured ({0})
+в руке	in hand
+несут: {0}	carried by: {0}
+на своём месте (взять — E)	in place (take — E)
+свободен	loose
+Закреплён — сначала открепите [R]	Secured — release first [R]
+Это у другого игрока	Another player has it
+Слишком тяжело для кармана: несите обеими руками	Too heavy for a pocket: carry with both hands
+Это держит другой игрок	Another player is holding it
+Карманы полны ({0})	Pockets full ({0})
+Уже закреплён	Already secured
+Нет свободного крепления рядом: поставьте ящик на пол у точки крепления	No free tie-down nearby: put the crate down on the floor by a tie-down
+Сначала закрепите нижний ящик	Secure the bottom crate first
+на	on
+Не закреплён	Not secured
+Эта точка крепления занята	This tie-down is taken
+Ящик стоит неровно: поставьте его на дно	Crate isn't level: put it on the floor
+{0} · {1} кг · {2}	{0} · {1} kg · {2}
+[E] взять — карманы полны	[E] take — pockets full
+[E] взять	[E] take
+[E] поставить то, что несёте	[E] put down what you're carrying
+[E] нести обеими руками	[E] carry with both hands
+[R] открепить	[R] release
+[R] закрепить	[R] secure
+нельзя взять	can't take
+Удерживайте F, чтобы выйти	Hold F to exit
+Это нельзя взять	Can't take this
+Q — убрать в карман то, что в руке	Q — pocket what's in hand
+Слишком тяжело для кармана	Too heavy for a pocket
+Мелочь не крепят: возьмите её [E]	Small items aren't secured: take it [E]
+Наведитесь на ящик (или несите его) и нажмите R	Aim at a crate (or carry it) and press R
+Карманы полны ({0}): выбросьте что-нибудь [G]	Pockets full ({0}): drop something [G]
+Руки заняты: сначала поставьте [E]	Hands full: put it down first [E]
+Карман {0} пуст	Pocket {0} is empty
+{0} ({1} кг) — {2}   [E] {3}	{0} ({1} kg) — {2}   [E] {3}
+взять	take
+нести	carry
+[ЛКМ в руках] {0}	[LMB in hand] {0}
+ЛКМ	LMB
+[ЛКМ] применить   [Q] в карман   [G] бросить   [1–8] / колесо — карманы	[LMB] use   [Q] pocket   [G] drop   [1–8] / wheel — pockets
+Порт {0} занят. Закройте другой экземпляр игры, перезапустите редактор или укажите другой порт.	Port {0} is in use. Close the other game instance, restart the editor or choose another port.
+Вы не в кресле	You're not in a seat
+Нет цели	No target
+Слишком далеко	Too far
+С этой стороны не достать	Can't reach from this side
+В руках ничего нет	Nothing in hand
+Мелочь не крепят: её берут [E] и кладут в карман	Small items aren't secured: take them [E] and put them in a pocket
+Возьмите предмет в руки	Take the item in hand
+Нельзя	Not allowed
+Удерживайте F — выйти.   Tab — курсор (тумблеры: ЛКМ).   H — подсказка	Hold F — exit.   Tab — cursor (switches: LMB).   H — hint
+Только с места пилота / водителя	Pilot / driver seat only
+Нет такого кресла	No such seat
+Вы уже сидите	You're already seated
+Не удалось сесть	Couldn't sit down
+Дверь закрыта	Door is closed
+Нет места для выхода: снаружи у двери препятствие	No room to exit: something is blocking the door outside
+Проход занят	Aisle is blocked
+свободно	free
+занято (игрок {0})	taken (player {0})
+работает	running
+стартер	starter
+заглушен	stopped
+заглушить	shut down
+на защёлках	latched
+защёлки открыты	unlatched
+открыть защёлки	unlatch
+опустить и защёлкнуть	lower and latch
+разложено	unfolded
+сложено (под ним ящик АКБ)	folded (battery box underneath)
+разложить	unfold
+открыты	open
+задёрнуты	drawn
+задёрнуть все	draw all
+открыть все	open all
+0 — выключено	0 — off
+II — зажигание	II — ignition
+III — стартер	III — starter
+повернуть в I	turn to I
+повернуть в II (колесо вниз — назад)	turn to II (wheel down — back)
+держать — стартер; колесо вниз — выключить	hold — starter; wheel down — off
+масса выключена	battery master off
+масса включена	battery master on
+включить массу	turn battery master on
+выключить массу	turn battery master off
+затянут	applied
+затянуть	apply
+отпустить	release
+передний мост выключен	front axle disengaged
+передний мост включён	front axle engaged
+включить передний мост	engage front axle
+выключить передний мост	disengage front axle
+ряд H (повышенный)	range H (high)
+ряд L (пониженный)	range L (low)
+включить L	select L
+включить H	select H
+звучит	sounding
+сигнал (держать)	horn (hold)
+вентилятор 0	fan 0
+вентилятор 1	fan 1
+вентилятор 2	fan 2
+вентилятор 3	fan 3
+включить 1	set 1
+включить 2	set 2
+включить 3	set 3
+надеты	connected
+сняты	disconnected
+снять клеммы	disconnect terminals
+надеть клеммы	connect terminals
+на свечах	on the plugs
+снять провода	remove leads
+надеть провода	attach leads
+муфта включена	clutch engaged
+свободный ход (трос разматывается)	freespool (cable pays out)
+выключить муфту	disengage clutch
+включить муфту	engage clutch
+лючок открыт	flap open
+крышка снята — можно лить	cap off — ready to pour
+открыть лючок	open flap
+открутить крышку	unscrew cap
+закрутить крышку	screw cap on
+закрыть лючок	close flap
+громкость {0}	volume {0}
+включить (колесо — громче / тише)	turn on (wheel — louder / quieter)
+громче (колесо — тише)	louder (wheel — quieter)
+Раздатка не переключается на ходу — остановитесь	Can't shift the transfer case while moving — stop first
+Сюда — только предохранитель	Fuses only
+Гнездо занято: сначала выньте предохранитель	Slot taken: pull the fuse first
+Нужен предохранитель — запасные в ящике с инструментом	Need a fuse — spares are in the toolbox
+Выйдите из машины, чтобы вынуть	Get out of the vehicle to remove it
+Не удалось взять	Couldn't take it
+Сюда — только предохранитель, на пустое место	Fuses only, into an empty slot
+Здесь пусто	Nothing here
+Выйдите из машины, чтобы взять	Get out of the vehicle to take it
+Сядьте в машину и нажмите Tab	Get in the vehicle and press Tab
+Пока не работает (предметы — следующие этапы)	Not working yet (items come in later stages)
+На сиденье сидят	Seat is occupied
+цел	intact
+сгорел	blown
+гнездо пустое	slot empty
+лежит	in place
+взят	taken
+заряд {0} %	charge {0} %
+пока не работает	not working yet
+сесть; держать — сложить сиденье	sit; hold — fold seat
+вставить предохранитель (в руках)	insert fuse (in hand)
+вынуть и выбросить	remove and discard
+вынуть	remove
+взять (держать E)	take (hold E)
+положить предохранитель	put fuse
+снять — позже	remove — later
+Погода (dev, F9)	Weather (dev, F9)
+Штиль	Calm
+Бок. 15 уз	Xwind 15 kt
+Буря	Storm
+Ветер {0} уз	Wind {0} kt
+Откуда {0}° (0 = с +Z)	From {0}° (0 = from +Z)
+Порывы +{0} уз	Gusts +{0} kt
+Турбулентность {0} м/с	Turbulence {0} m/s
+Температура у земли {0} °C	Surface temp {0} °C
+Грязь	Dirt
+Грязные следы	Muddy footprints
+Затёртости	Scuffs
+Масляное пятно	Oil stain
+Пятно сырости	Damp patch
+Пепельница	Ashtray
+Рюкзак	Backpack
+Папка	Folder
+Книга	Book
+Раскрытая книга	Open book
+Стопка книг	Stack of books
+Ботинки	Boots
+Пивная бутылка	Beer bottle
+Бутылка шнапса	Schnapps bottle
+Бутылка воды	Water bottle
+Большая коробка	Large box
+Открытая коробка	Open box
+Коробка	Box
+Заплесневелый хлеб	Moldy bread
+Метла	Broom
+Ведро	Bucket
+Ведро с водой	Bucket of water
+Окурки	Cigarette butts
+Катушка кабеля	Cable reel
+Мятая банка	Crushed can
+Банка	Can
+Картон	Cardboard
+Игральные карты	Playing cards
+Пачка сигарет	Pack of cigarettes
+Мятая пачка	Crumpled pack
+Планшет с бумагами	Clipboard with papers
+Одежда	Clothes
+Совок	Dustpan
+Конверт	Envelope
+Фонарик	Flashlight
+Воронка	Funnel
+Молоток	Hammer
+Наушники	Headphones
+Стеклянная банка	Glass jar
+Канистра 20 л	Jerrycan 20 L
+Чайник	Kettle
+Ключ «Garage»	Key "Garage"
+Ключ «Generator»	Key "Generator"
+Ключ «Hauptgebäude»	Key "Hauptgebäude"
+Ключ «Schranke»	Key "Schranke"
+Журнал	Magazine
+Лекарства	Medicine
+Швабра	Mop
+Кружка	Mug
+Газета	Newspaper
+Раскрытая газета	Open newspaper
+Записка	Note
+Бланк	Blank form
+Канистра масла	Oil jerrycan
+Навесной замок	Padlock
+Банка краски	Paint can
+Сковорода	Frying pan
+Скомканная бумага	Crumpled paper
+Стопка бумаг	Stack of papers
+Фото в рамке	Framed photo
+Фотография	Photo
+Тарелка	Plate
+Грязная тарелка	Dirty plate
+Кастрюля	Pot
+Радиоприёмник	Radio
+Рация	Walkie-talkie
+Тряпка	Rag
+Моток верёвки	Coil of rope
+Коврик	Rug
+Мешок	Sack
+Отвёртка	Screwdriver
+Мыло	Soap
+Записка-стикер	Sticky note
+Термос	Thermos
+Консервная банка	Tin can
+Открытая консерва	Open tin
+Туалетная бумага	Toilet paper
+Ящик с инструментами	Toolbox
+Стакан для щёток	Toothbrush cup
+Полотенце	Towel
+Мешок для мусора	Trash bag
+Деревянный ящик	Wooden crate
+Гаечный ключ	Wrench
+Zettel auf dem Tisch / Записка на столе	Zettel auf dem Tisch / Note on the table
+Кто бы ты ни был:\nКанистра под полкой полная. Бери, станция в километре вверх по дороге.\nНе езди ночью. А если всё-таки едешь — не останавливайся, не выходи, не смотри в зеркало заднего вида.\nФонарь у хижины я оставлю гореть. Если он погас — меня здесь больше нет.\n— Х. Брандт	Whoever you are:\nThe jerrycan under the shelf is full. Take it, the station is a kilometer up the road.\nDon't drive at night. And if you do drive anyway, don't stop, don't get out, don't look in the rearview mirror.\nI'll leave the lantern by the cabin burning. If it's gone out, I'm not here anymore.\n— H. Brandt
+Wachbuch KPP / Журнал КПП	Wachbuch KPP / Checkpoint logbook
+16.10. 22:10  Обход забора, восток — без замечаний.\n16.10. 23:40  Рация включилась сама. Шум. Кто-то считает.\n17.10. 01:05  Звонит телефон. Никого. Дыхание.\n17.10. 02:15  Кто-то стоит у шлагбаума. Машины нет. Выключил свет, не открыл.\n17.10. 02:40  Всё ещё стоит.	16.10. 22:10  Fence patrol, east: nothing to report.\n16.10. 23:40  The radio switched on by itself. Static. Someone is counting.\n17.10. 01:05  Phone rings. No one there. Breathing.\n17.10. 02:15  Someone is standing at the barrier. No car. Turned off the light, didn't open.\n17.10. 02:40  Still standing there.
+Notstrom — Inbetriebnahme / Аварийное питание — запуск	Notstrom — Inbetriebnahme / Emergency power — startup
+1. Заправить расходный бак: ручной насос у баков ГСМ, канистра, заливной лючок снаружи контейнера (DIESEL).\n2. Прогрев 10 с, затем ключ на пульте генератора — в положение START.\n3. Рубильник в контейнере — ВКЛ.\n4. Главный рубильник в основном корпусе, щитовая в подвале.\n100 л хватает примерно на 28 часов.	1. Fill the day tank: hand pump at the fuel tanks, jerrycan, filler hatch outside the container (DIESEL).\n2. Preheat 10 s, then turn the key on the generator panel to START.\n3. Breaker in the container: ON.\n4. Main breaker in the main building, switch room in the basement.\n100 L lasts about 28 hours.
+Aushang Windfang / Объявление в тамбуре	Aushang Windfang / Notice in the vestibule
+С 18:00: ДВЕРИ ЗАКРЫТЬ, ЗАСОВ ЗАДВИНУТЬ.\nВСЕ РОЛЬСТАВНИ ВНИЗ.\nНИКОГО НЕ ВПУСКАТЬ — ДАЖЕ ЕСЛИ СТУЧИТ,\nДАЖЕ ЕСЛИ ЗОВЁТ КОГО-ТО ИЗ НАС ПО ИМЕНИ.\n— Кесслер	From 18:00: CLOSE THE DOORS, SHOOT THE BOLT.\nALL ROLLER SHUTTERS DOWN.\nLET NO ONE IN, EVEN IF IT KNOCKS,\nEVEN IF IT CALLS ONE OF US BY NAME.\n— Kessler
+Messprotokoll / Протокол измерений	Messprotokoll / Measurement log
+15.10. 21:12  Антенна 3: сигнал на 1420,4 МГц, в каталогах нет.\nПеленг: не небо. Угол места отрицательный. В сторону болота.\n21:40  Сигнал модулирован. Ритм — как дыхание.\n22:05  Антенна 3 повернулась сама, за пультом никого не было.	15.10. 21:12  Antenna 3: signal at 1420.4 MHz, not in any catalog.\nBearing: not the sky. Negative elevation. Toward the bog.\n21:40  The signal is modulated. The rhythm is like breathing.\n22:05  Antenna 3 turned by itself. Nobody was at the console.
+Zettel am Monitor / Стикер на мониторе	Zettel am Monitor / Sticky note on the monitor
+Не отвечать на счёт!!	Don't answer the counting!!
+Schichtplan Oktober / График смен, октябрь	Schichtplan Oktober / Shift schedule, October
+Кесслер — руководитель\nАльберс — измерения\nНовак — техника / генератор\nШустер — охрана КПП\n(Линдквист — уехал 09.10.)	Kessler — head\nAlbers — measurements\nNowak — equipment / generator\nSchuster — checkpoint guard\n(Lindqvist — left 09.10.)
+Notiz Serverraum / Записка в серверной	Notiz Serverraum / Note in the server room
+Ленты 14–22 отправлены в Бонн. Ответ: «Шум, неисправность аппаратуры».\nЭто не шум. Если пустить задом наперёд — это имена. Наши.	Tapes 14–22 sent to Bonn. Reply: "Noise, equipment malfunction."\nIt's not noise. Played backwards, it's names. Ours.
+Bestandsliste Lager / Опись склада	Bestandsliste Lager / Storeroom inventory
+Консервы: 12 коробок\nДизель на баках ГСМ: 2 × 9000 л (ручной насос)\nПечное топливо, бак в подвале: около 3000 л\nСвечи: 2 коробки\nБатарейки (большие): 40\nКанистры: 2 (одна одолжена в хижину лесника)	Canned food: 12 boxes\nDiesel in the fuel tanks: 2 × 9000 L (hand pump)\nHeating oil, tank in the basement: about 3000 L\nCandles: 2 boxes\nBatteries (large): 40\nJerrycans: 2 (one lent to the forester's cabin)
+Zettel am Küchentisch / Записка на кухонном столе	Zettel am Küchentisch / Note on the kitchen table
+Кто начал хлеб?\nИ кто стучит ночью в кухонную рольставню?\nНас осталось четверо.	Who started the bread?\nAnd who knocks on the kitchen shutter at night?\nThere are four of us left.
+Einkaufsliste / Список покупок	Einkaufsliste / Shopping list
+Кофе\nСигареты (HB)\nБатарейки!!\nСоль\nСвечи\nОтрава для крыс? (шум на крыше)	Coffee\nCigarettes (HB)\nBatteries!!\nSalt\nCandles\nRat poison? (noise on the roof)
+Brief / Письмо	Brief / Letter
+Дорогая Анна,\nздесь тихо, только не по ночам. Кто-то ходит по крыше, всегда от лестницы к двери на крышу и обратно.\nКесслер говорит — куницы. Куницы в сапогах.\nПриеду на Рождество. Обещаю.\nТвой Ян	Dear Anna,\nit's quiet here, just not at night. Someone walks on the roof, always from the stairs to the roof door and back.\nKessler says it's martens. Martens in boots.\nI'll be home for Christmas. I promise.\nYours, Jan
+Angefangener Brief / Неоконченное письмо	Angefangener Brief / Unfinished letter
+Мама, сегодня я снова видел того человека на опушке. Он всегда стоит там, куда смотрит антенна 3. Он слишком высокий. Он	Mom, today I saw that man at the edge of the woods again. He always stands where antenna 3 is pointing. He is too tall. He
+Tagebuch / Дневник	Tagebuch / Diary
+03.10. Первая ночь. Чудесное небо.\n05.10. Туман на болоте, идёт против ветра.\n07.10. Следы у забора, внутри. Наружу — ни одного.\n08.10. Слышала своё имя в шуме.\n09.10. Уезжаю. Кто останется — ночью запирайте дверь на засов.	03.10. First night. A wonderful sky.\n05.10. Fog on the bog, moving against the wind.\n07.10. Footprints by the fence, inside. Not a single one leading out.\n08.10. Heard my name in the static.\n09.10. I'm leaving. Whoever stays: bolt the door at night.
+Zettel am Spiegel / Записка на зеркале	Zettel am Spiegel / Note on the mirror
+Не выключай свет.	Don't turn off the light.
+Dienstanweisung / Распоряжение	Dienstanweisung / Directive
+Всем:\nС сегодняшнего дня — никаких выходов после наступления темноты.\nШкафы антенн обслуживаем только днём.\nКто увидит человека в лесу — докладывает мне и НЕ подходит.\nКто ночью откроет дверь — утром покидает станцию.\n— Кесслер	To all:\nAs of today, no going out after dark.\nAntenna cabinets are serviced in daylight only.\nAnyone who sees a man in the woods reports to me and does NOT approach.\nAnyone who opens the door at night leaves the station in the morning.\n— Kessler
+Briefentwurf an das Institut / Черновик письма в институт	Briefentwurf an das Institut / Draft letter to the institute
+Уважаемые господа,\nпрошу немедленно законсервировать станцию Хоэнмоос.\nИзмерениям нет объяснения. Персонал уже не в полном составе.\nЯ остаюсь до прибытия смены. Не присылайте никого поодиночке.	Dear Sirs,\nI request that Hohenmoos station be shut down immediately.\nThe measurements cannot be explained. The staff is no longer complete.\nI am staying until the relief shift arrives. Do not send anyone alone.
+Zettel / Стикер	Zettel / Sticky note
+Сейф: день открытия станции (табличка у входа).	Safe: the day the station opened (plaque by the entrance).
+Foto, Rückseite / Фото, обратная сторона	Foto, Rückseite / Photo, back side
+Осень 86-го. Нас четверо.\nКто фотографировал?	Autumn '86. The four of us.\nWho took the picture?
+Heizung — Bedienung / Отопление — порядок	Heizung — Bedienung / Heating — procedure
+1. Включить аварийный выключатель у двери.\n2. Проверить давление. Меньше 1 бар — открыть кран подпитки до 1,5 бар.\n3. Насос ВКЛ.\n4. Горелка ВКЛ. Обычно уходит в ОШИБКУ (STÖRUNG) — нажать кнопку сброса на горелке, тогда запустится.\n5. Термостат на 20 °C.	1. Turn on the emergency switch by the door.\n2. Check the pressure. Below 1 bar: open the fill valve up to 1.5 bar.\n3. Pump ON.\n4. Burner ON. It usually goes to FAULT (STÖRUNG): press the reset button on the burner, then it starts.\n5. Thermostat to 20 °C.
+Zettel Schaltraum / Записка в щитовой	Zettel Schaltraum / Note in the switch room
+Главный рубильник — только когда генератор работает! Иначе выбьет все предохранители.	Main breaker only when the generator is running! Otherwise it blows all the fuses.
+Zettel am Quad / Записка на квадроцикле	Zettel am Quad / Note on the quad bike
+Аккумулятор сел. Зарядка на стеллаже, нужна сеть.	Battery is dead. Charger is on the shelf, needs mains power.
+Zettel Treppenhaus / Записка на лестнице	Zettel Treppenhaus / Note on the stairs
+Дверь на крышу держать запертой.\nТо, что ходит по крыше, — не животное.	Keep the roof door locked.\nWhatever walks on the roof is not an animal.
+Телефон	Phone
+Койка	Bunk
+the Walk clip at speed 1 keeps the feet still at this speed; faster: Animator speed = v / clipSpeedMps (the 2 s crossing) - see FOREST_U6_UNITY.md, appendix V (Приложение В)	the Walk clip at speed 1 keeps the feet still at this speed; faster: Animator speed = v / clipSpeedMps (the 2 s crossing) - see FOREST_U6_UNITY.md, appendix V (Appendix V)
+the object origin on the seat point, facing the bench's front (the aisle); Sit, then SitLook (0.6 s): the head turns to the cab - see FOREST_U6_UNITY.md, appendix V (Приложение В)	the object origin on the seat point, facing the bench's front (the aisle); Sit, then SitLook (0.6 s): the head turns to the cab - see FOREST_U6_UNITY.md, appendix V (Appendix V)
+Кресло пассажира	Passenger seat
+Кресло пилота	Pilot seat
+Бардачок	Glovebox
+Обдув стекла	Windshield defrost
+NAV/COM: питание, громкость	NAV/COM: power, volume
+GPS: внешняя ручка	GPS: outer knob
+Подсветка приборов	Instrument lights
+Откидное кресло, правое переднее	Folding seat, front right
+Замок	Lock
+Дверь пилота	Pilot door
+АКБ	Battery
+Дверь кабины, правая	Cabin door, right
+Задатчик курса	Heading bug
+Шаг винта	Prop pitch
+Держатель фонаря	Flashlight holder
+GPS: питание	GPS: power
+ADF: частота, точно	ADF: frequency, fine
+Согласование курсового	Heading indicator sync
+АНО	Nav lights
+Закрылки	Flaps
+NAV: МГц	NAV: MHz
+Откинуть / сложить сиденье	Unfold / fold seat
+Грузовая дверь, правая	Cargo door, right
+COM: кГц	COM: kHz
+Крышка правого бака	Right fuel cap
+COM: МГц	COM: MHz
+Обогрев кабины	Cabin heat
+GPS: внутренняя ручка	GPS: inner knob
+Маяк	Beacon
+Триммер РВ	Elevator trim
+Режим ответчика	Transponder mode
+NAV: кГц	NAV: kHz
+Рычаг останова / малый газ	Cutoff / idle lever
+Топл. насос	Fuel pump
+Авионика	Avionics
+Крепление лопаты	Shovel tie-down
+Грузовая дверь, левая	Cargo door, left
+Заливающий свет	Flood light
+Посадочная фара	Landing light
+Дверь кабины, левая	Cabin door, left
+Держатель канистры	Jerrycan holder
+Давление на высотомере	Altimeter setting
+Кобура ракетницы	Flare gun holster
+Откидное кресло, левое переднее	Folding seat, front left
+Правая дверь	Right door
+Стробы	Strobes
+РУД (газ)	Throttle
+Ремни пассажира	Passenger harness
+Свет отсека	Bay light
+Ремни пилота	Pilot harness
+Проверка табло	Annunciator test
+Место аварийной сумки	Survival bag stowage
+Стартер	Starter
+Аудио: громкость	Audio: volume
+Автопилот: BARO	Autopilot: BARO
+Свет кабины	Cabin light
+ADF: питание, громкость	ADF: power, volume
+Козырёк	Sun visor
+ADF: частота, грубо	ADF: frequency, coarse
+Кран левого бака	Left tank valve
+Откидное кресло, левое заднее	Folding seat, rear left
+Кран правого бака	Right tank valve
+Стояночный тормоз	Parking brake
+Крышка левого бака	Left fuel cap
+Зажигание	Ignition
+Откидное кресло, правое заднее	Folding seat, rear right
+Перекрывной топливный кран	Fuel shutoff
+Место стремянки (на полу, стропы)	Stepladder stowage (on the floor, straps)
+Аварийная сумка	Survival bag
+Ракетница	Flare gun
+Патрон к ракетнице, 26.5 мм	Flare cartridge, 26.5 mm
+Фальшфейер	Hand flare
+Фонарь	Flashlight
+Лопата	Shovel
+Колодки хвостового колеса	Tailwheel chocks
+Колодки (пара)	Chocks (pair)
+Сумка с чехлом двигателя	Engine cover bag
+Утеплённый чехол двигателя	Insulated engine cover
+Заглушка выхлопа	Exhaust plug
+Воронка с фильтром	Filter funnel
+Подогреватель двигателя	Engine heater
+Заглушка воздухозаборника	Air intake plug
+Чехол ПВД	Pitot cover
+Сумка швартовки (3 комплекта)	Tie-down bag (3 sets)
+Сумка с чехлом лобового стекла	Windshield cover bag
+Чехол лобового стекла	Windshield cover
+Сумка с чехлом крыла	Wing cover bag
+Колодки, хвостовое колесо	Chocks, tailwheel
+Заглушка выхлопа, левая	Exhaust plug, left
+Заглушка выхлопа, правая	Exhaust plug, right
+Чехол приёмника воздушного давления	Pitot tube cover
+Чехол левого крыла	Left wing cover
+Чехол правого крыла	Right wing cover
+Колодки, левое колесо	Chocks, left wheel
+Колодки, правое колесо	Chocks, right wheel
+Швартовка левого крыла	Left wing tie-down
+Швартовка правого крыла	Right wing tie-down
+Швартовка хвоста	Tail tie-down
+Аккумулятор	Battery
+Крышка трамблёра	Distributor cap
+Ключ зажигания	Ignition key
+Крюк лебёдки	Winch hook
+Колесо	Wheel
+Ключ массы	Battery master key
+Крышка воздушного фильтра	Air filter cover
+Канистра антифриза 5 л	Antifreeze jerrycan 5 L
+Паяльная лампа	Blowtorch
+Сумка с цепями	Snow chain bag
+Крышка расширительного бачка	Expansion tank cap
+Заводная рукоятка	Crank handle
+Запасной ремень	Spare belt
+Крышка бака	Fuel cap
+Жестянка с предохранителями	Fuse tin
+Предохранитель	Fuse
+Домкрат	Jack
+Путевой журнал	Trip log
+Полено	Firewood log
+Карта	Map
+Канистра масла 5 л	Oil jerrycan 5 L
+Крышка маслозаливной горловины	Oil filler cap
+Пассатижи	Pliers
+Свечной ключ	Spark plug wrench
+Пробка радиатора	Radiator cap
+Тангента	Hand mic
+Сэнд-трак	Sand tracks
+Щётка со скребком	Brush with scraper
+Свеча	Spark plug
+Лейка	Watering can
+Ящик с инструментом	Toolbox
+Буксировочная стропа	Tow strap
+Баллонный ключ	Wheel wrench
+Гайка колеса	Wheel nut
+Барашек запаски	Spare wheel wing nut
+Переноска	Inspection lamp
+Ключ 13/17	Wrench 13/17
+Двигатель	Engine
+Тумблер «противотуманки»	"Fog lights" switch
+Муфта лебёдки	Winch clutch
+Кожух двигателя	Engine cover
+Запасной предохранитель	Spare fuse
+Предохранитель «салон»	"Cabin" fuse
+Предохранитель «люстра»	"Light bar" fuse
+Тумблер «рабочий свет»	"Work light" switch
+Крышка ящика с инструментом	Toolbox lid
+Дверь пассажира	Passenger door
+Запаска	Spare wheel
+Крышка блока предохранителей	Fuse box cover
+Предохранитель «противотуманки»	"Fog lights" fuse
+Предохранитель «печка»	"Heater" fuse
+Левая задняя дверь	Left rear door
+Сигнал	Horn
+Откидное сиденье	Folding seat
+Тумблер «дворники»	"Wipers" switch
+Дверь водителя	Driver door
+Правая задняя дверь	Right rear door
+Раздатка, передний мост	Transfer case, front axle
+Тумблер «люстра»	"Light bar" switch
+Тумблер «прожекторы»	"Spotlights" switch
+Рация: громкость	Radio: volume
+Раздатка, ряд	Transfer case, range
+Крышка ящика АКБ	Battery box lid
+Тумблер «печка (вентилятор)»	"Heater (fan)" switch
+Предохранитель «дворник»	"Wiper" fuse
+Предохранитель «рабочий свет»	"Work light" fuse
+Тумблер «салон»	"Cabin" switch
+Предохранитель «прожекторы»	"Spotlights" fuse
+Предохранитель «фары»	"Headlights" fuse
+Боковая дверь салона	Side door
+Ручник	Handbrake
+Вентилятор печки	Heater fan
+Тумблер «фары»	"Headlights" switch
+Провод свечи 2	Plug lead 2
+Провод свечи 1	Plug lead 1
+Шторка	Curtain
+Горловина правого бака	Right tank filler neck
+Кнопка блокировки	Lock button
+Снег	Snow
+Свеча 2	Spark plug 2
+Отверстие под рукоятку	Crank hole
+Провод свечи 4	Plug lead 4
+Жестянка с тремя запасными предохранителями	Tin with three spare fuses
+Зольник	Ash pan
+Окно двери пассажира	Passenger door window
+Барашек кронштейна запаски	Spare wheel bracket wing nut
+Подсос	Choke
+Свеча 3	Spark plug 3
+Лючок правого бака	Right tank flap
+Запасной ремень вентилятора	Spare fan belt
+Сливной краник	Drain cock
+Кран баков	Tank valve
+Температура печки	Heater temperature
+Рация: шумоподавитель	Radio: squelch
+Лючок радиатора	Radiator flap
+Окно двери водителя	Driver door window
+Поддувало на дверце	Door draft vent
+Шторка отверстия под рукоятку	Crank hole shutter
+Крышка розетки 12 В	12 V socket cover
+Ручной газ	Hand throttle
+Дверца печки	Stove door
+Свеча 4	Spark plug 4
+Щуп	Dipstick
+Крючок тангенты	Mic hook
+Свеча 1	Spark plug 1
+Насос лампы	Blowtorch pump
+Клемма «минус»	"Negative" terminal
+Винт в штоке	Screw in the rod
+Вентиль лампы	Blowtorch valve
+Заслонка трубы	Flue damper
+Горловина левого бака	Left tank filler neck
+Рация: канал вверх	Radio: channel up
+Свечной ключ с воротком	Plug wrench with T-bar
+Рация: канал вниз	Radio: channel down
+Заслонка печки	Heater flap
+Рычаг ручной подкачки бензонасоса	Fuel pump hand primer lever
+Кнопка «говорить»	"Talk" button
+Провод свечи 3	Plug lead 3
+Клемма «плюс»	"Positive" terminal
+Лючок левого бака	Left tank flap
+Люк в крыше салона	Roof hatch
+Ремень вентилятора	Fan belt
+Зеркало заднего вида	Rear-view mirror
+Руль	Steering wheel
+Левый дворник	Left wiper
+Правый дворник	Right wiper
+Барабан лебёдки	Winch drum
+Шнур переноски	Inspection lamp cord
+Дисплей рации	Radio display
+Зеркало	Mirror
+Печка	Stove
+Огонь	Fire
+Ящик для дров	Firewood box
+Крыльчатка	Impeller
+Топливные баки	Fuel tanks
+Сцепление	Clutch
+Тормоз	Brake
+Газ	Accelerator
+Педали	Pedals
+Чехол рычага КПП	Gear lever boot
+Рычаг КПП	Gear lever
+Шток домкрата	Jack rod
+Выхлопная труба	Exhaust pipe
+Цепи противоскольжения	Snow chains
+Карман двери	Door pocket
+Моторный отсек	Engine bay
+Ящик АКБ	Battery box
+Блок предохранителей	Fuse box
+Панель	Panel
+Крюк	Hook
+Опора сиденья	Seat base
+Стрелка	Needle
+Поворотный кулак	Steering knuckle
+Колба переноски	Lamp glass
+Стекло фары	Headlight lens
+Стекло фонаря	Lamp lens
+Забрать домкрат	Take jack
+Сесть	Sit
+Под домкрат	Jack point
+Радиатор (залить)	Radiator (fill)
+Бачок (залить)	Reservoir (fill)
+Розетка 12 В	12 V socket
+Буксирная проушина	Tow eye
+Стекло	Glass
+Забрать паяльную лампу	Take blowtorch
+Домкрат: качать баллонным ключом	Jack: pump with wheel wrench
+Поддон двигателя (греть)	Oil pan (heat)
+Спрятаться	Hide
+Топка	Firebox
+Буксирный крюк	Tow hook
+Масло (залить)	Oil (fill)
+Лестница на багажник	Roof rack ladder
+Выключатель света (серверная)	Light switch (server room)
+Дверца тумбы	Cabinet door
+Дверца стойки	Rack door
+задвинут	pushed in
+выдвинут	pulled out
+выдвинуть	pull out
+задвинуть	push in
+Выдвижной ящик	Drawer
+Поворотный выключатель	Rotary switch
+Дверь	Door
+Ремень рольставни	Roller shutter strap
+Выключатель света (пульт)	Light switch (control room)
+Выключатель света (лестница)	Light switch (stairs)
+Дверца щита	Panel door
+Выключатель света (кабинет начальника)	Light switch (chief's office)
+Наружный свет	Outdoor light
+Автомат	Breaker
+Главный рубильник	Main switch
+Дверца шкафчика	Locker door
+Холодильник	Fridge
+Выключатель света (коридор 1-го этажа)	Light switch (1st floor corridor)
+Выключатель света (склад)	Light switch (storeroom)
+Выключатель света (коридор 2-го этажа)	Light switch (2nd floor corridor)
+Входная дверь	Front door
+Рольставни (кабинет начальника)	Roller shutters (chief's office)
+Запасной выход	Emergency exit
+Рольставни (кухня)	Roller shutters (kitchen)
+Выключатель света (коридор подвала)	Light switch (basement corridor)
+Выключатель света (тамбур)	Light switch (entryway)
+Дверь гаража	Garage door
+Выключатель света (гараж)	Light switch (garage)
+Аварийный выключатель отопления	Heating emergency switch
+Ворота гаража	Garage gate
+Выключатель света (санузел)	Light switch (bathroom)
+Выключатель света (казарма)	Light switch (barracks)
+Дверь на крышу	Roof door
+Рольставни (пульт)	Roller shutters (control room)
+Выключатель света (щитовая)	Light switch (electrical room)
+Выключатель света (котельная)	Light switch (boiler room)
+Выключатель света (кухня)	Light switch (kitchen)
+Кейс 1	Case 1
+Кейс 2	Case 2
+Кейс 3	Case 3
+Кейс 4	Case 4
+Кейс 5	Case 5
+Кейс 6	Case 6
+Кнопка двери (снаружи)	Door button (outside)
+Дверь (ручка снаружи)	Door (outside handle)
+Кнопка двери (в кабине)	Door button (in cab)
+Дверь (ручка изнутри)	Door (inside handle)
+Кнопка двери отсека	Bay door button
+Место пассажира	Passenger seat
+Дверь отсека (изнутри)	Bay door (inside)
+Дверь отсека (снаружи)	Bay door (outside)
+Место водителя	Driver seat
+Бочка с топливом (TEMPORARY)	Fuel barrel (TEMPORARY)
+Колодки	Chocks
+Сумка швартовки	Tie-down bag
+Чехол крыла	Wing cover
+Ключ от самолёта	Plane key
+Стремянка	Stepladder
+Правый бак	Right tank
+Провода свечей	Plug leads
+Домкрат: поднять / опустить	Jack: raise / lower
+Шторки	Curtains
+Левый бак	Left tank
+Клеммы АКБ	Battery terminals
+Спавн {0}	Spawn {0}
+глаза {0}	eyes {0}
+кадр {0}	frame {0}
+ПКМ	RMB
+Кесслер (рация)	Kessler (radio)
+??? (рация)	??? (radio)
+[T] ответить по рации	[T] answer on the radio
+Ответ по рации: [1–9] выбрать, [T] закрыть	Radio reply: [1–9] choose, [T] close
+слышно	heard
+м	m
+Кто это?	Who is this?
+Не та частота.	Wrong frequency.
+Отзыв?	Countersign?
+Рация (голоса)	Radio (voices)
+День 1	Day 1
+Подсказка	Hint
+Утро	Morning
+Шутка	Joke
+Стоп	Stop
+{0}: запущено	{0}: started
+{0}: занято	{0}: busy
+рация не найдена или нет сервера	radio not found or not the server
+нет питания (S7)	no power (S7)
+
+# Tasks MVP (Forest_Tasks.json, TaskHud, cheat menu), 23.10.2026
+Новое задание	New task
+Новая запись в журнале	New entry in the journal
+Выполнено	Done
+Журнал смены	Shift journal
+письма	letters
+Пока пусто.	Nothing yet.
+выполнено	done
+Срок прошёл	Deadline passed
+Срок	Deadline
+[J] закрыть	[J] close
+Задания	Tasks
+Режим: По инструкции → По памяти	Mode: By the manual → By memory
+Режим: По памяти → По инструкции	Mode: By memory → By the manual
+готово	done
+подсказка	hint
+Памятка смены	Shift memo
+Найти бензин	Find fuel
+Машина заглохла, бак пуст. Найти бензин и доехать до базы.	The car stalled, the tank is empty. Find fuel and drive to the base.
+В бардачке машины лежит карта. Хижина у дороги обведена.	There is a map in the glovebox. The hut by the road is circled.
+Между ёлками светит фонарь хижины. Дверь открыта.	The hut's lantern shines between the firs. The door is open.
+Канистра в хижине. Без воронки половина прольётся.	The jerrycan is in the hut. Without a funnel half of it spills.
+Открыть КПП	Open the checkpoint
+Шлагбаум на замке. Открыть КПП и проехать на базу.	The barrier is locked. Open the checkpoint and drive on to the base.
+Ключи хранятся в будке КПП.	The keys are kept in the checkpoint booth.
+Шлагбаум с мотором. У будки свой щиток питания.	The barrier has a motor. The booth has its own power panel.
+Ключ «Schranke» снимает замок. Ворота откатываются руками.	The «Schranke» key opens the padlock. The gate rolls aside by hand.
+Дать питание	Power up
+База без света. Запустить генератор и подать питание.	The base has no light. Start the generator and switch the power on.
+Генератор — в контейнере во дворе. Ключ «Generator» с КПП.	The generator is in the container in the yard. The «Generator» key is at the checkpoint.
+Бак генератора пуст. Ручной насос стоит у баков с топливом.	The generator tank is empty. The hand pump stands by the fuel tanks.
+Порядок пуска — на бланке у пульта генератора. Потом оба рубильника.	The start order is on the sheet at the generator panel. Then both main switches.
+Включить отопление	Turn on the heating
+В корпусе холодно. Запустить котёл.	It is cold inside. Start the boiler.
+Закрыть базу на ночь	Lock the base for the night
+Темнеет. Закрыть базу: засов, ставни, ворота гаража.	It is getting dark. Lock the base: door bar, shutters, garage gate.
+Лечь спать	Go to sleep
+База закрыта. Лечь спать в казарме. Утром — почта на ПК.	The base is locked. Go to sleep in the barracks. In the morning — mail on the PC.
+Казарма на втором этаже, там четыре койки.	The barracks are on the first floor up, with four bunks.
+Ночь наступает, когда легли все.	Night comes when everyone is lying down.
+Лечь — подойти к койке и нажать E.	To lie down, go to a bunk and press E.
+
+# HUD look, UI pick 23.10 (Hud.cs, PocketsHud, NoteReader, PlanePresentation)
+новое	new
+оригинал	original
+перевод	translation
+весь список	full list
+Следующее:	Next:
+скрыть	hide
+в карман	to pocket
+бросить	throw
+применить	use
+читать	read
+Запуск двигателя (следующий орган подсвечен)	Engine start (the next control is highlighted)
+Правое кресло: полётом управляет только левое. Тумблеры и двери — можно.	Right seat: only the left seat flies the plane. Switches and doors are fine.
+держать — всё, что можно взять в {0} м	hold — everything you can take within {0} m
+Полёт: W/S — штурвал от себя / на себя, A/D — крен, Q/E — педали,	Flight: W/S — yoke forward / back, A/D — roll, Q/E — pedals,
+Shift / Ctrl — газ, Space — тормоза, [ ] — триммер, закрылки — рычаг курсором.	Shift / Ctrl — throttle, Space — brakes, [ ] — trim, flaps — lever with cursor.
+Tab — курсор (ЛКМ — нажать, держать — для стартера) / обзор мышью	Tab — cursor (LMB — press, hold — for starter) / mouse look
+F — использовать то, на что смотрите;  держать F — выйти (дверь должна быть открыта)	F — use what you're looking at;  hold F — exit (door must be open)
+Камера (у себя)	Camera (local)
+Тряска	Shake
+Тряхнуть	Shake now
+Луч фонарика в тумане	Flashlight beam in fog
+Иней {0} → {1}	Frost {0} → {1}
+Полный	Full
+Как идёт	As it goes

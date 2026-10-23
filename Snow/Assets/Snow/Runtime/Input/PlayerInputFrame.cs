@@ -29,6 +29,8 @@ namespace Snow.Input
         /// <summary>Held: show every interactive thing around (TEMPORARY B: Alt is taken by the Unity editor; rebind in
         /// Assets/Snow/Input/SnowControls.inputactions, see docs/dev/Controls.md).</summary>
         public bool Reveal;
+        /// <summary>Press: fall as a ragdoll / get up (TEMPORARY V: C is the callout).</summary>
+        public bool Ragdoll;
         // seat: flight axes -1..1, + = push / right roll / right pedal / more throttle
         public float Pitch, Roll, Yaw, Throttle;
         /// <summary>Toe brakes 0..1 (TEMPORARY Space) and trim wheel rate -1..1, + = nose up (TEMPORARY [ and ]).</summary>
