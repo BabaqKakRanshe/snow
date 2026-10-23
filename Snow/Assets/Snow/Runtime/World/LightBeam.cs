@@ -8,29 +8,50 @@ namespace Snow.World
     /// ForestLightBeams, the van's lamps VanRig. One pyramid along the light's forward with the light's spot angle, drawn
     /// with UtilityPlane/Beam (single scattering, clipped by the scene depth: no beam through walls). Air thickness from the
     /// scene fog as VanRig.AtmosphereDensity, so the beam thickens with the night's fog. Shows only while the light is on and
-    /// within <see cref="maxDistance"/> of the camera. Local on every peer. No shader in the build (a scene without a beam
-    /// material) = no beam. Numbers TEMPORARY (by eye).
+    /// within <see cref="MaxDistance"/> of the camera. Local on every peer. No shader in the build (a scene without a beam
+    /// material) = no beam. One tuning for every beam, live on the pult page «Эффекты». Numbers TEMPORARY (by eye).
     /// </summary>
     [RequireComponent(typeof(Light))]
     public class LightBeam : MonoBehaviour
     {
-        /// <summary>Off in the F1 menu.</summary>
+        /// <summary>Off on the pult page «Эффекты».</summary>
         public static bool Enabled = true;
 
-        [Tooltip("m")] public float length = 18f;
-        [Tooltip("Core sigma (deg)")] public float coreWidth = 8f;
-        public float skirt = 0.03f;
-        [Tooltip("Beam brightness per light unit (TEMPORARY: the yard lamps use 14 at 7 units seen from aside; a flashlight is seen along its beam)")]
-        public float gain = 4f;
-        [Range(0f, 0.9f)] public float forwardScatter = 0.6f;
-        [Tooltip("Scene fog to atmosphere, as VanRig.atmosphereFogScale")] public float fogScale = 40f;
-        [Tooltip("m: farther from the camera the beam is off")] public float maxDistance = 60f;
+        const float DefaultLength = 18f, DefaultCore = 8f, DefaultSkirt = 0.03f, DefaultGain = 4f, DefaultScatter = 0.6f,
+                    DefaultFogScale = 40f, DefaultMaxDistance = 60f;
+
+        /// <summary>m.</summary>
+        public static float Length = DefaultLength;
+        /// <summary>Core sigma, degrees.</summary>
+        public static float CoreWidth = DefaultCore;
+        public static float Skirt = DefaultSkirt;
+        /// <summary>Brightness per light unit (the yard lamps use 14 at 7 units seen from aside; a flashlight is seen along its beam).</summary>
+        public static float Gain = DefaultGain;
+        /// <summary>0–0.9: forward scattering g.</summary>
+        public static float ForwardScatter = DefaultScatter;
+        /// <summary>Scene fog to atmosphere, as VanRig.atmosphereFogScale.</summary>
+        public static float FogScale = DefaultFogScale;
+        /// <summary>m: farther from the camera the beam is off.</summary>
+        public static float MaxDistance = DefaultMaxDistance;
+
+        static int s_version;
+        /// <summary>Call after changing the shape or look numbers: every beam re-reads them.</summary>
+        public static void TuningChanged() => s_version++;
+
+        public static void ResetTuning()
+        {
+            Length = DefaultLength; CoreWidth = DefaultCore; Skirt = DefaultSkirt; Gain = DefaultGain;
+            ForwardScatter = DefaultScatter; FogScale = DefaultFogScale; MaxDistance = DefaultMaxDistance;
+            TuningChanged();
+        }
 
         Light _light;
         Renderer _beam;
+        MeshFilter _filter;
         Material _mat;
         Mesh _mesh;
-        float _lastI = -1f, _lastD = -1f;
+        float _lastI = -1f, _lastD = -1f, _builtHalf = -1f, _builtLength = -1f;
+        int _version = -1;
         Color _lastC;
         static readonly int IntensityId = Shader.PropertyToID("_Intensity"), ColorId = Shader.PropertyToID("_Color"), DensityId = Shader.PropertyToID("_Density");
 
@@ -39,22 +60,11 @@ namespace Snow.World
             _light = GetComponent<Light>();
             Shader sh = Shader.Find("UtilityPlane/Beam");
             if (sh == null || _light.type != LightType.Spot) { enabled = false; return; }
-            float half = _light.spotAngle * 0.5f;
-            _mesh = PyramidMesh(half, length);
             _mat = new Material(sh) { name = "FX_LightBeam", hideFlags = HideFlags.DontSave };
-            _mat.SetFloat("_Length", length);
-            _mat.SetFloat("_XMin", -half);
-            _mat.SetFloat("_XMax", half);
-            _mat.SetFloat("_YMin", -half);
-            _mat.SetFloat("_YMax", half);
-            _mat.SetFloat("_CoreWidth", coreWidth);
-            _mat.SetFloat("_Skirt", skirt);
-            _mat.SetFloat("_Gain", gain);
-            _mat.SetFloat("_G", forwardScatter);
             var go = new GameObject("Beam") { hideFlags = HideFlags.DontSave };
             go.transform.SetParent(transform, false);
             go.layer = gameObject.layer;
-            go.AddComponent<MeshFilter>().sharedMesh = _mesh;
+            _filter = go.AddComponent<MeshFilter>();
             var r = go.AddComponent<MeshRenderer>();
             r.sharedMaterial = _mat;
             r.shadowCastingMode = ShadowCastingMode.Off;
@@ -78,9 +88,10 @@ namespace Snow.World
             Camera cam = Camera.main;
             float density = Density();
             bool show = Enabled && _light.isActiveAndEnabled && _light.intensity > 0.01f && density > 0f && cam != null
-                        && (cam.transform.position - transform.position).sqrMagnitude < maxDistance * maxDistance;
+                        && (cam.transform.position - transform.position).sqrMagnitude < MaxDistance * MaxDistance;
             if (_beam.enabled != show) _beam.enabled = show;
             if (!show) return;
+            Shape();
             if (Mathf.Abs(_light.intensity - _lastI) > 1e-4f) { _mat.SetFloat(IntensityId, _light.intensity); _lastI = _light.intensity; }
             if (Mathf.Abs(density - _lastD) > 1e-5f) { _mat.SetFloat(DensityId, density); _lastD = density; }
             Color c = _light.color.linear;
@@ -88,13 +99,37 @@ namespace Snow.World
             if (c != _lastC) { _mat.SetVector(ColorId, new Vector4(c.r, c.g, c.b, 1f)); _lastC = c; }
         }
 
+        // the pyramid and the beam look follow the shared tuning and the light's spot angle
+        void Shape()
+        {
+            float half = _light.spotAngle * 0.5f;
+            if (_version == s_version && Mathf.Approximately(half, _builtHalf)) return;
+            _version = s_version;
+            if (!Mathf.Approximately(half, _builtHalf) || !Mathf.Approximately(Length, _builtLength))
+            {
+                if (_mesh != null) Destroy(_mesh);
+                _filter.sharedMesh = _mesh = PyramidMesh(half, Length);
+                _builtHalf = half;
+                _builtLength = Length;
+            }
+            _mat.SetFloat("_Length", Length);
+            _mat.SetFloat("_XMin", -half);
+            _mat.SetFloat("_XMax", half);
+            _mat.SetFloat("_YMin", -half);
+            _mat.SetFloat("_YMax", half);
+            _mat.SetFloat("_CoreWidth", CoreWidth);
+            _mat.SetFloat("_Skirt", Skirt);
+            _mat.SetFloat("_Gain", Gain);
+            _mat.SetFloat("_G", Mathf.Clamp(ForwardScatter, 0f, 0.9f));
+        }
+
         /// <summary>Scattering per metre from the scene fog (VanRig.AtmosphereDensity).</summary>
-        float Density()
+        static float Density()
         {
             if (!RenderSettings.fog) return 0f;
             float a = RenderSettings.fogMode == FogMode.Linear
-                ? 3f / Mathf.Max(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance, 1f) * fogScale
-                : RenderSettings.fogDensity * fogScale;
+                ? 3f / Mathf.Max(RenderSettings.fogEndDistance - RenderSettings.fogStartDistance, 1f) * FogScale
+                : RenderSettings.fogDensity * FogScale;
             return 0.12f * Mathf.Clamp01(a);
         }
 

@@ -21,6 +21,7 @@ namespace Snow.Levels.Forest
         SoundLoop _wind, _gusts, _storm, _day, _night, _howl, _indoor;
         AudioListener _listener;
         float _listenerAt, _indoor01, _roofAt, _nextCreak, _nextBranch, _nextFall;
+        float _windShown, _dayShown;                                        // last values, for the pult
         bool _roof, _built;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -47,7 +48,31 @@ namespace Snow.Levels.Forest
             if (_day != null) _day.fadeSeconds = 8f;
             if (_night != null) _night.fadeSeconds = 8f;
             if (_howl != null) _howl.fadeSeconds = 8f;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            Snow.Dev.DevPult.Add("Звук", 45, DrawDev, () => ForestDayNight.Instance != null);
+#endif
         }
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        /// <summary>Pult page «Звук»: the Forest's beds and their levels, the wind, test one-shots (host).</summary>
+        void DrawDev()
+        {
+            Snow.Dev.DevUi.Header("Фон леса");
+            Snow.Dev.DevUi.Raw($"ветер {_windShown:0.0} м/с{(EnvironmentProvider.Current != null ? "" : " (погоды нет, условный)")}   день {_dayShown:0.00}   под крышей {_indoor01:0.00}");
+            (string name, SoundLoop loop)[] beds =
+                { ("ветер", _wind), ("порывы", _gusts), ("буря", _storm), ("день", _day), ("ночь", _night), ("вой", _howl), ("помещение", _indoor) };
+            foreach ((string name, SoundLoop loop) in beds)
+                Snow.Dev.DevUi.Raw(loop == null ? $"{name,-10} нет звука" : $"{name,-10} уровень {loop.Level:0.00}   громкость {loop.Volume:0.00}{(loop.On ? "" : "   выкл")}");
+            if (!Snow.Dev.DevUi.HostOnly()) return;
+            float now = Time.time;
+            Snow.Dev.DevUi.Raw($"следующие: скрип через {Mathf.Max(0f, _nextCreak - now):0} с, ветка {Mathf.Max(0f, _nextBranch - now):0} с, дерево {Mathf.Max(0f, _nextFall - now):0} с");
+            if (Snow.Dev.DevUi.Button("Скрип дерева рядом")) Scatter("os.tree.creak", 8f, 15f);
+            Snow.Dev.DevUi.Row();
+            if (Snow.Dev.DevUi.Button("Ветка рядом")) Scatter("os.branch", 8f, 15f);
+            Snow.Dev.DevUi.Row();
+            if (Snow.Dev.DevUi.Button("Падает дерево")) Scatter("os.treefall", 40f, 60f);
+        }
+#endif
 
         void Update()
         {
@@ -71,6 +96,8 @@ namespace Snow.Levels.Forest
                 ? EnvironmentProvider.WindAt(p).magnitude
                 : 4f + 4f * Mathf.PerlinNoise(Time.time * 0.05f, 0.3f);           // no weather yet: a slow breath
             float gust = Mathf.InverseLerp(3f, 9f, wind), storm = Mathf.InverseLerp(10f, 16f, wind);
+            _windShown = wind;
+            _dayShown = day;
 
             Set(_wind, outdoor * (1f - 0.5f * storm));
             Set(_gusts, outdoor * gust);

@@ -960,3 +960,87 @@ F — использовать то, на что смотрите;  держат
 Иней {0} → {1}	Frost {0} → {1}
 Полный	Full
 Как идёт	As it goes
+# Pult page «Звук» (audio, 23.10.2026)
+Звук	Sound
+Громкость	Volume
+Общая	Master
+Эффекты	Effects
+Фон	Ambience
+Интерфейс	Interface
+Музыка	Music
+Без звука	Mute
+Источников играет	Sources playing
+нет библиотеки звуков: Snow/Audio/Rebuild Sound Library	no sound library: Snow/Audio/Rebuild Sound Library
+Под ногами	Under the feet
+Поверхность	Surface
+Почему	Why
+Шаг / бег / прыжок	Walk / run / land
+Под крышей	Under a roof
+да	yes
+Последние звуки	Last sounds
+пока тихо	silent so far
+Проверить звук	Test a sound
+играет в 2 м перед камерой, слышно только здесь	plays 2 m in front of the camera, heard only here
+Шаги	Steps
+Фоны	Beds
+Лес: мелочи	Forest: small sounds
+Пролог	Opening
+Предметы	Items
+Фон леса	Forest ambience
+Скрип дерева рядом	Tree creak nearby
+Ветка рядом	Branch nearby
+Падает дерево	Falling tree
+Тряска камеры	Camera shake
+Включена	On
+Включён	On
+Включено	On
+Слабо	Light
+Средне	Medium
+Сильно	Strong
+травма	trauma
+сила из настроек камеры	strength from camera settings
+Кивок, °	Pitch, °
+Поворот, °	Yaw, °
+Крен, °	Roll, °
+Затухание, 1/с	Decay, 1/s
+Частота	Frequency
+Источники (свой игрок)	Sources (own player)
+Приземление: с, м/с	Landing: from, m/s
+Приземление: максимум, м/с	Landing: full, m/s
+Толчок кресла: порог, м/с²	Seat jolt: threshold, m/s²
+Толчок кресла: сила	Seat jolt: strength
+Нет своего игрока: источники тряски не показаны	No own player: shake sources hidden
+Сбросить тряску	Reset shake
+Яркость	Brightness
+Длина, м	Length, m
+Ширина ядра, °	Core width, °
+Края	Skirt
+Рассеяние вперёд	Forward scatter
+Туман → плотность	Fog → density
+Дальность показа, м	Show distance, m
+Сбросить луч	Reset beam
+Иней по краям	Frost on screen edges
+иней	frost
+(держится)	(held)
+Держать на	Hold at
+Полный иней при, °C	Full frost at, °C
+Ветер до максимума, м/с	Wind for full, m/s
+Доля ветра	Wind share
+Нарастает за, с	Grows in, s
+Тает за, с	Melts in, s
+Мягкость кромки	Edge softness
+Непрозрачность	Opacity
+Цвет: красный	Colour: red
+Цвет: зелёный	Colour: green
+Цвет: синий	Colour: blue
+Сбросить иней	Reset frost
+Затенение в щелях (SSAO)	Ambient occlusion (SSAO)
+SSAO не найдено в рендерере	SSAO not found in the renderer
+Сила	Strength
+Радиус, м	Radius, m
+Тень и под прямым светом	Also under direct light
+Дальность, м	Falloff, m
+Как в PC_Renderer	As in PC_Renderer
+Действует на этом пире до выхода из игры; хорошие числа перенести в PC_Renderer.asset руками.	Works on this peer until the game stops; copy good numbers into PC_Renderer.asset by hand.
+карманы	pockets
+пусто	empty

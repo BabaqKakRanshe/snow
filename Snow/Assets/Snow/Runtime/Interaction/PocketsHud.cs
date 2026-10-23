@@ -3,6 +3,7 @@ using Snow.Aircraft;
 using Snow.Cargo;
 using Snow.Input;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Snow.Interaction
 {
@@ -13,15 +14,15 @@ namespace Snow.Interaction
     /// faint strip when nothing happens (small UI, Q11). Every change has a short sound: take, into the pocket, switch,
     /// throw, refusal — slightly different pitch each time so repeats do not grate. Reads the replicated pocket state
     /// (CargoItem carry) and InteractionSensor; sends nothing. Sounds are made here (TEMPORARY until real SFX), as are
-    /// all numbers (docs/dev/Tuning/Cargo.md). Look (UI pick 23.10, version 3, <see cref="Hud"/>): numbered slots with a
-    /// warm mark when full, the name of the slot in the hand on a plate above (with "новое" for a thing just taken from
-    /// the world), and "в руке" at the bottom right with the keys for the thing in the hand.
+    /// all numbers (docs/dev/Tuning/Cargo.md). Look (UI pick 23.10, D3 «Протокол»): the occupied pockets as typed lines
+    /// at the bottom left, shown for a moment after a pocket change and while Tab is held, gone otherwise; "в руке" at
+    /// the bottom right with the keys for the thing in the hand (<see cref="Hud"/>, version 3 — not decided yet).
     /// </summary>
     public class PocketsHud : MonoBehaviour
     {
         public InteractionSensor sensor;
-        [Tooltip("s the bar stays bright after something happened")] public float awakeSeconds = 2.5f;
-        [Range(0f, 1f)] public float restAlpha = 0.35f;
+        [Tooltip("s the pockets list stays after something happened")] public float awakeSeconds = 2.5f;
+        [Tooltip("Typewriter font with Cyrillic for the list (PT Mono / TT2020); empty = an OS mono, TEMPORARY")] public Font mono;
         [Range(0f, 1f)] public float volume = 0.45f;
 
         const int N = CargoItem.PocketSlots;
@@ -129,64 +130,95 @@ namespace Snow.Interaction
                 || sensor.controller.Source == null || sensor.controller.Source.Context != InputContext.OnFoot) return;
             float now = Time.time;
             float awake = Mathf.Clamp01(1f - (now - _awakeAt - awakeSeconds) / 0.6f);
-            float alpha = Mathf.Lerp(restAlpha, 1f, awake);
-            float w = Hud.Px(52f), h = Hud.Px(46f), gap = Hud.Px(4f);
-            float x0 = Mathf.Round((Screen.width - (N * w + (N - 1) * gap)) * 0.5f), y = Screen.height - Hud.Px(48f) - h;
+            bool tab = Keyboard.current != null && Keyboard.current.tabKey.isPressed;      // on foot Tab is free (Controls.md)
+            float alpha = tab ? 1f : awake;
             int lit = now - sensor.RequestedAt < 0.4f ? sensor.RequestedSlot : _hand != null ? _hand.Slot : -1;   // asked for: lit at once
-            Color warm = Hud.Warm;
-
-            for (int s = 0; s < N; s++)
-            {
-                var r = new Rect(x0 + s * (w + gap), y, w, h);
-                bool on = s == lit;
-                CargoItem item = _slots[s];
-                float pop = s == _popSlot ? 1f + 0.16f * (1f - EaseOut(Mathf.Clamp01((now - _popAt) / 0.2f))) : 1f;
-                Matrix4x4 saved = GUI.matrix;
-                if (pop > 1.001f) GUIUtility.ScaleAroundPivot(new Vector2(pop, pop), r.center);
-                if (item != null) Hud.Panel(r, alpha);
-                else
-                {
-                    Hud.Fill(r, new Color(0.063f, 0.067f, 0.075f, 0.35f * alpha));
-                    Hud.Outline(r, new Color(1f, 1f, 1f, 0.22f * alpha), Mathf.Max(1f, Hud.Px(1f)));
-                }
-                if (on) Hud.Outline(r, new Color(warm.r, warm.g, warm.b, alpha), Hud.Px(2f));
-                Color num = on ? Color.white : item != null ? new Color(0.93f, 0.92f, 0.9f) : new Color(1f, 1f, 1f, 0.5f);
-                Hud.Label(r, (s + 1).ToString(), Hud.Text(18, true, TextAnchor.MiddleCenter), new Color(num.r, num.g, num.b, num.a * alpha));
-                if (item != null)
-                    Hud.Fill(new Rect(r.x + Hud.Px(14f), r.yMax - Hud.Px(9f), r.width - Hud.Px(28f), Hud.Px(3f)), new Color(warm.r, warm.g, warm.b, 0.75f * alpha));
-                GUI.matrix = saved;
-            }
-
-            // the name of the slot in the hand above the bar; "новое" while a thing just taken from the world is announced
-            CargoItem shown = lit >= 0 && lit < N ? _slots[lit] : null;
-            if (shown != null)
-            {
-                bool fresh = _toastNew && now - _toastAt < 1.4f;
-                string num = (lit + 1).ToString(), dot = "·", label = Loc.T(shown.label), tag = Loc.T("новое");
-                GUIStyle numSt = Hud.Text(22, true), st = Hud.Text(22), tagSt = Hud.Text(15, false, TextAnchor.MiddleCenter);
-                float pad = Hud.Px(14f), sp = Hud.Px(8f), ph = Hud.Px(36f);
-                float nw = Hud.Size(num, numSt).x, dw = Hud.Size(dot, st).x, lw = Hud.Size(label, st).x, tw = Hud.Size(tag, tagSt).x + Hud.Px(12f);
-                float pw = pad * 2f + nw + sp + dw + sp + lw + (fresh ? sp + tw : 0f);
-                var plate = new Rect(Mathf.Round((Screen.width - pw) * 0.5f), y - Hud.Px(8f) - ph, pw, ph);
-                Hud.Panel(plate, alpha);
-                float cx = plate.x + pad;
-                Hud.Label(new Rect(cx, plate.y, nw + 2f, ph), num, numSt, new Color(warm.r, warm.g, warm.b, alpha));
-                cx += nw + sp;
-                Hud.Label(new Rect(cx, plate.y, dw + 2f, ph), dot, st, new Color(1f, 1f, 1f, 0.4f * alpha));
-                cx += dw + sp;
-                Hud.Label(new Rect(cx, plate.y, lw + 2f, ph), label, st, new Color(1f, 1f, 1f, alpha));
-                cx += lw + sp;
-                if (fresh)
-                {
-                    var tr = new Rect(cx, plate.y + (ph - Hud.Px(22f)) * 0.5f, tw, Hud.Px(22f));
-                    Hud.Fill(tr, new Color(warm.r, warm.g, warm.b, 0.2f * alpha));
-                    Hud.Label(tr, tag, tagSt, new Color(warm.r, warm.g, warm.b, alpha));
-                }
-            }
+            if (alpha > 0.01f) InventoryList(lit, alpha, now, tab);
 
             // what is in the hand and its keys, bottom right
             CargoItem inHand = _hand != null ? _hand : sensor.Held;
-            if (inHand != null) HandBlock(inHand, alpha);
+            if (inHand != null) HandBlock(inHand, Mathf.Lerp(0.35f, 1f, awake));
+        }
+
+        // UI pick 23.10 (D3 «Протокол», RESEARCH_UI_2.md): the occupied pockets as typed lines at the bottom left, no
+        // plates — "Inventar  карманы", then "▸3  Ключ «Schranke»  neu"; the pocket in the hand marked, the others dimmer
+        void InventoryList(int lit, float alpha, float now, bool tab)
+        {
+            GUIStyle st = Mono(21), small = Mono(18);
+            float lh = Hud.Px(27f), x = Hud.SafeX;
+            int count = 0;
+            for (int s = 0; s < N; s++) if (_slots[s] != null) count++;
+            if (count == 0 && !tab) return;
+            float y = Screen.height - Hud.Px(60f) - lh * (1 + Mathf.Max(1, count));
+            Color warm = new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, alpha), ink = new Color(0.9f, 0.874f, 0.784f, alpha);
+            float hw = Typed(x, y, "Inventar", st, warm);
+            Typed(x + hw + Hud.Px(16f), y + Hud.Px(3f), Loc.T("карманы"), small, new Color(0.663f, 0.651f, 0.612f, alpha));
+            y += lh;
+            if (count == 0)
+            {
+                Typed(x, y, Loc.T("пусто"), st, new Color(ink.r, ink.g, ink.b, 0.7f * alpha));
+                return;
+            }
+            bool fresh = _toastNew && now - _toastAt < 1.4f;
+            for (int s = 0; s < N; s++)
+            {
+                CargoItem item = _slots[s];
+                if (item == null) continue;
+                bool on = s == lit;
+                float flash = s == _popSlot ? 1f - EaseOut(Mathf.Clamp01((now - _popAt) / 0.3f)) : 0f;   // the line that just changed
+                float a = on ? alpha : 0.7f * alpha;
+                float cx = x;
+                cx += Typed(cx, y, (on ? "▸" : " ") + (s + 1), st, new Color(warm.r, warm.g, warm.b, a));
+                cx += Hud.Px(14f);
+                cx += Typed(cx, y, Loc.T(item.label), st, Color.Lerp(new Color(ink.r, ink.g, ink.b, a), warm, flash));
+                if (on && fresh) Typed(cx + Hud.Px(14f), y, "neu", st, warm);
+                y += lh;
+            }
+        }
+
+        // typewriter text with a 2 px dark outline (no plate); returns its width
+        static float Typed(float x, float y, string text, GUIStyle st, Color color)
+        {
+            Vector2 size = Hud.Size(text, st);
+            var r = new Rect(x, y, size.x + 2f, size.y);
+            float o = Mathf.Max(1f, Hud.Px(2f));
+            GUI.color = new Color(0.04f, 0.04f, 0.05f, 0.9f * color.a);
+            for (int i = 0; i < 8; i++)
+            {
+                float ox = i == 0 || i == 3 || i == 5 ? -o : i == 2 || i == 4 || i == 7 ? o : 0f;
+                float oy = i < 3 ? -o : i > 4 ? o : 0f;
+                GUI.Label(new Rect(r.x + ox, r.y + oy, r.width, r.height), text, st);
+            }
+            GUI.color = color;
+            GUI.Label(r, text, st);
+            GUI.color = Color.white;
+            return size.x;
+        }
+
+        static Font _osMono;
+        static readonly Dictionary<int, GUIStyle> MonoStyles = new Dictionary<int, GUIStyle>();
+        static float _monoScale = -1f;
+
+        // the typewriter face: the font set on the component, else an OS mono (TEMPORARY until PT Mono / TT2020 is in the
+        // project, RESEARCH_UI_2.md §4)
+        GUIStyle Mono(int designPx)
+        {
+            if (!Mathf.Approximately(Hud.S, _monoScale)) { MonoStyles.Clear(); _monoScale = Hud.S; }
+            if (MonoStyles.TryGetValue(designPx, out GUIStyle st)) return st;
+            Font f = mono;
+            if (f == null)
+            {
+                if (_osMono == null) _osMono = Font.CreateDynamicFontFromOSFont(new[] { "Consolas", "Courier New", "Liberation Mono" }, 21);
+                f = _osMono;
+            }
+            st = new GUIStyle(GUI.skin.label)
+            {
+                font = f, fontSize = Mathf.Max(9, Mathf.RoundToInt(designPx * Hud.S)), alignment = TextAnchor.UpperLeft,
+                wordWrap = false, clipping = TextClipping.Overflow, padding = new RectOffset(0, 0, 0, 0), margin = new RectOffset(0, 0, 0, 0),
+            };
+            st.normal.textColor = Color.white;
+            MonoStyles[designPx] = st;
+            return st;
         }
 
         void HandBlock(CargoItem item, float alpha)

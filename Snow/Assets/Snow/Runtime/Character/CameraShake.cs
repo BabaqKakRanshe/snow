@@ -11,13 +11,18 @@ namespace Snow.Character
     /// </summary>
     public static class CameraShake
     {
-        /// <summary>Off in the F1 menu.</summary>
+        /// <summary>Off on the pult page «Эффекты».</summary>
         public static bool Enabled = true;
 
-        /// <summary>Degrees at full trauma: pitch, yaw, roll.</summary>
-        static readonly Vector3 MaxAngles = new Vector3(4f, 4f, 6f);
+        static readonly Vector3 DefaultAngles = new Vector3(4f, 4f, 6f);   // first: static fields initialise in text order
+        const float DefaultDecay = 1.4f, DefaultFrequency = 18f;
+
+        /// <summary>Degrees at full trauma: pitch, yaw, roll (tuned on the pult page «Эффекты»).</summary>
+        public static Vector3 MaxAngles = DefaultAngles;
         /// <summary>Trauma lost per second; noise speed.</summary>
-        const float Decay = 1.4f, Frequency = 18f;
+        public static float Decay = DefaultDecay, Frequency = DefaultFrequency;
+
+        public static void ResetTuning() { MaxAngles = DefaultAngles; Decay = DefaultDecay; Frequency = DefaultFrequency; }
 
         static float s_trauma, s_time;
         static int s_frame = -1;

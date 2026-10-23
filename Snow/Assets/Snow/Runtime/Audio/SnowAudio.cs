@@ -21,6 +21,44 @@ namespace Snow.Audio
         public static readonly float[] BusVolume = { 1f, 1f, 1f, 1f };
         public static float Master = 1f;
 
+        /// <summary>A sound that played (or was asked for and missing) on this peer, for the pult's «Звук» page.</summary>
+        public struct Played
+        {
+            public float time, volume;
+            public string id, clip, via;
+            public Vector3 at;
+        }
+
+        const int HistorySize = 16;
+        static readonly Played[] s_history = new Played[HistorySize];
+        static int s_historyNext, s_historyCount;
+
+        /// <summary>The last sounds, newest first.</summary>
+        public static IEnumerable<Played> History()
+        {
+            for (int i = 1; i <= s_historyCount; i++) yield return s_history[(s_historyNext - i + HistorySize) % HistorySize];
+        }
+
+        /// <summary>Pool sources playing now / pool size.</summary>
+        public static int Busy
+        {
+            get
+            {
+                int n = 0;
+                if (s_instance != null) foreach (AudioSource s in s_instance._pool) if (s.isPlaying) n++;
+                return n;
+            }
+        }
+
+        public static int PoolCount => PoolSize;
+
+        static void Remember(string id, AudioClip clip, string via, Vector3 at, float volume)
+        {
+            s_history[s_historyNext] = new Played { time = Time.time, id = id, clip = clip != null ? clip.name : null, via = via, at = at, volume = volume };
+            s_historyNext = (s_historyNext + 1) % HistorySize;
+            if (s_historyCount < HistorySize) s_historyCount++;
+        }
+
         static SnowAudio s_instance;
         readonly List<AudioSource> _pool = new List<AudioSource>();
         int _next;
@@ -51,6 +89,9 @@ namespace Snow.Audio
                 _pool.Add(s);
             }
             if (Library == null) Debug.LogWarning("[SnowAudio] no Resources/" + SoundLibrary.ResourcePath + " — run Snow/Audio/Rebuild Sound Library");
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            AudioDevPage.Register();
+#endif
         }
 
         void Update()
@@ -71,6 +112,12 @@ namespace Snow.Audio
 
         public static float Bus(SoundBus b) => Master * BusVolume[(int)b];
 
+        /// <summary>Stops every one-shot of this peer (the pult's test buttons can start a 2-minute bed).</summary>
+        public static void StopAll()
+        {
+            if (s_instance != null) foreach (AudioSource s in s_instance._pool) s.Stop();
+        }
+
         public static bool Has(string id)
         {
             SoundCue c = Library != null ? Library.Get(id) : null;
@@ -78,13 +125,26 @@ namespace Snow.Audio
         }
 
         /// <summary>This peer only: a one-shot of the cue at the point (null when the cue or its clips are missing).</summary>
-        public static AudioSource Play(string id, Vector3 at, float volumeScale = 1f) =>
-            Play(Library != null ? Library.Get(id) : null, at, volumeScale);
+        public static AudioSource Play(string id, Vector3 at, float volumeScale = 1f) => PlayId(id, at, volumeScale, "здесь");
 
-        public static AudioSource Play(SoundCue cue, Vector3 at, float volumeScale = 1f)
+        internal static AudioSource PlayId(string id, Vector3 at, float volumeScale, string via)
+        {
+            SoundCue cue = Library != null ? Library.Get(id) : null;
+            if (cue == null)
+            {
+                if (!string.IsNullOrEmpty(id)) Remember(id, null, via, at, 0f);       // asked for, not in the library
+                return null;
+            }
+            return Play(cue, at, volumeScale, via);
+        }
+
+        public static AudioSource Play(SoundCue cue, Vector3 at, float volumeScale = 1f) => Play(cue, at, volumeScale, "здесь");
+
+        static AudioSource Play(SoundCue cue, Vector3 at, float volumeScale, string via)
         {
             if (cue == null || s_instance == null) return null;
             AudioClip clip = cue.Pick();
+            Remember(cue.id, clip, via, at, cue.Volume * volumeScale);
             if (clip == null) return null;
             AudioSource s = s_instance.NextSource();
             s.transform.position = at;
@@ -103,7 +163,7 @@ namespace Snow.Audio
             SoundCue cue = Library != null ? Library.Get(id) : null;
             if (cue == null) return;
             AudioNet.SendToOthers(id, at, volumeScale);
-            Play(cue, at, volumeScale);
+            Play(cue, at, volumeScale, "сервер");
             if (cue.noise > 0f) NoiseEvents.Emit(at, cue.noise * Mathf.Clamp(volumeScale, 0.5f, 2f), "sfx:" + id, source);
         }
 

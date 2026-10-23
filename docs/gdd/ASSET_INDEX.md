@@ -11,8 +11,8 @@
 | `Abatis` | `Assets/Locations/Forest/Models/Abatis.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
 | `Abatis_b` | `Assets/Locations/Forest/Models/Abatis_b.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
 | `Apparition` | `Assets/Locations/Forest/Models/Apparition.fbx` | `source/assets/forest_figure/fig.blend` | forest_figure | обновление 6 (в проекте после импорта) | Forest — фигура |
-| `Barrier` | `Assets/Locations/Forest/Models/Barrier.fbx` | `source/assets/forest_kpp/kpp.blend` | forest_kpp | обновление 4 | Forest — постройки |
-| `BaseMain` | `Assets/Locations/Forest/Models/BaseMain.fbx` | `source/assets/forest_main/main.blend` | forest_main | обновление 4 | Forest — постройки |
+| `Barrier` | `Assets/Locations/Forest/Models/Barrier.fbx` | `source/assets/forest_kpp/kpp.blend` | forest_kpp | обновление 4; v2 (23.10) — в проекте после импорта | Forest — постройки |
+| `BaseMain` | `Assets/Locations/Forest/Models/BaseMain.fbx` | `source/assets/forest_main/main.blend` | forest_main | обновление 4 (версия 1.1); версия 1.2 от 23.10 (пункт управления КПП в пультовой) — ещё не в проекте | Forest — постройки |
 | `BaseMain_Opening` | `Assets/Locations/Forest/Models/BaseMain_Opening.fbx` | `source/assets/forest_main/main.blend` | forest_main | обновление 4 | Forest — постройки |
 | `Bridge30` | `Assets/Locations/Forest/Models/Bridge30.fbx` | `source/assets/forest_road/road.blend` | forest_road | обновление 4 | Forest — дорога |
 | `Cabin` | `Assets/Locations/Forest/Models/Cabin.fbx` | `source/assets/forest_far/far.blend` | forest_far | обновление 5 | Forest — дальние точки |
@@ -20,7 +20,7 @@
 | `ChainFence` | `Assets/Locations/Forest/Models/ChainFence.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
 | `ChainFence_Torn` | `Assets/Locations/Forest/Models/ChainFence_Torn.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
 | `Chapel` | `Assets/Locations/Forest/Models/Chapel.fbx` | `source/assets/forest_far/far.blend` | forest_far | обновление 5 | Forest — дальние точки |
-| `Checkpoint` | `Assets/Locations/Forest/Models/Checkpoint.fbx` | `source/assets/forest_kpp/kpp.blend` | forest_kpp | обновление 4 | Forest — постройки |
+| `Checkpoint` | `Assets/Locations/Forest/Models/Checkpoint.fbx` | `source/assets/forest_kpp/kpp.blend` | forest_kpp | обновление 4; v2 (23.10) — в проекте после импорта | Forest — постройки |
 | `ConcreteFence` | `Assets/Locations/Forest/Models/ConcreteFence.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
 | `ConcreteFence_Broken` | `Assets/Locations/Forest/Models/ConcreteFence_Broken.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
 | `ConcreteFence_Plain` | `Assets/Locations/Forest/Models/ConcreteFence_Plain.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
@@ -45,7 +45,7 @@
 | `Forest_Wires` | `Assets/Locations/Forest/Models/Forest_Wires.fbx` | `source/assets/forest_base/base.blend` | forest_base | обновление 5 | Forest — база |
 | `FuelTanks` | `Assets/Locations/Forest/Models/FuelTanks.fbx` | `source/assets/forest_yard/yard.blend` | forest_yard | обновление 4 | Forest — постройки |
 | `Garage` | `Assets/Locations/Forest/Models/Garage.fbx` | `source/assets/forest_garage/garage.blend` | forest_garage | обновление 4 | Forest — постройки |
-| `Gate` | `Assets/Locations/Forest/Models/Gate.fbx` | `source/assets/forest_kpp/kpp.blend` | forest_kpp | обновление 4 | Forest — постройки |
+| `Gate` | `Assets/Locations/Forest/Models/Gate.fbx` | `source/assets/forest_kpp/kpp.blend` | forest_kpp | обновление 4; v2 (23.10) — в проекте после импорта | Forest — постройки |
 | `GenContainer` | `Assets/Locations/Forest/Models/GenContainer.fbx` | `source/assets/forest_gencont/gcf.blend` | forest_gencont | обновление 6 | Forest — постройки |
 | `Hatch` | `Assets/Locations/Forest/Models/Hatch.fbx` | `source/assets/forest_base/base.blend` | forest_base | обновление 5 | Forest — база |
 | `Hedgehog` | `Assets/Locations/Forest/Models/Hedgehog.fbx` | `source/assets/forest_fences/fences.blend` | forest_fences | обновление 7 (в проекте после импорта) | Forest — заборы и заграждения (обновление 7) |
@@ -261,6 +261,47 @@
 | `Assets/Locations/Dam/Models` | 30 | `source/locations/_blend/Dam.blend` |
 | `Assets/Locations/AboveClouds/Models` | 18 | `source/locations/_blend/AboveClouds.blend` |
 | `Assets/Locations/BaseV2/Models` | 4 | `source/locations/_blend/BaseV2.blend` |
+
+## Новые модели (КПП v2.1, набор snow_kit 1.1, главный корпус 1.2 — 23.10.2026): ещё не в Showcase и не в проекте
+
+В Showcase у `Checkpoint`, `Barrier`, `Gate` — версия 1; исходник версии 2 — тот же `source/assets/forest_kpp/kpp.blend`. Модели набора ставятся постройками экземплярами (у КПП — `kit_instances` в `kpp_contract.json`); папка в Unity — `Assets/Kit/`, общая для всех карт. Справочники — `KPP_CONTRACT.md`, `SNOW_KIT_CONTRACT.md`.
+
+| Модель | FBX в Unity (после импорта) | .blend | Пакет | Что это |
+|---|---|---|---|---|
+| `Barrier_Manual` | `Assets/Locations/Forest/Models/Barrier_Manual.fbx` | `source/assets/forest_kpp/kpp.blend` | forest_kpp | старый механический шлагбаум (v1) — отдельный префаб, на карту не ставится |
+| `Kit_Camera_Head` | `Assets/Kit/Models/Kit_Camera_Head.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K1: камера видеонаблюдения |
+| `Kit_Camera_BracketWall` | `Assets/Kit/Models/Kit_Camera_BracketWall.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K1: кронштейн камеры к стене |
+| `Kit_Camera_BracketPole` | `Assets/Kit/Models/Kit_Camera_BracketPole.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K1: кронштейн камеры к столбу |
+| `Kit_Monitor_CRT` | `Assets/Kit/Models/Kit_Monitor_CRT.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K2: монитор ЭЛТ, экран — отдельный объект |
+| `Kit_Console_2` | `Assets/Kit/Models/Kit_Console_2.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K3: пульт на 2 кнопки |
+| `Kit_Console_4` | `Assets/Kit/Models/Kit_Console_4.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K3: пульт на 4 кнопки |
+| `Kit_Console_Button` | `Assets/Kit/Models/Kit_Console_Button.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K3: кнопка пульта с лампой |
+| `Kit_Console_Label_Schranke` | `Assets/Kit/Models/Kit_Console_Label_Schranke.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K3: подпись SCHRANKE / BARRIER |
+| `Kit_Console_Label_Tor` | `Assets/Kit/Models/Kit_Console_Label_Tor.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K3: подпись TOR / GATE |
+| `Kit_Console_Label_Licht` | `Assets/Kit/Models/Kit_Console_Label_Licht.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K3: подпись LICHT / LIGHTS |
+| `Kit_Console_Label_Blank` | `Assets/Kit/Models/Kit_Console_Label_Blank.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K3: пустая подпись |
+| `Kit_Phone` | `Assets/Kit/Models/Kit_Phone.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K4: дисковый телефон |
+| `Kit_Cabinet_Power` | `Assets/Kit/Models/Kit_Cabinet_Power.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K5: распределительный шкаф под аккумулятор машины |
+| `Kit_JunctionBox` | `Assets/Kit/Models/Kit_JunctionBox.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K6: коробка распределительная |
+| `Kit_Conduit_Straight` | `Assets/Kit/Models/Kit_Conduit_Straight.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K7: труба, прямой кусок 1 м |
+| `Kit_Conduit_Elbow` | `Assets/Kit/Models/Kit_Conduit_Elbow.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K7: колено трубы 90° |
+| `Kit_Conduit_Clamp` | `Assets/Kit/Models/Kit_Conduit_Clamp.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K7: скоба трубы |
+| `Kit_Conduit_Entry` | `Assets/Kit/Models/Kit_Conduit_Entry.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K7: ввод трубы в коробку |
+| `Kit_Pole` | `Assets/Kit/Models/Kit_Pole.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K8: опора ЛЭП деревянная |
+| `Kit_Pole_Trafo` | `Assets/Kit/Models/Kit_Pole_Trafo.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K8: опора ЛЭП с трансформатором |
+| `Kit_RoofStand` | `Assets/Kit/Models/Kit_RoofStand.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K9: трубостойка ввода на крыше |
+| `Kit_Wire_Bare` | `Assets/Kit/Models/Kit_Wire_Bare.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K9: провод линии, пролёт 40 м (растягивается по x) |
+| `Kit_Wire_Drop` | `Assets/Kit/Models/Kit_Wire_Drop.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K9: кабель ввода, пролёт 10 м (растягивается по x) |
+| `Kit_DoorLock` | `Assets/Kit/Models/Kit_DoorLock.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K10: электрозамок двери |
+| `Kit_DoorLock_Strike` | `Assets/Kit/Models/Kit_DoorLock_Strike.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K10: ответная планка электрозамка с лампой |
+| `Kit_Beacon` | `Assets/Kit/Models/Kit_Beacon.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K11: проблесковый маячок |
+| `Kit_Mast` | `Assets/Kit/Models/Kit_Mast.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K12: стальная мачта 4,2 м на бетонной тумбе (два места сбоку, место на верхушке) |
+| `Kit_Mast_Flood` | `Assets/Kit/Models/Kit_Mast_Flood.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K12: прожектор на хомутах |
+| `Kit_Mast_Horn` | `Assets/Kit/Models/Kit_Mast_Horn.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K12: рупорный громкоговоритель на хомутах |
+| `Kit_Mast_Yagi` | `Assets/Kit/Models/Kit_Mast_Yagi.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K12: антенна «волновой канал» на выносе |
+| `Kit_Mast_Lamp` | `Assets/Kit/Models/Kit_Mast_Lamp.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K12: уличный фонарь на верхушку мачты |
+| `Kit_Mast_Antenna` | `Assets/Kit/Models/Kit_Mast_Antenna.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K12: штыревая УКВ-антенна на верхушку мачты |
+| `Kit_Mast_Siren` | `Assets/Kit/Models/Kit_Mast_Siren.fbx` | `source/assets/snow_kit/snow_kit.blend` | snow_kit | K12: сирена оповещения на верхушку мачты |
 
 ## В Showcase, но не в проекте Unity
 

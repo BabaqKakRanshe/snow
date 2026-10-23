@@ -20,6 +20,8 @@ namespace Snow.Audio
         bool _on;
 
         public bool On => _on;
+        /// <summary>The source's volume now (after bus, level and fade), for the pult.</summary>
+        public float Volume => _src != null ? _src.volume : 0f;
 
         /// <summary>A loop of the cue at the parent (spatial: 3D at its point; else 2D). Null when the cue is missing.</summary>
         public static SoundLoop Create(string id, Transform parent, Vector3 localPosition, bool spatial)

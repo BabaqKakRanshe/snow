@@ -41,7 +41,7 @@ namespace Snow.Audio
             r.ReadValueSafe(out string id, true);
             r.ReadValueSafe(out Vector3 at);
             r.ReadValueSafe(out byte vol);
-            SnowAudio.Play(id, at, vol / 100f);
+            SnowAudio.PlayId(id, at, vol / 100f, "сеть");
         }
     }
 }

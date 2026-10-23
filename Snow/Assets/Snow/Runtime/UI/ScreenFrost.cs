@@ -15,15 +15,30 @@ namespace Snow
     /// </summary>
     public class ScreenFrost : MonoBehaviour
     {
-        /// <summary>Off in the F1 menu.</summary>
+        /// <summary>Off on the pult page «Эффекты».</summary>
         public static bool Enabled = true;
-        /// <summary>F1 menu: &gt;= 0 holds the frost at this amount (a look check), &lt; 0 = normal.</summary>
+        /// <summary>Pult: &gt;= 0 holds the frost at this amount (a look check), &lt; 0 = normal.</summary>
         public static float Hold = -1f;
 
+        const float DefaultFullColdC = -25f, DefaultFullWindMs = 15f, DefaultWindShare = 0.3f, DefaultGrowTime = 120f,
+                    DefaultMeltTime = 15f, DefaultEdge = 0.08f, DefaultOpacity = 0.85f;
+        static readonly Color DefaultTint = new Color(0.85f, 0.92f, 1f);
+
+        // tuning, live on the pult page «Эффекты»
         /// <summary>°C at which the air alone gives full frost; m/s of wind that adds <see cref="WindShare"/>.</summary>
-        const float FullColdC = -25f, FullWindMs = 15f, WindShare = 0.3f;
+        public static float FullColdC = DefaultFullColdC, FullWindMs = DefaultFullWindMs, WindShare = DefaultWindShare;
         /// <summary>s from none to full frost outside; s to melt from full under a roof.</summary>
-        const float GrowTime = 120f, MeltTime = 15f;
+        public static float GrowTime = DefaultGrowTime, MeltTime = DefaultMeltTime;
+        /// <summary>Softness of the growing edge (share of the reach); 0–1 opacity of the crystals; their colour.</summary>
+        public static float Edge = DefaultEdge, Opacity = DefaultOpacity;
+        public static Color Tint = DefaultTint;
+
+        public static void ResetTuning()
+        {
+            FullColdC = DefaultFullColdC; FullWindMs = DefaultFullWindMs; WindShare = DefaultWindShare; GrowTime = DefaultGrowTime;
+            MeltTime = DefaultMeltTime; Edge = DefaultEdge; Opacity = DefaultOpacity; Tint = DefaultTint;
+        }
+
         /// <summary>s between roof checks.</summary>
         const float CheckEvery = 0.5f;
 
@@ -37,7 +52,8 @@ namespace Snow
         Material _mat;
         Texture2D _tex;
         float _checkAt;
-        static readonly int AmountId = Shader.PropertyToID("_Amount");
+        static readonly int AmountId = Shader.PropertyToID("_Amount"), EdgeId = Shader.PropertyToID("_Edge"),
+                            OpacityId = Shader.PropertyToID("_Opacity"), TintId = Shader.PropertyToID("_Tint");
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void ResetStatics() { Amount = 0f; Target = 0f; Hold = -1f; }
@@ -74,15 +90,15 @@ namespace Snow
                 Target = me != null ? ColdAt(me.transform.position) : 0f;
             }
             if (Hold >= 0f) { Amount = Hold; return; }
-            float rate = Target > Amount ? 1f / GrowTime : 1f / MeltTime;
+            float rate = Target > Amount ? 1f / Mathf.Max(GrowTime, 0.1f) : 1f / Mathf.Max(MeltTime, 0.1f);
             Amount = Mathf.MoveTowards(Amount, Target, rate * Time.deltaTime);
         }
 
         static float ColdAt(Vector3 p)
         {
             if (SurfaceResolver.Indoors(p)) return 0f;
-            float cold = Mathf.Clamp01(EnvironmentProvider.TemperatureAt(p.y) / FullColdC);
-            float wind = Mathf.Clamp01(EnvironmentProvider.WindAt(p).magnitude / FullWindMs) * WindShare;
+            float cold = Mathf.Clamp01(EnvironmentProvider.TemperatureAt(p.y) / Mathf.Min(FullColdC, -0.1f));
+            float wind = Mathf.Clamp01(EnvironmentProvider.WindAt(p).magnitude / Mathf.Max(FullWindMs, 0.1f)) * WindShare;
             return Mathf.Clamp01(cold + wind);
         }
 
@@ -91,6 +107,9 @@ namespace Snow
             if (!Enabled || Amount <= 0.001f || Event.current.type != EventType.Repaint) return;
             GUI.depth = 1000;                                          // behind every other OnGUI (the HUD), over the PS1 canvas
             _mat.SetFloat(AmountId, Amount);
+            _mat.SetFloat(EdgeId, Mathf.Max(Edge, 0.01f));
+            _mat.SetFloat(OpacityId, Opacity);
+            _mat.SetColor(TintId, Tint);
             Graphics.DrawTexture(new Rect(0f, 0f, Screen.width, Screen.height), _tex, _mat);
         }
     }

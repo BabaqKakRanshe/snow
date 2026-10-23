@@ -30,7 +30,7 @@ namespace Snow.Levels
         readonly List<(string name, string path)> _scenes = new List<(string, string)>();
         readonly List<(string name, Transform t)> _points = new List<(string, Transform)>();
         float _nextScan;
-        Action _game, _camera, _time, _tasks, _radio, _base;
+        Action _game, _time, _tasks, _radio, _base;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
@@ -50,7 +50,6 @@ namespace Snow.Levels
             }
             SceneManager.sceneLoaded += OnSceneLoaded;
             DevPult.Add("Игра", 0, _game = DrawGame);
-            DevPult.Add("Камера", 5, _camera = DrawCamera);
             DevPult.Add("Время", 10, _time = DrawTime, () => ForestDayNight.Instance != null && ForestDayNight.Instance.IsSpawned);
             DevPult.Add("Задания", 20, _tasks = DrawTasks, () => TaskBoard.Instance != null && TaskBoard.Instance.IsSpawned);
             DevPult.Add("Рация", 30, _radio = DrawRadio, () => ForestRadio.Instance != null);
@@ -61,7 +60,6 @@ namespace Snow.Levels
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             DevPult.Remove("Игра", _game);
-            DevPult.Remove("Камера", _camera);
             DevPult.Remove("Время", _time);
             DevPult.Remove("Задания", _tasks);
             DevPult.Remove("Рация", _radio);
@@ -135,23 +133,6 @@ namespace Snow.Levels
                 boot.StartHost();
                 DevPult.Hide();
             }
-        }
-
-        // ------------------------------------------------------------------ Камера (у себя)
-        /// <summary>Camera effects of this peer (user 23.10, "реализм" items 3, 4, 5): shake, the flashlight beam, frost.</summary>
-        void DrawCamera()
-        {
-            DevUi.Checkbox("Тряска", ref Snow.Character.CameraShake.Enabled);
-            DevUi.Row();
-            if (DevUi.Button("Тряхнуть")) Snow.Character.CameraShake.Add(0.6f);
-            DevUi.Text($"травма {Snow.Character.CameraShake.Trauma:0.00}");
-            DevUi.Checkbox("Луч фонарика", ref Snow.World.LightBeam.Enabled);
-            DevUi.Checkbox("Иней", ref ScreenFrost.Enabled);
-            DevUi.Row();
-            if (DevUi.Button("Полный")) ScreenFrost.Hold = 1f;
-            DevUi.Row();
-            if (DevUi.Button("Как идёт")) ScreenFrost.Hold = -1f;
-            DevUi.Text($"иней {ScreenFrost.Amount:0.00} → {ScreenFrost.Target:0.00}" + (ScreenFrost.Hold >= 0f ? " (держится)" : ""));
         }
 
         // ------------------------------------------------------------------ Время

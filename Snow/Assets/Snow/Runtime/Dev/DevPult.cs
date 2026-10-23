@@ -180,16 +180,38 @@ namespace Snow.Dev
                 return;
             }
             camField.SetValue(_ui, cam);
+            // the inspector fills these on a scene object; here they come from the package's Resources (internal types)
+            SetAsset("_shaders", "DefaultShader");
+            SetAsset("_style", "DefaultStyle");
+            SetAsset("_cursorShapes", "DefaultCursorShape");
             _render = (Action<CommandBuffer>)Delegate.CreateDelegate(typeof(Action<CommandBuffer>), _ui, render);
             // the URP feature asset of the package; it is also in the renderers' feature lists (UImGui needs it there)
             var feature = Resources.Load<RenderImGui>("RenderImGui");
             if (feature != null) _ui.SetRenderFeature(feature);
             _ui.OnInitialize += OnInit;
             _ui.Layout += OnLayout;
-            uiGo.SetActive(true);                                      // OnEnable logs and disables itself on failure
-            Ready = _ui.enabled;
-            if (!Ready) Debug.LogError("[Snow] DevPult: UImGui did not start; see the error above.");
+            uiGo.SetActive(true);                                      // OnEnable logs its exception, SetActive returns
+            // an assert inside OnEnable leaves the component enabled without a renderer: check the renderer itself
+            FieldInfo rendererField = typeof(ImGuiHost).GetField("_renderer", BindingFlags.Instance | BindingFlags.NonPublic);
+            Ready = _ui.enabled && rendererField != null && rendererField.GetValue(_ui) != null;
+            if (!Ready)
+            {
+                _ui.enabled = false;
+                Debug.LogError("[Snow] DevPult: UImGui did not start; see the error above. The old start window stays on.");
+            }
             _cb = new CommandBuffer { name = "DevPult" };
+        }
+
+        void SetAsset(string field, string resource)
+        {
+            FieldInfo f = typeof(ImGuiHost).GetField(field, BindingFlags.Instance | BindingFlags.NonPublic);
+            UnityEngine.Object asset = Resources.Load(resource);
+            if (f == null || asset == null || !f.FieldType.IsInstanceOfType(asset))
+            {
+                Debug.LogWarning($"[Snow] DevPult: UImGui {field} not set (Resources/{resource} missing or changed).");
+                return;
+            }
+            f.SetValue(_ui, asset);
         }
 
         void OnDestroy()
