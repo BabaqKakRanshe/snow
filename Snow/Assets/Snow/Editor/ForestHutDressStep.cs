@@ -32,6 +32,10 @@ namespace Snow.EditorTools
         [Serializable] public class Prop { public string prefab; public float x, z, yaw; }
         [Serializable] public class Candle { public string anchor; public float[] local, color; public float intensity, range, glow; }
         [Serializable] public class Prints { public string material; public float[] uv, p; public float size, step; }
+        [Serializable] public class Turn { public float yaw, radius; public string[] objects; }
+        [Serializable] class Placed { public string m; public float[] p, q; }
+        [Serializable] class Layout { public Placed[] prefabs; }
+        const string LayoutPath = "Assets/Locations/Forest/Data/Forest_Layout.json";
         [Serializable]
         public class Data
         {
@@ -40,6 +44,7 @@ namespace Snow.EditorTools
             public Prop[] props;
             public Candle candle;
             public Prints prints;
+            public Turn turn;
         }
 
         static Data _d;
@@ -57,6 +62,7 @@ namespace Snow.EditorTools
             if (!File.Exists(DataPath)) { Debug.LogWarning($"[Snow] Forest hut dress: {DataPath} not found; the hut stays as it is."); return; }
             _d = JsonUtility.FromJson<Data>(File.ReadAllText(DataPath));
             Transform structures = root.Find("Structures");
+            string turned = TurnHut(root, structures);
             var tiles = Terrain.activeTerrains.Where(t => t != null && t.terrainData != null && t.transform.IsChildOf(root) && Overlaps(t)).ToArray();
             int painted = 0, cells = 0, removed = 0;
             foreach (Terrain t in tiles)
@@ -91,10 +97,45 @@ namespace Snow.EditorTools
                 EditorUtility.SetDirty(fo);
             }
 
-            Debug.Log($"[Snow] Forest hut dress ({DataPath}): trail of {Length():0} m, {painted} ground texels and {cells} grass cells rewritten, " +
+            Debug.Log($"[Snow] Forest hut dress ({DataPath}): {turned}, trail of {Length():0} m, {painted} ground texels and {cells} grass cells rewritten, " +
                       $"{removed} Terrain trees on the trail removed, {props} props, {prints} boot prints, candle {(candle != null ? "lit" : "MISSING (no " + _d.candle?.anchor + ")")}, " +
                       $"X01 {(fo != null ? $"at {_d.x01OutsideRadius:0.#} m from the hut" : "NOT linked (no ForestOpening)")}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
         }
+
+        // ------------------------------------------------------------------ the turn
+
+        /// <summary>The hut and its sign turned about the hut's pivot by the data's yaw (QUESTIONS_HUT 10: the open door to the
+        /// trail), from their package places in Forest_Layout (a rerun gives the same pose); the items inside follow at run
+        /// time through <see cref="ForestRelocation"/>'s hut group. The Hochsitz stays where it is.</summary>
+        static string TurnHut(Transform root, Transform structures)
+        {
+            Turn tn = _d.turn;
+            if (tn == null || tn.objects == null || tn.objects.Length == 0 || structures == null) return "hut not turned (no turn in the data)";
+            if (!root.TryGetComponent(out ForestRelocation rel)) return "hut NOT turned: no ForestRelocation on the Forest root (the checkpoint step adds it)";
+            var layout = JsonUtility.FromJson<Layout>(File.ReadAllText(LayoutPath));
+            Placed hut = layout.prefabs.FirstOrDefault(p => p.m == tn.objects[0]);
+            if (hut == null) return $"hut NOT turned: {tn.objects[0]} not in {LayoutPath}";
+            Vector3 pivot = V(hut.p);
+            Quaternion r = Quaternion.Euler(0f, tn.yaw, 0f);
+            int n = 0;
+            foreach (string name in tn.objects)
+            {
+                Placed pl = layout.prefabs.FirstOrDefault(p => p.m == name);
+                Transform t = structures.Find(name);
+                if (pl == null || t == null) { Debug.LogWarning($"[Snow] Forest hut dress: {name} not found to turn."); continue; }
+                t.SetPositionAndRotation(pivot + r * (V(pl.p) - pivot), r * new Quaternion(pl.q[0], pl.q[1], pl.q[2], pl.q[3]));
+                if (PrefabUtility.IsPartOfPrefabInstance(t)) PrefabUtility.RecordPrefabInstancePropertyModifications(t);
+                EditorUtility.SetDirty(t);
+                n++;
+            }
+            rel.hutPivot = pivot;
+            rel.hutYaw = tn.yaw;
+            rel.hutRadius = tn.radius;
+            EditorUtility.SetDirty(rel);
+            return $"hut and sign turned {tn.yaw:0.#}° about {pivot.x:0.#}, {pivot.z:0.#} ({n} objects, items within {tn.radius:0.#} m follow)";
+        }
+
+        static Vector3 V(float[] a) => new Vector3(a[0], a[1], a[2]);
 
         // ------------------------------------------------------------------ trail geometry
 

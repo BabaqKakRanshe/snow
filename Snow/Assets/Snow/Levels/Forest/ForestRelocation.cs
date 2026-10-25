@@ -19,6 +19,10 @@ namespace Snow.Levels.Forest
         public Vector3[] yardFrom = new Vector3[0];
         public Vector3[] yardTo = new Vector3[0];
         public float[] yardRadius = new float[0];
+        [Header("The forester's hut turned on its pivot (ForestHutDressStep, user 25.10: the door to the trail)")]
+        public Vector3 hutPivot;
+        public float hutYaw;
+        [Tooltip("m around the hut's pivot that turns with it; 0: no turn")] public float hutRadius;
 
         public static ForestRelocation Instance { get; private set; }
 
@@ -37,6 +41,7 @@ namespace Snow.Levels.Forest
             ForestRelocation r = Instance;
             if (r == null) return p;
             if (r.Moves(p)) return r.newPivot + Quaternion.Euler(0f, r.yaw, 0f) * (p - r.oldPivot);
+            if (r.InHut(p)) return r.hutPivot + Quaternion.Euler(0f, r.hutYaw, 0f) * (p - r.hutPivot);
             int y = r.Yard(p);
             return y >= 0 ? p + (r.yardTo[y] - r.yardFrom[y]) : p;
         }
@@ -59,7 +64,12 @@ namespace Snow.Levels.Forest
         public static Quaternion Rotation(Vector3 p, Quaternion q)
         {
             ForestRelocation r = Instance;
-            return r == null || !r.Moves(p) ? q : Quaternion.Euler(0f, r.yaw, 0f) * q;
+            if (r == null) return q;
+            if (r.Moves(p)) return Quaternion.Euler(0f, r.yaw, 0f) * q;
+            return r.InHut(p) ? Quaternion.Euler(0f, r.hutYaw, 0f) * q : q;
         }
+
+        /// <summary>A data point of the turned hut group (the items inside it).</summary>
+        public bool InHut(Vector3 p) => isActiveAndEnabled && hutRadius > 0f && new Vector2(p.x - hutPivot.x, p.z - hutPivot.z).sqrMagnitude <= hutRadius * hutRadius;
     }
 }
