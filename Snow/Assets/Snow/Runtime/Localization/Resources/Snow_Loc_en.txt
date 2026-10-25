@@ -483,7 +483,7 @@ III — стартер	III — starter
 Деревянный ящик	Wooden crate
 Гаечный ключ	Wrench
 Zettel auf dem Tisch / Записка на столе	Zettel auf dem Tisch / Note on the table
-Кто бы ты ни был:\nКанистра под полкой полная. Бери, станция в километре вверх по дороге.\nНе езди ночью. А если всё-таки едешь — не останавливайся, не выходи, не смотри в зеркало заднего вида.\nФонарь у хижины я оставлю гореть. Если он погас — меня здесь больше нет.\n— Х. Брандт	Whoever you are:\nThe jerrycan under the shelf is full. Take it, the station is a kilometer up the road.\nDon't drive at night. And if you do drive anyway, don't stop, don't get out, don't look in the rearview mirror.\nI'll leave the lantern by the cabin burning. If it's gone out, I'm not here anymore.\n— H. Brandt
+Кто бы ты ни был:\nСтанция в километре вверх по дороге.\nНе езди ночью. А если всё-таки едешь — не останавливайся, не выходи, не смотри в зеркало заднего вида.\nФонарь у хижины я оставлю гореть. Если он погас — меня здесь больше нет.\n— Х. Брандт	Whoever you are:\nThe station is a kilometer up the road.\nDon't drive at night. And if you do drive anyway, don't stop, don't get out, don't look in the rearview mirror.\nI'll leave the lantern by the cabin burning. If it's gone out, I'm not here anymore.\n— H. Brandt
 Wachbuch KPP / Журнал КПП	Wachbuch KPP / Checkpoint logbook
 16.10. 22:10  Обход забора, восток — без замечаний.\n16.10. 23:40  Рация включилась сама. Шум. Кто-то считает.\n17.10. 01:05  Звонит телефон. Никого. Дыхание.\n17.10. 02:15  Кто-то стоит у шлагбаума. Машины нет. Выключил свет, не открыл.\n17.10. 02:40  Всё ещё стоит.	16.10. 22:10  Fence patrol, east: nothing to report.\n16.10. 23:40  The radio switched on by itself. Static. Someone is counting.\n17.10. 01:05  Phone rings. No one there. Breathing.\n17.10. 02:15  Someone is standing at the barrier. No car. Turned off the light, didn't open.\n17.10. 02:40  Still standing there.
 Notstrom — Inbetriebnahme / Аварийное питание — запуск	Notstrom — Inbetriebnahme / Emergency power — startup
@@ -499,7 +499,7 @@ Schichtplan Oktober / График смен, октябрь	Schichtplan Oktober 
 Notiz Serverraum / Записка в серверной	Notiz Serverraum / Note in the server room
 Ленты 14–22 отправлены в Бонн. Ответ: «Шум, неисправность аппаратуры».\nЭто не шум. Если пустить задом наперёд — это имена. Наши.	Tapes 14–22 sent to Bonn. Reply: "Noise, equipment malfunction."\nIt's not noise. Played backwards, it's names. Ours.
 Bestandsliste Lager / Опись склада	Bestandsliste Lager / Storeroom inventory
-Консервы: 12 коробок\nДизель на баках ГСМ: 2 × 9000 л (ручной насос)\nПечное топливо, бак в подвале: около 3000 л\nСвечи: 2 коробки\nБатарейки (большие): 40\nКанистры: 2 (одна одолжена в хижину лесника)	Canned food: 12 boxes\nDiesel in the fuel tanks: 2 × 9000 L (hand pump)\nHeating oil, tank in the basement: about 3000 L\nCandles: 2 boxes\nBatteries (large): 40\nJerrycans: 2 (one lent to the forester's cabin)
+Консервы: 12 коробок\nДизель на баках ГСМ: 2 × 9000 л (ручной насос)\nПечное топливо, бак в подвале: около 3000 л\nСвечи: 2 коробки\nБатарейки (большие): 40\nКанистры: 2 (одна оставлена на посту у ворот)	Canned food: 12 boxes\nDiesel in the fuel tanks: 2 × 9000 L (hand pump)\nHeating oil, tank in the basement: about 3000 L\nCandles: 2 boxes\nBatteries (large): 40\nJerrycans: 2 (one left at the post by the gate)
 Zettel am Küchentisch / Записка на кухонном столе	Zettel am Küchentisch / Note on the kitchen table
 Кто начал хлеб?\nИ кто стучит ночью в кухонную рольставню?\nНас осталось четверо.	Who started the bread?\nAnd who knocks on the kitchen shutter at night?\nThere are four of us left.
 Einkaufsliste / Список покупок	Einkaufsliste / Shopping list
@@ -912,9 +912,9 @@ ADF: частота, грубо	ADF: frequency, coarse
 Памятка смены	Shift memo
 Найти бензин	Find fuel
 Машина заглохла, бак пуст. Найти бензин и доехать до базы.	The car stalled, the tank is empty. Find fuel and drive to the base.
-В бардачке машины лежит карта. Хижина у дороги обведена.	There is a map in the glovebox. The hut by the road is circled.
-Между ёлками светит фонарь хижины. Дверь открыта.	The hut's lantern shines between the firs. The door is open.
-Канистра в хижине. Без воронки половина прольётся.	The jerrycan is in the hut. Without a funnel half of it spills.
+Будка поста — у самых ворот. Дверь открыта.	The post's booth is right by the gate. The door is open.
+Канистра в будке, на полу у стола.	The jerrycan is in the booth, on the floor by the desk.
+Воронка на полке. Без неё половина прольётся.	The funnel is on the shelf. Without it half of it spills.
 Открыть КПП	Open the checkpoint
 Шлагбаум на замке. Открыть КПП и проехать на базу.	The barrier is locked. Open the checkpoint and drive on to the base.
 Ключи хранятся в будке КПП.	The keys are kept in the checkpoint booth.
@@ -1053,6 +1053,6 @@ SSAO не найдено в рендерере	SSAO not found in the renderer
 поставить аккумулятор (в руках)	put the battery in (in your hands)
 вынуть (сначала снять клеммы)	take out (clamps off first)
 Станция Hohenmoos. Прибыть до темноты.	Hohenmoos station. Arrive before dark.
-Указатель топлива в машине врёт. Если встанете — у хижины лесника для вас оставлена канистра, в ста метрах от дороги. Не благодарите.	The fuel gauge in the car lies. If you stall, there is a jerrycan left for you at the forester's hut, a hundred metres off the road. No need to thank me.
+Указатель топлива в машине врёт. Если встанете — канистра для вас в будке у ворот. Не благодарите.	The fuel gauge in the car lies. If you stall, there is a jerrycan for you in the booth at the gate. No need to thank me.
 Ключи — в будке КПП.	The keys are in the checkpoint booth.
 сообщение	message

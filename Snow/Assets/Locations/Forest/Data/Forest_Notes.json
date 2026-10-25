@@ -7,8 +7,8 @@
    "title": "Zettel auf dem Tisch / Записка на столе",
    "author": "H. Brandt, Revierförster",
    "date": "16.10.",
-   "de": "Wer das liest:\nDer Kanister unter dem Regal ist voll. Nimm ihn mit, die Station ist 1 km die Straße hoch.\nFahr nicht nachts. Wenn du es doch tust: nicht anhalten, nicht aussteigen, nicht in den Rückspiegel sehen.\nDas Licht an der Hütte lasse ich brennen. Wenn es aus ist, bin ich nicht mehr hier.\n— H. Brandt",
-   "ru": "Кто бы ты ни был:\nКанистра под полкой полная. Бери, станция в километре вверх по дороге.\nНе езди ночью. А если всё-таки едешь — не останавливайся, не выходи, не смотри в зеркало заднего вида.\nФонарь у хижины я оставлю гореть. Если он погас — меня здесь больше нет.\n— Х. Брандт"
+   "de": "Wer das liest:\nDie Station ist 1 km die Straße hoch.\nFahr nicht nachts. Wenn du es doch tust: nicht anhalten, nicht aussteigen, nicht in den Rückspiegel sehen.\nDas Licht an der Hütte lasse ich brennen. Wenn es aus ist, bin ich nicht mehr hier.\n— H. Brandt",
+   "ru": "Кто бы ты ни был:\nСтанция в километре вверх по дороге.\nНе езди ночью. А если всё-таки едешь — не останавливайся, не выходи, не смотри в зеркало заднего вида.\nФонарь у хижины я оставлю гореть. Если он погас — меня здесь больше нет.\n— Х. Брандт"
   },
   {
    "id": "kpp_log",
@@ -71,8 +71,8 @@
    "title": "Bestandsliste Lager / Опись склада",
    "author": "Novak",
    "date": "01.10.",
-   "de": "Konserven: 12 Kartons\nDiesel Tanklager: 2 × 9000 l (Handpumpe)\nHeizöl Kellertank: ca. 3000 l\nKerzen: 2 Kartons\nBatterien Mono: 40\nKanister: 2 (einer in der Forsthütte geliehen)",
-   "ru": "Консервы: 12 коробок\nДизель на баках ГСМ: 2 × 9000 л (ручной насос)\nПечное топливо, бак в подвале: около 3000 л\nСвечи: 2 коробки\nБатарейки (большие): 40\nКанистры: 2 (одна одолжена в хижину лесника)"
+   "de": "Konserven: 12 Kartons\nDiesel Tanklager: 2 × 9000 l (Handpumpe)\nHeizöl Kellertank: ca. 3000 l\nKerzen: 2 Kartons\nBatterien Mono: 40\nKanister: 2 (einer am Posten am Tor gelassen)",
+   "ru": "Консервы: 12 коробок\nДизель на баках ГСМ: 2 × 9000 л (ручной насос)\nПечное топливо, бак в подвале: около 3000 л\nСвечи: 2 коробки\nБатарейки (большие): 40\nКанистры: 2 (одна оставлена на посту у ворот)"
   },
   {
    "id": "kitchen_note",

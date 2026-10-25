@@ -22,15 +22,15 @@
    "id": "Jerrycan_Hut",
    "model": "Item_Jerrycan20",
    "p": [
-    -473.0307,
-    28.7263,
-    403.4423
+    -517.3572,
+    28.85,
+    548.9774
    ],
    "q": [
     0.0,
-    -0.278774,
+    0.932639,
     0.0,
-    0.960357
+    0.360811
    ],
    "collider": {
     "center": [
@@ -58,20 +58,20 @@
     -0.0
    ],
    "carry": "one hand, slow (two players: normal)",
-   "note": "under the shelves left of the hut door; the static Update 2 jerrycan is gone"
+   "note": "in the start post booth at the SPERRGEBIET gate, on the floor by the desk (user 25.10, QUESTIONS_HUT_2 1-2; the id stays)"
   },
   {
    "id": "Funnel_Hut",
    "model": "Item_Funnel",
    "p": [
-    -473.3956,
-    29.7983,
-    403.14
+    -517.2629,
+    30.485,
+    548.7252
    ],
    "q": [
-    0.876198,
+    0.914607,
     0.0,
-    -0.481952,
+    -0.404344,
     0.0
    ],
    "collider": {
@@ -87,7 +87,7 @@
     ]
    },
    "massKg": 0.35,
-   "note": "rim-down on the lower shelf; refuelling without it spills half"
+   "note": "rim-down on the booth shelf above the jerrycan (user 25.10, QUESTIONS_HUT_2 3; the id stays)"
   },
   {
    "id": "Flashlight_Hut",

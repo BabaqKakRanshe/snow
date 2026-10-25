@@ -293,6 +293,9 @@ namespace Snow.Vehicles.Van
 
         /// <summary>The battery is in its box (it can be taken out, user 24.10).</summary>
         public bool BatteryIn => _batteryIn.Value;
+
+        /// <summary>Server: the engine runs (the forest opening's X01 puts the hut lantern out when it starts).</summary>
+        public bool EngineRunning => _engine;
         bool IgnitionOn => BusOn && Pos("Ignition_Key") >= 2;
 
         /// <summary>

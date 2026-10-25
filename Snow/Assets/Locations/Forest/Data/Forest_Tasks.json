@@ -1,5 +1,5 @@
 {
-    "about": "Forest tasks (docs/gdd/QUESTS.md, MVP 23.10.2026). A task shows up when every task in 'after' is done; it is done when ANY fact in 'done' is set (facts come from ForestOpening steps). 'until' = deadline hour, -1 none. Hints come one by one after the given minutes without progress. Text is Russian; English lines live in Snow_Loc_en.txt. 'letter': true = the text is a message from 'from', typed out on screen when the task shows up (TaskHud). 'hintsBy': 'radio' = the hints are spoken by ForestRadio (voice), TaskBoard gives none.",
+    "about": "Forest tasks (docs/gdd/QUESTS.md, MVP 23.10.2026). A task shows up when every task in 'after' is done; it is done when ANY fact in 'done' is set (facts come from ForestOpening steps). 'until' = deadline hour, -1 none. Hints come one by one after the given minutes without progress. Text is Russian; English lines live in Snow_Loc_en.txt. 'letter': true = the text is a message from 'from', beeps on the workers' pagers and is typed out when the task shows up (Pager). 'hintsBy': 'radio' = the hints are spoken by ForestRadio (voice), TaskBoard gives none.",
     "guidedHintMinutes": 5,
     "memoryHintMinutes": 15,
     "tasks": [
@@ -9,7 +9,7 @@
             "from": "K.",
             "letter": true,
             "title": "Найти бензин",
-            "text": "Станция Hohenmoos. Прибыть до темноты.\nУказатель топлива в машине врёт. Если встанете — у хижины лесника для вас оставлена канистра, в ста метрах от дороги. Не благодарите.\nКлючи — в будке КПП.\n— K.",
+            "text": "Станция Hohenmoos. Прибыть до темноты.\nУказатель топлива в машине врёт. Если встанете — канистра для вас в будке у ворот. Не благодарите.\nКлючи — в будке КПП.\n— K.",
             "until": -1,
             "after": [],
             "done": [
@@ -17,9 +17,9 @@
                 "forest.S6"
             ],
             "hints": [
-                "В бардачке машины лежит карта. Хижина у дороги обведена.",
-                "Между ёлками светит фонарь хижины. Дверь открыта.",
-                "Канистра в хижине. Без воронки половина прольётся."
+                "Будка поста — у самых ворот. Дверь открыта.",
+                "Канистра в будке, на полу у стола.",
+                "Воронка на полке. Без неё половина прольётся."
             ]
         },
         {

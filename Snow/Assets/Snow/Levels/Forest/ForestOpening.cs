@@ -70,6 +70,9 @@ namespace Snow.Levels.Forest
         [Tooltip("X01 waits until the carried jerrycan is this far (m, flat) from the hut's pivot: out of the door (user 25.10, " +
                  "QUESTIONS_HUT 5). 0: the first grab, as before")] public float x01OutsideRadius;
         public Transform x01Hut;
+        [Tooltip("Opening items that put the lantern out when carried out of the hut")] public string[] x01Items = { "Flashlight_Hut", "Note_Forester" };
+        Snow.Vehicles.Van.VanVehicle _van;
+        float _nextVanLook;
 
         [Header("STÖRUNG lamp: M_HeatFault <-> M_HeatFaultOn")]
         public Renderer[] faultRenderers = new Renderer[0];
@@ -820,11 +823,12 @@ namespace Snow.Levels.Forest
 
         void Scares()
         {
-            // X01: the hut jerrycan carried out of the door puts the lantern out for good (behind the player's back)
+            // X01: the lantern goes out for good, once - behind the back of whoever carries a thing of the hut out of its
+            // door, or, if nobody went there, when the van's engine starts ("the light burned for us"; user 25.10,
+            // QUESTIONS_HUT_2 13; the fuel waits at the start post now)
             if (!ScareDone(Scare.X01))
             {
-                NetworkObject can = items != null ? items.Find(HutJerrycan) : null;
-                if (can != null && can.TryGetComponent(out CargoItem c) && c.State == CargoState.Carried && OutOfHut(can.transform.position))
+                if (HutThingOut() || EngineStarted())
                 {
                     _lanternOn.Value = false;
                     Sound(Sfx.LanternOut, lanternGlass != null ? lanternGlass.transform.position : transform.position);
@@ -1139,6 +1143,27 @@ namespace Snow.Levels.Forest
                 best = all[i];
             }
             return best;
+        }
+
+        bool HutThingOut()
+        {
+            if (items == null) return false;
+            foreach (string id in x01Items)
+            {
+                NetworkObject no = items.Find(id);
+                if (no != null && no.TryGetComponent(out CargoItem c) && c.State == CargoState.Carried && OutOfHut(no.transform.position)) return true;
+            }
+            return false;
+        }
+
+        bool EngineStarted()
+        {
+            if (_van == null && Time.time >= _nextVanLook)
+            {
+                _van = FindAnyObjectByType<Snow.Vehicles.Van.VanVehicle>();
+                _nextVanLook = Time.time + 2f;
+            }
+            return _van != null && _van.EngineRunning;
         }
 
         bool OutOfHut(Vector3 p)
