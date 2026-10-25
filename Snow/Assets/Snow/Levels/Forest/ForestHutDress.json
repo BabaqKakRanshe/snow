@@ -1,20 +1,77 @@
 {
-  "_doc": "Forest forester's hut (user 25.10 'приступай' to the proposals of docs/gdd/QUESTIONS_HUT.md 1, 2, 4, 5): a trodden trail from the road at Car_Start to the hut door (no gravel, worn middle; routed between the trunks, no tree removed), the hut's name sign at the road as the pointer, the candle on the table lit at the start and going out with the lantern at X01, X01 when the jerrycan leaves the hut. World coordinates (Unity x, z), metres. The terrain is only painted along the trail; no heights change.",
+  "_doc": "Forest forester's hut (user 25.10 'приступай' to the proposals of docs/gdd/QUESTIONS_HUT.md 1, 2, 4, 5): a trodden trail from the road at Car_Start to the hut door (no gravel, worn middle; routed between the trunks, no tree removed), the hut's name sign at the road as the pointer, the candle on the table lit at the start and going out with the lantern at X01, X01 when the jerrycan leaves the hut, one fresh line of boot prints from the door round the sign to the Hochsitz (QUESTIONS_HUT 7; the X11 prints' decal cell). World coordinates (Unity x, z), metres. The terrain is only painted along the trail; no heights change.",
   "trail": {
     "w": 1.0,
-    "p": [-463.5, 492.3, -465.6, 472.0, -465.8, 458.0, -462.6, 446.0, -462.7, 434.6, -464.2, 422.0, -466.8, 412.0, -469.2, 406.2, -471.0, 404.3]
+    "p": [
+      -463.5,
+      492.3,
+      -465.6,
+      472.0,
+      -465.8,
+      458.0,
+      -462.6,
+      446.0,
+      -462.7,
+      434.6,
+      -464.2,
+      422.0,
+      -466.8,
+      412.0,
+      -469.2,
+      406.2,
+      -471.0,
+      404.3
+    ]
   },
   "clearRadius": 0.7,
   "props": [
-    { "prefab": "Assets/Locations/Forest/Prefabs/Sign_Forsthuette.prefab", "x": -461.9, "z": 491.4, "yaw": 0 }
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Sign_Forsthuette.prefab",
+      "x": -461.9,
+      "z": 491.4,
+      "yaw": 0
+    }
   ],
   "candle": {
     "anchor": "Structures/TowerHut",
-    "local": [-1.08, 1.215, -0.02],
-    "color": [1.0, 0.5, 0.16],
+    "local": [
+      -1.08,
+      1.215,
+      -0.02
+    ],
+    "color": [
+      1.0,
+      0.5,
+      0.16
+    ],
     "intensity": 0.6,
     "range": 3.5,
     "glow": 0.14
   },
-  "x01OutsideRadius": 2.6
+  "x01OutsideRadius": 2.6,
+  "prints": {
+    "material": "Assets/Locations/Forest/Materials/URP/M_BV_Decal.mat",
+    "uv": [
+      0.754,
+      0.004,
+      0.996,
+      0.496
+    ],
+    "size": 0.9,
+    "step": 0.85,
+    "p": [
+      -470.8,
+      404.6,
+      -470.6,
+      406.8,
+      -472.0,
+      409.0,
+      -475.5,
+      409.6,
+      -479.0,
+      410.8,
+      -480.6,
+      411.3
+    ]
+  }
 }

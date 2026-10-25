@@ -31,6 +31,7 @@ namespace Snow.EditorTools
         [Serializable] public class Trail { public float w; public float[] p; }
         [Serializable] public class Prop { public string prefab; public float x, z, yaw; }
         [Serializable] public class Candle { public string anchor; public float[] local, color; public float intensity, range, glow; }
+        [Serializable] public class Prints { public string material; public float[] uv, p; public float size, step; }
         [Serializable]
         public class Data
         {
@@ -38,6 +39,7 @@ namespace Snow.EditorTools
             public float clearRadius, x01OutsideRadius;
             public Prop[] props;
             public Candle candle;
+            public Prints prints;
         }
 
         static Data _d;
@@ -77,6 +79,7 @@ namespace Snow.EditorTools
                 if (Place(AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab), dress, p.x, p.z, p.yaw, reference) == null) { missing++; continue; }
                 props++;
             }
+            int prints = PlacePrints(dress);
             Transform hut = _d.candle != null ? root.Find(_d.candle.anchor) : null;
             ForestStartLamp candle = hut != null ? MakeCandle(dress, hut) : null;
             ForestOpening fo = root.GetComponentInChildren<ForestOpening>(true);
@@ -89,7 +92,7 @@ namespace Snow.EditorTools
             }
 
             Debug.Log($"[Snow] Forest hut dress ({DataPath}): trail of {Length():0} m, {painted} ground texels and {cells} grass cells rewritten, " +
-                      $"{removed} Terrain trees on the trail removed, {props} props, candle {(candle != null ? "lit" : "MISSING (no " + _d.candle?.anchor + ")")}, " +
+                      $"{removed} Terrain trees on the trail removed, {props} props, {prints} boot prints, candle {(candle != null ? "lit" : "MISSING (no " + _d.candle?.anchor + ")")}, " +
                       $"X01 {(fo != null ? $"at {_d.x01OutsideRadius:0.#} m from the hut" : "NOT linked (no ForestOpening)")}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
         }
 
@@ -296,6 +299,64 @@ namespace Snow.EditorTools
             }
             foreach (Renderer r in go.GetComponentsInChildren<Renderer>(true)) r.renderingLayerMask = 2u;   // the map's lights
             return go;
+        }
+
+        /// <summary>One line of muddy boot prints along the data's polyline: the X11 prints' decal cell (a pair of soles per
+        /// quad, walking towards local -Z), every <c>step</c> metres, lying on the ground's slope 2 cm above it.</summary>
+        static int PlacePrints(Transform dress)
+        {
+            Prints pr = _d.prints;
+            if (pr?.p == null || pr.p.Length < 4 || pr.uv == null || pr.uv.Length < 4 || pr.size <= 0f || pr.step <= 0f) return 0;
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(pr.material);
+            if (mat == null) { Debug.LogWarning($"[Snow] Forest hut dress: print material {pr.material} not found."); return 0; }
+            float h = pr.size * 0.5f;
+            var v = new[] { new Vector3(-h, 0f, -h), new Vector3(-h, 0f, h), new Vector3(h, 0f, h), new Vector3(h, 0f, -h) };
+            var uv = new Vector2[4];
+            for (int i = 0; i < 4; i++)
+                uv[i] = new Vector2(pr.uv[0] + (h - v[i].x) / pr.size * (pr.uv[2] - pr.uv[0]), pr.uv[1] + (h - v[i].z) / pr.size * (pr.uv[3] - pr.uv[1]));
+            var mesh = new Mesh { name = "HutPrints", vertices = v, uv = uv, triangles = new[] { 0, 1, 2, 0, 2, 3 } };
+            mesh.normals = new[] { Vector3.up, Vector3.up, Vector3.up, Vector3.up };
+            mesh.RecalculateBounds();
+            var parent = new GameObject("BootPrints").transform;
+            parent.SetParent(dress, false);
+            int count = 0;
+            float carry = pr.step * 0.5f;
+            for (int i = 0; i + 3 < pr.p.Length; i += 2)
+            {
+                Vector2 a = new Vector2(pr.p[i], pr.p[i + 1]), b = new Vector2(pr.p[i + 2], pr.p[i + 3]);
+                float len = (b - a).magnitude;
+                Vector2 dir = (b - a) / Mathf.Max(len, 1e-4f);
+                float s = carry;
+                for (; s < len; s += pr.step)
+                {
+                    Vector2 q = a + dir * s;
+                    var w = new Vector3(q.x, 0f, q.y);
+                    Vector3 n = Normal(w);
+                    Vector3 fwd = Vector3.ProjectOnPlane(new Vector3(dir.x, 0f, dir.y), n).normalized;
+                    var go = new GameObject($"Print_{count + 1}");
+                    go.transform.SetParent(parent, false);
+                    go.transform.SetPositionAndRotation(new Vector3(q.x, Height(w) + 0.02f, q.y), Quaternion.LookRotation(-fwd, n));
+                    go.AddComponent<MeshFilter>().sharedMesh = mesh;
+                    var r = go.AddComponent<MeshRenderer>();
+                    r.sharedMaterial = mat;
+                    r.shadowCastingMode = ShadowCastingMode.Off;
+                    r.renderingLayerMask = 2u;                  // the map's lights
+                    count++;
+                }
+                carry = s - len;                                // the step goes on round the corner
+            }
+            return count;
+        }
+
+        static Vector3 Normal(Vector3 w)
+        {
+            foreach (Terrain t in Terrain.activeTerrains)
+            {
+                Vector3 o = t.transform.position, s = t.terrainData.size;
+                if (w.x >= o.x && w.z >= o.z && w.x <= o.x + s.x && w.z <= o.z + s.z)
+                    return t.terrainData.GetInterpolatedNormal((w.x - o.x) / s.x, (w.z - o.z) / s.z);
+            }
+            return Vector3.up;
         }
 
         /// <summary>The candle's flame: a warm point light and a small camera-facing halo (the kit's glow quad on the core's
