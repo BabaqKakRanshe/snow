@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6050131000127256952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7817903593150497397}
+  m_Layer: 0
+  m_Name: Audio_ConsoleButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7817903593150497397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050131000127256952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8822794059704292891}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6705545942449310183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4007854912255561290}
+  m_Layer: 0
+  m_Name: Hand_ConsoleButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4007854912255561290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705545942449310183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.027999999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4748842760111605679}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &9077679112971399664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: m_Name
+      value: Kit_Console_Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716570216722710251, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 602334b90a9dbe848a02e89337c06c76, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7817903593150497397}
+    - targetCorrespondingSourceObject: {fileID: 4331656189546329695, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4007854912255561290}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3699063410121897311}
+    - targetCorrespondingSourceObject: {fileID: -1459730148057023626, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 692784809874566076}
+  m_SourcePrefab: {fileID: 100100000, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+--- !u!23 &363981645321408283 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8716570216722710251, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+  m_PrefabInstance: {fileID: 9077679112971399664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1605421275088767622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1459730148057023626, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+  m_PrefabInstance: {fileID: 9077679112971399664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &692784809874566076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605421275088767622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e6e612ce52d2e6658c4647dae701e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kind: 1
+  axis: {x: 0, y: -1, z: 0}
+  min: 0
+  max: 0.005
+  locked: 0
+  speed: 1.4
+  openAmount: 0
+  target: 0
+  restScale: {x: 0, y: 0, z: 0}
+  linked: []
+  driven: 0
+  needsPower: 0
+  grid: {fileID: 0}
+--- !u!4 &4748842760111605679 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4331656189546329695, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+  m_PrefabInstance: {fileID: 9077679112971399664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8159129302460894369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+  m_PrefabInstance: {fileID: 9077679112971399664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3699063410121897311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159129302460894369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d062012980dded4d92068998723a9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: Kit_Console_Button
+  swaps:
+  - renderer: {fileID: 363981645321408283}
+    slot: 0
+    on: {fileID: 2100000, guid: f07d497dcdefca44eaab2455479f8fdd, type: 2}
+    off: {fileID: 2100000, guid: 602334b90a9dbe848a02e89337c06c76, type: 2}
+  lights: []
+  glows: []
+  spin: {fileID: 0}
+  spinAxis: {x: 0, y: 1, z: 0}
+  rpm: 0
+  spinning: 0
+--- !u!4 &8822794059704292891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb54e9a9dcf68384597698469e2a0c4f, type: 3}
+  m_PrefabInstance: {fileID: 9077679112971399664}
+  m_PrefabAsset: {fileID: 0}

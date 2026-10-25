@@ -239,11 +239,19 @@ namespace Snow.Levels
             ForestOpening op = ForestOpening.Instance;
             SkyIslandLocationHost host = op.host;
             DevUi.Text($"Генератор: {(op.GeneratorRunning ? "работает" : "стоит")}, в баке {op.DayTankL:0.#} л");
-            DevUi.Text($"Сеть: {(host != null && host.Powered ? "есть" : "нет")}; щиток КПП: {(op.KppPowered ? "включён" : "выключен")}");
+            ForestKpp kpp = ForestKpp.Instance;
+            DevUi.Text($"Сеть: {(host != null && host.Powered ? "есть" : "нет")}; ток в будке КПП: {(op.KppPowered ? "есть" : "нет")}" +
+                       (kpp != null ? $"; аккумулятор {(kpp.BatteryIn ? "в шкафу" : "не в шкафу")}" : ""));
             bool server = DevUi.HostOnly();
             if (DevUi.Button("Свет везде", server)) op.DevPower(true);
             DevUi.Row();
             if (DevUi.Button("Обесточить (генератор стоп)", server)) op.DevPower(false);
+            if (kpp != null)
+            {
+                if (DevUi.Button("КПП: аккумулятор в шкаф", server)) kpp.DevBoothPower(true);
+                DevUi.Row();
+                if (DevUi.Button("КПП: на NETZ, клеммы снять", server)) kpp.DevBoothPower(false);
+            }
 
             SkyIslandLightManager lights = host != null ? host.lights : null;
             if (lights == null) return;

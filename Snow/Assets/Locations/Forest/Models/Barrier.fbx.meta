@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Kpp_Panel
+    second: {fileID: 2100000, guid: 56bfd4b7d31dd44459d6e7333704bfff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_PaintRedMetal
     second: {fileID: 2100000, guid: 69b3a434c844565438725649d266b3ad, type: 2}
   - first:

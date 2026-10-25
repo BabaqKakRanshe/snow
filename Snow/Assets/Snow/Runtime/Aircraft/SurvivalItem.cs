@@ -118,6 +118,12 @@ namespace Snow.Aircraft
         }
 
         // ================================================================ server
+        /// <summary>Server: a flashlight on or off without a player's action (the starter flashlight, ForestItems).</summary>
+        public void ServerSetOn(bool on)
+        {
+            if (kind == SurvivalKind.Flashlight) _on.Value = on;
+        }
+
         /// <summary>Server: the item action of the player holding it.</summary>
         public bool ServerAction(ulong client, Vector3 playerPos, out string reason)
         {

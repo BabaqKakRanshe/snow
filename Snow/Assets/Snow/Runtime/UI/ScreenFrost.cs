@@ -15,8 +15,8 @@ namespace Snow
     /// </summary>
     public class ScreenFrost : MonoBehaviour
     {
-        /// <summary>Off on the pult page «Эффекты».</summary>
-        public static bool Enabled = true;
+        /// <summary>On / off on the pult page «Эффекты». Off by default for now (user 25.10: «пока отключить обморожение»).</summary>
+        public static bool Enabled = false;
         /// <summary>Pult: &gt;= 0 holds the frost at this amount (a look check), &lt; 0 = normal.</summary>
         public static float Hold = -1f;
 

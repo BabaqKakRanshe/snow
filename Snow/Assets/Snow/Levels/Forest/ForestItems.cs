@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Snow.Aircraft;
 using Snow.Cargo;
 using Snow.Net;
 using Unity.Netcode;
@@ -32,9 +33,12 @@ namespace Snow.Levels.Forest
 
         /// <summary>The opening item that stays a static copy until its lock is taken off (F5.5).</summary>
         public const string PadlockId = "Padlock_Barrier";
+        /// <summary>Every player starts with this in his hand, switched on (user 25.10: «появляться с фонариками сразу»).</summary>
+        public const string StarterModel = "Item_Flashlight";
 
         readonly Dictionary<string, GameObject> _byModel = new Dictionary<string, GameObject>(StringComparer.Ordinal);
         readonly Dictionary<string, NetworkObject> _byId = new Dictionary<string, NetworkObject>(StringComparer.Ordinal);
+        readonly HashSet<ulong> _equipped = new HashSet<ulong>();
 
         void Awake()
         {
@@ -73,6 +77,34 @@ namespace Snow.Levels.Forest
             Debug.Log($"[Snow] Forest items spawned: {total} ({nOpening} opening, {nProps} props, {nNotes} notes).");
             if (missing > 0) Debug.LogWarning($"[Snow] Forest items: {missing} placement(s) without a prefab (run Tools / Snow / Forest / Build Item Prefabs).");
             BenchLog.Event("forest_items", "total", total, "opening", nOpening, "props", nProps, "notes", nNotes, "ms", sw.Elapsed.TotalMilliseconds);
+
+            _equipped.Clear();
+            NetworkManager.OnClientConnectedCallback += GiveStarter;
+            foreach (ulong client in NetworkManager.ConnectedClientsIds) GiveStarter(client);
+        }
+
+        public override void OnNetworkDespawn()
+        {
+            if (IsServer && NetworkManager != null) NetworkManager.OnClientConnectedCallback -= GiveStarter;
+        }
+
+        // server: once per client of this session, a flashlight into his hand (its pocket slot), switched on; the hand
+        // item is picked up by his InteractionSensor like one he took himself
+        void GiveStarter(ulong client)
+        {
+            if (!_equipped.Add(client)) return;
+            Vector3 p = NetworkManager.ConnectedClients.TryGetValue(client, out NetworkClient c) && c.PlayerObject != null
+                ? c.PlayerObject.transform.position + Vector3.up : transform.position;
+            NetworkObject no = Spawn($"Flashlight_Player{client}", StarterModel, p, Quaternion.identity);
+            if (no == null) { Debug.LogWarning($"[Snow] Forest: no {StarterModel} prefab, player {client} starts without a flashlight."); return; }
+            string reason = "no CargoItem";
+            if (!no.TryGetComponent(out CargoItem item) || !item.ServerTakeInHand(client, out reason))
+            {
+                Debug.LogWarning($"[Snow] Forest: starter flashlight not given to player {client}: {reason}");
+                return;
+            }
+            if (no.TryGetComponent(out SurvivalItem light)) light.ServerSetOn(true);
+            BenchLog.Event("starter_item", "client", client, "item", no.name);
         }
 
         /// <summary>Server: one item at a pose of the model's origin, set up before Spawn, then asleep.</summary>

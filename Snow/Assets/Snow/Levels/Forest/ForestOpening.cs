@@ -36,8 +36,6 @@ namespace Snow.Levels.Forest
         const string GarageGate = "IX_GarageGate_18", HutDoor = "IX_HutDoor_1", BarracksDoor = "IX_Door_10";
         const string KitchenSwitch = "IX_ShutterSwitch_Kueche_129";
         const string PadlockZone = "Padlock_Barrier", PhoneZone = "Phone_KPP", HutJerrycan = "Jerrycan_Hut";
-        /// <summary>The checkpoint's own power panel on the booth wall (user 21.10: the barrier is motorised and needs it).</summary>
-        public const string KppPower = "KPP_Power";
         const string RoomBarracks = "Kaserne", RoomCorridorOG = "Flur_OG", RoomKitchen = "Kueche";
         const string Rag = "Item_Rag", Mop = "Item_Mop", Schranke = "Schranke";
 
@@ -107,7 +105,6 @@ namespace Snow.Levels.Forest
         readonly NetworkVariable<uint> _stepsSkipped = new NetworkVariable<uint>();
         readonly NetworkVariable<uint> _scaresDone = new NetworkVariable<uint>();
         readonly NetworkVariable<byte> _phase = new NetworkVariable<byte>();            // 0 evening, 1 night, 2 morning
-        readonly NetworkVariable<bool> _kppPower = new NetworkVariable<bool>();
 
         /// <summary>0 evening, 1 night, 2 morning (the day / night cycle jumps to the morning with it).</summary>
         public byte Phase => _phase.Value;
@@ -165,7 +162,7 @@ namespace Snow.Levels.Forest
         {
             Instance = this;
             if (!TryGetComponent(out ForestRadio _)) gameObject.AddComponent<ForestRadio>();   // the control-desk radio (voice)
-            foreach (string id in new[] { GenStart, FillCap, PumpLever, HeatPump, Burner, Thermostat, FillValve, BurnerReset, PressureGauge, TempGauge, PadlockZone, PhoneZone, KppPower })
+            foreach (string id in new[] { GenStart, FillCap, PumpLever, HeatPump, Burner, Thermostat, FillValve, BurnerReset, PressureGauge, TempGauge, PadlockZone, PhoneZone })
                 _owned.Add(id);
             for (int i = 0; i < decalIds.Length; i++)
                 if (!string.IsNullOrEmpty(decalIds[i]))
@@ -275,7 +272,6 @@ namespace Snow.Levels.Forest
             _stepsSkipped.Value = 0u;
             _scaresDone.Value = 0u;
             _phase.Value = 0;
-            _kppPower.Value = false;
             _nightStart.Value = -1d;
             _phoneRinging.Value = false;
             _lanternOn.Value = true;
@@ -364,11 +360,6 @@ namespace Snow.Levels.Forest
                     }
                     return true;
                 case PadlockZone: return UsePadlock(clientId, phase, out reason);
-                case KppPower:
-                    if (phase != UsePhase.Press) return true;
-                    _kppPower.Value = !_kppPower.Value;
-                    BenchLog.Event("forest_power", "kpp", _kppPower.Value, "client", clientId);
-                    return true;
                 case PhoneZone:
                     if (phase != UsePhase.Press) return true;
                     if (!_phoneRinging.Value) { reason = "Тишина в трубке"; return false; }
@@ -485,7 +476,6 @@ namespace Snow.Levels.Forest
             reason = null;
             Resolve();
             if (id == DoorBar) { reason = "Сначала закройте дверь"; return false; }
-            if (id == Barrier && !_padlockOn.Value && !_kppPower.Value) { reason = "Нет питания КПП — щиток на стене будки"; return false; }
             uint locks = _locks.Value, before = locks;
             bool any = false;
             string key = HeldKey(clientId);
@@ -544,7 +534,6 @@ namespace Snow.Levels.Forest
                 case Thermostat: return string.Format(Ru, "{0:0} °C", _setpointC.Value);
                 case FillValve: return string.Format(Ru, "{0}; {1:0.0} бар", _fillOpen.Value ? "открыт" : "закрыт", _pressureBar.Value);
                 case PadlockZone: return _padlockOn.Value ? "заперт" : "снят";
-                case KppPower: return _kppPower.Value ? "включён" : "выключен";
                 case PhoneZone: return _phoneRinging.Value ? "звонит" : null;
                 case DoorBar:
                     if (_bar == null) return null;
@@ -577,7 +566,6 @@ namespace Snow.Levels.Forest
                 case FillValve: return _fillOpen.Value ? "закрыть" : "открыть";
                 case BurnerReset: return "нажать";
                 case PadlockZone: return "отпереть ключом";
-                case KppPower: return _kppPower.Value ? "выключить" : "включить";
                 case PhoneZone: return "снять трубку";
                 default: return null;
             }
@@ -713,10 +701,11 @@ namespace Snow.Levels.Forest
         // ------------------------------------------------------------------ dev pult (host)
         public bool GeneratorRunning => _genRunning.Value;
         public float DayTankL => _dayTankL.Value;
-        public bool KppPowered => _kppPower.Value;
+        /// <summary>The checkpoint booth has power (KPP v2: ForestKpp).</summary>
+        public bool KppPowered => ForestKpp.Instance != null && ForestKpp.Instance.BoothPowered;
 
         /// <summary>Server, dev pult «База»: on = a full day tank, the generator running, every power switch of the location
-        /// on (locks ignored), the checkpoint panel on and every room lit; off = the generator stops (the grid goes down
+        /// on (locks ignored; the checkpoint booth then has the line at NETZ) and every room lit; off = the generator stops (the grid goes down
         /// with it, room switches stay as they are).</summary>
         public void DevPower(bool on)
         {
@@ -742,7 +731,6 @@ namespace Snow.Levels.Forest
                 p.part.Open();                                         // the grid recounts its switches
                 p.part.locked = locked;
             }
-            _kppPower.Value = true;
             if (host.lights != null)
                 foreach (var r in host.lights.rooms)
                     if (r != null && !host.lights.IsRoomOn(r.name)) host.lights.SetRoom(r.name, true);
@@ -779,7 +767,8 @@ namespace Snow.Levels.Forest
             uint done = _stepsDone.Value;
             NetworkObject can = items != null ? items.Find(HutJerrycan) : null;
             if (can != null && can.TryGetComponent(out CargoItem c) && c.State == CargoState.Carried) done = Mark(done, Step.S2);
-            if (_barrier?.door != null && _barrier.door.State == DoorState.Open && _gate != null && _gate.part.target > 0.5f && _gate.part.openAmount > 0.99f)
+            // KPP v2: the arm and the leaf are driven by the console (ForestKpp), the host's shared way
+            if (_barrier != null && _barrier.part.target > 0.5f && _barrier.part.openAmount > 0.99f && _gate != null && _gate.part.target > 0.5f && _gate.part.openAmount > 0.99f)
                 done = Mark(done, Step.S6);
             if (_genRunning.Value && host.Powered) done = Mark(done, Step.S7);
             if (_burner.Value == 2 && _setpointC.Value >= 18f) done = Mark(done, Step.S8);
@@ -1036,9 +1025,6 @@ namespace Snow.Levels.Forest
             }
             if (_bar != null)
                 _bar.part.locked = _bar.part.target > 0.5f && _mainDoor?.door != null && _mainDoor.door.State != DoorState.Closed;
-            // the motorised barrier stays down without the checkpoint's power (closed state only: a raised arm can still be lowered)
-            Part barrier = FindLockPart(Barrier);
-            if (barrier != null && !_kppPower.Value && barrier.door != null && barrier.door.State == DoorState.Closed) barrier.part.locked = true;
 
             // X01: the lantern out, its flicker keeps changing only its own copy and a light that is off
             if (!_lanternOn.Value)

@@ -1044,3 +1044,15 @@ SSAO не найдено в рендерере	SSAO not found in the renderer
 Действует на этом пире до выхода из игры; хорошие числа перенести в PC_Renderer.asset руками.	Works on this peer until the game stops; copy good numbers into PC_Renderer.asset by hand.
 карманы	pockets
 пусто	empty
+Сюда — только аккумулятор	Only a battery goes here
+Аккумулятор уже стоит	The battery is already in
+Ящик пуст: поставьте аккумулятор (в руках)	The box is empty: put a battery in (in your hands)
+Сначала снимите клеммы	Take the clamps off first
+Нет аккумулятора	No battery
+ящик пуст	box empty
+поставить аккумулятор (в руках)	put the battery in (in your hands)
+вынуть (сначала снять клеммы)	take out (clamps off first)
+Станция Hohenmoos. Прибыть до темноты.	Hohenmoos station. Arrive before dark.
+Указатель топлива в машине врёт. Если встанете — у хижины лесника для вас оставлена канистра, в ста метрах от дороги. Не благодарите.	The fuel gauge in the car lies. If you stall, there is a jerrycan left for you at the forester's hut, a hundred metres off the road. No need to thank me.
+Ключи — в будке КПП.	The keys are in the checkpoint booth.
+сообщение	message

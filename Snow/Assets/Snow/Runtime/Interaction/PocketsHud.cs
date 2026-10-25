@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Snow.Aircraft;
+using Snow.Audio;
 using Snow.Cargo;
 using Snow.Input;
 using UnityEngine;
@@ -13,8 +14,8 @@ namespace Snow.Interaction
     /// server answers), the name of what came into the hand shows above the bar for a moment, and the bar fades to a
     /// faint strip when nothing happens (small UI, Q11). Every change has a short sound: take, into the pocket, switch,
     /// throw, refusal — slightly different pitch each time so repeats do not grate. Reads the replicated pocket state
-    /// (CargoItem carry) and InteractionSensor; sends nothing. Sounds are made here (TEMPORARY until real SFX), as are
-    /// all numbers (docs/dev/Tuning/Cargo.md). Look (UI pick 23.10, D3 «Протокол»): the occupied pockets as typed lines
+    /// (CargoItem carry) and InteractionSensor; sends nothing. Sounds are sound-library cues (ui.pocket.*), silent until
+    /// they have clips. All numbers (docs/dev/Tuning/Cargo.md). Look (UI pick 23.10, D3 «Протокол»): the occupied pockets as typed lines
     /// at the bottom left, shown for a moment after a pocket change and while Tab is held, gone otherwise; "в руке" at
     /// the bottom right with the keys for the thing in the hand (<see cref="Hud"/>, version 3 — not decided yet).
     /// </summary>
@@ -26,7 +27,6 @@ namespace Snow.Interaction
         [Range(0f, 1f)] public float volume = 0.45f;
 
         const int N = CargoItem.PocketSlots;
-        static AudioClip _takeClip, _pocketClip, _switchClip, _dropClip, _denyClip;
         readonly CargoItem[] _slots = new CargoItem[N];
         readonly CargoItem[] _had = new CargoItem[N];
         CargoItem _hand, _prevHand, _prevHeld;
@@ -51,7 +51,6 @@ namespace Snow.Interaction
             _audio = gameObject.AddComponent<AudioSource>();
             _audio.playOnAwake = false;
             _audio.spatialBlend = 0f;
-            MakeClips();
         }
 
         void Update()
@@ -70,20 +69,20 @@ namespace Snow.Interaction
             CargoItem held = sensor.Held;
             if (held != _prevHeld)
             {
-                if (held != null && !Had(held)) { Play(_takeClip); Toast(true); }          // from the world: at once
-                else if (held == null && _prevHeld != null && !_prevHeld.Pocketable) Play(_dropClip, 0.6f);   // heavy thing put down
+                if (held != null && !Had(held)) { Play("ui.pocket.take"); Toast(true); }          // from the world: at once
+                else if (held == null && _prevHeld != null && !_prevHeld.Pocketable) Play("ui.pocket.throw", 0.6f);   // heavy thing put down
             }
             if (_hand != _prevHand)
             {
                 if (_hand != null)
                 {
                     Pop(_hand.Slot);
-                    if (Had(_hand)) { Play(_switchClip); Toast(false); }
+                    if (Had(_hand)) { Play("ui.pocket.switch"); Toast(false); }
                 }
-                if (_prevHand != null && _prevHand.CarriedBy(me)) Play(_pocketClip);
-                else if (_prevHand != null) Play(_dropClip);                           // thrown (or used up)
+                if (_prevHand != null && _prevHand.CarriedBy(me)) Play("ui.pocket.in");
+                else if (_prevHand != null) Play("ui.pocket.throw");                           // thrown (or used up)
             }
-            if (sensor.MessageAt > _lastMessage) { _lastMessage = sensor.MessageAt; Play(_denyClip, 0.5f); }
+            if (sensor.MessageAt > _lastMessage) { _lastMessage = sensor.MessageAt; Play("ui.deny", 0.5f); }
             if (sensor.RequestedAt > _lastRequest)
             {
                 _lastRequest = sensor.RequestedAt;
@@ -113,10 +112,12 @@ namespace Snow.Interaction
             Wake();
         }
 
-        void Play(AudioClip clip, float scale = 1f)
+        void Play(string cue, float scale = 1f)
         {
             Wake();
-            if (_audio == null || clip == null) return;
+            if (_audio == null) return;
+            AudioClip clip = SnowAudio.Clip(cue);
+            if (clip == null) return;
             _audio.pitch = Random.Range(0.94f, 1.06f);
             _audio.PlayOneShot(clip, volume * scale);
         }
@@ -150,7 +151,7 @@ namespace Snow.Interaction
             for (int s = 0; s < N; s++) if (_slots[s] != null) count++;
             if (count == 0 && !tab) return;
             float y = Screen.height - Hud.Px(60f) - lh * (1 + Mathf.Max(1, count));
-            Color warm = new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, alpha), ink = new Color(0.9f, 0.874f, 0.784f, alpha);
+            Color warm = new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, alpha), ink = new Color(Hud.Ink.r, Hud.Ink.g, Hud.Ink.b, alpha);
             float hw = Typed(x, y, "Inventar", st, warm);
             Typed(x + hw + Hud.Px(16f), y + Hud.Px(3f), Loc.T("карманы"), small, new Color(0.663f, 0.651f, 0.612f, alpha));
             y += lh;
@@ -176,50 +177,10 @@ namespace Snow.Interaction
             }
         }
 
-        // typewriter text with a 2 px dark outline (no plate); returns its width
-        static float Typed(float x, float y, string text, GUIStyle st, Color color)
-        {
-            Vector2 size = Hud.Size(text, st);
-            var r = new Rect(x, y, size.x + 2f, size.y);
-            float o = Mathf.Max(1f, Hud.Px(2f));
-            GUI.color = new Color(0.04f, 0.04f, 0.05f, 0.9f * color.a);
-            for (int i = 0; i < 8; i++)
-            {
-                float ox = i == 0 || i == 3 || i == 5 ? -o : i == 2 || i == 4 || i == 7 ? o : 0f;
-                float oy = i < 3 ? -o : i > 4 ? o : 0f;
-                GUI.Label(new Rect(r.x + ox, r.y + oy, r.width, r.height), text, st);
-            }
-            GUI.color = color;
-            GUI.Label(r, text, st);
-            GUI.color = Color.white;
-            return size.x;
-        }
+        static float Typed(float x, float y, string text, GUIStyle st, Color color) => Hud.Typed(x, y, text, st, color);
 
-        static Font _osMono;
-        static readonly Dictionary<int, GUIStyle> MonoStyles = new Dictionary<int, GUIStyle>();
-        static float _monoScale = -1f;
-
-        // the typewriter face: the font set on the component, else an OS mono (TEMPORARY until PT Mono / TT2020 is in the
-        // project, RESEARCH_UI_2.md §4)
-        GUIStyle Mono(int designPx)
-        {
-            if (!Mathf.Approximately(Hud.S, _monoScale)) { MonoStyles.Clear(); _monoScale = Hud.S; }
-            if (MonoStyles.TryGetValue(designPx, out GUIStyle st)) return st;
-            Font f = mono;
-            if (f == null)
-            {
-                if (_osMono == null) _osMono = Font.CreateDynamicFontFromOSFont(new[] { "Consolas", "Courier New", "Liberation Mono" }, 21);
-                f = _osMono;
-            }
-            st = new GUIStyle(GUI.skin.label)
-            {
-                font = f, fontSize = Mathf.Max(9, Mathf.RoundToInt(designPx * Hud.S)), alignment = TextAnchor.UpperLeft,
-                wordWrap = false, clipping = TextClipping.Overflow, padding = new RectOffset(0, 0, 0, 0), margin = new RectOffset(0, 0, 0, 0),
-            };
-            st.normal.textColor = Color.white;
-            MonoStyles[designPx] = st;
-            return st;
-        }
+        // the typewriter face: the font set on the component, else the shared OS mono (Hud.Mono)
+        GUIStyle Mono(int designPx) => Hud.Mono(designPx, mono);
 
         void HandBlock(CargoItem item, float alpha)
         {
@@ -247,45 +208,6 @@ namespace Snow.Interaction
             Hud.Label(new Rect(r.x + pad, cy, iw, nameH), name, nameSt, new Color(1f, 1f, 1f, alpha));
             cy += nameH + sp;
             Hud.Hints(r.xMax - pad - keysW, cy, keysH, HandKeys, 17, alpha);
-        }
-
-        // ---------------------------------------------------------------- sounds (made once, TEMPORARY)
-        static void MakeClips()
-        {
-            if (_takeClip != null) return;
-            const float pi2 = Mathf.PI * 2f;
-            var rnd = new System.Random(21);
-            float Noise() => (float)rnd.NextDouble() * 2f - 1f;
-            float lp = 0f;
-            // take: a soft knock of the thing in the palm
-            _takeClip = Make("pocket_take", 0.08f, t => Mathf.Sin(pi2 * 420f * t) * Mathf.Exp(-t / 0.018f) * 0.8f + Noise() * Mathf.Exp(-t / 0.003f) * 0.4f);
-            // into the pocket: a cloth rustle (low-passed noise, quick attack)
-            _pocketClip = Make("pocket_in", 0.18f, t =>
-            {
-                lp += 0.25f * (Noise() - lp);
-                return lp * Mathf.Min(1f, t / 0.015f) * Mathf.Exp(-t / 0.06f) * 1.6f;
-            });
-            // switch: a small click
-            _switchClip = Make("pocket_switch", 0.04f, t => Mathf.Sin(pi2 * 1100f * t) * Mathf.Exp(-t / 0.006f) * 0.5f + Noise() * Mathf.Exp(-t / 0.002f) * 0.2f);
-            // throw: a short swish
-            _dropClip = Make("pocket_throw", 0.2f, t =>
-            {
-                lp += 0.08f * (Noise() - lp);
-                return lp * Mathf.Sin(Mathf.PI * t / 0.2f) * 2.2f;
-            });
-            // refusal: a dull low buzz
-            _denyClip = Make("pocket_deny", 0.12f, t => (Mathf.Sin(pi2 * 150f * t) + 0.4f * Mathf.Sin(pi2 * 300f * t)) * Mathf.Exp(-t / 0.05f) * 0.45f);
-        }
-
-        static AudioClip Make(string name, float seconds, System.Func<float, float> sample)
-        {
-            const int rate = 22050;
-            int n = Mathf.CeilToInt(seconds * rate);
-            var data = new float[n];
-            for (int i = 0; i < n; i++) data[i] = Mathf.Clamp(sample(i / (float)rate), -1f, 1f);
-            var clip = AudioClip.Create(name, n, 1, rate, false);
-            clip.SetData(data, 0);
-            return clip;
         }
     }
 }

@@ -11987,6 +11987,162 @@
     "normalScale": 1.0
    },
    "noSpecular": true
+  },
+  {
+   "name": "M_Kpp_Lamp_Fluor",
+   "type": "emissive",
+   "albedo": "T_Kpp_Panel_A_px.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "T_Kpp_Panel_E_px.png",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0.78,
+    0.92,
+    1.0
+   ],
+   "emissionIntensity": 4.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Kpp_Lamp_Fluor_Off",
+   "type": "lit",
+   "albedo": "T_Kpp_Panel_A_px.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Kpp_Lamp_Bulk",
+   "type": "emissive",
+   "albedo": "T_Kpp_Panel_A_px.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "T_Kpp_Panel_E_px.png",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    1.0,
+    0.66,
+    0.34
+   ],
+   "emissionIntensity": 5.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
+  },
+  {
+   "name": "M_Kpp_Lamp_Bulk_Off",
+   "type": "lit",
+   "albedo": "T_Kpp_Panel_A_px.png",
+   "normal": "",
+   "mask": "",
+   "emissionMap": "",
+   "tiling": [
+    1,
+    1
+   ],
+   "color": [
+    1,
+    1,
+    1
+   ],
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0.0,
+   "smoothness": 0.5,
+   "metallic": 0.0,
+   "cutoff": 0.5,
+   "normalScale": 1.0,
+   "doubleSided": false,
+   "instancing": false,
+   "softness": 2.6,
+   "detail": {
+    "albedo": "",
+    "normal": "",
+    "tiling": [
+     1,
+     1
+    ],
+    "normalScale": 1.0
+   }
   }
  ],
  "_doc": "Forest materials. Plain textures: Assets/Locations/Forest/Textures. Update 2: every surface by the Utility Plane PSX recipe (shading in the colour, 64-colour palette, Bayer dither, metal / smoothness masks *_M_px, specular on, no normal maps, about 64 px per metre); the main building v2 (BaseMain) with the BaseV2 materials and textures (the map shares the BaseV2 files of the same names); terrain macro, mist and water as before. Base textures 17.10 (base_tex.py): the main building, the KPP, the garage, the generator container and the yard with new 64 px/m textures (Raufaser walls, board-formed concrete, floated slabs, linoleum, vinyl and quarry tiles, carpet tiles, ceramic tiles, raised floor, ceiling tiles, painted and galvanized steel, laminate, veneer, fabric, terrazzo, decals, yard asphalt, roofing felt, corrugated steel, cladding); material colours keep the earlier average albedo; masks: smoothness = mask A (the core sets _Smoothness 1). Giant bones 17.10: smooth macro atlas T_Giant_Macro_A (Forest: T_Giant_MacroMoss_A, moss and cracks baked in) instead of the 512 px PSX atlas, no mask, PSX bone detail T_BoneDetail_A_px x160."

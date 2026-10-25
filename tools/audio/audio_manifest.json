@@ -2,7 +2,8 @@
   "note": "Package 1 (QUESTIONS_4: SFX only from free packs; the user kept these files in package1_listen). Runtime settings apply only when a cue is created in the library; later tweaks in the inspector are kept. Build: python tools/audio/build_audio.py",
   "roots": {
     "listen": "F:/ClaudeGames/snow_audio_library/package1_listen",
-    "nox": "D:/Downloads/!Torrent/!SOUNDS/Essentials_Series_NOX_SOUND/Essentials_Series_NOX_SOUND"
+    "nox": "D:/Downloads/!Torrent/!SOUNDS/Essentials_Series_NOX_SOUND/Essentials_Series_NOX_SOUND",
+    "cuts": "F:/ClaudeGames/snow_audio_library/cuts"
   },
   "defaults": {
     "oneshot": { "rate": 22050, "channels": 1, "maxSec": 12, "peakDb": -3 },
@@ -74,6 +75,8 @@
     { "id": "item.impact.metal", "type": "oneshot", "src": ["listen:19_*/01__*.wav", "listen:19_*/05__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.9, 1.1], "maxDistance": 30, "noise": 5 } },
     { "id": "item.impact.glass", "type": "oneshot", "src": ["listen:24_*/08__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.9, 1.15], "maxDistance": 25, "noise": 5 } },
     { "id": "item.impact.paper", "type": "oneshot", "src": ["listen:20_*/05__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.9, 1.1], "maxDistance": 20, "noise": 5 } },
-    { "id": "item.impact.wood", "type": "oneshot", "src": ["listen:19_*/07__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.85, 1.1], "maxDistance": 25, "noise": 5 } }
+    { "id": "item.impact.wood", "type": "oneshot", "src": ["listen:19_*/07__*.wav"], "proc": { "maxSec": 3 }, "set": { "volume": [0.5, 0.8], "pitch": [0.85, 1.1], "maxDistance": 25, "noise": 5 } },
+    { "id": "ui.letter.key", "type": "oneshot", "src": ["cuts:letter/key_*.wav"], "set": { "bus": "Ui", "volume": [0.5, 0.8], "pitch": [0.95, 1.05] } },
+    { "id": "ui.pager.beep", "type": "oneshot", "src": ["cuts:pager/beep_*.wav"], "set": { "bus": "Ui", "volume": [0.7, 0.8], "pitch": [1, 1] } }
   ]
 }

@@ -108,6 +108,7 @@ namespace Snow.Vehicles.Van
             _rig.SetGauge(VanRig.Gauge.Volt, ign ? t.BusVolts : 0f);
             foreach (string f in FuseNames) _rig.SetVisible(f, vehicle.FuseState(f) != VanVehicle.FuseEmpty);
             for (int i = 0; i < SpareNames.Length; i++) _rig.SetVisible(SpareNames[i], vehicle.SparePresent(i));
+            _rig.SetVisible("Battery", vehicle.BatteryIn);
         }
 
         // AT-V02 evidence on clients: how far the drawn van jumps from where its last motion said it would be

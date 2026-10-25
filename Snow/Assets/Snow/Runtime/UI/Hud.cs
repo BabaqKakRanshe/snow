@@ -196,5 +196,71 @@ namespace Snow
         /// <summary>Thin divider line inside a card.</summary>
         public static void Divider(float x, float y, float w, float alpha = 1f) =>
             Fill(new Rect(x, y, w, Mathf.Max(1f, Mathf.Round(S))), new Color(1f, 1f, 1f, 0.14f * alpha));
+
+        // ---------------------------------------------------------------- typed lines (UI pick 24.10, D3 «Протокол»)
+        /// <summary>Ink of typed lines (the warm colour marks headers and the line in the hand).</summary>
+        public static readonly Color Ink = new Color(0.9f, 0.874f, 0.784f);
+
+        static Font _osMono;
+        static readonly Dictionary<(Font, int), GUIStyle> MonoStyles = new Dictionary<(Font, int), GUIStyle>();
+        static float _monoScale = -1f;
+
+        /// <summary>The typewriter face at a 1080-px size: the given font, else an OS mono (TEMPORARY until PT Mono /
+        /// TT2020 is in the project, RESEARCH_UI_2.md §4). Cached; rebuilt when the screen height changes.</summary>
+        public static GUIStyle Mono(int designPx, Font font = null)
+        {
+            if (!Mathf.Approximately(S, _monoScale)) { MonoStyles.Clear(); _monoScale = S; }
+            if (font == null)
+            {
+                if (_osMono == null) _osMono = Font.CreateDynamicFontFromOSFont(new[] { "Consolas", "Courier New", "Liberation Mono" }, 21);
+                font = _osMono;
+            }
+            if (MonoStyles.TryGetValue((font, designPx), out GUIStyle st)) return st;
+            st = new GUIStyle(GUI.skin.label)
+            {
+                font = font, fontSize = Mathf.Max(9, Mathf.RoundToInt(designPx * S)), alignment = TextAnchor.UpperLeft,
+                wordWrap = false, clipping = TextClipping.Overflow, padding = new RectOffset(0, 0, 0, 0), margin = new RectOffset(0, 0, 0, 0),
+            };
+            st.normal.textColor = Color.white;
+            MonoStyles[(font, designPx)] = st;
+            return st;
+        }
+
+        /// <summary>Typewriter text with a 2 px dark outline (no plate), x/y = top left; returns its width.</summary>
+        public static float Typed(float x, float y, string text, GUIStyle st, Color color)
+        {
+            Vector2 size = Size(text, st);
+            var r = new Rect(x, y, size.x + 2f, size.y);
+            float o = Mathf.Max(1f, Px(2f));
+            GUI.color = new Color(0.04f, 0.04f, 0.05f, 0.9f * color.a);
+            for (int i = 0; i < 8; i++)
+            {
+                float ox = i == 0 || i == 3 || i == 5 ? -o : i == 2 || i == 4 || i == 7 ? o : 0f;
+                float oy = i < 3 ? -o : i > 4 ? o : 0f;
+                GUI.Label(new Rect(r.x + ox, r.y + oy, r.width, r.height), text, st);
+            }
+            GUI.color = color;
+            GUI.Label(r, text, st);
+            GUI.color = Color.white;
+            return size.x;
+        }
+
+        /// <summary>Text broken into lines no wider than width (words kept whole, '\n' starts a new line).</summary>
+        public static List<string> Wrap(string text, GUIStyle st, float width)
+        {
+            var lines = new List<string>();
+            foreach (string para in (text ?? "").Split('\n'))
+            {
+                string line = "";
+                foreach (string word in para.Split(' '))
+                {
+                    string next = line.Length == 0 ? word : line + " " + word;
+                    if (line.Length > 0 && Size(next, st).x > width) { lines.Add(line); line = word; }
+                    else line = next;
+                }
+                lines.Add(line);
+            }
+            return lines;
+        }
     }
 }

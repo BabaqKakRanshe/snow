@@ -13,7 +13,7 @@ namespace Snow.Interaction
     /// permanent HUD). Drawing only: targets and commands stay with InteractionSensor.
     ///  - Hover: corner frame around the target, name and state below, actions with keys beside it. Optionally only
     ///    while the reveal key is held (cardOnlyWithAlt).
-    ///  - Reveal key held (TEMPORARY B, action Reveal in SnowControls.inputactions): faint corners on everything interactive within revealRadius that the player could actually reach
+    ///  - Reveal key held (Tab on foot, B in a seat; action Reveal in SnowControls.inputactions): faint corners on everything interactive within revealRadius that the player could actually reach
     ///    with a ray from the eye — the same InteractionSensor.Pick rule as "use", so a handle behind a closed door or
     ///    a crate behind a wall is not shown. Things out of view get an arrow at the screen edge; the few marks nearest
     ///    the screen centre get their names.
@@ -23,9 +23,9 @@ namespace Snow.Interaction
         public InteractionSensor sensor;
         public PlayerController controller;
         public FirstPersonView view;
-        [Tooltip("m: how far the reveal key (B) shows interactive things")] public float revealRadius = 4f;
+        [Tooltip("m: how far the reveal key (Tab / B in a seat) shows interactive things")] public float revealRadius = 4f;
         [Tooltip("m: a zone's parent mesh larger than this is framed by the zone box instead")] public float maxMeshSize = 0.8f;
-        [Tooltip("Variant 1: the hover card only while the reveal key (B) is held (a clean screen otherwise)")] public bool cardOnlyWithAlt;
+        [Tooltip("Variant 1: the hover card only while the reveal key (Tab / B) is held (a clean screen otherwise)")] public bool cardOnlyWithAlt;
         [Tooltip("Variant 3: how many revealed marks near the screen centre get their names")] public int namedMarks = 6;
         [Tooltip("Variant 3: only marks within this fraction of the screen height from the centre are named")] public float namedRadius = 0.3f;
         [Tooltip("Variant 2: most edge arrows at once")] public int maxArrows = 10;
@@ -261,10 +261,12 @@ namespace Snow.Interaction
         void RevealHint()
         {
             string text = Loc.T(string.Format("держать — всё, что можно взять в {0:0} м", revealRadius));
+            // on foot Tab (user 25.10), in a seat B (Tab there frees the cursor)
+            string key = controller != null && controller.Source != null && controller.Source.Context != InputContext.OnFoot ? "B" : "Tab";
             float h = Hud.Px(36f), pad = Hud.Px(12f);
-            var r = new Rect(Hud.SafeX, Hud.SafeY, Hud.KeyTextWidth("B", text, 18) + 2f * pad, h);
+            var r = new Rect(Hud.SafeX, Hud.SafeY, Hud.KeyTextWidth(key, text, 18) + 2f * pad, h);
             Hud.Panel(r);
-            Hud.KeyText(r.x + pad, r.y, h, "B", text, 18, Color.white);
+            Hud.KeyText(r.x + pad, r.y, h, key, text, 18, Color.white);
         }
 
         // corner marks on the target (at least 56 px, so a small switch still gets a frame) and the card beside it:

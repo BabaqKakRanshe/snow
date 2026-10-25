@@ -64,7 +64,7 @@ namespace Snow.Voice
             if (mine) NoiseEvents.LocalMade(BodySounds.Radius(sound));
             if (Application.isBatchMode) return;
             AudioClip[] set = VoiceClips.Set(BodySounds.ClipName(sound));
-            AudioClip clip = set.Length > 0 ? set[variant % set.Length] : sound == BodySound.Callout ? VoiceClips.Whistle : null;
+            AudioClip clip = set.Length > 0 ? set[variant % set.Length] : null;
             if (clip == null) return;                                // no recording yet: silent (the noise for creatures is on the server)
             var go = new GameObject("Body " + sound);
             go.transform.position = point;

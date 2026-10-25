@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_RenderingLayerMask
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -6554581255153061401, guid: f55084fdcbda07a511f0fc621b76cc2c, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f55084fdcbda07a511f0fc621b76cc2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -55,6 +59,10 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f55084fdcbda07a511f0fc621b76cc2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3367457117008934190, guid: f55084fdcbda07a511f0fc621b76cc2c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 86
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: f55084fdcbda07a511f0fc621b76cc2c, type: 3}
       propertyPath: m_RenderingLayerMask

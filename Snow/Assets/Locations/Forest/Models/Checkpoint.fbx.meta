@@ -67,6 +67,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Kpp_Lamp_Bulk_Off
+    second: {fileID: 2100000, guid: cda9d415e1badc84da24c90191b72f27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Kpp_Lamp_Fluor_Off
+    second: {fileID: 2100000, guid: 437681ef493538648abdde6d540235ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Kpp_Panel
     second: {fileID: 2100000, guid: 56bfd4b7d31dd44459d6e7333704bfff, type: 2}
   - first:

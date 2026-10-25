@@ -84,6 +84,7 @@ namespace Snow.EditorTools
             rules = ForestRules(),
             roomLabels = BaseV2.roomLabels,
             step = ForestLevelStep.Run,
+            preStep = ForestKppStep.Place,
         };
 
         static Rule[] ForestRules()
@@ -101,11 +102,17 @@ namespace Snow.EditorTools
                 On("GenContainer", R("IX_ContDoorL", Category.Door, "Ворота контейнера", "door", travel: GateTravel)),
                 On("GenContainer", R("IX_ContDoorR", Category.Door, "Ворота контейнера", "door", travel: GateTravel)),
                 On("Garage", R("IX_GarageDoor", Category.Door, "Ворота гаража", "door", travel: GateTravel)),
-                On("Barrier", Doors(R("IX_BarrierArm", Category.Door, "Шлагбаум", "door", a0: "поднять", a1: "опустить", travel: GateTravel),
-                                    "опущен", "поднимается", "поднят", "опускается", "упёрся")),
+                // KPP v2: the electric barrier and the gate drive move only from the consoles (ForestKpp): the host's shared
+                // way without a zone, on their own layer (they hold the car and the player); ~4 s and ~12 s (KPP_CONTRACT)
+                On("Barrier", NoZone(Speed(Doors(R("IX_BarrierArm", Category.HostDoor, "Шлагбаум", "door"),
+                                                 "опущен", "поднимается", "поднят", "опускается", "упёрся"), 0.25f))),
                 On("Hatch", Locked(R("IX_HatchLid", Category.Door, "Люк шахты", "door"), "заперт")),
-                // ~1 m/s instead of the core's 1.4 travels a second (9 m/s over 6.6 m): TEMPORARY (L4.1.8)
-                On("Gate", Speed(Doors(R("IX_Gate", Category.HostDoor, "Откатные ворота", "door"), "закрыты", "едут", "открыты", "едут", "упёрлись"), 0.15f)),
+                On("Gate", NoZone(Speed(Doors(R("IX_Gate", Category.HostDoor, "Откатные ворота", "door"), "закрыты", "едут", "открыты", "едут", "упёрлись"), 1f / 12f))),
+                // snow_kit instances (ForestKppStep): the consoles, the booth's power cabinet
+                On("Kit_Console_Button", R("IX_ConsoleButton", Category.Scripted, "Кнопка пульта", "momentary")),
+                On("Kit_Cabinet_Power", R("IX_CabinetDoor", Category.Furniture, "Дверца шкафа питания", "hinge", "закрыта", "открыта", "открыть", "закрыть")),
+                On("Kit_Cabinet_Power", R("IX_CabinetSwitch", Category.Scripted, "Переключатель NETZ / BATTERIE", "toggle")),
+                On("Kit_Cabinet_Power", R("IX_CabinetClamp", Category.Scripted, "Клемма аккумулятора", "pull")),
                 R("IX_CabinetDoor", Category.Furniture, "Шкаф антенны", "hinge", "закрыт", "открыт", "открыть", "закрыть"),
                 On("Checkpoint", R("IX_Drawer", Category.Furniture, "Выдвижной ящик", "pull", "задвинут", "выдвинут", "выдвинуть", "задвинуть")),
                 On("Checkpoint", R("IX_BoothWindow", Category.Furniture, "Окошко выдачи", "pull", "закрыто", "открыто", "открыть", "закрыть")),

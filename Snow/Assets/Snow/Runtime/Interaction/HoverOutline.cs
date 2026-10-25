@@ -1,88 +1,165 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UtilityPlane;
 
 namespace Snow.Interaction
 {
     /// <summary>
     /// Owner-side highlight (INPUT-02 hover feedback): an outline around what the use ray or cursor points at, and a
-    /// second colour for a hint target (e.g. the next control of the start checklist). A control with its own small
-    /// mesh (switch, lever, knob, cap, crate) gets a pixel-wide ring around its silhouette (Snow/Outline); a zone whose
-    /// parent is large or has no mesh (seat, door handle, belt buckle) gets a thin box around the zone itself.
-    /// Drawing only: nothing here is replicated or changes state.
+    /// second colour for a hint target (e.g. the next control of the start checklist). A screen-space ring around the
+    /// outer edge of the silhouette (user 25.10: the wire box and then the inverted hull looked awful — the hull filled
+    /// concave parts such as a door's wheel arch and broke into dashes):
+    ///  1. LateUpdate: the meshes drawn flat into a mask the size of the camera frame (Resources/HoverMask.shader; with
+    ///     the PS1 frame ~427 x 240, so the ring is one PS1 pixel wide), R = hover, G = hint;
+    ///  2. OnGUI: the ring from the mask over the screen (Resources/HoverRing.shader), behind the HUD.
+    /// What is outlined:
+    ///  - an item: all its parts;
+    ///  - a zone with its own small mesh (switch, lever, knob, cap): that mesh;
+    ///  - a zone on something large or with no mesh (door handle, seat, bunk, shelf): the parts of the object it sits on
+    ///    that reach into the zone and are not larger than <see cref="maxPartSize"/> (the door leaf, the seat, the bunk).
+    ///    None found = no ring; the hover card frame (InteractionOverlay) still shows.
+    /// The mask has no depth: the whole silhouette is ringed even where something stands in front (the target is what
+    /// the ray hit, so it is mostly in view). Drawing only: nothing here is replicated or changes state.
     /// </summary>
+    [DefaultExecutionOrder(1000)]                                        // after FirstPersonView.LateUpdate moved the camera
     public class HoverOutline : MonoBehaviour
     {
         public InteractionSensor sensor;
-        [Tooltip("Snow/Outline")] public Material outlineMaterial;
-        [Tooltip("Snow/LineColor")] public Material lineMaterial;
         public Color hoverColor = new Color(1f, 0.85f, 0.3f, 1f);
         public Color hintColor = new Color(0.3f, 0.9f, 1f, 0.9f);
-        [Tooltip("px")] public float width = 3f;
-        [Tooltip("m: a zone's parent mesh larger than this is not outlined; the zone box is drawn instead")] public float maxMeshSize = 0.8f;
-        [Tooltip("m, box line width")] public float lineWidth = 0.004f;
+        [Tooltip("px of the camera frame without the PS1 frame; in the PS1 frame always 1 (one PS1 pixel)")] public float width = 2f;
+        [Tooltip("0-1: tint inside the hovered thing (0 = ring only)")] public float fill = 0f;
+        [Tooltip("m: a zone's parent mesh up to this size is the control itself")] public float maxMeshSize = 0.8f;
+        [Tooltip("m: largest part outlined for a zone on a big object (a door leaf is ~2.1 m)")] public float maxPartSize = 2.5f;
 
         Component _hint;
-        LineRenderer _hoverBox, _hintBox;
+        Material _maskMat, _ringMat;
+        RenderTexture _mask;
+        CommandBuffer _cmd;
         MaterialPropertyBlock _hoverProps, _hintProps;
-        static readonly int ColorId = Shader.PropertyToID("_Color"), WidthId = Shader.PropertyToID("_Width"), CenterId = Shader.PropertyToID("_Center");
-        static readonly int[] BoxPath = { 0, 1, 2, 3, 0, 4, 5, 1, 5, 6, 2, 6, 7, 3, 7, 4 };
-        readonly Vector3[] _corners = new Vector3[8];
-        readonly Vector3[] _path = new Vector3[16];
+        bool _drawn;
+        // zone -> its parts, found once (the parts move with the zone: a door leaf turns with its handle)
+        readonly Dictionary<UtilityPlaneInteractable, MeshRenderer[]> _parts = new Dictionary<UtilityPlaneInteractable, MeshRenderer[]>();
+        readonly List<MeshRenderer> _found = new List<MeshRenderer>();
+        static readonly int MaskColorId = Shader.PropertyToID("_MaskColor"), HoverColorId = Shader.PropertyToID("_HoverColor"),
+                            HintColorId = Shader.PropertyToID("_HintColor"), TexelId = Shader.PropertyToID("_Texel"),
+                            RadiusId = Shader.PropertyToID("_Radius"), FillId = Shader.PropertyToID("_Fill");
 
         /// <summary>Show a second outline on this zone or object (null = none).</summary>
         public void SetHint(Component target) => _hint = target;
 
         void Awake()
         {
+            Shader mask = Resources.Load<Shader>("HoverMask"), ring = Resources.Load<Shader>("HoverRing");
+            if (mask == null || ring == null) { Debug.LogWarning("[HoverOutline] Resources/HoverMask or HoverRing shader missing: no outline."); enabled = false; return; }
+            _maskMat = new Material(mask) { name = "HoverMask (runtime)", hideFlags = HideFlags.HideAndDontSave };
+            _ringMat = new Material(ring) { name = "HoverRing (runtime)", hideFlags = HideFlags.HideAndDontSave };
+            _cmd = new CommandBuffer { name = "HoverOutline mask" };
             _hoverProps = new MaterialPropertyBlock();
+            _hoverProps.SetColor(MaskColorId, new Color(1f, 0f, 0f, 0f));
             _hintProps = new MaterialPropertyBlock();
-        }
-
-        void OnDisable()
-        {
-            if (_hoverBox != null) _hoverBox.enabled = false;
-            if (_hintBox != null) _hintBox.enabled = false;
+            _hintProps.SetColor(MaskColorId, new Color(0f, 1f, 0f, 0f));
         }
 
         void OnDestroy()
         {
-            if (_hoverBox != null) Destroy(_hoverBox.gameObject);
-            if (_hintBox != null) Destroy(_hintBox.gameObject);
+            if (_mask != null) { _mask.Release(); Destroy(_mask); }
+            if (_maskMat != null) Destroy(_maskMat);
+            if (_ringMat != null) Destroy(_ringMat);
+            _cmd?.Release();
         }
 
         void LateUpdate()
         {
+            _drawn = false;
             if (Application.isBatchMode || sensor == null) return;
+            Camera cam = sensor.view != null ? sensor.view.cam : null;
+            if (cam == null || !cam.enabled) return;
             Component hover = sensor.TargetVolume != null ? sensor.TargetVolume
                 : sensor.TargetCargo != null ? sensor.TargetCargo
                 : sensor.TargetGrab != null ? (Component)sensor.TargetGrab : null;
-            bool boxHover = Draw(hover, hoverColor, _hoverProps, ref _hoverBox);
-            if (_hoverBox != null) _hoverBox.enabled = boxHover;
-            bool boxHint = _hint != null && _hint != hover && Draw(_hint, hintColor, _hintProps, ref _hintBox);
-            if (_hintBox != null) _hintBox.enabled = boxHint;
+            Component hint = _hint != null && _hint != hover ? _hint : null;
+            if (hover == null && hint == null) return;
+
+            RenderTexture frame = cam.targetTexture;
+            int w = frame != null ? frame.width : cam.pixelWidth, h = frame != null ? frame.height : cam.pixelHeight;
+            if (_mask == null || _mask.width != w || _mask.height != h)
+            {
+                if (_mask != null) { _mask.Release(); Destroy(_mask); }
+                _mask = new RenderTexture(w, h, 0, RenderTextureFormat.ARGB32)
+                {
+                    name = "HoverOutline mask", filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp, useMipMap = false,
+                };
+                _mask.Create();
+            }
+            _cmd.Clear();
+            _cmd.SetRenderTarget(_mask);
+            _cmd.ClearRenderTarget(false, true, Color.clear);
+            // the plain projection: SetViewProjectionMatrices itself adapts it to the platform and the render texture
+            // (GL.GetGPUProjectionMatrix here as well flipped the mask upside down, user 25.10)
+            _cmd.SetViewProjectionMatrices(cam.worldToCameraMatrix, cam.projectionMatrix);
+            int n = Draw(hover, _hoverProps) + Draw(hint, _hintProps);
+            if (n == 0) return;
+            Graphics.ExecuteCommandBuffer(_cmd);
+            _ringMat.SetColor(HoverColorId, hoverColor);
+            _ringMat.SetColor(HintColorId, hintColor);
+            _ringMat.SetVector(TexelId, new Vector4(1f / w, 1f / h, 0f, 0f));
+            _ringMat.SetFloat(RadiusId, frame != null ? 1f : Mathf.Clamp(Mathf.Round(width), 1f, 3f));
+            _ringMat.SetFloat(FillId, fill);
+            _drawn = true;
         }
 
-        // returns true if the target is shown as a box (the line renderer is in use)
-        bool Draw(Component target, Color color, MaterialPropertyBlock props, ref LineRenderer box)
+        void OnGUI()
         {
-            if (target == null) return false;
+            if (!_drawn || Event.current.type != EventType.Repaint) return;
+            GUI.depth = 999;                                           // behind the HUD (depth 0), over the screen frost (1000)
+            Graphics.DrawTexture(new Rect(0f, 0f, Screen.width, Screen.height), _mask, _ringMat);
+        }
+
+        // the target's meshes into the mask; returns how many
+        int Draw(Component target, MaterialPropertyBlock props)
+        {
+            if (target == null) return 0;
+            int n = 0;
             if (target is UtilityPlaneInteractable zone)
             {
-                Transform parent = zone.transform.parent;
-                Renderer r = parent != null ? parent.GetComponent<Renderer>() : null;
-                if (r != null && r.enabled && Max(r.bounds.size) <= maxMeshSize)
-                {
-                    Hull(r, color, props);
-                    return false;
-                }
-                var col = zone.GetComponent<BoxCollider>();
-                if (col == null) return false;
-                Box(col, color, ref box);
-                return true;
+                foreach (var r in Parts(zone))
+                    if (r != null && r.enabled && r.gameObject.activeInHierarchy) n += Mask(r, props);
+                return n;
             }
             foreach (var r in target.GetComponentsInChildren<MeshRenderer>())
-                if (r.enabled && r.gameObject.activeInHierarchy && Outlined(r)) Hull(r, color, props);
-            return false;
+                if (r.enabled && r.gameObject.activeInHierarchy && Outlined(r)) n += Mask(r, props);
+            return n;
+        }
+
+        int Mask(Renderer r, MaterialPropertyBlock props)
+        {
+            var mf = r.GetComponent<MeshFilter>();
+            Mesh mesh = mf != null ? mf.sharedMesh : null;
+            if (mesh == null) return 0;
+            for (int i = 0; i < mesh.subMeshCount; i++) _cmd.DrawMesh(mesh, r.localToWorldMatrix, _maskMat, i, 0, props);
+            return 1;
+        }
+
+        MeshRenderer[] Parts(UtilityPlaneInteractable zone)
+        {
+            if (_parts.TryGetValue(zone, out MeshRenderer[] parts)) return parts;
+            if (_parts.Count > 512) _parts.Clear();                       // zones of unloaded scenes
+            _found.Clear();
+            Transform parent = zone.transform.parent;
+            MeshRenderer own = parent != null ? parent.GetComponent<MeshRenderer>() : null;
+            if (own != null && Max(own.bounds.size) <= maxMeshSize)
+                _found.Add(own);
+            else if (parent != null && zone.TryGetComponent(out Collider col))
+            {
+                Bounds b = col.bounds;
+                foreach (var r in parent.GetComponentsInChildren<MeshRenderer>())
+                    if (Outlined(r) && Max(r.bounds.size) <= maxPartSize && r.bounds.Intersects(b)) _found.Add(r);
+            }
+            parts = _found.ToArray();
+            _parts[zone] = parts;
+            return parts;
         }
 
         /// <summary>
@@ -94,65 +171,6 @@ namespace Snow.Interaction
             string n = r.name;
             return !n.EndsWith("_LOD1", System.StringComparison.Ordinal) && !n.EndsWith("_LOD2", System.StringComparison.Ordinal)
                 && !n.EndsWith("_Shadow", System.StringComparison.Ordinal) && !UtilityPlaneRig.IsEffectRenderer(r);
-        }
-
-        void Hull(Renderer r, Color color, MaterialPropertyBlock props)
-        {
-            if (outlineMaterial == null) return;
-            var mf = r.GetComponent<MeshFilter>();
-            Mesh mesh = mf != null ? mf.sharedMesh : null;
-            if (mesh == null) return;
-            props.SetColor(ColorId, color);
-            props.SetFloat(WidthId, FrameWidth());
-            props.SetVector(CenterId, mesh.bounds.center);
-            var rp = new RenderParams(outlineMaterial)
-            {
-                matProps = props,
-                layer = r.gameObject.layer,
-                shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off,
-                receiveShadows = false,
-            };
-            for (int i = 0; i < mesh.subMeshCount; i++) Graphics.RenderMesh(rp, mesh, i, r.localToWorldMatrix);
-        }
-
-        void Box(BoxCollider col, Color color, ref LineRenderer box)
-        {
-            if (box == null)
-            {
-                var go = new GameObject("HoverBox") { hideFlags = HideFlags.DontSave };
-                box = go.AddComponent<LineRenderer>();
-                box.useWorldSpace = true;
-                box.positionCount = _path.Length;
-                box.sharedMaterial = lineMaterial;
-                box.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-                box.receiveShadows = false;
-                box.numCornerVertices = 0;
-            }
-            box.startWidth = box.endWidth = lineWidth;
-            box.startColor = box.endColor = color;
-            Transform t = col.transform;
-            Vector3 c = col.center, e = col.size * 0.5f;
-            int k = 0;
-            for (int y = -1; y <= 1; y += 2)
-            {
-                _corners[k++] = t.TransformPoint(c + new Vector3(-e.x, y * e.y, -e.z));
-                _corners[k++] = t.TransformPoint(c + new Vector3(e.x, y * e.y, -e.z));
-                _corners[k++] = t.TransformPoint(c + new Vector3(e.x, y * e.y, e.z));
-                _corners[k++] = t.TransformPoint(c + new Vector3(-e.x, y * e.y, e.z));
-            }
-            for (int i = 0; i < _path.Length; i++) _path[i] = _corners[BoxPath[i]];
-            box.SetPositions(_path);
-        }
-
-        /// <summary>
-        /// Outline width in the camera's own pixels. A camera that renders into a RenderTexture (the PS1 frame of the
-        /// location levels, 240 lines) has pixels ~4.5 screen pixels high, so 3 px would be ~13 px on screen: 1 px there
-        /// (TEMPORARY, from a screenshot).
-        /// </summary>
-        float FrameWidth()
-        {
-            Camera cam = sensor != null && sensor.view != null ? sensor.view.cam : null;
-            return cam != null && cam.targetTexture != null ? 1f : width;
         }
 
         static float Max(Vector3 v) => Mathf.Max(v.x, Mathf.Max(v.y, v.z));

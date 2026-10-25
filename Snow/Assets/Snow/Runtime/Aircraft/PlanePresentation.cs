@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Snow.Audio;
 using Snow.Interaction;
 using Snow.Player;
 using Snow.Seats;
@@ -87,7 +88,7 @@ namespace Snow.Aircraft
             if (cabinAudio != null && !Application.isBatchMode)
             {
                 _horn = cabinAudio.gameObject.AddComponent<AudioSource>();
-                _horn.clip = HornClip();
+                _horn.clip = SnowAudio.Clip("plane.stall.horn");
                 _horn.loop = true;
                 _horn.spatialBlend = 1f;
                 _horn.minDistance = 1f;
@@ -419,22 +420,6 @@ namespace Snow.Aircraft
             sb.Append("F — использовать то, на что смотрите;  держать F — выйти (дверь должна быть открыта)\n");
             sb.Append($"{Key("Seat/Reveal")} — показать всё, с чем можно взаимодействовать;  {Key("Seat/Zoom")} — приблизить;  ~ — телеметрия (дев-пульт)");
             return sb.ToString();
-        }
-
-        // a 2.4 kHz tone pulsing 8 times a second
-        static AudioClip HornClip()
-        {
-            const int rate = 22050;
-            var data = new float[rate / 2];
-            for (int i = 0; i < data.Length; i++)
-            {
-                float time = (float)i / rate;
-                float gate = Mathf.Repeat(time * 8f, 1f) < 0.6f ? 1f : 0f;
-                data[i] = 0.5f * gate * Mathf.Sin(2f * Mathf.PI * 2400f * time);
-            }
-            var clip = AudioClip.Create("StallHorn", data.Length, 1, rate, false);
-            clip.SetData(data, 0);
-            return clip;
         }
 
         void OnGUI()

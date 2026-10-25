@@ -1,0 +1,79 @@
+{
+ "note": "Terrain levelling strips for Unity (game frame = Forest world, tile 1_1). For every heightmap sample at world (x, z): A, B = the line's ends, s = the distance along A->B from A, t = the distance across; w_across = 1 for t <= half_width, smoothstep((half_width + falloff - t) / falloff) beyond (0 past half_width + falloff); w_along = 1 for 0 <= s <= |AB|, 1 + s / ramp_start for s < 0, 1 - (s - |AB|) / ramp_end beyond B (linear, clamped 0..1); w = w_across * w_along; h = h + w * (height - h). Then the U7 pieces stand on it (u7_layout_v2.json); trees and rocks in the strips follow the ground (objects.in_strips)",
+ "strips": [
+  {
+   "name": "gate",
+   "line": [
+    [
+     335.6802,
+     -312.2657
+    ],
+    [
+     298.2435,
+     -307.0043
+    ]
+   ],
+   "height": 16.018454,
+   "half_width": 2.0,
+   "falloff": 3.0,
+   "ramp_start": 7.5,
+   "ramp_end": 7.5,
+   "local": [
+    -22.666,
+    15.138
+   ],
+   "local_frame": "gate"
+  },
+  {
+   "name": "barrier",
+   "line": [
+    [
+     152.0966,
+     -51.2899
+    ],
+    [
+     132.0456,
+     -82.5642
+    ]
+   ],
+   "height": 9.27351,
+   "half_width": 2.0,
+   "falloff": 3.0,
+   "ramp_start": 2.5,
+   "ramp_end": 12.5,
+   "local": [
+    -15.9,
+    21.25
+   ],
+   "local_frame": "barrier"
+  }
+ ],
+ "objects": {
+  "in_strips": {
+   "gate": {
+    "trees": 16,
+    "trees_max_dz": 0.276,
+    "tree_models": [
+     "Weeds"
+    ],
+    "rocks": 0,
+    "rock_models": [],
+    "rocks_max_dz": 0.0
+   },
+   "barrier": {
+    "trees": 15,
+    "trees_max_dz": 0.44,
+    "tree_models": [
+     "Dead",
+     "Fern",
+     "Spruce",
+     "SpruceHC",
+     "Weeds"
+    ],
+    "rocks": 0,
+    "rock_models": [],
+    "rocks_max_dz": 0.0
+   }
+  }
+ }
+}

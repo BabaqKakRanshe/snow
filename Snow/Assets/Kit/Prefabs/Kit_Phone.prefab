@@ -1,0 +1,252 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &627457777645559559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8107882524222364243}
+  m_Layer: 0
+  m_Name: Audio_PhoneEar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8107882524222364243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627457777645559559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.095, y: -0.019999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4007111853294674046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &975990882027103275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6683925158844746730}
+  m_Layer: 0
+  m_Name: Hand_Phone_Receiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6683925158844746730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975990882027103275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.030000001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4007111853294674046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7577244607680453463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8555597018993919790}
+  m_Layer: 0
+  m_Name: Audio_Phone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8555597018993919790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7577244607680453463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1640119569383935172}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1245343645225626415
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      propertyPath: m_Name
+      value: Kit_Phone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8555597018993919790}
+    - targetCorrespondingSourceObject: {fileID: -6425432095252526255, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6683925158844746730}
+    - targetCorrespondingSourceObject: {fileID: -6425432095252526255, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8107882524222364243}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4867837109780693325}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4149164832912259259}
+    - targetCorrespondingSourceObject: {fileID: 8823168575254069075, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6253588198128778952}
+  m_SourcePrefab: {fileID: 100100000, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+--- !u!4 &1640119569383935172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+  m_PrefabInstance: {fileID: 1245343645225626415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2128285778113697406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+  m_PrefabInstance: {fileID: 1245343645225626415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4867837109780693325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128285778113697406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d062012980dded4d92068998723a9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: Kit_Phone
+  swaps: []
+  lights: []
+  glows: []
+  spin: {fileID: 0}
+  spinAxis: {x: 0, y: 1, z: 0}
+  rpm: 0
+  spinning: 0
+--- !u!65 &4149164832912259259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128285778113697406}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22, y: 0.104, z: 0.2}
+  m_Center: {x: 0, y: 0.052, z: 0.005}
+--- !u!4 &4007111853294674046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6425432095252526255, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+  m_PrefabInstance: {fileID: 1245343645225626415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7726602872462169212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8823168575254069075, guid: de4aaa279f43bb74e8391572f4a079e4, type: 3}
+  m_PrefabInstance: {fileID: 1245343645225626415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6253588198128778952
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726602872462169212}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25, y: 0.052, z: 0.044}
+  m_Center: {x: 0, y: -0.012, z: 0}

@@ -1,0 +1,182 @@
+{
+ "note": "kit lamps that are real lights (the others are lit / off materials only). position / forward / up in the item frame; *Unity in the prefab. group power = only with the power.",
+ "lights": [
+  {
+   "socket": "LIGHT_Beacon",
+   "item": "Kit_Beacon",
+   "lens": "Lens_Beacon",
+   "glow": "Glow_Beacon",
+   "type": "beacon",
+   "unityLight": "Spot",
+   "spotAngle": 30,
+   "position": [
+    0.0,
+    0.0,
+    0.11
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "positionUnity": [
+    0.0,
+    0.11,
+    0.0
+   ],
+   "forwardUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "upUnity": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "intensityURP": 1.2,
+   "peakCandela": 45,
+   "kelvin": 1900,
+   "filterLinear": [
+    1.0,
+    0.62,
+    0.18
+   ],
+   "colorLinear": [
+    1.0,
+    0.1437,
+    0.0
+   ],
+   "range": 14.0,
+   "group": "power",
+   "shadows": false,
+   "rotateRPM": 80,
+   "ies": "IES/beacon.ies",
+   "desc": "orange rotating beacon: a narrow beam (spot 30, range 14) turned round the vertical at 80 rpm while the barrier / the gate moves; the dome lit with it",
+   "startsOn": false
+  },
+  {
+   "socket": "LIGHT_Flood",
+   "item": "Kit_Mast_Flood",
+   "lens": "Lens_Flood",
+   "glow": "Glow_Flood",
+   "type": "flood",
+   "unityLight": "Spot",
+   "spotAngle": 110,
+   "position": [
+    0.0,
+    -0.5306,
+    -0.09
+   ],
+   "forward": [
+    0.0,
+    -0.866,
+    -0.5
+   ],
+   "up": [
+    0.0,
+    -0.5,
+    0.866
+   ],
+   "positionUnity": [
+    0.0,
+    -0.09,
+    0.5306
+   ],
+   "forwardUnity": [
+    0.0,
+    -0.5,
+    0.866
+   ],
+   "upUnity": [
+    0.0,
+    0.866,
+    0.5
+   ],
+   "intensityURP": 9.0,
+   "peakCandela": 700,
+   "kelvin": 3000,
+   "filterLinear": [
+    1.0,
+    0.97,
+    0.9
+   ],
+   "colorLinear": [
+    1.0,
+    0.4642,
+    0.1389
+   ],
+   "range": 24.0,
+   "group": "power",
+   "shadows": false,
+   "rotateRPM": 0,
+   "ies": "IES/flood.ies",
+   "desc": "halogen floodlight 500 W on a mast: a wide beam (spot 110, range 24) tipped 30 down; lit with the power",
+   "startsOn": false
+  },
+  {
+   "socket": "LIGHT_Street",
+   "item": "Kit_Mast_Lamp",
+   "lens": "Lens_Street",
+   "glow": "Glow_Street",
+   "type": "street",
+   "unityLight": "Spot",
+   "spotAngle": 160,
+   "position": [
+    0.0,
+    -1.4,
+    0.4
+   ],
+   "forward": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "up": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "positionUnity": [
+    0.0,
+    0.4,
+    1.4
+   ],
+   "forwardUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "upUnity": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "intensityURP": 4.5,
+   "peakCandela": 320,
+   "kelvin": 4200,
+   "filterLinear": [
+    0.86,
+    0.96,
+    1.0
+   ],
+   "colorLinear": [
+    0.86,
+    0.6566,
+    0.4269
+   ],
+   "range": 18.0,
+   "group": "power",
+   "shadows": false,
+   "rotateRPM": 0,
+   "ies": "IES/street.ies",
+   "desc": "street lamp on a mast (mercury 125 W, bluish white): a broad cone down (spot 160, range 18); lit with the power",
+   "startsOn": false
+  }
+ ]
+}

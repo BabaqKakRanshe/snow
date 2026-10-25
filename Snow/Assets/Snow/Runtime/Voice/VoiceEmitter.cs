@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Snow.Audio;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -68,7 +69,7 @@ namespace Snow.Voice
             _static = new GameObject("Static").AddComponent<AudioSource>();
             _static.transform.SetParent(transform, false);
             Setup(_static);
-            _static.clip = VoiceClips.Static;
+            _static.clip = SnowAudio.Clip("radio.static");
             _static.loop = true;
             _static.volume = 0f;
             Channel(VoiceNet.Channel.Radio);
@@ -83,6 +84,12 @@ namespace Snow.Voice
             s.maxDistance = RadioRange;
             s.dopplerLevel = 0f;
             s.priority = 32;                                         // speech over effects (0 is the highest)
+        }
+
+        void PlayOnce(string cue, float volume)
+        {
+            AudioClip clip = SnowAudio.Clip(cue);
+            if (clip != null) _voice.PlayOneShot(clip, volume);
         }
 
         void Channel(VoiceNet.Channel c)
@@ -116,7 +123,7 @@ namespace Snow.Voice
             double now = AudioSettings.dspTime;
             if (_channel == VoiceNet.Channel.Radio)
             {
-                _voice.PlayOneShot(VoiceClips.Click, 0.8f);
+                PlayOnce("radio.click", 0.8f);
                 _staticTarget = 0.18f;
                 if (!_static.isPlaying) _static.Play();
                 _nextAt = now + 0.12;
@@ -142,7 +149,7 @@ namespace Snow.Voice
             Current = null;
             if (_channel == VoiceNet.Channel.Radio)
             {
-                _voice.PlayOneShot(VoiceClips.Squelch, 0.7f);
+                PlayOnce("radio.squelch", 0.7f);
                 _staticTarget = 0f;
             }
         }

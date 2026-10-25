@@ -109,8 +109,6 @@ namespace Snow.EditorTools
             sensor.view = view;
             var outline = root.AddComponent<HoverOutline>();
             outline.sensor = sensor;
-            outline.outlineMaterial = EnsureMaterial("M_HoverOutline", "Snow/Outline");
-            outline.lineMaterial = EnsureMaterial("M_HoverLine", "Snow/LineColor");
             var overlay = root.AddComponent<InteractionOverlay>();
             overlay.sensor = sensor;
             overlay.controller = controller;

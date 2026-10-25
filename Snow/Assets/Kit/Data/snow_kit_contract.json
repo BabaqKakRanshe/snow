@@ -1,0 +1,6258 @@
+{
+ "parts": {
+  "Kit_Camera_Head_Glass": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.2008,
+    0.0805
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Camera_Head",
+   "states": [],
+   "note": "the front glass (panel atlas)",
+   "object": "Kit_Camera_Head_Glass",
+   "pivotUnity": [
+    0.0,
+    0.0805,
+    0.2008
+   ],
+   "item": "Kit_Camera_Head",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Lens_CameraLED": {
+   "kind": "static",
+   "pivot": [
+    0.032,
+    -0.2012,
+    0.05
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Camera_Head",
+   "states": [],
+   "note": "the red LED under the glass: M_Kit_Lamp_Red with the power, M_Kit_Lamp_Red_Off without",
+   "object": "Lens_CameraLED",
+   "pivotUnity": [
+    -0.032,
+    0.05,
+    0.2012
+   ],
+   "item": "Kit_Camera_Head",
+   "material": [
+    "M_Kit_Lamp_Red"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Red",
+    "off": "M_Kit_Lamp_Red_Off",
+    "when": "lit while the building has power"
+   }
+  },
+  "Kit_Camera_Head": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "camera head; origin = the swivel point under the housing (it goes on the bracket's Mount_Head); looks along -y",
+   "object": "Kit_Camera_Head",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Camera_Head",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Camera_BracketWall": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "wall bracket of the camera; origin = the middle of the wall plate on the wall; the arm stands out to -y",
+   "object": "Kit_Camera_BracketWall",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Camera_BracketWall",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Camera_BracketPole": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "pole bracket of the camera: two straps for a pole of 0.20-0.26 m; origin = on the pole's axis at the upper strap; the arm stands out to -y; the camera's cable runs along the arm into the pole",
+   "object": "Kit_Camera_BracketPole",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Camera_BracketPole",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Monitor_Label": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.19,
+    0.042
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Monitor_CRT",
+   "states": [],
+   "note": "CCTV MONITOR / POWER / BRIGHT / CONTRAST strip under the screen (panel atlas)",
+   "object": "Kit_Monitor_Label",
+   "pivotUnity": [
+    0.0,
+    0.042,
+    0.19
+   ],
+   "item": "Kit_Monitor_CRT",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Lens_MonitorLED": {
+   "kind": "static",
+   "pivot": [
+    0.1185,
+    -0.1908,
+    0.067
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Monitor_CRT",
+   "states": [],
+   "note": "power LED: M_Kit_Lamp_Green with the power, _Off without",
+   "object": "Lens_MonitorLED",
+   "pivotUnity": [
+    -0.1185,
+    0.067,
+    0.1908
+   ],
+   "item": "Kit_Monitor_CRT",
+   "material": [
+    "M_Kit_Lamp_Green"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Green",
+    "off": "M_Kit_Lamp_Green_Off",
+    "when": "lit while the building has power"
+   }
+  },
+  "Kit_Monitor_Screen": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.18,
+    0.175
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Monitor_CRT",
+   "states": [],
+   "note": "the CRT glass: M_Kit_Screen_Off without the power; with it M_Kit_Screen_On, where Unity puts the camera picture (render texture); UV 0..1 over the glass, u to the right, v up",
+   "object": "Kit_Monitor_Screen",
+   "pivotUnity": [
+    0.0,
+    0.175,
+    0.18
+   ],
+   "item": "Kit_Monitor_CRT",
+   "material": [
+    "M_Kit_Screen_Off"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Screen_On",
+    "off": "M_Kit_Screen_Off",
+    "when": "M_Kit_Screen_On (Unity puts the camera picture on it) while the building has power"
+   }
+  },
+  "Kit_Monitor_CRT": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "14-inch CCTV monitor (metal case); origin = the middle of the underside; the screen faces -y",
+   "object": "Kit_Monitor_CRT",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Monitor_CRT",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Console_2_Strip": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0769,
+    0.1025
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Console_2",
+   "states": [],
+   "note": "TORSTEUERUNG / GATE CONTROL strip (panel atlas)",
+   "object": "Kit_Console_2_Strip",
+   "pivotUnity": [
+    0.0,
+    0.1025,
+    -0.0769
+   ],
+   "item": "Kit_Console_2",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Console_2": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "desk console with 2 button places on the sloped aluminium panel; origin = the middle of the underside; the operator sits on the -y side",
+   "object": "Kit_Console_2",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Console_2",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Console_4_Strip": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0769,
+    0.1025
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Console_4",
+   "states": [],
+   "note": "TORSTEUERUNG / GATE CONTROL strip (panel atlas)",
+   "object": "Kit_Console_4_Strip",
+   "pivotUnity": [
+    0.0,
+    0.1025,
+    -0.0769
+   ],
+   "item": "Kit_Console_4",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Console_4": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "desk console with 4 button places on the sloped aluminium panel; origin = the middle of the underside; the operator sits on the -y side",
+   "object": "Kit_Console_4",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Console_4",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "IX_ConsoleButton": {
+   "kind": "slide",
+   "pivot": [
+    0.0,
+    0.0,
+    0.002
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "range": [
+    0,
+    0.005
+   ],
+   "unit": "m",
+   "rest": 0.0,
+   "parent": "Kit_Console_Button",
+   "states": [
+    "up",
+    "pressed"
+   ],
+   "note": "the push-button cap: pressed in 5 mm (along -z of the button, into the panel), springs back",
+   "object": "IX_ConsoleButton",
+   "pivotUnity": [
+    0.0,
+    0.002,
+    0.0
+   ],
+   "axisUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Console_Button",
+   "material": [
+    "M_Kit_Kit"
+   ],
+   "box": {
+    "center": [
+     0.0,
+     0.0,
+     0.0069
+    ],
+    "size": [
+     0.029,
+     0.0283,
+     0.0138
+    ]
+   }
+  },
+  "Lens_ConsoleButton": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.045,
+    0.004
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Console_Button",
+   "states": [],
+   "note": "the lamp over the button: M_Kit_Lamp_Amber lit / _Off (Unity: lit while its gate / barrier moves or is open)",
+   "object": "Lens_ConsoleButton",
+   "pivotUnity": [
+    0.0,
+    0.004,
+    -0.045
+   ],
+   "item": "Kit_Console_Button",
+   "material": [
+    "M_Kit_Lamp_Amber"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Amber",
+    "off": "M_Kit_Lamp_Amber_Off",
+    "when": "lit with the power while its barrier / gate is open (the building decides)"
+   }
+  },
+  "Kit_Console_Button": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "console push-button with its lamp; origin = the button's middle on the panel face, +z out of the panel, +y up the panel (the lamp side)",
+   "object": "Kit_Console_Button",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Console_Button",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Console_Label_Schranke": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "engraved label SCHRANKE over BARRIER, white on black; origin = its middle on the panel face, +z out, +y up",
+   "object": "Kit_Console_Label_Schranke",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Console_Label_Schranke",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Console_Label_Tor": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "engraved label TOR over GATE; origin = its middle on the panel face, +z out, +y up",
+   "object": "Kit_Console_Label_Tor",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Console_Label_Tor",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Console_Label_Licht": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "engraved label LICHT over LIGHTS; origin = its middle on the panel face, +z out, +y up",
+   "object": "Kit_Console_Label_Licht",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Console_Label_Licht",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Console_Label_Blank": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "engraved label blank black label (worn); origin = its middle on the panel face, +z out, +y up",
+   "object": "Kit_Console_Label_Blank",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Console_Label_Blank",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Phone_Dial": {
+   "kind": "hinge",
+   "pivot": [
+    0.0,
+    -0.0625,
+    0.077
+   ],
+   "axis": [
+    0.0,
+    -0.5362,
+    0.8441
+   ],
+   "range": [
+    0,
+    300
+   ],
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Phone",
+   "states": [
+    "rest",
+    "wound"
+   ],
+   "note": "the finger wheel: turns up to 300 while dialling (+, clockwise seen from the user) and runs back",
+   "object": "Phone_Dial",
+   "pivotUnity": [
+    0.0,
+    0.077,
+    0.0625
+   ],
+   "axisUnity": [
+    0.0,
+    0.8441,
+    0.5362
+   ],
+   "item": "Kit_Phone",
+   "material": [
+    "M_Kit_Panel"
+   ],
+   "box": {
+    "center": [
+     0.0,
+     -0.0024,
+     0.0038
+    ],
+    "size": [
+     0.088,
+     0.0731,
+     0.0465
+    ]
+   }
+  },
+  "Phone_Receiver": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.04,
+    0.138
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Phone",
+   "states": [],
+   "note": "the receiver on the cradle: lifted, carried, put back (its own object); the curly cord stays with the body",
+   "object": "Phone_Receiver",
+   "pivotUnity": [
+    0.0,
+    0.138,
+    -0.04
+   ],
+   "item": "Kit_Phone",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Phone": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "rotary desk phone of the 70s (FeTAp 611 shape, orange); origin = the middle of the underside; the dial faces the user (-y)",
+   "object": "Kit_Phone",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Phone",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Cabinet_SwitchPlate": {
+   "kind": "static",
+   "pivot": [
+    0.17,
+    -0.04,
+    0.22
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Cabinet_Power",
+   "states": [],
+   "note": "the switch's dial plate: NETZ (0) left, BATTERIE (90) right (panel atlas)",
+   "object": "Kit_Cabinet_SwitchPlate",
+   "pivotUnity": [
+    -0.17,
+    0.22,
+    0.04
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "IX_CabinetSwitch": {
+   "kind": "hinge",
+   "pivot": [
+    0.17,
+    -0.041,
+    0.22
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "range": [
+    0,
+    90
+   ],
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Cabinet_Power",
+   "states": [
+    "netz",
+    "batterie"
+   ],
+   "note": "change-over switch: 0 = NETZ (the line, dead), 90 = BATTERIE (the battery on the shelf); the lever turns clockwise seen from the front",
+   "object": "IX_CabinetSwitch",
+   "pivotUnity": [
+    -0.17,
+    0.22,
+    0.041
+   ],
+   "axisUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Kit"
+   ],
+   "box": {
+    "center": [
+     -0.015,
+     -0.0156,
+     0.015
+    ],
+    "size": [
+     0.062,
+     0.0312,
+     0.062
+    ]
+   }
+  },
+  "IX_CabinetClamp_Pos": {
+   "kind": "slide",
+   "pivot": [
+    -0.105,
+    -0.175,
+    -0.113
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": [
+    0,
+    0.06
+   ],
+   "unit": "m",
+   "rest": 0.06,
+   "parent": "Kit_Cabinet_Power",
+   "states": [
+    "on",
+    "off"
+   ],
+   "note": "battery clamp + (red): 0 = on the battery post, 0.06 = lifted off (the start: no battery); the cable moves with it",
+   "object": "IX_CabinetClamp_Pos",
+   "pivotUnity": [
+    0.105,
+    -0.113,
+    0.175
+   ],
+   "axisUnity": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Kit"
+   ],
+   "box": {
+    "center": [
+     0.0196,
+     0.0697,
+     0.0468
+    ],
+    "size": [
+     0.0793,
+     0.1995,
+     0.1337
+    ]
+   }
+  },
+  "IX_CabinetClamp_Neg": {
+   "kind": "slide",
+   "pivot": [
+    0.105,
+    -0.175,
+    -0.113
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": [
+    0,
+    0.06
+   ],
+   "unit": "m",
+   "rest": 0.06,
+   "parent": "Kit_Cabinet_Power",
+   "states": [
+    "on",
+    "off"
+   ],
+   "note": "battery clamp - (black): 0 = on the battery post, 0.06 = lifted off (the start: no battery); the cable moves with it",
+   "object": "IX_CabinetClamp_Neg",
+   "pivotUnity": [
+    -0.105,
+    -0.113,
+    0.175
+   ],
+   "axisUnity": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Kit"
+   ],
+   "box": {
+    "center": [
+     -0.0196,
+     0.0697,
+     0.0468
+    ],
+    "size": [
+     0.0793,
+     0.1995,
+     0.1337
+    ]
+   }
+  },
+  "Kit_Cabinet_Sign": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.302,
+    0.2
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "IX_CabinetDoor",
+   "states": [],
+   "note": "NOTSTROM 12V / EMERGENCY 12V with the lightning (panel atlas)",
+   "object": "Kit_Cabinet_Sign",
+   "pivotUnity": [
+    0.0,
+    0.2,
+    0.302
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Lens_CabinetPower": {
+   "kind": "static",
+   "pivot": [
+    -0.17,
+    -0.308,
+    0.02
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "IX_CabinetDoor",
+   "states": [],
+   "note": "the \"power on\" lamp on the door: M_Kit_Lamp_Green when the booth has power (battery, both clamps on, the switch at BATTERIE), _Off otherwise",
+   "object": "Lens_CabinetPower",
+   "pivotUnity": [
+    0.17,
+    0.02,
+    0.308
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Lamp_Green"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Green",
+    "off": "M_Kit_Lamp_Green_Off",
+    "when": "lit while the cabinet gives power (battery in, both clamps on, the switch at BATTERIE)"
+   }
+  },
+  "Kit_Cabinet_Card": {
+   "kind": "static",
+   "pivot": [
+    0.04,
+    -0.282,
+    0.16
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "IX_CabinetDoor",
+   "states": [],
+   "note": "the circuit card inside the door (panel atlas)",
+   "object": "Kit_Cabinet_Card",
+   "pivotUnity": [
+    -0.04,
+    0.16,
+    0.282
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "IX_CabinetDoor": {
+   "kind": "hinge",
+   "pivot": [
+    -0.308,
+    -0.296,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "range": [
+    0,
+    110
+   ],
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Cabinet_Power",
+   "states": [
+    "shut",
+    "open"
+   ],
+   "note": "cabinet door: hinged on the left (seen from the front), opens outward (+) to 110; quarter-turn handle, not locked",
+   "object": "IX_CabinetDoor",
+   "pivotUnity": [
+    0.308,
+    0.0,
+    0.296
+   ],
+   "axisUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Kit"
+   ],
+   "box": {
+    "center": [
+     0.3,
+     -0.014,
+     0.0
+    ],
+    "size": [
+     0.616,
+     0.064,
+     0.8
+    ]
+   }
+  },
+  "Kit_Cabinet_Power": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "wall distribution cabinet 0.60 x 0.80 x 0.28 m (light grey); origin = the middle of the back on the wall; inside: the battery shelf, the clamps, the change-over switch, breakers",
+   "object": "Kit_Cabinet_Power",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_JunctionBox_Sticker": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.088,
+    0.02
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_JunctionBox",
+   "states": [],
+   "note": "the lightning sticker (panel atlas)",
+   "object": "Kit_JunctionBox_Sticker",
+   "pivotUnity": [
+    0.0,
+    0.02,
+    0.088
+   ],
+   "item": "Kit_JunctionBox",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_JunctionBox": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "small junction box 0.16 x 0.16 x 0.09 m (grey plastic, lid with four screws); origin = the middle of the back on the wall",
+   "object": "Kit_JunctionBox",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_JunctionBox",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Conduit_Straight": {
+   "kind": "stretch",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "range": [
+    0.05,
+    6.0
+   ],
+   "unit": "m",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "straight conduit (galvanised, 32 mm), 1 m along +x from the origin on its axis; scale x = the length in metres (0.05-6); ends open (an elbow, entry or the next piece covers them)",
+   "object": "Kit_Conduit_Straight",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axisUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Conduit_Straight",
+   "material": [
+    "M_Kit_Kit"
+   ],
+   "box": {
+    "center": [
+     0.5,
+     0.0,
+     0.0
+    ],
+    "size": [
+     1.0,
+     0.032,
+     0.032
+    ]
+   }
+  },
+  "Kit_Conduit_Elbow": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "90-degree elbow (bend radius 0.10 m) with sleeves: in along +x at the origin (on the axis, the sleeve reaches back 0.02), out along +z at (0.10, 0, 0.12)",
+   "object": "Kit_Conduit_Elbow",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Conduit_Elbow",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Conduit_Clamp": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "saddle clamp: origin on the conduit's axis (along x), its feet on the surface at z -0.016 (turn -z into the wall or the ground); every ~1 m",
+   "object": "Kit_Conduit_Clamp",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Conduit_Clamp",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Conduit_Entry": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "gland where a conduit enters a box or cabinet: origin on the box face, the conduit leaves along +x; the conduit starts at x 0.04",
+   "object": "Kit_Conduit_Entry",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Conduit_Entry",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Pole_Plate": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.135,
+    2.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Pole",
+   "states": [],
+   "note": "the pole's number plate (panel atlas)",
+   "object": "Kit_Pole_Plate",
+   "pivotUnity": [
+    0.0,
+    2.0,
+    0.135
+   ],
+   "item": "Kit_Pole",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Pole": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "wooden line pole (creosoted spruce, 8.5 m above the ground), galvanised crossarm across x on its -y face, three pin insulators for the line; origin = the pole's axis at the ground",
+   "object": "Kit_Pole",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Pole",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Pole_Trafo_Plate": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.135,
+    2.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Pole_Trafo",
+   "states": [],
+   "note": "the pole's number plate (panel atlas)",
+   "object": "Kit_Pole_Trafo_Plate",
+   "pivotUnity": [
+    0.0,
+    2.0,
+    0.135
+   ],
+   "item": "Kit_Pole_Trafo",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Pole_Trafo_Sign": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.135,
+    2.65
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Pole_Trafo",
+   "states": [],
+   "note": "LEBENSGEFAHR / DANGER plate (panel atlas)",
+   "object": "Kit_Pole_Trafo_Sign",
+   "pivotUnity": [
+    0.0,
+    2.65,
+    0.135
+   ],
+   "item": "Kit_Pole_Trafo",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Pole_Trafo_Rating": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.8,
+    5.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Pole_Trafo",
+   "states": [],
+   "note": "rating plate on the tank",
+   "object": "Kit_Pole_Trafo_Rating",
+   "pivotUnity": [
+    0.0,
+    5.0,
+    0.8
+   ],
+   "item": "Kit_Pole_Trafo",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Pole_Trafo": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "wooden pole with the pole-mounted (\"barrel\") transformer 20 / 0.4 kV: the medium-voltage line on the top crossarm (three insulators), the low-voltage side on the small arm to +x (four spools) for the drop to a building; origin = the pole's axis at the ground",
+   "object": "Kit_Pole_Trafo",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_RoofStand": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "roof stand (\"Dachständer\"): galvanised pipe 60 mm, 2.2 m, 0.12 m off the wall on two clamps, a crossarm with four spool insulators, the weather head; origin = on the wall at the pipe's bottom end; it goes up through the eave (the building adds the flashing)",
+   "object": "Kit_RoofStand",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_RoofStand",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Wire_Bare": {
+   "kind": "stretch",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "range": [
+    0.5,
+    1.5
+   ],
+   "unit": "x",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "one overhead wire: bare aluminium line wire (M_Kit_WireBare), a 40 m reference span from the origin along +x, sagging 1.60 m in the middle (the K9 rule); scale x = span / 40 (spans 20-60 m), turned so that its end lands on the other Wire_ point",
+   "sag": 1.6,
+   "span": 40.0,
+   "object": "Kit_Wire_Bare",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axisUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Wire_Bare",
+   "material": [
+    "M_Kit_WireBare"
+   ],
+   "box": {
+    "center": [
+     20.0,
+     0.0,
+     -0.7985
+    ],
+    "size": [
+     40.0011,
+     0.0086,
+     1.6059
+    ]
+   }
+  },
+  "Kit_Wire_Drop": {
+   "kind": "stretch",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "range": [
+    0.3,
+    2.5
+   ],
+   "unit": "x",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "one overhead wire: black twisted service cable (M_Kit_Wire), a 10 m reference span from the origin along +x, sagging 0.10 m in the middle (the K9 rule); scale x = span / 10 (spans 3-25 m), turned so that its end lands on the other Wire_ point",
+   "sag": 0.1,
+   "span": 10.0,
+   "object": "Kit_Wire_Drop",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axisUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Wire_Drop",
+   "material": [
+    "M_Kit_Wire"
+   ],
+   "box": {
+    "center": [
+     5.0,
+     0.0,
+     -0.0483
+    ],
+    "size": [
+     10.0004,
+     0.0133,
+     0.1106
+    ]
+   }
+  },
+  "Kit_DoorLock": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "electric rim lock (box lock) on the door leaf: origin = the middle of its back on the leaf; the bolt side is +x (toward the strike)",
+   "object": "Kit_DoorLock",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_DoorLock",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Lens_DoorLock": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.034,
+    0.058
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_DoorLock_Strike",
+   "states": [],
+   "note": "lock lamp: M_Kit_Lamp_Green when the lock has power (released, the door opens), _Off without (locked)",
+   "object": "Lens_DoorLock",
+   "pivotUnity": [
+    0.0,
+    0.058,
+    0.034
+   ],
+   "item": "Kit_DoorLock_Strike",
+   "material": [
+    "M_Kit_Lamp_Green"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Green",
+    "off": "M_Kit_Lamp_Green_Off",
+    "when": "lit (green: released) while the lock has power"
+   }
+  },
+  "Kit_DoorLock_Strike": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "electric strike (keeper) on the frame with its lamp; origin = the middle of its back on the frame",
+   "object": "Kit_DoorLock_Strike",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_DoorLock_Strike",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Lens_Beacon": {
+   "kind": "spin",
+   "pivot": [
+    0.0,
+    0.0,
+    0.11
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Beacon",
+   "states": [],
+   "note": "the orange dome: M_Kit_Lamp_Beacon lit / M_Kit_Lamp_Beacon_Off; while it is lit Unity turns the dome about z with its light (80 rpm): the mirror band in the texture sweeps round",
+   "object": "Lens_Beacon",
+   "pivotUnity": [
+    0.0,
+    0.11,
+    0.0
+   ],
+   "axisUnity": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Beacon",
+   "material": [
+    "M_Kit_Lamp_Beacon"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Beacon",
+    "off": "M_Kit_Lamp_Beacon_Off",
+    "when": "lit and turning (with LIGHT_Beacon) while its barrier moves, with the power"
+   }
+  },
+  "Glow_Beacon": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.11
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Beacon",
+   "states": [],
+   "note": "halo cards (additive, unlit): shown while it turns",
+   "object": "Glow_Beacon",
+   "pivotUnity": [
+    0.0,
+    0.11,
+    0.0
+   ],
+   "item": "Kit_Beacon",
+   "material": [
+    "M_Kit_Glow"
+   ]
+  },
+  "Kit_Beacon": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "orange rotating beacon (Ø 0.14 m, 0.19 m tall); origin = the middle of the underside",
+   "object": "Kit_Beacon",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Beacon",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Mast_Sticker": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.1437,
+    0.765
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Mast",
+   "states": [],
+   "note": "the lightning sticker on the hand-hole door (panel atlas)",
+   "object": "Kit_Mast_Sticker",
+   "pivotUnity": [
+    0.0,
+    0.765,
+    -0.1437
+   ],
+   "item": "Kit_Mast",
+   "material": [
+    "M_Kit_Panel"
+   ]
+  },
+  "Kit_Mast": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "steel mast: galvanised tube 0.28 -> 0.25 m, 4.2 m, on a base flange (four anchor bolts, gussets) on a concrete footing 0.5 x 0.5 m (0.10 above the ground, 0.40 in it); the hand-hole door on the back (+y); two clamp mounts on its side and one on its top for the attachments; origin = the mast's axis at the ground",
+   "object": "Kit_Mast",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Mast",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Lens_Flood": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.5202,
+    -0.084
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Mast_Flood",
+   "states": [],
+   "note": "the floodlight's glass: M_Kit_Lamp_Flood (lit) / M_Kit_Lamp_Flood_Off",
+   "object": "Lens_Flood",
+   "pivotUnity": [
+    0.0,
+    -0.084,
+    0.5202
+   ],
+   "item": "Kit_Mast_Flood",
+   "material": [
+    "M_Kit_Lamp_Flood"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Flood",
+    "off": "M_Kit_Lamp_Flood_Off",
+    "when": "lit (with LIGHT_Flood and its halo) while the building has power"
+   }
+  },
+  "Glow_Flood": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -0.535,
+    -0.0925
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Mast_Flood",
+   "states": [],
+   "note": "halo card in front of the glass (additive, unlit): shown while the lamp is lit",
+   "object": "Glow_Flood",
+   "pivotUnity": [
+    0.0,
+    -0.0925,
+    0.535
+   ],
+   "item": "Kit_Mast_Flood",
+   "material": [
+    "M_Kit_Glow"
+   ]
+  },
+  "Kit_Mast_Flood": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "floodlight on a pole clamp (halogen 500 W, die-cast grey housing 0.32 x 0.22 m): the yoke on a short arm, the head tipped 30 down; origin = on the pole's axis at the upper strap (a side mount); it shines along -y",
+   "object": "Kit_Mast_Flood",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Mast_Flood",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Mast_Horn": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "horn loudspeaker (pressure-chamber horn, mouth 0.34 m, grey) on a pole clamp, tipped 15 down; origin = on the pole's axis at the upper strap (a side mount); it sounds along -y",
+   "object": "Kit_Mast_Horn",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Mast_Horn",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Mast_Yagi": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "directional antenna for the radio (5-element Yagi, 2 m band, elements vertical, boom 1.1 m) on a 0.6 m stand-off arm and a pole clamp; origin = on the pole's axis at the upper strap (a side mount); it points along -y",
+   "object": "Kit_Mast_Yagi",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Mast_Yagi",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Lens_Street": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -1.4,
+    0.412
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Mast_Lamp",
+   "states": [],
+   "note": "the lamp's opal bowl seen from below: M_Kit_Lamp_Street (lit) / M_Kit_Lamp_Street_Off",
+   "object": "Lens_Street",
+   "pivotUnity": [
+    0.0,
+    0.412,
+    1.4
+   ],
+   "item": "Kit_Mast_Lamp",
+   "material": [
+    "M_Kit_Lamp_Street"
+   ],
+   "power": {
+    "group": "power",
+    "on": "M_Kit_Lamp_Street",
+    "off": "M_Kit_Lamp_Street_Off",
+    "when": "lit (with LIGHT_Street and its halo) while the building has power (or at night: the building decides)"
+   }
+  },
+  "Glow_Street": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    -1.4,
+    0.2
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": "Kit_Mast_Lamp",
+   "states": [],
+   "note": "halo cards under the lamp (additive, unlit): shown while it is lit",
+   "object": "Glow_Street",
+   "pivotUnity": [
+    0.0,
+    0.2,
+    1.4
+   ],
+   "item": "Kit_Mast_Lamp",
+   "material": [
+    "M_Kit_Glow"
+   ]
+  },
+  "Kit_Mast_Lamp": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "street lamp on the mast's top (mercury 125 W, 70s box luminaire, grey) on a curved arm reaching 1.4 m out to -y; origin = on the mast's axis at its top (the top mount)",
+   "object": "Kit_Mast_Lamp",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Mast_Lamp",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Mast_Antenna": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "radio antenna on the mast's top: a vertical whip 1.3 m over a black base with four radials sloping 30 down (VHF ground plane, the base's radio), on a pipe; origin = on the mast's axis at its top (the top mount)",
+   "object": "Kit_Mast_Antenna",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Mast_Antenna",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  },
+  "Kit_Mast_Siren": {
+   "kind": "static",
+   "pivot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": null,
+   "range": null,
+   "unit": "deg",
+   "rest": 0.0,
+   "parent": null,
+   "states": [],
+   "note": "motor siren for the alarm (grey, the stator's ten ports under a rain hat) on a stand on the mast's top; origin = on the mast's axis at its top (the top mount)",
+   "object": "Kit_Mast_Siren",
+   "pivotUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Mast_Siren",
+   "material": [
+    "M_Kit_Kit"
+   ]
+  }
+ },
+ "sockets": {
+  "CAM_View": {
+   "pos": [
+    0.0,
+    -0.205,
+    0.0805
+   ],
+   "kind": "camera",
+   "parent": "Kit_Camera_Head",
+   "note": "the optical centre and the view direction: Unity puts its camera for the monitors here (fov ~55)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Camera_Head",
+   "posUnity": [
+    0.0,
+    0.0805,
+    0.205
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Mount_Head": {
+   "pos": [
+    0.0,
+    -0.24,
+    0.075
+   ],
+   "kind": "mount",
+   "parent": "Kit_Camera_BracketWall",
+   "note": "Kit_Camera_Head's origin goes here; its pan / tilt is the placement's",
+   "item": "Kit_Camera_BracketWall",
+   "posUnity": [
+    0.0,
+    0.075,
+    0.24
+   ]
+  },
+  "Mount_Head_Pole": {
+   "pos": [
+    0.0,
+    -0.515,
+    0.085
+   ],
+   "kind": "mount",
+   "parent": "Kit_Camera_BracketPole",
+   "note": "Kit_Camera_Head's origin goes here; its pan / tilt is the placement's",
+   "item": "Kit_Camera_BracketPole",
+   "posUnity": [
+    0.0,
+    0.085,
+    0.515
+   ]
+  },
+  "Screen_Centre": {
+   "pos": [
+    0.0,
+    -0.19,
+    0.175
+   ],
+   "kind": "screen",
+   "parent": "Kit_Monitor_CRT",
+   "note": "the middle of the glass, facing out (4:3, 0.25 x 0.19 m)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Monitor_CRT",
+   "posUnity": [
+    0.0,
+    0.175,
+    0.19
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Audio_Monitor": {
+   "pos": [
+    0.0,
+    0.0,
+    0.16
+   ],
+   "kind": "audio",
+   "parent": "Kit_Monitor_CRT",
+   "note": "the CRT whine and the degauss thump at power-on",
+   "item": "Kit_Monitor_CRT",
+   "posUnity": [
+    0.0,
+    0.16,
+    0.0
+   ]
+  },
+  "Slot_Button_1": {
+   "pos": [
+    -0.05,
+    -0.0144,
+    0.0728
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_2",
+   "note": "Kit_Console_Button goes here: its +z along dir, its +y along up",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_2",
+   "posUnity": [
+    0.05,
+    0.0728,
+    0.0144
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Label_1": {
+   "pos": [
+    -0.05,
+    -0.0524,
+    0.0605
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_2",
+   "note": "a Kit_Console_Label_* goes here (under its button)",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_2",
+   "posUnity": [
+    0.05,
+    0.0605,
+    0.0524
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Button_2": {
+   "pos": [
+    0.05,
+    -0.0144,
+    0.0728
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_2",
+   "note": "Kit_Console_Button goes here: its +z along dir, its +y along up",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_2",
+   "posUnity": [
+    -0.05,
+    0.0728,
+    0.0144
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Label_2": {
+   "pos": [
+    0.05,
+    -0.0524,
+    0.0605
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_2",
+   "note": "a Kit_Console_Label_* goes here (under its button)",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_2",
+   "posUnity": [
+    -0.05,
+    0.0605,
+    0.0524
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Button_1_of4": {
+   "pos": [
+    -0.15,
+    -0.0144,
+    0.0728
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "Kit_Console_Button goes here: its +z along dir, its +y along up",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    0.15,
+    0.0728,
+    0.0144
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Label_1_of4": {
+   "pos": [
+    -0.15,
+    -0.0524,
+    0.0605
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "a Kit_Console_Label_* goes here (under its button)",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    0.15,
+    0.0605,
+    0.0524
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Button_2_of4": {
+   "pos": [
+    -0.05,
+    -0.0144,
+    0.0728
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "Kit_Console_Button goes here: its +z along dir, its +y along up",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    0.05,
+    0.0728,
+    0.0144
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Label_2_of4": {
+   "pos": [
+    -0.05,
+    -0.0524,
+    0.0605
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "a Kit_Console_Label_* goes here (under its button)",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    0.05,
+    0.0605,
+    0.0524
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Button_3_of4": {
+   "pos": [
+    0.05,
+    -0.0144,
+    0.0728
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "Kit_Console_Button goes here: its +z along dir, its +y along up",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    -0.05,
+    0.0728,
+    0.0144
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Label_3_of4": {
+   "pos": [
+    0.05,
+    -0.0524,
+    0.0605
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "a Kit_Console_Label_* goes here (under its button)",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    -0.05,
+    0.0605,
+    0.0524
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Button_4_of4": {
+   "pos": [
+    0.15,
+    -0.0144,
+    0.0728
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "Kit_Console_Button goes here: its +z along dir, its +y along up",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    -0.15,
+    0.0728,
+    0.0144
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Slot_Label_4_of4": {
+   "pos": [
+    0.15,
+    -0.0524,
+    0.0605
+   ],
+   "kind": "kit_slot",
+   "parent": "Kit_Console_4",
+   "note": "a Kit_Console_Label_* goes here (under its button)",
+   "dir": [
+    0.0,
+    -0.3091,
+    0.951
+   ],
+   "up": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "item": "Kit_Console_4",
+   "posUnity": [
+    -0.15,
+    0.0605,
+    0.0524
+   ],
+   "dirUnity": [
+    0.0,
+    0.951,
+    0.3091
+   ],
+   "upUnity": [
+    0.0,
+    0.3091,
+    -0.951
+   ]
+  },
+  "Hand_ConsoleButton": {
+   "pos": [
+    0.0,
+    0.0,
+    0.03
+   ],
+   "kind": "hand",
+   "parent": "IX_ConsoleButton",
+   "note": "press here",
+   "dir": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "item": "Kit_Console_Button",
+   "posUnity": [
+    0.0,
+    0.03,
+    0.0
+   ],
+   "dirUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  "Audio_ConsoleButton": {
+   "pos": [
+    0.0,
+    0.0,
+    0.005
+   ],
+   "kind": "audio",
+   "parent": "Kit_Console_Button",
+   "note": "the button clicks",
+   "item": "Kit_Console_Button",
+   "posUnity": [
+    0.0,
+    0.005,
+    0.0
+   ]
+  },
+  "Hand_Phone_Receiver": {
+   "pos": [
+    0.0,
+    0.04,
+    0.168
+   ],
+   "kind": "hand",
+   "parent": "Phone_Receiver",
+   "note": "pick it up here",
+   "item": "Kit_Phone",
+   "posUnity": [
+    0.0,
+    0.168,
+    -0.04
+   ]
+  },
+  "Audio_Phone": {
+   "pos": [
+    0.0,
+    0.0,
+    0.06
+   ],
+   "kind": "audio",
+   "parent": "Kit_Phone",
+   "note": "the bell inside (two bursts), the hook switch click",
+   "item": "Kit_Phone",
+   "posUnity": [
+    0.0,
+    0.06,
+    0.0
+   ]
+  },
+  "Audio_PhoneEar": {
+   "pos": [
+    -0.095,
+    0.04,
+    0.118
+   ],
+   "kind": "audio",
+   "parent": "Phone_Receiver",
+   "note": "the earpiece: dial tone, voices",
+   "item": "Kit_Phone",
+   "posUnity": [
+    0.095,
+    0.118,
+    -0.04
+   ]
+  },
+  "Slot_Battery": {
+   "pos": [
+    0.0,
+    -0.135,
+    -0.33
+   ],
+   "kind": "item_slot",
+   "parent": "Kit_Cabinet_Power",
+   "note": "the van's Battery (item) stands here: its origin (bottom middle) on this point, its +x (the post side) to the cabinet's front, its +y up, so its posts are under the clamps; Unity: battery local +x -> cabinet +Z, +y -> +Y",
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    0.0,
+    -0.33,
+    0.135
+   ],
+   "upUnity": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "forwardUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Conduit_Top": {
+   "pos": [
+    0.0,
+    -0.12,
+    0.412
+   ],
+   "kind": "conduit",
+   "parent": "Kit_Cabinet_Power",
+   "note": "cable entry on the top (rain cap): a Kit_Conduit_Entry (its +x along dir) and the conduit up from here",
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    0.0,
+    0.412,
+    0.12
+   ],
+   "dirUnity": [
+    0.0,
+    1.0,
+    0.0
+   ]
+  },
+  "Conduit_Bottom": {
+   "pos": [
+    0.0,
+    -0.12,
+    -0.4
+   ],
+   "kind": "conduit",
+   "parent": "Kit_Cabinet_Power",
+   "note": "cable entry in the floor (the other way in)",
+   "dir": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    0.0,
+    -0.4,
+    0.12
+   ],
+   "dirUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  "Hand_CabinetSwitch": {
+   "pos": [
+    0.1417,
+    -0.071,
+    0.2483
+   ],
+   "kind": "hand",
+   "parent": "IX_CabinetSwitch",
+   "note": "turn the lever",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    -0.1417,
+    0.2483,
+    0.071
+   ]
+  },
+  "Audio_CabinetSwitch": {
+   "pos": [
+    0.17,
+    -0.041,
+    0.22
+   ],
+   "kind": "audio",
+   "parent": "Kit_Cabinet_Power",
+   "note": "the switch clacks over; relays click in the booth",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    -0.17,
+    0.22,
+    0.041
+   ]
+  },
+  "Hand_CabinetClamp_Pos": {
+   "pos": [
+    -0.105,
+    -0.195,
+    -0.093
+   ],
+   "kind": "hand",
+   "parent": "IX_CabinetClamp_Pos",
+   "note": "take the clamp here",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    0.105,
+    -0.093,
+    0.195
+   ]
+  },
+  "Hand_CabinetClamp_Neg": {
+   "pos": [
+    0.105,
+    -0.195,
+    -0.093
+   ],
+   "kind": "hand",
+   "parent": "IX_CabinetClamp_Neg",
+   "note": "take the clamp here",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    -0.105,
+    -0.093,
+    0.195
+   ]
+  },
+  "Audio_CabinetClamps": {
+   "pos": [
+    0.0,
+    -0.15,
+    -0.113
+   ],
+   "kind": "audio",
+   "parent": "Kit_Cabinet_Power",
+   "note": "the clamps: a spark crack when the second one goes on with the switch at BATTERIE",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    0.0,
+    -0.113,
+    0.15
+   ]
+  },
+  "Hand_CabinetDoor": {
+   "pos": [
+    0.24,
+    -0.347,
+    0.0
+   ],
+   "kind": "hand",
+   "parent": "IX_CabinetDoor",
+   "note": "the handle",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    -0.24,
+    0.0,
+    0.347
+   ]
+  },
+  "Audio_CabinetDoor": {
+   "pos": [
+    0.0,
+    -0.28,
+    0.0
+   ],
+   "kind": "audio",
+   "parent": "Kit_Cabinet_Power",
+   "note": "the door: hinges, the gasket",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    0.0,
+    0.0,
+    0.28
+   ]
+  },
+  "Battery_Post_Pos": {
+   "pos": [
+    -0.105,
+    -0.175,
+    -0.113
+   ],
+   "kind": "point",
+   "parent": "Kit_Cabinet_Power",
+   "note": "where the battery's + post is when it stands in Slot_Battery (the red clamp at 0)",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    0.105,
+    -0.113,
+    0.175
+   ]
+  },
+  "Battery_Post_Neg": {
+   "pos": [
+    0.105,
+    -0.175,
+    -0.113
+   ],
+   "kind": "point",
+   "parent": "Kit_Cabinet_Power",
+   "note": "the - post",
+   "item": "Kit_Cabinet_Power",
+   "posUnity": [
+    -0.105,
+    -0.113,
+    0.175
+   ]
+  },
+  "Conduit_Bottom_JB": {
+   "pos": [
+    0.0,
+    -0.04,
+    -0.086
+   ],
+   "kind": "conduit",
+   "parent": "Kit_JunctionBox",
+   "note": "knock-out: a conduit (Kit_Conduit_Entry) goes in here along dir",
+   "dir": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "item": "Kit_JunctionBox",
+   "posUnity": [
+    0.0,
+    -0.086,
+    0.04
+   ],
+   "dirUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  "Conduit_Top_JB": {
+   "pos": [
+    0.0,
+    -0.04,
+    0.086
+   ],
+   "kind": "conduit",
+   "parent": "Kit_JunctionBox",
+   "note": "knock-out: a conduit (Kit_Conduit_Entry) goes in here along dir",
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "item": "Kit_JunctionBox",
+   "posUnity": [
+    0.0,
+    0.086,
+    0.04
+   ],
+   "dirUnity": [
+    0.0,
+    1.0,
+    0.0
+   ]
+  },
+  "Conduit_Left_JB": {
+   "pos": [
+    -0.086,
+    -0.04,
+    0.0
+   ],
+   "kind": "conduit",
+   "parent": "Kit_JunctionBox",
+   "note": "knock-out: a conduit (Kit_Conduit_Entry) goes in here along dir",
+   "dir": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_JunctionBox",
+   "posUnity": [
+    0.086,
+    0.0,
+    0.04
+   ],
+   "dirUnity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "Conduit_Right_JB": {
+   "pos": [
+    0.086,
+    -0.04,
+    0.0
+   ],
+   "kind": "conduit",
+   "parent": "Kit_JunctionBox",
+   "note": "knock-out: a conduit (Kit_Conduit_Entry) goes in here along dir",
+   "dir": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_JunctionBox",
+   "posUnity": [
+    -0.086,
+    0.0,
+    0.04
+   ],
+   "dirUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "Elbow_Out": {
+   "pos": [
+    0.1,
+    0.0,
+    0.12
+   ],
+   "kind": "conduit",
+   "parent": "Kit_Conduit_Elbow",
+   "note": "the next piece starts here",
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "item": "Kit_Conduit_Elbow",
+   "posUnity": [
+    -0.1,
+    0.12,
+    0.0
+   ],
+   "dirUnity": [
+    0.0,
+    1.0,
+    0.0
+   ]
+  },
+  "Wire_1": {
+   "pos": [
+    -0.7,
+    -0.14,
+    8.318
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole",
+   "note": "L1: the line wire (bare) rests in this insulator's groove; the line runs along y",
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Pole",
+   "posUnity": [
+    0.7,
+    8.318,
+    0.14
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "Wire_2": {
+   "pos": [
+    0.0,
+    -0.14,
+    8.318
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole",
+   "note": "L2: the line wire (bare) rests in this insulator's groove; the line runs along y",
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Pole",
+   "posUnity": [
+    0.0,
+    8.318,
+    0.14
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "Wire_3": {
+   "pos": [
+    0.7,
+    -0.14,
+    8.318
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole",
+   "note": "L3: the line wire (bare) rests in this insulator's groove; the line runs along y",
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Pole",
+   "posUnity": [
+    -0.7,
+    8.318,
+    0.14
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "Wire_1_T": {
+   "pos": [
+    -0.7,
+    -0.14,
+    8.318
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole_Trafo",
+   "note": "L1 of the 20 kV line (bare wire, the line runs along y)",
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    0.7,
+    8.318,
+    0.14
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "Wire_2_T": {
+   "pos": [
+    0.0,
+    -0.14,
+    8.318
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole_Trafo",
+   "note": "L2 of the 20 kV line (bare wire, the line runs along y)",
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    0.0,
+    8.318,
+    0.14
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "Wire_3_T": {
+   "pos": [
+    0.7,
+    -0.14,
+    8.318
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole_Trafo",
+   "note": "L3 of the 20 kV line (bare wire, the line runs along y)",
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    -0.7,
+    8.318,
+    0.14
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "Wire_4_T": {
+   "pos": [
+    0.25,
+    -0.15,
+    5.84
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole_Trafo",
+   "note": "L1 of the 0.4 kV drop to a building (black service cable)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    -0.25,
+    5.84,
+    0.15
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Wire_5_T": {
+   "pos": [
+    0.4,
+    -0.15,
+    5.84
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole_Trafo",
+   "note": "L2 of the 0.4 kV drop to a building (black service cable)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    -0.4,
+    5.84,
+    0.15
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Wire_6_T": {
+   "pos": [
+    0.55,
+    -0.15,
+    5.84
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole_Trafo",
+   "note": "L3 of the 0.4 kV drop to a building (black service cable)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    -0.55,
+    5.84,
+    0.15
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Wire_7_T": {
+   "pos": [
+    0.7,
+    -0.15,
+    5.84
+   ],
+   "kind": "wire",
+   "parent": "Kit_Pole_Trafo",
+   "note": "N of the 0.4 kV drop to a building (black service cable)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    -0.7,
+    5.84,
+    0.15
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Audio_Trafo": {
+   "pos": [
+    0.0,
+    -0.51,
+    5.0
+   ],
+   "kind": "audio",
+   "parent": "Kit_Pole_Trafo",
+   "note": "the transformer hums while the line is live",
+   "item": "Kit_Pole_Trafo",
+   "posUnity": [
+    0.0,
+    5.0,
+    0.51
+   ]
+  },
+  "Wire_1_R": {
+   "pos": [
+    -0.21,
+    -0.12,
+    2.065
+   ],
+   "kind": "wire",
+   "parent": "Kit_RoofStand",
+   "note": "L1 of the service drop ends in this spool",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_RoofStand",
+   "posUnity": [
+    0.21,
+    2.065,
+    0.12
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Wire_2_R": {
+   "pos": [
+    -0.07,
+    -0.12,
+    2.065
+   ],
+   "kind": "wire",
+   "parent": "Kit_RoofStand",
+   "note": "L2 of the service drop ends in this spool",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_RoofStand",
+   "posUnity": [
+    0.07,
+    2.065,
+    0.12
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Wire_3_R": {
+   "pos": [
+    0.07,
+    -0.12,
+    2.065
+   ],
+   "kind": "wire",
+   "parent": "Kit_RoofStand",
+   "note": "L3 of the service drop ends in this spool",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_RoofStand",
+   "posUnity": [
+    -0.07,
+    2.065,
+    0.12
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Wire_4_R": {
+   "pos": [
+    0.21,
+    -0.12,
+    2.065
+   ],
+   "kind": "wire",
+   "parent": "Kit_RoofStand",
+   "note": "N of the service drop ends in this spool",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_RoofStand",
+   "posUnity": [
+    -0.21,
+    2.065,
+    0.12
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Conduit_Bottom_R": {
+   "pos": [
+    0.0,
+    -0.12,
+    0.0
+   ],
+   "kind": "conduit",
+   "parent": "Kit_RoofStand",
+   "note": "the conduit (Kit_Conduit_*) continues down from here to the cabinet",
+   "dir": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "item": "Kit_RoofStand",
+   "posUnity": [
+    0.0,
+    0.0,
+    0.12
+   ],
+   "dirUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  "Bare_A": {
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "kind": "wire",
+   "parent": "Kit_Wire_Bare",
+   "note": "this end goes on a Wire_ point (an insulator's groove)",
+   "dir": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Wire_Bare",
+   "posUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "dirUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "Bare_B": {
+   "pos": [
+    40.0,
+    0.0,
+    0.0
+   ],
+   "kind": "wire",
+   "parent": "Kit_Wire_Bare",
+   "note": "the other end (before the x scale)",
+   "dir": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Wire_Bare",
+   "posUnity": [
+    -40.0,
+    0.0,
+    0.0
+   ],
+   "dirUnity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "Drop_A": {
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "kind": "wire",
+   "parent": "Kit_Wire_Drop",
+   "note": "this end goes on a Wire_ point (an insulator's groove)",
+   "dir": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Wire_Drop",
+   "posUnity": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "dirUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "Drop_B": {
+   "pos": [
+    10.0,
+    0.0,
+    0.0
+   ],
+   "kind": "wire",
+   "parent": "Kit_Wire_Drop",
+   "note": "the other end (before the x scale)",
+   "dir": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Wire_Drop",
+   "posUnity": [
+    -10.0,
+    0.0,
+    0.0
+   ],
+   "dirUnity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "Audio_DoorLock": {
+   "pos": [
+    0.0,
+    -0.03,
+    0.01
+   ],
+   "kind": "audio",
+   "parent": "Kit_DoorLock_Strike",
+   "note": "the release buzz and click",
+   "item": "Kit_DoorLock_Strike",
+   "posUnity": [
+    0.0,
+    0.01,
+    0.03
+   ]
+  },
+  "LIGHT_Beacon": {
+   "pos": [
+    0.0,
+    0.0,
+    0.11
+   ],
+   "kind": "light",
+   "parent": "Kit_Beacon",
+   "note": "the rotating light (see the lights json)",
+   "dir": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "item": "Kit_Beacon",
+   "posUnity": [
+    0.0,
+    0.11,
+    0.0
+   ],
+   "dirUnity": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "Audio_Beacon": {
+   "pos": [
+    0.0,
+    0.0,
+    0.06
+   ],
+   "kind": "audio",
+   "parent": "Kit_Beacon",
+   "note": "the motor ticks (quiet)",
+   "item": "Kit_Beacon",
+   "posUnity": [
+    0.0,
+    0.06,
+    0.0
+   ]
+  },
+  "Mount_Side_1": {
+   "pos": [
+    0.0,
+    0.0,
+    3.95
+   ],
+   "kind": "mount",
+   "parent": "Kit_Mast",
+   "note": "the upper side mount: a clamp-on attachment's origin goes here (on the axis at its upper strap) - Kit_Camera_BracketPole, Kit_Mast_Flood, Kit_Mast_Horn, Kit_Mast_Yagi; turn it about z to where it should point (its front is -y)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Mast",
+   "posUnity": [
+    0.0,
+    3.95,
+    0.0
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Mount_Side_2": {
+   "pos": [
+    0.0,
+    0.0,
+    3.35
+   ],
+   "kind": "mount",
+   "parent": "Kit_Mast",
+   "note": "the lower (0.6 m down) side mount: a clamp-on attachment's origin goes here (on the axis at its upper strap) - Kit_Camera_BracketPole, Kit_Mast_Flood, Kit_Mast_Horn, Kit_Mast_Yagi; turn it about z to where it should point (its front is -y)",
+   "dir": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Mast",
+   "posUnity": [
+    0.0,
+    3.35,
+    0.0
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Mount_Top": {
+   "pos": [
+    0.0,
+    0.0,
+    4.2
+   ],
+   "kind": "mount",
+   "parent": "Kit_Mast",
+   "note": "the top mount: a top attachment's origin goes here (on the axis at the mast's top; its sleeve covers the cap) - Kit_Mast_Lamp, Kit_Mast_Antenna, Kit_Mast_Siren; turn it about z freely",
+   "dir": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "item": "Kit_Mast",
+   "posUnity": [
+    0.0,
+    4.2,
+    0.0
+   ],
+   "dirUnity": [
+    0.0,
+    1.0,
+    0.0
+   ]
+  },
+  "Conduit_Base": {
+   "pos": [
+    0.0,
+    0.25,
+    0.016
+   ],
+   "kind": "conduit",
+   "parent": "Kit_Mast",
+   "note": "the cables leave the footing here (its back face, at the ground): a conduit (Kit_Conduit_Entry on the face, Kit_Conduit_Straight along the ground) goes on along dir",
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "item": "Kit_Mast",
+   "posUnity": [
+    0.0,
+    0.016,
+    -0.25
+   ],
+   "dirUnity": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "LIGHT_Flood": {
+   "pos": [
+    0.0,
+    -0.5306,
+    -0.09
+   ],
+   "kind": "light",
+   "parent": "Kit_Mast_Flood",
+   "note": "the floodlight (see the lights json)",
+   "dir": [
+    0.0,
+    -0.866,
+    -0.5
+   ],
+   "up": [
+    0.0,
+    -0.5,
+    0.866
+   ],
+   "item": "Kit_Mast_Flood",
+   "posUnity": [
+    0.0,
+    -0.09,
+    0.5306
+   ],
+   "dirUnity": [
+    0.0,
+    -0.5,
+    0.866
+   ],
+   "upUnity": [
+    0.0,
+    0.866,
+    0.5
+   ]
+  },
+  "Audio_Horn": {
+   "pos": [
+    0.0,
+    -0.6671,
+    -0.0334
+   ],
+   "kind": "audio",
+   "parent": "Kit_Mast_Horn",
+   "note": "the loudspeaker: announcements, a gong, the siren tone, a voice at night (the story decides); loud, directional",
+   "dir": [
+    0.0,
+    -0.9659,
+    -0.2588
+   ],
+   "item": "Kit_Mast_Horn",
+   "posUnity": [
+    0.0,
+    -0.0334,
+    0.6671
+   ],
+   "dirUnity": [
+    0.0,
+    -0.2588,
+    0.9659
+   ]
+  },
+  "LIGHT_Street": {
+   "pos": [
+    0.0,
+    -1.4,
+    0.4
+   ],
+   "kind": "light",
+   "parent": "Kit_Mast_Lamp",
+   "note": "the street lamp (see the lights json)",
+   "dir": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "up": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "item": "Kit_Mast_Lamp",
+   "posUnity": [
+    0.0,
+    0.4,
+    1.4
+   ],
+   "dirUnity": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "upUnity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "Audio_Siren": {
+   "pos": [
+    0.0,
+    0.0,
+    0.6
+   ],
+   "kind": "audio",
+   "parent": "Kit_Mast_Siren",
+   "note": "the siren: the rising and falling wail (alarm), a long steady tone (all clear); it winds up and down slowly",
+   "item": "Kit_Mast_Siren",
+   "posUnity": [
+    0.0,
+    0.6,
+    0.0
+   ]
+  }
+ },
+ "colliders": [
+  {
+   "name": "COL_Camera_Head",
+   "item": "Kit_Camera_Head",
+   "parent": "Kit_Camera_Head",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.075,
+    0.065
+   ],
+   "size": [
+    0.12,
+    0.35,
+    0.13
+   ],
+   "center_item": [
+    0.0,
+    -0.075,
+    0.065
+   ],
+   "centerUnity": [
+    0.0,
+    0.065,
+    0.075
+   ],
+   "sizeUnity": [
+    0.12,
+    0.13,
+    0.35
+   ]
+  },
+  {
+   "name": "COL_Camera_BracketWall",
+   "item": "Kit_Camera_BracketWall",
+   "parent": "Kit_Camera_BracketWall",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.13,
+    0.005
+   ],
+   "size": [
+    0.1,
+    0.26,
+    0.15
+   ],
+   "center_item": [
+    0.0,
+    -0.13,
+    0.005
+   ],
+   "centerUnity": [
+    0.0,
+    0.005,
+    0.13
+   ],
+   "sizeUnity": [
+    0.1,
+    0.15,
+    0.26
+   ]
+  },
+  {
+   "name": "COL_Camera_BracketPole",
+   "item": "Kit_Camera_BracketPole",
+   "parent": "Kit_Camera_BracketPole",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.33,
+    -0.04
+   ],
+   "size": [
+    0.1,
+    0.42,
+    0.26
+   ],
+   "center_item": [
+    0.0,
+    -0.33,
+    -0.04
+   ],
+   "centerUnity": [
+    0.0,
+    -0.04,
+    0.33
+   ],
+   "sizeUnity": [
+    0.1,
+    0.26,
+    0.42
+   ]
+  },
+  {
+   "name": "COL_Monitor",
+   "item": "Kit_Monitor_CRT",
+   "parent": "Kit_Monitor_CRT",
+   "type": "box",
+   "center": [
+    0.0,
+    0.005,
+    0.155
+   ],
+   "size": [
+    0.34,
+    0.39,
+    0.31
+   ],
+   "center_item": [
+    0.0,
+    0.005,
+    0.155
+   ],
+   "centerUnity": [
+    0.0,
+    0.155,
+    -0.005
+   ],
+   "sizeUnity": [
+    0.34,
+    0.31,
+    0.39
+   ]
+  },
+  {
+   "name": "COL_Console_2",
+   "item": "Kit_Console_2",
+   "parent": "Kit_Console_2",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    0.055
+   ],
+   "size": [
+    0.3,
+    0.2,
+    0.11
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    0.055
+   ],
+   "centerUnity": [
+    0.0,
+    0.055,
+    0.0
+   ],
+   "sizeUnity": [
+    0.3,
+    0.11,
+    0.2
+   ]
+  },
+  {
+   "name": "COL_Console_4",
+   "item": "Kit_Console_4",
+   "parent": "Kit_Console_4",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    0.055
+   ],
+   "size": [
+    0.5,
+    0.2,
+    0.11
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    0.055
+   ],
+   "centerUnity": [
+    0.0,
+    0.055,
+    0.0
+   ],
+   "sizeUnity": [
+    0.5,
+    0.11,
+    0.2
+   ]
+  },
+  {
+   "name": "COL_Phone",
+   "item": "Kit_Phone",
+   "parent": "Kit_Phone",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.005,
+    0.052
+   ],
+   "size": [
+    0.22,
+    0.2,
+    0.104
+   ],
+   "center_item": [
+    0.0,
+    -0.005,
+    0.052
+   ],
+   "centerUnity": [
+    0.0,
+    0.052,
+    0.005
+   ],
+   "sizeUnity": [
+    0.22,
+    0.104,
+    0.2
+   ]
+  },
+  {
+   "name": "COL_Phone_Receiver",
+   "item": "Kit_Phone",
+   "parent": "Phone_Receiver",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    -0.012
+   ],
+   "size": [
+    0.25,
+    0.044,
+    0.052
+   ],
+   "center_item": [
+    0.0,
+    0.04,
+    0.126
+   ],
+   "centerUnity": [
+    0.0,
+    -0.012,
+    0.0
+   ],
+   "sizeUnity": [
+    0.25,
+    0.052,
+    0.044
+   ]
+  },
+  {
+   "name": "COL_Cabinet_Back",
+   "item": "Kit_Cabinet_Power",
+   "parent": "Kit_Cabinet_Power",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.006,
+    0.0
+   ],
+   "size": [
+    0.6,
+    0.012,
+    0.8
+   ],
+   "center_item": [
+    0.0,
+    -0.006,
+    0.0
+   ],
+   "centerUnity": [
+    0.0,
+    0.0,
+    0.006
+   ],
+   "sizeUnity": [
+    0.6,
+    0.8,
+    0.012
+   ]
+  },
+  {
+   "name": "COL_Cabinet_Left",
+   "item": "Kit_Cabinet_Power",
+   "parent": "Kit_Cabinet_Power",
+   "type": "box",
+   "center": [
+    -0.294,
+    -0.14,
+    0.0
+   ],
+   "size": [
+    0.012,
+    0.28,
+    0.8
+   ],
+   "center_item": [
+    -0.294,
+    -0.14,
+    0.0
+   ],
+   "centerUnity": [
+    0.294,
+    0.0,
+    0.14
+   ],
+   "sizeUnity": [
+    0.012,
+    0.8,
+    0.28
+   ]
+  },
+  {
+   "name": "COL_Cabinet_Right",
+   "item": "Kit_Cabinet_Power",
+   "parent": "Kit_Cabinet_Power",
+   "type": "box",
+   "center": [
+    0.294,
+    -0.14,
+    0.0
+   ],
+   "size": [
+    0.012,
+    0.28,
+    0.8
+   ],
+   "center_item": [
+    0.294,
+    -0.14,
+    0.0
+   ],
+   "centerUnity": [
+    -0.294,
+    0.0,
+    0.14
+   ],
+   "sizeUnity": [
+    0.012,
+    0.8,
+    0.28
+   ]
+  },
+  {
+   "name": "COL_Cabinet_Top",
+   "item": "Kit_Cabinet_Power",
+   "parent": "Kit_Cabinet_Power",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.14,
+    0.4
+   ],
+   "size": [
+    0.6,
+    0.28,
+    0.024
+   ],
+   "center_item": [
+    0.0,
+    -0.14,
+    0.4
+   ],
+   "centerUnity": [
+    0.0,
+    0.4,
+    0.14
+   ],
+   "sizeUnity": [
+    0.6,
+    0.024,
+    0.28
+   ]
+  },
+  {
+   "name": "COL_Cabinet_Bottom",
+   "item": "Kit_Cabinet_Power",
+   "parent": "Kit_Cabinet_Power",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.14,
+    -0.394
+   ],
+   "size": [
+    0.6,
+    0.28,
+    0.012
+   ],
+   "center_item": [
+    0.0,
+    -0.14,
+    -0.394
+   ],
+   "centerUnity": [
+    0.0,
+    -0.394,
+    0.14
+   ],
+   "sizeUnity": [
+    0.6,
+    0.012,
+    0.28
+   ]
+  },
+  {
+   "name": "COL_Cabinet_Shelf",
+   "item": "Kit_Cabinet_Power",
+   "parent": "Kit_Cabinet_Power",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.13,
+    -0.365
+   ],
+   "size": [
+    0.6,
+    0.26,
+    0.07
+   ],
+   "center_item": [
+    0.0,
+    -0.13,
+    -0.365
+   ],
+   "centerUnity": [
+    0.0,
+    -0.365,
+    0.13
+   ],
+   "sizeUnity": [
+    0.6,
+    0.07,
+    0.26
+   ]
+  },
+  {
+   "name": "COL_Cabinet_Door",
+   "item": "Kit_Cabinet_Power",
+   "parent": "IX_CabinetDoor",
+   "type": "box",
+   "center": [
+    0.308,
+    0.004,
+    0.0
+   ],
+   "size": [
+    0.6,
+    0.02,
+    0.8
+   ],
+   "center_item": [
+    0.0,
+    -0.292,
+    0.0
+   ],
+   "centerUnity": [
+    -0.308,
+    0.0,
+    -0.004
+   ],
+   "sizeUnity": [
+    0.6,
+    0.8,
+    0.02
+   ]
+  },
+  {
+   "name": "COL_JunctionBox",
+   "item": "Kit_JunctionBox",
+   "parent": "Kit_JunctionBox",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.045,
+    0.0
+   ],
+   "size": [
+    0.16,
+    0.09,
+    0.16
+   ],
+   "center_item": [
+    0.0,
+    -0.045,
+    0.0
+   ],
+   "centerUnity": [
+    0.0,
+    0.0,
+    0.045
+   ],
+   "sizeUnity": [
+    0.16,
+    0.16,
+    0.09
+   ]
+  },
+  {
+   "name": "COL_Conduit_Straight",
+   "item": "Kit_Conduit_Straight",
+   "parent": "Kit_Conduit_Straight",
+   "type": "box",
+   "center": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "size": [
+    1.0,
+    0.032,
+    0.032
+   ],
+   "center_item": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "centerUnity": [
+    -0.5,
+    0.0,
+    0.0
+   ],
+   "sizeUnity": [
+    1.0,
+    0.032,
+    0.032
+   ]
+  },
+  {
+   "name": "COL_Pole",
+   "item": "Kit_Pole",
+   "parent": "Kit_Pole",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    4.25
+   ],
+   "size": [
+    0.27,
+    0.27,
+    8.5
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    4.25
+   ],
+   "centerUnity": [
+    0.0,
+    4.25,
+    0.0
+   ],
+   "sizeUnity": [
+    0.27,
+    8.5,
+    0.27
+   ]
+  },
+  {
+   "name": "COL_Pole_Arm",
+   "item": "Kit_Pole",
+   "parent": "Kit_Pole",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.14,
+    8.21
+   ],
+   "size": [
+    1.6,
+    0.06,
+    0.18
+   ],
+   "center_item": [
+    0.0,
+    -0.14,
+    8.21
+   ],
+   "centerUnity": [
+    0.0,
+    8.21,
+    0.14
+   ],
+   "sizeUnity": [
+    1.6,
+    0.18,
+    0.06
+   ]
+  },
+  {
+   "name": "COL_Pole_T",
+   "item": "Kit_Pole_Trafo",
+   "parent": "Kit_Pole_Trafo",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    4.25
+   ],
+   "size": [
+    0.27,
+    0.27,
+    8.5
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    4.25
+   ],
+   "centerUnity": [
+    0.0,
+    4.25,
+    0.0
+   ],
+   "sizeUnity": [
+    0.27,
+    8.5,
+    0.27
+   ]
+  },
+  {
+   "name": "COL_Pole_T_Tank",
+   "item": "Kit_Pole_Trafo",
+   "parent": "Kit_Pole_Trafo",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.51,
+    5.015
+   ],
+   "size": [
+    0.72,
+    0.72,
+    0.93
+   ],
+   "center_item": [
+    0.0,
+    -0.51,
+    5.015
+   ],
+   "centerUnity": [
+    0.0,
+    5.015,
+    0.51
+   ],
+   "sizeUnity": [
+    0.72,
+    0.93,
+    0.72
+   ]
+  },
+  {
+   "name": "COL_RoofStand",
+   "item": "Kit_RoofStand",
+   "parent": "Kit_RoofStand",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.105,
+    1.125
+   ],
+   "size": [
+    0.6,
+    0.21,
+    2.25
+   ],
+   "center_item": [
+    0.0,
+    -0.105,
+    1.125
+   ],
+   "centerUnity": [
+    0.0,
+    1.125,
+    0.105
+   ],
+   "sizeUnity": [
+    0.6,
+    2.25,
+    0.21
+   ]
+  },
+  {
+   "name": "COL_DoorLock",
+   "item": "Kit_DoorLock",
+   "parent": "Kit_DoorLock",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.0155,
+    0.0
+   ],
+   "size": [
+    0.08,
+    0.031,
+    0.16
+   ],
+   "center_item": [
+    0.0,
+    -0.0155,
+    0.0
+   ],
+   "centerUnity": [
+    0.0,
+    0.0,
+    0.0155
+   ],
+   "sizeUnity": [
+    0.08,
+    0.16,
+    0.031
+   ]
+  },
+  {
+   "name": "COL_DoorLock_Strike",
+   "item": "Kit_DoorLock_Strike",
+   "parent": "Kit_DoorLock_Strike",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.015,
+    0.0
+   ],
+   "size": [
+    0.036,
+    0.03,
+    0.15
+   ],
+   "center_item": [
+    0.0,
+    -0.015,
+    0.0
+   ],
+   "centerUnity": [
+    0.0,
+    0.0,
+    0.015
+   ],
+   "sizeUnity": [
+    0.036,
+    0.15,
+    0.03
+   ]
+  },
+  {
+   "name": "COL_Beacon",
+   "item": "Kit_Beacon",
+   "parent": "Kit_Beacon",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    0.093
+   ],
+   "size": [
+    0.144,
+    0.144,
+    0.186
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    0.093
+   ],
+   "centerUnity": [
+    0.0,
+    0.093,
+    0.0
+   ],
+   "sizeUnity": [
+    0.144,
+    0.186,
+    0.144
+   ]
+  },
+  {
+   "name": "COL_Mast",
+   "item": "Kit_Mast",
+   "parent": "Kit_Mast",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    2.18
+   ],
+   "size": [
+    0.28,
+    0.28,
+    4.12
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    2.18
+   ],
+   "centerUnity": [
+    0.0,
+    2.18,
+    0.0
+   ],
+   "sizeUnity": [
+    0.28,
+    4.12,
+    0.28
+   ]
+  },
+  {
+   "name": "COL_Mast_Foot",
+   "item": "Kit_Mast",
+   "parent": "Kit_Mast",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    -0.12
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.56
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    -0.12
+   ],
+   "centerUnity": [
+    0.0,
+    -0.12,
+    0.0
+   ],
+   "sizeUnity": [
+    0.5,
+    0.56,
+    0.5
+   ]
+  },
+  {
+   "name": "COL_Mast_Flood_Clamp",
+   "item": "Kit_Mast_Flood",
+   "parent": "Kit_Mast_Flood",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.235,
+    -0.065
+   ],
+   "size": [
+    0.4,
+    0.23,
+    0.21
+   ],
+   "center_item": [
+    0.0,
+    -0.235,
+    -0.065
+   ],
+   "centerUnity": [
+    0.0,
+    -0.065,
+    0.235
+   ],
+   "sizeUnity": [
+    0.4,
+    0.21,
+    0.23
+   ]
+  },
+  {
+   "name": "COL_Mast_Flood_Head",
+   "item": "Kit_Mast_Flood",
+   "parent": "Kit_Mast_Flood",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.4574,
+    -0.0477
+   ],
+   "size": [
+    0.32,
+    0.2442,
+    0.268
+   ],
+   "center_item": [
+    0.0,
+    -0.4574,
+    -0.0477
+   ],
+   "centerUnity": [
+    0.0,
+    -0.0477,
+    0.4574
+   ],
+   "sizeUnity": [
+    0.32,
+    0.268,
+    0.2442
+   ]
+  },
+  {
+   "name": "COL_Mast_Horn_Clamp",
+   "item": "Kit_Mast_Horn",
+   "parent": "Kit_Mast_Horn",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.215,
+    -0.065
+   ],
+   "size": [
+    0.1,
+    0.19,
+    0.21
+   ],
+   "center_item": [
+    0.0,
+    -0.215,
+    -0.065
+   ],
+   "centerUnity": [
+    0.0,
+    -0.065,
+    0.215
+   ],
+   "sizeUnity": [
+    0.1,
+    0.21,
+    0.19
+   ]
+  },
+  {
+   "name": "COL_Mast_Horn_Horn",
+   "item": "Kit_Mast_Horn",
+   "parent": "Kit_Mast_Horn",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.4135,
+    0.0346
+   ],
+   "size": [
+    0.344,
+    0.5961,
+    0.4682
+   ],
+   "center_item": [
+    0.0,
+    -0.4135,
+    0.0346
+   ],
+   "centerUnity": [
+    0.0,
+    0.0346,
+    0.4135
+   ],
+   "sizeUnity": [
+    0.344,
+    0.4682,
+    0.5961
+   ]
+  },
+  {
+   "name": "COL_Mast_Yagi_Arm",
+   "item": "Kit_Mast_Yagi",
+   "parent": "Kit_Mast_Yagi",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.405,
+    -0.065
+   ],
+   "size": [
+    0.1,
+    0.57,
+    0.21
+   ],
+   "center_item": [
+    0.0,
+    -0.405,
+    -0.065
+   ],
+   "centerUnity": [
+    0.0,
+    -0.065,
+    0.405
+   ],
+   "sizeUnity": [
+    0.1,
+    0.21,
+    0.57
+   ]
+  },
+  {
+   "name": "COL_Mast_Yagi_Boom",
+   "item": "Kit_Mast_Yagi",
+   "parent": "Kit_Mast_Yagi",
+   "type": "box",
+   "center": [
+    0.0,
+    -1.19,
+    0.022
+   ],
+   "size": [
+    0.06,
+    1.1,
+    0.96
+   ],
+   "center_item": [
+    0.0,
+    -1.19,
+    0.022
+   ],
+   "centerUnity": [
+    0.0,
+    0.022,
+    1.19
+   ],
+   "sizeUnity": [
+    0.06,
+    0.96,
+    1.1
+   ]
+  },
+  {
+   "name": "COL_Mast_Lamp_Arm",
+   "item": "Kit_Mast_Lamp",
+   "parent": "Kit_Mast_Lamp",
+   "type": "box",
+   "center": [
+    0.0,
+    -0.49,
+    0.17
+   ],
+   "size": [
+    0.3,
+    1.28,
+    0.7
+   ],
+   "center_item": [
+    0.0,
+    -0.49,
+    0.17
+   ],
+   "centerUnity": [
+    0.0,
+    0.17,
+    0.49
+   ],
+   "sizeUnity": [
+    0.3,
+    0.7,
+    1.28
+   ]
+  },
+  {
+   "name": "COL_Mast_Lamp_Head",
+   "item": "Kit_Mast_Lamp",
+   "parent": "Kit_Mast_Lamp",
+   "type": "box",
+   "center": [
+    0.0,
+    -1.4,
+    0.475
+   ],
+   "size": [
+    0.27,
+    0.62,
+    0.13
+   ],
+   "center_item": [
+    0.0,
+    -1.4,
+    0.475
+   ],
+   "centerUnity": [
+    0.0,
+    0.475,
+    1.4
+   ],
+   "sizeUnity": [
+    0.27,
+    0.13,
+    0.62
+   ]
+  },
+  {
+   "name": "COL_Mast_Antenna",
+   "item": "Kit_Mast_Antenna",
+   "parent": "Kit_Mast_Antenna",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    0.425
+   ],
+   "size": [
+    0.1,
+    0.1,
+    0.75
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    0.425
+   ],
+   "centerUnity": [
+    0.0,
+    0.425,
+    0.0
+   ],
+   "sizeUnity": [
+    0.1,
+    0.75,
+    0.1
+   ]
+  },
+  {
+   "name": "COL_Mast_Siren",
+   "item": "Kit_Mast_Siren",
+   "parent": "Kit_Mast_Siren",
+   "type": "box",
+   "center": [
+    0.0,
+    0.0,
+    0.36
+   ],
+   "size": [
+    0.52,
+    0.52,
+    1.08
+   ],
+   "center_item": [
+    0.0,
+    0.0,
+    0.36
+   ],
+   "centerUnity": [
+    0.0,
+    0.36,
+    0.0
+   ],
+   "sizeUnity": [
+    0.52,
+    1.08,
+    0.52
+   ]
+  }
+ ],
+ "items": {
+  "Kit_Camera_Head": {
+   "id": "K1",
+   "mount": "mount",
+   "ru": "камера видеонаблюдения: корпус с козырьком, объектив, красный диод",
+   "parts": [
+    "Kit_Camera_Head_Glass",
+    "Lens_CameraLED",
+    "Kit_Camera_Head"
+   ],
+   "sockets": [
+    "CAM_View"
+   ],
+   "colliders": [
+    "COL_Camera_Head"
+   ],
+   "bbox": [
+    [
+     -0.0605,
+     -0.247,
+     0.0
+    ],
+    [
+     0.0605,
+     0.0989,
+     0.1285
+    ]
+   ],
+   "size": [
+    0.121,
+    0.3459,
+    0.1285
+   ],
+   "tris": 408,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Red",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Camera_Head.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_CameraLED"
+   ]
+  },
+  "Kit_Camera_BracketWall": {
+   "id": "K1",
+   "mount": "wall",
+   "ru": "кронштейн камеры к стене",
+   "parts": [
+    "Kit_Camera_BracketWall"
+   ],
+   "sockets": [
+    "Mount_Head"
+   ],
+   "colliders": [
+    "COL_Camera_BracketWall"
+   ],
+   "bbox": [
+    [
+     -0.05,
+     -0.2609,
+     -0.07
+    ],
+    [
+     0.05,
+     0.0,
+     0.075
+    ]
+   ],
+   "size": [
+    0.1,
+    0.2609,
+    0.145
+   ],
+   "tris": 251,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Camera_BracketWall.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Camera_BracketPole": {
+   "id": "K1",
+   "mount": "pole",
+   "ru": "кронштейн камеры к столбу (хомуты на столб 0,20–0,26 м)",
+   "parts": [
+    "Kit_Camera_BracketPole"
+   ],
+   "sockets": [
+    "Mount_Head_Pole"
+   ],
+   "colliders": [
+    "COL_Camera_BracketPole"
+   ],
+   "bbox": [
+    [
+     -0.132,
+     -0.5359,
+     -0.17
+    ],
+    [
+     0.132,
+     0.1287,
+     0.085
+    ]
+   ],
+   "size": [
+    0.264,
+    0.6646,
+    0.255
+   ],
+   "tris": 422,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Camera_BracketPole.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Monitor_CRT": {
+   "id": "K2",
+   "mount": "desk",
+   "ru": "монитор ЭЛТ 14″ для видеонаблюдения; экран — отдельный объект, UV 0…1",
+   "parts": [
+    "Kit_Monitor_Label",
+    "Lens_MonitorLED",
+    "Kit_Monitor_Screen",
+    "Kit_Monitor_CRT"
+   ],
+   "sockets": [
+    "Screen_Centre",
+    "Audio_Monitor"
+   ],
+   "colliders": [
+    "COL_Monitor"
+   ],
+   "bbox": [
+    [
+     -0.17,
+     -0.202,
+     0.0
+    ],
+    [
+     0.17,
+     0.2482,
+     0.31
+    ]
+   ],
+   "size": [
+    0.34,
+    0.4502,
+    0.31
+   ],
+   "tris": 422,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Green",
+    "M_Kit_Panel",
+    "M_Kit_Screen_Off"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Monitor_CRT.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_MonitorLED",
+    "Kit_Monitor_Screen"
+   ]
+  },
+  "Kit_Console_2": {
+   "id": "K3",
+   "mount": "desk",
+   "ru": "пульт на 2 кнопки (корпус с наклонной панелью, места кнопок и подписей)",
+   "parts": [
+    "Kit_Console_2_Strip",
+    "Kit_Console_2"
+   ],
+   "sockets": [
+    "Slot_Button_1",
+    "Slot_Label_1",
+    "Slot_Button_2",
+    "Slot_Label_2"
+   ],
+   "colliders": [
+    "COL_Console_2"
+   ],
+   "bbox": [
+    [
+     -0.15,
+     -0.1012,
+     -0.004
+    ],
+    [
+     0.15,
+     0.2212,
+     0.1138
+    ]
+   ],
+   "size": [
+    0.3,
+    0.3224,
+    0.1178
+   ],
+   "tris": 150,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Console_2.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Console_4": {
+   "id": "K3",
+   "mount": "desk",
+   "ru": "пульт на 4 кнопки",
+   "parts": [
+    "Kit_Console_4_Strip",
+    "Kit_Console_4"
+   ],
+   "sockets": [
+    "Slot_Button_1_of4",
+    "Slot_Label_1_of4",
+    "Slot_Button_2_of4",
+    "Slot_Label_2_of4",
+    "Slot_Button_3_of4",
+    "Slot_Label_3_of4",
+    "Slot_Button_4_of4",
+    "Slot_Label_4_of4"
+   ],
+   "colliders": [
+    "COL_Console_4"
+   ],
+   "bbox": [
+    [
+     -0.25,
+     -0.1012,
+     -0.004
+    ],
+    [
+     0.25,
+     0.2212,
+     0.1138
+    ]
+   ],
+   "size": [
+    0.5,
+    0.3224,
+    0.1178
+   ],
+   "tris": 150,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Console_4.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Console_Button": {
+   "id": "K3",
+   "mount": "panel",
+   "ru": "кнопка пульта: колпачок IX_ (ход 5 мм), рамка, лампочка над кнопкой",
+   "parts": [
+    "IX_ConsoleButton",
+    "Lens_ConsoleButton",
+    "Kit_Console_Button"
+   ],
+   "sockets": [
+    "Hand_ConsoleButton",
+    "Audio_ConsoleButton"
+   ],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.02,
+     -0.0195,
+     0.0
+    ],
+    [
+     0.02,
+     0.0575,
+     0.0158
+    ]
+   ],
+   "size": [
+    0.04,
+    0.077,
+    0.0158
+   ],
+   "tris": 352,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Amber"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Console_Button.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_ConsoleButton"
+   ]
+  },
+  "Kit_Console_Label_Schranke": {
+   "id": "K3",
+   "mount": "panel",
+   "ru": "подпись SCHRANKE / BARRIER",
+   "parts": [
+    "Kit_Console_Label_Schranke"
+   ],
+   "sockets": [],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.035,
+     -0.0122,
+     0.0008
+    ],
+    [
+     0.035,
+     0.0122,
+     0.0008
+    ]
+   ],
+   "size": [
+    0.07,
+    0.0245,
+    0.0
+   ],
+   "tris": 2,
+   "materials": [
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Console_Label_Schranke.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Console_Label_Tor": {
+   "id": "K3",
+   "mount": "panel",
+   "ru": "подпись TOR / GATE",
+   "parts": [
+    "Kit_Console_Label_Tor"
+   ],
+   "sockets": [],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.035,
+     -0.0122,
+     0.0008
+    ],
+    [
+     0.035,
+     0.0122,
+     0.0008
+    ]
+   ],
+   "size": [
+    0.07,
+    0.0245,
+    0.0
+   ],
+   "tris": 2,
+   "materials": [
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Console_Label_Tor.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Console_Label_Licht": {
+   "id": "K3",
+   "mount": "panel",
+   "ru": "подпись LICHT / LIGHTS",
+   "parts": [
+    "Kit_Console_Label_Licht"
+   ],
+   "sockets": [],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.035,
+     -0.0122,
+     0.0008
+    ],
+    [
+     0.035,
+     0.0122,
+     0.0008
+    ]
+   ],
+   "size": [
+    0.07,
+    0.0245,
+    0.0
+   ],
+   "tris": 2,
+   "materials": [
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Console_Label_Licht.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Console_Label_Blank": {
+   "id": "K3",
+   "mount": "panel",
+   "ru": "пустая подпись",
+   "parts": [
+    "Kit_Console_Label_Blank"
+   ],
+   "sockets": [],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.035,
+     -0.0122,
+     0.0008
+    ],
+    [
+     0.035,
+     0.0122,
+     0.0008
+    ]
+   ],
+   "size": [
+    0.07,
+    0.0245,
+    0.0
+   ],
+   "tris": 2,
+   "materials": [
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Console_Label_Blank.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Phone": {
+   "id": "K4",
+   "mount": "desk",
+   "ru": "дисковый телефон 70-х: корпус, трубка Phone_Receiver, диск Phone_Dial, шнур",
+   "parts": [
+    "Phone_Dial",
+    "Phone_Receiver",
+    "Kit_Phone"
+   ],
+   "sockets": [
+    "Hand_Phone_Receiver",
+    "Audio_Phone",
+    "Audio_PhoneEar"
+   ],
+   "colliders": [
+    "COL_Phone",
+    "COL_Phone_Receiver"
+   ],
+   "bbox": [
+    [
+     -0.1388,
+     -0.1052,
+     -0.003
+    ],
+    [
+     0.127,
+     0.2208,
+     0.1609
+    ]
+   ],
+   "size": [
+    0.2658,
+    0.3259,
+    0.1639
+   ],
+   "tris": 925,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Phone.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Cabinet_Power": {
+   "id": "K5",
+   "mount": "wall",
+   "ru": "распределительный шкаф: дверца, полка под аккумулятор машины, две клеммы, переключатель NETZ / BATTERIE, лампа «ток есть», табличка NOTSTROM 12V",
+   "parts": [
+    "Kit_Cabinet_SwitchPlate",
+    "IX_CabinetSwitch",
+    "IX_CabinetClamp_Pos",
+    "IX_CabinetClamp_Neg",
+    "Kit_Cabinet_Sign",
+    "Lens_CabinetPower",
+    "Kit_Cabinet_Card",
+    "IX_CabinetDoor",
+    "Kit_Cabinet_Power"
+   ],
+   "sockets": [
+    "Slot_Battery",
+    "Conduit_Top",
+    "Conduit_Bottom",
+    "Hand_CabinetSwitch",
+    "Audio_CabinetSwitch",
+    "Hand_CabinetClamp_Pos",
+    "Hand_CabinetClamp_Neg",
+    "Audio_CabinetClamps",
+    "Hand_CabinetDoor",
+    "Audio_CabinetDoor",
+    "Battery_Post_Pos",
+    "Battery_Post_Neg"
+   ],
+   "colliders": [
+    "COL_Cabinet_Back",
+    "COL_Cabinet_Left",
+    "COL_Cabinet_Right",
+    "COL_Cabinet_Top",
+    "COL_Cabinet_Bottom",
+    "COL_Cabinet_Shelf",
+    "COL_Cabinet_Door"
+   ],
+   "bbox": [
+    [
+     -0.33,
+     -0.342,
+     -0.4
+    ],
+    [
+     0.33,
+     0.0,
+     0.412
+    ]
+   ],
+   "size": [
+    0.66,
+    0.342,
+    0.812
+   ],
+   "tris": 1098,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Green",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Cabinet_Power.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_CabinetPower"
+   ]
+  },
+  "Kit_JunctionBox": {
+   "id": "K6",
+   "mount": "wall",
+   "ru": "коробка распределительная малая",
+   "parts": [
+    "Kit_JunctionBox_Sticker",
+    "Kit_JunctionBox"
+   ],
+   "sockets": [
+    "Conduit_Bottom_JB",
+    "Conduit_Top_JB",
+    "Conduit_Left_JB",
+    "Conduit_Right_JB"
+   ],
+   "colliders": [
+    "COL_JunctionBox"
+   ],
+   "bbox": [
+    [
+     -0.086,
+     -0.091,
+     -0.086
+    ],
+    [
+     0.086,
+     0.0,
+     0.086
+    ]
+   ],
+   "size": [
+    0.172,
+    0.091,
+    0.172
+   ],
+   "tris": 474,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_JunctionBox.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Conduit_Straight": {
+   "id": "K7",
+   "mount": "axis",
+   "ru": "труба для кабеля, прямой кусок 1 м (масштаб по x = длина)",
+   "parts": [
+    "Kit_Conduit_Straight"
+   ],
+   "sockets": [],
+   "colliders": [
+    "COL_Conduit_Straight"
+   ],
+   "bbox": [
+    [
+     0.0,
+     -0.016,
+     -0.016
+    ],
+    [
+     1.0,
+     0.016,
+     0.016
+    ]
+   ],
+   "size": [
+    1.0,
+    0.032,
+    0.032
+   ],
+   "tris": 16,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Conduit_Straight.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Conduit_Elbow": {
+   "id": "K7",
+   "mount": "axis",
+   "ru": "колено трубы 90°",
+   "parts": [
+    "Kit_Conduit_Elbow"
+   ],
+   "sockets": [
+    "Elbow_Out"
+   ],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.02,
+     -0.019,
+     -0.019
+    ],
+    [
+     0.119,
+     0.019,
+     0.12
+    ]
+   ],
+   "size": [
+    0.139,
+    0.038,
+    0.139
+   ],
+   "tris": 172,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Conduit_Elbow.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Conduit_Clamp": {
+   "id": "K7",
+   "mount": "axis",
+   "ru": "крепёжная скоба трубы",
+   "parts": [
+    "Kit_Conduit_Clamp"
+   ],
+   "sockets": [],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.004,
+     -0.0395,
+     -0.024
+    ],
+    [
+     0.004,
+     0.0395,
+     0.0258
+    ]
+   ],
+   "size": [
+    0.008,
+    0.079,
+    0.0498
+   ],
+   "tris": 132,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Conduit_Clamp.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Conduit_Entry": {
+   "id": "K7",
+   "mount": "wall",
+   "ru": "ввод трубы в коробку или шкаф (муфта с гайкой)",
+   "parts": [
+    "Kit_Conduit_Entry"
+   ],
+   "sockets": [],
+   "colliders": [],
+   "bbox": [
+    [
+     0.0,
+     -0.0208,
+     -0.024
+    ],
+    [
+     0.053,
+     0.0208,
+     0.024
+    ]
+   ],
+   "size": [
+    0.053,
+    0.0416,
+    0.048
+   ],
+   "tris": 80,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Conduit_Entry.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Pole": {
+   "id": "K8",
+   "mount": "ground",
+   "ru": "опора ЛЭП деревянная: траверса, 3 изолятора линии",
+   "parts": [
+    "Kit_Pole_Plate",
+    "Kit_Pole"
+   ],
+   "sockets": [
+    "Wire_1",
+    "Wire_2",
+    "Wire_3"
+   ],
+   "colliders": [
+    "COL_Pole",
+    "COL_Pole_Arm"
+   ],
+   "bbox": [
+    [
+     -0.8,
+     -0.214,
+     -0.15
+    ],
+    [
+     0.8,
+     0.145,
+     8.53
+    ]
+   ],
+   "size": [
+    1.6,
+    0.359,
+    8.68
+   ],
+   "tris": 1216,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Pole.fbx",
+   "wires": [
+    "Wire_1",
+    "Wire_2",
+    "Wire_3"
+   ],
+   "power_parts": []
+  },
+  "Kit_Pole_Trafo": {
+   "id": "K8",
+   "mount": "ground",
+   "ru": "опора ЛЭП деревянная с трансформатором-«бочкой»",
+   "parts": [
+    "Kit_Pole_Trafo_Plate",
+    "Kit_Pole_Trafo_Sign",
+    "Kit_Pole_Trafo_Rating",
+    "Kit_Pole_Trafo"
+   ],
+   "sockets": [
+    "Wire_1_T",
+    "Wire_2_T",
+    "Wire_3_T",
+    "Wire_4_T",
+    "Wire_5_T",
+    "Wire_6_T",
+    "Wire_7_T",
+    "Audio_Trafo"
+   ],
+   "colliders": [
+    "COL_Pole_T",
+    "COL_Pole_T_Tank"
+   ],
+   "bbox": [
+    [
+     -0.8,
+     -0.885,
+     -0.15
+    ],
+    [
+     0.8,
+     0.145,
+     8.53
+    ]
+   ],
+   "size": [
+    1.6,
+    1.03,
+    8.68
+   ],
+   "tris": 2828,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Pole_Trafo.fbx",
+   "wires": [
+    "Wire_1_T",
+    "Wire_2_T",
+    "Wire_3_T",
+    "Wire_4_T",
+    "Wire_5_T",
+    "Wire_6_T",
+    "Wire_7_T"
+   ],
+   "power_parts": []
+  },
+  "Kit_RoofStand": {
+   "id": "K9",
+   "mount": "wall",
+   "ru": "трубостойка на крыше: труба с хомутами, траверса, изоляторы, ввод",
+   "parts": [
+    "Kit_RoofStand"
+   ],
+   "sockets": [
+    "Wire_1_R",
+    "Wire_2_R",
+    "Wire_3_R",
+    "Wire_4_R",
+    "Conduit_Bottom_R"
+   ],
+   "colliders": [
+    "COL_RoofStand"
+   ],
+   "bbox": [
+    [
+     -0.3,
+     -0.2058,
+     0.0
+    ],
+    [
+     0.3,
+     0.0,
+     2.25
+    ]
+   ],
+   "size": [
+    0.6,
+    0.2058,
+    2.25
+   ],
+   "tris": 1051,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_RoofStand.fbx",
+   "wires": [
+    "Wire_1_R",
+    "Wire_2_R",
+    "Wire_3_R",
+    "Wire_4_R"
+   ],
+   "power_parts": []
+  },
+  "Kit_Wire_Bare": {
+   "id": "K9",
+   "mount": "wire",
+   "ru": "провод линии (голый алюминиевый): пролёт 40 м с провисом по правилу; ставится от точки Wire_ одной опоры к точке другой, растягивается по x под пролёт 20–60 м",
+   "parts": [
+    "Kit_Wire_Bare"
+   ],
+   "sockets": [
+    "Bare_A",
+    "Bare_B"
+   ],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.0006,
+     -0.0043,
+     -1.6014
+    ],
+    [
+     40.0006,
+     0.0043,
+     0.0044
+    ]
+   ],
+   "size": [
+    40.0011,
+    0.0086,
+    1.6059
+   ],
+   "tris": 270,
+   "materials": [
+    "M_Kit_WireBare"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Wire_Bare.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Wire_Drop": {
+   "id": "K9",
+   "mount": "wire",
+   "ru": "кабель ввода (чёрный): пролёт 10 м; от катушек опоры к трубостойке, растягивается по x под пролёт 3–25 м",
+   "parts": [
+    "Kit_Wire_Drop"
+   ],
+   "sockets": [
+    "Drop_A",
+    "Drop_B"
+   ],
+   "colliders": [],
+   "bbox": [
+    [
+     -0.0002,
+     -0.0067,
+     -0.1036
+    ],
+    [
+     10.0002,
+     0.0067,
+     0.007
+    ]
+   ],
+   "size": [
+    10.0004,
+    0.0133,
+    0.1106
+   ],
+   "tris": 70,
+   "materials": [
+    "M_Kit_Wire"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Wire_Drop.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_DoorLock": {
+   "id": "K10",
+   "mount": "wall",
+   "ru": "электрозамок двери: корпус (накладка) на полотне",
+   "parts": [
+    "Kit_DoorLock"
+   ],
+   "sockets": [],
+   "colliders": [
+    "COL_DoorLock"
+   ],
+   "bbox": [
+    [
+     -0.04,
+     -0.0365,
+     -0.08
+    ],
+    [
+     0.041,
+     0.0,
+     0.08
+    ]
+   ],
+   "size": [
+    0.081,
+    0.0365,
+    0.16
+   ],
+   "tris": 235,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_DoorLock.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_DoorLock_Strike": {
+   "id": "K10",
+   "mount": "wall",
+   "ru": "ответная планка электрозамка с лампочкой",
+   "parts": [
+    "Lens_DoorLock",
+    "Kit_DoorLock_Strike"
+   ],
+   "sockets": [
+    "Audio_DoorLock"
+   ],
+   "colliders": [
+    "COL_DoorLock_Strike"
+   ],
+   "bbox": [
+    [
+     -0.018,
+     -0.038,
+     -0.1317
+    ],
+    [
+     0.018,
+     0.0034,
+     0.075
+    ]
+   ],
+   "size": [
+    0.036,
+    0.0414,
+    0.2067
+   ],
+   "tris": 266,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Green"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_DoorLock_Strike.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_DoorLock"
+   ]
+  },
+  "Kit_Beacon": {
+   "id": "K11",
+   "mount": "desk",
+   "ru": "проблесковый маячок оранжевый",
+   "parts": [
+    "Lens_Beacon",
+    "Glow_Beacon",
+    "Kit_Beacon"
+   ],
+   "sockets": [
+    "LIGHT_Beacon",
+    "Audio_Beacon"
+   ],
+   "colliders": [
+    "COL_Beacon"
+   ],
+   "bbox": [
+    [
+     -0.1732,
+     -0.2,
+     -0.02
+    ],
+    [
+     0.1732,
+     0.2,
+     0.24
+    ]
+   ],
+   "size": [
+    0.3464,
+    0.4,
+    0.26
+   ],
+   "tris": 351,
+   "materials": [
+    "M_Kit_Glow",
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Beacon"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Beacon.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_Beacon"
+   ]
+  },
+  "Kit_Mast": {
+   "id": "K12",
+   "mount": "ground",
+   "ru": "мачта: стальная труба 4,2 м на бетонной тумбе, люк внизу; два места сбоку на хомутах и место на верхушке — под насадки",
+   "parts": [
+    "Kit_Mast_Sticker",
+    "Kit_Mast"
+   ],
+   "sockets": [
+    "Mount_Side_1",
+    "Mount_Side_2",
+    "Mount_Top",
+    "Conduit_Base"
+   ],
+   "colliders": [
+    "COL_Mast",
+    "COL_Mast_Foot"
+   ],
+   "bbox": [
+    [
+     -0.25,
+     -0.25,
+     -0.4
+    ],
+    [
+     0.25,
+     0.25,
+     4.242
+    ]
+   ],
+   "size": [
+    0.5,
+    0.5,
+    4.642
+   ],
+   "tris": 503,
+   "materials": [
+    "M_Kit_Kit",
+    "M_Kit_Panel"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Mast.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Mast_Flood": {
+   "id": "K12",
+   "mount": "side",
+   "ru": "прожектор (галогенный) на хомутах, наклон 30° вниз; свет LIGHT_Flood",
+   "parts": [
+    "Lens_Flood",
+    "Glow_Flood",
+    "Kit_Mast_Flood"
+   ],
+   "sockets": [
+    "LIGHT_Flood"
+   ],
+   "colliders": [
+    "COL_Mast_Flood_Clamp",
+    "COL_Mast_Flood_Head"
+   ],
+   "bbox": [
+    [
+     -0.4,
+     -0.675,
+     -0.335
+    ],
+    [
+     0.4,
+     0.1287,
+     0.15
+    ]
+   ],
+   "size": [
+    0.8,
+    0.8036,
+    0.485
+   ],
+   "tris": 728,
+   "materials": [
+    "M_Kit_Glow",
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Flood"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Mast_Flood.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_Flood"
+   ]
+  },
+  "Kit_Mast_Horn": {
+   "id": "K12",
+   "mount": "side",
+   "ru": "рупорный громкоговоритель на хомутах (оповещение), наклон 15° вниз",
+   "parts": [
+    "Kit_Mast_Horn"
+   ],
+   "sockets": [
+    "Audio_Horn"
+   ],
+   "colliders": [
+    "COL_Mast_Horn_Clamp",
+    "COL_Mast_Horn_Horn"
+   ],
+   "bbox": [
+    [
+     -0.1677,
+     -0.7116,
+     -0.1995
+    ],
+    [
+     0.1677,
+     0.1287,
+     0.1572
+    ]
+   ],
+   "size": [
+    0.3354,
+    0.8403,
+    0.3567
+   ],
+   "tris": 950,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Mast_Horn.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Mast_Yagi": {
+   "id": "K12",
+   "mount": "side",
+   "ru": "антенна «волновой канал» для рации (5 элементов, вертикальная поляризация) на выносе 0,6 м",
+   "parts": [
+    "Kit_Mast_Yagi"
+   ],
+   "sockets": [],
+   "colliders": [
+    "COL_Mast_Yagi_Arm",
+    "COL_Mast_Yagi_Boom"
+   ],
+   "bbox": [
+    [
+     -0.132,
+     -1.74,
+     -0.458
+    ],
+    [
+     0.132,
+     0.1287,
+     0.502
+    ]
+   ],
+   "size": [
+    0.264,
+    1.8687,
+    0.96
+   ],
+   "tris": 580,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Mast_Yagi.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Mast_Lamp": {
+   "id": "K12",
+   "mount": "top",
+   "ru": "уличный фонарь: стакан на верхушку, изогнутый кронштейн, светильник с матовым стеклом; свет LIGHT_Street",
+   "parts": [
+    "Lens_Street",
+    "Glow_Street",
+    "Kit_Mast_Lamp"
+   ],
+   "sockets": [
+    "LIGHT_Street"
+   ],
+   "colliders": [
+    "COL_Mast_Lamp_Arm",
+    "COL_Mast_Lamp_Head"
+   ],
+   "bbox": [
+    [
+     -0.45,
+     -1.85,
+     -0.18
+    ],
+    [
+     0.45,
+     0.144,
+     0.54
+    ]
+   ],
+   "size": [
+    0.9,
+    1.994,
+    0.72
+   ],
+   "tris": 354,
+   "materials": [
+    "M_Kit_Glow",
+    "M_Kit_Kit",
+    "M_Kit_Lamp_Street"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Mast_Lamp.fbx",
+   "wires": [],
+   "power_parts": [
+    "Lens_Street"
+   ]
+  },
+  "Kit_Mast_Antenna": {
+   "id": "K12",
+   "mount": "top",
+   "ru": "штыревая УКВ-антенна с четырьмя противовесами на трубе над верхушкой",
+   "parts": [
+    "Kit_Mast_Antenna"
+   ],
+   "sockets": [],
+   "colliders": [
+    "COL_Mast_Antenna"
+   ],
+   "bbox": [
+    [
+     -0.3648,
+     -0.3648,
+     -0.18
+    ],
+    [
+     0.3648,
+     0.3648,
+     2.116
+    ]
+   ],
+   "size": [
+    0.7295,
+    0.7295,
+    2.296
+   ],
+   "tris": 322,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Mast_Antenna.fbx",
+   "wires": [],
+   "power_parts": []
+  },
+  "Kit_Mast_Siren": {
+   "id": "K12",
+   "mount": "top",
+   "ru": "электросирена оповещения: мотор, статор с окнами, колпак",
+   "parts": [
+    "Kit_Mast_Siren"
+   ],
+   "sockets": [
+    "Audio_Siren"
+   ],
+   "colliders": [
+    "COL_Mast_Siren"
+   ],
+   "bbox": [
+    [
+     -0.26,
+     -0.26,
+     -0.18
+    ],
+    [
+     0.26,
+     0.26,
+     0.9
+    ]
+   ],
+   "size": [
+    0.52,
+    0.52,
+    1.08
+   ],
+   "tris": 602,
+   "materials": [
+    "M_Kit_Kit"
+   ],
+   "unity_fbx": "Assets/Kit/Models/Kit_Mast_Siren.fbx",
+   "wires": [],
+   "power_parts": []
+  }
+ },
+ "meta": {
+  "version": "1.1",
+  "units": "metres, degrees",
+  "frame": "each item in its own frame: z up, the front -y; origins as each item says (wall things: the middle of the back on the wall; desk / ground things: the middle of the underside; panel things: on the panel face, +z out; pipe pieces: on the axis)",
+  "unity": "(x, y, z) -> (-x, z, -y); angle -> -angle; box size (sx, sy, sz) -> (sx, sz, sy); the item's front (-y) is the prefab's +Z",
+  "unity_root": "Assets/Kit",
+  "materials": {
+   "atlas": "M_Kit_Kit (T_Kit_Kit_A_px: the baked PSX atlas of every model, point filter)",
+   "panel": "M_Kit_Panel (T_Kit_Panel_A_px + _E_px: labels, signs, the dial, the camera glass)",
+   "lamps": "M_Kit_Lamp_<Red|Green|Amber|Beacon> lit / _Off (same textures, emission on / off)",
+   "screen": "M_Kit_Screen_Off (T_Kit_Screen_Off) / M_Kit_Screen_On (the camera picture; T_Kit_Screen_On stands in)",
+   "glow": "M_Kit_Glow additive halo (the beacon)",
+   "wire": "M_Kit_Wire (black service cable), M_Kit_WireBare (line)"
+  },
+  "wire": {
+   "sag_k": 0.001,
+   "sag_min": 0.05,
+   "seg_len": 1.5,
+   "seg_min": 6,
+   "r_lv": 0.007,
+   "r_bare": 0.0045,
+   "sides": 5,
+   "note": "parabola through the two attach points: p(t) = A + (B - A) t - up * 4 sag t (1 - t), t = 0..1; sag = max(sag_min, sag_k * L^2), L = the horizontal span; segments = max(seg_min, ceil(L / seg_len)); a tube of `sides` sides and radius r_lv (service drop, black, M_Kit_Wire) or r_bare (line wires, M_Kit_WireBare)"
+  },
+  "battery": {
+   "size": [
+    0.175,
+    0.2644,
+    0.278
+   ],
+   "post": [
+    0.04,
+    0.217,
+    0.105
+   ],
+   "note": "the van's Battery (Van/Data/parts.json): size (x, up, z) in its Unity frame, posts at (+-x, up, z) = (0.04, 0.217, -+0.105)"
+  },
+  "lights": "snow_kit_lights.json",
+  "model": "snow_kit.blend",
+  "textures": "tex",
+  "instances": "a building links the item's collection from snow_kit.blend and places an instance empty KIT_... at the item's origin; in Unity the builder puts the item's prefab on that empty (the FBX has no references)"
+ }
+}

@@ -94,6 +94,7 @@ namespace Snow.EditorTools
                 root.TryGetComponent(out lights);
                 root.TryGetComponent(out grid);
             }
+            if (root != null && pr.preStep != null && !pr.preStep(scene, root)) { Debug.LogError($"[Snow] {id}: the location pre-step failed; the scene is not saved."); return false; }
             // hierarchy order from the root: the order of generated ids, the same on every peer (one scene)
             SkyIslandInteractable[] all = root != null ? root.GetComponentsInChildren<SkyIslandInteractable>(true) : new SkyIslandInteractable[0];
             var missing = new List<string>();
@@ -460,6 +461,9 @@ namespace Snow.EditorTools
         public bool incremental;
         /// <summary>The location's own step after the shared ones, before the save; false = failed, nothing saved.</summary>
         public Func<Scene, Transform, bool> step;
+        /// <summary>The location's step before the parts are gathered (Forest: the snow_kit instances with their IX_ parts);
+        /// false = failed, nothing saved.</summary>
+        public Func<Scene, Transform, bool> preStep;
 
         public sealed class Rule
         {

@@ -124,6 +124,15 @@ namespace Snow.Audio
             return c != null && c.clips != null && c.clips.Length > 0;
         }
 
+        /// <summary>A clip of the cue for a source the caller owns (a loop, a 2D UI sound); null when missing (silent).</summary>
+        public static AudioClip Clip(string id)
+        {
+            SoundCue cue = Library != null ? Library.Get(id) : null;
+            AudioClip clip = cue != null ? cue.Pick() : null;
+            if (clip == null && !string.IsNullOrEmpty(id)) Remember(id, null, "свой источник", Vector3.zero, 0f);
+            return clip;
+        }
+
         /// <summary>This peer only: a one-shot of the cue at the point (null when the cue or its clips are missing).</summary>
         public static AudioSource Play(string id, Vector3 at, float volumeScale = 1f) => PlayId(id, at, volumeScale, "здесь");
 

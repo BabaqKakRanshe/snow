@@ -68,6 +68,7 @@ namespace Snow.Vehicles.Van
         readonly NetworkList<byte> _fuse = new NetworkList<byte>();
         /// <summary>Spare_Fuse_1…3 in the tool box: bit i = there.</summary>
         readonly NetworkVariable<byte> _spares = new NetworkVariable<byte>(0b111);
+        readonly NetworkVariable<bool> _batteryIn = new NetworkVariable<bool>(true);
         VanElectrics _elec;
         [Tooltip("The kit's NetItems (VanItem_*_Net), filled by VanPrefabBuilder: what a part of the van becomes in a hand")]
         public GameObject[] itemPrefabs = new GameObject[0];
@@ -287,8 +288,11 @@ namespace Snow.Vehicles.Van
 
         bool HandbrakeOn => Pos("Handbrake") == 1;
 
-        /// <summary>Mass on and the battery clamps on: the bus has a battery (the electrics proper are В4).</summary>
-        bool BusOn => Pos("MassSwitch_Key") == 1 && Pos("Battery_ClampPos") == 0;
+        /// <summary>Mass on, the battery in its box and the clamps on: the bus has a battery (the electrics proper are В4).</summary>
+        bool BusOn => Pos("MassSwitch_Key") == 1 && Pos("Battery_ClampPos") == 0 && _batteryIn.Value;
+
+        /// <summary>The battery is in its box (it can be taken out, user 24.10).</summary>
+        public bool BatteryIn => _batteryIn.Value;
         bool IgnitionOn => BusOn && Pos("Ignition_Key") >= 2;
 
         /// <summary>
@@ -441,6 +445,40 @@ namespace Snow.Vehicles.Van
             return false;
         }
 
+        /// <summary>
+        /// Server: the battery in its box under seat L4 (user 24.10 «не могу взять аккумулятор из машины»), like a fuse. Hands
+        /// empty: out into the hands (18 kg, carried in front) once both clamps are off; the battery in hand: back into the
+        /// empty box. The lid over it is the zone rule (coveredBy). The charge stays with the van (TEMPORARY: the item does
+        /// not carry it).
+        /// </summary>
+        bool ServerBattery(ulong client, UsePhase phase, out string reason)
+        {
+            reason = null;
+            if (phase != UsePhase.Press) return true;
+            CargoItem held = CargoItem.HeldBy(client);
+            if (held != null)
+            {
+                if (held.itemKey != "Battery") { reason = "Сюда — только аккумулятор"; return false; }
+                if (_batteryIn.Value) { reason = "Аккумулятор уже стоит"; return false; }
+                _batteryIn.Value = true;
+                ServerConsumeHeld(client, held);
+                BenchLog.Event("van_battery", "state", "in", "client", client);
+                return true;
+            }
+            if (!_batteryIn.Value) { reason = "Ящик пуст: поставьте аккумулятор (в руках)"; return false; }
+            if (Pos("Battery_ClampPos") == 0) { reason = "Сначала снимите клеммы"; return false; }
+            if (Registry.SeatOf(client) >= 0) { reason = "Выйдите из машины, чтобы вынуть"; return false; }
+            _batteryIn.Value = false;
+            if (ServerGiveItem(client, "Battery"))
+            {
+                BenchLog.Event("van_battery", "state", "out", "client", client);
+                return true;
+            }
+            _batteryIn.Value = true;
+            reason = "Не удалось взять";
+            return false;
+        }
+
         // ---------------------------------------------------------------- items in hand (В6 storage model, G4)
         public GameObject ItemPrefab(string type)
         {
@@ -580,6 +618,7 @@ namespace Snow.Vehicles.Van
             if (c >= 0) return ServerControl(clientId, c, phase, out reason);
             if (FuseIndex(id) >= 0) return ServerFuse(clientId, FuseIndex(id), phase, out reason);
             if (SpareIndex(id) >= 0) return ServerSpareFuse(clientId, SpareIndex(id), phase, out reason);
+            if (id == "Battery") return ServerBattery(clientId, phase, out reason);
             if (phase != UsePhase.Press) return true;
             reason = "Пока не работает (предметы — следующие этапы)";
             return false;
@@ -602,6 +641,9 @@ namespace Snow.Vehicles.Van
                     break;
                 case "TransferLever_Axle":
                     _motion.FrontAxle = next == 1;
+                    break;
+                case "Battery_ClampPos":
+                    if (next == 0 && !_batteryIn.Value) { reason = "Нет аккумулятора"; return false; }
                     break;
             }
             _pos[c] = (byte)next;
@@ -636,7 +678,8 @@ namespace Snow.Vehicles.Van
             if (FuseIndex(id) >= 0)
                 switch (FuseState(id)) { case FuseOk: return "цел"; case FuseBlown: return "сгорел"; default: return "гнездо пустое"; }
             if (SpareIndex(id) >= 0) return SparePresent(SpareIndex(id)) ? "лежит" : "взят";
-            if (id == "Battery") return $"заряд {Mathf.RoundToInt(Telemetry.Charge / 2.55f)} %";   // user 21.10: the charge on the battery
+            if (id == "Battery")                                     // user 21.10: the charge on the battery
+                return _batteryIn.Value ? $"заряд {Mathf.RoundToInt(Telemetry.Charge / 2.55f)} %" : "ящик пуст";
             return _zones.ContainsKey(id) ? "пока не работает" : null;
         }
 
@@ -650,7 +693,8 @@ namespace Snow.Vehicles.Van
             if (c >= 0 && c < _pos.Count) return VanControls.Table[c].Actions[_pos[c]];
             if (FuseIndex(id) >= 0) return FuseState(id) == FuseEmpty ? "вставить предохранитель (в руках)" : FuseState(id) == FuseBlown ? "вынуть и выбросить" : "вынуть";
             if (SpareIndex(id) >= 0) return SparePresent(SpareIndex(id)) ? "взять (держать E)" : "положить предохранитель";
-            if (id == "Battery") return "снять — позже";
+            if (id == "Battery")
+                return !_batteryIn.Value ? "поставить аккумулятор (в руках)" : Pos("Battery_ClampPos") == 0 ? "вынуть (сначала снять клеммы)" : "вынуть";
             return "использовать";
         }
 
@@ -680,7 +724,9 @@ namespace Snow.Vehicles.Van
         public override bool CursorOnly(UtilityPlaneInteractable zone) => _zones.TryGetValue(zone.id, out VanInteractable vi) && IsCursorOnly(vi);
 
         static readonly HashSet<string> CursorKinds = new HashSet<string> { "toggle", "selector", "rotary", "pull", "lever", "momentary", "lock" };
-        static bool IsCursorOnly(VanInteractable vi) => vi.side == "in" && CursorKinds.Contains(vi.kind);
+        // the battery box under seat L4 is worked on foot (user 24.10: its clamps were cursor-only, so the battery could not
+        // be taken out standing); the 21.10 rule is for the cab's switches, knobs, keys and levers
+        static bool IsCursorOnly(VanInteractable vi) => vi.side == "in" && CursorKinds.Contains(vi.kind) && vi.coveredBy != "BatteryBox_Lid";
 
         /// <summary>Current position of a control of the table (0 if there is none or before the first sync).</summary>
         public int Pos(string zone)

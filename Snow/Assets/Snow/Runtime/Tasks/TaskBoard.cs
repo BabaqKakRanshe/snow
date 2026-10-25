@@ -24,6 +24,8 @@ namespace Snow.Tasks
         public string id, from, title, text;
         /// <summary>"radio": the location speaks the hints itself (ForestRadio); TaskBoard gives none.</summary>
         public string hintsBy;
+        /// <summary>The text is a message from 'from': it is typed out on screen when the task shows up (TaskHud), both modes.</summary>
+        public bool letter;
         public int day;
         public float until = -1f;
         public string[] after, done, hints;

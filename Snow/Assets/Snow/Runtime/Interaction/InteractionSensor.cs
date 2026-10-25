@@ -187,9 +187,11 @@ namespace Snow.Interaction
             else if (ctx == InputContext.SeatCursor) { down = f.Click && !last.Click; up = !f.Click && last.Click; }
             else { down = up = false; }                              // seat without cursor: SeatController calls Tap()
 
-            if (down && HeldHeavy)
+            // E on a zone uses it, with a heavy thing in the hands too (user 24.10: E at the battery shelf put the battery on
+            // the ground); E anywhere else puts the heavy thing down (a press, not a held key: Game Accessibility Guidelines, XAG 107)
+            bool zoneWithHeavy = HeldHeavy && TargetHost != null && TargetVolume != null && TargetVolume.kind != "seat" && TargetVolume.kind != "kit";
+            if (down && HeldHeavy && !zoneWithHeavy)
             {
-                // E again: put the heavy thing down (a press, not a held key: Game Accessibility Guidelines, XAG 107)
                 net.RequestRelease(Held);
                 Held = null;
             }
@@ -442,7 +444,7 @@ namespace Snow.Interaction
         string Key()
         {
             InputContext ctx = controller.Source.Context;
-            if (ctx == InputContext.OnFoot) return HeldHeavy ? "ЛКМ" : "E";
+            if (ctx == InputContext.OnFoot) return "E";                  // the left button works too with a thing in hand
             return ctx == InputContext.SeatCursor ? "ЛКМ" : "F";
         }
 
