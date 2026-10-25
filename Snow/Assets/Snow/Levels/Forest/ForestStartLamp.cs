@@ -6,7 +6,8 @@ namespace Snow.Levels.Forest
     /// The lamp at the start gate (user 25.10, docs/gdd/QUESTIONS_START.md): it runs on its own battery, not on the base's
     /// power. On at the start with short dips now and then; after <see cref="lifeMinutes"/> it flickers harder for
     /// <see cref="dyingSeconds"/> and goes out for good, so the hut's lamp becomes the only light to walk to. Purely visual:
-    /// every peer runs the same clock from its own scene load (a few seconds apart in co-op).
+    /// every peer runs the same clock from its own scene load (a few seconds apart in co-op). The hut's candle uses it too
+    /// (a long life, gutters now and then): <see cref="Kill"/> at X01 with the lantern (ForestOpening.x01Lamps).
     /// </summary>
     public class ForestStartLamp : MonoBehaviour
     {
@@ -49,6 +50,13 @@ namespace Snow.Levels.Forest
             float k = Time.time < _dipUntil ? (dying ? 0f : 0.25f) : 1f;
             if (dying) k *= 1f - 0.6f * ((t - life) / dyingSeconds);
             Show(k);
+        }
+
+        /// <summary>Out for good now (the hut's candle at X01).</summary>
+        public void Kill()
+        {
+            Show(0f);
+            _dead = true;
         }
 
         void Show(float k)

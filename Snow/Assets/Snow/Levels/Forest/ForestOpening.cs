@@ -66,6 +66,10 @@ namespace Snow.Levels.Forest
         public Material lanternOff;
         public GameObject[] lanternGlows = new GameObject[0];
         public Light[] lanternLights = new Light[0];
+        [Tooltip("Lamps that go out with the lantern (the hut's candle; written by ForestHutDressStep)")] public ForestStartLamp[] x01Lamps = new ForestStartLamp[0];
+        [Tooltip("X01 waits until the carried jerrycan is this far (m, flat) from the hut's pivot: out of the door (user 25.10, " +
+                 "QUESTIONS_HUT 5). 0: the first grab, as before")] public float x01OutsideRadius;
+        public Transform x01Hut;
 
         [Header("STÖRUNG lamp: M_HeatFault <-> M_HeatFaultOn")]
         public Renderer[] faultRenderers = new Renderer[0];
@@ -816,11 +820,11 @@ namespace Snow.Levels.Forest
 
         void Scares()
         {
-            // X01: the first grab of the hut jerrycan puts the lantern out for good
+            // X01: the hut jerrycan carried out of the door puts the lantern out for good (behind the player's back)
             if (!ScareDone(Scare.X01))
             {
                 NetworkObject can = items != null ? items.Find(HutJerrycan) : null;
-                if (can != null && can.TryGetComponent(out CargoItem c) && c.State == CargoState.Carried)
+                if (can != null && can.TryGetComponent(out CargoItem c) && c.State == CargoState.Carried && OutOfHut(can.transform.position))
                 {
                     _lanternOn.Value = false;
                     Sound(Sfx.LanternOut, lanternGlass != null ? lanternGlass.transform.position : transform.position);
@@ -1032,6 +1036,7 @@ namespace Snow.Levels.Forest
                 if (!_lanternApplied)
                 {
                     _lanternApplied = true;
+                    foreach (ForestStartLamp l in x01Lamps) if (l != null) l.Kill();
                     foreach (GameObject g in lanternGlows) if (g != null) g.SetActive(false);
                     if (lanternGlass != null && lanternOff != null && lanternSlot >= 0)
                     {
@@ -1134,6 +1139,13 @@ namespace Snow.Levels.Forest
                 best = all[i];
             }
             return best;
+        }
+
+        bool OutOfHut(Vector3 p)
+        {
+            if (x01OutsideRadius <= 0f || x01Hut == null) return true;
+            Vector3 d = p - x01Hut.position;
+            return d.x * d.x + d.z * d.z > x01OutsideRadius * x01OutsideRadius;
         }
 
         bool AnyPlayerNear(Vector3 p, float radius)
