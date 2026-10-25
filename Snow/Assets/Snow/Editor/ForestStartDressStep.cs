@@ -26,6 +26,7 @@ namespace Snow.EditorTools
 
         [Serializable] public class Prop { public string prefab; public float u, v, yaw; }
         [Serializable] public class Spot { public float u, v, r; public int n; }
+        [Serializable] public class Fuse { public string prefab, on, slot; }
         [Serializable]
         public class Data
         {
@@ -34,6 +35,7 @@ namespace Snow.EditorTools
             public Prop[] props;
             public string[] clumpPrefabs;
             public Spot[] clumps;
+            public Fuse fuse;
         }
 
         static Data _d;
@@ -93,10 +95,27 @@ namespace Snow.EditorTools
                 props++;
             }
             clumps = PlaceClumps(dress, reference, ref missing);
+            string fuse = LinkFuse(root, dress);
 
             Debug.Log($"[Snow] Forest start dress ({DataPath}): pad at {_d.padY:0.00} m, {levelled} height samples levelled, {painted} ground texels and " +
                       $"{cells} grass cells rewritten, {removed} Terrain trees removed from the pad, {snapped} put back on the new ground, " +
-                      $"{props} props, {clumps} grass clumps" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+                      $"{props} props, {clumps} grass clumps, {fuse}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+        }
+
+        /// <summary>The van's spare headlight fuse on the booth's desk (user 25.10): ForestOpening spawns it there at the start.</summary>
+        static string LinkFuse(Transform root, Transform dress)
+        {
+            if (_d.fuse == null || string.IsNullOrEmpty(_d.fuse.prefab)) return "no spare fuse";
+            ForestOpening fo = root.GetComponentInChildren<ForestOpening>(true);
+            Transform on = dress.Find(_d.fuse.on);
+            Transform slot = on != null ? on.Find(_d.fuse.slot) : null;
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(_d.fuse.prefab);
+            if (fo == null || slot == null || prefab == null || !prefab.TryGetComponent(out Unity.Netcode.NetworkObject no))
+                return $"spare fuse NOT linked ({(fo == null ? "no ForestOpening" : slot == null ? $"no {_d.fuse.on}/{_d.fuse.slot}" : $"no NetworkObject prefab {_d.fuse.prefab}")})";
+            fo.startFusePrefab = no;
+            fo.startFuseSpawn = slot;
+            EditorUtility.SetDirty(fo);
+            return $"spare fuse on {_d.fuse.on}/{_d.fuse.slot}";
         }
 
         // ------------------------------------------------------------------ frame

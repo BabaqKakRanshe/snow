@@ -1,5 +1,5 @@
 {
-  "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u).",
+  "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u). The van's spare headlight fuse lies on the booth desk (user 25.10; the van's tool box starts without spares).",
   "centre": [
     -511.5175,
     554.2235
@@ -126,5 +126,10 @@
       "r": 1.0,
       "n": 2
     }
-  ]
+  ],
+  "fuse": {
+    "prefab": "Assets/Snow/Van/Items/VanItem_Fuse_Net.prefab",
+    "on": "StartBooth",
+    "slot": "Slot_Table_2"
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "_doc": "Forest forester's hut (user 25.10 'приступай' to the proposals of docs/gdd/QUESTIONS_HUT.md 1, 2, 4, 5): a trodden trail from the road at Car_Start to the hut door (no gravel, worn middle; routed between the trunks, no tree removed), the hut's name sign at the road as the pointer, the candle on the table lit at the start and going out with the lantern at X01, X01 when the jerrycan leaves the hut, one fresh line of boot prints from the door round the sign to the Hochsitz (QUESTIONS_HUT 7; the X11 prints' decal cell); the hut and its sign turned -83.5° on the hut's pivot so the open door faces the trail and the car (QUESTIONS_HUT 10; the items inside follow through ForestRelocation, the Hochsitz stays). World coordinates (Unity x, z), metres. The terrain is only painted along the trail; no heights change.",
+  "_doc": "Forest forester's hut (user 25.10 'приступай' to the proposals of docs/gdd/QUESTIONS_HUT.md 1, 2, 4, 5): a trodden trail from the road at Car_Start to the hut door (no gravel, worn middle; routed between the trunks, no tree removed), the hut's name sign at the road as the pointer, the candle on the table lit at the start and going out with the lantern at X01, X01 when the jerrycan leaves the hut, one fresh line of boot prints from the door round the sign to the Hochsitz (QUESTIONS_HUT 7; the X11 prints' decal cell); the hut and its sign turned -83.5° on the hut's pivot so the open door faces the trail and the car (QUESTIONS_HUT 10; the items inside follow through ForestRelocation, the Hochsitz stays). World coordinates (Unity x, z), metres. The terrain is only painted along the trail; no heights change. The lantern also carries a far halo the fog dims less (a warm dot from the post and the road, gone up close) and sways a little (QUESTIONS_HUT_2 5, 10). A small warm light on the trail-head sign draws the eye from the road (user 25.10: the hut's own light is hidden by the firs).",
   "trail": {
     "w": 1.0,
     "p": [
@@ -76,6 +76,33 @@
     "objects": [
       "TowerHut",
       "Sign_Forsthuette"
+    ]
+  },
+  "beacon": {
+    "light": "Light_lantern_0",
+    "color": [
+      1.0,
+      0.62,
+      0.3
+    ],
+    "size": 1.6,
+    "intensity": 1.6,
+    "fogFloor": 0.35,
+    "nearFade": 8.0,
+    "sway": 0.04,
+    "swayPeriod": 2.6
+  },
+  "pointer": {
+    "x": -462.4,
+    "z": 491.6,
+    "height": 2.1,
+    "intensity": 1.4,
+    "range": 7.0,
+    "glow": 0.9,
+    "color": [
+      1.0,
+      0.62,
+      0.3
     ]
   }
 }

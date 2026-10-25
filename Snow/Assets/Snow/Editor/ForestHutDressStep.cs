@@ -33,6 +33,8 @@ namespace Snow.EditorTools
         [Serializable] public class Candle { public string anchor; public float[] local, color; public float intensity, range, glow; }
         [Serializable] public class Prints { public string material; public float[] uv, p; public float size, step; }
         [Serializable] public class Turn { public float yaw, radius; public string[] objects; }
+        [Serializable] public class Beacon { public string light; public float[] color; public float size, intensity, fogFloor, nearFade, sway, swayPeriod; }
+        [Serializable] public class Pointer { public float x, z, height, intensity, range, glow; public float[] color; }
         [Serializable] class Placed { public string m; public float[] p, q; }
         [Serializable] class Layout { public Placed[] prefabs; }
         const string LayoutPath = "Assets/Locations/Forest/Data/Forest_Layout.json";
@@ -45,6 +47,8 @@ namespace Snow.EditorTools
             public Candle candle;
             public Prints prints;
             public Turn turn;
+            public Beacon beacon;
+            public Pointer pointer;
         }
 
         static Data _d;
@@ -88,10 +92,12 @@ namespace Snow.EditorTools
             int prints = PlacePrints(dress);
             Transform hut = _d.candle != null ? root.Find(_d.candle.anchor) : null;
             ForestStartLamp candle = hut != null ? MakeCandle(dress, hut) : null;
+            ForestStartLamp beacon = hut != null ? MakeBeacon(hut) : null;
+            ForestStartLamp pointer = MakePointer(dress);
             ForestOpening fo = root.GetComponentInChildren<ForestOpening>(true);
             if (fo != null)
             {
-                fo.x01Lamps = candle != null ? new[] { candle } : new ForestStartLamp[0];
+                fo.x01Lamps = new[] { candle, beacon, pointer }.Where(l => l != null).ToArray();
                 fo.x01Hut = hut;
                 fo.x01OutsideRadius = _d.x01OutsideRadius;
                 EditorUtility.SetDirty(fo);
@@ -99,6 +105,7 @@ namespace Snow.EditorTools
 
             Debug.Log($"[Snow] Forest hut dress ({DataPath}): {turned}, trail of {Length():0} m, {painted} ground texels and {cells} grass cells rewritten, " +
                       $"{removed} Terrain trees on the trail removed, {props} props, {prints} boot prints, candle {(candle != null ? "lit" : "MISSING (no " + _d.candle?.anchor + ")")}, " +
+                      $"far halo {(beacon != null ? "on the lantern (swaying)" : "none")}, trail-head light {(pointer != null ? "lit" : "none")}, " +
                       $"X01 {(fo != null ? $"at {_d.x01OutsideRadius:0.#} m from the hut" : "NOT linked (no ForestOpening)")}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
         }
 
@@ -446,21 +453,111 @@ namespace Snow.EditorTools
             return lamp;
         }
 
-        static Material GlowMat(Color linear)
+        const string BeaconMaterial = "Assets/Locations/Forest/Start/Materials/M_Hut_BeaconGlow.mat";
+
+        /// <summary>The hut's far halo (QUESTIONS_HUT_2 5, 10): a warm camera-facing glow on the lantern's light that the fog
+        /// dims less than the light itself (LightGlow's fog floor), so the hut reads as a dot from the start post and the
+        /// road and fades out up close; the light and the halo sway a little on the hook. Out at X01 with the lantern.
+        /// Rebuilt each run (the old halo under the light is removed first).</summary>
+        static ForestStartLamp MakeBeacon(Transform hut)
+        {
+            Beacon b = _d.beacon;
+            Transform light = b != null ? hut.Find(b.light) : null;
+            if (light == null) return null;
+            foreach (Transform old in light.Cast<Transform>().Where(t => t.name == "Beacon_Hut").ToArray()) UnityEngine.Object.DestroyImmediate(old.gameObject);
+            var go = new GameObject("Beacon_Hut");
+            go.transform.SetParent(light, false);
+            go.transform.localScale = Vector3.one * b.size;
+            go.AddComponent<MeshFilter>().sharedMesh = AssetDatabase.LoadAssetAtPath<Mesh>(GlowQuad);
+            var r = go.AddComponent<MeshRenderer>();
+            r.sharedMaterial = GlowMat(BeaconMaterial, new Color(b.color[0], b.color[1], b.color[2]), b.intensity, b.fogFloor, b.nearFade);
+            r.shadowCastingMode = ShadowCastingMode.Off;
+            r.receiveShadows = false;
+            r.lightProbeUsage = LightProbeUsage.Off;
+            r.reflectionProbeUsage = ReflectionProbeUsage.Off;
+            var lamp = go.AddComponent<ForestStartLamp>();
+            lamp.lights = new Light[0];
+            lamp.glows = new Renderer[] { r };
+            lamp.lifeMinutes = 600f;                            // lives until X01
+            lamp.dipEvery = 1e4f;                               // the lantern's own flicker does the rest
+            if (b.sway > 0f)
+            {
+                if (!light.TryGetComponent(out ForestLanternSway sw)) sw = light.gameObject.AddComponent<ForestLanternSway>();
+                sw.amplitude = b.sway;
+                sw.period = b.swayPeriod > 0f ? b.swayPeriod : sw.period;
+                EditorUtility.SetDirty(sw);
+            }
+            return lamp;
+        }
+
+        /// <summary>A small warm light on the sign at the trail head (user 25.10: the hut cannot be seen from the road through
+        /// the firs, so a light at the road draws the eye to the trail and the hut's lantern takes over from there). No model
+        /// yet: a point light and a halo on the sign's post (the ordered arrow sign brings its own lamp). Out at X01.</summary>
+        static ForestStartLamp MakePointer(Transform dress)
+        {
+            Pointer p = _d.pointer;
+            if (p == null || p.color == null) return null;
+            var go = new GameObject("TrailLight");
+            go.transform.SetParent(dress, false);
+            var w = new Vector3(p.x, 0f, p.z);
+            go.transform.position = new Vector3(p.x, Height(w) + p.height, p.z);
+            var col = new Color(p.color[0], p.color[1], p.color[2]);
+            float mx = Mathf.Max(col.maxColorComponent, 1e-4f);
+            var l = go.AddComponent<Light>();
+            l.type = LightType.Point;
+            l.color = new Color(col.r / mx, col.g / mx, col.b / mx).gamma;
+            l.intensity = p.intensity;
+            l.range = p.range;
+            l.shadows = LightShadows.None;
+            l.lightmapBakeType = LightmapBakeType.Realtime;
+            Light from = AssetDatabase.LoadAssetAtPath<GameObject>(LightLayersFrom)?.GetComponentInChildren<Light>(true);
+            if (from != null)
+            {
+                l.renderingLayerMask = from.renderingLayerMask;
+                if (from.TryGetComponent(out UniversalAdditionalLightData src))
+                {
+                    if (!go.TryGetComponent(out UniversalAdditionalLightData dst)) dst = go.AddComponent<UniversalAdditionalLightData>();
+                    dst.renderingLayers = src.renderingLayers;
+                }
+            }
+            var glowGo = new GameObject("Glow_Trail");
+            glowGo.transform.SetParent(go.transform, false);
+            glowGo.transform.localScale = Vector3.one * p.glow;
+            glowGo.AddComponent<MeshFilter>().sharedMesh = AssetDatabase.LoadAssetAtPath<Mesh>(GlowQuad);
+            var r = glowGo.AddComponent<MeshRenderer>();
+            Beacon b = _d.beacon;
+            r.sharedMaterial = b != null ? GlowMat(BeaconMaterial, new Color(b.color[0], b.color[1], b.color[2]), b.intensity, b.fogFloor, b.nearFade) : GlowMat(col);
+            r.shadowCastingMode = ShadowCastingMode.Off;
+            r.receiveShadows = false;
+            r.lightProbeUsage = LightProbeUsage.Off;
+            r.reflectionProbeUsage = ReflectionProbeUsage.Off;
+            var lamp = go.AddComponent<ForestStartLamp>();
+            lamp.lights = new[] { l };
+            lamp.glows = new Renderer[] { r };
+            lamp.intensity = p.intensity;
+            lamp.lifeMinutes = 600f;
+            lamp.dipEvery = 6f;
+            go.AddComponent<ForestLanternSway>().amplitude = 0.03f;
+            return lamp;
+        }
+
+        static Material GlowMat(Color linear) => GlowMat(GlowMaterial, linear, 1.2f, 0f, 0.3f);
+
+        static Material GlowMat(string path, Color linear, float intensity, float fogFloor, float nearFade)
         {
             Shader sh = Shader.Find("SkyIsland/LightGlow");
-            var m = AssetDatabase.LoadAssetAtPath<Material>(GlowMaterial);
+            var m = AssetDatabase.LoadAssetAtPath<Material>(path);
             if (m == null)
             {
-                m = new Material(sh) { name = Path.GetFileNameWithoutExtension(GlowMaterial) };
-                AssetDatabase.CreateAsset(m, GlowMaterial);
+                m = new Material(sh) { name = Path.GetFileNameWithoutExtension(path) };
+                AssetDatabase.CreateAsset(m, path);
             }
             float mx = Mathf.Max(linear.maxColorComponent, 1e-4f);
             m.SetColor("_Color", new Color(linear.r / mx, linear.g / mx, linear.b / mx).gamma);
-            m.SetFloat("_Intensity", 1.2f);
+            m.SetFloat("_Intensity", intensity);
             m.SetFloat("_Softness", 2.6f);
-            if (m.HasProperty("_FogFloor")) m.SetFloat("_FogFloor", 0f);
-            m.SetFloat("_NearFade", 0.3f);
+            if (m.HasProperty("_FogFloor")) m.SetFloat("_FogFloor", fogFloor);
+            m.SetFloat("_NearFade", nearFade);
             m.renderQueue = (int)RenderQueue.Transparent + 10;
             EditorUtility.SetDirty(m);
             return m;

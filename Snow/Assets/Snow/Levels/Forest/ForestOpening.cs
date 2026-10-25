@@ -71,6 +71,8 @@ namespace Snow.Levels.Forest
                  "QUESTIONS_HUT 5). 0: the first grab, as before")] public float x01OutsideRadius;
         public Transform x01Hut;
         [Tooltip("Opening items that put the lantern out when carried out of the hut")] public string[] x01Items = { "Flashlight_Hut", "Note_Forester" };
+        [Tooltip("The van's spare fuse (VanItem_Fuse_Net) and its place on the start post's desk (ForestStartDressStep)")] public NetworkObject startFusePrefab;
+        public Transform startFuseSpawn;
         Snow.Vehicles.Van.VanVehicle _van;
         float _nextVanLook;
 
@@ -259,6 +261,12 @@ namespace Snow.Levels.Forest
                 if (i != _barLockBit) locks |= 1u << i;
             _locks.Value = locks;
             _padlockOn.Value = true;
+            if (startFusePrefab != null && startFuseSpawn != null)
+            {
+                // the van's spare headlight fuse waits on the start post's desk, not in its tool box (user 25.10)
+                NetworkObject fuse = Instantiate(startFusePrefab, startFuseSpawn.position + Vector3.up * 0.04f, startFuseSpawn.rotation);
+                fuse.Spawn(true);
+            }
             ulong prints = 0UL;
             for (int i = GrimeCount; i < GrimeCount + PrintCount && i < 64; i++) prints |= 1UL << i;
             _decalsHidden.Value = prints;                              // X11 prints wait for the morning

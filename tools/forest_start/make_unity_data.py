@@ -17,6 +17,8 @@ NAMES = ['StartBooth', 'StartCar', 'StartLamp', 'StartTyres', 'StartTrash']
 POSE = {'IX_Door': 80.0, 'IX_CarDoor': 0.0}          # contract degrees the door stands at (booth: open, players can step in)
 LIGHT_INTENSITY = {'LIGHT_Booth': 3.0, 'LIGHT_Flood': 16.0}   # the dark night's exposure (yard lamps: 16 at 26 m)
 LIGHT_RANGE = {'LIGHT_Booth': 9.0, 'LIGHT_Flood': 24.0}
+# the post's lights cold white, the hut's lantern the only warm light around (user 25.10, QUESTIONS_HUT_2 6)
+LIGHT_COLOR = {'LIGHT_Booth': [0.82, 0.92, 1.0], 'LIGHT_Flood': [0.85, 0.94, 1.0]}
 
 c = json.load(open(os.path.join(PKG, 'start_contract.json'), encoding='utf-8'))
 lights = json.load(open(os.path.join(PKG, 'start_lights.json'), encoding='utf-8'))['lights']
@@ -37,7 +39,7 @@ for n in NAMES:
         if l['root'] == n:
             it['lights'].append({'name': l['socket'], 'lens': l['lens'], 'glow': l['glow'], 'group': l['group'],
                                  'spot': l['unityLight'] == 'Spot', 'angle': float(l.get('spotAngle', 0.0)),
-                                 'pos': l['positionUnity'], 'dir': l['forwardUnity'], 'up': l['upUnity'], 'color': l['colorLinear'],
+                                 'pos': l['positionUnity'], 'dir': l['forwardUnity'], 'up': l['upUnity'], 'color': LIGHT_COLOR.get(l['socket'], l['colorLinear']),
                                  'intensity': LIGHT_INTENSITY.get(l['socket'], l['intensityURP']),
                                  'range': LIGHT_RANGE.get(l['socket'], l['range'])})
     items.append(it)

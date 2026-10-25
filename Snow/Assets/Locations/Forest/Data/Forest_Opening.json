@@ -116,7 +116,7 @@
     ]
    },
    "massKg": 0.45,
-   "battery": 0.4,
+   "battery": 1.0,
    "light": {
     "p": [
      -0.133,
