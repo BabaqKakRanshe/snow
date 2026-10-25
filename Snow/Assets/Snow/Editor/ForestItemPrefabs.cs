@@ -119,7 +119,11 @@ namespace Snow.EditorTools
             tag.clean = e.clean;
             tag.key = e.key;
 
-            if (e.model == Jerrycan) root.AddComponent<FuelCan>();
+            if (e.model == Jerrycan)
+            {
+                root.AddComponent<FuelCan>();
+                PaintRed(m);
+            }
             if (e.readable) root.AddComponent<ReadableNote>();
             if (e.model == TrashBagModel)
             {
@@ -134,6 +138,97 @@ namespace Snow.EditorTools
             }
             if (e.light != null && e.light.p != null && e.light.p.Length >= 3) Flashlight(root, m, e.light);
             return root;
+        }
+
+        const string PropsAtlas = "Assets/Locations/Forest/Textures/T_Item_Props_A_px.png";
+        const string RedAtlas = "Assets/Locations/Forest/Textures/T_Item_Jerrycan20_Red_A_px.png";
+        const string RedMaterial = MaterialsFolder + "/M_Item_Jerrycan20_Red.mat";
+
+        /// <summary>The hut's jerrycan red, seen on the floor in the dark (user 25.10, QUESTIONS_HUT 13: a red can is the
+        /// ordinary German petrol can). The model shares the items' Props atlas, so it gets its own copy of the atlas with the
+        /// olive / green hues turned to red (value and saturation kept: the wear and the dithering stay) on a copy of its
+        /// material. Both are made once and reused.</summary>
+        static void PaintRed(GameObject model)
+        {
+            Material red = RedJerrycanMaterial(model);
+            if (red == null) return;
+            foreach (Renderer r in model.GetComponentsInChildren<Renderer>(true))
+            {
+                Material[] mats = r.sharedMaterials;
+                for (int i = 0; i < mats.Length; i++)
+                    if (mats[i] != null && mats[i].name == "M_Item_Props") mats[i] = red;
+                r.sharedMaterials = mats;
+            }
+        }
+
+        static Material RedJerrycanMaterial(GameObject model)
+        {
+            var red = AssetDatabase.LoadAssetAtPath<Material>(RedMaterial);
+            if (red != null) return red;
+            Material src = model.GetComponentsInChildren<Renderer>(true).SelectMany(r => r.sharedMaterials).FirstOrDefault(x => x != null && x.name == "M_Item_Props");
+            if (src == null) { Debug.LogWarning("[Snow] Forest items: no M_Item_Props on the jerrycan; it stays olive."); return null; }
+            if (AssetDatabase.LoadAssetAtPath<Texture2D>(RedAtlas) == null)
+            {
+                // read the atlas through a render texture (the import is not readable)
+                var atlas = AssetDatabase.LoadAssetAtPath<Texture2D>(PropsAtlas);
+                if (atlas == null) { Debug.LogWarning($"[Snow] Forest items: {PropsAtlas} missing; the jerrycan stays olive."); return null; }
+                var rt = RenderTexture.GetTemporary(atlas.width, atlas.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.sRGB);
+                Graphics.Blit(atlas, rt);
+                RenderTexture prev = RenderTexture.active;
+                RenderTexture.active = rt;
+                var tex = new Texture2D(atlas.width, atlas.height, TextureFormat.RGBA32, false);
+                tex.ReadPixels(new Rect(0, 0, atlas.width, atlas.height), 0, 0);
+                RenderTexture.active = prev;
+                RenderTexture.ReleaseTemporary(rt);
+                Color[] px = tex.GetPixels();
+                for (int i = 0; i < px.Length; i++)
+                {
+                    Color.RGBToHSV(px[i], out float h, out float s, out float v);
+                    if (s < 0.12f || h < 0.12f || h > 0.45f) continue;          // greys, browns and blues stay
+                    Color c = Color.HSVToRGB(0.0f, Mathf.Min(1f, s * 1.35f + 0.15f), Mathf.Min(1f, v * 1.15f));
+                    c.a = px[i].a;
+                    px[i] = c;
+                }
+                tex.SetPixels(px);
+                System.IO.File.WriteAllBytes(RedAtlas, tex.EncodeToPNG());
+                Object.DestroyImmediate(tex);
+                AssetDatabase.ImportAsset(RedAtlas);
+                var srcImp = (TextureImporter)AssetImporter.GetAtPath(PropsAtlas);
+                var imp = (TextureImporter)AssetImporter.GetAtPath(RedAtlas);
+                imp.textureType = srcImp.textureType;
+                imp.filterMode = srcImp.filterMode;
+                imp.mipmapEnabled = srcImp.mipmapEnabled;
+                imp.textureCompression = srcImp.textureCompression;
+                imp.wrapMode = srcImp.wrapMode;
+                imp.npotScale = srcImp.npotScale;
+                imp.sRGBTexture = srcImp.sRGBTexture;
+                imp.SaveAndReimport();
+            }
+            red = new Material(src) { name = "M_Item_Jerrycan20_Red" };
+            var redTex = AssetDatabase.LoadAssetAtPath<Texture2D>(RedAtlas);
+            red.SetTexture("_BaseMap", redTex);
+            if (red.HasProperty("_MainTex")) red.SetTexture("_MainTex", redTex);
+            AssetDatabase.CreateAsset(red, RedMaterial);
+            return red;
+        }
+
+        /// <summary>Tools / Snow / Forest / Paint Hut Jerrycan Red: the existing jerrycan prefab only (Build Item Prefabs does
+        /// the same for all items).</summary>
+        [MenuItem("Tools/Snow/Forest/Paint Hut Jerrycan Red")]
+        public static bool PaintJerrycanPrefab()
+        {
+            string path = $"{Folder}/{Jerrycan}.prefab";
+            if (AssetDatabase.LoadAssetAtPath<GameObject>(path) == null) { Debug.LogError($"[Snow] Forest items: {path} not found."); return false; }
+            GameObject root = PrefabUtility.LoadPrefabContents(path);
+            try
+            {
+                PaintRed(root);
+                PrefabUtility.SaveAsPrefabAsset(root, path);
+            }
+            finally { PrefabUtility.UnloadPrefabContents(root); }
+            AssetDatabase.SaveAssets();
+            Debug.Log($"[Snow] Forest items: {Jerrycan} painted red ({RedMaterial}).");
+            return true;
         }
 
         /// <summary>The kit's flashlight logic (SurvivalItem: Socket_Light, light on all rendering layers) with the
