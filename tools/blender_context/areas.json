@@ -63,6 +63,23 @@
         30.0
       ],
       "margin": 10.0
+    },
+    {
+      "name": "start_gate_check",
+      "title": "Forest — старт, проверка площадки (снимки для Claude Code)",
+      "scene": "Assets/Locations/Forest/Scenes/Forest.unity",
+      "centre": [
+        -511.5,
+        554.2
+      ],
+      "yaw": 0.0,
+      "rect": [
+        -25.0,
+        -35.0,
+        20.0,
+        15.0
+      ],
+      "margin": 0.0
     }
   ]
 }

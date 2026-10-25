@@ -1,0 +1,130 @@
+{
+  "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u).",
+  "centre": [
+    -511.5175,
+    554.2235
+  ],
+  "yaw": -42.3,
+  "level": [
+    -13.5,
+    -22.5,
+    -5.8,
+    2.5
+  ],
+  "roadFade": 1.5,
+  "outerFade": 5.0,
+  "padY": 28.69,
+  "asphalt": [
+    -12.5,
+    -21.5,
+    -5.2,
+    1.5
+  ],
+  "gravel": [
+    -13.0,
+    -22.0,
+    -2.8,
+    2.0
+  ],
+  "shoulder": 0.9,
+  "clearMargin": 1.0,
+  "props": [
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartBooth.prefab",
+      "u": -8.0,
+      "v": 0.6,
+      "yaw": 90
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartLamp.prefab",
+      "u": -5.4,
+      "v": -1.2,
+      "yaw": 90
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartCar.prefab",
+      "u": -9.7,
+      "v": -15.5,
+      "yaw": -90
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartTrash.prefab",
+      "u": -10.3,
+      "v": 2.6,
+      "yaw": 12
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartTyres.prefab",
+      "u": -10.8,
+      "v": -2.4,
+      "yaw": 30
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Sign_Halt.prefab",
+      "u": -5.8,
+      "v": 7.5,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Sign_NoEntry.prefab",
+      "u": 5.8,
+      "v": 7.5,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Crates.prefab",
+      "u": -12.1,
+      "v": -0.6,
+      "yaw": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
+      "u": -7.8,
+      "v": -22.6,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
+      "u": -10.0,
+      "v": -22.6,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
+      "u": -12.3,
+      "v": -22.2,
+      "yaw": 14
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/WireBarricade.prefab",
+      "u": -12.8,
+      "v": -6.5,
+      "yaw": 75
+    }
+  ],
+  "clumpPrefabs": [
+    "Assets/SkyIsland/Prefabs/Grass_Clump_A.prefab",
+    "Assets/SkyIsland/Prefabs/Grass_Clump_B.prefab",
+    "Assets/SkyIsland/Prefabs/Grass_Clump_C.prefab"
+  ],
+  "clumps": [
+    {
+      "u": -13.6,
+      "v": -14.0,
+      "r": 1.2,
+      "n": 3
+    },
+    {
+      "u": -6.2,
+      "v": -21.0,
+      "r": 1.0,
+      "n": 2
+    },
+    {
+      "u": -12.8,
+      "v": 1.8,
+      "r": 1.0,
+      "n": 2
+    }
+  ]
+}
