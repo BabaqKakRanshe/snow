@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SkyIsland;
 using Snow.Levels.Forest;
 using UnityEditor;
 using UnityEngine;
@@ -54,7 +55,7 @@ namespace Snow.EditorTools
         [Serializable] class Item { public string name, fbx; public Col[] colliders; public LightDef[] lights; public Socket[] sockets; public Door[] doors; }
         [Serializable] class Col { public string name, parent; public float[] center, size; }
         [Serializable] class Socket { public string name, kind; public float[] pos; }
-        [Serializable] class Door { public string name; public float[] pivot, axis; public float min, max, pose; }
+        [Serializable] class Door { public string name, ix; public float[] pivot, axis; public float min, max, pose; }
         [Serializable] class LightDef { public string name, lens, glow, group; public bool spot; public float angle, intensity, range; public float[] pos, dir, up, color; }
 
         // lamp life (minutes) by contract group: the tripod's battery goes first, the booth lamp a little later; the trail-head
@@ -333,6 +334,16 @@ namespace Snow.EditorTools
                     // turn about the hinge line (the part's origin is on it): the static pose of the data
                     Vector3 axis = V(d.axis).sqrMagnitude > 1e-8f ? V(d.axis).normalized : Vector3.up;
                     t.localRotation = Quaternion.AngleAxis(d.pose, axis) * t.localRotation;
+                    if (string.IsNullOrEmpty(d.ix)) continue;
+                    // a game door: the core's openable part under its scene name; the Forest integration gathers it (when the
+                    // prefab stands before the parts are gathered: ForestHutDressStep.PlaceEarly) and puts a NetworkDoor on it.
+                    // The contract opens outward by +angle, Unity by -angle about the same axis: the part turns about -axis
+                    t.name = d.ix;
+                    var part = t.gameObject.AddComponent<SkyIslandInteractable>();
+                    part.kind = SkyIslandInteractable.Kind.Hinge;
+                    part.axis = -axis;
+                    part.min = d.min;
+                    part.max = d.max;
                 }
                 BuildLamp(it, inst, root, Find, mats, problems);
                 PrefabUtility.SaveAsPrefabAsset(inst, $"{Prefabs}/{it.name}.prefab");

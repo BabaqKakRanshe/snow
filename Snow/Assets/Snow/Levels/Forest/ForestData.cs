@@ -127,6 +127,8 @@ namespace Snow.Levels.Forest
     public class ItemEntry
     {
         public string model, label, itemKey, kind, key;
+        /// <summary>The model's FBX when it is not Assets/Locations/Forest/Models/&lt;model&gt;.fbx (the hut yard's map).</summary>
+        public string fbx;
         public float massKg;
         public ForestBox collider;
         public bool clean, readable;

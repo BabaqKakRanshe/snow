@@ -1070,3 +1070,7 @@ SSAO не найдено в рендерере	SSAO not found in the renderer
 ДРУГОЕ	OTHER
 рядом, {0} м	nearby, {0} m
 ничего	nothing
+Карта лесника	Forester's map
+Forstkarte Hohenmoos / Карта лесника	Forstkarte Hohenmoos / Forester's map
+Карта лесничества Хоэнмоос.\nДорога, ручей, хижина.\nАнтенна № 1 обведена красным.\nВ лесу недалеко от хижины место перечёркнуто красным крестом.	Hohenmoos forest district map.\nRoad, stream, hut.\nAntenna No. 1 circled in red.\nIn the woods not far from the hut, a spot crossed out in red.
+Дверь уборной	Outhouse door

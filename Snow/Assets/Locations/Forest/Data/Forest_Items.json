@@ -1811,6 +1811,29 @@
     0.12,
     -0.06
    ]
+  },
+  {
+   "model": "Item_ForesterMap",
+   "label": "Карта лесника",
+   "itemKey": "Item_ForesterMap",
+   "massKg": 0.02,
+   "collider": {
+    "center": [
+     0.0,
+     0.002,
+     0.0
+    ],
+    "size": [
+     0.42,
+     0.004,
+     0.3
+    ]
+   },
+   "kind": "opening",
+   "clean": false,
+   "tris": 6,
+   "readable": true,
+   "fbx": "Assets/Locations/Forest/HutYard/Models/HutMap.fbx"
   }
  ]
 }

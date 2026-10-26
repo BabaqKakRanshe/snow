@@ -159,6 +159,36 @@
    "readable": "note_forester"
   },
   {
+   "id": "Map_Forester",
+   "model": "Item_ForesterMap",
+   "p": [
+    -474.112,
+    29.478,
+    404.924
+   ],
+   "q": [
+    0.0,
+    0.481952,
+    0.0,
+    0.876197
+   ],
+   "collider": {
+    "center": [
+     0.0,
+     0.002,
+     0.0
+    ],
+    "size": [
+     0.42,
+     0.004,
+     0.3
+    ]
+   },
+   "massKg": 0.02,
+   "readable": "map_forester",
+   "note": "the forester's map on the hut table, near the door end (forest_hut_yard HutMap; user 26.10); turns with the hut (ForestRelocation)"
+  },
+  {
    "id": "Key_Schranke",
    "model": "Item_Key_Schranke",
    "p": [

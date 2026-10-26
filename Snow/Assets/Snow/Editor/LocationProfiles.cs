@@ -84,7 +84,8 @@ namespace Snow.EditorTools
             rules = ForestRules(),
             roomLabels = BaseV2.roomLabels,
             step = ForestLevelStep.Run,
-            preStep = ForestKppStep.Place,
+            // the KPP kit, then the hut yard's props with game doors (the outhouse): both before the parts are gathered
+            preStep = (scene, root) => ForestKppStep.Place(scene, root) && ForestHutDressStep.PlaceEarly(scene, root),
         };
 
         static Rule[] ForestRules()
@@ -92,6 +93,7 @@ namespace Snow.EditorTools
             var map = new List<Rule>
             {
                 On("TowerHut", R("IX_HutDoor", Category.Door, "Дверь хижины", "door")),
+                On("HutOuthouse", R("IX_OuthouseDoor", Category.Door, "Дверь уборной", "door")),   // the hut yard (ForestHutDressStep.PlaceEarly)
                 On("Cabin", R("IX_CabinDoor", Category.Door, "Дверь избушки", "door")),
                 On("PumpHouse", R("IX_PumpDoor", Category.Door, "Дверь насосной", "door")),
                 On("Chapel", R("IX_ChapelDoor", Category.Door, "Дверь часовни", "door")),

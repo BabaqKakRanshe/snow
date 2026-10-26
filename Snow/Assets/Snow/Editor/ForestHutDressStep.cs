@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 namespace Snow.EditorTools
 {
@@ -23,15 +24,17 @@ namespace Snow.EditorTools
     public static class ForestHutDressStep
     {
         public const string DataPath = "Assets/Snow/Levels/Forest/ForestHutDress.json";
-        public const string RootName = "ForestHutDress";
+        public const string RootName = "ForestHutDress", EarlyRootName = "ForestHutYard";
         const string GlowMaterial = "Assets/Locations/Forest/Start/Materials/M_Hut_CandleGlow.mat";
         const string GlowQuad = "Assets/Kit/Materials/Kit_GlowQuad.asset";
         const string LightLayersFrom = "Assets/Locations/Forest/Prefabs/LightPole.prefab";
 
         [Serializable] public class Trail { public float w; public float[] p; }
         /// <summary>A prefab on the ground at world x, z; with <c>anchor</c> (a path under the Forest root) at the anchor's local
-        /// point <c>local</c> instead, turned with it (the porch at the hut front, the map on the hut table).</summary>
-        [Serializable] public class Prop { public string prefab, anchor; public float x, z, yaw; public float[] local; }
+        /// point <c>local</c> instead, turned with it (the porch at the hut front). <c>early</c>: a prop with game doors (the
+        /// outhouse), placed by <see cref="PlaceEarly"/> before the Forest integration gathers the parts, under its own root
+        /// that this step keeps (only its heights follow the terrain); <c>y</c> is its height until the terrain is there.</summary>
+        [Serializable] public class Prop { public string prefab, anchor; public float x, y, z, yaw; public float[] local; public bool early; }
         [Serializable] public class Candle { public string anchor; public float[] local, color; public float intensity, range, glow; }
         [Serializable] public class Prints { public string material; public float[] uv, p; public float size, step; }
         [Serializable] public class Turn { public float yaw, radius; public string[] objects; }
@@ -51,6 +54,7 @@ namespace Snow.EditorTools
             public Turn turn;
             public Beacon beacon;
             public Pointer pointer;
+            public string[] x01Items;
         }
 
         static Data _d;
@@ -86,8 +90,10 @@ namespace Snow.EditorTools
             dress.SetParent(root, false);
             Transform reference = structures != null ? structures.Find("Sign_Forsthuette") : null;
             int props = 0, missing = 0;
+            string early = EarlyHeights(root);
             foreach (Prop p in _d.props ?? new Prop[0])
             {
+                if (p.early) continue;
                 var asset = AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab);
                 Transform anchor = string.IsNullOrEmpty(p.anchor) ? null : root.Find(p.anchor);
                 if (!string.IsNullOrEmpty(p.anchor) && anchor == null) Debug.LogWarning($"[Snow] Forest hut dress: anchor {p.anchor} of {p.prefab} not found.");
@@ -110,11 +116,12 @@ namespace Snow.EditorTools
                 fo.x01Lamps = new[] { candle, beacon, pointer }.Concat(propLamps).Where(l => l != null).ToArray();
                 fo.x01Hut = hut;
                 fo.x01OutsideRadius = _d.x01OutsideRadius;
+                if (_d.x01Items != null && _d.x01Items.Length > 0) fo.x01Items = _d.x01Items;
                 EditorUtility.SetDirty(fo);
             }
 
             Debug.Log($"[Snow] Forest hut dress ({DataPath}): {turned}, trail of {Length():0} m, {painted} ground texels and {cells} grass cells rewritten, " +
-                      $"{removed} Terrain trees on the trail removed, {props} props, {prints} boot prints, candle {(candle != null ? "lit" : "MISSING (no " + _d.candle?.anchor + ")")}, " +
+                      $"{removed} Terrain trees on the trail removed, {props} props, {early}, {prints} boot prints, candle {(candle != null ? "lit" : "MISSING (no " + _d.candle?.anchor + ")")}, " +
                       $"far halo {(beacon != null ? "on the lantern (swaying)" : "none")}, trail-head light {(pointer != null ? "lit" : "none")}, " +
                       $"X01 {(fo != null ? $"at {_d.x01OutsideRadius:0.#} m from the hut" : "NOT linked (no ForestOpening)")}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
         }
@@ -342,8 +349,63 @@ namespace Snow.EditorTools
             return w.y;
         }
 
-        static GameObject Place(GameObject asset, Transform parent, float x, float z, float yaw, Transform reference) =>
-            PlaceAt(asset, parent, new Vector3(x, Height(new Vector3(x, 0f, z)), z), Quaternion.Euler(0f, yaw, 0f), reference);
+        static GameObject Place(GameObject asset, Transform parent, float x, float z, float yaw, Transform reference, float y = 0f) =>
+            PlaceAt(asset, parent, new Vector3(x, Height(new Vector3(x, y, z)), z), Quaternion.Euler(0f, yaw, 0f), reference);
+
+        // ------------------------------------------------------------------ props with game doors
+
+        /// <summary>LocationProfile.preStep (after the KPP kit, before the Forest integration gathers the openable parts): the
+        /// data's early props (the outhouse with its door) under <see cref="EarlyRootName"/>, rebuilt each time; at the data's
+        /// height when no terrain stands there yet (<see cref="Run"/> puts them on the ground later). Their IX parts get their
+        /// NetworkDoor from the integration like the map's own doors (rules in LocationProfiles.Forest).</summary>
+        public static bool PlaceEarly(Scene scene, Transform root)
+        {
+            if (!File.Exists(DataPath)) return true;
+            _d = JsonUtility.FromJson<Data>(File.ReadAllText(DataPath));
+            Transform old = root.Find(EarlyRootName);
+            if (old != null) UnityEngine.Object.DestroyImmediate(old.gameObject);
+            Prop[] early = (_d.props ?? new Prop[0]).Where(p => p.early).ToArray();
+            if (early.Length == 0) return true;
+            var parent = new GameObject(EarlyRootName).transform;
+            parent.SetParent(root, false);
+            Transform reference = root.Find("Structures/Sign_Forsthuette");
+            int placed = 0;
+            foreach (Prop p in early)
+            {
+                GameObject go = Place(AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab), parent, p.x, p.z, p.yaw, reference, p.y);
+                if (go == null)
+                {
+                    Debug.LogError($"[Snow] Forest hut yard: {p.prefab} not found (Tools / Snow / Forest / Build Hut Yard Props).");
+                    return false;
+                }
+                // the doors move: no static flags from the reference on them (static batching would freeze the mesh)
+                foreach (SkyIsland.SkyIslandInteractable ix in go.GetComponentsInChildren<SkyIsland.SkyIslandInteractable>(true))
+                    foreach (Transform t in ix.GetComponentsInChildren<Transform>(true))
+                        GameObjectUtility.SetStaticEditorFlags(t.gameObject, 0);
+                placed++;
+            }
+            Debug.Log($"[Snow] Forest hut yard: {placed} props with game doors placed before the parts are gathered.");
+            return true;
+        }
+
+        /// <summary>The early props onto the terrain (the integration placed them before the tiles stood); in a scene built
+        /// before they existed they are placed here, static until the next Forest integration gives their doors a NetworkDoor.</summary>
+        static string EarlyHeights(Transform root)
+        {
+            Transform early = root.Find(EarlyRootName);
+            if (early == null)
+            {
+                if (!(_d.props ?? new Prop[0]).Any(p => p.early)) return "no early props";
+                PlaceEarly(root.gameObject.scene, root);
+                _d = JsonUtility.FromJson<Data>(File.ReadAllText(DataPath));
+                early = root.Find(EarlyRootName);
+                if (early == null) return "early props MISSING";
+                foreach (Transform t in early) t.position = new Vector3(t.position.x, Height(t.position), t.position.z);
+                return $"{early.childCount} early props placed now (doors open after the next Forest integration)";
+            }
+            foreach (Transform t in early) t.position = new Vector3(t.position.x, Height(t.position), t.position.z);
+            return $"{early.childCount} early props on the ground";
+        }
 
         static GameObject PlaceAt(GameObject asset, Transform parent, Vector3 position, Quaternion rotation, Transform reference)
         {

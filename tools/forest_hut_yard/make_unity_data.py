@@ -1,6 +1,6 @@
 """forest_hut_yard 1.0 contract -> Snow/Assets/Locations/Forest/HutYard/HutYard_Unity.json for StartPropsBuilder (Unity, menu
 Build Hut Yard Props). As tools/forest_start/make_unity_data.py: everything in the Unity frame of each root; the outhouse door is
-static, standing at 'pose' (Unity degrees about axisUnity at pivotUnity; the contract's angle negated).
+a game door (ix: its name in the scene), standing at 'pose' (Unity degrees about axisUnity at pivotUnity; the contract's angle negated).
 
 python tools/forest_hut_yard/make_unity_data.py
 """
@@ -10,7 +10,9 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 PKG = os.path.join(ROOT, 'source', 'assets', 'forest_hut_yard')
 OUT = os.path.join(ROOT, 'Snow', 'Assets', 'Locations', 'Forest', 'HutYard', 'HutYard_Unity.json')
 NAMES = ['HutOuthouse', 'HutFeeder', 'HutPolter', 'HutSign', 'HutPorch', 'HutMap']
-POSE = {'IX_Door': 20.0}                             # the outhouse door stands ajar (contract degrees, outward)
+POSE = {'IX_Door': 0.0}                              # contract degrees the door stands at in the prefab (shut)
+# the outhouse door is a game door (user 26.10 'делай'): renamed for the Forest profile's rule, opened by NetworkDoor
+IX = {'IX_Door': 'IX_OuthouseDoor_1'}
 LIGHT_INTENSITY = {'LIGHT_Lant': 1.4}                # as the trail-head light it replaces (seen from the road at night, 25.10)
 LIGHT_RANGE = {'LIGHT_Lant': 7.0}
 LIGHT_COLOR = {}
@@ -29,7 +31,7 @@ for n in NAMES:
     for pn, p in c['parts'].items():
         if p['root'] == n and p['kind'] == 'hinge':
             it['doors'].append({'name': pn, 'pivot': p['pivotUnity'], 'axis': p['axisUnity'], 'min': float(p['range'][0]),
-                                'max': float(p['range'][1]), 'pose': -POSE.get(pn, 0.0)})
+                                'max': float(p['range'][1]), 'pose': -POSE.get(pn, 0.0), 'ix': IX.get(pn, '')})
     for l in lights:
         if l['root'] == n:
             it['lights'].append({'name': l['socket'], 'lens': l['lens'], 'glow': l['glow'], 'group': l['group'],

@@ -80,8 +80,9 @@ namespace Snow.EditorTools
 
         static GameObject BuildItem(ItemEntry e)
         {
-            var model = AssetDatabase.LoadAssetAtPath<GameObject>($"{ModelsFolder}/{e.model}.fbx");
-            if (model == null) { Debug.LogError($"[Snow] Forest items: {ModelsFolder}/{e.model}.fbx missing."); return null; }
+            string fbx = string.IsNullOrEmpty(e.fbx) ? $"{ModelsFolder}/{e.model}.fbx" : e.fbx;
+            var model = AssetDatabase.LoadAssetAtPath<GameObject>(fbx);
+            if (model == null) { Debug.LogError($"[Snow] Forest items: {fbx} missing."); return null; }
             var root = new GameObject(e.model);
             var m = (GameObject)PrefabUtility.InstantiatePrefab(model);
             PrefabUtility.UnpackPrefabInstance(m, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
