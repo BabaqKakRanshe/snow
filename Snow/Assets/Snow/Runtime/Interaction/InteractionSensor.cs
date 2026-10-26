@@ -35,6 +35,9 @@ namespace Snow.Interaction
         /// <summary>A note is open in the reader (Snow.Levels.Forest.NoteReader): T and Esc are its keys, the radio reply
         /// menu leaves them alone. Stays true through the frame the note closes.</summary>
         public static bool ReaderOpen;
+        /// <summary>A device is raised in the hand (the pager, Snow.Tasks.Pager): E, the arrows and the wheel are its keys -
+        /// no use, no pocket cycling while it is up.</summary>
+        public static bool DeviceRaised;
 
         public InteractionHost TargetHost { get; private set; }
         public string TargetId { get; private set; }
@@ -183,7 +186,7 @@ namespace Snow.Interaction
             Reconcile(ctx);
 
             bool down, up;
-            if (ctx == InputContext.OnFoot) { down = f.Use && !last.Use; up = !f.Use && last.Use; }
+            if (ctx == InputContext.OnFoot) { down = f.Use && !last.Use && !DeviceRaised; up = !f.Use && last.Use; }
             else if (ctx == InputContext.SeatCursor) { down = f.Click && !last.Click; up = !f.Click && last.Click; }
             else { down = up = false; }                              // seat without cursor: SeatController calls Tap()
 
@@ -225,10 +228,10 @@ namespace Snow.Interaction
             if (Mouse.current != null && ctx != InputContext.None)
             {
                 float wheel = Mouse.current.scroll.ReadValue().y;
-                bool knob = TargetHost != null && TargetVolume != null && (TargetVolume.kind == "rotary" || TargetVolume.kind == "selector");
+                bool knob = !DeviceRaised && TargetHost != null && TargetVolume != null && (TargetVolume.kind == "rotary" || TargetVolume.kind == "selector");
                 if (knob && wheel > 0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Press);
                 else if (knob && wheel < -0.01f) net.RequestUse(TargetHost, TargetId, UsePhase.Back);
-                else if (!knob && ctx == InputContext.OnFoot && Mathf.Abs(wheel) > 0.01f) CycleSlot(wheel < 0f ? 1 : -1);
+                else if (!knob && ctx == InputContext.OnFoot && !DeviceRaised && Mathf.Abs(wheel) > 0.01f) CycleSlot(wheel < 0f ? 1 : -1);
             }
 
             // left mouse button with an item in hand: the zone under the ray, used with that item (F4.5); otherwise a
@@ -488,13 +491,12 @@ namespace Snow.Interaction
             // the hover card (name, state, actions) is InteractionOverlay; here only server replies and short notes
             if (Time.time >= _messageUntil || string.IsNullOrEmpty(_message)) return;
             string message = Loc.T(_message);                     // server replies come in Russian too
-            GUIStyle st = Hud.Text(22);
-            float tw = Mathf.Min(Hud.Size(message, st).x, Screen.width - 2f * Hud.SafeX), ph = Hud.Px(40f);
-            var plate = new Rect(Mathf.Round((Screen.width - tw) * 0.5f) - Hud.Px(19f), Mathf.Round(Screen.height * 0.58f), tw + Hud.Px(35f), ph);
-            if (CardRect.width > 0f && plate.Overlaps(CardRect))                 // not over the target or its card
-                plate.y = Mathf.Min(CardRect.yMax + Hud.Px(10f), Screen.height - ph - Hud.SafeY);
-            Hud.Panel(plate, 1f, true);
-            Hud.Label(new Rect(plate.x + Hud.Px(19f), plate.y, tw, ph), message, st, Color.white);
+            GUIStyle st = Hud.Mono(21);                           // UI pick 26.10 (variant C): a typed line, no plate
+            float tw = Mathf.Min(Hud.Size(message, st).x, Screen.width - 2f * Hud.SafeX), ph = Hud.Px(28f);
+            var line = new Rect(Mathf.Round((Screen.width - tw) * 0.5f), Mathf.Round(Screen.height * 0.58f), tw, ph);
+            if (CardRect.width > 0f && line.Overlaps(CardRect))                  // not over the target or its card
+                line.y = Mathf.Min(CardRect.yMax + Hud.Px(10f), Screen.height - ph - Hud.SafeY);
+            Hud.Typed(line.x, line.y, message, st, Hud.Ink);
         }
     }
 }

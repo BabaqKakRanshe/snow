@@ -1,6 +1,6 @@
 # Звук Snow — конвейер
 
-Звуки игры собираются из бесплатных библиотек (решение `docs/gdd/QUESTIONS_4.md`: SFX только из паков, ИИ — только голос и музыка). Что звучит и где — `docs/gdd/AUDIO_LIST.csv`, исследование — `docs/gdd/research/RESEARCH_AUDIO.md`, состояние — `docs/dev/ImplementationStatus.md`, раздел «Звук».
+Звуки игры теперь сгенерированы ИИ (решение пользователя 26.10.2026: «убрать из игры все звуки, которые есть сейчас, и заменить на сгенерированные»; раньше, по `docs/gdd/QUESTIONS_4.md`, SFX брали только из бесплатных паков). Генерация — `tools/ai_audio/gen_sfx.py` (описания в `tools/ai_audio/sfx_prompts.json`, дубли в `F:\ClaudeGames\snow_audio_gen\sfx_lib`, корень `gen:` в манифесте); старый источник каждого звука сохранён в `src_pack`. Stable Audio: бесплатно при доходе до $1 млн в год; в Steam нужна пометка об ИИ-звуке. Что звучит и где — `docs/gdd/AUDIO_LIST.csv`, исследование — `docs/gdd/research/RESEARCH_AUDIO.md`, состояние — `docs/dev/ImplementationStatus.md`, раздел «Звук».
 
 ## Где что лежит
 
@@ -8,6 +8,7 @@
 |---|---|
 | Скачанные библиотеки (не в git) | `D:\Downloads\!Torrent\!SOUNDS` — использовать можно только Sonniss GDC, Nox Essentials (CC0), 99Sounds; остальные паки там пиратские |
 | Индекс законных файлов | `F:\ClaudeGames\snow_audio_library\index.csv` |
+| Нарезка из длинных записей | `F:\ClaudeGames\snow_audio_library\cuts\` (корень `cuts:` в манифесте): `letter\key_*` — удары клавиш Olivetti Linea 98, `letter\carriage_*` — ход каретки, `pager\beep_*` — писк (2496SoundEffects «Alarm Clock Electric Beeping»); режет `tools/audio/cut_letter_sounds.py` |
 | Отобранное пользователем | `F:\ClaudeGames\snow_audio_library\package1_listen\NN_<категория>\` (удалённое не используем) |
 | Сборка перед установкой | `F:\ClaudeGames\snow_audio_library\build\Audio` |
 | Клипы в игре | `Snow/Assets/Snow/Audio/Clips/<группа>/<id>_NN.wav` + `sound_cues.json` |

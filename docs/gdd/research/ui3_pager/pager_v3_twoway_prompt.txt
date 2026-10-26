@@ -1,0 +1,11 @@
+Use case: ui-mockup
+Asset type: in-game screenshot mockup for a 1990s PSX-style survival horror game
+Primary request: edit this first-person game frame inside a dim control room: the player holds an open two-way pager (late 1990s clamshell, like a Motorola PageWriter) in the LEFT gloved hand in the lower-left of the view
+Subject: dark grey clamshell pager opened like a tiny laptop: the lid holds a wide 5-line monochrome LCD with pale blue-white backlight, the base has a tiny QWERTZ keyboard with worn keys, a short stub antenna
+Text (verbatim, 5 lines on the LCD, dark text):
+"K.: Вы где?"
+"Ответ:"
+">1 На дороге"
+" 2 У КПП"
+" 3 Нужна помощь"
+Constraints: keep the original game frame exactly as it is (scene, camera, lighting, fog, low-resolution PlayStation 1 look, pixel noise); only ADD the gloved left hand with the device in the lower-left part of the frame, rendered in the same low-poly PSX style and lit by the scene light plus the device's own screen glow; the screen text must be crisp and readable, monospaced, exactly the lines given. Avoid: any other UI, HUD, subtitles, watermark, frame border, modern smartphone look, extra fingers.

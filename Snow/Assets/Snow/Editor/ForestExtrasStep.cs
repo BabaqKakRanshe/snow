@@ -20,6 +20,7 @@ namespace Snow.EditorTools
             if (!root.TryGetComponent(out ForestDayNight dn)) dn = root.gameObject.AddComponent<ForestDayNight>();
             dn.startHour = 2f;
             EditorUtility.SetDirty(dn);
+            if (!root.TryGetComponent(out ForestEdgeWrap _)) root.gameObject.AddComponent<ForestEdgeWrap>();   // «Лес не отпускает», 26.10
             int removed = 0;
             foreach (Transform old in root.GetComponentsInChildren<Transform>(true).Where(t => t.name == PanelName || t.name == PanelZone).ToArray())
                 if (old != null) { Object.DestroyImmediate(old.gameObject); removed++; }

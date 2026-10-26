@@ -178,7 +178,15 @@ namespace Snow.Levels.Forest
             return (float)h;
         }
 
-        void Awake() => Instance = this;
+        /// <summary>The sky material this clock drives (its own runtime copy, never the asset), or null.</summary>
+        public Material SkyInstance => _sky;
+
+        void Awake()
+        {
+            Instance = this;
+            // the Forest wraps round its edges (ForestEdgeWrap); scenes integrated before 26.10 get it here, without a resave
+            if (Application.isPlaying && !TryGetComponent(out ForestEdgeWrap _)) gameObject.AddComponent<ForestEdgeWrap>();
+        }
 
         public override void OnDestroy()
         {

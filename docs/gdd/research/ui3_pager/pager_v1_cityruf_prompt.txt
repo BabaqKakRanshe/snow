@@ -1,0 +1,10 @@
+Use case: ui-mockup
+Asset type: in-game screenshot mockup for a 1990s PSX-style survival horror game
+Primary request: edit this first-person game frame: the player raises a classic 1994 German Cityruf alphanumeric pager in the LEFT hand (dark knitted glove) into the lower-left of the view; the flashlight in the right hand stays as it is
+Subject: chunky black plastic pager with belt clip, a 4-line monochrome dot-matrix LCD (pale grey-green, lit by a soft GREEN backlight), three rubber buttons under the screen, a small red LED blinking at the top corner, scuffed edges
+Text (verbatim, 4 lines on the LCD, dark pixels on green):
+"3 СООБЩ. *1"
+">17:30 K. Станция"
+" 16:02 K. Смена 3"
+" 14:47 CITYRUF Тест"
+Constraints: keep the original game frame exactly as it is (scene, camera, lighting, fog, low-resolution PlayStation 1 look, pixel noise); only ADD the gloved left hand with the device in the lower-left part of the frame, rendered in the same low-poly PSX style and lit by the scene light plus the device's own screen glow; the screen text must be crisp and readable, monospaced, exactly the lines given. Avoid: any other UI, HUD, subtitles, watermark, frame border, modern smartphone look, extra fingers.

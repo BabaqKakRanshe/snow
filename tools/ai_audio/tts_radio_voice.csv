@@ -1,0 +1,35 @@
+id,en,en_tts,ru,ru_tts
+rv_num_0_mid,zero,"zero,",ноль,"ноль,"
+rv_num_0_end,zero.,zero.,ноль.,ноль.
+rv_num_1_mid,one,"one,",один,"одИн,"
+rv_num_1_end,one.,one.,один.,одИн.
+rv_num_2_mid,two,"two,",два,"два,"
+rv_num_2_end,two.,two.,два.,два.
+rv_num_3_mid,three,"three,",три,"три,"
+rv_num_3_end,three.,three.,три.,три.
+rv_num_4_mid,four,"four,",четыре,"четЫре,"
+rv_num_4_end,four.,four.,четыре.,четЫре.
+rv_num_5_mid,five,"five,",пять,"пять,"
+rv_num_5_end,five.,five.,пять.,пять.
+rv_num_6_mid,six,"six,",шесть,"шесть,"
+rv_num_6_end,six.,six.,шесть.,шесть.
+rv_num_7_mid,seven,"seven,",семь,"семь,"
+rv_num_7_end,seven.,seven.,семь.,семь.
+rv_num_8_mid,eight,"eight,",восемь,"вОсемь,"
+rv_num_8_end,eight.,eight.,восемь.,вОсемь.
+rv_num_9_mid,nine,"nine,",девять,"дЕвять,"
+rv_num_9_end,nine.,nine.,девять.,дЕвять.
+rv_attention,Attention!,Attention.,Внимание!,ВнимАние.
+rv_end,End.,End.,Конец.,КонЕц.
+rv_repeat,Repeat.,Repeat.,Повторяю.,ПовторЯю.
+rv_break,Break.,Break.,Разделитель.,РазделИтель.
+rv_ph_01,[static] ...seven... three... [static],[pause] ...seven... [long pause] three... [pause],[помехи] …семь… три… [помехи],[pause] …семь… [long pause] три… [pause]
+rv_ph_02,Attention. Attention. This is... [static],"[low, hollow voice] Attention. [pause] Attention. [pause] This is...",Внимание. Внимание. Говорит… [помехи],"[low, hollow voice] ВнимАние. [pause] ВнимАние. [pause] ГоворИт…"
+rv_ph_03,Zero zero zero zero zero. End.,"[slow, heavy] Zero. Zero. Zero. Zero. Zero. [pause] End.",Ноль ноль ноль ноль ноль. Конец.,"[slow, heavy] Ноль. Ноль. Ноль. Ноль. Ноль. [pause] КонЕц."
+rv_ph_04,...Repe—,[low] ...Repe—,…Повто—,[low] …Повто—
+rv_e12_01,Copy. Copy. Copy.,"[low, hollow voice] Copy. [pause] Copy. [pause] Copy.",Принято. Принято. Принято.,"[low, hollow voice] ПринЯто. [pause] ПринЯто. [pause] ПринЯто."
+rv_e12_02,Who is this? ...Who is this?,"[low, hollow voice] Who is this? [long pause] ...Who is this?",Кто это? …Кто это?,"[low, hollow voice] Кто Это? [long pause] …Кто Это?"
+rv_e12_03,Wrong frequency. We are on the wrong frequency.,"[low, hollow voice] Wrong frequency. [pause] We are on the wrong frequency.",Не та частота. Мы на не той частоте.,"[low, hollow voice] Не та частотА. [pause] Мы на не той частотЕ."
+rv_e12_04,The base is closed. The base is closed for the night.,"[low, hollow voice] The base is closed. [pause] The base is closed for the night.",База закрыта. База закрыта на ночь.,"[low, hollow voice] бАза закрЫта. [pause] бАза закрЫта на ночь."
+rv_e12_05,Countersign? ...Countersign?,"[low, hollow voice] Countersign? [long pause] ...Countersign?",Отзыв? …Отзыв?,"[low, hollow voice] ОтзЫв? [long pause] …ОтзЫв?"
+rv_e12_06,Number... [player number]. Come outside.,"[low, hollow voice] Number... [long pause] Come outside.",Номер… [номер игрока]. Выйди наружу.,"[low, hollow voice] нОмер… [long pause] вЫйди нарУжу."

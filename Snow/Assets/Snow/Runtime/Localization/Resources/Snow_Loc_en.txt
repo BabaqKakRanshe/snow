@@ -1056,3 +1056,17 @@ SSAO не найдено в рендерере	SSAO not found in the renderer
 Указатель топлива в машине врёт. Если встанете — канистра для вас в будке у ворот. Не благодарите.	The fuel gauge in the car lies. If you stall, there is a jerrycan for you in the booth at the gate. No need to thank me.
 Ключи — в будке КПП.	The keys are in the checkpoint booth.
 сообщение	message
+пейджер	pager
+листать	page
+другое	other
+к списку	to the list
+РЕЖИМ	MODE
+ЗВУК	SOUND
+ВИБРО	VIBRATE
+ТИХО	SILENT
+СООБЩ.	MSG
+НЕТ СООБЩЕНИЙ	NO MESSAGES
+НА ЭКРАНЕ	ON SCREEN
+ДРУГОЕ	OTHER
+рядом, {0} м	nearby, {0} m
+ничего	nothing

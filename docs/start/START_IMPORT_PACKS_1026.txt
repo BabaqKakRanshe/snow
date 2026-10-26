@@ -1,0 +1,36 @@
+Импортируй в игру модели пакетов, сделанных после заказа forest_start (пост на въезде в запретную зону), и расставь их по местам. Проект F:\ClaudeGames\snow\Snow. Бункер под озером сюда не входит — для него отдельный промпт START_BUNKER_LOCATION.txt.
+
+Источники: пакеты в F:\ClaudeGames\snow\source\assets\<пакет> (blend, json-контракт, текстуры tex\, лист, рендеры), справочники — F:\ClaudeGames\snow\docs\gdd\<ИМЯ>_CONTRACT.md. В контрактах все позиции, оси и коллайдеры даны и в кадре Unity (поля *Unity), в кадре своего корня.
+
+Как импортировать — по образцу forest_start и forest_hut_yard:
+- FBX — скриптом по образцу tools\forest_start\export_fbx.py: корень в нуле, forward −Z, up Y, Apply Transform, без COL_ / HIT_;
+- данные — по образцу tools\forest_start\make_unity_data.py → <Пакет>_Unity.json в папке пакета;
+- префабы — новыми Pack в StartPropsBuilder (или тем же способом): текстуры point, без мипмапов, без сжатия; материалы URP Lit, как у кита; стёкла ламп в префабе — _Off, горящие — отдельными материалами; BoxCollider по colliders контракта; точки (sockets) — пустые дочерние; детали IX_* и подвижные части — отдельными объектами с пивотом по контракту, в позе покоя, без интерактива (как у forest_start: интерактив — отдельной задачей); свет — по *_lights.json, выключен; повторный запуск переписывает те же ассеты (те же GUID);
+- расстановка — шагами сборки Forest по образцу ForestStartDressStep: данные в Assets\Snow\Levels\Forest\*.json, каждая группа — своим корнем, второй запуск даёт тот же результат, карту вне своих групп не трогать.
+
+Что и куда:
+1. forest_start (FOREST_START_CONTRACT.md в папке пакета) — уже в Assets\Locations\Forest\Start, пост собирает ForestStartDressStep. Дособрать пост у ворот SPERRGEBIET: сверить с контрактом, layout_suggestion.json и docs\gdd\QUESTIONS_START.md, доставить то, чего нет (покрышки StartTyres, мусор StartTrash, свет ламп и т. п.). Сделанное не переделывать.
+2. forest_rocks (ROCKS_CONTRACT.md) — ForestStone_1…6, ForestBoulder_1…3, ForestCliff_1…3 → Assets\Locations\Forest\Rocks. Коллайдер — MeshCollider: у камней и валунов convex, у скал — нет. Раскидать по земле Forest: камни и валуны — россыпью в лесу и у обочин, скалы — на склонах; не на дорогах, тропах, площадках и у построек; началом на рельеф (нога закрывает щель), поворот любой, масштаб ±15 %, плотность умеренная. Одной группой — потом подвигаю руками.
+3. forest_trash (TRASH_CONTRACT.md) — кучи TrashPile_* (6 видов) и комья TrashClump_* → Assets\Locations\Forest\Trash. На базу — немного куч, 6–10 штук (двор, у построек и контейнеров), отдельной группой: дальше расставлю руками. Комья — только префабы; подъём кучи в ком — не сейчас.
+4. forest_devices (DEVICES_CONTRACT.md) — Fax, FaxPaper, Cassette, CassetteBox, DropBox, ObjectPC, Laptop, TapeDeck, MeteoScreen → Assets\Locations\Forest\Devices. Монитор ObjectPC — префаб кита Kit_Monitor_CRT (уже в Assets\Kit) по kit_instances контракта. Места: TapeDeck — в шкаф каждой антенны Dish_1…5, MeteoScreen — на MeteoStation (placements контракта, см. п. 6). Остальное — без мест.
+5. forest_parts (PARTS_CONTRACT.md) — насос-дозатор Item_DosingPump, натриевая лампа Item_SodiumLamp и её коробка Item_SodiumLampBox, кинескоп радара Item_RadarCRT, блок ретранслятора Item_RelayUnit, резервный генератор Item_BackupGenerator, датчик LakeSensor → Assets\Locations\Forest\Parts. Переносимые Item_* — по образцу предметов forest_items, Rigidbody по mass_kg. Места: насос — в насосной PumpHouse (placements контракта); датчик — у озера (место не выбрано: поставь, где подходит, и напиши где). Остальное — без мест (точки Mount_* на моделях, места появятся с объектами).
+6. forest_far 1.1 (FAR_CONTRACT.md) — метеостанция без старой будки: заново экспортировать MeteoStation из source\assets\forest_far\far.blend и текстуру T_Far_Meteo_BaseColor поверх прежних, с теми же GUID; в префаб MeteoStation дочерним — MeteoScreen, в префабы Dish_1…5 — TapeDeck (п. 4). Остальные модели forest_far не менялись.
+7. forest_gear (GEAR_CONTRACT.md) — 15 предметов Item_* (батарейки, рация, фонарь 6 В с жёлтым стеклом, налобный фонарь, тележка, волокуша, кукла, открытка, лампочка и её коробка, жетон, ключ Stationsleiter, ледоруб) → Assets\Locations\Forest\Gear, по образцу предметов forest_items, Rigidbody по mass_kg. Без расстановки.
+8. forest_world (WORLD_CONTRACT.md) — окружение → Assets\Locations\Forest\World:
+   - брошенные машины перед КПП: ShiftCar — на якорь anchors/Car_Parked (Forest_Layout.json, значения повторены в anchors контракта), WreckCar — рядом на подъезде к КПП;
+   - бочка с огнём FireBarrel — 2–3 штуки у точек интереса (у поста на въезде, у КПП, у вышки);
+   - пещера Лесника ForesterCave — в склон недалеко от избы Лесника, устье свободно, скала уходит в землю на 0,6 м; MeshCollider COLM_Cave (не convex); место не выбрано — поставь и напиши где;
+   - наледь Ice_RelayMast, Ice_Dish_1…5, Ice_RoofMast — дочерними в префабы RelayMast, Dish_1…5 и BaseMain, в их начало, без поворота, выключенными (включаются после метели — логику не делать).
+9. van3_old (WORLD_CONTRACT.md, раздел «Старый запасной фургон»; пакет source\vehicles\van3_old) → Assets\Van: вариант префаба фургона Van_Unity_v1 — кузов M_VanOld_Body на T_VanOld_Body_BaseColor, без Winch_Drum, Winch_Clutch, Winch_Hook и точек Hand_Winch_Clutch, Winch_Fairlead, Hand_Winch_Hook. В сцену не ставить: его присылают по сюжету.
+10. sky_systems (SKY_CONTRACT.md) — холодильная установка SkyChiller, распылитель пыли SkySprayer, сброс балласта SkyBallast, табло высоты SkyAltimeter, мостки SkyWalk_* (8 модулей) → Assets\SkyIsland\Systems. В сцене Sky Island — черново: табло у вышки лицом к полосе, балласт на краю острова обрывом наружу, установка и распылитель у построек. Мостки — пока только префабы.
+
+Главное:
+- перед началом — коммит в git (одна точка отката); файлы не удалять;
+- пакеты в source\ — только читать, не менять; ошибки пакетов — в отчёт;
+- Unity-пакеты не ставить без моего разрешения; URP и Quality — только проверить;
+- ассеты в Snow\Assets переносить только из Unity (или вместе с .meta);
+- уже стоящее на карте не переделывать; надписи и материалы пакетов не перекрашивать;
+- делать только то, что здесь написано; идеи — одной строкой в конце отчёта.
+
+Проверка: число треугольников префабов совпадает с <пакет>.json; масштаб 1 = 1 м, перед — +Z; пивоты деталей на месте; коллайдеры по контракту; текстуры с точечной фильтрацией; повторный запуск сборки Forest даёт тот же результат; в Play mode нет ошибок в консоли.
+Отчёт коротко, по пакетам: куда импортирован, что и сколько расставлено и где, что не поставлено и почему, вопросы.

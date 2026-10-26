@@ -16,8 +16,9 @@ namespace Snow.Interaction
     /// throw, refusal — slightly different pitch each time so repeats do not grate. Reads the replicated pocket state
     /// (CargoItem carry) and InteractionSensor; sends nothing. Sounds are sound-library cues (ui.pocket.*), silent until
     /// they have clips. All numbers (docs/dev/Tuning/Cargo.md). Look (UI pick 23.10, D3 «Протокол»): the occupied pockets as typed lines
-    /// at the bottom left, shown for a moment after a pocket change and while Tab is held, gone otherwise; "в руке" at
-    /// the bottom right with the keys for the thing in the hand (<see cref="Hud"/>, version 3 — not decided yet).
+    /// at the bottom left, shown for a moment after a pocket change and while Tab is held, gone otherwise. UI pick 26.10
+    /// (variant C «Один столбец», RESEARCH_UI_3.md): no block at the bottom right - the thing in the hand opens its keys
+    /// on the line under it, a heavy thing carried in both hands stands first; the Tab list (InteractionOverlay) stacks above.
     /// </summary>
     public class PocketsHud : MonoBehaviour
     {
@@ -125,6 +126,10 @@ namespace Snow.Interaction
         static float EaseOut(float t) => 1f - (1f - t) * (1f - t) * (1f - t);
 
         // ---------------------------------------------------------------- drawing
+        /// <summary>The top of the left column this frame (the pockets list's header, or its bottom anchor when hidden):
+        /// InteractionOverlay stacks the Tab list ("Nahe · рядом") above it (UI pick 26.10, variant C).</summary>
+        public static float ColumnTop { get; private set; }
+
         void OnGUI()
         {
             if (Application.isBatchMode || Event.current.type != EventType.Repaint || sensor == null || sensor.controller == null
@@ -134,28 +139,40 @@ namespace Snow.Interaction
             bool tab = Keyboard.current != null && Keyboard.current.tabKey.isPressed;      // on foot Tab is free (Controls.md)
             float alpha = tab ? 1f : awake;
             int lit = now - sensor.RequestedAt < 0.4f ? sensor.RequestedSlot : _hand != null ? _hand.Slot : -1;   // asked for: lit at once
+            ColumnTop = Screen.height - Hud.Px(60f);
             if (alpha > 0.01f) InventoryList(lit, alpha, now, tab);
-
-            // what is in the hand and its keys, bottom right
-            CargoItem inHand = _hand != null ? _hand : sensor.Held;
-            if (inHand != null) HandBlock(inHand, Mathf.Lerp(0.35f, 1f, awake));
         }
 
-        // UI pick 23.10 (D3 «Протокол», RESEARCH_UI_2.md): the occupied pockets as typed lines at the bottom left, no
-        // plates — "Inventar  карманы", then "▸3  Ключ «Schranke»  neu"; the pocket in the hand marked, the others dimmer
+        // UI pick 23.10 (D3 «Протокол», RESEARCH_UI_2.md) and 26.10 (variant C): the occupied pockets as typed lines at the
+        // bottom left, no plates — "Inventar  карманы", then "▸3  Ключ «Schranke»  neu"; the pocket in the hand marked, the
+        // others dimmer, its keys on the line under it ("ЛКМ выключить   Q в карман   G бросить"); a heavy thing carried in
+        // both hands first, unnumbered, with its keys
         void InventoryList(int lit, float alpha, float now, bool tab)
         {
             GUIStyle st = Mono(21), small = Mono(18);
             float lh = Hud.Px(27f), x = Hud.SafeX;
             int count = 0;
             for (int s = 0; s < N; s++) if (_slots[s] != null) count++;
-            if (count == 0 && !tab) return;
-            float y = Screen.height - Hud.Px(60f) - lh * (1 + Mathf.Max(1, count));
+            CargoItem heavy = sensor.Held != null && System.Array.IndexOf(_slots, sensor.Held) < 0 ? sensor.Held : null;   // in the hands, not in a pocket
+            if (count == 0 && heavy == null && !tab) return;
+            bool keysUnderHand = _hand != null && _hand.Slot >= 0 && _hand.Slot < N && _slots[_hand.Slot] == _hand;
+            int lines = 1 + Mathf.Max(1, count + (heavy != null ? 2 : 0)) + (keysUnderHand ? 1 : 0);
+            float y = Screen.height - Hud.Px(60f) - lh * lines;
+            ColumnTop = y;
             Color warm = new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, alpha), ink = new Color(Hud.Ink.r, Hud.Ink.g, Hud.Ink.b, alpha);
             float hw = Typed(x, y, "Inventar", st, warm);
             Typed(x + hw + Hud.Px(16f), y + Hud.Px(3f), Loc.T("карманы"), small, new Color(0.663f, 0.651f, 0.612f, alpha));
             y += lh;
-            if (count == 0)
+            float indent = Hud.Size("▸1", st).x + Hud.Px(14f);
+            if (heavy != null)
+            {
+                Typed(x, y, "▸", st, warm);
+                Typed(x + indent, y, Loc.T(heavy.label), st, ink);
+                y += lh;
+                KeysLine(x + indent, y + Hud.Px(2f), HandKeysFor(heavy), small, alpha);
+                y += lh;
+            }
+            else if (count == 0)
             {
                 Typed(x, y, Loc.T("пусто"), st, new Color(ink.r, ink.g, ink.b, 0.7f * alpha));
                 return;
@@ -169,11 +186,16 @@ namespace Snow.Interaction
                 float flash = s == _popSlot ? 1f - EaseOut(Mathf.Clamp01((now - _popAt) / 0.3f)) : 0f;   // the line that just changed
                 float a = on ? alpha : 0.7f * alpha;
                 float cx = x;
-                cx += Typed(cx, y, (on ? "▸" : " ") + (s + 1), st, new Color(warm.r, warm.g, warm.b, a));
-                cx += Hud.Px(14f);
+                Typed(cx, y, (on ? "▸" : " ") + (s + 1), st, new Color(warm.r, warm.g, warm.b, a));
+                cx += indent;
                 cx += Typed(cx, y, Loc.T(item.label), st, Color.Lerp(new Color(ink.r, ink.g, ink.b, a), warm, flash));
                 if (on && fresh) Typed(cx + Hud.Px(14f), y, "neu", st, warm);
                 y += lh;
+                if (item == _hand && keysUnderHand)
+                {
+                    KeysLine(x + indent, y + Hud.Px(2f), HandKeysFor(item), small, alpha);
+                    y += lh;
+                }
             }
         }
 
@@ -182,11 +204,11 @@ namespace Snow.Interaction
         // the typewriter face: the font set on the component, else the shared OS mono (Hud.Mono)
         GUIStyle Mono(int designPx) => Hud.Mono(designPx, mono);
 
-        void HandBlock(CargoItem item, float alpha)
+        // the keys for the thing in the hand: LMB its own action (or used on the zone under the ray; a heavy item only with a
+        // zone in sight), this frame's extras (NoteReader: T читать), into the pocket / put down, throw
+        List<(string key, string text)> HandKeysFor(CargoItem item)
         {
             HandKeys.Clear();
-            // LMB: the tool's own action, else the item used on the zone under the ray (a heavy item only with a zone in
-            // sight); no key cap without text
             string act = item.TryGetComponent(out SurvivalItem tool) ? tool.ActionText() : null;
             if (string.IsNullOrEmpty(act) && (item.Pocketable || sensor.TargetVolume != null)) act = "применить";
             if (!string.IsNullOrEmpty(act)) HandKeys.Add(("ЛКМ", act));
@@ -194,20 +216,20 @@ namespace Snow.Interaction
             if (item.Pocketable) HandKeys.Add(("Q", "в карман"));
             else HandKeys.Add(("E", "поставить"));                    // InteractionSensor: Use puts a heavy item down
             HandKeys.Add(("G", "бросить"));
-            string caption = Loc.T("в руке").ToUpperInvariant(), name = Loc.T(item.label);
-            GUIStyle capSt = Hud.Text(13, false, TextAnchor.MiddleRight), nameSt = Hud.Text(22, false, TextAnchor.MiddleRight);
-            float pad = Hud.Px(14f), capH = Hud.Px(18f), nameH = Hud.Px(30f), keysH = Hud.Px(28f), sp = Hud.Px(4f);
-            float keysW = Hud.Hints(0f, 0f, keysH, HandKeys, 17, alpha, false);
-            float bw = Mathf.Max(Hud.Size(name, nameSt).x, Mathf.Max(Hud.Size(caption, capSt).x, keysW)) + 2f * pad;
-            float bh = Hud.Px(10f) + capH + sp + nameH + sp + keysH + Hud.Px(12f);
-            var r = new Rect(Screen.width - Hud.SafeX - bw, Screen.height - Hud.Px(48f) - bh, bw, bh);
-            Hud.Panel(r, alpha);
-            float cy = r.y + Hud.Px(10f), iw = bw - 2f * pad;
-            Hud.Label(new Rect(r.x + pad, cy, iw, capH), caption, capSt, new Color(1f, 1f, 1f, 0.6f * alpha));
-            cy += capH + sp;
-            Hud.Label(new Rect(r.x + pad, cy, iw, nameH), name, nameSt, new Color(1f, 1f, 1f, alpha));
-            cy += nameH + sp;
-            Hud.Hints(r.xMax - pad - keysW, cy, keysH, HandKeys, 17, alpha);
+            return HandKeys;
+        }
+
+        // "ЛКМ выключить   Q в карман   G бросить": the keys warm, the words dim, no caps around the keys
+        static void KeysLine(float x, float y, List<(string key, string text)> keys, GUIStyle st, float alpha)
+        {
+            Color warm = new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, alpha), dim = new Color(0.663f, 0.651f, 0.612f, alpha);
+            float cx = x;
+            for (int i = 0; i < keys.Count; i++)
+            {
+                if (i > 0) cx += Hud.Px(20f);
+                cx += Typed(cx, y, Loc.T(keys[i].key), st, warm) + Hud.Px(8f);
+                cx += Typed(cx, y, Loc.T(keys[i].text), st, dim);
+            }
         }
     }
 }

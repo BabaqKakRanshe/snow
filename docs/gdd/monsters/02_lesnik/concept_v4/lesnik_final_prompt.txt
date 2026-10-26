@@ -1,0 +1,5 @@
+Use case: edit of an in-game screenshot (final creature concept)
+Primary request: keep this creature exactly as it is in the first image (towering under the ceiling, bent forward, broken over-long neck with the head hanging almost upside down toward the camera, faceless smooth grey skin, two small white glowing eye points set too wide, knitted cap, olive parka rags, needle-thin fingers reaching down to the floor, bare thin feet) and ADD only one thing from the second image: a single VERTICAL slit of a mouth running down the middle of the faceless head, slightly open, pitch black inside.
+Integration: keep the same kitchen, same light, same low-detail PSX-like game rendering, dither, noise, blur and colour grading as the first image.
+Constraints: change nothing else. Same framing and size.
+Avoid: human face, cute, cartoon, text, blood, brighter image.

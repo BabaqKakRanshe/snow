@@ -91,34 +91,34 @@ kes_resume_01,kessler,resume,,3,radio,,,Where was I. Yes.,"Так, на чём �
 kes_resume_02,kessler,resume,,3,radio,,,"Are you listening? Again, then.",Вы слушаете? Тогда ещё раз.,vo_kessler_resume_02_en.wav,draft,conversation interrupted alt
 kes_resume_03,kessler,left_radio,,3,radio,cd=60,,Don't walk away from the radio while I'm talking.,"Не уходите от рации, пока я говорю.",vo_kessler_resume_03_en.wav,draft,player left radio
 kes_resume_04,kessler,resume,,3,radio,,,Right. Continuing.,Так. Продолжаю.,vo_kessler_resume_04_en.wav,draft,after long break
-rv_de_0_mid,radio_voice,,,2,radio,,,null,ноль,vox_de_0_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_0_end,radio_voice,,,2,radio,,,null.,ноль.,vox_de_0_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_1_mid,radio_voice,,,2,radio,,,eins,один,vox_de_1_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_1_end,radio_voice,,,2,radio,,,eins.,один.,vox_de_1_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_2_mid,radio_voice,,,2,radio,,,zwo,два,vox_de_2_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_2_end,radio_voice,,,2,radio,,,zwo.,два.,vox_de_2_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_3_mid,radio_voice,,,2,radio,,,drei,три,vox_de_3_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_3_end,radio_voice,,,2,radio,,,drei.,три.,vox_de_3_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_4_mid,radio_voice,,,2,radio,,,vier,четыре,vox_de_4_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_4_end,radio_voice,,,2,radio,,,vier.,четыре.,vox_de_4_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_5_mid,radio_voice,,,2,radio,,,fünnef,пять,vox_de_5_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_5_end,radio_voice,,,2,radio,,,fünnef.,пять.,vox_de_5_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_6_mid,radio_voice,,,2,radio,,,sechs,шесть,vox_de_6_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_6_end,radio_voice,,,2,radio,,,sechs.,шесть.,vox_de_6_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_7_mid,radio_voice,,,2,radio,,,sieben,семь,vox_de_7_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_7_end,radio_voice,,,2,radio,,,sieben.,семь.,vox_de_7_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_8_mid,radio_voice,,,2,radio,,,acht,восемь,vox_de_8_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_8_end,radio_voice,,,2,radio,,,acht.,восемь.,vox_de_8_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_9_mid,radio_voice,,,2,radio,,,neun,девять,vox_de_9_mid.wav,draft,"splice digit mid (splice, not picked by rules)"
-rv_de_9_end,radio_voice,,,2,radio,,,neun.,девять.,vox_de_9_end.wav,draft,"splice digit end (splice, not picked by rules)"
-rv_de_achtung,radio_voice,,,2,radio,,,Achtung!,Внимание!,vox_de_achtung.wav,draft,"header (splice, not picked by rules)"
-rv_de_ende,radio_voice,,,2,radio,,,Ende.,Конец.,vox_de_ende.wav,draft,"end (splice, not picked by rules)"
-rv_de_wdh,radio_voice,,,2,radio,,,Wiederholung.,Повторяю.,vox_de_wiederholung.wav,draft,"repeat (splice, not picked by rules)"
-rv_de_trennung,radio_voice,,,2,radio,,,Trennung.,Разделитель.,vox_de_trennung.wav,draft,"separator (splice, not picked by rules)"
-rv_de_ph_01,radio_voice,x08,,2,radio,,,[static] ...sieben... drei... [static],[помехи] …семь… три… [помехи],vo_radiovoice_x08_de.wav,draft,X08 first contact (4 s)
-rv_de_ph_02,radio_voice,numbers.header,,2,radio,,,Achtung. Achtung. Hier ist... [static],Внимание. Внимание. Говорит… [помехи],vo_radiovoice_header_de.wav,draft,header phrase
-rv_de_ph_03,radio_voice,numbers.end,,2,radio,,,Null null null null null. Ende.,Ноль ноль ноль ноль ноль. Конец.,vo_radiovoice_end_de.wav,draft,end with noise
-rv_de_ph_04,radio_voice,numbers.cut,,2,radio,,,...Wieder—,…Повто—,vo_radiovoice_cut_de.wav,draft,cut off
+rv_num_0_mid,radio_voice,,,2,radio,,,zero,ноль,vox_radio_0_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_0_end,radio_voice,,,2,radio,,,zero.,ноль.,vox_radio_0_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_1_mid,radio_voice,,,2,radio,,,one,один,vox_radio_1_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_1_end,radio_voice,,,2,radio,,,one.,один.,vox_radio_1_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_2_mid,radio_voice,,,2,radio,,,two,два,vox_radio_2_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_2_end,radio_voice,,,2,radio,,,two.,два.,vox_radio_2_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_3_mid,radio_voice,,,2,radio,,,three,три,vox_radio_3_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_3_end,radio_voice,,,2,radio,,,three.,три.,vox_radio_3_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_4_mid,radio_voice,,,2,radio,,,four,четыре,vox_radio_4_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_4_end,radio_voice,,,2,radio,,,four.,четыре.,vox_radio_4_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_5_mid,radio_voice,,,2,radio,,,five,пять,vox_radio_5_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_5_end,radio_voice,,,2,radio,,,five.,пять.,vox_radio_5_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_6_mid,radio_voice,,,2,radio,,,six,шесть,vox_radio_6_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_6_end,radio_voice,,,2,radio,,,six.,шесть.,vox_radio_6_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_7_mid,radio_voice,,,2,radio,,,seven,семь,vox_radio_7_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_7_end,radio_voice,,,2,radio,,,seven.,семь.,vox_radio_7_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_8_mid,radio_voice,,,2,radio,,,eight,восемь,vox_radio_8_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_8_end,radio_voice,,,2,radio,,,eight.,восемь.,vox_radio_8_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_num_9_mid,radio_voice,,,2,radio,,,nine,девять,vox_radio_9_mid_en.wav,draft,"splice digit mid (splice, not picked by rules)"
+rv_num_9_end,radio_voice,,,2,radio,,,nine.,девять.,vox_radio_9_end_en.wav,draft,"splice digit end (splice, not picked by rules)"
+rv_attention,radio_voice,,,2,radio,,,Attention!,Внимание!,vox_radio_attention_en.wav,draft,"header (splice, not picked by rules)"
+rv_end,radio_voice,,,2,radio,,,End.,Конец.,vox_radio_end_en.wav,draft,"end (splice, not picked by rules)"
+rv_repeat,radio_voice,,,2,radio,,,Repeat.,Повторяю.,vox_radio_repeat_en.wav,draft,"repeat (splice, not picked by rules)"
+rv_break,radio_voice,,,2,radio,,,Break.,Разделитель.,vox_radio_break_en.wav,draft,"separator (splice, not picked by rules)"
+rv_ph_01,radio_voice,x08,,2,radio,,,[static] ...seven... three... [static],[помехи] …семь… три… [помехи],vo_radiovoice_x08_en.wav,draft,X08 first contact (4 s)
+rv_ph_02,radio_voice,numbers.header,,2,radio,,,Attention. Attention. This is... [static],Внимание. Внимание. Говорит… [помехи],vo_radiovoice_header_en.wav,draft,header phrase
+rv_ph_03,radio_voice,numbers.end,,2,radio,,,Zero zero zero zero zero. End.,Ноль ноль ноль ноль ноль. Конец.,vo_radiovoice_end_en.wav,draft,end with noise
+rv_ph_04,radio_voice,numbers.cut,,2,radio,,,...Repe—,…Повто—,vo_radiovoice_cut_en.wav,draft,cut off
 rv_e12_01,radio_voice,e12,answer=0,2,radio,,,Copy. Copy. Copy.,Принято. Принято. Принято.,vo_radiovoice_e12_01_en.wav,draft,night reply chosen: copy
 rv_e12_02,radio_voice,e12,answer=1,2,radio,,,Who is this? ...Who is this?,Кто это? …Кто это?,vo_radiovoice_e12_02_en.wav,draft,night reply chosen: who is this
 rv_e12_03,radio_voice,e12,answer=2,2,radio,,,Wrong frequency. We are on the wrong frequency.,Не та частота. Мы на не той частоте.,vo_radiovoice_e12_03_en.wav,draft,night reply chosen: wrong frequency

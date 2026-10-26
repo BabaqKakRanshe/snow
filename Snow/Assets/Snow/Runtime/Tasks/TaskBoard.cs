@@ -24,7 +24,7 @@ namespace Snow.Tasks
         public string id, from, title, text;
         /// <summary>"radio": the location speaks the hints itself (ForestRadio); TaskBoard gives none.</summary>
         public string hintsBy;
-        /// <summary>The text is a message from 'from': it is typed out on screen when the task shows up (TaskHud), both modes.</summary>
+        /// <summary>The text is a message from 'from' to the workers' pagers: it beeps and is typed out when the task shows up (<see cref="Pager"/>), both modes.</summary>
         public bool letter;
         public int day;
         public float until = -1f;
@@ -132,6 +132,7 @@ namespace Snow.Tasks
             _facts.OnListChanged += OnFactsChanged;
             Refresh(true);
             if (!Application.isBatchMode && !TryGetComponent(out TaskHud _)) gameObject.AddComponent<TaskHud>();
+            if (!Application.isBatchMode && !TryGetComponent(out Pager _)) gameObject.AddComponent<Pager>();
         }
 
         public override void OnNetworkDespawn() => _facts.OnListChanged -= OnFactsChanged;

@@ -1,0 +1,6 @@
+Use case: edit of an in-game screenshot (mood reference)
+Primary request: insert the creature from the other reference images into the FIRST image (a night forest from our game with a giant pale rib bone). Place it on the dark ground in the middle distance, just right of the big rib bone, half hidden, crawling on all four limbs and turning its skull head toward the camera, eyes glowing small white-yellow points.
+Creature: bare human skull head, long thin neck, emaciated pale bone-grey body with skin over ribs and spine, VERY long thin stilt-like arms with bent elbows, shorter bent hind legs.
+Integration: match the game frame exactly - same dark blue moonlight, same low-detail PSX-like rendering, same pixel dither and slight blur, same noise, same colour grading. The creature is mostly a dark silhouette with faint pale bone highlights on the skull and arm bones; it must look like a low-poly game model rendered in this same engine, NOT a photo or a detailed painting.
+Constraints: keep everything else in the first image unchanged (trees, rib bones, sky, hotbar at the bottom). Same framing and size.
+Avoid: text, blood, extra creatures, brighter image.

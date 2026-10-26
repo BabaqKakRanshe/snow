@@ -161,6 +161,18 @@ def install(out_root):
             n += 1
     shutil.copy2(out_root / "sound_cues.json", dst / "sound_cues.json")
     print(f"installed {n} changed clips into {dst}")
+    # clips the new index no longer lists (a cue that now has fewer files, or a replaced source) leave the game
+    listed = {c for cue in json.loads((out_root / "sound_cues.json").read_text(encoding="utf-8"))["cues"]
+              for c in cue["clips"]}
+    gone = 0
+    for f in (dst / "Clips").rglob("*.wav"):
+        if f"{ASSET_PREFIX}/Clips/{f.relative_to(dst / 'Clips').as_posix()}" not in listed:
+            f.unlink()
+            meta = f.with_name(f.name + ".meta")
+            if meta.exists():
+                meta.unlink()
+            gone += 1
+    print(f"removed {gone} clips no cue uses")
 
 
 if __name__ == "__main__":

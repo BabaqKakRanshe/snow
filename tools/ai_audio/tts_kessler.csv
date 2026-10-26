@@ -1,0 +1,93 @@
+id,en,en_tts,ru,ru_tts
+kes_proto_01,"Hohenmoos, this is Kessler. Over.","Hohenmoos, this is Kessler. Over.","Хоэнмоос, говорит Кесслер. Приём.","хОэнмоос, говорИт кЕсслер. Приём."
+kes_proto_02,"Hohenmoos, Kessler here. Do you read? Over.","Hohenmoos, Kessler here. Do you read? Over.","Хоэнмоос, это Кесслер. Слышите? Приём.","хОэнмоос, Это кЕсслер. СлЫшите? Приём."
+kes_proto_03,Kessler out.,Kessler out.,"Кесслер, конец связи.","кЕсслер, конЕц свЯзи."
+kes_proto_04,That's all. Out.,That's all. Out.,На этом всё. Конец связи.,На Этом всё. КонЕц свЯзи.
+kes_proto_05,Copy.,Copy.,Принял.,ПрИнял.
+kes_proto_06,Understood.,Understood.,Понял.,пОнял.
+kes_proto_07,Hohenmoos? Answer the radio.,[worried] Hohenmoos? [pause] Answer the radio.,Хоэнмоос? Ответьте.,хОэнмоос? ОтвЕтьте.
+kes_proto_08,Fine. I'll call back.,[sigh] Fine. [pause] I'll call back.,Ладно. Перезвоню.,лАдно. ПерезвонЮ.
+kes_num_word,Number,Number,Номер,нОмер
+kes_num_0_mid,zero,zero,ноль,ноль
+kes_num_0_end,zero.,zero.,ноль.,ноль.
+kes_num_1_mid,one,one,один,одИн
+kes_num_1_end,one.,one.,один.,одИн.
+kes_num_2_mid,two,two,два,два
+kes_num_2_end,two.,two.,два.,два.
+kes_num_3_mid,three,three,три,три
+kes_num_3_end,three.,three.,три.,три.
+kes_num_4_mid,four,four,четыре,четЫре
+kes_num_4_end,four.,four.,четыре.,четЫре.
+kes_num_5_mid,five,five,пять,пять
+kes_num_5_end,five.,five.,пять.,пять.
+kes_num_6_mid,six,six,шесть,шесть
+kes_num_6_end,six.,six.,шесть.,шесть.
+kes_num_7_mid,seven,seven,семь,семь
+kes_num_7_end,seven.,seven.,семь.,семь.
+kes_num_8_mid,eight,eight,восемь,вОсемь
+kes_num_8_end,eight.,eight.,восемь.,вОсемь.
+kes_num_9_mid,nine,nine,девять,дЕвять
+kes_num_9_end,nine.,nine.,девять.,дЕвять.
+kes_num_q,Do you copy?,[tired] Do you copy?,Слышите?,СлЫшите?
+kes_num_who,Who's on the radio? Number?,"[suspicious, low] Who's on the radio? [pause] Number?",Кто на связи? Номер?,Кто на свЯзи? нОмер?
+kes_hello_01,Finally. I see your light on the board.,[exhale] Finally. [pause] I see your light on the board.,Наконец-то. Вижу ваш свет на пульте.,[exhale] НаконЕц-то. [pause] вИжу ваш свет на пУльте.
+kes_hello_02,"You're late. The road, I know. Everyone says the road.","[dry, tired] You're late. [pause] The road, I know. [sigh] Everyone says the road.","Опоздали. Дорога, знаю. Все говорят — дорога.","[dry, tired] ОпоздАли. [pause] ДорОга, знАю. Все говорЯт — дорОга."
+kes_hello_03,Get the boiler going before the pipes freeze. Journal is in the boiler room.,[firm] Get the boiler going before the pipes freeze. [pause] Journal is in the boiler room.,"Запустите котёл, пока трубы не замёрзли. Журнал — в котельной.","[firm] ЗапУстите котёл, покА трУбы не замёрзли. [pause] ЖурнАл — в котЕльной."
+kes_hello_04,"At night: bolt the doors, shutters down. All of them.","[serious, low voice] At night: bolt the doors, shutters down. [pause] All of them.","На ночь: двери на засов, ставни вниз. Все.","[serious, low voice] На ночь: двЕри на засОв, стАвни вниз. [pause] Все."
+kes_hello_05,Mail comes on the computer at seven thirty. Read it.,[matter-of-fact] Mail comes on the computer at seven thirty. [pause] Read it.,Почта приходит на компьютер в семь тридцать. Читайте.,[matter-of-fact] пОчта прихОдит на компьЮтер в семь трИдцать. [pause] ЧитАйте.
+kes_hello_06,"And don't touch my coffee machine. It's broken, but it's mine.","[dry humour] And don't touch my coffee machine. [pause] It's broken, but it's mine.","И не трогайте мой кофейный автомат. Он сломан, но он мой.","[dry humour] И не трОгайте мой кофЕйный автомАт. [pause] Он слОман, но он мой."
+kes_code_intro,"Code words. There's a list by the radio. I say the first half, you answer the second.","[serious] Code words. There's a list by the radio. [pause] I say the first half, you answer the second.","Кодовые слова. Лист у рации. Я называю первую половину, вы отвечаете второй.","[serious] кОдовые словА. [pause] Лист у рАции. Я назывАю пЕрвую половИну, вы отвечАете вторОй."
+kes_code_list,"Write down the list. Anyone who can't answer is not me, and not you.","[low, grave] Write down the list. [pause] Anyone who can't answer is not me. [pause] And not you.",Перепишите лист. Кто не может ответить — тот не я. И не вы.,"[low, grave] ПерепишИте лист. [pause] Кто не мОжет отвЕтить — тот не я. И не вы."
+kes_code_ask,Countersign?,"[flat, waiting] Countersign?",Отзыв?,Отзыв?
+kes_code_ok,Correct.,"[relieved, quiet] Correct.",Верно.,вЕрно.
+kes_code_bad,Wrong. Again.,[cold] Wrong. [pause] Again.,Неверно. Ещё раз.,НевЕрно. Ещё раз.
+kes_code_w01,Eis...,Eis...,Eis…,Eis…
+kes_code_w02,Schnee...,Schnee...,Schnee…,Schnee…
+kes_code_w03,Nord...,Nord...,Nord…,Nord…
+kes_code_w04,Wind...,Wind...,Wind…,Wind…
+kes_code_w05,Fern...,Fern...,Fern…,Fern…
+kes_code_w06,Hoch...,Hoch...,Hoch…,Hoch…
+kes_code_w07,Kalt...,Kalt...,Kalt…,Kalt…
+kes_code_w08,Stern...,Stern...,Stern…,Stern…
+kes_code_w09,Funk...,Funk...,Funk…,Funk…
+kes_code_w10,Holz...,Holz...,Holz…,Holz…
+kes_morning_01,Morning. Mail is on the computer. Tasks are there.,"[tired, morning voice] Morning. [pause] Mail is on the computer. Tasks are there.",Доброе утро. Почта на компьютере. Задания там.,"[tired, morning voice] дОброе Утро. [pause] пОчта на компьЮтере. ЗадАния там."
+kes_morning_02,Did you read the mail? Then read the mail.,"[impatient, dry] Did you read the mail? [pause] Then read the mail.",Почту прочитали? Тогда прочитайте почту.,"[impatient, dry] пОчту прочитАли? [pause] ТогдА прочитАйте пОчту."
+kes_morning_03,Weather station first. Then the antenna.,[businesslike] Weather station first. [pause] Then the antenna.,Сначала метеостанция. Потом антенна.,[businesslike] СначАла метеостАнция. [pause] ПотОм антЕнна.
+kes_morning_04,Cold night? It gets colder. Dress properly.,[grim] Cold night? [pause] It gets colder. [sigh] Dress properly.,Холодная ночь? Будет холоднее. Одевайтесь как следует.,[grim] ХолОдная ночь? [pause] бУдет холоднЕе. ОдевАйтесь как слЕдует.
+kes_hint_c03a,The boiler. Did you open the feed valve? One and a half bar.,"[patient, tired] The boiler. [pause] Did you open the feed valve? One and a half bar.",Котёл. Кран подпитки открыли? Полтора бара.,"[patient, tired] Котёл. [pause] Кран подпИтки открЫли? ПолторА бАра."
+kes_hint_c03b,"Emergency switch on the wall by the door. Then the pump, then the burner.","[slow, explaining] Emergency switch on the wall by the door. [pause] Then the pump, then the burner.","Аварийный выключатель на стене у двери. Потом насос, потом горелка.","[slow, explaining] АварИйный выключАтель на стенЕ у двЕри. [pause] ПотОм насОс, потОм горЕлка."
+kes_hint_c04a,It's getting dark. Is the building closed?,"[uneasy, low] It's getting dark. [pause] Is the building closed?",Темнеет. Корпус закрыт?,"[uneasy, low] ТемнЕет. [pause] кОрпус закрЫт?"
+kes_hint_c04b,"Shutters: the strap, or the motor if you have power. And the garage gate.","[urgent but calm] Shutters: the strap, or the motor if you have power. [pause] And the garage gate.","Ставни: ремнём или приводом, если есть ток. И ворота гаража.","[urgent but calm] СтАвни: ремнём Или прИводом, Если есть ток. [pause] И ворОта гаражА."
+kes_hint_c05a,The weather station is close. You can walk.,[mildly annoyed] The weather station is close. [pause] You can walk.,Метеостанция рядом. Можно пешком.,[mildly annoyed] МетеостАнция рЯдом. [pause] мОжно пешкОм.
+kes_hint_c05b,"Thermometer, barometer, anemometer. All three on the form.","[pedantic] Thermometer, barometer, anemometer. [pause] All three on the form.","Термометр, барометр, анемометр. Все три — в бланк.","[pedantic] ТермОметр, барОметр, анемОметр. [pause] Все три — в бланк."
+kes_hint_c06a,"Antenna one. Take the van, it's too far on foot.","[matter-of-fact] Antenna one. [pause] Take the van, it's too far on foot.","Антенна один. Берите фургон, пешком далеко.","[matter-of-fact] АнтЕнна одИн. [pause] БерИте фургОн, пешкОм далекО."
+kes_hint_c06b,"Cassette in the cabinet, level on the needle, three minutes. Not two.","[pedantic, slow] Cassette in the cabinet, level on the needle, three minutes. [pause] Not two.","Кассету в шкаф, уровень по стрелке, три минуты. Не две.","[pedantic, slow] КассЕту в шкаф, Уровень по стрЕлке, три минУты. [pause] Не две."
+kes_hint_fax_a,The tape doesn't send itself. Fax.,[dry sarcasm] The tape doesn't send itself. [pause] Fax.,Кассета сама себя не отправит. Факс.,[dry sarcasm] КассЕта самА себЯ не отпрАвит. [pause] Факс.
+kes_hint_fax_b,Fax is in the office. Number is on the sticker.,[tired] Fax is in the office. [pause] Number is on the sticker.,Факс в конторе. Номер на наклейке.,[tired] Факс в контОре. [pause] нОмер на наклЕйке.
+kes_hint_r3a,Where is my weather report?,[irritated] Where is my weather report?,Где моя метеосводка?,[irritated] Где моЯ метеосвОдка?
+kes_hint_r3b,"Readings on the form, form in the fax. Every morning.","[stern] Readings on the form, form in the fax. [pause] Every morning.","Показания в бланк, бланк в факс. Каждое утро.","[stern] ПоказАния в бланк, бланк в факс. [pause] кАждое Утро."
+kes_react_01,Report received. Thank you.,"[satisfied, quiet] Report received. [pause] Thank you.",Сводку получил. Спасибо.,"[satisfied, quiet] СвОдку получИл. [pause] СпасИбо."
+kes_react_02,"Got your report. Handwriting is terrible, numbers are fine.","[dry humour] Got your report. [pause] Handwriting is terrible, numbers are fine.","Сводку получил. Почерк ужасный, цифры в порядке.","[dry humour] СвОдку получИл. [pause] пОчерк ужАсный, цИфры в порЯдке."
+kes_react_03,"Report is late. It's not a newspaper, it's data.","[cold, disappointed] Report is late. [pause] It's not a newspaper, it's data.","Сводка опоздала. Это не газета, это данные.","[cold, disappointed] СвОдка опоздАла. [pause] Это не газЕта, Это дАнные."
+kes_react_04,No report. Why is there no report?,"[worried, then stern] No report. [pause] Why is there no report?",Сводки нет. Почему сводки нет?,"[worried, then stern] СвОдки нет. [pause] ПочемУ свОдки нет?"
+kes_react_05,Telemetry came through. Good.,[calm] Telemetry came through. [pause] Good.,Телеметрия пришла. Хорошо.,[calm] ТелеметрИя пришлА. [pause] ХорошО.
+kes_react_06,Telemetry is all noise. Check the level and do it again.,[annoyed sigh] Telemetry is all noise. [pause] Check the level and do it again.,В телеметрии один шум. Проверьте уровень и запишите заново.,[annoyed] В телеметрИи одИн шум. [pause] ПровЕрьте Уровень и запишИте зАново.
+kes_react_07,Normal. Good. I like normal.,"[content, almost warm] Normal. Good. [pause] I like normal.",Всё в норме. Хорошо. Люблю норму.,"[content, almost warm] Всё в нОрме. [pause] ХорошО. ЛюблЮ нОрму."
+kes_react_08,Deer. It was a deer. Write it in the log anyway.,"[uneasy, slowly] Deer. [pause] It was a deer. [long pause] Write it in the log anyway.",Олень. Это был олень. Всё равно запишите в журнал.,"[uneasy, slowly] ОлЕнь. [pause] Это был олЕнь. Всё равнО запишИте в журнАл."
+kes_storm_01,Storm by tonight. Keep the generator warm.,"[grim, low voice] Storm by tonight. [pause] Keep the generator warm.",К ночи метель. Генератор держите в тепле.,"[grim, low voice] К нОчи метЕль. [pause] ГенерАтор держИте в теплЕ."
+kes_storm_02,"If it stops, someone goes out and starts it. Not tomorrow. Tonight.","[tired, low voice] If it stops... someone goes out and starts it. [pause] Not tomorrow. [grim, firm] Tonight.",Если заглохнет — кто-то выходит и запускает. Не завтра. Ночью.,"[tired, low voice] Если заглОхнет — кто-то выхОдит и запускАет. [pause] Не зАвтра. нОчью."
+kes_storm_03,And nobody answers unknown stations.,"[very serious, quiet] And nobody answers unknown stations.",И никто не отвечает неизвестным станциям.,"[very serious, quiet] И никтО не отвечАет неизвЕстным стАнциям."
+kes_joke_01,The coffee machine ate my coins again. Third time this week.,[grumbling] The coffee machine ate my coins again. [sigh] Third time this week.,Кофейный автомат опять съел мои монеты. Третий раз за неделю.,[grumbling] КофЕйный автомАт опЯть съел моИ монЕты. [pause] ТрЕтий раз за недЕлю.
+kes_joke_02,"If you find coffee at the base, it's mine. Leave it.","[possessive, dry] If you find coffee at the base, it's mine. [pause] Leave it.",Найдёте на базе кофе — он мой. Не трогайте.,"[possessive, dry] Найдёте на бАзе кОфе — он мой. [pause] Не трОгайте."
+kes_joke_03,Twenty years of weather. It's always cold. Nobody listens.,"[weary, bitter humour] Twenty years of weather. [pause] It's always cold. [sigh] Nobody listens.",Двадцать лет погоды. Всегда холодно. Никто не слушает.,"[weary, bitter humour] ДвАдцать лет погОды. [pause] ВсегдА хОлодно. НиктО не слУшает."
+kes_joke_04,The form has a box for 'remarks'. That's not for drawings.,"[pedantic, dry] The form has a box for remarks. [pause] That's not for drawings.",В бланке есть графа «примечания». Она не для рисунков.,"[pedantic, dry] В блАнке есть графА «примечАния». [pause] ОнА не для рисУнков."
+kes_joke_05,Try not to break anything. Including yourselves. Paperwork.,[dry humour] Try not to break anything. [pause] Including yourselves. [pause] Paperwork.,Постарайтесь ничего не сломать. Включая себя. Бумаги потом.,[dry humour] ПостарАйтесь ничегО не сломАть. [pause] ВключАя себЯ. БумАги потОм.
+kes_joke_06,New coffee machine was approved. In nineteen ninety-one. Still waiting.,"[bitter, dry] New coffee machine was approved. [pause] In nineteen ninety-one. [sigh] Still waiting.",Новый кофейный автомат одобрили. В девяносто первом. Жду.,"[bitter, dry] нОвый кофЕйный автомАт одОбрили. [pause] В девянОсто пЕрвом. Жду."
+kes_bad_01,...can't hear... repeat...,"[through interference, straining] ...can't hear... [pause] repeat...",…не слышу… повторите…,"[through interference, straining] …не слЫшу… [pause] повторИте…"
+kes_bad_02,"...the line is bad, I'll call...","[through interference] ...the line is bad, I'll call...","…связь плохая, я перезвоню…","[through interference] …связь плохАя, я перезвонЮ…"
+kes_bad_03,Hohenmoos? ...Hohenmoos...,"[worried, calling] Hohenmoos? [long pause] ...Hohenmoos...",Хоэнмоос? …Хоэнмоос…,"[worried, calling] хОэнмоос? [pause] …хОэнмоос…"
+kes_resume_01,Where was I. Yes.,[distracted] Where was I. [pause] Yes.,"Так, на чём я… да.","[distracted] Так, на чём я… [pause] да."
+kes_resume_02,"Are you listening? Again, then.","[impatient] Are you listening? [pause] Again, then.",Вы слушаете? Тогда ещё раз.,[impatient] Вы слУшаете? [pause] ТогдА ещё раз.
+kes_resume_03,Don't walk away from the radio while I'm talking.,[annoyed] Don't walk away from the radio while I'm talking.,"Не уходите от рации, пока я говорю.","[annoyed] Не уходИте от рАции, покА я говорЮ."
+kes_resume_04,Right. Continuing.,[businesslike] Right. [pause] Continuing.,Так. Продолжаю.,[businesslike] Так. [pause] ПродолжАю.

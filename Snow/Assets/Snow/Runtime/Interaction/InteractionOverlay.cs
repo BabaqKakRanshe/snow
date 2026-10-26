@@ -15,8 +15,11 @@ namespace Snow.Interaction
     ///    while the reveal key is held (cardOnlyWithAlt).
     ///  - Reveal key held (Tab on foot, B in a seat; action Reveal in SnowControls.inputactions): faint corners on everything interactive within revealRadius that the player could actually reach
     ///    with a ray from the eye — the same InteractionSensor.Pick rule as "use", so a handle behind a closed door or
-    ///    a crate behind a wall is not shown. Things out of view get an arrow at the screen edge; the few marks nearest
-    ///    the screen centre get their names.
+    ///    a crate behind a wall is not shown. Things out of view get an arrow at the screen edge.
+    /// UI pick 26.10 (variant C «Один столбец», docs/gdd/research/RESEARCH_UI_3.md): all text in the left column, typed, no
+    /// plates and no key caps. The reveal numbers the marks (nearest the centre first) and lists them as "Nahe · рядом" above
+    /// the pockets list (PocketsHud.ColumnTop), the ones out of view with an arrow; the hover card is typed lines beside the
+    /// target (name, state, "E  открыть"). No card while a device is raised (InteractionSensor.DeviceRaised).
     /// </summary>
     public class InteractionOverlay : MonoBehaviour
     {
@@ -26,8 +29,7 @@ namespace Snow.Interaction
         [Tooltip("m: how far the reveal key (Tab / B in a seat) shows interactive things")] public float revealRadius = 4f;
         [Tooltip("m: a zone's parent mesh larger than this is framed by the zone box instead")] public float maxMeshSize = 0.8f;
         [Tooltip("Variant 1: the hover card only while the reveal key (Tab / B) is held (a clean screen otherwise)")] public bool cardOnlyWithAlt;
-        [Tooltip("Variant 3: how many revealed marks near the screen centre get their names")] public int namedMarks = 6;
-        [Tooltip("Variant 3: only marks within this fraction of the screen height from the centre are named")] public float namedRadius = 0.3f;
+        [Tooltip("Variant C: how many revealed things the Tab list names (on screen first, then out of view)")] public int namedMarks = 8;
         [Tooltip("Variant 2: most edge arrows at once")] public int maxArrows = 10;
         public Color frameColor = new Color(1f, 1f, 1f, 0.95f);
         public Color revealColor = new Color(1f, 1f, 1f, 0.5f);
@@ -44,6 +46,7 @@ namespace Snow.Interaction
         readonly List<Mark> _marks = new List<Mark>();
         readonly List<Vector2> _arrows = new List<Vector2>();      // screen-edge point per arrow, GUI space
         readonly List<float> _arrowAngles = new List<float>();
+        readonly List<string> _arrowNames = new List<string>();
         readonly List<string> _actions = new List<string>();
         readonly Vector3[] _corners = new Vector3[8];
         float _nextScan;
@@ -56,6 +59,7 @@ namespace Snow.Interaction
             _marks.Clear();
             _arrows.Clear();
             _arrowAngles.Clear();
+            _arrowNames.Clear();
             _hasHover = false;
             _reveal = false;
             if (sensor != null) sensor.HoldShownByCard = false;
@@ -73,7 +77,7 @@ namespace Snow.Interaction
             Component target = sensor.TargetVolume != null ? sensor.TargetVolume
                 : sensor.TargetCargo != null ? sensor.TargetCargo
                 : sensor.TargetGrab != null ? (Component)sensor.TargetGrab : null;
-            if (target != null && (reveal || !cardOnlyWithAlt) && ScreenRect(Bounds(target), cam, out _hoverRect))
+            if (target != null && !InteractionSensor.DeviceRaised && (reveal || !cardOnlyWithAlt) && ScreenRect(Bounds(target), cam, out _hoverRect))
             {
                 _hasHover = true;
                 sensor.HoldShownByCard = true;                    // the hold bar goes inside the card
@@ -95,7 +99,7 @@ namespace Snow.Interaction
                 if (ScreenRect(b, cam, out Rect r))
                     _marks.Add(new Mark { Rect = r, Name = Name(c), CenterDistance = Vector2.Distance(r.center, center) });
                 else if (_arrows.Count < maxArrows)
-                    AddArrow(cam, b.center);
+                    AddArrow(cam, b.center, Name(c));
             }
             _marks.Sort((a, m) => a.CenterDistance.CompareTo(m.CenterDistance));
         }
@@ -129,7 +133,7 @@ namespace Snow.Interaction
             return sensor.Pick(new Ray(eye, d / len), len + 0.3f, out _) == c;
         }
 
-        void AddArrow(Camera cam, Vector3 world)
+        void AddArrow(Camera cam, Vector3 world, string name)
         {
             // direction on screen from the centre towards the object (mirrored when it is behind)
             Vector3 v = cam.WorldToViewportPoint(world);
@@ -143,6 +147,7 @@ namespace Snow.Interaction
             float k = Mathf.Min(hw / Mathf.Max(1e-4f, Mathf.Abs(dir.x)), hh / Mathf.Max(1e-4f, Mathf.Abs(dir.y)));
             _arrows.Add(new Vector2(Screen.width * 0.5f + dir.x * k, Screen.height * 0.5f - dir.y * k));
             _arrowAngles.Add(angle);
+            _arrowNames.Add(name);
         }
 
         static string Name(Component c) => Loc.T(c switch
@@ -230,94 +235,99 @@ namespace Snow.Interaction
             return true;
         }
 
-        // ---------------------------------------------------------------- drawing (Hud look; UI pick 23.10: version 2 card)
+        // ---------------------------------------------------------------- drawing (UI pick 26.10: variant C, typed lines)
+        static readonly Color Dim = new Color(0.663f, 0.651f, 0.612f);
+
         void OnGUI()
         {
             if (Event.current.type != EventType.Repaint) return;
 
-            float named = namedRadius * Screen.height;
+            Color warm = new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, 0.95f);
             for (int i = 0; i < _marks.Count; i++)
             {
                 Mark m = _marks[i];
-                Hud.Corners(m.Rect, revealColor, Hud.Px(2f), Hud.Px(12f));
-                if (i < namedMarks && m.CenterDistance <= named && !string.IsNullOrEmpty(m.Name)) NameTag(m.Rect, m.Name);
+                Hud.Corners(m.Rect, revealColor, Hud.Px(1.5f), Hud.Px(10f));
+                if (i < namedMarks && !string.IsNullOrEmpty(m.Name))                       // its number, as in the list
+                    Hud.Typed(m.Rect.x - Hud.Px(2f), m.Rect.y - Hud.Px(24f), (i + 1).ToString(), Hud.Mono(19), warm);
             }
             for (int i = 0; i < _arrows.Count; i++) Arrow(_arrows[i], _arrowAngles[i]);
-            if (_reveal) RevealHint();
+            if (_reveal) RevealList();
             if (_hasHover) Card();
         }
 
-        // a revealed thing's name on a small plate under its marks
-        static void NameTag(Rect mark, string name)
+        // while the reveal key is held: "Nahe · рядом, 4 м", then the numbered things (on screen nearest the centre first,
+        // then the ones out of view with an arrow), above the pockets list in the left column
+        void RevealList()
         {
-            GUIStyle st = Hud.Text(15, false, TextAnchor.MiddleCenter);
-            float w = Hud.Size(name, st).x + Hud.Px(14f), h = Hud.Px(24f);
-            Rect r = Clamp(new Rect(mark.center.x - w * 0.5f, mark.yMax + Hud.Px(4f), w, h));
-            Hud.Panel(r);
-            Hud.Label(r, name, st, new Color(1f, 1f, 1f, 0.9f));
+            GUIStyle st = Hud.Mono(21), small = Hud.Mono(18);
+            float lh = Hud.Px(27f), x = Hud.SafeX;
+            var rows = new List<(string text, bool away)>();
+            for (int i = 0; i < _marks.Count && rows.Count < namedMarks; i++)
+                if (!string.IsNullOrEmpty(_marks[i].Name)) rows.Add(((i + 1) + "  " + _marks[i].Name, false));
+            for (int i = 0; i < _arrowNames.Count && rows.Count < namedMarks; i++)
+            {
+                if (string.IsNullOrEmpty(_arrowNames[i])) continue;
+                float a = Mathf.Repeat(_arrowAngles[i] + 180f, 360f) - 180f;              // 0 = right, ±180 = left
+                rows.Add(("   " + _arrowNames[i] + (Mathf.Abs(a) > 90f ? "  ←" : "  →"), true));
+            }
+            float y = PocketsHud.ColumnTop - Hud.Px(14f) - lh * (1 + Mathf.Max(1, rows.Count));
+            float hw = Hud.Typed(x, y, "Nahe", st, Hud.Warm);
+            Hud.Typed(x + hw + Hud.Px(16f), y + Hud.Px(3f), Loc.T(string.Format("рядом, {0:0} м", revealRadius)), small, Dim);
+            y += lh;
+            if (rows.Count == 0) Hud.Typed(x, y, Loc.T("ничего"), st, new Color(Hud.Ink.r, Hud.Ink.g, Hud.Ink.b, 0.7f));
+            foreach (var (text, away) in rows)
+            {
+                Hud.Typed(x, y, text, st, away ? new Color(Hud.Ink.r, Hud.Ink.g, Hud.Ink.b, 0.7f) : Hud.Ink);
+                y += lh;
+            }
         }
 
-        // while the reveal key is held: what it does, top left
-        void RevealHint()
-        {
-            string text = Loc.T(string.Format("держать — всё, что можно взять в {0:0} м", revealRadius));
-            // on foot Tab (user 25.10), in a seat B (Tab there frees the cursor)
-            string key = controller != null && controller.Source != null && controller.Source.Context != InputContext.OnFoot ? "B" : "Tab";
-            float h = Hud.Px(36f), pad = Hud.Px(12f);
-            var r = new Rect(Hud.SafeX, Hud.SafeY, Hud.KeyTextWidth(key, text, 18) + 2f * pad, h);
-            Hud.Panel(r);
-            Hud.KeyText(r.x + pad, r.y, h, key, text, 18, Color.white);
-        }
-
-        // corner marks on the target (at least 56 px, so a small switch still gets a frame) and the card beside it:
-        // name, state, a divider, the actions with their keys, the hold bar while a held action runs
+        // corner marks on the target (at least 56 px, so a small switch still gets a frame) and typed lines beside it:
+        // the name, the state (warm), the actions ("E  открыть": the key warm, no cap), a thin hold bar under them
         void Card()
         {
             Rect t = _hoverRect;
             float min = Hud.Px(56f);
             if (t.width < min) { t.x -= (min - t.width) * 0.5f; t.width = min; }
             if (t.height < min) { t.y -= (min - t.height) * 0.5f; t.height = min; }
-            Hud.Corners(t, frameColor, Hud.Px(3f), Hud.Px(26f));
+            Hud.Corners(t, frameColor, Hud.Px(2f), Hud.Px(18f));
 
             SplitTitle(_title, out string name, out string state);
             bool hasState = !string.IsNullOrEmpty(state);
-            GUIStyle nameSt = Hud.Text(22, true), stateSt = Hud.Text(18);
-            float padL = Hud.Px(17f), padR = Hud.Px(14f), padT = Hud.Px(10f), padB = Hud.Px(12f);
-            float nameH = Hud.Px(28f), stateH = Hud.Px(24f), rowH = Hud.Px(32f), gap = Hud.Px(6f), line = Mathf.Max(1f, Hud.Px(1f));
-            float inner = Hud.Size(name, nameSt).x;
-            if (hasState) inner = Mathf.Max(inner, Hud.Size(state, stateSt).x);
+            GUIStyle nameSt = Hud.Mono(22), stateSt = Hud.Mono(19), actSt = Hud.Mono(21);
+            float lh = Hud.Px(28f), gap = Hud.Px(10f);
+            float w = Hud.Size(name, nameSt).x;
+            if (hasState) w = Mathf.Max(w, Hud.Size(state, stateSt).x);
             foreach (string a in _actions)
             {
                 Hud.SplitKey(a, out string k, out string txt);
-                inner = Mathf.Max(inner, Hud.KeyTextWidth(k, txt, 22));
+                w = Mathf.Max(w, (string.IsNullOrEmpty(k) ? 0f : Hud.Size(k, actSt).x + Hud.Px(12f)) + Hud.Size(txt, actSt).x);
             }
             float hold = sensor != null ? sensor.HoldProgress : -1f;
-            float w = Mathf.Max(Hud.Px(290f), inner + padL + padR);
-            float h = padT + nameH + (hasState ? stateH : 0f) + gap * 2f + line + _actions.Count * rowH + (hold >= 0f ? Hud.Px(14f) : 0f) + padB;
+            float h = lh + (hasState ? lh : 0f) + Hud.Px(4f) + _actions.Count * lh + (hold >= 0f ? Hud.Px(12f) : 0f);
             float x = t.xMax + Hud.Px(14f);
             if (x + w > Screen.width - Hud.Px(8f)) x = t.x - Hud.Px(14f) - w;
             Rect r = Clamp(new Rect(x, t.y, w, h));
-            Hud.Panel(r, 1f, true);
             if (sensor != null) sensor.CardRect = Rect.MinMaxRect(Mathf.Min(t.xMin, r.xMin), Mathf.Min(t.yMin, r.yMin), Mathf.Max(t.xMax, r.xMax), Mathf.Max(t.yMax, r.yMax));
 
-            float cx = r.x + padL, cy = r.y + padT, cw = w - padL - padR;
-            Hud.Label(new Rect(cx, cy, cw, nameH), name, nameSt, Color.white);
-            cy += nameH;
+            float cy = r.y;
+            Hud.Typed(r.x, cy, name, nameSt, Hud.Ink);
+            cy += lh;
             if (hasState)
             {
-                Hud.Label(new Rect(cx, cy, cw, stateH), state, stateSt, Hud.StateColor);
-                cy += stateH;
+                Hud.Typed(r.x, cy + Hud.Px(2f), state, stateSt, Hud.StateColor);
+                cy += lh;
             }
-            cy += gap;
-            Hud.Divider(cx, cy, cw);
-            cy += line + gap;
+            cy += Hud.Px(4f);
             foreach (string a in _actions)
             {
                 bool hasKey = Hud.SplitKey(a, out string k, out string txt);
-                Hud.KeyText(cx, cy, rowH, k, txt, 22, hasKey ? Color.white : Hud.Muted);
-                cy += rowH;
+                float cx = r.x;
+                if (hasKey) cx += Hud.Typed(cx, cy, k, actSt, Hud.Warm) + Hud.Px(12f);
+                Hud.Typed(cx, cy, txt, actSt, hasKey ? Hud.Ink : Dim);
+                cy += lh;
             }
-            if (hold >= 0f) Hud.Bar(new Rect(cx, cy + Hud.Px(6f), cw, Hud.Px(6f)), hold);
+            if (hold >= 0f) Hud.Bar(new Rect(r.x, cy + Hud.Px(4f), w, Hud.Px(3f)), hold);
         }
 
         // "Шкафчик с ключами — закрыт" / "Кружка · 0,3 кг · свободен": the name, then the state after the first separator

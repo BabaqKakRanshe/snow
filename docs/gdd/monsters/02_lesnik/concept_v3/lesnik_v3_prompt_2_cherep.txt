@@ -1,0 +1,6 @@
+Use case: edit of an in-game screenshot (creature concept variant)
+Primary request: insert a creature into this game frame. Creature: a gaunt 2.1 m creature with an elongated DEER SKULL for a head (bare bone, broken antler stumps), the knitted cap pulled down over the skull; legs bent backwards at the knee like an animal's hind legs (digitigrade); very long thin arms with bony fingers; grey skin over bones.
+Scene: he is INSIDE the dark kitchen, bent over the table on the left, one long limb reaching to take a tin can from the table, frozen mid-motion, head turned toward the camera, two small bright WHITE glowing eye points. The ONLY human traces left: a dark knitted wool cap and rags of an olive 1970s military parka. He must NOT read as a man at first glance.
+Integration: match the first image exactly - same dim light, same low-detail PSX-like game rendering, same dither, noise, blur and colour grading; mostly in shadow. He must look like a low-poly game model rendered in this same engine, NOT a photo, NOT a studio render.
+Constraints: keep everything else in the image unchanged (table, chairs, window blinds, bottle, counter). Same framing and size.
+Avoid: human face, human skin body, text, blood, extra characters, brighter image.

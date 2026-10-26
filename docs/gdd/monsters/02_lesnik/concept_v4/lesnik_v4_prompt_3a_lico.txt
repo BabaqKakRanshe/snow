@@ -1,0 +1,6 @@
+Use case: edit of an in-game screenshot (creature concept variant)
+Primary request: change only the creature: the smooth stretched grey skin where the face should be now shows the IMPRINT of an old man's face pushing from inside, as if pressed through a tight sheet - nose, brow and open mouth bulging under the skin; a thin stitched seam where the mouth would be; the white eye points glow through the skin. Head slightly elongated, tilted wrongly.
+Keep the same faceless creature identity from the first image (no face, two small white glowing eye points, dark knitted cap, olive parka rags, very long thin limbs), but make it genuinely FRIGHTENING, not cute: no soft rounded shapes, no polite pose, no cartoon proportions.
+Integration: same dim kitchen, same low-detail PSX-like game rendering, same dither, noise, blur and colour grading as the first image; he must look like a low-poly game model rendered in this engine, NOT a photo, NOT a studio render.
+Constraints: keep the kitchen unchanged (table, chairs, window blinds, bottle, counter). Same framing and size.
+Avoid: cute, cartoon, big round head, text, blood, gore, extra characters, brighter image.

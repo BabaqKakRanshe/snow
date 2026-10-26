@@ -4,8 +4,7 @@
    "id": "amb.forest.day",
    "type": "bed",
    "clips": [
-    "Assets/Snow/Audio/Clips/amb/amb.forest.day_01.wav",
-    "Assets/Snow/Audio/Clips/amb/amb.forest.day_02.wav"
+    "Assets/Snow/Audio/Clips/amb/amb.forest.day_01.wav"
    ],
    "set": {
     "bus": "Ambience",
@@ -15,8 +14,7 @@
     ]
    },
    "sources": [
-    "10__Justsoundeffects - Forest Ambiences__AMBForst_Spring Noon Deciduous Forest Gentle Wind Leaves Rustling Blackbird Raven in Background_JSE_FA.wav",
-    "02__Wav Junction Sound Effects - Ambience__0002_Ambience_Forest_Crows_Birds_Chirping_.wav"
+    "v01.wav"
    ]
   },
   {
@@ -33,7 +31,7 @@
     ]
    },
    "sources": [
-    "02__Pole Position - Wind In Trees__Wind - Aspen - Gusts - Close - Inside Canopy - XY - MKH8060.wav"
+    "v01.wav"
    ]
   },
   {
@@ -50,7 +48,7 @@
     ]
    },
    "sources": [
-    "01__Justsoundeffects - Forest Ambiences__BIRDPrey_Spring Night Deciduous Forest Many Tawny Owls Wind Leaves Rustling_JSE_FA.wav"
+    "v01.wav"
    ]
   },
   {
@@ -67,7 +65,7 @@
     ]
    },
    "sources": [
-    "10__HERZ - Baltic quad surroundings__Calm wind in pine tree forest_2.0.wav"
+    "v01.wav"
    ]
   },
   {
@@ -84,7 +82,7 @@
     ]
    },
    "sources": [
-    "07__West Wolf - Quiet Hotels At Night Vol.2__AMBRoom_Hotel Corridor - Room Tone - HC16, Old Hotel, Corridor, Quiet, Empty, Distant Light Human Activity, Night_WWA_QHAN2_Usi Pro AB.wav"
+    "v01.wav"
    ]
   },
   {
@@ -101,7 +99,7 @@
     ]
    },
    "sources": [
-    "01__Omar Alvarado - Minimal ambiences__ambience outdoors late night, cold winter air, pack of canine howling into the night and man made water fountain.wav"
+    "v01.wav"
    ]
   },
   {
@@ -118,7 +116,7 @@
     ]
    },
    "sources": [
-    "01__Ivo Vicic - Winter textures vol.1__07 Blizzard_Snow melting_wind_MS stereo.wav"
+    "v01.wav"
    ]
   },
   {
@@ -136,7 +134,7 @@
     "maxDistance": 18
    },
    "sources": [
-    "03__Ivo Vicic - Industrial gas boiler room__23 Industrial Gas  Boiler room_room tone_boiler near_PAN C.wav"
+    "v01.wav"
    ]
   },
   {
@@ -157,7 +155,7 @@
     "maxDistance": 20
    },
    "sources": [
-    "03__Articulated Sounds - 100 Fans, HVAC, & M__FAN Air Conditioner, Hard Metal Grinding Noise, Hum, Buzz, LOOP.wav"
+    "v01.wav"
    ]
   },
   {
@@ -175,7 +173,7 @@
     "maxDistance": 60
    },
    "sources": [
-    "01__FLYSOUND - URAL 4320 Diesel__URL0104 Truck Ural Spot A Start Idle Stop Front Perspective.wav"
+    "v01.wav"
    ]
   },
   {
@@ -197,7 +195,7 @@
     "maxDistance": 60
    },
    "sources": [
-    "01__FLYSOUND - URAL 4320 Diesel__URL0104 Truck Ural Spot A Start Idle Stop Front Perspective.wav"
+    "v01.wav"
    ]
   },
   {
@@ -219,7 +217,7 @@
     "maxDistance": 60
    },
    "sources": [
-    "01__FLYSOUND - URAL 4320 Diesel__URL0104 Truck Ural Spot A Start Idle Stop Front Perspective.wav"
+    "v01.wav"
    ]
   },
   {
@@ -240,7 +238,7 @@
     "maxDistance": 25
    },
    "sources": [
-    "08__PMSFX - HAUNTED DOORS__PM_HD_Source_39 Door, Close, Long Creak, Creaking.wav"
+    "v01.wav"
    ]
   },
   {
@@ -261,7 +259,7 @@
     "maxDistance": 15
    },
    "sources": [
-    "08__Sound Spark LLC – Forge Sound Design Too__Water_Pouring_02.wav"
+    "v01.wav"
    ]
   },
   {
@@ -282,7 +280,7 @@
     "maxDistance": 30
    },
    "sources": [
-    "09__Airborne Sound - Steam Train__Train,Steam,4-6-4,Royal Hudson,H1e Class,No 2860,Whistle,Engine POV,Tired - While moving.wav"
+    "v01.wav"
    ]
   },
   {
@@ -304,7 +302,7 @@
     "maxDistance": 40
    },
    "sources": [
-    "01__Articulated Sounds - Ghosts Return__DOOR KNOCK Bathroom A, Wood, Heavy, Fist, Medium 01, From INSIDE.wav"
+    "v01.wav"
    ]
   },
   {
@@ -325,7 +323,7 @@
     "maxDistance": 20
    },
    "sources": [
-    "02__Ivo Vicic - Industrial gas boiler room__20 Industrial Gas  Boiler room_boiler stops.wav"
+    "v01.wav"
    ]
   },
   {
@@ -347,7 +345,7 @@
     "maxDistance": 70
    },
    "sources": [
-    "01__Sound Ex Machina - Vintage Telephones__Antique Wooden Phone (1930) - USA Standard Ringing 01.wav"
+    "v01.wav"
    ]
   },
   {
@@ -368,7 +366,7 @@
     "maxDistance": 6
    },
    "sources": [
-    "07__UberDuo - Inhale – Owen – Character Play__HMNBrth_Human, Adult, Male, Breathe, Mouth, Slow,_UberDuo_INHL.wav"
+    "v01.wav"
    ]
   },
   {
@@ -389,14 +387,16 @@
     "maxDistance": 30
    },
    "sources": [
-    "02__Sound Ex Machina - Vintage Telephones__Siemens W48 Wandapparat 1934 - Telephone Rings Once 03.wav"
+    "v01.wav"
    ]
   },
   {
    "id": "forest.pump.creak",
    "type": "oneshot",
    "clips": [
-    "Assets/Snow/Audio/Clips/forest/forest.pump.creak_01.wav"
+    "Assets/Snow/Audio/Clips/forest/forest.pump.creak_01.wav",
+    "Assets/Snow/Audio/Clips/forest/forest.pump.creak_02.wav",
+    "Assets/Snow/Audio/Clips/forest/forest.pump.creak_03.wav"
    ],
    "set": {
     "volume": [
@@ -410,14 +410,18 @@
     "maxDistance": 20
    },
    "sources": [
-    "03__Jake Fielding - Squeaky Gates__DOORGate_Wooden Metal Hinge Creaks_Jake Fielding_Squeaky Gates.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
    "id": "forest.trash.rustle",
    "type": "oneshot",
    "clips": [
-    "Assets/Snow/Audio/Clips/forest/forest.trash.rustle_01.wav"
+    "Assets/Snow/Audio/Clips/forest/forest.trash.rustle_01.wav",
+    "Assets/Snow/Audio/Clips/forest/forest.trash.rustle_02.wav",
+    "Assets/Snow/Audio/Clips/forest/forest.trash.rustle_03.wav"
    ],
    "set": {
     "volume": [
@@ -431,14 +435,18 @@
     "maxDistance": 12
    },
    "sources": [
-    "08__Pole Position - The Plastic Textures Lib__Plastic Bag Thick - TWIST - Burst - Low Intensity - Mono.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
    "id": "item.impact.glass",
    "type": "oneshot",
    "clips": [
-    "Assets/Snow/Audio/Clips/item/item.impact.glass_01.wav"
+    "Assets/Snow/Audio/Clips/item/item.impact.glass_01.wav",
+    "Assets/Snow/Audio/Clips/item/item.impact.glass_02.wav",
+    "Assets/Snow/Audio/Clips/item/item.impact.glass_03.wav"
    ],
    "set": {
     "volume": [
@@ -453,7 +461,9 @@
     "noise": 5
    },
    "sources": [
-    "08__Glitchedtones – Pub Foley__Beer Bottle Knock Over Concrete 02.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
@@ -461,7 +471,8 @@
    "type": "oneshot",
    "clips": [
     "Assets/Snow/Audio/Clips/item/item.impact.metal_01.wav",
-    "Assets/Snow/Audio/Clips/item/item.impact.metal_02.wav"
+    "Assets/Snow/Audio/Clips/item/item.impact.metal_02.wav",
+    "Assets/Snow/Audio/Clips/item/item.impact.metal_03.wav"
    ],
    "set": {
     "volume": [
@@ -476,15 +487,18 @@
     "noise": 5
    },
    "sources": [
-    "01__Pole Position - The Metal Hit Sweeteners__Toolbox - DROP.wav",
-    "05__Cfry – Hand Tools__socket wrench 5.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
    "id": "item.impact.paper",
    "type": "oneshot",
    "clips": [
-    "Assets/Snow/Audio/Clips/item/item.impact.paper_01.wav"
+    "Assets/Snow/Audio/Clips/item/item.impact.paper_01.wav",
+    "Assets/Snow/Audio/Clips/item/item.impact.paper_02.wav",
+    "Assets/Snow/Audio/Clips/item/item.impact.paper_03.wav"
    ],
    "set": {
     "volume": [
@@ -499,14 +513,18 @@
     "noise": 5
    },
    "sources": [
-    "05__Mechanical Wave - Cardboard and Paper__OBJPack_Big Cardboard Box Impact_ 02_MWSFX_CDAP.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
    "id": "item.impact.wood",
    "type": "oneshot",
    "clips": [
-    "Assets/Snow/Audio/Clips/item/item.impact.wood_01.wav"
+    "Assets/Snow/Audio/Clips/item/item.impact.wood_01.wav",
+    "Assets/Snow/Audio/Clips/item/item.impact.wood_02.wav",
+    "Assets/Snow/Audio/Clips/item/item.impact.wood_03.wav"
    ],
    "set": {
     "volume": [
@@ -521,7 +539,9 @@
     "noise": 5
    },
    "sources": [
-    "07__Wav Junction Sound Effects - Tools__0005_Hammer_on_Wood.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
@@ -546,9 +566,9 @@
     "maxDistance": 60
    },
    "sources": [
-    "02__BluezoneCorp - Forest Textures__Bluezone_BC0279_forest_tree_branch_leaf_foliage_impact_short_012.wav",
-    "05__Sonic Bat - Videogame Foley Essentials V__SBvfe2_Dry Tree Branches Contact 024.wav",
-    "09__BlueZone - Wood Sound Effects__Bluezone_BC0254_wood_crushing_branches_001_001.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
@@ -573,9 +593,9 @@
     "maxDistance": 70
    },
    "sources": [
-    "01__BlueZone - Wood Sound Effects__Bluezone_BC0254_wood_creaking_tree_005.wav",
-    "03__BluezoneCorp - Forest Textures__Bluezone_BC0279_forest_tree_branch_texture_1_004.wav",
-    "06__Bluezone - Forest Creature Sound Effects__Bluezone_BC0269_ambience_wind_blowing_short_texture_tree_falling_002.wav"
+    "v01.wav",
+    "v02.wav",
+    "v03.wav"
    ]
   },
   {
@@ -599,8 +619,8 @@
     "maxDistance": 200
    },
    "sources": [
-    "04__Mechanical Wave - Lumberjack__WOODBrk_Tree Crack and Fall-13_MWSFX_TJ.wav",
-    "08__Mechanical Wave - Lumberjack__WOODBrk_Large Tree Heavy Fall-07_MWSFX_LJ.wav"
+    "v01.wav",
+    "v02.wav"
    ]
   },
   {
@@ -623,9 +643,9 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_DirtyGround_Jump_Land_01.wav",
-    "Footsteps_DirtyGround_Jump_Land_02.wav",
-    "Footsteps_DirtyGround_Jump_Land_03.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -639,9 +659,7 @@
     "Assets/Snow/Audio/Clips/step/step.dirt.run_05.wav",
     "Assets/Snow/Audio/Clips/step/step.dirt.run_06.wav",
     "Assets/Snow/Audio/Clips/step/step.dirt.run_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.dirt.run_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.dirt.run_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.dirt.run_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.dirt.run_08.wav"
    ],
    "set": {
     "volume": [
@@ -655,16 +673,14 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_DirtyGround_Run_01.wav",
-    "Footsteps_DirtyGround_Run_02.wav",
-    "Footsteps_DirtyGround_Run_03.wav",
-    "Footsteps_DirtyGround_Run_04.wav",
-    "Footsteps_DirtyGround_Run_05.wav",
-    "Footsteps_DirtyGround_Run_06.wav",
-    "Footsteps_DirtyGround_Run_07.wav",
-    "Footsteps_DirtyGround_Run_08.wav",
-    "Footsteps_DirtyGround_Run_09.wav",
-    "Footsteps_DirtyGround_Run_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -678,9 +694,7 @@
     "Assets/Snow/Audio/Clips/step/step.dirt.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.dirt.walk_06.wav",
     "Assets/Snow/Audio/Clips/step/step.dirt.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.dirt.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.dirt.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.dirt.walk_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.dirt.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -694,16 +708,14 @@
     "maxDistance": 25
    },
    "sources": [
-    "Footsteps_DirtyGround_Walk_01.wav",
-    "Footsteps_DirtyGround_Walk_02.wav",
-    "Footsteps_DirtyGround_Walk_03.wav",
-    "Footsteps_DirtyGround_Walk_04.wav",
-    "Footsteps_DirtyGround_Walk_05.wav",
-    "Footsteps_DirtyGround_Walk_06.wav",
-    "Footsteps_DirtyGround_Walk_07.wav",
-    "Footsteps_DirtyGround_Walk_08.wav",
-    "Footsteps_DirtyGround_Walk_09.wav",
-    "Footsteps_DirtyGround_Walk_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -712,9 +724,7 @@
    "clips": [
     "Assets/Snow/Audio/Clips/step/step.frozen.land_01.wav",
     "Assets/Snow/Audio/Clips/step/step.frozen.land_02.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.land_03.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.land_04.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.land_05.wav"
+    "Assets/Snow/Audio/Clips/step/step.frozen.land_03.wav"
    ],
    "set": {
     "volume": [
@@ -728,11 +738,9 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Iceland_Jump_Land_Gravel_Frozen_Mono_01.wav",
-    "Footsteps_Iceland_Jump_Land_Gravel_Frozen_Mono_02.wav",
-    "Footsteps_Iceland_Jump_Land_Gravel_Frozen_Mono_03.wav",
-    "Footsteps_Iceland_Jump_Land_Gravel_Frozen_Mono_04.wav",
-    "Footsteps_Iceland_Jump_Land_Gravel_Frozen_Mono_05.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -746,9 +754,7 @@
     "Assets/Snow/Audio/Clips/step/step.frozen.run_05.wav",
     "Assets/Snow/Audio/Clips/step/step.frozen.run_06.wav",
     "Assets/Snow/Audio/Clips/step/step.frozen.run_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.run_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.run_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.run_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.frozen.run_08.wav"
    ],
    "set": {
     "volume": [
@@ -762,16 +768,14 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_01.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_02.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_03.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_04.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_05.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_06.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_07.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_08.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_09.wav",
-    "Footsteps_Iceland_Run_Gravel_Frozen_Mono_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -785,10 +789,7 @@
     "Assets/Snow/Audio/Clips/step/step.frozen.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.frozen.walk_06.wav",
     "Assets/Snow/Audio/Clips/step/step.frozen.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.walk_10.wav",
-    "Assets/Snow/Audio/Clips/step/step.frozen.walk_11.wav"
+    "Assets/Snow/Audio/Clips/step/step.frozen.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -802,17 +803,14 @@
     "maxDistance": 25
    },
    "sources": [
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_01.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_02.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_03.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_04.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_05.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_06.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_07.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_08.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_09.wav",
-    "Footsteps_Iceland_Walk_Gravel_Frozen_Mono_10.wav",
-    "07__Eneas Mentzel - Frozen Farmlands__ICEBrk_FROZEN FARMLAND Footstep on frozen field_Eneas Mentzel_ _39.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -821,14 +819,7 @@
    "clips": [
     "Assets/Snow/Audio/Clips/step/step.grass.land_01.wav",
     "Assets/Snow/Audio/Clips/step/step.grass.land_02.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_03.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_04.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_05.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_06.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.land_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.grass.land_03.wav"
    ],
    "set": {
     "volume": [
@@ -842,16 +833,9 @@
     "maxDistance": 30
    },
    "sources": [
-    "Footsteps_Grass_Jump_Land_01.wav",
-    "Footsteps_Grass_Jump_Land_02.wav",
-    "Footsteps_Grass_Jump_Land_03.wav",
-    "Footsteps_Grass_Jump_Land_04.wav",
-    "Footsteps_Grass_Jump_Land_05.wav",
-    "Footsteps_Grass_Jump_Land_06.wav",
-    "Footsteps_Grass_Jump_Land_07.wav",
-    "Footsteps_Grass_Jump_Land_08.wav",
-    "Footsteps_Grass_Jump_Land_09.wav",
-    "Footsteps_Grass_Jump_Land_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -864,60 +848,7 @@
     "Assets/Snow/Audio/Clips/step/step.grass.walk_04.wav",
     "Assets/Snow/Audio/Clips/step/step.grass.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.grass.walk_06.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_10.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_11.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_12.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_13.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_14.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_15.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_16.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_17.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_18.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_19.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_20.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_21.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_22.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_23.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_24.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_25.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_26.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_27.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_28.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_29.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_30.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_31.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_32.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_33.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_34.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_35.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_36.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_37.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_38.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_39.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_40.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_41.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_42.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_43.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_44.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_45.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_46.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_47.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_48.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_49.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_50.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_51.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_52.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_53.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_54.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_55.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_56.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_57.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_58.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_59.wav",
-    "Assets/Snow/Audio/Clips/step/step.grass.walk_60.wav"
+    "Assets/Snow/Audio/Clips/step/step.grass.walk_07.wav"
    ],
    "set": {
     "volume": [
@@ -931,66 +862,13 @@
     "maxDistance": 20
    },
    "sources": [
-    "Footsteps_Walk_Grass_Mono_01.wav",
-    "Footsteps_Walk_Grass_Mono_02.wav",
-    "Footsteps_Walk_Grass_Mono_03.wav",
-    "Footsteps_Walk_Grass_Mono_04.wav",
-    "Footsteps_Walk_Grass_Mono_05.wav",
-    "Footsteps_Walk_Grass_Mono_06.wav",
-    "Footsteps_Walk_Grass_Mono_07.wav",
-    "Footsteps_Walk_Grass_Mono_08.wav",
-    "Footsteps_Walk_Grass_Mono_09.wav",
-    "Footsteps_Walk_Grass_Mono_10.wav",
-    "Footsteps_Walk_Grass_Mono_11.wav",
-    "Footsteps_Walk_Grass_Mono_12.wav",
-    "Footsteps_Walk_Grass_Mono_13.wav",
-    "Footsteps_Walk_Grass_Mono_14.wav",
-    "Footsteps_Walk_Grass_Mono_15.wav",
-    "Footsteps_Walk_Grass_Mono_16.wav",
-    "Footsteps_Walk_Grass_Mono_17.wav",
-    "Footsteps_Walk_Grass_Mono_18.wav",
-    "Footsteps_Walk_Grass_Mono_19.wav",
-    "Footsteps_Walk_Grass_Mono_20.wav",
-    "Footsteps_Walk_Grass_Mono_21.wav",
-    "Footsteps_Walk_Grass_Mono_22.wav",
-    "Footsteps_Walk_Grass_Mono_23.wav",
-    "Footsteps_Walk_Grass_Mono_24.wav",
-    "Footsteps_Walk_Grass_Mono_25.wav",
-    "Footsteps_Walk_Grass_Mono_26.wav",
-    "Footsteps_Walk_Grass_Mono_27.wav",
-    "Footsteps_Walk_Grass_Mono_28.wav",
-    "Footsteps_Walk_Grass_Mono_29.wav",
-    "Footsteps_Walk_Grass_Mono_30.wav",
-    "Footsteps_Walk_Grass_Mono_31.wav",
-    "Footsteps_Walk_Grass_Mono_32.wav",
-    "Footsteps_Walk_Grass_Mono_33.wav",
-    "Footsteps_Walk_Grass_Mono_34.wav",
-    "Footsteps_Walk_Grass_Mono_35.wav",
-    "Footsteps_Walk_Grass_Mono_36.wav",
-    "Footsteps_Walk_Grass_Mono_37.wav",
-    "Footsteps_Walk_Grass_Mono_38.wav",
-    "Footsteps_Walk_Grass_Mono_39.wav",
-    "Footsteps_Walk_Grass_Mono_40.wav",
-    "Footsteps_Walk_Grass_Mono_41.wav",
-    "Footsteps_Walk_Grass_Mono_42.wav",
-    "Footsteps_Walk_Grass_Mono_43.wav",
-    "Footsteps_Walk_Grass_Mono_44.wav",
-    "Footsteps_Walk_Grass_Mono_45.wav",
-    "Footsteps_Walk_Grass_Mono_46.wav",
-    "Footsteps_Walk_Grass_Mono_47.wav",
-    "Footsteps_Walk_Grass_Mono_48.wav",
-    "Footsteps_Walk_Grass_Mono_49.wav",
-    "Footsteps_Walk_Grass_Mono_50.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_01.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_02.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_03.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_04.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_05.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_06.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_07.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_08.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_09.wav",
-    "Footsteps_Iceland_Walk_Grass_Mono_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav"
    ]
   },
   {
@@ -1013,9 +891,9 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Jump_Land_01.wav",
-    "Footsteps_Jump_Land_02.wav",
-    "Footsteps_Jump_Land_03.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -1029,9 +907,7 @@
     "Assets/Snow/Audio/Clips/step/step.gravel.run_05.wav",
     "Assets/Snow/Audio/Clips/step/step.gravel.run_06.wav",
     "Assets/Snow/Audio/Clips/step/step.gravel.run_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.gravel.run_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.gravel.run_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.gravel.run_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.gravel.run_08.wav"
    ],
    "set": {
     "volume": [
@@ -1045,16 +921,14 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Gravel_Run_01.wav",
-    "Footsteps_Gravel_Run_02.wav",
-    "Footsteps_Gravel_Run_03.wav",
-    "Footsteps_Gravel_Run_04.wav",
-    "Footsteps_Gravel_Run_05.wav",
-    "Footsteps_Gravel_Run_06.wav",
-    "Footsteps_Gravel_Run_07.wav",
-    "Footsteps_Gravel_Run_08.wav",
-    "Footsteps_Gravel_Run_09.wav",
-    "Footsteps_Gravel_Run_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1068,9 +942,7 @@
     "Assets/Snow/Audio/Clips/step/step.gravel.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.gravel.walk_06.wav",
     "Assets/Snow/Audio/Clips/step/step.gravel.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.gravel.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.gravel.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.gravel.walk_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.gravel.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -1084,16 +956,14 @@
     "maxDistance": 25
    },
    "sources": [
-    "Footsteps_Gravel_Walk_01.wav",
-    "Footsteps_Gravel_Walk_02.wav",
-    "Footsteps_Gravel_Walk_03.wav",
-    "Footsteps_Gravel_Walk_04.wav",
-    "Footsteps_Gravel_Walk_05.wav",
-    "Footsteps_Gravel_Walk_06.wav",
-    "Footsteps_Gravel_Walk_07.wav",
-    "Footsteps_Gravel_Walk_08.wav",
-    "Footsteps_Gravel_Walk_09.wav",
-    "Footsteps_Gravel_Walk_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1105,7 +975,9 @@
     "Assets/Snow/Audio/Clips/step/step.leaves.walk_03.wav",
     "Assets/Snow/Audio/Clips/step/step.leaves.walk_04.wav",
     "Assets/Snow/Audio/Clips/step/step.leaves.walk_05.wav",
-    "Assets/Snow/Audio/Clips/step/step.leaves.walk_06.wav"
+    "Assets/Snow/Audio/Clips/step/step.leaves.walk_06.wav",
+    "Assets/Snow/Audio/Clips/step/step.leaves.walk_07.wav",
+    "Assets/Snow/Audio/Clips/step/step.leaves.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -1119,12 +991,14 @@
     "maxDistance": 20
    },
    "sources": [
-    "Footsteps_Leaves_Walk_01.wav",
-    "Footsteps_Leaves_Walk_02.wav",
-    "Footsteps_Leaves_Walk_03.wav",
-    "Footsteps_Leaves_Walk_04.wav",
-    "Footsteps_Leaves_Walk_05.wav",
-    "Footsteps_Leaves_Walk_06.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1133,8 +1007,7 @@
    "clips": [
     "Assets/Snow/Audio/Clips/step/step.metal.land_01.wav",
     "Assets/Snow/Audio/Clips/step/step.metal.land_02.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.land_03.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.land_04.wav"
+    "Assets/Snow/Audio/Clips/step/step.metal.land_03.wav"
    ],
    "set": {
     "volume": [
@@ -1148,10 +1021,9 @@
     "maxDistance": 40
    },
    "sources": [
-    "Footsteps_MetalV1_Jump_Land_01.wav",
-    "Footsteps_MetalV1_Jump_Land_02.wav",
-    "Footsteps_MetalV1_Jump_Land_03.wav",
-    "Footsteps_MetalV1_Jump_Land_04.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -1165,14 +1037,7 @@
     "Assets/Snow/Audio/Clips/step/step.metal.run_05.wav",
     "Assets/Snow/Audio/Clips/step/step.metal.run_06.wav",
     "Assets/Snow/Audio/Clips/step/step.metal.run_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_10.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_11.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_12.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_13.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_14.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.run_15.wav"
+    "Assets/Snow/Audio/Clips/step/step.metal.run_08.wav"
    ],
    "set": {
     "volume": [
@@ -1186,21 +1051,14 @@
     "maxDistance": 40
    },
    "sources": [
-    "Footsteps_MetalV1_Run_01.wav",
-    "Footsteps_MetalV1_Run_02.wav",
-    "Footsteps_MetalV1_Run_03.wav",
-    "Footsteps_MetalV1_Run_04.wav",
-    "Footsteps_MetalV1_Run_05.wav",
-    "Footsteps_MetalV1_Run_06.wav",
-    "Footsteps_MetalV1_Run_07.wav",
-    "Footsteps_MetalV1_Run_08.wav",
-    "Footsteps_MetalV1_Run_09.wav",
-    "Footsteps_MetalV1_Run_10.wav",
-    "Footsteps_MetalV1_Run_11.wav",
-    "Footsteps_MetalV1_Run_12.wav",
-    "Footsteps_MetalV1_Run_13.wav",
-    "Footsteps_MetalV1_Run_14.wav",
-    "Footsteps_MetalV1_Run_15.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1214,14 +1072,7 @@
     "Assets/Snow/Audio/Clips/step/step.metal.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.metal.walk_06.wav",
     "Assets/Snow/Audio/Clips/step/step.metal.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_10.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_11.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_12.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_13.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_14.wav",
-    "Assets/Snow/Audio/Clips/step/step.metal.walk_15.wav"
+    "Assets/Snow/Audio/Clips/step/step.metal.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -1235,21 +1086,14 @@
     "maxDistance": 30
    },
    "sources": [
-    "Footsteps_MetalV1_Walk_01.wav",
-    "Footsteps_MetalV1_Walk_02.wav",
-    "Footsteps_MetalV1_Walk_03.wav",
-    "Footsteps_MetalV1_Walk_04.wav",
-    "Footsteps_MetalV1_Walk_05.wav",
-    "Footsteps_MetalV1_Walk_06.wav",
-    "Footsteps_MetalV1_Walk_07.wav",
-    "Footsteps_MetalV1_Walk_08.wav",
-    "Footsteps_MetalV1_Walk_09.wav",
-    "Footsteps_MetalV1_Walk_10.wav",
-    "Footsteps_MetalV1_Walk_11.wav",
-    "Footsteps_MetalV1_Walk_12.wav",
-    "Footsteps_MetalV1_Walk_13.wav",
-    "Footsteps_MetalV1_Walk_14.wav",
-    "Footsteps_MetalV1_Walk_15.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1263,9 +1107,7 @@
     "Assets/Snow/Audio/Clips/step/step.mud.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.mud.walk_06.wav",
     "Assets/Snow/Audio/Clips/step/step.mud.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.mud.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.mud.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.mud.walk_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.mud.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -1279,16 +1121,14 @@
     "maxDistance": 25
    },
    "sources": [
-    "Footsteps_Mud_Walk_01.wav",
-    "Footsteps_Mud_Walk_02.wav",
-    "Footsteps_Mud_Walk_03.wav",
-    "Footsteps_Mud_Walk_04.wav",
-    "Footsteps_Mud_Walk_05.wav",
-    "Footsteps_Mud_Walk_06.wav",
-    "Footsteps_Mud_Walk_07.wav",
-    "Footsteps_Mud_Walk_08.wav",
-    "Footsteps_Mud_Walk_09.wav",
-    "Footsteps_Mud_Walk_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1297,9 +1137,7 @@
    "clips": [
     "Assets/Snow/Audio/Clips/step/step.snow.land_01.wav",
     "Assets/Snow/Audio/Clips/step/step.snow.land_02.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.land_03.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.land_04.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.land_05.wav"
+    "Assets/Snow/Audio/Clips/step/step.snow.land_03.wav"
    ],
    "set": {
     "volume": [
@@ -1313,11 +1151,9 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Snow_Hard_Jump_Land_01.wav",
-    "Footsteps_Snow_Hard_Jump_Land_02.wav",
-    "Footsteps_Snow_Hard_Jump_Land_03.wav",
-    "Footsteps_Snow_Hard_Jump_Land_04.wav",
-    "Footsteps_Snow_Hard_Jump_Land_05.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -1331,20 +1167,7 @@
     "Assets/Snow/Audio/Clips/step/step.snow.run_05.wav",
     "Assets/Snow/Audio/Clips/step/step.snow.run_06.wav",
     "Assets/Snow/Audio/Clips/step/step.snow.run_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_10.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_11.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_12.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_13.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_14.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_15.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_16.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_17.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_18.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_19.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_20.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.run_21.wav"
+    "Assets/Snow/Audio/Clips/step/step.snow.run_08.wav"
    ],
    "set": {
     "volume": [
@@ -1358,27 +1181,14 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Snow_Hard_Run_01.wav",
-    "Footsteps_Snow_Hard_Run_02.wav",
-    "Footsteps_Snow_Hard_Run_03.wav",
-    "Footsteps_Snow_Hard_Run_04.wav",
-    "Footsteps_Snow_Hard_Run_05.wav",
-    "Footsteps_Snow_Hard_Run_06.wav",
-    "Footsteps_Snow_Hard_Run_07.wav",
-    "Footsteps_Snow_Hard_Run_08.wav",
-    "Footsteps_Snow_Hard_Run_09.wav",
-    "Footsteps_Snow_Hard_Run_10.wav",
-    "Footsteps_Snow_Hard_Run_11.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_01.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_02.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_03.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_04.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_05.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_06.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_07.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_08.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_09.wav",
-    "Footsteps_Iceland_Run_Snow_Grass_Mono_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1392,21 +1202,7 @@
     "Assets/Snow/Audio/Clips/step/step.snow.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.snow.walk_06.wav",
     "Assets/Snow/Audio/Clips/step/step.snow.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_10.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_11.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_12.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_13.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_14.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_15.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_16.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_17.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_18.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_19.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_20.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_21.wav",
-    "Assets/Snow/Audio/Clips/step/step.snow.walk_22.wav"
+    "Assets/Snow/Audio/Clips/step/step.snow.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -1420,28 +1216,14 @@
     "maxDistance": 25
    },
    "sources": [
-    "Footsteps_Snow_Hard_Walk_01.wav",
-    "Footsteps_Snow_Hard_Walk_02.wav",
-    "Footsteps_Snow_Hard_Walk_03.wav",
-    "Footsteps_Snow_Hard_Walk_04.wav",
-    "Footsteps_Snow_Hard_Walk_05.wav",
-    "Footsteps_Snow_Hard_Walk_06.wav",
-    "Footsteps_Snow_Hard_Walk_07.wav",
-    "Footsteps_Snow_Hard_Walk_08.wav",
-    "Footsteps_Snow_Hard_Walk_09.wav",
-    "Footsteps_Snow_Hard_Walk_10.wav",
-    "Footsteps_Snow_Hard_Walk_11.wav",
-    "Footsteps_Snow_Hard_Walk_12.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_01.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_02.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_03.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_04.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_05.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_06.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_07.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_08.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_09.wav",
-    "Footsteps_Iceland_Walk_Snow_Grass_Mono_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1464,9 +1246,9 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Tile_Jump_Land_01.wav",
-    "Footsteps_Tile_Jump_Land_02.wav",
-    "Footsteps_Tile_Jump_Land_03.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -1478,7 +1260,9 @@
     "Assets/Snow/Audio/Clips/step/step.tile.run_03.wav",
     "Assets/Snow/Audio/Clips/step/step.tile.run_04.wav",
     "Assets/Snow/Audio/Clips/step/step.tile.run_05.wav",
-    "Assets/Snow/Audio/Clips/step/step.tile.run_06.wav"
+    "Assets/Snow/Audio/Clips/step/step.tile.run_06.wav",
+    "Assets/Snow/Audio/Clips/step/step.tile.run_07.wav",
+    "Assets/Snow/Audio/Clips/step/step.tile.run_08.wav"
    ],
    "set": {
     "volume": [
@@ -1492,12 +1276,14 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Tile_Run_01.wav",
-    "Footsteps_Tile_Run_02.wav",
-    "Footsteps_Tile_Run_03.wav",
-    "Footsteps_Tile_Run_04.wav",
-    "Footsteps_Tile_Run_05.wav",
-    "Footsteps_Tile_Run_06.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1525,14 +1311,14 @@
     "maxDistance": 25
    },
    "sources": [
-    "Footsteps_Tile_Walk_01.wav",
-    "Footsteps_Tile_Walk_02.wav",
-    "Footsteps_Tile_Walk_03.wav",
-    "Footsteps_Tile_Walk_04.wav",
-    "Footsteps_Tile_Walk_05.wav",
-    "Footsteps_Tile_Walk_06.wav",
-    "Footsteps_Tile_Walk_07.wav",
-    "Footsteps_Tile_Walk_08.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1540,7 +1326,8 @@
    "type": "oneshot",
    "clips": [
     "Assets/Snow/Audio/Clips/step/step.wood.land_01.wav",
-    "Assets/Snow/Audio/Clips/step/step.wood.land_02.wav"
+    "Assets/Snow/Audio/Clips/step/step.wood.land_02.wav",
+    "Assets/Snow/Audio/Clips/step/step.wood.land_03.wav"
    ],
    "set": {
     "volume": [
@@ -1554,8 +1341,9 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Wood_Jump_Land_01.wav",
-    "Footsteps_Wood_Jump_Land_02.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav"
    ]
   },
   {
@@ -1569,9 +1357,7 @@
     "Assets/Snow/Audio/Clips/step/step.wood.run_05.wav",
     "Assets/Snow/Audio/Clips/step/step.wood.run_06.wav",
     "Assets/Snow/Audio/Clips/step/step.wood.run_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.wood.run_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.wood.run_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.wood.run_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.wood.run_08.wav"
    ],
    "set": {
     "volume": [
@@ -1585,16 +1371,14 @@
     "maxDistance": 35
    },
    "sources": [
-    "Footsteps_Wood_Run_01.wav",
-    "Footsteps_Wood_Run_02.wav",
-    "Footsteps_Wood_Run_03.wav",
-    "Footsteps_Wood_Run_04.wav",
-    "Footsteps_Wood_Run_05.wav",
-    "Footsteps_Wood_Run_06.wav",
-    "Footsteps_Wood_Run_07.wav",
-    "Footsteps_Wood_Run_08.wav",
-    "Footsteps_Wood_Run_09.wav",
-    "Footsteps_Wood_Run_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
    ]
   },
   {
@@ -1608,9 +1392,7 @@
     "Assets/Snow/Audio/Clips/step/step.wood.walk_05.wav",
     "Assets/Snow/Audio/Clips/step/step.wood.walk_06.wav",
     "Assets/Snow/Audio/Clips/step/step.wood.walk_07.wav",
-    "Assets/Snow/Audio/Clips/step/step.wood.walk_08.wav",
-    "Assets/Snow/Audio/Clips/step/step.wood.walk_09.wav",
-    "Assets/Snow/Audio/Clips/step/step.wood.walk_10.wav"
+    "Assets/Snow/Audio/Clips/step/step.wood.walk_08.wav"
    ],
    "set": {
     "volume": [
@@ -1624,16 +1406,72 @@
     "maxDistance": 25
    },
    "sources": [
-    "Footsteps_Wood_Walk_01.wav",
-    "Footsteps_Wood_Walk_02.wav",
-    "Footsteps_Wood_Walk_03.wav",
-    "Footsteps_Wood_Walk_04.wav",
-    "Footsteps_Wood_Walk_05.wav",
-    "Footsteps_Wood_Walk_06.wav",
-    "Footsteps_Wood_Walk_07.wav",
-    "Footsteps_Wood_Walk_08.wav",
-    "Footsteps_Wood_Walk_09.wav",
-    "Footsteps_Wood_Walk_10.wav"
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
+   ]
+  },
+  {
+   "id": "ui.letter.key",
+   "type": "oneshot",
+   "clips": [
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_01.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_02.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_03.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_04.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_05.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_06.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_07.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.letter.key_08.wav"
+   ],
+   "set": {
+    "bus": "Ui",
+    "volume": [
+     0.5,
+     0.8
+    ],
+    "pitch": [
+     0.95,
+     1.05
+    ]
+   },
+   "sources": [
+    "s01.wav",
+    "s02.wav",
+    "s03.wav",
+    "s04.wav",
+    "s05.wav",
+    "s06.wav",
+    "s07.wav",
+    "s08.wav"
+   ]
+  },
+  {
+   "id": "ui.pager.beep",
+   "type": "oneshot",
+   "clips": [
+    "Assets/Snow/Audio/Clips/ui/ui.pager.beep_01.wav",
+    "Assets/Snow/Audio/Clips/ui/ui.pager.beep_02.wav"
+   ],
+   "set": {
+    "bus": "Ui",
+    "volume": [
+     0.7,
+     0.8
+    ],
+    "pitch": [
+     1,
+     1
+    ]
+   },
+   "sources": [
+    "v01.wav",
+    "v02.wav"
    ]
   }
  ]

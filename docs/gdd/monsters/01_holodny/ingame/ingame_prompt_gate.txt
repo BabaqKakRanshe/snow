@@ -1,0 +1,6 @@
+Use case: edit of an in-game screenshot (mood reference)
+Primary request: insert the creature into the FIRST image (night, base fence and gate in the dark, seen from outside). On top of the fence wall to the left of the gate, a dark crawling silhouette of the creature against the night sky, long arms bent like a spider, two small glowing eyes facing the camera. Very dark, mostly silhouette.
+Creature (from the other reference images): bare human skull head with small glowing white-yellow pupils in dark sockets, long thin neck, emaciated pale bone-grey body with skin over ribs and spine, VERY long thin stilt-like arms (much longer than the legs) with sharply bent elbows and long bony fingers, shorter bent hind legs. About 3 m long crawling.
+Integration: match the first image exactly - same light, same low-detail PSX-like game rendering, same dither, noise, blur and colour grading. Light the creature only by the lights that exist in the first image. It must look like a low-poly game model rendered in this same engine, NOT a photo or a detailed painting.
+Constraints: keep everything else in the first image unchanged (buildings, signs and their text, trees, lights, UI at the bottom). Same framing and size.
+Avoid: new text, blood, extra creatures, making the image brighter.

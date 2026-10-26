@@ -1,0 +1,8 @@
+Use case: ui-mockup
+Asset type: in-game screenshot mockup for a 1990s PSX-style survival horror game
+Primary request: edit this first-person game frame on a dark forest road at night: the player holds up a chunky military-grey walkie-talkie with a built-in text pager display in the LEFT gloved hand in the lower-left of the view
+Subject: olive-grey rugged handheld radio with a rubber antenna, channel knob and push-to-talk side button, and a small 2-line monochrome LCD on the front with a pale green backlight, a red LED above it, a scratched "SCHNEE" label
+Text (verbatim, 2 lines on the LCD):
+"PAGER K. 17:30"
+"Ключи в будке КПП."
+Constraints: keep the original game frame exactly as it is (scene, camera, lighting, fog, low-resolution PlayStation 1 look, pixel noise); only ADD the gloved left hand with the device in the lower-left part of the frame, rendered in the same low-poly PSX style and lit by the scene light plus the device's own screen glow; the screen text must be crisp and readable, monospaced, exactly the lines given. Avoid: any other UI, HUD, subtitles, watermark, frame border, modern smartphone look, extra fingers.

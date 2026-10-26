@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Snow.Net;
 using Unity.Collections;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 namespace Snow.Cargo
@@ -82,6 +83,8 @@ namespace Snow.Cargo
         public const int PocketSlots = 8;
         /// <summary>kg: up to this an item goes into the hand and the pockets, TEMPORARY.</summary>
         public const float PocketMaxKg = 3f;
+        /// <summary>m: a carried item's hand target this far from its grab point means a teleport, not a pull.</summary>
+        public const float JumpSnap = 20f;
 
         class Hand
         {
@@ -311,6 +314,25 @@ namespace Snow.Cargo
             BenchLog.Event("pocket_drop", "item", name, "client", client, "v", velocity);
         }
 
+        /// <summary>
+        /// Server: move the item by delta at once, keeping its velocity (the vehicle it rides in wrapped round the Forest's
+        /// edge, ForestEdgeWrap; its carrier was teleported). Clients get a teleport, not a long interpolation.
+        /// </summary>
+        public void ServerShift(Vector3 delta)
+        {
+            Vector3 v = _rb.linearVelocity, w = _rb.angularVelocity;
+            Vector3 at = transform.position + delta;
+            _rb.position = at;
+            transform.position = at;
+            if (TryGetComponent(out NetworkTransform nt) && nt.CanCommitToTransform) nt.Teleport(at, transform.rotation, transform.localScale);
+            if (!_rb.isKinematic)
+            {
+                _rb.linearVelocity = v;
+                _rb.angularVelocity = w;
+            }
+            BenchLog.Event("cargo_shift", "item", name, "d", delta);
+        }
+
         // may this client take the item into his hand or pockets, and into which slot?
         bool ServerClaim(ulong client, out int slot, out string reason)
         {
@@ -396,6 +418,13 @@ namespace Snow.Cargo
             {
                 if (Time.time - h.Time > targetTimeout) continue;
                 Vector3 p = transform.TransformPoint(h.Local);
+                if ((h.Target - p).sqrMagnitude > JumpSnap * JumpSnap)
+                {
+                    // the carrier was teleported (the Forest's edge, a fall reset): the spring would drag the crate there
+                    // through the ground, so it jumps after him
+                    ServerShift(h.Target - p);
+                    break;
+                }
                 Vector3 f = GrabMath.HandForce(p, _rb.GetPointVelocity(p), h.Target, h.TargetVelocity,
                     GrabMath.Stiffness * g, GrabMath.Damping * g, GrabMath.MaxForcePerPlayer * g);
                 _rb.AddForceAtPosition(f, p, ForceMode.Force);

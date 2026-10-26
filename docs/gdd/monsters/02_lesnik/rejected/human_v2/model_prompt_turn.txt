@@ -1,0 +1,9 @@
+Use case: stylized-concept
+Asset type: character turnaround reference sheet for a 3D modeler
+Primary request: model sheet of the character standing in his hunched pose, shown three times in one row on a plain neutral mid-grey background: FRONT view, SIDE view (left profile), BACK view. Same pose, same scale, one ground line, even soft studio light, full body with margins.
+Subject: "the Forester" (Lesnik), a horror game creature: once a human forester, an old man, now eaten away by a strange dust. NOT a normal man and NOT a cartoon.
+Body (like the Cold One creature in the references): emaciated to skin and bones - pale bone-grey skin stretched tight over ribs, collarbones, spine, elbows and knees; sunken belly; thin ropey neck. 2.1 m tall, always hunched, walks upright on two legs. Arms and legs abnormally long and thin, long bony fingers.
+Face: a HALF-SKULL - the old man's face has dried onto the skull: skin pulled tight, nose almost gone, lips shrunk back over long teeth, deep dark eye sockets with two small bright WHITE glowing points (eyeshine). Still a few strands of grey hair and grey stubble, so you can tell he was once a man.
+Clothes: only the remains of his old olive military 1970s parka hanging off him in torn rags (open, showing the ribs), torn olive trousers, a dark knitted wool cap, rags wrapped around old boots. NO backpack, NO bag, NO straps.
+Style/medium: serious horror game character render, same render look and skin material as the Cold One references; smooth low-detail game model; NOT cartoon, NOT caricature, NOT pixel-art texture.
+Avoid: backpack, bag, sack, straps, weapons, gas mask, green eyes, blood, gore, text, labels, watermark, frame.

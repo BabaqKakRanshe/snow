@@ -15,10 +15,10 @@ namespace Snow.Interaction
     ///  2. OnGUI: the ring from the mask over the screen (Resources/HoverRing.shader), behind the HUD.
     /// What is outlined:
     ///  - an item: all its parts;
-    ///  - a zone with its own small mesh (switch, lever, knob, cap): that mesh;
-    ///  - a zone on something large or with no mesh (door handle, seat, bunk, shelf): the parts of the object it sits on
-    ///    that reach into the zone and are not larger than <see cref="maxPartSize"/> (the door leaf, the seat, the bunk).
-    ///    None found = no ring; the hover card frame (InteractionOverlay) still shows.
+    ///  - a zone: the meshes of the object it sits on that lie mostly inside the zone and are not larger than
+    ///    <see cref="maxPartSize"/> (the door leaf with its glass, the fuse, the seat); else its parent's own small mesh
+    ///    (switch, lever, knob). None found (a seat that is part of the body mesh) = no ring; the hover card frame
+    ///    (InteractionOverlay) still shows.
     /// The mask has no depth: the whole silhouette is ringed even where something stands in front (the target is what
     /// the ray hit, so it is mostly in view). Drawing only: nothing here is replicated or changes state.
     /// </summary>
@@ -34,14 +34,13 @@ namespace Snow.Interaction
         [Tooltip("m: largest part outlined for a zone on a big object (a door leaf is ~2.1 m)")] public float maxPartSize = 2.5f;
 
         Component _hint;
-        Material _maskMat, _ringMat;
+        Material _hoverMask, _hintMask, _ringMat;
         RenderTexture _mask;
         CommandBuffer _cmd;
-        MaterialPropertyBlock _hoverProps, _hintProps;
         bool _drawn;
         // zone -> its parts, found once (the parts move with the zone: a door leaf turns with its handle)
-        readonly Dictionary<UtilityPlaneInteractable, MeshRenderer[]> _parts = new Dictionary<UtilityPlaneInteractable, MeshRenderer[]>();
-        readonly List<MeshRenderer> _found = new List<MeshRenderer>();
+        readonly Dictionary<UtilityPlaneInteractable, Renderer[]> _parts = new Dictionary<UtilityPlaneInteractable, Renderer[]>();
+        readonly List<Renderer> _found = new List<Renderer>();
         static readonly int MaskColorId = Shader.PropertyToID("_MaskColor"), HoverColorId = Shader.PropertyToID("_HoverColor"),
                             HintColorId = Shader.PropertyToID("_HintColor"), TexelId = Shader.PropertyToID("_Texel"),
                             RadiusId = Shader.PropertyToID("_Radius"), FillId = Shader.PropertyToID("_Fill");
@@ -53,19 +52,19 @@ namespace Snow.Interaction
         {
             Shader mask = Resources.Load<Shader>("HoverMask"), ring = Resources.Load<Shader>("HoverRing");
             if (mask == null || ring == null) { Debug.LogWarning("[HoverOutline] Resources/HoverMask or HoverRing shader missing: no outline."); enabled = false; return; }
-            _maskMat = new Material(mask) { name = "HoverMask (runtime)", hideFlags = HideFlags.HideAndDontSave };
+            _hoverMask = new Material(mask) { name = "HoverMask hover (runtime)", hideFlags = HideFlags.HideAndDontSave };
+            _hoverMask.SetColor(MaskColorId, new Color(1f, 0f, 0f, 0f));
+            _hintMask = new Material(mask) { name = "HoverMask hint (runtime)", hideFlags = HideFlags.HideAndDontSave };
+            _hintMask.SetColor(MaskColorId, new Color(0f, 1f, 0f, 0f));
             _ringMat = new Material(ring) { name = "HoverRing (runtime)", hideFlags = HideFlags.HideAndDontSave };
             _cmd = new CommandBuffer { name = "HoverOutline mask" };
-            _hoverProps = new MaterialPropertyBlock();
-            _hoverProps.SetColor(MaskColorId, new Color(1f, 0f, 0f, 0f));
-            _hintProps = new MaterialPropertyBlock();
-            _hintProps.SetColor(MaskColorId, new Color(0f, 1f, 0f, 0f));
         }
 
         void OnDestroy()
         {
             if (_mask != null) { _mask.Release(); Destroy(_mask); }
-            if (_maskMat != null) Destroy(_maskMat);
+            if (_hoverMask != null) Destroy(_hoverMask);
+            if (_hintMask != null) Destroy(_hintMask);
             if (_ringMat != null) Destroy(_ringMat);
             _cmd?.Release();
         }
@@ -99,7 +98,7 @@ namespace Snow.Interaction
             // the plain projection: SetViewProjectionMatrices itself adapts it to the platform and the render texture
             // (GL.GetGPUProjectionMatrix here as well flipped the mask upside down, user 25.10)
             _cmd.SetViewProjectionMatrices(cam.worldToCameraMatrix, cam.projectionMatrix);
-            int n = Draw(hover, _hoverProps) + Draw(hint, _hintProps);
+            int n = Draw(hover, _hoverMask) + Draw(hint, _hintMask);
             if (n == 0) return;
             Graphics.ExecuteCommandBuffer(_cmd);
             _ringMat.SetColor(HoverColorId, hoverColor);
@@ -118,48 +117,89 @@ namespace Snow.Interaction
         }
 
         // the target's meshes into the mask; returns how many
-        int Draw(Component target, MaterialPropertyBlock props)
+        int Draw(Component target, Material mat)
         {
             if (target == null) return 0;
             int n = 0;
             if (target is UtilityPlaneInteractable zone)
             {
                 foreach (var r in Parts(zone))
-                    if (r != null && r.enabled && r.gameObject.activeInHierarchy) n += Mask(r, props);
+                    if (r != null && r.enabled && r.gameObject.activeInHierarchy) n += Mask(r, mat);
                 return n;
             }
-            foreach (var r in target.GetComponentsInChildren<MeshRenderer>())
-                if (r.enabled && r.gameObject.activeInHierarchy && Outlined(r)) n += Mask(r, props);
+            foreach (var r in target.GetComponentsInChildren<Renderer>())
+                if (r.enabled && r.gameObject.activeInHierarchy && Part(r)) n += Mask(r, mat);
             return n;
         }
 
-        int Mask(Renderer r, MaterialPropertyBlock props)
+        // DrawRenderer, not DrawMesh: a skinned part (the van wheels, blend shapes) and a statically batched one are
+        // drawn as they are on screen
+        int Mask(Renderer r, Material mat)
         {
-            var mf = r.GetComponent<MeshFilter>();
-            Mesh mesh = mf != null ? mf.sharedMesh : null;
-            if (mesh == null) return 0;
-            for (int i = 0; i < mesh.subMeshCount; i++) _cmd.DrawMesh(mesh, r.localToWorldMatrix, _maskMat, i, 0, props);
+            int subs = Mathf.Max(1, r.sharedMaterials.Length);
+            for (int i = 0; i < subs; i++) _cmd.DrawRenderer(r, mat, i, 0);
             return 1;
         }
 
-        MeshRenderer[] Parts(UtilityPlaneInteractable zone)
+        // a mesh part of a model (not a light effect, a lower LOD or a shadow copy, not a particle or line renderer)
+        static bool Part(Renderer r) => (r is MeshRenderer || r is SkinnedMeshRenderer) && Outlined(r);
+
+        // a zone's parts (user 25.10: a seat zone on the van root took the wheel, the pedals and the door - anything that
+        // only touched it):
+        //  1. the part named like the zone under its parent (IV_Wheel_FL -> Wheel_FL, IV_doorL -> doorL) with what hangs
+        //     on it (nuts, glass, lock);
+        //  2. else the meshes under its parent that lie mostly inside the zone box (Sit_R1 -> Seat_R1);
+        //  3. else the parent's own small mesh (a cockpit control whose zone is tighter than the mesh).
+        // A seat that is part of the body mesh has none.
+        Renderer[] Parts(UtilityPlaneInteractable zone)
         {
-            if (_parts.TryGetValue(zone, out MeshRenderer[] parts)) return parts;
+            if (_parts.TryGetValue(zone, out Renderer[] parts)) return parts;
             if (_parts.Count > 512) _parts.Clear();                       // zones of unloaded scenes
             _found.Clear();
             Transform parent = zone.transform.parent;
-            MeshRenderer own = parent != null ? parent.GetComponent<MeshRenderer>() : null;
-            if (own != null && Max(own.bounds.size) <= maxMeshSize)
-                _found.Add(own);
-            else if (parent != null && zone.TryGetComponent(out Collider col))
+            if (parent != null)
             {
-                Bounds b = col.bounds;
-                foreach (var r in parent.GetComponentsInChildren<MeshRenderer>())
-                    if (Outlined(r) && Max(r.bounds.size) <= maxPartSize && r.bounds.Intersects(b)) _found.Add(r);
+                string bare = zone.name.StartsWith("IV_", System.StringComparison.Ordinal) ? zone.name.Substring(3) : zone.name;
+                Renderer named = null;
+                foreach (var r in parent.GetComponentsInChildren<Renderer>())
+                    if (Part(r) && (r.name == zone.id || r.name == bare)) { named = r; break; }
+                if (named != null)
+                    foreach (var r in named.GetComponentsInChildren<Renderer>())
+                        if (Part(r) && Max(r.bounds.size) <= maxPartSize) _found.Add(r);
+                if (_found.Count == 0 && zone.TryGetComponent(out BoxCollider box))
+                    foreach (var r in parent.GetComponentsInChildren<Renderer>())
+                        if (Part(r) && Max(r.bounds.size) <= maxPartSize && InsideShare(r, zone.transform, box) >= MinInside) _found.Add(r);
+                if (_found.Count == 0 && parent.TryGetComponent(out MeshRenderer own) && Max(own.bounds.size) <= maxMeshSize)
+                    _found.Add(own);
             }
             parts = _found.ToArray();
             _parts[zone] = parts;
             return parts;
+        }
+
+        const float MinInside = 0.5f;
+        readonly Vector3[] _corner = new Vector3[8];
+
+        // share of the mesh's box inside the zone box, both in the zone's own axes (a turned van inflates world boxes)
+        float InsideShare(Renderer r, Transform zone, BoxCollider box)
+        {
+            Bounds m = r.localBounds;                                  // a skinned mesh's are in its root bone's space
+            Transform space = r is SkinnedMeshRenderer sk && sk.rootBone != null ? sk.rootBone : r.transform;
+            Matrix4x4 toZone = zone.worldToLocalMatrix * space.localToWorldMatrix;
+            for (int i = 0; i < 8; i++)
+                _corner[i] = toZone.MultiplyPoint3x4(m.center + Vector3.Scale(m.extents, new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1)));
+            var mb = new Bounds(_corner[0], Vector3.zero);
+            for (int i = 1; i < 8; i++) mb.Encapsulate(_corner[i]);
+            Vector3 zmin = box.center - box.size * 0.5f, zmax = box.center + box.size * 0.5f;
+            float inside = 1f, whole = 1f;
+            for (int a = 0; a < 3; a++)
+            {
+                const float thin = 0.01f;                              // a flat pane still has a share
+                float lo = mb.min[a], hi = Mathf.Max(mb.max[a], lo + thin);
+                inside *= Mathf.Max(0f, Mathf.Min(hi, zmax[a]) - Mathf.Max(lo, zmin[a]));
+                whole *= hi - lo;
+            }
+            return inside / whole;
         }
 
         /// <summary>
