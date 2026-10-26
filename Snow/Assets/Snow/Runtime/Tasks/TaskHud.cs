@@ -42,17 +42,20 @@ namespace Snow.Tasks
 
         void OnGiven(TaskDef t)
         {
+            Snow.Audio.SnowAudio.PlayUi("ui.task.new");
             bool guided = _board != null && _board.Mode == TaskMode.Guided;
             Toast(guided ? Loc.T("Новое задание") + ": " + Loc.T(t.title) + "   [J]" : Loc.T("Новая запись в журнале") + "   [J]");
         }
 
         void OnCompleted(TaskDef t)
         {
+            Snow.Audio.SnowAudio.PlayUi("ui.task.done");
             if (_board != null && _board.Mode == TaskMode.Guided) Toast(Loc.T("Выполнено") + ": " + Loc.T(t.title));
         }
 
         void OnHinted(TaskDef t, string text)
         {
+            Snow.Audio.SnowAudio.PlayUi("ui.hint");
             _hint = Loc.T(text);
             _hintAt = Time.time;
         }
@@ -67,7 +70,7 @@ namespace Snow.Tasks
         {
             Keyboard kb = Keyboard.current;
             if (kb == null || PlayerNet.Local == null || Snow.Input.SnowInput.UiOpen) return;   // the dev pult holds the keyboard
-            if (kb.jKey.wasPressedThisFrame) { _open = !_open; _scroll = Vector2.zero; }
+            if (kb.jKey.wasPressedThisFrame) { _open = !_open; _scroll = Vector2.zero; Snow.Audio.SnowAudio.PlayUi(_open ? "ui.journal.open" : "ui.journal.close"); }
             else if (_open && kb.escapeKey.wasPressedThisFrame) _open = false;
         }
 
@@ -114,7 +117,9 @@ namespace Snow.Tasks
             GUI.color = Color.white;
             GUILayout.BeginArea(new Rect(panel.x + 24f, panel.y + 18f, panel.width - 48f, panel.height - 36f));
             GUILayout.Label(Loc.T("Журнал смены") + (guided ? "" : " — " + Loc.T("письма")), _head);
+            Vector2 before = _scroll;
             _scroll = GUILayout.BeginScrollView(_scroll);
+            if (Mathf.Abs(_scroll.y - before.y) > 30f) Snow.Audio.SnowAudio.PlayUi("ui.journal.scroll", 0.5f);
 
             List<TaskDef> shown = new List<TaskDef>();
             foreach (TaskDef t in _board.Tasks)

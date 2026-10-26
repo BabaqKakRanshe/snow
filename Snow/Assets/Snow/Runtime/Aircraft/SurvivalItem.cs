@@ -1,3 +1,4 @@
+using Snow.Audio;
 using Snow.Cargo;
 using Snow.Character;
 using Snow.Net;
@@ -55,6 +56,10 @@ namespace Snow.Aircraft
         Transform _socket;
         CargoItem _item;
         int _lensShown = -1;                                           // -1 unknown, 0 off, 1 on
+        bool _sndInit, _wasOn, _wasLoaded;                             // sounds follow the replicated state on every peer
+        int _flareShown;                                               // 0 unlit, 1 burning, 2 spent
+        float _sndSince;
+        SoundLoop _burn;
 
         public bool On => _on.Value;
         public bool Loaded => _loaded.Value;
@@ -90,6 +95,7 @@ namespace Snow.Aircraft
 
         void Update()
         {
+            Sounds();
             if (_light == null || !IsSpawned) return;
             bool pocket = _item.Carry == CarryMode.Pocket;                 // a lit thing in a pocket does not shine out of it
             if (kind == SurvivalKind.Flashlight)
@@ -103,6 +109,39 @@ namespace Snow.Aircraft
                 _light.enabled = burning && !pocket;
                 if (burning) _light.intensity = 10f * (0.8f + 0.2f * Mathf.PerlinNoise(Time.time * 9f, GetInstanceID() * 0.01f));
             }
+        }
+
+        /// <summary>Every peer: switch, load, ignite and burn-out sounds from the replicated state (user 26.10.2026).</summary>
+        void Sounds()
+        {
+            if (!IsSpawned) return;
+            int flare = Burning ? 1 : Spent ? 2 : 0;
+            if (!_sndInit) { _sndInit = true; _wasOn = _on.Value; _wasLoaded = _loaded.Value; _flareShown = flare; _sndSince = Time.time; }
+            bool quiet = Time.time - _sndSince < 1f;
+            Vector3 at = _socket != null ? _socket.position : transform.position;
+            if (_on.Value != _wasOn) { if (!quiet) SnowAudio.Play(_on.Value ? "item.flashlight.on" : "item.flashlight.off", at); _wasOn = _on.Value; }
+            if (_loaded.Value != _wasLoaded)
+            {
+                if (!quiet && _loaded.Value) { SnowAudio.Play("item.flaregun.open", at); SnowAudio.Play("item.flaregun.load", at); }
+                _wasLoaded = _loaded.Value;
+            }
+            if (flare != _flareShown)
+            {
+                if (!quiet) SnowAudio.Play(flare == 1 ? "item.flare.ignite" : "item.flare.out", at);
+                _flareShown = flare;
+            }
+            if (kind == SurvivalKind.Flare)
+            {
+                if (_burn == null && flare == 1) _burn = SoundLoop.Create("item.flare.burn", _socket != null ? _socket : transform, Vector3.zero, true);
+                if (_burn != null) _burn.Switch(flare == 1);
+            }
+        }
+
+        /// <summary>Server: a burning flare dropped in the snow hisses.</summary>
+        void OnCollisionEnter(Collision c)
+        {
+            if (!IsServer || kind != SurvivalKind.Flare || !Burning || c.relativeVelocity.magnitude < 1f) return;
+            SnowAudio.ServerPlay("item.flare.snow", transform.position);
         }
 
         // the lens material follows the light; written only when it changes
@@ -135,7 +174,7 @@ namespace Snow.Aircraft
                     BenchLog.Event("item_action", "item", name, "on", _on.Value);
                     return true;
                 case SurvivalKind.FlareGun:
-                    if (!_loaded.Value) { reason = "Ракетница не заряжена"; return false; }
+                    if (!_loaded.Value) { reason = "Ракетница не заряжена"; SnowAudio.ServerPlay("item.flaregun.dry", transform.position); return false; }
                     _loaded.Value = false;
                     Transform m = _socket != null ? _socket : transform;
                     ShotRpc(m.position, m.forward);
@@ -163,6 +202,7 @@ namespace Snow.Aircraft
                     return true;
                 case SurvivalKind.Shovel:
                     reason = "Копать нечего: снежного покрова в проекте ещё нет";
+                    SnowAudio.ServerPlay("item.shovel.scrape", transform.position);
                     return false;
                 default:
                     reason = "Это просто груз";
@@ -194,6 +234,8 @@ namespace Snow.Aircraft
             l.GetUniversalAdditionalLightData().renderingLayers = uint.MaxValue;
             l.type = LightType.Point; l.range = 120f; l.intensity = 400f; l.color = new Color(1f, 0.2f, 0.1f); l.shadows = LightShadows.None;
             go.AddComponent<SignalFlareEffect>().Init(dir.normalized * shotSpeed, shotSeconds);
+            SnowAudio.Play("item.flaregun.fire", from);
+            SnowAudio.Play("item.flaregun.flight", from + dir.normalized * 8f);
             CameraShake.AddAt(from, 0.35f, 4f);                         // the shooter's (and a neighbour's) kick
         }
     }

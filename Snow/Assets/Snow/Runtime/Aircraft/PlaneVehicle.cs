@@ -21,6 +21,7 @@ namespace Snow.Aircraft
     /// </summary>
     public class PlaneVehicle : SeatedVehicle
     {
+        protected override string SitCue => "plane.seat.sit";
         public AircraftTuning tuning;
         public AircraftPhysics physics;
         public NetworkDoor pilotDoorL, pilotDoorR, cargoDoorL, cargoDoorR;
@@ -57,6 +58,7 @@ namespace Snow.Aircraft
         Vector3 _holdPos;
         float _holdYaw;
         readonly Dictionary<ulong, bool> _pours = new Dictionary<ulong, bool>();   // client → left tank (jerry can)
+        float _pourSoundAt;
         Autopilot _ap;
         float _elev, _ail, _rud, _flap;
         int _flapDirection = 1;
@@ -261,6 +263,7 @@ namespace Snow.Aircraft
             if (can.FuelLitres <= 0f) { reason = "Канистра пуста"; return true; }
             if (!OnLadder(client)) { reason = "Нужна стремянка"; return true; }
             _pours[client] = left;
+            Snow.Audio.SnowAudio.ServerPlay("plane.ladder.creak", held.transform.position);            // someone climbs the step ladder
             BenchLog.Event("pour_start", "client", client, "left", left, "can", can.FuelLitres);
             return true;
         }
@@ -289,10 +292,22 @@ namespace Snow.Aircraft
                     continue;
                 }
                 float taken = _systems.Fuel.Add(kv.Value, Mathf.Min(can.FuelLitres, tuning.jerryPourLpm / 60f * dt));
+                if (taken > 0f && Time.time >= _pourSoundAt)                     // the glug from the can into the wing tank
+                {
+                    _pourSoundAt = Time.time + 5f;
+                    Snow.Audio.SnowAudio.ServerPlay("forest.fuel.pour", held.transform.position);
+                }
                 can.ServerSetFuel(can.FuelLitres - taken);
                 if (taken <= 0f) (stop ??= new List<ulong>()).Add(kv.Key);
             }
-            if (stop != null) foreach (var c in stop) { _pours.Remove(c); BenchLog.Event("pour_stop", "client", c); }
+            if (stop != null)
+                foreach (var c in stop)
+                {
+                    _pours.Remove(c);
+                    CargoItem can = CargoItem.HeldBy(c);
+                    if (can != null) Snow.Audio.SnowAudio.ServerPlay("plane.fuel.pour.end", can.transform.position);
+                    BenchLog.Event("pour_stop", "client", c);
+                }
         }
 
         /// <summary>Server: people breathing in the cabin and bay (glass fog): seated ones and players standing inside.</summary>
@@ -554,7 +569,13 @@ namespace Snow.Aircraft
                 case "Socket_Handle_CargoDoor_L_Out":
                 case "Socket_Handle_CargoDoor_R_Out":
                 {
-                    if (s.On(PlaneSwitch.Locked)) { reason = "Заперто"; BenchLog.Event("locked_refuse", "client", clientId, "id", id); return false; }
+                    if (s.On(PlaneSwitch.Locked))
+                    {
+                        reason = "Заперто";
+                        Snow.Audio.SnowAudio.ServerPlay("plane.door.locked", transform.position);
+                        BenchLog.Event("locked_refuse", "client", clientId, "id", id);
+                        return false;
+                    }
                     NetworkDoor d = id.Contains("PilotDoor_L") ? pilotDoorL : id.Contains("PilotDoor_R") ? pilotDoorR
                         : id.Contains("CargoDoor_L") ? cargoDoorL : cargoDoorR;
                     d.Toggle(DoorDrive.Manual);
@@ -610,6 +631,9 @@ namespace Snow.Aircraft
             if (p.stowId == "Ladder" && BoxHasCargo(ladderStowBox, held, out string what)) { reason = "Мешает " + what; return false; }
             if (!held.ServerStow(client, p, out reason)) return false;
             UpdateBayStowage();
+            string sid = p.stowId ?? "";                                        // a clip, the shovel's clamps, or a strap
+            Snow.Audio.SnowAudio.ServerPlay(sid.Contains("Flashlight") || sid.Contains("FlareGun") ? "plane.stow.clip"
+                : sid.Contains("Shovel") ? "plane.stow.shovel" : "plane.stow.strap", p.transform.position);
             return true;
         }
 

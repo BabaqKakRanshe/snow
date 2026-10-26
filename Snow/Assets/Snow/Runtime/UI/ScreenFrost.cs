@@ -89,9 +89,37 @@ namespace Snow
                 _checkAt = Time.unscaledTime + CheckEvery;
                 Target = me != null ? ColdAt(me.transform.position) : 0f;
             }
-            if (Hold >= 0f) { Amount = Hold; return; }
-            float rate = Target > Amount ? 1f / Mathf.Max(GrowTime, 0.1f) : 1f / Mathf.Max(MeltTime, 0.1f);
-            Amount = Mathf.MoveTowards(Amount, Target, rate * Time.deltaTime);
+            if (Hold >= 0f) Amount = Hold;
+            else
+            {
+                float rate = Target > Amount ? 1f / Mathf.Max(GrowTime, 0.1f) : 1f / Mathf.Max(MeltTime, 0.1f);
+                Amount = Mathf.MoveTowards(Amount, Target, rate * Time.deltaTime);
+            }
+            Sounds(me != null);
+        }
+
+        SoundLoop _creep, _shiver, _heart;
+        bool _grew;
+
+        /// <summary>The cold in the own ears, only while the frost is on: ice creeping over the glass as it grows, the breath
+        /// labouring past half, a slow heart near full; a soft thaw once it starts to melt.</summary>
+        void Sounds(bool me)
+        {
+            bool on = Enabled && me;
+            bool growing = on && Target > Amount + 0.02f;
+            if (growing) _grew = true;
+            else if (_grew && on && Target < Amount - 0.05f) { _grew = false; SnowAudio.PlayUi("cold.frost.melt", 0.6f); }
+            Cold(ref _creep, "cold.frost.creep", growing, 0.3f + 0.5f * Amount);
+            Cold(ref _shiver, "body.hypothermia", on && Amount > 0.5f, (Amount - 0.5f) * 2f);
+            Cold(ref _heart, "cold.freezing.heart", on && Amount > 0.8f, (Amount - 0.8f) * 5f);
+        }
+
+        void Cold(ref SoundLoop l, string id, bool on, float level)
+        {
+            if (l == null && on) l = SoundLoop.Create(id, transform, Vector3.zero, false);
+            if (l == null) return;
+            l.Level = Mathf.Clamp01(level);
+            l.Switch(on);
         }
 
         static float ColdAt(Vector3 p)

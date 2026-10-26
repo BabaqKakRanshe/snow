@@ -21,7 +21,11 @@ namespace Snow.Vehicles.Van
         readonly float[] _spin = new float[4], _travel = new float[4];
         float _steer;
 
-        void Awake() => _rig = GetComponent<VanRig>();
+        void Awake()
+        {
+            _rig = GetComponent<VanRig>();
+            if (GetComponent<VanSounds>() == null) gameObject.AddComponent<VanSounds>();   // sounds from the same state
+        }
 
         void Update()
         {

@@ -60,6 +60,7 @@ namespace Snow.Audio
     {
         public string surface;
         [Tooltip("Cue ids; an empty run uses walk, an empty land uses the default land")] public string walk, run, land;
+        [Tooltip("Cue id of a crouched step; empty: walk at 0.4 volume")] public string crouch;
     }
 
     [Serializable]

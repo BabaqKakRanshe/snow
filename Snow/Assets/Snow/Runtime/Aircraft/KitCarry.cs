@@ -56,7 +56,12 @@ namespace Snow.Aircraft
         }
 
         /// <summary>Server.</summary>
-        public void ServerSetSets(int sets) { _setsLeft.Value = Mathf.Clamp(sets, 0, _kit.sets); Apply(); }
+        public void ServerSetSets(int sets)
+        {
+            if (sets != _setsLeft.Value) Snow.Audio.SnowAudio.ServerPlay("plane.tiedownbag.set", transform.position);   // ropes and anchors rummaged
+            _setsLeft.Value = Mathf.Clamp(sets, 0, _kit.sets);
+            Apply();
+        }
 
         /// <summary>Server: litres in the can, 0..capacity.</summary>
         public void ServerSetFuel(float litres) { _fuel.Value = Mathf.Clamp(litres, 0f, _kit.capacityLitres); Apply(); }

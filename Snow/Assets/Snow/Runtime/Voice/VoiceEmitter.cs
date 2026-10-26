@@ -113,6 +113,7 @@ namespace Snow.Voice
                 Subtitles(lines);
                 return;
             }
+            _busyBefore = _busy;
             if (_busy) Cut();
             Channel(channel);
             _lines.Clear();
@@ -124,6 +125,7 @@ namespace Snow.Voice
             if (_channel == VoiceNet.Channel.Radio)
             {
                 PlayOnce("radio.click", 0.8f);
+                if (!_busyBefore) PlayOnce("radio.call", 0.5f);                  // a session opens: the call tone
                 _staticTarget = 0.18f;
                 if (!_static.isPlaying) _static.Play();
                 _nextAt = now + 0.12;
@@ -154,9 +156,17 @@ namespace Snow.Voice
             }
         }
 
+        bool _busyBefore;
+        float _nextGlitch;
+
         void Update()
         {
             _static.volume = Mathf.MoveTowards(_static.volume, _staticTarget, Time.deltaTime * 0.8f);
+            if (_busy && _channel == VoiceNet.Channel.Radio && Time.time >= _nextGlitch)   // a bad line now and then
+            {
+                _nextGlitch = Time.time + Random.Range(4f, 12f);
+                PlayOnce(Random.value < 0.6f ? "radio.dropout" : Random.value < 0.5f ? "radio.interference" : "radio.static.strong", 0.35f);
+            }
             if (_static.isPlaying && _static.volume <= 0.001f && _staticTarget <= 0f) _static.Stop();
             if (!_busy) return;
             double now = AudioSettings.dspTime;

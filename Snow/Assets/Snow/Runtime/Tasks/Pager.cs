@@ -12,7 +12,9 @@ namespace Snow.Tasks
     /// Every worker's pager (user 25-26.10.2026, docs/gdd/QUESTIONS_6.md, docs/gdd/research/RESEARCH_UI_3.md, model
     /// docs/gdd/PAGER_CONTRACT.md). K. writes, he does not speak, so his messages come here. A message beeps (cue
     /// ui.pager.beep; vibrate shakes the view, silent does neither), then types out at the top left under "PAGER · K.  17:30"
-    /// in the D3 «Протокол» look of the pockets list, letter by letter with a key click (ui.letter.key), and fades.
+    /// in the D3 «Протокол» look of the pockets list, letter by letter with a key click (ui.letter.key), and fades. The device's own
+    /// sounds: ui.pager.raise / lower / button / vibrate / open / mode (the key click stands in for the first four while they
+    /// have no clips); ui.letter.return at each line end of the typing.
     /// P raises the pager into the left of the view (the SnowPager model on the camera, in four steps); its own small screen
     /// is only a picker: the count, the unread, the signal, and the list - time, sender, the first words. ↑ / ↓ or the wheel
     /// pick, E opens: the full text prints at the top left and the pager shows "» НА ЭКРАНЕ"; ↑ / ↓ go to the neighbour
@@ -37,8 +39,10 @@ namespace Snow.Tasks
         const float RaiseSeconds = 0.24f, Backlight = 5f, HoldMode = 0.6f, ReadRate = 70f, KeyPress = 0.12f;
         const int Cols = 20, Rows = 4;
         // where the pager sits in the camera's frame when raised (m, deg): low left, the screen to the eye
-        static readonly Vector3 HeldPos = new Vector3(-0.088f, -0.062f, 0.19f), LoweredPos = new Vector3(-0.088f, -0.22f, 0.17f);
-        static readonly Quaternion HeldRot = Quaternion.Euler(14f, 0f, -7f) * Quaternion.Euler(0f, 180f, 0f);
+        static readonly Vector3 HeldPos = new Vector3(-0.07f, -0.056f, 0.165f), LoweredPos = new Vector3(-0.07f, -0.21f, 0.15f);
+        static readonly Quaternion HeldRot = Quaternion.Euler(6f, 0f, -4f) * Quaternion.Euler(0f, 180f, 0f);
+        // the world behind the raised pager darkens (RESEARCH_UI_3.md §5, after Alien: Isolation's blur): a black quad behind it
+        const float DimAlpha = 0.35f, DimDistance = 0.30f;
 
         enum Screen { List, Message, Mode }
 
@@ -63,6 +67,8 @@ namespace Snow.Tasks
 
         // the device
         PagerModel _model;
+        Renderer _dim;
+        MaterialPropertyBlock _dimBlock;
         bool _up;
         float _moveAt = -10f, _lightUntil, _openAt, _eDownAt = -1f, _wheel;
         bool _eHeldUsed;
@@ -93,6 +99,7 @@ namespace Snow.Tasks
         void OnDestroy()
         {
             if (_model != null) Destroy(_model.gameObject);
+            if (_dim != null) Destroy(_dim.gameObject);
         }
 
         void OnGiven(TaskDef t)
@@ -119,9 +126,14 @@ namespace Snow.Tasks
             int target = _shown;
             while (target < _at.Length && _at[target] <= t) target++;
             int next = Mathf.Min(target, _shown + MaxPerFrame);
-            bool printed = false;
-            for (int i = _shown; i < next; i++) printed |= Printed(i);
+            bool printed = false, lineEnd = false;
+            for (int i = _shown; i < next; i++)
+            {
+                printed |= Printed(i);
+                lineEnd |= i < _at.Length - 1 && LineEnd(i);
+            }
             if (printed) Play("ui.letter.key", Random.Range(0.35f, 0.55f), Random.Range(0.95f, 1.05f));
+            if (lineEnd) Play("ui.letter.return", 0.4f, 1f);                  // the carriage goes back between lines
             _shown = next;
             if (_shown >= _at.Length)
             {
@@ -141,7 +153,11 @@ namespace Snow.Tasks
             if (_screen == Screen.List) _sel = 0;
             else if (_screen == Screen.Message) _sel++;              // the open one keeps its place in the list
             if (_mode == 0) Play("ui.pager.beep", 0.8f, 1f);
-            else if (_mode == 1) CameraShake.Add(0.18f);
+            else if (_mode == 1)
+            {
+                CameraShake.Add(0.18f);
+                Play("ui.pager.vibrate", 0.8f, 1f);
+            }
         }
 
         int Total => _at != null ? _at.Length : int.MaxValue;
@@ -203,6 +219,7 @@ namespace Snow.Tasks
                 _eHeldUsed = true;
                 _screen = Screen.Mode;
                 Press(1);
+                Play("ui.pager.open", 0.6f, 1f);
             }
             if (kb.eKey.wasReleasedThisFrame && _eDownAt >= 0f)
             {
@@ -219,7 +236,12 @@ namespace Snow.Tasks
         void Step(int d)
         {
             Press(d < 0 ? 0 : 2);
-            if (_screen == Screen.Mode) { _mode = (_mode + d + 3) % 3; return; }
+            if (_screen == Screen.Mode)
+            {
+                _mode = (_mode + d + 3) % 3;
+                Play("ui.pager.mode", 0.6f, 1f);
+                return;
+            }
             int was = _sel;
             _sel = Mathf.Clamp(_sel + d, 0, Mathf.Max(0, _inbox.Count - 1));
             if (_screen == Screen.Message && _sel != was) Open();
@@ -236,6 +258,7 @@ namespace Snow.Tasks
         {
             _screen = Screen.Message;
             _openAt = Time.time;
+            Play("ui.pager.open", 0.6f, 1f);
             Message m = Picked;
             if (m != null) m.read = true;
             if (_typing == m) _typing = null;                         // the same text would print twice
@@ -245,7 +268,7 @@ namespace Snow.Tasks
         {
             _keyAt[key] = Time.time;
             _lightUntil = Time.time + Backlight;
-            Play("ui.letter.key", 0.4f, 1.15f);
+            Play("ui.pager.button", 0.6f, 1f, "ui.letter.key", 0.4f, 1.15f);
         }
 
         void Raise(bool up)
@@ -257,7 +280,7 @@ namespace Snow.Tasks
             _sel = 0;
             _eDownAt = -1f;
             if (up) _lightUntil = Time.time + Backlight;
-            Play("ui.letter.key", 0.45f, up ? 0.8f : 0.7f);
+            Play(up ? "ui.pager.raise" : "ui.pager.lower", 0.7f, 1f, "ui.letter.key", 0.45f, up ? 0.8f : 0.7f);
             InteractionSensor.DeviceRaised = up;
         }
 
@@ -270,6 +293,7 @@ namespace Snow.Tasks
             if (shown <= 0f)
             {
                 if (_model != null && _model.gameObject.activeSelf) _model.gameObject.SetActive(false);
+                if (_dim != null && _dim.gameObject.activeSelf) _dim.gameObject.SetActive(false);
                 return;
             }
             if (!EnsureModel()) return;
@@ -280,6 +304,13 @@ namespace Snow.Tasks
             float now = Time.time;
             bool lit = now < _lightUntil;
             if (_model.lcd != null) _model.lcd.sharedMaterial = lit ? _model.lcdGlow : _model.lcdOff;
+            if (_model.backlight != null) _model.backlight.enabled = lit;          // the screen lights the keys and the case
+            if (_dim != null)
+            {
+                if (!_dim.gameObject.activeSelf) _dim.gameObject.SetActive(true);
+                _dimBlock.SetColor("_BaseColor", new Color(0f, 0f, 0f, DimAlpha * shown));
+                _dim.SetPropertyBlock(_dimBlock);
+            }
             bool unread = _inbox.Exists(m => !m.read);
             if (_model.led != null) _model.led.sharedMaterial = unread && Mathf.Repeat(now, 1f) < 0.15f ? _model.ledOn : _model.ledOff;
             for (int i = 0; i < 3; i++)
@@ -303,13 +334,34 @@ namespace Snow.Tasks
             _model = go.GetComponent<PagerModel>();
             if (_model == null) { Debug.LogWarning("[Snow] Pager: SnowPager has no PagerModel."); Destroy(go); enabled = false; return false; }
             for (int i = 0; i < 3; i++) if (_model.keys[i] != null) _keyRest[i] = _model.keys[i].localPosition;
+            if (_model.dim != null)
+            {
+                var quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                Destroy(quad.GetComponent<Collider>());
+                quad.name = "Pager (dim)";
+                quad.transform.SetParent(cam.transform, false);
+                quad.transform.localPosition = new Vector3(0f, 0f, DimDistance);
+                quad.transform.localScale = new Vector3(2f, 2f, 1f);
+                _dim = quad.GetComponent<Renderer>();
+                _dim.sharedMaterial = _model.dim;
+                _dim.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                _dim.receiveShadows = false;
+                _dimBlock = new MaterialPropertyBlock();
+            }
             return true;
         }
 
-        void Play(string cue, float volume, float pitch)
+        // a cue; while it has no clips yet, the stand-in cue (snow-07's ui.pager.* come after the GPU queue, 26.10)
+        void Play(string cue, float volume, float pitch, string standIn = null, float standInVolume = 0f, float standInPitch = 1f)
         {
             if (_audio == null) return;
             AudioClip clip = SnowAudio.Clip(cue);
+            if (clip == null && standIn != null)
+            {
+                clip = SnowAudio.Clip(standIn);
+                volume = standInVolume;
+                pitch = standInPitch;
+            }
             if (clip == null) return;
             _audio.pitch = pitch;
             _audio.PlayOneShot(clip, volume * SnowAudio.Bus(SoundBus.Ui));
@@ -324,6 +376,18 @@ namespace Snow.Tasks
                 if (index < line.Length) return line[index] != ' ';
                 index -= line.Length + 1;
                 if (index < 0) return false;
+            }
+            return false;
+        }
+
+        // the typed position is a line end (the carriage returns there)
+        bool LineEnd(int index)
+        {
+            foreach (string line in _lines)
+            {
+                if (index == line.Length) return true;
+                if (index < line.Length) return false;
+                index -= line.Length + 1;
             }
             return false;
         }
@@ -356,6 +420,7 @@ namespace Snow.Tasks
             if (Application.isBatchMode || Event.current.type != EventType.Repaint) return;
             if (_up && _screen == Screen.Message && Picked != null) DrawMessage(Picked, Time.time);
             else if (_typing != null) DrawTyping(Time.time);
+            else if (_up) DrawKeys();
             if (_model != null && _model.gameObject.activeSelf) DrawLcd();
         }
 
@@ -366,6 +431,22 @@ namespace Snow.Tasks
         static float WrapWidth => Mathf.Min(Hud.Px(620f), UnityEngine.Screen.width * 0.45f);
 
         static Color A(Color c, float a) => new Color(c.r, c.g, c.b, c.a * a);
+
+        // the pager's keys as a typed line (the keys warm, the words dim, as under the thing in the hand)
+        static readonly (string, string)[] KeysClosed = { ("P", "открыть пейджер") };
+        static readonly (string, string)[] KeysList = { ("↑↓", "выбрать"), ("E", "открыть"), ("держать E", "режим"), ("P", "убрать") };
+        static readonly (string, string)[] KeysMode = { ("↑↓", "режим"), ("E", "готово") };
+        static readonly (string, string)[] KeysMessage = { ("↑↓", "другое"), ("E", "к списку"), ("P", "убрать") };
+        static readonly (string, string)[] KeysMessageOne = { ("E", "к списку"), ("P", "убрать") };
+
+        // the raised pager on its list or its mode, no message on screen: "PAGER" and its keys at the top left
+        void DrawKeys()
+        {
+            GUIStyle st = Hud.Mono(21), small = Hud.Mono(18);
+            float w = Hud.Typed(X, Y, "PAGER", st, Hud.Warm);
+            Hud.Typed(X + w + Hud.Px(16f), Y + Hud.Px(3f), Loc.T("пейджер"), small, Dim);
+            PocketsHud.KeysLine(X, Y + Lh + Hud.Px(2f), _screen == Screen.Mode ? KeysMode : KeysList, small, 1f);
+        }
 
         // "PAGER · K.  17:30" + "пейджер": the pager's own line, there at once with the beep
         float Header(Message m, float y, float alpha, string extra = null)
@@ -405,6 +486,7 @@ namespace Snow.Tasks
                 left -= line.Length + 1;
                 y += Lh;
             }
+            if (!_up && _at != null && _shown >= _at.Length) PocketsHud.KeysLine(X, y + Hud.Px(8f), KeysClosed, Hud.Mono(18), alpha);
         }
 
         // the message opened on the pager: its full text at the top left, printed quickly (it is being re-read), the keys
@@ -421,8 +503,7 @@ namespace Snow.Tasks
                 left -= line.Length + 1;
                 y += Lh;
             }
-            string keys = (_inbox.Count > 1 ? "↑↓ " + Loc.T("другое") + "   " : "") + "E " + Loc.T("к списку") + "   P " + Loc.T("убрать");
-            Hud.Typed(X, y + Hud.Px(8f), keys, small, Dim);
+            PocketsHud.KeysLine(X, y + Hud.Px(8f), _inbox.Count > 1 ? KeysMessage : KeysMessageOne, small, 1f);
         }
 
         // the pager's own screen: 20 x 4 characters drawn over the LCD glass along its projected corners

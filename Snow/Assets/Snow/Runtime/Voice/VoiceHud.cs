@@ -58,6 +58,7 @@ namespace Snow.Voice
         {
             if (sound == BodySound.Ping)
             {
+                Snow.Audio.SnowAudio.Play("ui.ping", point);
                 s_marks.Add(new Mark { Point = point, Until = Time.time + PingSeconds, Mine = mine });
                 return;
             }
@@ -65,7 +66,12 @@ namespace Snow.Voice
             if (Application.isBatchMode) return;
             AudioClip[] set = VoiceClips.Set(BodySounds.ClipName(sound));
             AudioClip clip = set.Length > 0 ? set[variant % set.Length] : null;
-            if (clip == null) return;                                // no recording yet: silent (the noise for creatures is on the server)
+            if (clip == null)                                        // no recording: the generated library cue (user 26.10.2026)
+            {
+                string cue = BodyCue(sound, variant);
+                if (cue != null) Snow.Audio.SnowAudio.Play(cue, point);
+                return;
+            }
             var go = new GameObject("Body " + sound);
             go.transform.position = point;
             var src = go.AddComponent<AudioSource>();
@@ -88,7 +94,9 @@ namespace Snow.Voice
             bool onFoot = PlayerNet.Local != null && PlayerNet.Local.controller != null && PlayerNet.Local.controller.Source != null
                           && PlayerNet.Local.controller.Source.Context == InputContext.OnFoot;
             bool reader = InteractionSensor.ReaderOpen;
-            ReplyOffered = onFoot && near != null && !reader;
+            bool offered = onFoot && near != null && !reader;
+            if (offered != ReplyOffered) Snow.Audio.SnowAudio.PlayUi(offered ? "ui.reply.open" : "ui.reply.close", 0.7f);
+            ReplyOffered = offered;
             if (_menu && (near == null || near.Id != _menuPrompt || !onFoot || reader)) _menu = false;
             if (kb != null && ReplyOffered)
             {
@@ -98,7 +106,10 @@ namespace Snow.Voice
                     for (int i = 0; i < near.Options.Length && i < 9; i++)
                         if (kb[(Key)((int)Key.Digit1 + i)].wasPressedThisFrame)
                         {
+                            Snow.Audio.SnowAudio.PlayUi("radio.ptt.press");
                             VoiceNet.Choose(near.Id, i);
+                            Snow.Audio.SnowAudio.PlayUi("ui.reply.select");
+                            _pttReleaseAt = Time.time + 1.2f;
                             _menu = false;
                             break;
                         }
@@ -173,6 +184,25 @@ namespace Snow.Voice
         }
 
         /// <summary>Speaker and device of a subtitle (QUESTIONS_VOICE 6). Game text is Russian; Loc.T translates.</summary>
+        /// <summary>The generated library cue of a body sound (SOUND_LIST_FULL «Персонаж»); null for silent ones.</summary>
+        static string BodyCue(BodySound sound, int variant)
+        {
+            switch (sound)
+            {
+                case BodySound.Callout: return variant % 2 == 0 ? "body.callout.whistle" : "body.callout.hey";
+                case BodySound.Land: return "body.land";
+                case BodySound.PainSmall: return "body.pain.small";
+                case BodySound.PainBig: return "body.pain.big";
+                case BodySound.EffortLight: return "body.effort.light";
+                case BodySound.EffortHeavy: return "body.effort.heavy";
+                case BodySound.Cough: return "body.cough";
+                case BodySound.Shiver: return "body.shiver";
+                case BodySound.Breath: return "body.breath.calm";
+                case BodySound.Wake: return "body.wake";
+                default: return null;
+            }
+        }
+
         public static string SpeakerLabel(string speaker)
         {
             switch (speaker)
@@ -219,9 +249,17 @@ namespace Snow.Voice
             GUI.color = Color.white;
         }
 
+        float _heardSound = -10f, _pttReleaseAt = -1f;
+
+        void LateUpdate()
+        {
+            if (_pttReleaseAt > 0f && Time.time >= _pttReleaseAt) { _pttReleaseAt = -1f; Snow.Audio.SnowAudio.PlayUi("radio.ptt.release"); }
+        }
+
         void DrawHeard(float k)
         {
             float left = NoiseEvents.LocalHeardUntil - Time.time;
+            if (NoiseEvents.LocalHeardUntil > _heardSound + 0.5f) { _heardSound = NoiseEvents.LocalHeardUntil; Snow.Audio.SnowAudio.PlayUi("ui.heard", 0.5f); }
             if (left <= 0f) return;
             GUI.color = new Color(0.85f, 0.95f, 1f, Mathf.Clamp01(left / 0.5f) * 0.85f);
             GUI.Label(new Rect(Screen.width - 160f * k, Screen.height - 64f * k, 140f * k, 24f * k), "≋ " + Loc.T("слышно"), _hint);

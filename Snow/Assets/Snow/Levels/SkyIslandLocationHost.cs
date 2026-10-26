@@ -123,6 +123,7 @@ namespace Snow.Levels
                 _syncedIds[s] = parts[synced[s]].id;
             }
             _hash = LayoutHash();
+            if (GetComponent<LocationSounds>() == null) gameObject.AddComponent<LocationSounds>();   // parts, lights, grid sound
         }
 
         public override void OnNetworkSpawn()
@@ -189,7 +190,7 @@ namespace Snow.Levels
                     if (_scripts[k].TryUnlock(clientId, id, out string why)) open = true;
                     else if (reason == null) reason = why;
                 }
-                if (!open) { reason ??= "Заперто"; return false; }
+                if (!open) { reason ??= "Заперто"; LocationSounds.Refused(this, p, true); return false; }
                 reason = null;
             }
             if (p.door != null)
@@ -198,7 +199,7 @@ namespace Snow.Levels
                 return true;
             }
             if (p.part.driven) { reason = "Управляется изнутри"; return false; }
-            if (!p.part.HasPower) { reason = "Нет питания"; return false; }
+            if (!p.part.HasPower) { reason = "Нет питания"; LocationSounds.Refused(this, p); return false; }
             if (p.category == Category.HostDoor && !LeafFree(p, p.part.target > 0.5f ? 0f : 1f)) { reason = "Мешает игрок"; return false; }
             p.part.Toggle();                                           // the core does the rest: linked curtains, rooms, grid
             if (!incremental) Publish();

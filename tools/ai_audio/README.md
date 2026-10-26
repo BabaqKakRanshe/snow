@@ -51,6 +51,26 @@ python tools/audio/build_audio.py --install            # editor not in Play; the
 - Footsteps and typewriter keys are sliced: a take asked for "a single footstep" usually holds 2–10. `--slice` cuts takes at onsets (heel+toe within 0.22 s = one step) and puts 8 single hits from different takes into `pick/`; landings get the strongest hit of each take.
 - `--install` now also deletes clips in Assets that no cue lists, so replaced sounds really leave the game.
 
+## How the game plays them (26.10.2026: «покрыть всю игру звуками»)
+
+Every peer plays from the state it already has, nothing new on the network; the server also tells creatures (NoiseEvents) for cues with `noise`.
+
+| What | Where | How |
+|---|---|---|
+| Doors, drawers, lockers, shutters, breakers, switches, barrier, gate, KPP clamps and buttons, generator and heating controls | `Levels/LocationSounds.cs` + `Audio/Resources/Audio/Snow_LocationSounds.json` | rules by part id: open / close / loop / loopOpen / loopClose / loop2 / stop / stopOpen / stopClosed / blocked / locked / whileOpen |
+| Lamps by kind (fluorescent strike + hum, HPS, halogen, exit, emergency, flame, beacon) | same | `fixtures`: the light manager's fixture events |
+| Grid on / off, hums of rooms and machines, periodic creaks / bells / drips on objects | same | `gridOn/gridOff`, `emitters` (object name regex, `when` always / powered / unpowered, `oneshot` + `every`) |
+| KPP booth power, CRTs, floods, battery, lamps over buttons, radio, convector | `Levels/Forest/ForestKppSounds.cs` | ForestKpp's public state |
+| Generator layers, heating, fuel pump, keys, padlock, cleaning, phone, prologue | `Levels/Forest/ForestOpening.cs` | Machines() / MachineLayers() on every peer, ServerPlay at server events |
+| Forest one-shots, room tones, base music, danger stems | `Levels/Forest/ForestAmbience.cs` | Extras table, Rooms table (by R_* bounds), `ForestAmbience.Spike(danger)` |
+| Van | `Runtime/Vehicles/Van/VanSounds.cs` | controls table positions, telemetry, flags, fuses, surface under the wheels |
+| Plane | `Runtime/Aircraft/PlaneSounds.cs` | switch bits, telemetry, doors, winter kit mask |
+| Items, cargo, seats | `SurvivalItem`, `CargoSounds`, `ItemImpactSound` (materials), `SeatedVehicle.SitCue/StandCue` | replicated item state |
+| Player | `Footsteps` (19 surfaces × walk/run/land/crouch/jump, cloth, breath), `HLCharacterMotor` (crouch, ladder), `PlayerRagdoll`, `VoiceHud` (body sounds → `body.*` when no recording) | |
+| UI | `SnowAudio.PlayUi(id)`: tasks, journal, hints, replies, ping, hover, reveal, notes, dev pult, heard | |
+
+Coverage: `python tools/ai_audio/sound_coverage.py` → `docs/gdd/SOUND_COVERAGE.md` (what is called, what waits for a system that does not exist yet).
+
 ## Game lines (Snow_VoiceLines.csv)
 
 ```

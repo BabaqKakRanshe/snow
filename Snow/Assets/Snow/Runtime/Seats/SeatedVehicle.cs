@@ -80,6 +80,7 @@ namespace Snow.Seats
             }
             _occupants[seat] = client;
             player.GetComponent<PlayerNet>().ServerSeated(this, seat);
+            if (!string.IsNullOrEmpty(SitCue)) Snow.Audio.SnowAudio.ServerPlay(SitCue, seats[seat].transform.position);
             BenchLog.Event("seat_enter", "client", client, "seat", seats[seat].seatId, "role", seats[seat].role.ToString());
             return true;
         }
@@ -106,6 +107,7 @@ namespace Snow.Seats
             Registry.Release(client);
             _occupants[s] = SeatRegistry.Empty;
             if (a.role == SeatRole.Pilot) _input = default;
+            if (!string.IsNullOrEmpty(StandCue) && s >= 0 && s < seats.Length) Snow.Audio.SnowAudio.ServerPlay(StandCue, seats[s].transform.position);
             OnSeatReleased(client, s);
             var rb = GetComponentInParent<Rigidbody>();
             velocity = rb != null ? rb.GetPointVelocity(position) : Vector3.zero;   // SEAT-02: keep the vehicle's speed
@@ -254,12 +256,17 @@ namespace Snow.Seats
         /// <summary>Server: a seat was freed by an exit or a disconnect (release what that player was holding).</summary>
         protected virtual void OnSeatReleased(ulong client, int seat) { }
 
+        /// <summary>Sound of sitting down and of getting up (SOUND_LIST_FULL: seat springs, a bunk), heard by everyone.</summary>
+        protected virtual string SitCue => null;
+        protected virtual string StandCue => SitCue;
+
         void OnClientDisconnect(ulong client)
         {
             int s = Registry.Release(client);
             if (s < 0) return;
             _occupants[s] = SeatRegistry.Empty;
             if (seats[s].role == SeatRole.Pilot) _input = default;
+            if (!string.IsNullOrEmpty(StandCue) && s >= 0 && s < seats.Length) Snow.Audio.SnowAudio.ServerPlay(StandCue, seats[s].transform.position);
             OnSeatReleased(client, s);
             BenchLog.Event("seat_cleared", "client", client, "seat", seats[s].seatId, "reason", "disconnect");
         }

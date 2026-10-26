@@ -50,6 +50,7 @@ namespace Snow.Levels.Forest
             if (_open != null && (held != _openItem || (kb != null && (kb.escapeKey.wasPressedThisFrame || kb.tKey.wasPressedThisFrame))))
             {
                 _open = null;
+                Snow.Audio.SnowAudio.PlayUi("item.note.close");
                 _openItem = null;
                 return;
             }
@@ -58,6 +59,7 @@ namespace Snow.Levels.Forest
             if (_open == null && held != null && !radio && kb != null && kb.tKey.wasPressedThisFrame && _notes.TryGetValue(held.NoteId, out NoteText n))
             {
                 _open = n;
+                Snow.Audio.SnowAudio.PlayUi("item.note.open");
                 _openItem = held;
                 _scroll = Vector2.zero;
                 InteractionSensor.ReaderOpen = true;

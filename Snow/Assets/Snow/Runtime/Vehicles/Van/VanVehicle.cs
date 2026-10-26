@@ -23,6 +23,7 @@ namespace Snow.Vehicles.Van
     [RequireComponent(typeof(Rigidbody))]
     public class VanVehicle : SeatedVehicle
     {
+        protected override string SitCue => "van.seat.sit";
         public enum StartState : byte
         {
             /// <summary>Bench (В1 §3): everything works, tank 30 l, battery 100 %.</summary>
@@ -557,7 +558,7 @@ namespace Snow.Vehicles.Van
 
         public bool ServerSetLowRange(bool low, out string reason)
         {
-            if (!_motion.TrySetRange(low, Vector3.Dot(_rb.linearVelocity, transform.forward) * 3.6f, out reason)) return false;
+            if (!_motion.TrySetRange(low, Vector3.Dot(_rb.linearVelocity, transform.forward) * 3.6f, out reason)) { Grind(); return false; }
             SetPos("TransferLever_Range", low ? 1 : 0);
             return true;
         }
@@ -642,7 +643,7 @@ namespace Snow.Vehicles.Van
                     if (next == 1 && OccupantOf(SeatIndex(FoldSeatZone)) != SeatRegistry.Empty) { reason = "На сиденье сидят"; return false; }
                     break;
                 case "TransferLever_Range":
-                    if (!_motion.TrySetRange(next == 1, Vector3.Dot(_rb.linearVelocity, transform.forward) * 3.6f, out reason)) return false;
+                    if (!_motion.TrySetRange(next == 1, Vector3.Dot(_rb.linearVelocity, transform.forward) * 3.6f, out reason)) { Grind(); return false; }
                     break;
                 case "TransferLever_Axle":
                     _motion.FrontAxle = next == 1;
@@ -701,6 +702,25 @@ namespace Snow.Vehicles.Van
             if (id == "Battery")
                 return !_batteryIn.Value ? "поставить аккумулятор (в руках)" : Pos("Battery_ClampPos") == 0 ? "вынуть (сначала снять клеммы)" : "вынуть";
             return "использовать";
+        }
+
+        /// <summary>Server: the transfer case refused a shift on the move — the gears grind.</summary>
+        void Grind() => Snow.Audio.SnowAudio.ServerPlay("van.transfer.grind", transform.position);
+
+        float _nextHit;
+
+        /// <summary>Server: the van hits the world — tank hedgehogs, concrete blocks and teeth, the barrier, the zone gate.</summary>
+        void OnCollisionEnter(Collision c)
+        {
+            if (!IsServer || Time.time < _nextHit || c.relativeVelocity.magnitude < 2f || c.collider == null) return;
+            string n = c.collider.name + " " + (c.collider.attachedRigidbody != null ? c.collider.attachedRigidbody.name : c.collider.transform.root.name);
+            string cue = n.Contains("Hedgehog") ? "fence.hedgehog.hit"
+                : n.Contains("Jersey") || n.Contains("FBS") || n.Contains("TankTooth") || n.Contains("Cube") || n.Contains("Concrete") ? "fence.concrete.hit"
+                : n.Contains("Barrier") ? "kpp.barrier.hit"
+                : n.Contains("ZoneGate") ? "road.zonegate.shake" : null;
+            if (cue == null) return;
+            _nextHit = Time.time + 0.5f;
+            Snow.Audio.SnowAudio.ServerPlay(cue, c.contactCount > 0 ? c.GetContact(0).point : transform.position, Mathf.Clamp(c.relativeVelocity.magnitude / 8f, 0.5f, 1.5f));
         }
 
         public override float HoldSeconds(string id) => id == FoldSeatZone && Pos("Seat_L4") == 0 ? FoldHoldSeconds : 0f;

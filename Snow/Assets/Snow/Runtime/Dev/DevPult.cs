@@ -241,7 +241,7 @@ namespace Snow.Dev
         void Update()
         {
             Keyboard kb = Keyboard.current;
-            if (Ready && kb != null && kb.backquoteKey.wasPressedThisFrame) DevPult.SetOpen(!DevPult.IsOpen);
+            if (Ready && kb != null && kb.backquoteKey.wasPressedThisFrame) { DevPult.SetOpen(!DevPult.IsOpen); Snow.Audio.SnowAudio.PlayUi("ui.dev.toggle", 0.6f); }
         }
 
         // ------------------------------------------------------------------ layout (inside UImGui's frame)

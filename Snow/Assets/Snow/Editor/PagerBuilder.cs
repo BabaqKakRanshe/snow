@@ -37,7 +37,7 @@ namespace Snow.EditorTools
                 ["M_Pager_Small"] = Lit("M_Pager_Small", small, null, Color.black),
                 ["M_Pager_Panel"] = Lit("M_Pager_Panel", panel, null, Color.black),
                 ["M_Pager_LCD"] = Lit("M_Pager_LCD", lcd, lcdE, Color.white),
-                ["M_Pager_LCD_Glow"] = Lit("M_Pager_LCD_Glow", lcd, null, new Color(0.30f, 0.62f, 0.20f)),   // the backlight, no text
+                ["M_Pager_LCD_Glow"] = Lit("M_Pager_LCD_Glow", lcd, null, new Color(0.55f, 1.10f, 0.40f)),   // the backlight, no text
                 ["M_Pager_LCD_Off"] = Lit("M_Pager_LCD_Off", lcd, null, Color.black),
                 ["M_Pager_LEDR"] = Lit("M_Pager_LEDR", null, null, new Color(2.0f, 0.25f, 0.15f), new Color(0.47f, 0.12f, 0.09f)),
                 ["M_Pager_LED_Off"] = Lit("M_Pager_LED_Off", null, null, Color.black, new Color(0.16f, 0.12f, 0.11f)),
@@ -66,6 +66,9 @@ namespace Snow.EditorTools
                 r.shadowCastingMode = ShadowCastingMode.Off;                   // a held device: no shadow, none received
                 r.receiveShadows = false;
             }
+            // readable at night (RESEARCH_UI_3.md §5): the pager's renderers on the world's lights and on its own layer
+            uint mask = 1u | (1u << Snow.Tasks.PagerModel.ViewmodelLayer);
+            foreach (var r in inst.GetComponentsInChildren<Renderer>()) r.renderingLayerMask = mask;
             var pm = inst.GetComponent<Snow.Tasks.PagerModel>() ?? inst.AddComponent<Snow.Tasks.PagerModel>();
             Transform Part(string n) { var t = inst.transform.Find(n); if (t == null) Debug.LogWarning($"[Snow] Pager: no {n} in the model."); return t; }
             pm.lcd = Part("Pager_LCD")?.GetComponent<MeshRenderer>();
@@ -76,11 +79,60 @@ namespace Snow.EditorTools
             pm.ledOn = mats["M_Pager_LEDR"];
             pm.ledOff = mats["M_Pager_LED_Off"];
             if (pm.lcd != null) pm.lcd.sharedMaterial = pm.lcdOff;
+            // the backlight: a green point light just in front of the glass (lights the keys, the case, a little of the world);
+            // the fill: a dim warm point light up right of the pager (as from the torch in the right hand), the pager only
+            Vector3 glass = pm.lcd != null ? pm.lcd.transform.localPosition : new Vector3(0f, 0.04f, 0.011f);
+            pm.backlight = PointLight(inst.transform, "Pager_Backlight", glass + new Vector3(0f, -0.004f, 0.03f),
+                                      new Color(0.45f, 1f, 0.35f), 1.4f, 0.35f, ~0u);
+            pm.fill = PointLight(inst.transform, "Pager_Fill", new Vector3(-0.10f, 0.14f, 0.12f),
+                                 new Color(1f, 0.92f, 0.80f), 0.55f, 0.6f, 1u << Snow.Tasks.PagerModel.ViewmodelLayer);
+            pm.backlight.enabled = false;
+            pm.dim = Dim("M_Pager_Dim");
             PrefabUtility.SaveAsPrefabAsset(inst, Prefab);
             Object.DestroyImmediate(inst);
             AssetDatabase.SaveAssets();
             Debug.Log($"[Snow] Pager: {tex} textures, {mats.Count} materials, prefab {Prefab}.");
             return true;
+        }
+
+        static Light PointLight(Transform parent, string name, Vector3 local, Color color, float intensity, float range, uint layers)
+        {
+            var t = parent.Find(name);
+            var go = t != null ? t.gameObject : new GameObject(name);
+            go.transform.SetParent(parent, false);
+            go.transform.localPosition = local;
+            var l = go.GetComponent<Light>() ?? go.AddComponent<Light>();
+            l.type = LightType.Point;
+            l.color = color;
+            l.intensity = intensity;
+            l.range = range;
+            l.shadows = LightShadows.None;
+            l.lightmapBakeType = LightmapBakeType.Realtime;
+            l.renderingLayerMask = (int)layers;
+            return l;
+        }
+
+        /// <summary>URP Unlit, alpha blended, black: the quad that darkens the world behind the raised pager (alpha by script).</summary>
+        static Material Dim(string name)
+        {
+            Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
+            string path = $"{Materials}/{name}.mat";
+            var m = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (m == null) { m = new Material(shader) { name = name }; AssetDatabase.CreateAsset(m, path); }
+            else if (m.shader != shader) m.shader = shader;
+            m.SetColor("_BaseColor", new Color(0f, 0f, 0f, 0.35f));
+            m.SetFloat("_Surface", 1f);
+            m.SetFloat("_Blend", 0f);
+            m.SetFloat("_SrcBlend", (float)BlendMode.SrcAlpha);
+            m.SetFloat("_DstBlend", (float)BlendMode.OneMinusSrcAlpha);
+            m.SetFloat("_ZWrite", 0f);
+            m.SetFloat("_Cull", 0f);
+            Kw(m, "_SURFACE_TYPE_TRANSPARENT", true);
+            m.SetOverrideTag("RenderType", "Transparent");
+            m.renderQueue = (int)RenderQueue.Transparent;
+            m.SetShaderPassEnabled("ShadowCaster", false);
+            EditorUtility.SetDirty(m);
+            return m;
         }
 
         static int SetupTextures()

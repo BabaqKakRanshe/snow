@@ -21,6 +21,7 @@ namespace Snow.Aircraft
             CargoItem held = CargoItem.HeldBy(clientId);
             if (held == null || !held.TryGetComponent(out KitCarry can) || !can.IsJerryCan) { reason = "Нужна канистра в руках"; return false; }
             can.ServerSetFuel(can.Kit.capacityLitres);
+            Snow.Audio.SnowAudio.ServerPlay("plane.barrel.fill", transform.position);
             BenchLog.Event("barrel_fill", "client", clientId, "litres", can.FuelLitres);
             return true;
         }

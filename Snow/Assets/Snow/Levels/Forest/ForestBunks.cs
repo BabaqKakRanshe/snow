@@ -11,6 +11,8 @@ namespace Snow.Levels.Forest
     /// </summary>
     public class ForestBunks : SeatedVehicle
     {
+        protected override string SitCue => "bed.lie";
+        protected override string StandCue => "bed.getup";
         public override bool ServerUse(ulong clientId, string id, UsePhase phase, out string reason)
         {
             reason = null;

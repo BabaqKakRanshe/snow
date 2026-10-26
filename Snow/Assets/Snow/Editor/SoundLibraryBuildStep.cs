@@ -76,9 +76,9 @@ namespace Snow.EditorTools
                 cue.clips = clips.ToArray();
             }
             lib.cues.Sort((a, b) => string.CompareOrdinal(a.id, b.id));
-            if (lib.steps.Count == 0) lib.steps = DefaultSteps();
-            if (lib.terrainLayers.Count == 0) lib.terrainLayers = DefaultLayers();
-            if (lib.keywords.Count == 0) lib.keywords = DefaultKeywords();
+            MergeSteps(lib.steps);                                  // new surfaces join, hand-set cue ids stay
+            lib.terrainLayers = DefaultLayers();
+            lib.keywords = DefaultKeywords();
             if (lib.outdoorDefault == "Dirt") lib.outdoorDefault = "Forest";
             EditorUtility.SetDirty(lib);
             AssetDatabase.SaveAssets();
@@ -109,23 +109,33 @@ namespace Snow.EditorTools
             return cue;
         }
 
-        static SurfaceSteps S(string surface, string walk, string run, string land) =>
-            new SurfaceSteps { surface = surface, walk = walk, run = run, land = land };
+        static SurfaceSteps S(string surface)
+        {
+            string k = surface.ToLowerInvariant();
+            return new SurfaceSteps { surface = surface, walk = $"step.{k}.walk", run = $"step.{k}.run", land = $"step.{k}.land", crouch = $"step.{k}.crouch" };
+        }
 
+        // every surface has its own walk, run, land and crouch cues (SOUND_LIST_FULL «Шаги», user 26.10.2026)
         static List<SurfaceSteps> DefaultSteps() => new List<SurfaceSteps>
         {
-            S("Forest", "step.forest.walk", "step.forest.run", "step.forest.land"),
-            S("Snow", "step.snow.walk", "step.snow.run", "step.snow.land"),
-            S("Frozen", "step.frozen.walk", "step.frozen.run", "step.frozen.land"),
-            S("Gravel", "step.gravel.walk", "step.gravel.run", "step.gravel.land"),
-            S("Wood", "step.wood.walk", "step.wood.run", "step.wood.land"),
-            S("Tile", "step.tile.walk", "step.tile.run", "step.tile.land"),
-            S("Metal", "step.metal.walk", "step.metal.run", "step.metal.land"),
-            S("Dirt", "step.dirt.walk", "step.dirt.run", "step.dirt.land"),
-            S("Grass", "step.grass.walk", "", "step.grass.land"),
-            S("Leaves", "step.leaves.walk", "step.dirt.run", "step.grass.land"),
-            S("Mud", "step.mud.walk", "step.dirt.run", "step.dirt.land"),
+            S("Forest"), S("Snow"), S("SnowDeep"), S("Frozen"), S("Ice"), S("Gravel"), S("Rock"), S("Wood"), S("Tile"),
+            S("Linoleum"), S("Concrete"), S("Asphalt"), S("Metal"), S("Grating"), S("Carpet"), S("Dirt"), S("Grass"),
+            S("Leaves"), S("Mud"),
         };
+
+        /// <summary>Surfaces missing from the library join; an empty cue id of an existing one is filled.</summary>
+        static void MergeSteps(List<SurfaceSteps> have)
+        {
+            foreach (SurfaceSteps d in DefaultSteps())
+            {
+                SurfaceSteps s = have.Find(x => x.surface == d.surface);
+                if (s == null) { have.Add(d); continue; }
+                if (string.IsNullOrEmpty(s.walk)) s.walk = d.walk;
+                if (string.IsNullOrEmpty(s.run) || s.run != d.run && s.run.StartsWith("step.dirt.", StringComparison.Ordinal)) s.run = d.run;
+                if (string.IsNullOrEmpty(s.land) || s.land != d.land && (s.land == "step.grass.land" || s.land == "step.dirt.land")) s.land = d.land;
+                if (string.IsNullOrEmpty(s.crouch)) s.crouch = d.crouch;
+            }
+        }
 
         // Forest terrain layers (TL_*); no snow layer yet — Snow / Frozen wait for one
         static List<LayerSurface> DefaultLayers() => new List<LayerSurface>
@@ -136,8 +146,8 @@ namespace Snow.EditorTools
             new LayerSurface { layer = "TL_TrailTrack", surface = "Dirt" },
             new LayerSurface { layer = "TL_RoadRuts", surface = "Mud" },
             new LayerSurface { layer = "TL_RoadGravel", surface = "Gravel" },
-            new LayerSurface { layer = "TL_Rock", surface = "Gravel" },
-            new LayerSurface { layer = "TL_Asphalt", surface = "Tile" },
+            new LayerSurface { layer = "TL_Rock", surface = "Rock" },
+            new LayerSurface { layer = "TL_Asphalt", surface = "Asphalt" },
         };
 
         // order matters: the first match wins. Main building rooms (MAIN_CONTRACT: R_<Room> floors) first.
@@ -146,11 +156,19 @@ namespace Snow.EditorTools
             var k = new List<KeywordSurface>();
             void Add(string surface, params string[] words) { foreach (string w in words) k.Add(new KeywordSurface { keyword = w, surface = surface }); }
             Add("Wood", "rm_stationsleiter");
-            Add("Gravel", "main_roof", "roof", "gravel", "kies", "rock");
-            Add("Metal", "grating", "grate", "metal", "steel", "stahl", "blech", "container");
+            Add("Gravel", "main_roof", "roof", "gravel", "kies");
+            Add("Rock", "rock", "stone", "fels", "granite", "cave");
+            Add("Grating", "grating", "grate", "gitter");
+            Add("Metal", "metal", "steel", "stahl", "blech", "container");
             Add("Wood", "board", "plank", "wood", "holz", "parkett", "dielen", "crate");
-            Add("Tile", "rm_", "tile", "fliese", "linol", "concrete", "beton", "asphalt", "floor");
+            Add("Carpet", "carpet", "teppich", "rug");
+            Add("Linoleum", "linol", "pvc");
+            Add("Concrete", "concrete", "beton", "estrich");
+            Add("Asphalt", "asphalt");
+            Add("Tile", "rm_", "tile", "fliese", "floor");
+            Add("SnowDeep", "deepsnow", "drift", "powder");
             Add("Snow", "snow", "schnee");
+            Add("Ice", "ice", "eis", "lake");
             Add("Frozen", "frozen", "glatteis");
             Add("Grass", "grass");
             Add("Mud", "mud", "schlamm");

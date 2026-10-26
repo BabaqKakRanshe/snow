@@ -178,6 +178,7 @@ namespace Snow.Cargo
 
         void Awake()
         {
+            if (GetComponent<CargoSounds>() == null) gameObject.AddComponent<CargoSounds>();   // straps and stow points
             _rb = GetComponent<Rigidbody>();
             _rb.mass = massKg;
             _colliders = GetComponentsInChildren<Collider>();
@@ -553,6 +554,7 @@ namespace Snow.Cargo
         void OnJointBreak(float force)
         {
             if (!IsServer) return;
+            Snow.Audio.SnowAudio.ServerPlay("cargo.strap.snap", transform.position);
             _joint = null;
             FreeSocket();
             _state.Value = CargoState.Loose;

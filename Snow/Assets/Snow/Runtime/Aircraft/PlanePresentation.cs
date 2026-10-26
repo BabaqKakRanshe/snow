@@ -68,6 +68,7 @@ namespace Snow.Aircraft
         {
             _rig = GetComponent<UtilityPlaneRig>();
             if (vehicle == null) vehicle = GetComponent<PlaneVehicle>();
+            if (GetComponent<PlaneSounds>() == null) gameObject.AddComponent<PlaneSounds>();   // sounds from the same state
             // parts whose Rig channel is two-position: the eased angle is applied after the Rig in LateUpdate
             var byName = new Dictionary<string, Transform>();
             foreach (var t in GetComponentsInChildren<Transform>(true))

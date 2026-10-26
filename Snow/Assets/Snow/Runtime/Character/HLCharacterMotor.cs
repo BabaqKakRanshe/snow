@@ -349,6 +349,8 @@ namespace Snow.Character
             Vector3 along = ladder.TransformDirection(new Vector3(0f, 1.04f, -0.38f).normalized);
             float climb = facing ? Input.Move.y : 0f;
             Vector3 v = along * (climb * ladderSpeed) + ladder.right * (Input.Move.x * ladderSpeed * 0.5f);
+            _rungDist += Mathf.Abs(climb * ladderSpeed) * dt;                   // a rung every 0.4 m of the climb
+            if (_rungDist >= 0.4f) { _rungDist = 0f; Snow.Audio.SnowAudio.Play("ladder.alu.climb", transform.position + Vector3.up); }
             if (!facing) v += look * (Input.Move.y * tuning.walkSpeed * 0.5f);   // turned away: step off
             // no climb input: settle onto the tread or the platform under the feet (queries see the treads)
             bool onSomething = ProbeGround(tuning.groundProbeDistance, out _);
@@ -375,10 +377,13 @@ namespace Snow.Character
             return null;
         }
 
+        float _rungDist;
+
         void EnterLadder(Transform ladder)
         {
             LeaveLadder();
             _ladder = ladder;
+            Snow.Audio.SnowAudio.Play("ladder.alu.grab", transform.position + Vector3.up);
             Transform root = ladder.parent != null ? ladder.parent : ladder;
             foreach (var c in root.GetComponentsInChildren<Collider>())
                 if (!c.isTrigger && (c.name.Contains("Tread") || c.name.Contains("Stile")))
@@ -394,6 +399,7 @@ namespace Snow.Character
             foreach (var c in _ladderIgnored) if (c != null) Physics.IgnoreCollision(_cc, c, false);
             _ladderIgnored.Clear();
             _ladder = null;
+            Snow.Audio.SnowAudio.Play("ladder.alu.leave", transform.position + Vector3.up * 0.5f);
         }
 
         // ---------------------------------------------------------------- stance
@@ -412,6 +418,7 @@ namespace Snow.Character
                 if (!_state.Grounded)
                     _cc.Move(Vector3.up * tuning.airCrouchFeetRaise);   // in the air the legs tuck (§7.2: +0.35 m)
                 _state.Crouched = true;
+                Snow.Audio.SnowAudio.Play("cloth.crouch.down", transform.position + Vector3.up * 0.8f);
             }
             else if (!wantCrouch && _state.Crouched)
             {
@@ -421,6 +428,7 @@ namespace Snow.Character
                 if (lower > 0f) Place(feet);
                 ApplyCapsule(false);
                 _state.Crouched = false;
+                Snow.Audio.SnowAudio.Play("cloth.crouch.up", transform.position + Vector3.up);
             }
         }
 

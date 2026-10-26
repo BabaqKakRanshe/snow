@@ -228,6 +228,7 @@ namespace Snow.Levels.Forest
             if (_opening.host != null && _opening.host.TryGetPart("IX_Gate_81", out SkyIslandLocationHost.Part gate) && gate?.part != null)
                 at = gate.part.transform.position;
             NoiseEvents.Emit(at, NoiseEvents.Loud, "e13_fence");
+            Snow.Audio.SnowAudio.ServerPlay("fence.e13.rattle", at);           // players at the gate hear it too
             BenchLog.Event("forest_e13", "at", at);
         }
 

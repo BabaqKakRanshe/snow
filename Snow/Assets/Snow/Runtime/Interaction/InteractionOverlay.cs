@@ -71,12 +71,18 @@ namespace Snow.Interaction
                 return;
             }
             bool reveal = controller.Frame.Reveal;
+            if (reveal && !_reveal) Snow.Audio.SnowAudio.PlayUi("ui.reveal", 0.6f);   // the reach list opens
             _reveal = reveal;
 
             // hover card
             Component target = sensor.TargetVolume != null ? sensor.TargetVolume
                 : sensor.TargetCargo != null ? sensor.TargetCargo
                 : sensor.TargetGrab != null ? (Component)sensor.TargetGrab : null;
+            if (target != _hoverSound)                            // a soft tick on a new target (SOUND_LIST_FULL ui.hover)
+            {
+                if (target != null) Snow.Audio.SnowAudio.PlayUi("ui.hover", 0.35f);
+                _hoverSound = target;
+            }
             if (target != null && !InteractionSensor.DeviceRaised && (reveal || !cardOnlyWithAlt) && ScreenRect(Bounds(target), cam, out _hoverRect))
             {
                 _hasHover = true;
@@ -157,6 +163,8 @@ namespace Snow.Interaction
             Grabbable g => g.label,
             _ => null,
         });
+
+        Component _hoverSound;
 
         void Describe(Component target)
         {

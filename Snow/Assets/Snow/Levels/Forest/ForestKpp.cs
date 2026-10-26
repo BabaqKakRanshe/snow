@@ -84,7 +84,11 @@ namespace Snow.Levels.Forest
         public bool BarrierUp => _barrierUp.Value;
         public bool GateOpen => _gateOpen.Value;
 
-        void Awake() => Instance = this;
+        void Awake()
+        {
+            Instance = this;
+            if (GetComponent<ForestKppSounds>() == null) gameObject.AddComponent<ForestKppSounds>();   // power sounds, every peer
+        }
 
         public override void OnDestroy()
         {
@@ -178,7 +182,7 @@ namespace Snow.Levels.Forest
         {
             reason = null;
             Pressed(button).Value = NetworkManager.ServerTime.Time + PressSeconds;   // the cap goes in, with or without power
-            if (!powered) { reason = "Нет тока"; return false; }
+            if (!powered) { reason = "Нет тока"; Snow.Audio.SnowAudio.ServerPlay("kpp.console.button.dead", ButtonPos(button)); return false; }
             Part p = barrier ? _barrier : _gate;
             NetworkVariable<bool> v = barrier ? _barrierUp : _gateOpen;
             if (p == null) { reason = "Нет привода"; return false; }
@@ -289,7 +293,14 @@ namespace Snow.Levels.Forest
         {
             if (p?.part == null) return;
             float t = open ? 1f : 0f;
-            if (!DrivesPowered) { p.part.enabled = false; return; }
+            if (!DrivesPowered)
+            {
+                // the power went mid-travel: the motor cuts out and the boom shudders where it is
+                if (p.part.enabled && !Mathf.Approximately(p.part.openAmount, p.part.target) && p == _barrier)
+                    Snow.Audio.SnowAudio.ServerPlay("kpp.barrier.arm.stall", p.part.transform.position);
+                p.part.enabled = false;
+                return;
+            }
             if (!Mathf.Approximately(p.part.target, t)) p.part.target = t;
             if (!Mathf.Approximately(p.part.openAmount, p.part.target)) p.part.enabled = true;
         }
@@ -356,6 +367,12 @@ namespace Snow.Levels.Forest
         }
 
         static void Power(KitItem k, bool on) { if (k != null) k.SetPower(on); }
+
+        Vector3 ButtonPos(int button)
+        {
+            KitItem k = button == 0 ? btnBarrier : button == 1 ? btnGate : button == 2 ? leitBtnBarrier : leitBtnGate;
+            return k != null ? k.transform.position : transform.position;
+        }
 
         static void Show(Part p, float t, bool snap)
         {

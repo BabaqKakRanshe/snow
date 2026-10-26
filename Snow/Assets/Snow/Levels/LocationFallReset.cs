@@ -31,6 +31,7 @@ namespace Snow.Levels
             if (p.TryGetComponent(out NetworkTransform nt) && nt.CanCommitToTransform)
                 nt.Teleport(spawn.position, Quaternion.Euler(0f, yaw, 0f), p.transform.localScale);
             BenchLog.Event("fall_reset", "from", at, "to", spawn.position, "fallY", fallY);
+            Snow.Audio.SnowAudio.PlayUi("player.fallreset");
         }
 
         bool Nearest(Vector3 from, out Transform best)

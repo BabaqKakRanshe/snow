@@ -49,17 +49,19 @@ def render(cues, only):
         have = len(takes_of(folder))
         if have < c["takes"]:
             print(f"{cid}: {c['takes'] - have} takes", flush=True)
-            ns = SimpleNamespace(kind="sfx", prompt=c["prompt"], takes=c["takes"] - have, duration=c["dur"],
-                                 seed=None, negative=NEGATIVE, lyrics=None)
-            new = snowgen.soundbox_takes(ns, snowgen.MODELS["sfx"][c["model"]], folder, have)
+            kind = "music" if c["model"] == "music" else "sfx"
+            ns = SimpleNamespace(kind=kind, prompt=c["prompt"], takes=c["takes"] - have, duration=c["dur"],
+                                 seed=None, negative=c.get("negative", NEGATIVE), lyrics=None)
+            model = snowgen.MODELS["music"]["small"] if kind == "music" else snowgen.MODELS["sfx"][c["model"]]
+            new = snowgen.soundbox_takes(ns, model, folder, have)
             index = folder / "takes.json"
             old = json.loads(index.read_text(encoding="utf-8")) if index.exists() else []
             for t in new:
                 t["prompt"] = c["prompt"]
             index.write_text(json.dumps(old + new, ensure_ascii=False, indent=1), encoding="utf-8")
         pick = folder / "pick"
-        if not pick.exists() or not any(pick.glob("*.wav")):
-            set_pick(cid, list(range(1, c["keep"] + 1)))
+        if "slice" not in c and (not pick.exists() or not any(pick.glob("*.wav"))):
+            set_pick(cid, list(range(1, min(c["keep"], len(takes_of(folder))) + 1)))
         write_page(cues)
 
 

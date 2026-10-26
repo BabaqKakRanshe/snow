@@ -1070,7 +1070,31 @@ SSAO не найдено в рендерере	SSAO not found in the renderer
 ДРУГОЕ	OTHER
 рядом, {0} м	nearby, {0} m
 ничего	nothing
+открыть пейджер	open the pager
+выбрать	pick
+держать E	hold E
+режим	mode
 Карта лесника	Forester's map
 Forstkarte Hohenmoos / Карта лесника	Forstkarte Hohenmoos / Forester's map
 Карта лесничества Хоэнмоос.\nДорога, ручей, хижина.\nАнтенна № 1 обведена красным.\nВ лесу недалеко от хижины место перечёркнуто красным крестом.	Hohenmoos forest district map.\nRoad, stream, hut.\nAntenna No. 1 circled in red.\nIn the woods not far from the hut, a spot crossed out in red.
 Дверь уборной	Outhouse door
+Лесник	Forester
+Лесник — блокинг	Forester — blockout
+Только на этом компьютере: другие игроки его не видят. Поведения пока нет.	This computer only: other players don't see it. No behaviour yet.
+Не поставлен	Not placed
+до меня	to me
+Стоит	Stands at
+Расстояние, м	Distance, m
+Поставить передо мной	Put in front of me
+На 15 м (граница страха)	At 15 m (fear border)
+Кухня (кадр концепта)	Kitchen (concept frame)
+Перенести меня к нему	Take me to it
+Повернуть ко мне	Turn to me
+Убрать	Remove
+Метка на экране	Marker on screen
+Шея	Neck
+Сначала поставьте его	Place it first
+Вытянута	Stretched
+Тянуть голову	Reach with the head
+Обратно	Back
+0 — стоит (голова висит вверх ногами), 1 — шея 3,5 м, голова у лица игрока в 3,6 м от тела.	0 — stands (head hanging upside down), 1 — neck 3.5 m, the head at the player's face 3.6 m from the body.

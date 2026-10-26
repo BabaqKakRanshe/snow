@@ -12,11 +12,13 @@ namespace Snow.Audio
         [Tooltip("s for a full fade in / out")] public float fadeSeconds = 1.5f;
         /// <summary>0..1 on top of the cue's volume; changes are smoothed by the fade.</summary>
         public float Level = 1f;
+        /// <summary>Times the cue's pitch (an engine's rpm, a fan's speed); applied every frame.</summary>
+        public float PitchScale = 1f;
 
         SoundCue _cue;
         AudioSource _src;
         AudioLowPassFilter _lp;
-        float _base, _cutoff = 22000f;
+        float _base, _pitch = 1f, _cutoff = 22000f;
         bool _on;
 
         public bool On => _on;
@@ -49,7 +51,8 @@ namespace Snow.Audio
             if (!on || _src.isPlaying) return;
             _src.clip = _cue.Pick();
             if (_src.clip == null) return;
-            _src.pitch = _cue.Pitch;
+            _pitch = _cue.Pitch;
+            _src.pitch = _pitch * PitchScale;
             _src.time = Random.Range(0f, _src.clip.length * 0.9f);
             _src.Play();
         }
@@ -67,6 +70,7 @@ namespace Snow.Audio
             if (_src == null) return;
             float want = _on ? _base * Mathf.Clamp01(Level) * SnowAudio.Bus(_cue.bus) : 0f;
             _src.volume = Mathf.MoveTowards(_src.volume, want, Time.deltaTime / Mathf.Max(0.05f, fadeSeconds));
+            _src.pitch = _pitch * Mathf.Clamp(PitchScale, 0.1f, 3f);
             if (!_on && _src.isPlaying && _src.volume <= 0.0005f) _src.Stop();
         }
     }

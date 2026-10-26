@@ -136,6 +136,14 @@ namespace Snow.Audio
         /// <summary>This peer only: a one-shot of the cue at the point (null when the cue or its clips are missing).</summary>
         public static AudioSource Play(string id, Vector3 at, float volumeScale = 1f) => PlayId(id, at, volumeScale, "здесь");
 
+        /// <summary>An interface sound at this peer's ears (the listener, else the main camera).</summary>
+        public static AudioSource PlayUi(string id, float volumeScale = 1f)
+        {
+            AudioListener l = Object.FindAnyObjectByType<AudioListener>();
+            Transform at = l != null ? l.transform : Camera.main != null ? Camera.main.transform : null;
+            return Play(id, at != null ? at.position : Vector3.zero, volumeScale);
+        }
+
         internal static AudioSource PlayId(string id, Vector3 at, float volumeScale, string via)
         {
             SoundCue cue = Library != null ? Library.Get(id) : null;

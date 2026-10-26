@@ -1,3 +1,4 @@
+using Snow.Audio;
 using UnityEngine;
 
 namespace Snow.Levels.Forest
@@ -22,7 +23,22 @@ namespace Snow.Levels.Forest
         [Tooltip("Mean seconds between short dips while healthy")] public float dipEvery = 7f;
 
         float _start, _nextDip, _dipUntil;
+        // sounds by what the lamp is (SOUND_LIST_FULL «Старт-пост», «Хижина»; user 26.10.2026)
+        string _loopCue, _dipCue, _dyingCue, _outCue;
+        SoundLoop _loop;
+        bool _dyingHeard, _dipHeard;
         bool _shown, _dead;   // the prefab's lens is the "off" one: the first Show(1) swaps it
+
+        void Awake()
+        {
+            string n = name;
+            if (n == "StartLamp") { _loopCue = "start.lamp.flood.loop"; _dipCue = "start.lamp.dip"; _dyingCue = "start.lamp.dying"; _outCue = "start.lamp.out"; }
+            else if (n == "StartBooth") _outCue = "start.booth.lamp.out";
+            else if (n.Contains("Candle")) _outCue = "hut.candle.out";
+            else if (n == "HutSign") _outCue = "hut.trail.lantern.out";             // its Beacon_Trail twin stays silent
+        }
+
+        void Sound(string id) { if (!string.IsNullOrEmpty(id)) SnowAudio.Play(id, transform.position); }
 
         void OnEnable()
         {
@@ -39,9 +55,20 @@ namespace Snow.Levels.Forest
             {
                 Show(0f);
                 _dead = true;
+                Sound(_outCue);
+                if (_loop != null) _loop.Switch(false);
                 return;
             }
             bool dying = t >= life;
+            if (!string.IsNullOrEmpty(_loopCue))
+            {
+                if (_loop == null) _loop = SoundLoop.Create(_loopCue, transform, Vector3.zero, true);
+                if (_loop != null) _loop.Switch(true);
+            }
+            if (dying && !_dyingHeard) { _dyingHeard = true; Sound(_dyingCue); }
+            bool dip = Time.time < _dipUntil;
+            if (dip && !_dipHeard && !dying) Sound(_dipCue);
+            _dipHeard = dip;
             if (Time.time >= _nextDip)
             {
                 _dipUntil = Time.time + (dying ? Random.Range(0.05f, 0.6f) : Random.Range(0.04f, 0.18f));
@@ -55,6 +82,8 @@ namespace Snow.Levels.Forest
         /// <summary>Out for good now (the hut's candle at X01).</summary>
         public void Kill()
         {
+            if (!_dead) Sound(_outCue);
+            if (_loop != null) _loop.Switch(false);
             Show(0f);
             _dead = true;
         }

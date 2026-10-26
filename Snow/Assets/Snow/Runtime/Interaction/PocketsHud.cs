@@ -220,7 +220,7 @@ namespace Snow.Interaction
         }
 
         // "ЛКМ выключить   Q в карман   G бросить": the keys warm, the words dim, no caps around the keys
-        static void KeysLine(float x, float y, List<(string key, string text)> keys, GUIStyle st, float alpha)
+        public static void KeysLine(float x, float y, IList<(string key, string text)> keys, GUIStyle st, float alpha)
         {
             Color warm = new Color(Hud.Warm.r, Hud.Warm.g, Hud.Warm.b, alpha), dim = new Color(0.663f, 0.651f, 0.612f, alpha);
             float cx = x;

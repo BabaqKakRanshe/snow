@@ -133,6 +133,8 @@ namespace Snow.Player
                 return;
             }
             if (_view.Seated) return;
+            Snow.Audio.SnowAudio.Play(cause == RagdollCause.Hit ? "ragdoll.hit" : cause == RagdollCause.Death ? "body.death"
+                : cause == RagdollCause.HardLanding || velocity.magnitude > 6f ? "ragdoll.fall.hard" : "ragdoll.fall.soft", transform.position + Vector3.up);
             if (_sensor.Held != null) net.RequestDrop();                // what is in the hands falls with him
             _sensor.enabled = false;
             _motor.enabled = false;
@@ -175,7 +177,7 @@ namespace Snow.Player
         /// <summary>Owner: the death is over (the future death system: after the black-out, before the bed).</summary>
         public void EndDeath()
         {
-            if (_owner && _down && _cause == RagdollCause.Death) GetUp();
+            if (_owner && _down && _cause == RagdollCause.Death) { Snow.Audio.SnowAudio.PlayUi("ragdoll.death.blackout"); GetUp(); }
         }
 
         void Update()
@@ -216,6 +218,7 @@ namespace Snow.Player
         void GetUp()
         {
             Vector3 pelvis = _bodies[Pelvis].position;
+            Snow.Audio.SnowAudio.Play("ragdoll.getup", pelvis);
             Vector3 look = _view.cam != null ? _view.cam.transform.forward : _bones[1].forward;
             look.y = 0f;
             if (look.sqrMagnitude < 0.01f) { look = _bones[1].up; look.y = 0f; }      // lying on the back, looking at the sky
@@ -422,6 +425,7 @@ namespace Snow.Player
                 rb.angularDamping = 0.3f;
                 rb.maxAngularVelocity = 20f;
                 _bodies[i] = rb;
+                go.AddComponent<RagdollLimbSound>();
 
                 if (part.Parent < 0 || kinematic) continue;
                 var j = go.AddComponent<CharacterJoint>();

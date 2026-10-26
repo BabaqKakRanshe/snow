@@ -161,7 +161,11 @@ namespace Snow.Levels.Forest
         float _walkT;
         string _walkCue;                                               // steps along the path from the sound library
         float _walkStep;
-        SoundLoop _dieselLoop, _boilerLoop;
+        SoundLoop _genFar;
+        SoundLoop _dieselLoop, _boilerLoop, _pumpLoop, _fillLoop, _genFan, _genExhaust, _genLoad, _genBoard, _fuelFlow, _safety;
+        bool _pumpShown, _genShown, _pumpingShown;
+        int _burnerShown;
+        float _nextLouvre, _nextBoilerTick, _nextRadiator;
         float _genOnSince = -1f, _pumpPhase, _pourSoundAt;
 
         static readonly CultureInfo Ru = CultureInfo.GetCultureInfo("ru-RU");
@@ -340,7 +344,7 @@ namespace Snow.Levels.Forest
                 case GenStart:
                     if (phase != UsePhase.Press) return true;
                     if (_genRunning.Value) { StopGenerator("lever"); return true; }
-                    if (_tank <= 0f) { reason = "Бак пуст"; return false; }
+                    if (_tank <= 0f) { reason = "Бак пуст"; SnowAudio.ServerPlay("base.gen.diesel.nostart", GenPos); return false; }
                     _genStart?.part.Open();                            // the grid recounts its switches
                     _genRunning.Value = true;
                     Sound(Sfx.DieselStart, _genStart != null ? _genStart.part.transform.position : transform.position);
@@ -377,8 +381,10 @@ namespace Snow.Levels.Forest
                 case PadlockZone: return UsePadlock(clientId, phase, out reason);
                 case PhoneZone:
                     if (phase != UsePhase.Press) return true;
-                    if (!_phoneRinging.Value) { reason = "Тишина в трубке"; return false; }
+                    SnowAudio.ServerPlay("kpp.phone.pickup", _phonePos);
+                    if (!_phoneRinging.Value) { reason = "Тишина в трубке"; SnowAudio.ServerPlay("kpp.phone.line.silence", _phonePos); return false; }
                     _phoneRinging.Value = false;
+                    SnowAudio.ServerPlay("kpp.phone.ring.cut", _bellPos);
                     Sound(Sfx.Breath, _phonePos);
                     BenchLog.Event("forest_scare", "id", "X05", "picked_up", true);
                     return true;
@@ -407,6 +413,7 @@ namespace Snow.Levels.Forest
                 if (_tank >= TankL - 0.01f) { reason = "Бак полон"; return false; }
                 if (Vector3.Distance(can.transform.position, _neck) > NeckReach) { reason = "Поднесите канистру к горловине"; return false; }
                 _filling = true;
+                SnowAudio.ServerPlay("item.jerrycan.cap", _neck);
                 _fillClient = clientId;
                 _fillCan = can;
                 _fillStart = Time.time;
@@ -459,11 +466,13 @@ namespace Snow.Levels.Forest
             if (!_padlockOn.Value) { reason = "Замок уже снят"; return false; }
             if (!HasKey(clientId, Schranke)) { reason = "Заперто на навесной замок"; return false; }
             _padlockOn.Value = false;
+            SnowAudio.ServerPlay("kpp.padlock.unlock", ClientPos(clientId));
             if (_padlockBit >= 0) _locks.Value &= ~(1u << _padlockBit);
             // the static copy goes, a real padlock drops in its place
             OpeningItem pad = FindItem(ForestItems.PadlockId);
             if (pad != null && items != null)
                 items.Spawn(pad.id, pad.model, ForestRelocation.Point(ForestData.V3(pad.p)), ForestRelocation.Rotation(ForestData.V3(pad.p), ForestData.Q(pad.q)), pad.massKg);
+            if (pad != null) SnowAudio.ServerPlay("item.padlock.fall", ForestRelocation.Point(ForestData.V3(pad.p)));
             BenchLog.Event("forest_lock", "part", Barrier, "by", PadlockZone, "client", clientId, "unlocked", true);
             return true;
         }
@@ -480,6 +489,7 @@ namespace Snow.Levels.Forest
             if ((_decalsHidden.Value & (1UL << index)) != 0) { reason = "Уже чисто"; return false; }
             if (!HoldsCleaner(clientId)) { reason = "Нужна тряпка или швабра"; return false; }
             _cleaning = true;
+            SnowAudio.ServerPlay(CleanCue(clientId), ClientPos(clientId));
             _cleanClient = clientId;
             _cleanIndex = index;
             _cleanStart = Time.time;
@@ -502,6 +512,10 @@ namespace Snow.Levels.Forest
                 if ((locks & (1u << i)) != 0 && _lockBy[i] == null && HasKey(clientId, _lockKeys[i])) locks &= ~(1u << i);
             }
             if (!any) return false;
+            Part sounding = FindLockPart(id);
+            Vector3 lockAt = sounding != null ? sounding.part.transform.position : ClientPos(clientId);
+            if (locks != before) SnowAudio.ServerPlay(sounding?.door != null ? "base.door.unlock.key" : "item.key.unlock", lockAt);
+            else if (key != null) SnowAudio.ServerPlay("item.key.wrong", lockAt);
             if (locks != before)
             {
                 _locks.Value = locks;
@@ -698,8 +712,12 @@ namespace Snow.Levels.Forest
             if (Mathf.Abs(v.Value - exact) >= step || (exact == 0f && v.Value != 0f)) v.Value = exact;
         }
 
+        Vector3 GenPos => _genStart != null ? _genStart.part.transform.position : transform.position;
+
         void StopFill(string why)
         {
+            if (why == "tank full") SnowAudio.ServerPlay("base.gen.fuel.full", _neck);
+            if (why == "can empty") SnowAudio.ServerPlay("item.jerrycan.empty", _neck);
             _filling = false;
             BenchLog.Event("forest_fuel", "fill", false, "why", why, "tank", _tank, "can", _fillCan != null ? _fillCan.FuelL : 0f);
             _fillCan = null;
@@ -709,7 +727,8 @@ namespace Snow.Levels.Forest
         {
             _genRunning.Value = false;
             _genStart?.part.Close();                                   // the grid goes down with it
-            Sound(Sfx.DieselStop, _genStart != null ? _genStart.part.transform.position : transform.position);
+            if (why == "empty") SnowAudio.ServerPlay("base.gen.diesel.runout", GenPos);
+            else Sound(Sfx.DieselStop, GenPos);
             BenchLog.Event("forest_power", "generator", false, "why", why, "tankL", _tank);
         }
 
@@ -913,6 +932,7 @@ namespace Snow.Levels.Forest
                 if (_sleepSince < 0f) _sleepSince = Time.time;
                 if (Time.time - _sleepSince < SleepSeconds) return;
                 _stepsDone.Value = Mark(_stepsDone.Value, Step.S10);
+                SnowAudio.ServerPlay("bed.sleep.fade", bunks != null ? bunks.transform.position : transform.position);
                 _phase.Value = 1;
                 _nightStart.Value = nm.ServerTime.Time;
                 _corridorOff = false;
@@ -967,6 +987,7 @@ namespace Snow.Levels.Forest
         /// on a client), the switch to 1.</summary>
         void ShuttersUp()
         {
+            if (_kitchenCurtains.Count > 0 && _kitchenCurtains[0] != null) SnowAudio.Play("base.shutter.kitchen.auto", _kitchenCurtains[0].transform.position);
             foreach (SkyIslandInteractable c in _kitchenCurtains)
             {
                 if (c == null) continue;
@@ -1128,6 +1149,19 @@ namespace Snow.Levels.Forest
             return held != null && held.TryGetComponent(out ForestItemTag tag) && !string.IsNullOrEmpty(tag.key) ? tag.key : null;
         }
 
+        /// <summary>The cleaning sound of what the player holds: a mop, a broom, a dustpan, else the rag.</summary>
+        static string CleanCue(ulong client)
+        {
+            CargoItem held = CargoItem.HeldBy(client);
+            string t = held != null ? (held.label + " " + held.itemKey).ToLowerInvariant() : "";
+            return t.Contains("mop") || t.Contains("швабр") ? "item.mop.scrub" : t.Contains("broom") || t.Contains("метл") ? "item.broom.sweep"
+                 : t.Contains("dustpan") || t.Contains("совок") ? "item.dustpan.scrape" : "item.rag.scrub";
+        }
+
+        Vector3 ClientPos(ulong client) =>
+            NetworkManager != null && NetworkManager.ConnectedClients.TryGetValue(client, out var c) && c.PlayerObject != null
+                ? c.PlayerObject.transform.position : transform.position;
+
         bool HoldsCleaner(ulong client)
         {
             CargoItem held = CargoItem.HeldBy(client);
@@ -1217,6 +1251,9 @@ namespace Snow.Levels.Forest
         [Rpc(SendTo.ClientsAndHost)]
         void SoundRpc(byte what, Vector3 at)
         {
+            Sfx sfx = (Sfx)what;                                         // the prologue's scares raise the danger music
+            if (sfx == Sfx.PhoneRing || sfx == Sfx.Knock || sfx == Sfx.RoofSteps || sfx == Sfx.CorridorSteps || sfx == Sfx.LanternOut || sfx == Sfx.Breath)
+                ForestAmbience.Spike(sfx == Sfx.Knock || sfx == Sfx.CorridorSteps ? 0.9f : 0.6f);
             Resolve();
             AudioClip clip = Clip((Sfx)what);
             string cue = Cue((Sfx)what);
@@ -1260,15 +1297,16 @@ namespace Snow.Levels.Forest
                 case Sfx.PhoneRing: return "forest.phone.ring";
                 case Sfx.Bell: return "forest.phone.bell";
                 case Sfx.Breath: return "forest.phone.breath";
-                case Sfx.RoofSteps: return "step.gravel.walk";
+                case Sfx.RoofSteps: return "mon.lesnik.shuffle.snow";
                 case Sfx.Knock: return "forest.knock";
-                case Sfx.CorridorSteps: return "step.tile.walk";
+                case Sfx.CorridorSteps: return "mon.lesnik.shuffle.floor";
                 case Sfx.DieselStart: return "forest.diesel.start";
                 case Sfx.DieselStop: return "forest.diesel.stop";
                 case Sfx.LanternOut: return "forest.lantern.out";
                 case Sfx.Hiss: return "forest.hiss";
                 case Sfx.BurnerFault: return "forest.burner.fault";
-                default: return null;                                  // BurnerIgnite: nothing picked yet
+                case Sfx.BurnerIgnite: return "base.heat.burner.ignite";
+                default: return null;
             }
         }
 
@@ -1314,6 +1352,8 @@ namespace Snow.Levels.Forest
             {
                 _walkStep = 0f;
                 SnowAudio.Play(_walkCue, _walker.transform.position);
+                if (_walkCue.StartsWith("mon.lesnik", StringComparison.Ordinal) && UnityEngine.Random.value < 0.12f)   // the forester mutters, his fingers tap
+                    SnowAudio.Play(UnityEngine.Random.value < 0.6f ? "mon.lesnik.mumble" : "mon.lesnik.fingers", _walker.transform.position);
             }
         }
 
@@ -1327,12 +1367,70 @@ namespace Snow.Levels.Forest
             if (_dieselLoop != null) _dieselLoop.Switch(gen && Time.time - _genOnSince > 2.5f);   // after the start clip
             if (_boilerLoop == null && _burnerPart != null) _boilerLoop = SoundLoop.Create("forest.boiler.loop", _burnerPart.part.transform, Vector3.zero, true);
             if (_boilerLoop != null) _boilerLoop.Switch(_burner.Value == 2);
+            if (_heatPump != null)
+            {
+                if (_pumpLoop == null) _pumpLoop = SoundLoop.Create("base.heat.pump.loop", _heatPump.part.transform, Vector3.zero, true);
+                if (_pumpOn.Value && !_pumpShown && Time.time > 3f)
+                {
+                    SnowAudio.Play("base.heat.pump.start", _heatPump.part.transform.position);
+                    SnowAudio.Play("base.heat.pipes.knock", _heatPump.part.transform.position);
+                }
+                _pumpShown = _pumpOn.Value;
+                if (_pumpLoop != null) _pumpLoop.Switch(_pumpOn.Value);
+            }
+            if (_fillValve != null)
+            {
+                if (_fillLoop == null) _fillLoop = SoundLoop.Create("base.heat.fill.flow", _fillValve.part.transform, Vector3.zero, true);
+                if (_fillLoop != null) _fillLoop.Switch(_fillOpen.Value && _pressureBar.Value < 2.49f);
+            }
+            if (_burnerPart != null && _burnerShown == 2 && _burner.Value != 2) SnowAudio.Play("base.heat.burner.off", _burnerPart.part.transform.position);
+            _burnerShown = _burner.Value;
+            MachineLayers(gen);
             if (_pumping.Value && _pumpLever != null)
             {
                 float phase = Mathf.Repeat(Time.time * 6f / (2f * Mathf.PI), 1f);   // the lever rocks with sin(6 t)
                 if (phase < _pumpPhase) SnowAudio.Play("forest.pump.creak", _pumpLever.part.transform.position);
                 _pumpPhase = phase;
             }
+        }
+
+        /// <summary>Every peer: the generator's fan, exhaust, load and board under the diesel loop, the louvres rattling;
+        /// the boiler ticking and the radiators clicking while it heats; the fuel pump's flow and the nozzle's drip; the
+        /// safety valve's hiss while the pressure sits at the limit (SOUND_LIST_FULL «База», user 26.10.2026).</summary>
+        void MachineLayers(bool gen)
+        {
+            Transform g = _genStart != null ? _genStart.part.transform : null;
+            bool run = gen && Time.time - _genOnSince > 2.5f;
+            if (g != null)
+            {
+                Layer(ref _genFan, "base.gen.fan.loop", g, run);
+                Layer(ref _genExhaust, "base.gen.exhaust.loop", g, run);
+                Layer(ref _genLoad, "base.gen.load.loop", g, run && ForestKpp.Instance != null && ForestKpp.Instance.host != null && ForestKpp.Instance.host.Powered);
+                Layer(ref _genBoard, "base.gen.board.hum", g, gen);
+                Layer(ref _genFar, "forest.far.generator", g, run);
+                if (gen && !_genShown && UnityEngine.Random.value < 0.35f && Time.time > 3f) SnowAudio.Play("base.gen.belt.squeal", g.position);   // a cold belt slips
+                if (run && Time.time >= _nextLouvre) { _nextLouvre = Time.time + UnityEngine.Random.Range(8f, 25f); SnowAudio.Play("base.gen.louvre.rattle", g.position); }
+            }
+            _genShown = gen;
+            if (_burnerPart != null && _burner.Value == 2)
+            {
+                Vector3 b = _burnerPart.part.transform.position;
+                if (Time.time >= _nextBoilerTick) { _nextBoilerTick = Time.time + UnityEngine.Random.Range(4f, 12f); SnowAudio.Play("base.heat.boiler.tick", b); }
+                if (_pumpOn.Value && Time.time >= _nextRadiator) { _nextRadiator = Time.time + UnityEngine.Random.Range(6f, 18f); SnowAudio.Play("base.heat.radiator.tick", b + UnityEngine.Random.insideUnitSphere * 12f); }
+            }
+            if (_pumpLever != null)
+            {
+                Layer(ref _fuelFlow, "base.yard.pump.flow", _pumpLever.part.transform, _pumping.Value);
+                if (_pumpingShown && !_pumping.Value) SnowAudio.Play("base.yard.nozzle.drip", _nozzle);
+                _pumpingShown = _pumping.Value;
+            }
+            if (_fillValve != null) Layer(ref _safety, "base.heat.safety.loop", _fillValve.part.transform, _fillOpen.Value && _pressureBar.Value >= SafetyBar - 0.01f);
+        }
+
+        static void Layer(ref SoundLoop loop, string id, Transform at, bool on)
+        {
+            if (loop == null && on) loop = SoundLoop.Create(id, at, Vector3.zero, true);
+            if (loop != null) loop.Switch(on);
         }
 
         // ------------------------------------------------------------------ the night's fade (each peer its own, IMGUI)
