@@ -1,0 +1,255 @@
+{
+  "_about": {
+    "what": "Every graphic-style parameter of the Snow 3D models, extracted from the Blender chat's shared Python library as delivered in source/assets/<pack>/src/. Each value: {value, src}. src = file:function (line). Paths are relative to source/assets/forest_start/src/ unless a pack is named.",
+    "extracted": "2026-10-26",
+    "newest_versions": {
+      "value": "Shared libs are byte-identical in every pack from 21.10 to 26.10 (forest_start 25.10, forest_rocks/trash/devices/gear/parts 25.10, forest_world 26.10 = newest pack). Newest copies: psxlib.py md5 bddca1ab, psxbake.py 75c7f54b, gen_kit.py b0d80eac, gen_tex.py f18b585b, gen_paint.py 958917d0, noise.py bc863107, pxfont.py 62bdce81, van2_kit.py b1b0aa22, van2_tex.py ed95cd81, van3_mech.py a0bc1d2c; bld_common.py 046371c4 (forest_fences / forest_items, has ncol), uvpack.py 32726e1b (forest_base), unwrap_fast.py 5799e19f, post_bloom.py 54dd87f3. Older copies only in generator_shed (18.10), forest_yard/generator_container/forest_hut (19.10), forest_garage (20.10).",
+      "src": "md5 over source/assets/*/src"
+    },
+    "blender": {"value": "Blender 5.0.1 as a Python 3.11 module (bpy), scripts run with python3 -I <script>; numpy, scipy, PIL", "src": "README_SRC.txt"},
+    "core_idea": {"value": "Models are built 100% from code (no input meshes): bmesh faces carry a float 'zone' id; each atlas group is unwrapped, world position / normal / zone / AO are baked per texel with Cycles, a numpy painter paints linear colour + grooves from those, then the PSX step (AO in the colour, 1-texel dark grooves, 64-colour k-means palette, Bayer 4x4 dither, point filter). The 'Utility Plane' recipe.", "src": "psxbake.py:module docstring; psxlib.py:module docstring"}
+  },
+
+  "texture": {
+    "project_pixel_ppm": {"value": 51.3, "unit": "px per metre", "note": "the generator shed's building atlas density = 'the project's pixel'; used as ppm_cap for every building / large structure / car / rock cliff", "src": "start_build.py:SHED_PPM (l.27); forest_hut/hut_build.py, forest_kpp/kpp_build.py, forest_yard/yard_build.py, forest_main/main_build.py, forest_rocks/rocks_build.py, forest_world/world_build.py:WORLD_PPM; bld_common.py:SHED_PPM"},
+    "ppm_by_asset_class": {
+      "value": {
+        "buildings_structures_vehicles_cliffs": "51.3 cap (achieved 44-51.3; big lattice / dish atlases fall to 25-35)",
+        "props_small_world_things (lamps, tyres, rubbish, kit, yard / kpp / hut props)": "64 cap, ppm=64",
+        "trash_piles": "64 (clumps held in the hand: zone_scale 2x = ~128)",
+        "items_carried (forest_items)": "64 cap, 128 colours",
+        "outdoor_devices / haul gear (cart, sled, drop box, screen)": "128-160 cap (achieved 99.9-128.4)",
+        "desk_devices / parts (fax, laptop, pump, relay)": "256 cap (achieved 255-256)",
+        "hand_gear (headlamp, walkie, batteries, key)": "512 cap (achieved 417.8)",
+        "figure (apparition)": "64",
+        "snow overlays": "auto, ~37-40, 256 px atlas, 16-24 colours",
+        "signs / panels (explicit UV)": "panel atlas tiles: start sign 160x104 px on 0.52x0.34 m = ~307 px/m"
+      },
+      "src": "start_build.py:make_atlas (l.124-130); forest_devices/devices_build.py:DESK_PPM, BOX_PPM (l.31); forest_gear/gear_build.py:SMALL_PPM, HAUL_PPM (l.29); forest_parts/parts_build.py:PARTS_PPM (l.29); snow_kit/snowkit_build.py:PPM (l.32); forest_trash/trash_build.py (l.88); forest_items/items_build.py:SPEC (l.108); generator_shed/gen_build.py (l.80-87); achieved values from */<pack>.json 'atlases'"
+    },
+    "ppm_cap_rule": {"value": "if the atlas would come out finer than ppm_cap, all UV islands are scaled by k = cap / (size*sqrt(fill/area)) and the rest of the atlas stays empty: never finer than the project's pixel", "src": "psxbake.py:prepare_atlas (l.155-160); bld_common.py:prep_atlas (l.225-230)"},
+    "zone_scale": {"value": "per-zone UV scale factor before packing: hidden / underside faces 0.6-0.8 (roof 0.75, car underside 0.6, liner / carpet 0.8, pad 0.75, buried rock faces small); faces seen up close 2.0 (trash clumps)", "src": "psxlib.py:unwrap_group (l.309-321); start_build.py (l.126); forest_rocks/rocks_build.py (l.95); forest_trash/trash_build.py (l.89)"},
+    "atlas_sizes": {
+      "value": {"building / car / rock atlas": 1024, "large buildings (main, garage, far towers)": 2048, "props auto": "256-512", "hand / desk things": 512, "snow": 256, "panel (signs, lenses, glow tiles)": "256 (start) / 512 (gen, kpp, base)", "van gauges": 256, "van lens atlas": 128, "chain-link tile": "64x64 RGBA", "barbed tile": "64x46 RGBA"},
+      "src": "start_build.py (l.124); start_tex.py:N (l.16); gen_tex.py:N (l.17); van2_tex.py:GN, LN (l.16, 23); forest_base/kpp_tex.py:CHAIN_N, BARB_W (l.42-43)"
+    },
+    "auto_size_psxbake": {"value": "size = 2^ceil(log2(sqrt(area/fill)*ppm*0.8)), clamped 256..1024", "src": "psxbake.py:prepare_atlas (l.151-154)"},
+    "auto_size_bld_common": {"value": "smallest power of two (256 up to max 2048) with size*sqrt(0.70/area) >= 0.90*cap; one more doubling if the real fill misses 0.90*cap; then shrink to cap", "src": "bld_common.py:prep_atlas (l.205-230)"},
+    "auto_size_psxlib": {"value": "size = 2^round(log2(sqrt(area/fill)*ppm)), clamped 64..1024 (imported-model path)", "src": "psxlib.py:psx_atlas (l.514-517)"},
+    "oversample": {"value": "bake at 2x the atlas size (psxbake / bld_common), 4x for imported models (psxlib); each output texel = mean of the covered sub-samples", "src": "psxbake.py:prepare_atlas oversample=2 (l.140); psxlib.py:psx_atlas oversample=4 (l.507)"},
+    "texture_files": {"value": "T_<Pack>_<Atlas>_BaseColor.png (RGB, sRGB uint8, no alpha); T_<Pack>_Panel_BaseColor.png + T_<Pack>_Panel_Emission.png; <pack>_panel_regions.json (size, regions px x0,y0,x1,y1 origin top-left); no normal / roughness / metal maps", "src": "psxbake.py:finish_atlas (l.195-196); start_tex.py:build (l.117-120); pack_start.py (l.14-15)"},
+    "filtering": {"value": "Closest (point) on every image node in Blender; Unity: FilterMode.Point, no mipmaps, Uncompressed, sRGB, Clamp, NPOT none", "src": "psxlib.py:psx_material (l.495); psxbake.py:tex_mat (l.231); Snow/Assets/Snow/Editor/StartPropsBuilder.cs (l.67-76)"},
+    "padding": {"value": "texels outside the islands take the colour of the nearest covered texel (scipy distance_transform_edt) - no mip / filter bleeding; Cycles bake margin 0 for data passes, 4 for psxlib colour bakes", "src": "psxbake.py:psx_step (l.134-136); psxlib.py:psx_quantize (l.482-484); psxbake.py:bake_pass margin=0 (l.74); psxlib.py:bake margin=4 (l.395)"},
+    "baked_texel_mask": {"value": "only sub-samples the bake really reached are painted: |len(decoded normal)-1| < 0.1 (an unbaked texel decodes to (-1,-1,-1)); stops dark teeth on oblique island borders", "src": "psxbake.py:prepare_atlas (l.164-168)"},
+    "position_bake_range": {"value": "POS_SCALE 8 (objects within +-4 m), forest_start sets 40 (+-20 m); position stored as pos/POS_SCALE+0.5, normal as n*0.5+0.5, zone as zone/32 in float images", "src": "psxbake.py:POS_SCALE (l.11), data_material (l.34-64); start_build.py (l.28)"}
+  },
+
+  "palette": {
+    "colours_per_atlas": {"value": 64, "exceptions": "forest_items Props 128 ('84 colourful things'); Snow atlases 24 (achieved 16-18)", "src": "psxbake.py:psx_step ncol=64 (l.101); forest_items/items_build.py:SPEC ncol=128 (l.108); generator_shed/gen_build.py ncol=24 (l.87)"},
+    "method": {"value": "k-means in sRGB space (after linear->sRGB), 18 iterations, seed 0, centres initialised from random samples; trained on up to 60000 random covered texels (rng seed 1); one palette per atlas (no global palette)", "src": "psxlib.py:kmeans (l.447-456); psxbake.py:psx_step (l.116-126)"},
+    "priority_zones": {"value": "prio_zones: texels of small vivid parts (trims, tail / head lamps, chrome, red knobs, battery terminals) get 6000 extra samples x3 weight so they claim their own clusters", "src": "psxbake.py:psx_step prio_hi (l.120-125); start_build.py prio_zones (l.127, 130)"},
+    "assignment": {"value": "nearest palette colour (squared RGB distance in sRGB) after adding the dither offset; done in chunks of 65536", "src": "psxbake.py:psx_step (l.129-133)"},
+    "colour_space": {"value": "painters work in linear (lin(r,g,b) = sRGB 0-255 -> linear); quantize in sRGB; output PNG sRGB uint8 (q*255+0.5)", "src": "psxbake.py:lin (l.14-16); psxlib.py:s2l, l2s (l.431-437)"}
+  },
+
+  "dither": {
+    "matrix": {"value": [[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]], "normalised": "(m+0.5)/16", "src": "psxlib.py:BAYER4 (l.10); van2_tex.py:BAYER (l.32)"},
+    "amplitude": {"value": "(bayer-0.5) * (1/24) * dither, dither = 1.0: one step of the PS1 5-bit frame buffer, added in sRGB before the palette pick", "src": "psxbake.py:psx_step (l.129); psxlib.py:psx_quantize (l.477)"},
+    "tiling": {"value": "Bayer tiled in atlas texel space (not screen space)", "src": "psxbake.py:psx_step (l.128)"},
+    "panel_tiles": {"value": "hand-drawn panel / lens / glow tiles quantise gradients to a few levels with the same Bayer: floor(b*levels + bayer)/levels; bulkhead lens 7 levels, flood glass 8 / 9 levels, glow halo 10 levels, van lenses 8 grey steps", "src": "start_tex.py:draw_lenses (l.74-104); gen_tex.py (l.255-264); van2_tex.py:docstring"},
+    "repo_tool_option": {"value": "tools/psx_texture_tool.py offers --dither-mode two (Bayer between the two nearest palette colours, flat areas stay flat) for surfaces seen up close; the Blender library itself always uses the single-offset mode", "src": "tools/psx_texture_tool.py:docstring"}
+  },
+
+  "ao": {
+    "method": {"value": "Cycles AO bake (CPU, 40 samples) on the whole group at its final placement, at 2x atlas resolution; world.light_settings.distance = ao_dist", "src": "psxbake.py:finish_atlas (l.178), bake_pass (l.85-89)"},
+    "into_colour": {"value": "shaded = colour * (ao_min + (1-ao_min)*ao) * (1 - 0.55*groove)", "src": "psxbake.py:psx_step (l.105)"},
+    "ao_min_and_distance_by_class": {
+      "value": {
+        "library default": {"ao_min": 0.25, "ao_dist": 0.35},
+        "buildings, car, booth, containers": {"ao_min": 0.35, "ao_dist": 0.40},
+        "rocks / cliffs": {"ao_min": 0.30, "ao_dist": "per model"},
+        "cave": {"ao_min": 0.35, "ao_dist": 0.45},
+        "world fixtures (cars, barrel)": {"ao_min": 0.42, "ao_dist": 0.25},
+        "props (lamps, tyres, yard / kpp / hut props)": {"ao_min": 0.40, "ao_dist": "0.14-0.20"},
+        "genset machinery": {"ao_min": 0.35, "ao_dist": 0.14},
+        "trash": {"ao_min": 0.35, "ao_dist": 0.12},
+        "items": {"ao_min": 0.42, "ao_dist": 0.045},
+        "desk devices / parts": {"ao_min": "0.42-0.45", "ao_dist": "0.05-0.08"},
+        "hand gear": {"ao_min": 0.45, "ao_dist": 0.03},
+        "outdoor devices / haul": {"ao_min": 0.40, "ao_dist": "0.20-0.25"},
+        "snow": {"ao_min": 0.80, "ao_dist": 0.12}
+      },
+      "rule": "ao_dist scales with the object: ~0.4 m for buildings, a few cm for hand things",
+      "src": "start_build.py (l.124-130); forest_rocks/rocks_build.py (l.95); forest_world/world_build.py (l.149-157); forest_gear/gear_build.py (l.129-133); forest_devices/devices_build.py (l.134-138); forest_parts/parts_build.py (l.129-133); forest_trash/trash_build.py (l.88); forest_items/items_build.py (l.108); generator_shed/gen_build.py (l.80-87)"
+    },
+    "groove_lines": {"value": "AO-derived 1-texel dark lines: line = clip((mean AO of covered sub-samples - min AO) * 2.4, 0, 0.5); colour *= (1-line); none on island borders", "src": "psxbake.py:psx_step (l.109-114)"},
+    "groove_lines_psxlib": {"value": "imported-model path: line = clip((block mean AO - 12th percentile) * 2.6, 0, 0.55)", "src": "psxlib.py:psx_quantize (l.465-467)"},
+    "painted_grooves": {"value": "painters return groove[n] 0..1 for panel lines / seams (noise.groove: 1 - smoothstep(w/2-aa, w/2+aa, d), aa = texel size in metres); typical widths 3-10 mm, weights 0.25-0.8; multiplied into colour by 0.55", "src": "noise.py:groove (l.84-86); psxbake.py:finish_atlas aa (l.184); gen_paint.py (l.62, 77, 122)"},
+    "cavity_edge_masks": {"value": "cav = smoothstep(0.62, 0.30, ao) (dirt in corners); edge = smoothstep(0.86, 0.97, ao) * smoothstep(0.70, 0.88, fbm(P, 60, 2)) (worn convex edges)", "src": "gen_paint.py:_common (l.21-28)"},
+    "painted_light": {"value": "natural surfaces (rocks, trash, world fixtures) additionally: colour *= 0.93 + 0.12*up - 0.12*down (tops lighter, undersides darker)", "src": "forest_rocks/rocks_paint.py (l.77); forest_world/world_paint.py (l.266); forest_trash/trash_paint.py (l.163)"}
+  },
+
+  "wear": {
+    "noise_basis": {"value": "3D Perlin fbm on world position: fbm(p, freq, octaves=3, gain=0.5, lacunarity 2.03), result 0.5 + 1.1*sum/norm clipped 0..1; 12 fixed noise seeds; ss = smoothstep(e0, e1, x) (e0 > e1 inverts)", "src": "noise.py:fbm (l.59-69), GNoise (l.24-56), ss (l.5-7)"},
+    "tone_variation": {"value": "T(c, a=0.20, b=0.14) = c * (0.88 + a*(n_lo-0.5)*2 + b*(n_hi-0.5)); n_lo = fbm(P, 2.2, 3), n_mid = fbm(P, 8.0, 3), n_hi = fbm(P, 40.0, 2)", "src": "gen_paint.py:_T (l.15-18), _common (l.21-28)"},
+    "dirt_in_corners": {"value": "mixc(c, dark of the material, cav * 0.35-0.6) on every material", "src": "gen_paint.py (l.60, 106, 136); start_paint.py (l.100, 132)"},
+    "edge_wear": {"value": "paint edges to bare / dark: mixc(c, base metal or dark, edge * 0.5-0.9); steel edges to RUST: edge*0.7-0.8 + spots ss(0.66-0.72, 0.84-0.86, fbm(30)) * 0.5-0.6, capped 0.8-0.9", "src": "gen_paint.py (l.142, 190, 205); start_paint.py (l.106, 157)"},
+    "dust_on_top": {"value": "DUST lin(118,112,100) by up (= clip(normal.z,0,1)) * 0.25-0.40", "src": "gen_paint.py:DUST (l.12), (l.107, 192); start_paint.py (l.133, 139)"},
+    "needles_and_leaves_on_top": {"value": "_litter: mask = (ss(0.52,0.72,fbm(P,5,3))*0.7 + ss(0.62,0.80,fbm(P,30,1))*0.6) * up * amount; per-cell colour pick (cells 1/53 x 1/47 m): >0.70 LEAF lin(150,96,44), >0.35 NEEDLE_A lin(132,92,46), else NEEDLE_B lin(96,70,40); applied at 0.85-0.95; roof troughs and car scuttle get heavy mats (needles + dark tide marks lin(70,62,52))", "src": "start_paint.py:_litter (l.36-42), (l.64, 150-151, 185-191)"},
+    "moss_near_ground_and_joints": {"value": "MOSS lin(70,86,40), MOSS_D lin(46,58,30), MOSS_L lin(98,112,54): at the wall foot ss(0.40, 0.02, z_above_floor)*ss(0.45,0.70,fbm(12))*0.8; on concrete ss(0.55,0.78,fbm(9))*(0.4+0.6*cav)*0.65; rocks: tops ss(0.45,0.80,up), foot ss(0.40,0.02,z), joints ss(0.58,0.32,ao)*0.7, times per-kind factor 0.55-1.0", "src": "start_paint.py (l.16, 62-63, 81); forest_rocks/rocks_paint.py (l.15, 18-20, 60-67)"},
+    "splash_at_foot": {"value": "dark splash / soil band: mixc(c, lin(56-60,48-50,40-42), ss(0.40-0.45, 0.06-0.10, z) * 0.45-0.55); car mud MUD lin(92,78,60) ss(0.62,0.30,z)*0.85 and MUD_D lin(58,48,38) ss(0.40,0.28,z)*0.6; rocks SOIL lin(76,62,46) ss(0.20,0,z), SOIL_D below ground", "src": "gen_paint.py (l.73); start_paint.py (l.18, 82, 181-182); forest_rocks/rocks_paint.py (l.74-75)"},
+    "streaks": {"value": "vertical runs: streak = ss(0.55, 0.80, fbm(P*(1,1,0.12), 6, 3)) mixed at 0.25-0.45 (darker shade of the paint); roof rust runs ss(0.52-0.58, 0.78-0.82, fbm(P*(1,0.15,0.15), 7, 3)) * 0.75-0.85 (RUST), underside 0.45 (RUST_D); rock water streaks fbm stretch z 0.13, ss(0.60,0.74) * steepness * 0.45", "src": "gen_paint.py (l.42, 115-116); start_paint.py (l.56, 79, 146-147); forest_rocks/rocks_paint.py (l.51-52)"},
+    "weathered_paint": {"value": "faces to the weather fade: weather = 1.0 (normal -y), 0.7 (+x), 0.45 others; mixc(c, FADE, weather*ss(0.30,0.70,n_lo)*0.45); flaked to bare grey wood low down: ss(0.58-0.62, 0.80-0.82, fbm(P*(1,1,0.3),14,3)) * (0.35+0.65*ss(0.6-0.7, 0.10-0.15, z))", "src": "start_paint.py (l.75-78); gen_paint.py (l.70-71)"},
+    "rust_at_fasteners_and_edges": {"value": "sign screws: 3x3 screw, rust pixels (120,64,30) at 0.45 below each screw; car rust at arches / sills / tailgate masked by fbm(22) + bubbles ss(0.80,0.90,fbm(55)); drum rims rust (dark rust lin(70,50,38) on blue paint: 'no purple')", "src": "start_tex.py:draw_sign (l.46-52); start_paint.py (l.171-180); gen_paint.py (l.339)"},
+    "oil_and_grime": {"value": "OIL lin(28,23,18) drips ss(0.58,0.78,fbm(P*(1,1,0.25),9,3)) below z 0.75-1.05 at 0.7 and gaussian puddles under valves / pumps; GRIME lin(64,58,48)", "src": "gen_paint.py:OIL, GRIME (l.12), (l.53-57, 183, 191)"},
+    "trodden_paths": {"value": "gaussian path from the door across floors, mud lin(78,66-72,52-62) at 0.45-0.55", "src": "gen_paint.py (l.58-59); start_paint.py (l.122-123)"},
+    "decal_ageing": {"value": "panel signs: _age = 18-70 random pixels blended 0.18-0.25 towards (110-120, 80-100, 50-70); 260 chipped pixels along the 3 px border towards (86,62,44) at 0.6", "src": "start_tex.py:_age (l.27-32), draw_sign (l.53-66)"},
+    "snow_material": {"value": "snow (236,240,248) * (0.94+0.06 fbm(6)), blue in the AO lin(150,170,200) by ss(0.8,0.3,ao)*0.6, sparkle to white ss(0.86,0.95,fbm(70))*0.5; snow meshes are separate objects with blend shape 'Clear' (100 = no snow), hidden by default", "src": "gen_paint.py:paint_snow (l.401-407); gen_kit.py:snow (l.738-793)"}
+  },
+
+  "colors": {
+    "_note": "sRGB 0-255; painters convert with lin()",
+    "metals_and_grime": {"value": {"OIL": [28, 23, 18], "GRIME": [64, 58, 48], "DUST": [118, 112, 100], "RUST": [120, 62, 30], "RUST_D": [70, 36, 20], "steel black": [36, 36, 36], "galvanised": [146, 150, 148], "galvanised (shed)": [150, 154, 152], "corrugated roof top": [146, 150, 146], "roof underside": [114, 116, 112], "rust pipe": [104, 58, 34]}, "src": "gen_paint.py (l.12, 141-151); start_paint.py (l.145, 156-161)"},
+    "wood_and_concrete": {"value": {"concrete": [132, 130, 124], "concrete dark": [86, 82, 76], "floor concrete": [116, 113, 106], "ply lining": [172, 144, 104], "raw spruce": [142, 112, 76], "door inside boards": [140, 114, 80], "floor boards": [124, 106, 82], "desk": [170, 140, 96], "grey weathered wood": [126, 118, 104]}, "src": "start_paint.py (l.60-61, 99, 112, 121, 131, 136); gen_paint.py (l.71)"},
+    "paints": {"value": {"falu red (shed)": [132, 40, 30], "olive (booth)": [92, 98, 66], "olive fade": [140, 142, 112], "olive worn": [124, 116, 98], "olive streak": [52, 56, 40], "white trim (aged)": [200, 196, 182], "trim grey": [122, 114, 98], "oxblood car": [112, 34, 30], "oxblood fade": [150, 90, 84], "oxblood chalk": [168, 128, 118], "Lister green genset": [70, 102, 66], "drum blue": [38, 70, 122], "drum red": [164, 36, 26], "safety yellow": [222, 182, 32], "tripod yellow": [220, 170, 30]}, "src": "gen_paint.py (l.68, 186, 326, 347); start_paint.py (l.15-17, 21-33)"},
+    "nature": {"value": {"MOSS": [70, 86, 40], "MOSS_D": [46, 58, 30], "MOSS_L": [98, 112, 54], "NEEDLE_A": [132, 92, 46], "NEEDLE_B": [96, 70, 40], "NEEDLE_C": [66, 50, 32], "LEAF": [150, 96, 44], "MUD": [92, 78, 60], "MUD_D": [58, 48, 38], "SOIL": [76, 62, 46], "SOIL_D": [50, 41, 31], "GRANITE": [126, 122, 114], "GRANITE_C": [104, 107, 106], "GRANITE_W": [136, 125, 106], "LICHEN": [160, 166, 140], "LICHEN_O": [178, 128, 60], "snow": [236, 240, 248]}, "src": "start_paint.py (l.16, 18); forest_rocks/rocks_paint.py (l.11-17); gen_paint.py:paint_snow"},
+    "panel_ink": {"value": {"panel background": [16, 16, 16], "INK": [26, 24, 22], "WHITE enamel": [236, 232, 220], "RED": [190, 34, 26], "RED_D": [128, 26, 20], "kpp RED": [196, 36, 26], "PAPER": [224, 218, 196], "PENCIL": [84, 80, 92], "BLUE_PEN": [40, 52, 120], "CREAM plate": [196, 188, 158], "grey steel plate": [128, 132, 128], "YEL": [228, 186, 40], "AMBER": [236, 150, 30], "GREEN": [60, 180, 70]}, "src": "start_tex.py (l.19-20); forest_base/kpp_tex.py (l.37-39); gen_tex.py (l.54-57)"},
+    "gauge_colours": {"value": {"BG": [10, 10, 10], "FACE": [16, 16, 16], "WHITE": [236, 236, 230], "GREY": [150, 150, 146], "RED": [220, 40, 30], "GREEN": [40, 190, 70], "AMBER": [240, 160, 30], "BLUE": [60, 110, 220], "LCD_BG": [22, 40, 24], "LCD_ON": [90, 230, 110]}, "src": "van2_tex.py (l.41-45)"},
+    "lamp_tints": {"value": {"indicator amber": [236, 150, 30], "indicator red": [210, 36, 24], "indicator green": [60, 200, 80], "indicator white": [236, 232, 210], "bulkhead dome": [230, 224, 200], "flood emission": [255, 236, 196], "glow warm": [255, 190, 110], "glow white": [255, 236, 200], "van head": [226, 229, 232], "van amber": [232, 138, 30], "van tail red": [192, 26, 20]}, "src": "gen_tex.py:LAMP (l.58); start_tex.py (l.76, 94, 98); van2_tex.py:TINT (l.28-31)"},
+    "draft_colours": {"value": "every pack keeps DRAFT_COL {zone: sRGB} = the painters' base colours for --draft builds (flat zone materials, roughness 0.75)", "src": "start_paint.py:DRAFT_COL (l.21-33); start_build.py --draft (l.96-122)"}
+  },
+
+  "materials": {
+    "atlas_material_blender": {"value": "Principled BSDF; Base Color = image (interpolation Closest) through a UV Map node 'PSX'; Roughness 0.8 default (buildings 0.85, props 0.7-0.8, hand things 0.55-0.6, rocks 0.9); Metallic 0; Specular IOR Level 0.25; no normal / roughness maps", "src": "psxlib.py:psx_material (l.488-504); psxbake.py:finish_atlas rough (l.197)"},
+    "flatten_bsdf": {"value": "imported models: Coat, Sheen, Transmission, Anisotropic, Subsurface = 0, Specular IOR Level 0.3 ('PS1 surfaces are plain diffuse with a weak highlight')", "src": "psxlib.py:flatten_bsdf (l.734-745)"},
+    "panel_and_lens_material": {"value": "tex_mat(name, base, emission, night_emit): Base Color + Emission Color images (Closest, UV 'PSX'), Emission Strength 0 in the file, custom prop night_emit = strength when lit; roughness 0.35 default (panel 0.55-0.6, lenses 0.2); Specular IOR Level 0.35", "src": "psxbake.py:tex_mat (l.220-239)"},
+    "glow_material": {"value": "M_<Pack>_Glow: Emission (panel emission image, Closest) + Transparent BSDF via Add Shader, strength 0 in the file, night_emit 2.0, custom prop blend='additive', surface_render_method BLENDED, object visible_shadow False", "src": "start_build.py (l.141-165, 180)"},
+    "glass_material": {"value": "psx_glass: flat tint, Roughness 0.5, Specular 0.12, Alpha 0.42 default, BLENDED; optional warm glow (1.0,0.62,0.30). Tints used: booth (0.12,0.13,0.12) a0.45; dirty car (0.17,0.16,0.13) a0.62; world cars (0.34,0.38,0.36) a0.55; devices (0.10,0.10,0.11) a0.50; main clear (0.10,0.12,0.13) a0.30, dark (0.02,0.022,0.025) a0.85; sodium lamp glass (0.80,0.82,0.80) a0.22", "src": "psxlib.py:psx_glass (l.748-765); start_build.py (l.166-167); forest_*/*_build.py psx_glass calls"},
+    "cutouts": {"value": "chain-link / barbed / razor: alpha cut-out 0.5, tiled 0.5 m; fences: one-sided, each quad as two faces 2.4 mm apart facing out, mips with Preserve Coverage", "src": "forest_fences/fences_contract.json meta.materials; forest_base/kpp_tex.py docstring"},
+    "material_names": {"value": "M_<Pack>_<Atlas> (baked), M_<Pack>_Panel, M_<Pack>_Lamp_<Kind> + M_<Pack>_Lamp_<Kind>_Off (off variants use_fake_user), M_<Pack>_Glow, M_<Pack>_Glass / _GlassDirty; packs replacing Update 3 objects keep Update 3's named materials (M_Lamp_SodiumOff, M_LEDOff, M_ScreenOff, M_GlassDirty ...) because the game swaps them by name", "src": "start_build.py (l.124-167); forest_garage/garage_contract.json meta.materials; bld_common.py:u3_mat (l.346-366)"},
+    "urp_mapping": {"value": {"atlas / panel / lens": "URP/Lit, Specular workflow flag 1, Opaque, _BaseMap = atlas, _BaseColor white, _Smoothness 0, _Metallic 0, no normal map, _SPECULARHIGHLIGHTS_OFF, _ENVIRONMENTREFLECTIONS_OFF, cull back, receive shadows; emissive: _EMISSION on, _EmissionColor = (emit,emit,emit).gamma, _EmissionMap = panel emission, RealtimeEmissive, ShadowCaster pass off", "glass": "URP/Lit transparent, SrcAlpha/OneMinusSrcAlpha, ZWrite 0, Cull off, no shadows", "glow": "URP/Unlit, Surface transparent, Blend additive (SrcAlpha/One), ZWrite 0, Cull off, queue Transparent+10, _BaseColor = gain"}, "src": "Snow/Assets/Snow/Editor/StartPropsBuilder.cs:Lit, Glass, Glow (l.125-206)"},
+    "building_sign_glow": {"value": "building packs' sign panels are lit: emission = albedo at 0.06 (retroreflective, Update 3's M_ObsSigns); prop packs' panels 0.0", "src": "forest_base/*_build.py tex_mat(... 0.06); forest_base/base_contract.json meta.materials"},
+    "light_mask": {"value": "lightMask per object = 1 << room layer (Exterior layer 1 -> 2); building packs write it per part", "src": "forest_main/main_contract.json meta.light_layers; forest_garage/garage_contract.json"}
+  },
+
+  "geometry": {
+    "construction": {"value": "procedural bmesh via KB: poly, box / box_m, tube (parallel transport), cyl (optional taper r2), strip (rect section swept), lathe (profile revolved), loft (rings), slab (thin sheet), superdome (lens), quad_uv / disc_uv (explicit-UV faces). Every face gets float 'zone'; explicit-UV faces use zone ZERO=0.0", "src": "van2_kit.py:KB (l.35-253)"},
+    "segment_counts": {"value": {"tube default": 8, "cyl default": 10, "lathe default": 12, "disc_uv default": 14, "rrect corner": "3 segments", "bulkhead lathe / dome": 12, "barn light shade": 14, "wheel": 20, "round headlamp": 20, "round lamp": 16, "conduit": 6, "small pins / hinges / bolts": "6-8", "wires / cage bars": "4-5"}, "src": "van2_kit.py:KB.tube/cyl/lathe/disc_uv (l.73-175), rrect (l.315); gen_kit.py (l.256, 678-687, 712); van3_mech.py:wheel_mesh (l.884)"},
+    "bevels": {"value": "no Blender bevel modifier; edges modelled: rbox rounded edges r 0.01 m + chamfered ends 0.006 m; lamp bezels with chamfer 0.005; rrect corners; corrugation, boards, rivets, cracks, fins are texture only ('corrugation is in the texture')", "src": "van3_mech.py:rbox (l.42-56); van2_kit.py:rect_lamp (l.327); gen_kit.py (l.366)"},
+    "shading_normals": {"value": "hard-surface models flat-shaded (bmesh faces default flat, FBX mesh_smooth_type 'FACE', Unity importNormals Import); exceptions: rocks smooth + set_sharp_from_angle 38 deg; cave rock faces smooth ('the AO and the light follow the rock, not its facets')", "src": "van2_kit.py:KB.to_object (l.241-253); tools/forest_start/export_fbx.py (l.58); forest_rocks/rocks_build.py (l.46-47); forest_world/world_kit.py (l.786)"},
+    "orientation": {"value": "faces wound by an 'out' vector (Newell normal); box6 sorts lo/hi; obox flips a left-handed frame; lens objects face out by majority vote; Unity culls back faces so every lit face must face the viewer", "src": "gen_kit.py:face, newell, box6 (l.122-156); van3_mech.py:obox (l.59-66); bld_common.py:face_out (l.41-53)"},
+    "ngons": {"value": "faces with more than 4 verts triangulated (BEAUTY / BEAUTY)", "src": "start_kit.py:triangulate_ngons (l.49-52)"},
+    "welding": {"value": "remove_doubles dist 1e-4 m on every non-joined KB (except no_weld zones)", "src": "bld_common.py:prepare_kbs (l.64-74); start_build.py (l.81)"},
+    "coplanar": {"value": "overlapping same-facing coplanar faces (normal dot > 0.999, plane within 1 mm) are lifted 0.8 mm per layer, largest face stays", "src": "bld_common.py:separate_coplanar push=0.0008 (l.112-170)"},
+    "decal_offsets": {"value": "sign / plate quads 3 mm off the wall; lens quads 1 mm proud of the housing face (housing face +2 mm); halo cards 1-4.5 cm in front of the lens", "src": "gen_kit.py:signs (l.726-733); van2_kit.py:lamp_box (l.292-298); start_kit.py:booth_lamp (l.327-329)"},
+    "glass": {"value": "each pane twice back to back (or two faces 1 mm apart): glass is seen from both sides", "src": "bld_common.py:double_glass (l.56-61); gen_kit.py:shed_shell window (l.336-340)"},
+    "detail_rule": {"value": "everything a real object has that opens, moves or comes off is its own object with its pivot at the hinge / axis; lamps: housing with bevelled bezel and gasket, lens with a crown or dome (never a flat sticker), a mount for every lamp, one lens object per lamp", "src": "van3_mech.py:docstring; van2_kit.py (l.302-304)"},
+    "tri_counts_observed": {"value": {"booth 2x2 m": 1202, "estate car": 3740, "tripod light": 852, "tyre stack": 896, "rubbish heap": 679, "shift car": 4816, "wreck car": 3728, "fire barrel": 1062, "generator shed total": 24221, "hand items": "170-780 (battery 170, headlamp 700, walkie 420)", "cart / sled": "1530-2172", "forest_items 83 models": 25487, "rocks 12 models": 5942}, "note": "no explicit budget in code; these are the delivered numbers", "src": "forest_start/start.json tris_by_root; forest_world/world.json; forest_gear/gear.json; docs/gdd/ITEMS_CONTRACT.md:112"},
+    "units_ground": {"value": "metres; origin on the ground z = 0; foot of terrain props sinks into the ground (rocks BURY, booth pad 0.30 m below ground)", "src": "start_kit.py:PAD_Z0 (l.78); forest_rocks/rocks_kit.py:docstring"}
+  },
+
+  "uv": {
+    "uv_map": {"value": "single UV map named 'PSX'; every other UV map removed before save; active + active_render", "src": "van2_kit.py:KB.__init__ (l.41); start_build.py (l.339-344); bld_common.py:psx_uv_only (l.427-434)"},
+    "unwrap": {"value": "Smart UV Project, angle 62 deg (psxbake), 50 (bld_common), 60 (psxlib); area_weight 0, correct_aspect, no scale_to_bounds; yard tanks 30, trafo 40", "src": "psxbake.py:prepare_atlas (l.140); bld_common.py:prep_atlas (l.205); psxlib.py:unwrap_group (l.307); forest_yard/yard_build.py (l.191-195)"},
+    "pack": {"value": "pack_islands rotate ANY, scale, CONCAVE shape, margin FRACTION; bld_common additionally shelf-repacks island bounding boxes (uvpack.repack, margin 2.2 px) and keeps the better fill; unwrap_fast uses AXIS_ALIGNED + AABB for thousands of islands", "src": "psxlib.py:unwrap_group (l.328-333); uvpack.py:repack; unwrap_fast.py"},
+    "padding_margin": {"value": "~2 texels between islands: margin = max(0.002, 2.2/size) with a ppm_cap (1.5/size without); margin_px for many thin islands (yard trafo 1.8)", "src": "psxbake.py:prepare_atlas (l.145-147)"},
+    "texel_uniformity": {"value": "uniform texel density inside an atlas (smart project with area-proportional packing); deliberate exceptions only via zone_scale", "src": "psxlib.py:unwrap_group"},
+    "explicit_uv_regions": {"value": "panel / lens / glow faces get explicit UVs from pixel rects with a half-texel inset: u0 = (x0+0.5)/n, v0 = 1-(y1-0.5)/n, u1 = (x1-0.5)/n, v1 = 1-(y0+0.5)/n; lathe lenses use cylindrical UVs within 0.05..0.95 of the rect width", "src": "van2_tex.py:uv (l.35-38); start_kit.py:lathe_uv (l.55-68)"},
+    "pixel_snapping": {"value": "no UV pixel snapping in the bake path (islands at fractional positions); hard pixel edges come from point filter + 2x oversample averaging; panel art itself is drawn on integer pixels", "src": "psxbake.py; pxfont.py:text (l.111-121)"}
+  },
+
+  "naming": {
+    "objects": {"value": {"<Root>": "prefab root (StartBooth, StartCar ...), origin on the ground", "IX_<Name>": "interactable that moves (doors, lids, hatches); no numbers in prop packs - Unity numbers them on placement; building packs keep Update 3's numbers (IX_HatchLid_94)", "COL_<Name>": "BoxCollider reference (collection Colliders, hidden, not in FBX)", "COLM_<Name>": "MeshCollider (cave)", "HIT_<Name>": "trigger of removable ice", "LIGHT_<Name>": "empty: +Z = beam, +Y = up (Unity light frame); light comes from the lights json", "Lamp_<Name>": "lamp housing part (parent of lens and glow)", "Lens_<Name>": "lens object, material swapped lit / _Off", "Glow_<Name>": "additive halo card, shown when lit", "Item_<Name>": "carried thing (catalogue key); its parts / sockets start with the name without Item_", "Kit_<Name>": "snow_kit instance", "Sign_<Name>": "sign board", "Snow_<Name>": "snow overlay with blend shape Clear", "R_<Room>": "room mesh in a building", "FX_<Name>": "fixture in a building", "BAKE_PROXY": "temporary joined bake copy"}, "src": "start_build.py:meta.ix (l.327); start_build.py (l.222-277); docs/gdd/WORLD_CONTRACT.md:10-11; forest_gear/gear_contract.json meta.names; forest_main/main_contract.json meta.hierarchy; bld_common.py:proxy"},
+    "sockets": {"value": {"Hand_": "hand", "Slot_": "slot / item_slot / kit_slot (things go here)", "Spot_": "item_slot (where an item lies)", "Nail_": "item_slot (hangs here)", "Knock_": "knock (something knocks / scratches from outside)", "Audio_ / Speaker / Mic": "audio", "VFX_ / Nozzle_": "vfx", "Hide_": "hide (player hides here)", "Seat_": "seat", "Ladder_": "climb", "Read_": "read (a gauge / thermometer)", "View_": "view (first look)", "Heat_": "heat", "Pour_ / Fill_": "pour / fill", "Wire_ / Drop_ / Bare_": "wire", "Mount_": "mount", "Tie_": "tie", "Cargo_": "cargo", "Wear_": "wear", "Plug_ / Outlet_": "plug / item_slot", "Light_": "light (non-lamp light such as fire)", "CAM_": "camera", "Tip_ / Antenna_": "point", "Line_ / Feed_": "item_slot (overhead line ends)"}, "src": "aggregated from source/assets/*/*_contract.json sockets"},
+    "part_kinds": {"value": ["static", "hinge", "slide", "item", "twist", "scale", "spin", "stretch"], "meaning": "hinge = rotate about axis through pivot; twist = rotate then may come off; slide = along axis in metres; item = carried; spin = free rotation; stretch / scale = scale along axis", "src": "gen_kit.py:part (l.100-107)"},
+    "files": {"value": "<pack>.blend, <pack>_contract.json, <pack>_lights.json, <pack>.json (stats), <PACK>_CONTRACT.md, <pack>_A.jpg sheet, renders/*.png, tex/T_*.png, src/", "src": "pack_start.py; forest_start/DONE.txt"}
+  },
+
+  "pivots_axes": {
+    "blender_frame": {"value": "each root in its own frame: z up, the front -y, metres, origin on the ground (z = 0) at the middle of its footprint", "src": "start_build.py:meta.frame (l.310-314); start_kit.py:docstring"},
+    "to_unity": {"value": "position / axis (x, y, z) -> Unity (-x, z, -y); angle -> -angle (Unity left-handed); box size (sx, sy, sz) -> (sx, sz, sy); the root's front (-y) becomes the prefab's +Z; rotationUnity = (rx, -rz, ry)", "src": "start_build.py:to_unity (l.49-51), meta.unity (l.315-316), colliders (l.276)"},
+    "hinge_sign": {"value": "hinge axes right-handed, +angle opens; tools/kit/make_unity_data.py negates hinge axes for SkyIslandInteractable (turns by +angle); slides and spins keep the converted axis", "src": "forest_base/base_contract.json meta.axes; tools/kit/make_unity_data.py:docstring"},
+    "object_origin": {"value": "every object's origin = its contract pivot (mesh translated by -pivot, location = pivot); parents attached keeping world transforms", "src": "van2_kit.py:KB.to_object (l.249-251); start_build.py:attach (l.190-195)"},
+    "display_offset": {"value": "in the .blend the roots stand apart (DISPLAY offsets); the contract gives everything in each root's own frame; FBX exported with the root at the origin", "src": "start_kit.py:DISPLAY (l.28-29); start_build.py (l.80-84)"},
+    "vehicle_frame_legacy": {"value": "van / imported vehicles: x forward, y left, z up (psxlib.normalise bakes transforms, ground z = 0)", "src": "psxlib.py:normalise (l.158-194); van2_kit.py:docstring"}
+  },
+
+  "export": {
+    "fbx": {"value": {"tool": "tools/forest_start/export_fbx.py (repo side; the Blender chat delivers .blend only)", "selection": "per root: root + descendant meshes, COL_ and LIGHT_ left out, deeper meshes lifted to direct children of the root, Lens_ / Glow_ kept as separate objects, door glass joined into its door", "object_types": "MESH", "global_scale": 1.0, "apply_unit_scale": true, "apply_scale_options": "FBX_SCALE_ALL", "axis_forward": "-Z", "axis_up": "Y", "bake_space_transform": true, "use_mesh_modifiers": true, "mesh_smooth_type": "FACE", "use_tspace": false, "use_triangles": false, "use_custom_props": false, "colors_type": "NONE", "add_leaf_bones": false, "bake_anim": false, "path_mode": "STRIP", "embed_textures": false}, "src": "tools/forest_start/export_fbx.py:export_root (l.16-61); tools/kit/export_fbx.py (l.111-117)"},
+    "unity_import": {"value": "ModelImporter globalScale 1, useFileScale, importNormals Import, importTangents None, no colliders / animation / cameras / lights, materials remapped to the builder's URP materials", "src": "Snow/Assets/Snow/Editor/StartPropsBuilder.cs:SetupModel (l.208-224)"},
+    "blend_cleanup_before_save": {"value": "only the PSX UV map left; 'zone' attribute removed (kept in --draft); COL_ hidden; images relinked to //tex/<name> relative paths; no linked libraries", "src": "start_build.py (l.330-348); pack_start.py (l.17-29)"}
+  },
+
+  "contracts": {
+    "contract_json": {"value": {"parts": "{name: {kind, pivot, axis, range, unit ('deg' | 'm'), rest, parent, states[], note, object, root, box{center,size} (moving parts), pivotUnity, axisUnity, + optional links{from,ratio}, blendshape, default, locked, removable, mass_kg, lightMask, materials, lamp_kind}}", "sockets": "{name: {pos, kind, parent, root, note, dir, posUnity, dirUnity, + optional up, item, eye, facing}}", "colliders": "[{name COL_*, parent, root, type 'box', center, size (parent frame), center_root, centerUnity, sizeUnity, rotation, rotationUnity}]", "meta": "{version, units 'metres, degrees', frame, unity, display_offset, colliders, lamps, model, textures, materials, ix, names, hierarchy, light_layers, mass}"}, "numbers": "rounded to 4 decimals, -0.0 normalised to 0.0", "src": "gen_kit.py:part, socket, r4 (l.96-114); start_build.py (l.198-337)"},
+    "every_object_has_entry": {"value": "build asserts every KB has a contract part", "src": "start_build.py (l.70-71)"},
+    "lights_json": {"value": "{note, lights:[{socket LIGHT_*, root, lens, glow, parent, type, unityLight Point|Spot, position, forward, up, positionUnity, forwardUnity, upUnity, intensityURP, kelvin, colorLinear, range, group, shadows false, desc, startsOn false, spotAngle}]}", "src": "start_build.py (l.235-248)"},
+    "stats_json": {"value": "<pack>.json: atlases {size, ppm, area_m2, uv_fill, colours}, tris, tris_by_root, objects, display_offset, contract counts", "src": "start_build.py (l.298-347); psxbake.py:finish_atlas rec (l.202-203)"},
+    "doc": {"value": "<PACK>_CONTRACT.md in Russian (copied to docs/gdd/), version + date, coordinates given in Unity values", "src": "docs/gdd/*_CONTRACT.md"}
+  },
+
+  "lettering": {
+    "fonts": {"value": {"F35": "3x5 px glyphs, advance 4 (M N W are 5 wide), smallest legible", "F57": "5x7 px, advance 6, main font"}, "rules": "hand-made bitmap fonts, capitals + digits + signs only (text upper-cased), 1 px spacing, integer scale (scale=2 for headings), hard edges - no anti-aliasing anywhere, positions rounded to whole pixels", "src": "pxfont.py:docstring, _F35, _F57, F35/F57 (l.71-72), text_mask (l.78-91), text (l.111-121)"},
+    "umlauts": {"value": "Ä Ö Ü patched into both fonts at import (the two dots replace the glyph's top row); lower-case k, m, t patched for 'km', '7,5 t'", "src": "forest_base/kpp_tex.py (l.28-33); forest_base/road_tex.py (l.30)"},
+    "language_rule": {"value": "wall signs: German first (larger, F57, often scale 2), English under it (F35 or F57); equipment labels in English; goods and the guards' / forester's own papers in German", "src": "forest_base/main_tex.py:_two (l.83-94); forest_base/kpp_tex.py:docstring (l.14); docs/gdd/DEVICES_CONTRACT.md:11; docs/gdd/GEAR_CONTRACT.md:11"},
+    "sign_example_start": {"value": "ZUFAHRT (F57 x2, INK) / SPERRGEBIET (F57 x2, RED) / grey rule / RESTRICTED AREA / ACCESS (F57 x1, INK) / UNBEFUGTEN ZUTRITT VERBOTEN (F35, RED_D); white enamel (236,232,220), 3 px red border inset 2 px, 4 screws with rust, chipped edges; 160x104 px on a 0.52x0.34 m plate", "src": "start_tex.py:draw_sign (l.35-66)"},
+    "plates": {"value": "_plate: fill + 1 px light frame + 1 px dark bottom / right edge (bevel look)", "src": "gen_tex.py:_plate (l.65-70)"},
+    "gauges": {"value": "dial(): hard-edged ticks, F35 numerals, coloured arcs, title below the hub, sweep -120..120 (small gauges -60..60); emission map = night backlight", "src": "van2_tex.py:dial (l.49); gen_tex.py:build (l.85-96)"},
+    "panel_layout": {"value": "panel atlas background (16,16,16); REG dict of pixel rects; panel-local metres -> pixels so printed labels sit where the 3D controls are", "src": "gen_tex.py:REG, GPANEL, _p (l.18-77)"}
+  },
+
+  "lamps": {
+    "structure": {"value": "Lamp_<X> (housing, static, in the atlas) > Lens_<X> (explicit-UV lens on the panel atlas, own material lit / _Off) + Glow_<X> (additive halo cards, unlit, no shadow) + LIGHT_<X> empty", "src": "start_kit.py:booth_lamp (l.306-331); start_build.py (l.214-249)"},
+    "lens_tiles": {"value": "base colour = dark version of the lit look (bulkhead tile * 0.50, shed 0.55; indicator off = lit*0.38 with a 0.6 highlight disc), emission map = lit look; radial falloff 1-0.55r quantised with Bayer; cage bars as 1 px dark columns every 8 px (base (40,40,40), emission (60,58,50)); flood glass: prism ribs every 4 px, halogen tube line", "src": "start_tex.py:draw_lenses (l.69-97); gen_tex.py (l.247-268)"},
+    "glow_tiles": {"value": "emission only, base black; g = (1-r)^1.6 quantised to 10 levels with Bayer, cut at r > 0.97; cards 0.5x0.5 m (bulkhead) + a 0.32x0.5 m card under the eave, 0.80x0.56 m (flood)", "src": "start_tex.py (l.98-107); start_kit.py (l.327-329, 771)"},
+    "emission_strengths": {"value": {"lens night_emit": "3.0 (bulkhead, fluor, lantern, oil lamp), 4.0 (flood)", "glow": 2.0, "LCD": 1.0, "building sign panels": 0.06, "prop panels": 0.0, "in the file": "all off (Emission Strength 0, _Off materials kept with fake user)"}, "src": "start_build.py (l.133-160); forest_kpp/kpp_build.py (l.188); forest_hut/hut_build.py (l.195); forest_gear/gear_build.py (l.170)"},
+    "light_types_new": {"value": {"bulkhead": {"unity": "Point", "intensityURP": 1.0, "range": 8.0, "kelvin": 2700, "colorLinear": [1.0, 0.72, 0.42], "group": "post"}, "flood": {"unity": "Spot", "intensityURP": 6.0, "range": 18.0, "kelvin": 3200, "colorLinear": [1.0, 0.86, 0.66], "spotAngle": 100, "group": "battery"}, "fire (world)": "Point (1.0,0.55,0.22) linear, range 9 m, flicker 0.75-1.0 at 6-10 Hz"}, "src": "start_build.py:LIGHT_TYPES (l.54-60); forest_world/world_contract.json Light_Fire"},
+    "light_types_van_lights": {"value": "older building packs: van_lights.py single source (emission diagram -> IES LM-63, Unity cookie, lens glow); intensities URP units E = I/d^2, calibrated so snow under a lamp reads 0.2..1; kpp fluor Point 0.45 / 6000 K / 6.5 m (flicker min 0.08 max 1.0 speed 5), bulkhead 1.0 / 2700 K / 9 m; hut storm lantern 0.9 / 1900 K / 11 m, oil lamp 0.7 / 2000 K / 7 m", "src": "forest_kpp/van_lights.py:docstring; forest_kpp/kpp_build.py (l.76-86); forest_hut/hut_build.py (l.81-85)"}
+  },
+
+  "render_sheets": {
+    "quick_views": {"value": "Workbench, STUDIO light, colour TEXTURE (MATERIAL for drafts), cavity BOTH, image nodes forced Closest, COL_ / Glow_ hidden, 60 m ground plane, lens 16-35", "src": "start_quick.py"},
+    "cycles_previews": {"value": "1100x700, 24 spp, denoise, max_bounces 4, view transform Standard, look None; day: world (0.56,0.62,0.72) strength 0.85, sun 3.0 at (52, 0, 35) deg, angle 3 deg; night: world (0.010,0.012,0.020) 0.6, no sun, Blender lights 120 W point / 900 W spot (blend 0.4, soft size 0.06) parented to LIGHT_ empties, lenses switched to lit materials with night_emit, glow 2.0; ground (0.055,0.050,0.038) rough 0.95; booth_in exposure 1.2", "src": "start_render.py; psxlib.py:setup_cycles (l.577-587)"},
+    "views": {"value": "per prefab day views from 3/4 front and rear (lens 30), an interior view (lens 16) with doors opened, a props group view, one night view with roots rearranged", "src": "start_render.py:VIEWS (l.131-140)"},
+    "bloom_post": {"value": "EXR -> PNG with URP-like bloom: threshold 1, knee 0.5, intensity 0.25, scatter 0.7 (7 gaussian levels), clamp 40, sRGB", "src": "post_bloom.py"},
+    "sheet": {"value": "2 columns x 3 rows of 1100x700 renders, 10 px padding, 34 px caption strip, background (24,24,26), title DejaVuSans-Bold 22, captions DejaVuSans 17 in Russian naming the IX_ / Slot_ parts, JPEG quality 90, file <pack>_A.jpg", "src": "start_sheet.py"}
+  },
+
+  "checks": {
+    "inline_in_build": {"value": ["every KB has a contract part (assert)", "non-static parts get a grab box (min 4 mm)", "atlas stats: size, real ppm, uv_fill, colour count logged", "packager asserts every image resolves inside the package and no linked libraries"], "src": "start_build.py (l.70-71, 281-287); psxbake.py:finish_atlas (l.201-206); pack_start.py (l.27-28)"},
+    "check_scripts": {"value": {"backfaces": "rays from rings of eye points (0.9 / 1.6 m inside; 1.7 / 4 / 9 m outside, and above): the first hit must face the eye (Unity culls backs); glass and cut-outs two-sided by design", "coplanar / zfight": "overlapping same-facing coplanar faces left in one mesh (z-fighting and black AO patches in the bake)", "inverted": "islands with negative signed volume", "floating / islands": "every connected island group reaches the ground or touches another (tol 0.03 m, touch 0.012 m)", "sweep": "every moving part swung through its range: new BVH triangle overlaps vs rest", "walk": "capsule r 0.34 m, h 1.80 m, step 0.35 m flood fill per floor with the contract colliders", "uv_range": "atlas UVs inside 0..1", "lens_points": "light / halo point against the lens faces", "label_check": "every printed (panel) face visible, the body does not poke through", "verify_pkg": "clean unzip: images resolve, contract agrees with the blend (objects, pivots, colliders), docs / sheets / sources present", "fbx round-trip": "re-import every FBX: bounds and pivots within 1 mm"}, "src": "forest_base/src/checks/chk_common.py, base_checks.py; forest_yard/src/checks/coplanar.py, inverted.py, sweep.py, walk.py, verify_yard_pkg.py; forest_garage/src/checks/backfaces.py; forest_items/src/checks/label_check.py; generator_shed/src/checks/islands.py, zfight.py; docs/gdd/FENCES_CONTRACT.md:93"},
+    "note": {"value": "packs after 23.10 (start, rocks, trash, devices, gear, parts, world) ship no checks/ folder; the newest check code is in forest_base / forest_yard / forest_hut", "src": "find source/assets -name checks"}
+  },
+
+  "pipeline_order": {
+    "value": [
+      "1. bpy.ops.wm.read_factory_settings(use_empty=True); drop collections (start_build.py l.62-64)",
+      "2. <pack>_tex.build(TEX): draw the panel atlas in numpy with pxfont (signs, labels, lens tiles, glow tiles) -> T_<Pack>_Panel_BaseColor.png / _Emission.png + regions json (start_tex.py:build)",
+      "3. <pack>_kit.build_*(): KBs per object (zones, explicit-UV faces for panel / lens / glow / glass), part() / socket() into CONTRACT, colliders into BOXES, lamps into LAMPS (start_kit.py; gen_kit.py:kb, part, socket)",
+      "4. assert every KB has a contract part; (buildings: bld_common.prepare_kbs = lens face_out, double glass, weld 1e-4; separate_coplanar 0.8 mm)",
+      "5. KB.to_object(name, coll, pivot): origin at the pivot, roots in their own collections at DISPLAY offsets (van2_kit.py:to_object)",
+      "6. group objects by ATLAS name; per group psxbake.make_atlas(name, objs, painter, TEX, prefix, mat_prefix, size, ppm, ao_min, ao_dist, rough, ppm_cap, zone_scale, prio_zones) = prepare_atlas (smart-project 62 deg + pack, ppm_cap shrink, bake pos / nor / zone at 2x) -> finish_atlas (AO bake 40 spp -> painter(Pp, Nn, Z, ao, aa) -> psx_step: AO in colour, grooves, 64-colour k-means, Bayer 4x4 1/24, nearest-texel padding -> PNG -> point-filtered material). Buildings: bld_common.bake_groups through one joined BAKE_PROXY, size by the 0.90*cap rule, shelf repack. --draft: flat DRAFT_COL zone materials",
+      "7. explicit materials: M_<Pack>_Panel (tex_mat), lens lit / _Off pairs (night_emit), M_<Pack>_Glow (additive), glass (psx_glass); buildings: join_all decal / glass / lens objects into their owners as extra materials",
+      "8. hierarchy: attach children keeping world transforms; part.object / part.root",
+      "9. LIGHT_ empties (+Z beam, +Y up) parented to Lamp_*, <pack>_lights.json",
+      "10. COL_ box objects (Colliders collection, hidden, not exported) + contract colliders with Unity values",
+      "11. part boxes for moving parts; pivotUnity / axisUnity / posUnity / dirUnity; meta; tris stats",
+      "12. remove non-PSX UV maps and the 'zone' attribute; save out/<pack>.blend, <pack>.json, <pack>_contract.json",
+      "13. <pack>_quick.py (Workbench checks) -> <pack>_render.py (Cycles day / night previews) -> <pack>_sheet.py (<pack>_A.jpg)",
+      "14. pack_<pack>.py: relative //tex/ paths, copy blend / tex / json / doc / sheet / renders, copy the scripts + their import closure (AST) into src/, write README_SRC.txt",
+      "15. repo side: tools/<pack>/export_fbx.py (one FBX per root, -Z forward, Y up, apply transform) -> tools/<pack>/make_unity_data.py (JsonUtility arrays) -> Unity editor builder (StartPropsBuilder.cs: point / no-mip textures, URP Lit / Unlit materials, prefabs, BoxColliders, lights)"
+    ],
+    "src": "start_build.py; pack_start.py; README_SRC.txt; tools/forest_start/export_fbx.py; Snow/Assets/Snow/Editor/StartPropsBuilder.cs"
+  },
+
+  "version_differences": {
+    "value": [
+      "psxbake.py generator_shed (18.10): no ppm_cap, no baked-texel mask (dark teeth on oblique island borders), margin 1.5/size only, no zone_scale / margin_px; container (19.10): no ppm_cap / mask; forest_hut (19.10): no margin_px / custom_uv. Newest = 21.10+ copies.",
+      "psxlib.py generator_shed: unwrap_group without zone_scale / custom; forest_hut: without custom.",
+      "van3_mech.py older copies (hut, yard, generator_*): obox has no left-handed-frame fix (boxes can come out inside out). gen_kit.py older (hut, yard, generator_*): box6 does not sort lo / hi.",
+      "bld_common.py forest_base / far / garage / road: no ncol (always 64); forest_items / fences / figure / gencont: ncol per atlas (items 128).",
+      "uvpack.py forest_garage: slower island scan, same result."
+    ],
+    "src": "diff of source/assets/*/src copies"
+  }
+}
