@@ -24,7 +24,9 @@ namespace Snow.EditorTools
         public const string RootName = "ForestStartDress";
         const string BackupRoot = @"F:\ClaudeGames\snow_archive\backup";
 
-        [Serializable] public class Prop { public string prefab; public float u, v, yaw; }
+        /// <summary>A prop at frame u, v, turned by yaw; <c>part</c> (optional) stands turned by <c>open</c> degrees about its
+        /// hinge (the axis of its SkyIslandInteractable): the barrier's arm raised, static until the post gets its interaction.</summary>
+        [Serializable] public class Prop { public string prefab, part; public float u, v, yaw, open; }
         [Serializable] public class Spot { public float u, v, r; public int n; }
         [Serializable] public class Fuse { public string prefab, on, slot; }
         [Serializable]
@@ -91,7 +93,9 @@ namespace Snow.EditorTools
             int props = 0, clumps = 0, missing = 0;
             foreach (Prop p in _d.props)
             {
-                if (Place(AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab), dress, p.u, p.v, p.yaw, reference) == null) { missing++; continue; }
+                GameObject placed = Place(AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab), dress, p.u, p.v, p.yaw, reference);
+                if (placed == null) { missing++; continue; }
+                if (!string.IsNullOrEmpty(p.part)) Pose(placed.transform, p.part, p.open);
                 props++;
             }
             clumps = PlaceClumps(dress, reference, ref missing);
@@ -449,6 +453,15 @@ namespace Snow.EditorTools
             }
             foreach (Renderer r in go.GetComponentsInChildren<Renderer>(true)) r.renderingLayerMask = 2u;   // the map's lights
             return go;
+        }
+
+        /// <summary>A part turned about its hinge at the rest of its interactable (openAmount stays 0, so the game keeps the pose).</summary>
+        static void Pose(Transform root, string part, float degrees)
+        {
+            Transform t = root.GetComponentsInChildren<Transform>(true).FirstOrDefault(x => x.name == part);
+            if (t == null) { Debug.LogWarning($"[Snow] Forest start dress: part {part} not found in {root.name}."); return; }
+            Vector3 axis = t.TryGetComponent(out SkyIsland.SkyIslandInteractable ix) && ix.axis.sqrMagnitude > 1e-8f ? ix.axis.normalized : Vector3.up;
+            t.localRotation = Quaternion.AngleAxis(degrees, axis) * t.localRotation;
         }
 
         static int PlaceClumps(Transform parent, Transform reference, ref int missing)
