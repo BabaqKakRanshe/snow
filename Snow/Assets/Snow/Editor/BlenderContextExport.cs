@@ -33,7 +33,7 @@ namespace Snow.EditorTools
 
         [Serializable] public class OutMesh { public string id, obj, fbx, mesh; public int vertices, triangles; public string[] materials; }
         [Serializable] public class OutInstance { public string name, path, group, root, prefab, mesh; public string[] materials; public float[] matrix; }
-        [Serializable] public class OutRoot { public string id, name, path, group, prefab, fbx; public float[] unityPosition, unityEuler, unityScale, areaUV, matrix; public string[] sources; }
+        [Serializable] public class OutRoot { public string id, worldId, name, path, group, prefab, fbx; public float[] unityPosition, unityEuler, unityScale, areaUV, matrix; public string[] sources; }
         [Serializable] public class OutLight { public string name, path, type; public bool powered, enabled; public float[] color, matrix; public float intensity, range, spotAngle; }
         [Serializable] public class OutTerrain { public string obj, texture; public float pxPerM; public float[] worldMin, worldMax; }
         [Serializable]
@@ -391,6 +391,7 @@ namespace Snow.EditorTools
             return new OutRoot
             {
                 name = t.name, path = PathOf(t), group = GroupOf(t), prefab = prefab, fbx = fbx,
+                worldId = t.TryGetComponent(out Snow.World.WorldId wid) ? wid.id : "",     // only the object itself: its moves travel back (WorldSync)
                 unityPosition = new[] { t.position.x, t.position.y, t.position.z },
                 unityEuler = new[] { t.eulerAngles.x, t.eulerAngles.y, t.eulerAngles.z },
                 unityScale = new[] { t.lossyScale.x, t.lossyScale.y, t.lossyScale.z },

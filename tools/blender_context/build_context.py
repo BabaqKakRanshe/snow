@@ -103,6 +103,9 @@ def main():
         e['sources'] = '\n'.join(r['sources'])
         e['unity_position'] = r['unityPosition']
         e['unity_euler'] = r['unityEuler']
+        if r.get('worldId'):
+            e['world_id'] = r['worldId']                    # WORLD_SYNC_CONTRACT: export_moves.py carries moves back
+            e['matrix_at_build'] = [v for row in e.matrix_world for v in row]
         col.objects.link(e)
         e['context_id'] = r['id']
         roots[r['id']] = (e, r)
