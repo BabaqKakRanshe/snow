@@ -1,0 +1,588 @@
+{
+ "materials": {
+  "M_World_Cave": {
+   "fake_user": false,
+   "users": 2,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_World_Cave_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.85,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_Embers": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.5776,
+    0.0612,
+    0.007,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.5776,
+    0.0612,
+    0.007,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 4.0,
+   "emission_color": [
+    1.0,
+    0.1559,
+    0.013,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.9,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_Embers_Off": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.013,
+    0.0116,
+    0.0103,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.013,
+    0.0116,
+    0.0103,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.9,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_Fire": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_World_Fire_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": "T_World_Fire_BaseColor.png",
+   "emission_strength": 4.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_World_Fire_BaseColor.png",
+   "metallic": 0.0,
+   "roughness": 0.5,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_Glass": {
+   "fake_user": false,
+   "users": 4,
+   "backface_culling": false,
+   "blend_method": "BLEND",
+   "surface_render_method": "BLENDED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.34,
+    0.38,
+    0.36,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 0.55,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    0.62,
+    0.3,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.5,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_GlassCracked": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "BLEND",
+   "surface_render_method": "BLENDED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_World_GlassCracked_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": "T_World_GlassCracked_BaseColor.png",
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.4,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_Ice": {
+   "fake_user": false,
+   "users": 23,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_World_Ice_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_Panel": {
+   "fake_user": false,
+   "users": 3,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_World_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.7,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_World_World": {
+   "fake_user": false,
+   "users": 11,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_World_World_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.65,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  }
+ },
+ "uv_layers": {
+  "COL_FireBarrel": [
+   "PSX"
+  ],
+  "COL_ShiftCar": [
+   "PSX"
+  ],
+  "COL_ShiftCarDoor": [
+   "PSX"
+  ],
+  "COL_ShiftCarRearDoor": [
+   "PSX"
+  ],
+  "COL_WreckCar": [
+   "PSX"
+  ],
+  "COL_WreckCarBoot": [
+   "PSX"
+  ],
+  "COL_WreckCarDoor": [
+   "PSX"
+  ],
+  "COLM_Cave": [
+   "PSX"
+  ],
+  "FireBarrel": [
+   "PSX"
+  ],
+  "FireBarrel_Flames": [
+   "PSX"
+  ],
+  "FireBarrel_Fuel": [
+   "PSX"
+  ],
+  "FireBarrel_Glow": [
+   "PSX"
+  ],
+  "ForesterCave": [
+   "PSX"
+  ],
+  "ForesterCave_Props": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_1_Bowl": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_1_Feed": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_2_Bowl": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_2_Feed": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_3_Bowl": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_3_Feed": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_4_Bowl": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_4_Feed": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_5_Bowl": [
+   "PSX"
+  ],
+  "HIT_Ice_Dish_5_Feed": [
+   "PSX"
+  ],
+  "HIT_Ice_RelayMast_Drum": [
+   "PSX"
+  ],
+  "HIT_Ice_RelayMast_Panel_1": [
+   "PSX"
+  ],
+  "HIT_Ice_RelayMast_Panel_2": [
+   "PSX"
+  ],
+  "HIT_Ice_RelayMast_Panel_3": [
+   "PSX"
+  ],
+  "HIT_Ice_RoofDish": [
+   "PSX"
+  ],
+  "HIT_Ice_RoofMast_Top": [
+   "PSX"
+  ],
+  "Ice_Dish_1": [
+   "PSX"
+  ],
+  "Ice_Dish_1_Bowl": [
+   "PSX"
+  ],
+  "Ice_Dish_1_Feed": [
+   "PSX"
+  ],
+  "Ice_Dish_2": [
+   "PSX"
+  ],
+  "Ice_Dish_2_Bowl": [
+   "PSX"
+  ],
+  "Ice_Dish_2_Feed": [
+   "PSX"
+  ],
+  "Ice_Dish_3": [
+   "PSX"
+  ],
+  "Ice_Dish_3_Bowl": [
+   "PSX"
+  ],
+  "Ice_Dish_3_Feed": [
+   "PSX"
+  ],
+  "Ice_Dish_4": [
+   "PSX"
+  ],
+  "Ice_Dish_4_Bowl": [
+   "PSX"
+  ],
+  "Ice_Dish_4_Feed": [
+   "PSX"
+  ],
+  "Ice_Dish_5": [
+   "PSX"
+  ],
+  "Ice_Dish_5_Bowl": [
+   "PSX"
+  ],
+  "Ice_Dish_5_Feed": [
+   "PSX"
+  ],
+  "Ice_RelayMast": [
+   "PSX"
+  ],
+  "Ice_RelayMast_Drum": [
+   "PSX"
+  ],
+  "Ice_RelayMast_Panel_1": [
+   "PSX"
+  ],
+  "Ice_RelayMast_Panel_2": [
+   "PSX"
+  ],
+  "Ice_RelayMast_Panel_3": [
+   "PSX"
+  ],
+  "Ice_RoofDish": [
+   "PSX"
+  ],
+  "Ice_RoofMast": [
+   "PSX"
+  ],
+  "Ice_RoofMast_Top": [
+   "PSX"
+  ],
+  "IX_ShiftCarDoor": [
+   "PSX"
+  ],
+  "IX_ShiftCarDoor_Glass": [
+   "PSX"
+  ],
+  "IX_ShiftCarRearDoor": [
+   "PSX"
+  ],
+  "IX_ShiftCarRearDoor_Glass": [
+   "PSX"
+  ],
+  "IX_WreckCarBoot": [
+   "PSX"
+  ],
+  "IX_WreckCarDoor": [
+   "PSX"
+  ],
+  "ShiftCar": [
+   "PSX"
+  ],
+  "ShiftCar_Glass": [
+   "PSX"
+  ],
+  "ShiftCar_Snow": [
+   "PSX"
+  ],
+  "WreckCar": [
+   "PSX"
+  ],
+  "WreckCar_BootSnow": [
+   "PSX"
+  ],
+  "WreckCar_Glass": [
+   "PSX"
+  ],
+  "WreckCar_Snow": [
+   "PSX"
+  ],
+  "WreckCar_Windscreen": [
+   "PSX"
+  ]
+ }
+}

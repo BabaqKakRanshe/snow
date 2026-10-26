@@ -1,0 +1,198 @@
+{
+ "note": "The bunker under the lake (START_BUNKER_LOCATION.txt; user 26.10: site A, the south-west shore of the lake with the hand). Hangar: origin = the floor in the middle of the gate line, its front (+Z) to the north-east over the ice (170 m of ice ahead); floor 0.2 m above the ice (-1.0), so the apron runs down onto it. Entrance: at the ground by the hand, 12 m east of it, the stairs down to the west (to the hangar, as the contract's Link_Shaft). Ground (ForestBunkerStep): the apron cut, earth raised 0.35 m over the hall's and the vestibule's roofs where the bank is lower, Terrain holes over the front of the hall's roof at the facade (the gate) and over the side door's corridor and in the entrance's stairwell, trees cleared on the apron, the facade and around the entrance. The plane: the project's UtilityPlane v12 (no v13 in the project) with the winter kit installed.",
+ "hangar": {
+  "x": -150.0,
+  "y": -0.8,
+  "z": -34.0,
+  "yaw": 40.0
+ },
+ "entrance": {
+  "x": 30.0,
+  "y": 0.0,
+  "z": -44.0,
+  "yaw": 90.0
+ },
+ "plane": "Assets/UtilityPlane/Prefabs/UtilityPlane.prefab",
+ "kitInstalled": true,
+ "dressing": [
+  {
+   "slot": "Slot_Dressing_1",
+   "prefab": "Assets/UtilityPlane/Prefabs/Cargo_Case1.prefab",
+   "yaw": 0.0
+  },
+  {
+   "slot": "Slot_Dressing_2",
+   "prefab": "Assets/UtilityPlane/Prefabs/Cargo_Case2.prefab",
+   "yaw": 0.0
+  },
+  {
+   "slot": "Slot_Dressing_3",
+   "prefab": "Assets/UtilityPlane/Prefabs/StepLadder.prefab",
+   "yaw": 0.0
+  },
+  {
+   "slot": "Slot_Dressing_4",
+   "prefab": "Assets/UtilityPlane/Prefabs/Cargo_Case3.prefab",
+   "yaw": 0.0
+  },
+  {
+   "slot": "Slot_Dressing_5",
+   "prefab": "Assets/UtilityPlane/Prefabs/Cargo_Case4.prefab",
+   "yaw": 0.0
+  }
+ ],
+ "ground": [
+  {
+   "name": "apron cut",
+   "x": -150.0,
+   "z": -34.0,
+   "yaw": 40.0,
+   "rect": [
+    -21,
+    0.2,
+    21,
+    7.0
+   ],
+   "mode": "cut",
+   "y": -1.1,
+   "fade": 2.0,
+   "hole": false,
+   "heights": true,
+   "clearTrees": true,
+   "clearGrass": true
+  },
+  {
+   "name": "holes over the hall roof at the facade (the gate)",
+   "x": -150.0,
+   "z": -34.0,
+   "yaw": 40.0,
+   "rect": [
+    -9.6,
+    -4.0,
+    9.6,
+    0.4
+   ],
+   "mode": "cut",
+   "y": 0.0,
+   "fade": 0.0,
+   "hole": true,
+   "heights": false,
+   "clearTrees": true,
+   "clearGrass": false
+  },
+  {
+   "name": "holes over the side door corridor",
+   "x": -150.0,
+   "z": -34.0,
+   "yaw": 40.0,
+   "rect": [
+    9.0,
+    -3.0,
+    11.6,
+    -1.2
+   ],
+   "mode": "cut",
+   "y": 0.0,
+   "fade": 0.0,
+   "hole": true,
+   "heights": false,
+   "clearTrees": true,
+   "clearGrass": false
+  },
+  {
+   "name": "earth over the hall roof",
+   "x": -150.0,
+   "z": -34.0,
+   "yaw": 40.0,
+   "rect": [
+    -10.2,
+    -16.8,
+    10.2,
+    -3.6
+   ],
+   "mode": "raise",
+   "y": 6.85,
+   "fade": 3.0,
+   "hole": false,
+   "heights": true,
+   "clearTrees": false,
+   "clearGrass": false
+  },
+  {
+   "name": "earth over the vestibule roof",
+   "x": -150.0,
+   "z": -34.0,
+   "yaw": 40.0,
+   "rect": [
+    -3.4,
+    -28.0,
+    3.4,
+    -16.4
+   ],
+   "mode": "raise",
+   "y": 4.7,
+   "fade": 2.0,
+   "hole": false,
+   "heights": true,
+   "clearTrees": false,
+   "clearGrass": false
+  },
+  {
+   "name": "trees off the apron and the facade",
+   "x": -150.0,
+   "z": -34.0,
+   "yaw": 40.0,
+   "rect": [
+    -23,
+    -6,
+    23,
+    9
+   ],
+   "mode": "cut",
+   "y": 0.0,
+   "fade": 0.0,
+   "hole": false,
+   "heights": false,
+   "clearTrees": true,
+   "clearGrass": false
+  },
+  {
+   "name": "entrance stairwell holes",
+   "x": 30.0,
+   "z": -44.0,
+   "yaw": 90.0,
+   "rect": [
+    -1.0,
+    -7.6,
+    1.0,
+    0.0
+   ],
+   "mode": "cut",
+   "y": 0.0,
+   "fade": 0.0,
+   "hole": true,
+   "heights": false,
+   "clearTrees": true,
+   "clearGrass": true
+  },
+  {
+   "name": "trees around the entrance",
+   "x": 30.0,
+   "z": -44.0,
+   "yaw": 90.0,
+   "rect": [
+    -3,
+    -10,
+    3,
+    3
+   ],
+   "mode": "cut",
+   "y": 0.0,
+   "fade": 0.0,
+   "hole": false,
+   "heights": false,
+   "clearTrees": true,
+   "clearGrass": false
+  }
+ ]
+}

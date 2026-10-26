@@ -1,0 +1,138 @@
+{
+ "note": "forest_world in the Forest (START_IMPORT_PACKS_1026 item 8): both abandoned cars before the KPP (user: «брошенные машины — перед КПП»; the layout's anchor Car_Parked is the base yard's parking since the KPP moved 274 m out): the previous shift's car on the south verge, the wreck on the north verge, 12 m before the barrier, outside, fire barrels at the start post, the KPP and the lookout tower (cold: the fire is a later task), the forester's cave in the slope 55 m west of his hut, its mouth to the east. The cave's ground: the hall and the passage cut 0.25 m under the floor, trees cleared over the rock and in front of the mouth. ForestPacksStep places them as the group ForestWorld.",
+ "staticProps": false,
+ "props": [
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/ShiftCar.prefab",
+   "yaw": 118.8,
+   "align": true,
+   "ground": "origin",
+   "scale": 1.0,
+   "x": 128.4,
+   "z": -67.1
+  },
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/WreckCar.prefab",
+   "x": 132.3,
+   "z": -55.8,
+   "yaw": 112.8,
+   "align": true,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/FireBarrel.prefab",
+   "x": -512.86,
+   "z": 540.84,
+   "yaw": 20.0,
+   "align": true,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/FireBarrel.prefab",
+   "x": 148.0,
+   "z": -62.0,
+   "yaw": 140.0,
+   "align": true,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/FireBarrel.prefab",
+   "x": -256.5,
+   "z": -74.5,
+   "yaw": 260.0,
+   "align": true,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/ForesterCave.prefab",
+   "x": -518.0,
+   "z": 437.0,
+   "yaw": 80.0,
+   "ground": "fixed",
+   "y": 33.95,
+   "scale": 1.0
+  }
+ ],
+ "ground": [
+  {
+   "name": "cave hall",
+   "x": -518.0,
+   "z": 437.0,
+   "yaw": 80.0,
+   "y": 33.7,
+   "fade": 1.0,
+   "rect": [
+    -3.5,
+    -6.5,
+    2.9,
+    -0.3
+   ],
+   "mode": "cut",
+   "hole": false,
+   "clearTrees": true,
+   "clearGrass": true,
+   "heights": true
+  },
+  {
+   "name": "cave passage",
+   "x": -518.0,
+   "z": 437.0,
+   "yaw": 80.0,
+   "y": 33.75,
+   "fade": 0.8,
+   "rect": [
+    -1.05,
+    -0.8,
+    1.05,
+    1.6
+   ],
+   "mode": "cut",
+   "hole": false,
+   "clearTrees": true,
+   "clearGrass": true,
+   "heights": true
+  },
+  {
+   "name": "cave rock (trees only)",
+   "x": -518.0,
+   "z": 437.0,
+   "yaw": 80.0,
+   "y": 9999.0,
+   "fade": 0.0,
+   "rect": [
+    -6.5,
+    -9.5,
+    6.5,
+    2.5
+   ],
+   "mode": "cut",
+   "hole": false,
+   "clearTrees": true,
+   "clearGrass": false,
+   "heights": false
+  },
+  {
+   "name": "cave mouth approach (trees only)",
+   "x": -518.0,
+   "z": 437.0,
+   "yaw": 80.0,
+   "y": 9999.0,
+   "fade": 0.0,
+   "rect": [
+    -2.5,
+    1.5,
+    2.5,
+    5.5
+   ],
+   "mode": "cut",
+   "hole": false,
+   "clearTrees": true,
+   "clearGrass": false,
+   "heights": false
+  }
+ ]
+}

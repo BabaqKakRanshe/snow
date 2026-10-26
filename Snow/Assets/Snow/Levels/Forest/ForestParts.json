@@ -1,0 +1,15 @@
+{
+ "note": "forest_parts fixtures in the Forest (START_IMPORT_PACKS_1026 item 5): the lake sensor on the east shore of the lake with the hand, by the road, its front (+Z) to the water so the cable and the probe go in. The dosing pump is not here: it is spawned in the pump house (ForestItems spots).",
+ "staticProps": false,
+ "props": [
+  {
+   "prefab": "Assets/Locations/Forest/Parts/Prefabs/LakeSensor.prefab",
+   "x": 17.0,
+   "z": 19.0,
+   "yaw": -101.0,
+   "ground": "origin",
+   "clear": 1.5,
+   "scale": 1.0
+  }
+ ]
+}

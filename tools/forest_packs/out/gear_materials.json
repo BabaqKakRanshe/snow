@@ -1,0 +1,878 @@
+{
+ "materials": {
+  "M_Gear_Bulb": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_BulbGlass_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.35,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_BulbBurnt": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_BulbBurnt_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.35,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_Haul": {
+   "fake_user": false,
+   "users": 9,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_Haul_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.7,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_LED_Off": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.0212,
+    0.013,
+    0.0116,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.0212,
+    0.013,
+    0.0116,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_LEDG": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.013,
+    0.1559,
+    0.0212,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.013,
+    0.1559,
+    0.0212,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 2.0,
+   "emission_color": [
+    0.0802,
+    1.0,
+    0.1274,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_LEDR": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.1878,
+    0.013,
+    0.0091,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.1878,
+    0.013,
+    0.0091,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 2.0,
+   "emission_color": [
+    1.0,
+    0.0452,
+    0.0212,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_LensAmber": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 2.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_Gear_Panel_Emission.png",
+   "metallic": 0.0,
+   "roughness": 0.2,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_LensAmber_Off": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_Gear_Panel_Emission.png",
+   "metallic": 0.0,
+   "roughness": 0.2,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_LensClear": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 2.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_Gear_Panel_Emission.png",
+   "metallic": 0.0,
+   "roughness": 0.2,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_LensClear_Off": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_Gear_Panel_Emission.png",
+   "metallic": 0.0,
+   "roughness": 0.2,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_Panel": {
+   "fake_user": false,
+   "users": 10,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_Gear_Panel_Emission.png",
+   "metallic": 0.0,
+   "roughness": 0.6,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_PostcardBack": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_PostcardBack_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.8,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_PostcardFront": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_PostcardFront_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.7,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_Small": {
+   "fake_user": false,
+   "users": 19,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_Small_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.55,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_WalkieLCD": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Gear_WalkieLCD_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 1.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_Gear_WalkieLCD_Emission.png",
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Gear_WalkieLCD_Off": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.0612,
+    0.0887,
+    0.0513,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.0612,
+    0.0887,
+    0.0513,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  }
+ },
+ "uv_layers": {
+  "Cart_Caster_BL": [
+   "PSX"
+  ],
+  "Cart_Caster_BR": [
+   "PSX"
+  ],
+  "Cart_Wheel_BL": [
+   "PSX"
+  ],
+  "Cart_Wheel_BR": [
+   "PSX"
+  ],
+  "Cart_Wheel_FL": [
+   "PSX"
+  ],
+  "Cart_Wheel_FR": [
+   "PSX"
+  ],
+  "COL_Battery": [
+   "PSX"
+  ],
+  "COL_Battery6V": [
+   "PSX"
+  ],
+  "COL_BatteryPack": [
+   "PSX"
+  ],
+  "COL_Bulb": [
+   "PSX"
+  ],
+  "COL_BulbBox": [
+   "PSX"
+  ],
+  "COL_Cart_Deck": [
+   "PSX"
+  ],
+  "COL_Cart_Handle": [
+   "PSX"
+  ],
+  "COL_Cart_Wheel_BL": [
+   "PSX"
+  ],
+  "COL_Cart_Wheel_BR": [
+   "PSX"
+  ],
+  "COL_Cart_Wheel_FL": [
+   "PSX"
+  ],
+  "COL_Cart_Wheel_FR": [
+   "PSX"
+  ],
+  "COL_Doll_Body": [
+   "PSX"
+  ],
+  "COL_Doll_Head": [
+   "PSX"
+  ],
+  "COL_Headlamp": [
+   "PSX"
+  ],
+  "COL_IceAxe_Head": [
+   "PSX"
+  ],
+  "COL_IceAxe_Shaft": [
+   "PSX"
+  ],
+  "COL_Key": [
+   "PSX"
+  ],
+  "COL_Lantern_Body": [
+   "PSX"
+  ],
+  "COL_Lantern_Door": [
+   "PSX"
+  ],
+  "COL_Lantern_Handle": [
+   "PSX"
+  ],
+  "COL_Lantern_Head": [
+   "PSX"
+  ],
+  "COL_Postcard": [
+   "PSX"
+  ],
+  "COL_Sled_Bow": [
+   "PSX"
+  ],
+  "COL_Sled_Floor": [
+   "PSX"
+  ],
+  "COL_Sled_Left": [
+   "PSX"
+  ],
+  "COL_Sled_Right": [
+   "PSX"
+  ],
+  "COL_Sled_Stern": [
+   "PSX"
+  ],
+  "COL_Walkie": [
+   "PSX"
+  ],
+  "COL_Walkie_Antenna": [
+   "PSX"
+  ],
+  "COL_WorkerTag": [
+   "PSX"
+  ],
+  "Doll_Head": [
+   "PSX"
+  ],
+  "Headlamp_Bezel": [
+   "PSX"
+  ],
+  "Headlamp_Lamp": [
+   "PSX"
+  ],
+  "Headlamp_Lens": [
+   "PSX"
+  ],
+  "Item_Battery": [
+   "PSX"
+  ],
+  "Item_Battery6V": [
+   "PSX"
+  ],
+  "Item_BatteryPack": [
+   "PSX"
+  ],
+  "Item_Bulb": [
+   "PSX"
+  ],
+  "Item_BulbBox": [
+   "PSX"
+  ],
+  "Item_Cart": [
+   "PSX"
+  ],
+  "Item_Doll": [
+   "PSX"
+  ],
+  "Item_Headlamp": [
+   "PSX"
+  ],
+  "Item_IceAxe": [
+   "PSX"
+  ],
+  "Item_Key_Stationsleiter": [
+   "PSX"
+  ],
+  "Item_Lantern": [
+   "PSX"
+  ],
+  "Item_Postcard": [
+   "PSX"
+  ],
+  "Item_Sled": [
+   "PSX"
+  ],
+  "Item_Walkie": [
+   "PSX"
+  ],
+  "Item_WorkerTag": [
+   "PSX"
+  ],
+  "Lantern_Door": [
+   "PSX"
+  ],
+  "Lantern_Lens": [
+   "PSX"
+  ],
+  "Lantern_Switch": [
+   "PSX"
+  ],
+  "Sled_Tow": [
+   "PSX"
+  ],
+  "Walkie_Knob_Channel": [
+   "PSX"
+  ],
+  "Walkie_Knob_Volume": [
+   "PSX"
+  ],
+  "Walkie_LCD": [
+   "PSX"
+  ],
+  "Walkie_LED": [
+   "PSX"
+  ],
+  "Walkie_PTT": [
+   "PSX"
+  ]
+ }
+}

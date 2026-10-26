@@ -1,0 +1,158 @@
+{
+ "TrashClump_Glass": {
+  "file": "TrashClump_Glass.fbx",
+  "objects": [
+   "TrashClump_Glass"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 506,
+  "log": []
+ },
+ "TrashClump_Metal": {
+  "file": "TrashClump_Metal.fbx",
+  "objects": [
+   "TrashClump_Metal"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 404,
+  "log": []
+ },
+ "TrashClump_Mixed": {
+  "file": "TrashClump_Mixed.fbx",
+  "objects": [
+   "TrashClump_Mixed"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 406,
+  "log": []
+ },
+ "TrashClump_Paper": {
+  "file": "TrashClump_Paper.fbx",
+  "objects": [
+   "TrashClump_Paper"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 198,
+  "log": []
+ },
+ "TrashClump_Plastic": {
+  "file": "TrashClump_Plastic.fbx",
+  "objects": [
+   "TrashClump_Plastic"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 480,
+  "log": []
+ },
+ "TrashClump_Wood": {
+  "file": "TrashClump_Wood.fbx",
+  "objects": [
+   "TrashClump_Wood"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 206,
+  "log": []
+ },
+ "TrashPile_Glass": {
+  "file": "TrashPile_Glass.fbx",
+  "objects": [
+   "TrashPile_Glass"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 772,
+  "log": []
+ },
+ "TrashPile_Metal": {
+  "file": "TrashPile_Metal.fbx",
+  "objects": [
+   "TrashPile_Metal"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 828,
+  "log": []
+ },
+ "TrashPile_Mixed": {
+  "file": "TrashPile_Mixed.fbx",
+  "objects": [
+   "TrashPile_Mixed"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 752,
+  "log": []
+ },
+ "TrashPile_Paper": {
+  "file": "TrashPile_Paper.fbx",
+  "objects": [
+   "TrashPile_Paper"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 692,
+  "log": []
+ },
+ "TrashPile_Plastic": {
+  "file": "TrashPile_Plastic.fbx",
+  "objects": [
+   "TrashPile_Plastic"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 988,
+  "log": []
+ },
+ "TrashPile_Wood": {
+  "file": "TrashPile_Wood.fbx",
+  "objects": [
+   "TrashPile_Wood"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Trash_Trash"
+  ],
+  "tris": 438,
+  "log": []
+ }
+}

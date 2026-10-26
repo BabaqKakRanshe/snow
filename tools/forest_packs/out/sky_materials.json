@@ -1,0 +1,780 @@
+{
+ "materials": {
+  "M_Sky_Amber": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    1.0,
+    0.305,
+    0.0212,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    1.0,
+    0.305,
+    0.0212,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 8.0,
+   "emission_color": [
+    1.0,
+    0.305,
+    0.0212,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Amber_Off": {
+   "fake_user": false,
+   "users": 4,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.305,
+    0.107,
+    0.013,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.305,
+    0.107,
+    0.013,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Grating": {
+   "fake_user": false,
+   "users": 5,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Sky_Grating_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": "T_Sky_Grating_BaseColor.png",
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.7,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Green": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.0452,
+    1.0,
+    0.1022,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.0452,
+    1.0,
+    0.1022,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 6.0,
+   "emission_color": [
+    0.0452,
+    1.0,
+    0.1022,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Green_Off": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.013,
+    0.1022,
+    0.0212,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.013,
+    0.1022,
+    0.0212,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Lamp": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    1.0,
+    0.6724,
+    0.305,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    1.0,
+    0.6724,
+    0.305,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 6.0,
+   "emission_color": [
+    1.0,
+    0.6724,
+    0.305,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Lamp_Off": {
+   "fake_user": false,
+   "users": 2,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.4342,
+    0.402,
+    0.305,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.4342,
+    0.402,
+    0.305,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Panel": {
+   "fake_user": false,
+   "users": 4,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Sky_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.6,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Red": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    1.0,
+    0.0212,
+    0.0091,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    1.0,
+    0.0212,
+    0.0091,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 8.0,
+   "emission_color": [
+    1.0,
+    0.0212,
+    0.0091,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_Red_Off": {
+   "fake_user": false,
+   "users": 2,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.1878,
+    0.013,
+    0.0091,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.1878,
+    0.013,
+    0.0091,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_SkyMachines": {
+   "fake_user": false,
+   "users": 10,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Sky_SkyMachines_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.75,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_SkyStructures": {
+   "fake_user": false,
+   "users": 9,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Sky_SkyStructures_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.75,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Sky_SkyWalk": {
+   "fake_user": false,
+   "users": 8,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Sky_SkyWalk_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.75,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  }
+ },
+ "uv_layers": {
+  "COL_SkyAltimeter_Board": [
+   "PSX"
+  ],
+  "COL_SkyAltimeter_LegL": [
+   "PSX"
+  ],
+  "COL_SkyAltimeter_LegR": [
+   "PSX"
+  ],
+  "COL_SkyBallast_Block_1": [
+   "PSX"
+  ],
+  "COL_SkyBallast_Block_2": [
+   "PSX"
+  ],
+  "COL_SkyBallast_Block_3": [
+   "PSX"
+  ],
+  "COL_SkyBallast_Deck": [
+   "PSX"
+  ],
+  "COL_SkyBallast_EdgeL": [
+   "PSX"
+  ],
+  "COL_SkyBallast_EdgeR": [
+   "PSX"
+  ],
+  "COL_SkyBallast_LeverPost": [
+   "PSX"
+  ],
+  "COL_SkyBallast_PitFloor": [
+   "PSX"
+  ],
+  "COL_SkyBallast_SlabBack": [
+   "PSX"
+  ],
+  "COL_SkyBallast_SlabFront": [
+   "PSX"
+  ],
+  "COL_SkyBallast_SlabL": [
+   "PSX"
+  ],
+  "COL_SkyBallast_SlabR": [
+   "PSX"
+  ],
+  "COL_SkyChiller_Cabinet": [
+   "PSX"
+  ],
+  "COL_SkyChiller_Condenser": [
+   "PSX"
+  ],
+  "COL_SkyChiller_Machine": [
+   "PSX"
+  ],
+  "COL_SkyChiller_Pad": [
+   "PSX"
+  ],
+  "COL_SkyChiller_Pipes": [
+   "PSX"
+  ],
+  "COL_SkyChiller_Receiver": [
+   "PSX"
+  ],
+  "COL_SkySprayer_Blower": [
+   "PSX"
+  ],
+  "COL_SkySprayer_Hopper": [
+   "PSX"
+  ],
+  "COL_SkySprayer_Mast": [
+   "PSX"
+  ],
+  "COL_SkySprayer_Platform": [
+   "PSX"
+  ],
+  "COL_SkySprayer_PlatRail": [
+   "PSX"
+  ],
+  "COL_SkySprayer_Plinth": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Ladder_Cage": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Landing_Deck": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Stair_RailL": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Stair_RailR": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Stair_Ramp": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Straight_Deck": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Straight_RailL": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Straight_RailR": [
+   "PSX"
+  ],
+  "COL_SkyWalk_Turn_Deck": [
+   "PSX"
+  ],
+  "IX_SkyBallastDeck": [
+   "PSX"
+  ],
+  "IX_SkyBallastLever": [
+   "PSX"
+  ],
+  "IX_SkyChillerGuard": [
+   "PSX"
+  ],
+  "IX_SkyChillerStart": [
+   "PSX"
+  ],
+  "IX_SkyChillerValve": [
+   "PSX"
+  ],
+  "IX_SkySprayerFeed": [
+   "PSX"
+  ],
+  "IX_SkySprayerLid": [
+   "PSX"
+  ],
+  "SkyAltimeter": [
+   "PSX"
+  ],
+  "SkyAltimeter_Glow": [
+   "PSX"
+  ],
+  "SkyAltimeter_Lamps": [
+   "PSX"
+  ],
+  "SkyAltimeter_Marker": [
+   "PSX"
+  ],
+  "SkyAltimeter_Obstruction": [
+   "PSX"
+  ],
+  "SkyBallast": [
+   "PSX"
+  ],
+  "SkyBallast_Beacon": [
+   "PSX"
+  ],
+  "SkyBallast_Block_1": [
+   "PSX"
+  ],
+  "SkyBallast_Block_2": [
+   "PSX"
+  ],
+  "SkyBallast_Block_3": [
+   "PSX"
+  ],
+  "SkyBallast_Ram_L": [
+   "PSX"
+  ],
+  "SkyBallast_Ram_R": [
+   "PSX"
+  ],
+  "SkyChiller": [
+   "PSX"
+  ],
+  "SkyChiller_Beacon": [
+   "PSX"
+  ],
+  "SkyChiller_Belt": [
+   "PSX"
+  ],
+  "SkyChiller_Fan": [
+   "PSX"
+  ],
+  "SkyChiller_LampFault": [
+   "PSX"
+  ],
+  "SkyChiller_LampRun": [
+   "PSX"
+  ],
+  "SkySprayer": [
+   "PSX"
+  ],
+  "SkySprayer_Grating": [
+   "PSX"
+  ],
+  "SkySprayer_Nozzle": [
+   "PSX"
+  ],
+  "SkyWalk_Anchor": [
+   "PSX"
+  ],
+  "SkyWalk_Cable": [
+   "PSX"
+  ],
+  "SkyWalk_Ladder": [
+   "PSX"
+  ],
+  "SkyWalk_Lamp": [
+   "PSX"
+  ],
+  "SkyWalk_Lamp_Glow": [
+   "PSX"
+  ],
+  "SkyWalk_Landing": [
+   "PSX"
+  ],
+  "SkyWalk_Landing_Grating": [
+   "PSX"
+  ],
+  "SkyWalk_Stair": [
+   "PSX"
+  ],
+  "SkyWalk_Stair_Grating": [
+   "PSX"
+  ],
+  "SkyWalk_Straight": [
+   "PSX"
+  ],
+  "SkyWalk_Straight_Grating": [
+   "PSX"
+  ],
+  "SkyWalk_Turn": [
+   "PSX"
+  ],
+  "SkyWalk_Turn_Grating": [
+   "PSX"
+  ]
+ }
+}

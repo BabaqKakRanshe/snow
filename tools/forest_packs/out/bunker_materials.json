@@ -1,0 +1,726 @@
+{
+ "materials": {
+  "M_Bunker_BlastDoor": {
+   "fake_user": false,
+   "users": 9,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_BlastDoor_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.75,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_Entrance": {
+   "fake_user": false,
+   "users": 3,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_Entrance_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.8,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_Hangar": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_Hangar_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.85,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_HangarParts": {
+   "fake_user": false,
+   "users": 4,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_HangarParts_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.7,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_IceClear": {
+   "fake_user": false,
+   "users": 4,
+   "backface_culling": false,
+   "blend_method": "BLEND",
+   "surface_render_method": "BLENDED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_Ice_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 0.35,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.15,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_Lamp": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    1.0,
+    0.7605,
+    0.402,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    1.0,
+    0.7605,
+    0.402,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 6.0,
+   "emission_color": [
+    1.0,
+    0.6724,
+    0.305,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_Lamp_Off": {
+   "fake_user": false,
+   "users": 3,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.4342,
+    0.402,
+    0.305,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.4342,
+    0.402,
+    0.305,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.3,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_Panel": {
+   "fake_user": false,
+   "users": 3,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.6,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_Prints": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_Prints_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": "T_Bunker_Prints_BaseColor.png",
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.15,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Bunker_Tarp": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Bunker_Tarp_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.9,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  }
+ },
+ "uv_layers": {
+  "BlastDoor": [
+   "PSX"
+  ],
+  "BlastDoor_Glow": [
+   "PSX"
+  ],
+  "BlastDoor_Prints": [
+   "PSX"
+  ],
+  "BunkerEntrance": [
+   "PSX"
+  ],
+  "BunkerEntrance_Glow": [
+   "PSX"
+  ],
+  "BunkerEntrance_Ice": [
+   "PSX"
+  ],
+  "BunkerHangar": [
+   "PSX"
+  ],
+  "BunkerHangar_Glow": [
+   "PSX"
+  ],
+  "BunkerHangar_Parts": [
+   "PSX"
+  ],
+  "COL_BlastDoor_Leaf": [
+   "PSX"
+  ],
+  "COL_BunkerHatch": [
+   "PSX"
+  ],
+  "COL_Entr_Back": [
+   "PSX"
+  ],
+  "COL_Entr_Canopy": [
+   "PSX"
+  ],
+  "COL_Entr_Ice": [
+   "PSX"
+  ],
+  "COL_Entr_LandBack": [
+   "PSX"
+  ],
+  "COL_Entr_LandFront": [
+   "PSX"
+  ],
+  "COL_Entr_LandL": [
+   "PSX"
+  ],
+  "COL_Entr_LandR": [
+   "PSX"
+  ],
+  "COL_Entr_PassL": [
+   "PSX"
+  ],
+  "COL_Entr_PassR": [
+   "PSX"
+  ],
+  "COL_Entr_RailL": [
+   "PSX"
+  ],
+  "COL_Entr_RailR": [
+   "PSX"
+  ],
+  "COL_Entr_Shaft_E": [
+   "PSX"
+  ],
+  "COL_Entr_Shaft_N": [
+   "PSX"
+  ],
+  "COL_Entr_Shaft_S": [
+   "PSX"
+  ],
+  "COL_Entr_Shaft_W": [
+   "PSX"
+  ],
+  "COL_Entr_ShaftFloor": [
+   "PSX"
+  ],
+  "COL_Entr_Steps": [
+   "PSX"
+  ],
+  "COL_Entr_WallL": [
+   "PSX"
+  ],
+  "COL_Entr_WallR": [
+   "PSX"
+  ],
+  "COL_Hangar_Apron": [
+   "PSX"
+  ],
+  "COL_Hangar_BackL": [
+   "PSX"
+  ],
+  "COL_Hangar_BackLintel": [
+   "PSX"
+  ],
+  "COL_Hangar_BackR": [
+   "PSX"
+  ],
+  "COL_Hangar_Floor": [
+   "PSX"
+  ],
+  "COL_Hangar_FrontL": [
+   "PSX"
+  ],
+  "COL_Hangar_FrontR": [
+   "PSX"
+  ],
+  "COL_Hangar_Landing": [
+   "PSX"
+  ],
+  "COL_Hangar_Lintel": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_1L": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_1R": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_2L": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_2R": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_3L": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_3R": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_4L": [
+   "PSX"
+  ],
+  "COL_Hangar_Pilaster_4R": [
+   "PSX"
+  ],
+  "COL_Hangar_Roof": [
+   "PSX"
+  ],
+  "COL_Hangar_StairRail_A": [
+   "PSX"
+  ],
+  "COL_Hangar_StairRail_B": [
+   "PSX"
+  ],
+  "COL_Hangar_Steps": [
+   "PSX"
+  ],
+  "COL_Hangar_WallL_Back": [
+   "PSX"
+  ],
+  "COL_Hangar_WallL_Front": [
+   "PSX"
+  ],
+  "COL_Hangar_WallL_Head": [
+   "PSX"
+  ],
+  "COL_Hangar_WallL_Sill": [
+   "PSX"
+  ],
+  "COL_Hangar_WallR": [
+   "PSX"
+  ],
+  "COL_Hangar_WingL": [
+   "PSX"
+  ],
+  "COL_Hangar_WingR": [
+   "PSX"
+  ],
+  "COL_HangarGate_L": [
+   "PSX"
+  ],
+  "COL_HangarGate_R": [
+   "PSX"
+  ],
+  "COL_HangarSideDoor": [
+   "PSX"
+  ],
+  "COL_Passage_End": [
+   "PSX"
+  ],
+  "COL_Passage_Steps": [
+   "PSX"
+  ],
+  "COL_Passage_WallL": [
+   "PSX"
+  ],
+  "COL_Passage_WallR": [
+   "PSX"
+  ],
+  "COL_Tunnel_Floor": [
+   "PSX"
+  ],
+  "COL_Vest_Ceiling": [
+   "PSX"
+  ],
+  "COL_Vest_Channel": [
+   "PSX"
+  ],
+  "COL_Vest_Console": [
+   "PSX"
+  ],
+  "COL_Vest_EndL": [
+   "PSX"
+  ],
+  "COL_Vest_EndR": [
+   "PSX"
+  ],
+  "COL_Vest_EndTop": [
+   "PSX"
+  ],
+  "COL_Vest_Floor": [
+   "PSX"
+  ],
+  "COL_Vest_Rail": [
+   "PSX"
+  ],
+  "COL_Vest_Sill": [
+   "PSX"
+  ],
+  "COL_Vest_Step": [
+   "PSX"
+  ],
+  "COL_Vest_WallL": [
+   "PSX"
+  ],
+  "COL_Vest_WallR": [
+   "PSX"
+  ],
+  "HIT_Ice_Hatch_1": [
+   "PSX"
+  ],
+  "HIT_Ice_Hatch_2": [
+   "PSX"
+  ],
+  "HIT_Ice_Hatch_3": [
+   "PSX"
+  ],
+  "Ice_Hatch_1": [
+   "PSX"
+  ],
+  "Ice_Hatch_2": [
+   "PSX"
+  ],
+  "Ice_Hatch_3": [
+   "PSX"
+  ],
+  "IX_BlastDoor": [
+   "PSX"
+  ],
+  "IX_BlastDoor_Bolt_1": [
+   "PSX"
+  ],
+  "IX_BlastDoor_Bolt_2": [
+   "PSX"
+  ],
+  "IX_BlastDoor_Bolt_3": [
+   "PSX"
+  ],
+  "IX_BlastDoor_Bolt_4": [
+   "PSX"
+  ],
+  "IX_BlastDoor_Bolt_5": [
+   "PSX"
+  ],
+  "IX_BlastDoor_Bolt_6": [
+   "PSX"
+  ],
+  "IX_BlastDoor_Wheel": [
+   "PSX"
+  ],
+  "IX_BunkerHatch": [
+   "PSX"
+  ],
+  "IX_BunkerHatch_Wheel": [
+   "PSX"
+  ],
+  "IX_HangarGate_L": [
+   "PSX"
+  ],
+  "IX_HangarGate_R": [
+   "PSX"
+  ],
+  "IX_HangarSideDoor": [
+   "PSX"
+  ],
+  "PlaneTarp": [
+   "PSX"
+  ]
+ }
+}

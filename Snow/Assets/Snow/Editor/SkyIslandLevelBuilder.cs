@@ -122,6 +122,7 @@ namespace Snow.EditorTools
             fall.fallY = FallY;
             fall.spawnRoot = spawnRoot;
 
+            SkySystemsStep.Run(scene);                                   // the sky_systems pack, placed roughly
             BenchBuilder.SaveNetworkScene(scene, ScenePath, true);
             Debug.Log($"[Snow] Sky Island level integrated: {ScenePath} (plane in one piece, {spawns.Count} spawn points), first in Build Settings.");
         }

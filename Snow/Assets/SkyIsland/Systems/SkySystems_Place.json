@@ -1,0 +1,37 @@
+{
+ "note": "sky_systems in the Sky Island scene, roughly (START_IMPORT_PACKS_1026 item 10; SkySystemsStep): the altitude board 60 m north-east of the control tower (Ops_Building), turned between the tower and the field so both see it; the ballast release on the north edge behind the runway, its drop outward (north); the refrigeration unit and the dust sprayer on level ground by the boiler house. World x, z (Unity), yaw about Y. The walkways are prefabs only.",
+ "props": [
+  {
+   "prefab": "Assets/SkyIsland/Systems/Prefabs/SkyAltimeter.prefab",
+   "x": -30.0,
+   "z": -40.0,
+   "yaw": -71.0,
+   "search": 25.0,
+   "edge": false
+  },
+  {
+   "prefab": "Assets/SkyIsland/Systems/Prefabs/SkyBallast.prefab",
+   "x": 10.0,
+   "z": 380.0,
+   "yaw": 0.0,
+   "search": 0.0,
+   "edge": true
+  },
+  {
+   "prefab": "Assets/SkyIsland/Systems/Prefabs/SkyChiller.prefab",
+   "x": -185.0,
+   "z": -100.0,
+   "yaw": 90.0,
+   "search": 35.0,
+   "edge": false
+  },
+  {
+   "prefab": "Assets/SkyIsland/Systems/Prefabs/SkySprayer.prefab",
+   "x": -160.0,
+   "z": -110.0,
+   "yaw": 0.0,
+   "search": 35.0,
+   "edge": false
+  }
+ ]
+}

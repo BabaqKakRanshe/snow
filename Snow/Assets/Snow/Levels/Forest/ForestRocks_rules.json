@@ -1,0 +1,96 @@
+{
+ "note": "Rules of Tools / Snow / Forest / Generate Rock Scatter (ForestPacksStep.GenerateRocks): forest_rocks over the Forest. keepClear: x, z, r triples (the base yard, the KPP, the start post, the hut and its cave, the lake bunker site and entrance, the lake sensor). roadShare: the part placed along roads and trails (between roadMin and roadMax m from them); the rest goes deeper into the forest (at least roadMax/2).",
+ "seed": 2610,
+ "margin": 90.0,
+ "keepClear": [
+  -150,
+  -34,
+  45,
+  27,
+  -44,
+  18,
+  17,
+  19,
+  8,
+  -518,
+  437,
+  14,
+  -474,
+  404,
+  30,
+  147,
+  -65,
+  40,
+  345,
+  -360,
+  95,
+  -511,
+  551,
+  40,
+  -463,
+  496,
+  15
+ ],
+ "rules": [
+  {
+   "prefabs": [
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_1.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_2.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_3.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_4.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_5.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_6.prefab"
+   ],
+   "count": 220,
+   "minSlope": 0,
+   "maxSlope": 32,
+   "roadMin": 2.5,
+   "roadMax": 30,
+   "roadShare": 0.55,
+   "spacing": 3,
+   "treeClear": 0.6,
+   "ground": "origin",
+   "dy": 0.0,
+   "clear": 0.0,
+   "downhill": false
+  },
+  {
+   "prefabs": [
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_1.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_3.prefab"
+   ],
+   "count": 70,
+   "minSlope": 0,
+   "maxSlope": 26,
+   "roadMin": 5,
+   "roadMax": 40,
+   "roadShare": 0.4,
+   "spacing": 8,
+   "treeClear": 0.8,
+   "ground": "lowest",
+   "dy": 0.0,
+   "clear": 0.0,
+   "downhill": false
+  },
+  {
+   "prefabs": [
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_1.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_2.prefab",
+    "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_3.prefab"
+   ],
+   "count": 18,
+   "minSlope": 16,
+   "maxSlope": 40,
+   "roadMin": 15,
+   "roadMax": 30,
+   "roadShare": 0.0,
+   "spacing": 40,
+   "treeClear": 1.5,
+   "ground": "lowest",
+   "dy": -0.2,
+   "clear": 3.0,
+   "downhill": true
+  }
+ ]
+}

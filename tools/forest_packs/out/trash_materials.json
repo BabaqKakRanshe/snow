@@ -1,0 +1,85 @@
+{
+ "materials": {
+  "M_Trash_Trash": {
+   "fake_user": false,
+   "users": 12,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Trash_Trash_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.8,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  }
+ },
+ "uv_layers": {
+  "TrashClump_Glass": [
+   "PSX"
+  ],
+  "TrashClump_Metal": [
+   "PSX"
+  ],
+  "TrashClump_Mixed": [
+   "PSX"
+  ],
+  "TrashClump_Paper": [
+   "PSX"
+  ],
+  "TrashClump_Plastic": [
+   "PSX"
+  ],
+  "TrashClump_Wood": [
+   "PSX"
+  ],
+  "TrashPile_Glass": [
+   "PSX"
+  ],
+  "TrashPile_Metal": [
+   "PSX"
+  ],
+  "TrashPile_Mixed": [
+   "PSX"
+  ],
+  "TrashPile_Paper": [
+   "PSX"
+  ],
+  "TrashPile_Plastic": [
+   "PSX"
+  ],
+  "TrashPile_Wood": [
+   "PSX"
+  ]
+ }
+}

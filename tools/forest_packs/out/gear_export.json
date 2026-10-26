@@ -1,0 +1,496 @@
+{
+ "Item_Battery": {
+  "file": "Item_Battery.fbx",
+  "objects": [
+   "Item_Battery"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 170,
+  "log": []
+ },
+ "Item_Battery6V": {
+  "file": "Item_Battery6V.fbx",
+  "objects": [
+   "Item_Battery6V"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 408,
+  "log": []
+ },
+ "Item_BatteryPack": {
+  "file": "Item_BatteryPack.fbx",
+  "objects": [
+   "Item_BatteryPack"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 552,
+  "log": []
+ },
+ "Item_Bulb": {
+  "file": "Item_Bulb.fbx",
+  "objects": [
+   "Item_Bulb"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Bulb",
+   "M_Gear_Small"
+  ],
+  "tris": 778,
+  "log": []
+ },
+ "Item_BulbBox": {
+  "file": "Item_BulbBox.fbx",
+  "objects": [
+   "Item_BulbBox"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Panel"
+  ],
+  "tris": 12,
+  "log": []
+ },
+ "Item_Cart": {
+  "file": "Item_Cart.fbx",
+  "objects": [
+   "Item_Cart",
+   "Cart_Caster_BL",
+   "Cart_Wheel_BL",
+   "Cart_Caster_BR",
+   "Cart_Wheel_BR",
+   "Cart_Wheel_FL",
+   "Cart_Wheel_FR"
+  ],
+  "parents": {
+   "Cart_Caster_BL": "Item_Cart",
+   "Cart_Wheel_BL": "Cart_Caster_BL",
+   "Cart_Caster_BR": "Item_Cart",
+   "Cart_Wheel_BR": "Cart_Caster_BR",
+   "Cart_Wheel_FL": "Item_Cart",
+   "Cart_Wheel_FR": "Item_Cart"
+  },
+  "poses": {
+   "Cart_Caster_BL": {
+    "pos": [
+     -0.2175,
+     0.29,
+     0.268
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Cart_Wheel_BL": {
+    "pos": [
+     -0.2175,
+     0.33,
+     0.13
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Cart_Caster_BR": {
+    "pos": [
+     0.2175,
+     0.29,
+     0.268
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Cart_Wheel_BR": {
+    "pos": [
+     0.2175,
+     0.33,
+     0.13
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Cart_Wheel_FL": {
+    "pos": [
+     -0.2175,
+     -0.32,
+     0.13
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Cart_Wheel_FR": {
+    "pos": [
+     0.2175,
+     -0.32,
+     0.13
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Gear_Haul"
+  ],
+  "tris": 2172,
+  "log": [
+   "Cart_Wheel_BL: lifted from Cart_Caster_BL",
+   "Cart_Wheel_BR: lifted from Cart_Caster_BR"
+  ]
+ },
+ "Item_Doll": {
+  "file": "Item_Doll.fbx",
+  "objects": [
+   "Item_Doll",
+   "Doll_Head"
+  ],
+  "parents": {
+   "Doll_Head": "Item_Doll"
+  },
+  "poses": {
+   "Doll_Head": {
+    "pos": [
+     0.0,
+     0.0,
+     0.212
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 1516,
+  "log": []
+ },
+ "Item_Headlamp": {
+  "file": "Item_Headlamp.fbx",
+  "objects": [
+   "Item_Headlamp",
+   "Headlamp_Lamp",
+   "Headlamp_Bezel",
+   "Headlamp_Lens"
+  ],
+  "parents": {
+   "Headlamp_Lamp": "Item_Headlamp",
+   "Headlamp_Bezel": "Headlamp_Lamp",
+   "Headlamp_Lens": "Headlamp_Lamp"
+  },
+  "poses": {
+   "Headlamp_Lamp": {
+    "pos": [
+     0.0,
+     -0.108,
+     0.025
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Headlamp_Bezel": {
+    "pos": [
+     0.0,
+     -0.108,
+     0.025
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Headlamp_Lens": {
+    "pos": [
+     0.0,
+     -0.1398,
+     0.025
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Gear_LensClear_Off",
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 700,
+  "log": [
+   "Headlamp_Bezel: lifted from Headlamp_Lamp",
+   "Headlamp_Lens: lifted from Headlamp_Lamp"
+  ]
+ },
+ "Item_IceAxe": {
+  "file": "Item_IceAxe.fbx",
+  "objects": [
+   "Item_IceAxe"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Small"
+  ],
+  "tris": 286,
+  "log": []
+ },
+ "Item_Key_Stationsleiter": {
+  "file": "Item_Key_Stationsleiter.fbx",
+  "objects": [
+   "Item_Key_Stationsleiter"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 362,
+  "log": []
+ },
+ "Item_Lantern": {
+  "file": "Item_Lantern.fbx",
+  "objects": [
+   "Item_Lantern",
+   "Lantern_Door",
+   "Lantern_Lens",
+   "Lantern_Switch"
+  ],
+  "parents": {
+   "Lantern_Door": "Item_Lantern",
+   "Lantern_Lens": "Item_Lantern",
+   "Lantern_Switch": "Item_Lantern"
+  },
+  "poses": {
+   "Lantern_Door": {
+    "pos": [
+     0.0,
+     0.0455,
+     0.0074
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Lantern_Lens": {
+    "pos": [
+     0.0,
+     -0.0772,
+     0.09
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Lantern_Switch": {
+    "pos": [
+     -0.028,
+     -0.019,
+     0.1395
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Gear_LensAmber_Off",
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 534,
+  "log": []
+ },
+ "Item_Postcard": {
+  "file": "Item_Postcard.fbx",
+  "objects": [
+   "Item_Postcard"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_PostcardBack",
+   "M_Gear_PostcardFront"
+  ],
+  "tris": 96,
+  "log": []
+ },
+ "Item_Sled": {
+  "file": "Item_Sled.fbx",
+  "objects": [
+   "Item_Sled",
+   "Sled_Tow"
+  ],
+  "parents": {
+   "Sled_Tow": "Item_Sled"
+  },
+  "poses": {
+   "Sled_Tow": {
+    "pos": [
+     0.0,
+     -1.655,
+     0.016
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Gear_Haul"
+  ],
+  "tris": 1530,
+  "log": []
+ },
+ "Item_Walkie": {
+  "file": "Item_Walkie.fbx",
+  "objects": [
+   "Item_Walkie",
+   "Walkie_Knob_Channel",
+   "Walkie_Knob_Volume",
+   "Walkie_LCD",
+   "Walkie_LED",
+   "Walkie_PTT"
+  ],
+  "parents": {
+   "Walkie_Knob_Channel": "Item_Walkie",
+   "Walkie_Knob_Volume": "Item_Walkie",
+   "Walkie_LCD": "Item_Walkie",
+   "Walkie_LED": "Item_Walkie",
+   "Walkie_PTT": "Item_Walkie"
+  },
+  "poses": {
+   "Walkie_Knob_Channel": {
+    "pos": [
+     0.016,
+     0.0,
+     0.128
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Walkie_Knob_Volume": {
+    "pos": [
+     -0.002,
+     0.0,
+     0.128
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Walkie_LCD": {
+    "pos": [
+     0.0,
+     -0.0174,
+     0.0685
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Walkie_LED": {
+    "pos": [
+     0.007,
+     -0.012,
+     0.1283
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Walkie_PTT": {
+    "pos": [
+     -0.0308,
+     0.0,
+     0.083
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Gear_LED_Off",
+   "M_Gear_Panel",
+   "M_Gear_Small",
+   "M_Gear_WalkieLCD"
+  ],
+  "tris": 420,
+  "log": []
+ },
+ "Item_WorkerTag": {
+  "file": "Item_WorkerTag.fbx",
+  "objects": [
+   "Item_WorkerTag"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Gear_Panel",
+   "M_Gear_Small"
+  ],
+  "tris": 224,
+  "log": []
+ }
+}

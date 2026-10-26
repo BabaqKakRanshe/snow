@@ -1,0 +1,603 @@
+{
+ "SkyAltimeter": {
+  "file": "SkyAltimeter.fbx",
+  "objects": [
+   "SkyAltimeter",
+   "SkyAltimeter_Glow",
+   "SkyAltimeter_Lamps",
+   "SkyAltimeter_Marker",
+   "SkyAltimeter_Obstruction"
+  ],
+  "parents": {
+   "SkyAltimeter_Glow": "SkyAltimeter",
+   "SkyAltimeter_Lamps": "SkyAltimeter",
+   "SkyAltimeter_Marker": "SkyAltimeter",
+   "SkyAltimeter_Obstruction": "SkyAltimeter"
+  },
+  "poses": {
+   "SkyAltimeter_Glow": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyAltimeter_Lamps": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyAltimeter_Marker": {
+    "pos": [
+     -0.3499,
+     -0.3,
+     4.9937
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyAltimeter_Obstruction": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Amber_Off",
+   "M_Sky_Lamp_Off",
+   "M_Sky_Panel",
+   "M_Sky_Red_Off",
+   "M_Sky_SkyStructures"
+  ],
+  "tris": 2936,
+  "log": []
+ },
+ "SkyBallast": {
+  "file": "SkyBallast.fbx",
+  "objects": [
+   "SkyBallast",
+   "IX_SkyBallastDeck",
+   "SkyBallast_Block_1",
+   "SkyBallast_Block_2",
+   "SkyBallast_Block_3",
+   "IX_SkyBallastLever",
+   "SkyBallast_Beacon",
+   "SkyBallast_Ram_L",
+   "SkyBallast_Ram_R"
+  ],
+  "parents": {
+   "IX_SkyBallastDeck": "SkyBallast",
+   "SkyBallast_Block_1": "IX_SkyBallastDeck",
+   "SkyBallast_Block_2": "IX_SkyBallastDeck",
+   "SkyBallast_Block_3": "IX_SkyBallastDeck",
+   "IX_SkyBallastLever": "SkyBallast",
+   "SkyBallast_Beacon": "SkyBallast",
+   "SkyBallast_Ram_L": "SkyBallast",
+   "SkyBallast_Ram_R": "SkyBallast"
+  },
+  "poses": {
+   "IX_SkyBallastDeck": {
+    "pos": [
+     0.0,
+     0.22,
+     0.12
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyBallast_Block_1": {
+    "pos": [
+     -1.6,
+     2.2,
+     0.3
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyBallast_Block_2": {
+    "pos": [
+     0.0,
+     2.2,
+     0.3
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyBallast_Block_3": {
+    "pos": [
+     1.6,
+     2.2,
+     0.3
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_SkyBallastLever": {
+    "pos": [
+     3.9,
+     6.67,
+     0.95
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyBallast_Beacon": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyBallast_Ram_L": {
+    "pos": [
+     -1.2,
+     3.5,
+     -0.82
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyBallast_Ram_R": {
+    "pos": [
+     1.2,
+     3.5,
+     -0.82
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Amber_Off",
+   "M_Sky_Panel",
+   "M_Sky_SkyStructures"
+  ],
+  "tris": 1244,
+  "log": [
+   "SkyBallast_Block_1: lifted from IX_SkyBallastDeck",
+   "SkyBallast_Block_2: lifted from IX_SkyBallastDeck",
+   "SkyBallast_Block_3: lifted from IX_SkyBallastDeck"
+  ]
+ },
+ "SkyChiller": {
+  "file": "SkyChiller.fbx",
+  "objects": [
+   "SkyChiller",
+   "IX_SkyChillerGuard",
+   "IX_SkyChillerStart",
+   "IX_SkyChillerValve",
+   "SkyChiller_Beacon",
+   "SkyChiller_Belt",
+   "SkyChiller_Fan",
+   "SkyChiller_LampFault",
+   "SkyChiller_LampRun"
+  ],
+  "parents": {
+   "IX_SkyChillerGuard": "SkyChiller",
+   "IX_SkyChillerStart": "SkyChiller",
+   "IX_SkyChillerValve": "SkyChiller",
+   "SkyChiller_Beacon": "SkyChiller",
+   "SkyChiller_Belt": "SkyChiller",
+   "SkyChiller_Fan": "SkyChiller",
+   "SkyChiller_LampFault": "SkyChiller",
+   "SkyChiller_LampRun": "SkyChiller"
+  },
+  "poses": {
+   "IX_SkyChillerGuard": {
+    "pos": [
+     -0.415,
+     -0.78,
+     1.3
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_SkyChillerStart": {
+    "pos": [
+     -2.12,
+     -1.65,
+     1.2
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_SkyChillerValve": {
+    "pos": [
+     0.25,
+     1.12,
+     1.16
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyChiller_Beacon": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyChiller_Belt": {
+    "pos": [
+     -0.55,
+     -0.62,
+     0.77
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyChiller_Fan": {
+    "pos": [
+     2.0,
+     0.0,
+     2.13
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyChiller_LampFault": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkyChiller_LampRun": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Amber_Off",
+   "M_Sky_Green_Off",
+   "M_Sky_Panel",
+   "M_Sky_Red_Off",
+   "M_Sky_SkyMachines"
+  ],
+  "tris": 4562,
+  "log": []
+ },
+ "SkySprayer": {
+  "file": "SkySprayer.fbx",
+  "objects": [
+   "SkySprayer",
+   "IX_SkySprayerFeed",
+   "IX_SkySprayerLid",
+   "SkySprayer_Grating",
+   "SkySprayer_Nozzle"
+  ],
+  "parents": {
+   "IX_SkySprayerFeed": "SkySprayer",
+   "IX_SkySprayerLid": "SkySprayer",
+   "SkySprayer_Grating": "SkySprayer",
+   "SkySprayer_Nozzle": "SkySprayer"
+  },
+  "poses": {
+   "IX_SkySprayerFeed": {
+    "pos": [
+     -0.31,
+     0.0,
+     1.62
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_SkySprayerLid": {
+    "pos": [
+     0.0,
+     0.99,
+     3.26
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkySprayer_Grating": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "SkySprayer_Nozzle": {
+    "pos": [
+     0.55,
+     -1.15,
+     6.4
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Grating",
+   "M_Sky_Panel",
+   "M_Sky_SkyMachines"
+  ],
+  "tris": 1604,
+  "log": []
+ },
+ "SkyWalk_Anchor": {
+  "file": "SkyWalk_Anchor.fbx",
+  "objects": [
+   "SkyWalk_Anchor"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 264,
+  "log": []
+ },
+ "SkyWalk_Cable": {
+  "file": "SkyWalk_Cable.fbx",
+  "objects": [
+   "SkyWalk_Cable"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 20,
+  "log": []
+ },
+ "SkyWalk_Ladder": {
+  "file": "SkyWalk_Ladder.fbx",
+  "objects": [
+   "SkyWalk_Ladder"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 524,
+  "log": []
+ },
+ "SkyWalk_Lamp": {
+  "file": "SkyWalk_Lamp.fbx",
+  "objects": [
+   "SkyWalk_Lamp",
+   "SkyWalk_Lamp_Glow"
+  ],
+  "parents": {
+   "SkyWalk_Lamp_Glow": "SkyWalk_Lamp"
+  },
+  "poses": {
+   "SkyWalk_Lamp_Glow": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Lamp_Off",
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 254,
+  "log": []
+ },
+ "SkyWalk_Landing": {
+  "file": "SkyWalk_Landing.fbx",
+  "objects": [
+   "SkyWalk_Landing",
+   "SkyWalk_Landing_Grating"
+  ],
+  "parents": {
+   "SkyWalk_Landing_Grating": "SkyWalk_Landing"
+  },
+  "poses": {
+   "SkyWalk_Landing_Grating": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Grating",
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 812,
+  "log": []
+ },
+ "SkyWalk_Stair": {
+  "file": "SkyWalk_Stair.fbx",
+  "objects": [
+   "SkyWalk_Stair",
+   "SkyWalk_Stair_Grating"
+  ],
+  "parents": {
+   "SkyWalk_Stair_Grating": "SkyWalk_Stair"
+  },
+  "poses": {
+   "SkyWalk_Stair_Grating": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Grating",
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 728,
+  "log": []
+ },
+ "SkyWalk_Straight": {
+  "file": "SkyWalk_Straight.fbx",
+  "objects": [
+   "SkyWalk_Straight",
+   "SkyWalk_Straight_Grating"
+  ],
+  "parents": {
+   "SkyWalk_Straight_Grating": "SkyWalk_Straight"
+  },
+  "poses": {
+   "SkyWalk_Straight_Grating": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Grating",
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 556,
+  "log": []
+ },
+ "SkyWalk_Turn": {
+  "file": "SkyWalk_Turn.fbx",
+  "objects": [
+   "SkyWalk_Turn",
+   "SkyWalk_Turn_Grating"
+  ],
+  "parents": {
+   "SkyWalk_Turn_Grating": "SkyWalk_Turn"
+  },
+  "poses": {
+   "SkyWalk_Turn_Grating": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Sky_Grating",
+   "M_Sky_SkyWalk"
+  ],
+  "tris": 264,
+  "log": []
+ }
+}

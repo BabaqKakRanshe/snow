@@ -1,0 +1,387 @@
+{
+ "BlastDoor": {
+  "file": "BlastDoor.fbx",
+  "objects": [
+   "BlastDoor",
+   "BlastDoor_Glow",
+   "BlastDoor_Prints",
+   "IX_BlastDoor",
+   "IX_BlastDoor_Bolt_1",
+   "IX_BlastDoor_Bolt_2",
+   "IX_BlastDoor_Bolt_3",
+   "IX_BlastDoor_Bolt_4",
+   "IX_BlastDoor_Bolt_5",
+   "IX_BlastDoor_Bolt_6",
+   "IX_BlastDoor_Wheel"
+  ],
+  "parents": {
+   "BlastDoor_Glow": "BlastDoor",
+   "BlastDoor_Prints": "BlastDoor",
+   "IX_BlastDoor": "BlastDoor",
+   "IX_BlastDoor_Bolt_1": "IX_BlastDoor",
+   "IX_BlastDoor_Bolt_2": "IX_BlastDoor",
+   "IX_BlastDoor_Bolt_3": "IX_BlastDoor",
+   "IX_BlastDoor_Bolt_4": "IX_BlastDoor",
+   "IX_BlastDoor_Bolt_5": "IX_BlastDoor",
+   "IX_BlastDoor_Bolt_6": "IX_BlastDoor",
+   "IX_BlastDoor_Wheel": "IX_BlastDoor"
+  },
+  "poses": {
+   "BlastDoor_Glow": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "BlastDoor_Prints": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor": {
+    "pos": [
+     -2.12,
+     7.64,
+     1.96
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor_Bolt_1": {
+    "pos": [
+     0.0,
+     7.72,
+     3.43
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor_Bolt_2": {
+    "pos": [
+     -1.2731,
+     7.72,
+     2.695
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor_Bolt_3": {
+    "pos": [
+     -1.2731,
+     7.72,
+     1.225
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor_Bolt_4": {
+    "pos": [
+     0.0,
+     7.72,
+     0.49
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor_Bolt_5": {
+    "pos": [
+     1.2731,
+     7.72,
+     1.225
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor_Bolt_6": {
+    "pos": [
+     1.2731,
+     7.72,
+     2.695
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BlastDoor_Wheel": {
+    "pos": [
+     0.0,
+     7.5,
+     1.96
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Bunker_BlastDoor",
+   "M_Bunker_Lamp_Off",
+   "M_Bunker_Panel",
+   "M_Bunker_Prints"
+  ],
+  "tris": 3884,
+  "log": [
+   "IX_BlastDoor_Bolt_1: lifted from IX_BlastDoor",
+   "IX_BlastDoor_Bolt_2: lifted from IX_BlastDoor",
+   "IX_BlastDoor_Bolt_3: lifted from IX_BlastDoor",
+   "IX_BlastDoor_Bolt_4: lifted from IX_BlastDoor",
+   "IX_BlastDoor_Bolt_5: lifted from IX_BlastDoor",
+   "IX_BlastDoor_Bolt_6: lifted from IX_BlastDoor",
+   "IX_BlastDoor_Wheel: lifted from IX_BlastDoor"
+  ]
+ },
+ "BunkerEntrance": {
+  "file": "BunkerEntrance.fbx",
+  "objects": [
+   "BunkerEntrance",
+   "BunkerEntrance_Glow",
+   "BunkerEntrance_Ice",
+   "Ice_Hatch_1",
+   "Ice_Hatch_2",
+   "Ice_Hatch_3",
+   "IX_BunkerHatch",
+   "IX_BunkerHatch_Wheel"
+  ],
+  "parents": {
+   "BunkerEntrance_Glow": "BunkerEntrance",
+   "BunkerEntrance_Ice": "BunkerEntrance",
+   "Ice_Hatch_1": "BunkerEntrance",
+   "Ice_Hatch_2": "BunkerEntrance",
+   "Ice_Hatch_3": "BunkerEntrance",
+   "IX_BunkerHatch": "BunkerEntrance",
+   "IX_BunkerHatch_Wheel": "IX_BunkerHatch"
+  },
+  "poses": {
+   "BunkerEntrance_Glow": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "BunkerEntrance_Ice": {
+    "pos": [
+     0.0,
+     5.975,
+     -3.04
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Hatch_1": {
+    "pos": [
+     -0.455,
+     6.6,
+     -2.9341
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Hatch_2": {
+    "pos": [
+     0.05,
+     6.6,
+     -2.9341
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Hatch_3": {
+    "pos": [
+     0.505,
+     6.6,
+     -2.9356
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BunkerHatch": {
+    "pos": [
+     0.0,
+     7.19,
+     -3.005
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_BunkerHatch_Wheel": {
+    "pos": [
+     0.0,
+     6.6,
+     -2.93
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Bunker_Entrance",
+   "M_Bunker_IceClear",
+   "M_Bunker_Lamp_Off",
+   "M_Bunker_Panel"
+  ],
+  "tris": 2314,
+  "log": [
+   "IX_BunkerHatch_Wheel: lifted from IX_BunkerHatch"
+  ]
+ },
+ "BunkerHangar": {
+  "file": "BunkerHangar.fbx",
+  "objects": [
+   "BunkerHangar",
+   "BunkerHangar_Glow",
+   "BunkerHangar_Parts",
+   "IX_HangarGate_L",
+   "IX_HangarGate_R",
+   "IX_HangarSideDoor"
+  ],
+  "parents": {
+   "BunkerHangar_Glow": "BunkerHangar",
+   "BunkerHangar_Parts": "BunkerHangar",
+   "IX_HangarGate_L": "BunkerHangar",
+   "IX_HangarGate_R": "BunkerHangar",
+   "IX_HangarSideDoor": "BunkerHangar"
+  },
+  "poses": {
+   "BunkerHangar_Glow": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "BunkerHangar_Parts": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_HangarGate_L": {
+    "pos": [
+     -4.15,
+     -0.45,
+     0.05
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_HangarGate_R": {
+    "pos": [
+     4.15,
+     -0.45,
+     0.05
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_HangarSideDoor": {
+    "pos": [
+     -8.94,
+     1.61,
+     1.2
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Bunker_Hangar",
+   "M_Bunker_HangarParts",
+   "M_Bunker_Lamp_Off",
+   "M_Bunker_Panel"
+  ],
+  "tris": 7102,
+  "log": []
+ },
+ "PlaneTarp": {
+  "file": "PlaneTarp.fbx",
+  "objects": [
+   "PlaneTarp"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Bunker_Tarp"
+  ],
+  "tris": 1100,
+  "log": []
+ }
+}

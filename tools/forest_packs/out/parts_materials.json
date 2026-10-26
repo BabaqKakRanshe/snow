@@ -1,0 +1,740 @@
+{
+ "materials": {
+  "M_Parts_ArcTube": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    1.0,
+    0.4564,
+    0.1022,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    1.0,
+    0.4564,
+    0.1022,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 6.0,
+   "emission_color": [
+    1.0,
+    0.305,
+    0.0319,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.4,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_ArcTube_Off": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.7605,
+    0.6867,
+    0.552,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.7605,
+    0.6867,
+    0.552,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.4,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_CRTFace": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Parts_CRTFace_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.15,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_FuseBurnt": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.0452,
+    0.0343,
+    0.0273,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.0452,
+    0.0343,
+    0.0273,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.4,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_FuseOK": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.5776,
+    0.6038,
+    0.6172,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.5776,
+    0.6038,
+    0.6172,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.2,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_LampGlass": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "BLEND",
+   "surface_render_method": "BLENDED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.82,
+    0.8,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 0.22,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    0.62,
+    0.3,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.5,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_LED_Off": {
+   "fake_user": false,
+   "users": 5,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.0212,
+    0.013,
+    0.0116,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.0212,
+    0.013,
+    0.0116,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_LEDA": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.2232,
+    0.1022,
+    0.007,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.2232,
+    0.1022,
+    0.007,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 2.0,
+   "emission_color": [
+    1.0,
+    0.402,
+    0.0212,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_LEDG": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.013,
+    0.1559,
+    0.0212,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.013,
+    0.1559,
+    0.0212,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 2.0,
+   "emission_color": [
+    0.0802,
+    1.0,
+    0.1274,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_LEDR": {
+   "fake_user": true,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.1878,
+    0.013,
+    0.0091,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.1878,
+    0.013,
+    0.0091,
+    1.0
+   ],
+   "base_image": null,
+   "base_projection": null,
+   "base_extension": null,
+   "base_interpolation": null,
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 2.0,
+   "emission_color": [
+    1.0,
+    0.0452,
+    0.0212,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.25,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_Panel": {
+   "fake_user": false,
+   "users": 7,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Parts_Panel_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": "T_Parts_Panel_Emission.png",
+   "metallic": 0.0,
+   "roughness": 0.6,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_Parts": {
+   "fake_user": false,
+   "users": 19,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Parts_Parts_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.6,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_Sensor": {
+   "fake_user": false,
+   "users": 2,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Parts_Sensor_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.7,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  },
+  "M_Parts_Waybill": {
+   "fake_user": false,
+   "users": 1,
+   "backface_culling": false,
+   "blend_method": "HASHED",
+   "surface_render_method": "DITHERED",
+   "diffuse": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "has_bsdf": true,
+   "base_color": [
+    0.8,
+    0.8,
+    0.8,
+    1.0
+   ],
+   "base_image": "T_Parts_Waybill_BaseColor.png",
+   "base_projection": "FLAT",
+   "base_extension": "REPEAT",
+   "base_interpolation": "Closest",
+   "alpha": 1.0,
+   "alpha_image": null,
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emission_image": null,
+   "metallic": 0.0,
+   "roughness": 0.85,
+   "node_types": [
+    "BSDF_PRINCIPLED",
+    "OUTPUT_MATERIAL",
+    "TEX_IMAGE",
+    "UVMAP"
+   ],
+   "tex_coord_used": []
+  }
+ },
+ "uv_layers": {
+  "COL_CRT_Cone": [
+   "PSX"
+  ],
+  "COL_CRT_Face": [
+   "PSX"
+  ],
+  "COL_CRT_Funnel": [
+   "PSX"
+  ],
+  "COL_CRT_Neck": [
+   "PSX"
+  ],
+  "COL_Generator": [
+   "PSX"
+  ],
+  "COL_Pump_Drive": [
+   "PSX"
+  ],
+  "COL_Pump_Pipes": [
+   "PSX"
+  ],
+  "COL_Pump_Plate": [
+   "PSX"
+  ],
+  "COL_Pump_Skid": [
+   "PSX"
+  ],
+  "COL_Pump_Tank": [
+   "PSX"
+  ],
+  "COL_Relay_Body": [
+   "PSX"
+  ],
+  "COL_Relay_Panel": [
+   "PSX"
+  ],
+  "COL_Sensor_Box": [
+   "PSX"
+  ],
+  "COL_Sensor_Lid": [
+   "PSX"
+  ],
+  "COL_Sensor_Post": [
+   "PSX"
+  ],
+  "COL_Sensor_Probe": [
+   "PSX"
+  ],
+  "COL_Sensor_Sign": [
+   "PSX"
+  ],
+  "COL_SodiumLamp": [
+   "PSX"
+  ],
+  "COL_SodiumLampBox": [
+   "PSX"
+  ],
+  "DosingPump_Hose": [
+   "PSX"
+  ],
+  "DosingPump_Needle": [
+   "PSX"
+  ],
+  "DosingPump_Stroke": [
+   "PSX"
+  ],
+  "DosingPump_Switch": [
+   "PSX"
+  ],
+  "DosingPump_V1": [
+   "PSX"
+  ],
+  "DosingPump_V2": [
+   "PSX"
+  ],
+  "DosingPump_V3": [
+   "PSX"
+  ],
+  "DosingPump_Waybill": [
+   "PSX"
+  ],
+  "Gen_Choke": [
+   "PSX"
+  ],
+  "Gen_FuelCap": [
+   "PSX"
+  ],
+  "Gen_StartGrip": [
+   "PSX"
+  ],
+  "Gen_Switch": [
+   "PSX"
+  ],
+  "Item_BackupGenerator": [
+   "PSX"
+  ],
+  "Item_DosingPump": [
+   "PSX"
+  ],
+  "Item_RadarCRT": [
+   "PSX"
+  ],
+  "Item_RelayUnit": [
+   "PSX"
+  ],
+  "Item_SodiumLamp": [
+   "PSX"
+  ],
+  "Item_SodiumLampBox": [
+   "PSX"
+  ],
+  "LakeSensor": [
+   "PSX"
+  ],
+  "LakeSensor_LED": [
+   "PSX"
+  ],
+  "LakeSensor_Lid": [
+   "PSX"
+  ],
+  "RadarCRT_Face": [
+   "PSX"
+  ],
+  "RelayUnit_Fuse": [
+   "PSX"
+  ],
+  "RelayUnit_FuseCap": [
+   "PSX"
+  ],
+  "RelayUnit_LED_ALM": [
+   "PSX"
+  ],
+  "RelayUnit_LED_PWR": [
+   "PSX"
+  ],
+  "RelayUnit_LED_RX": [
+   "PSX"
+  ],
+  "RelayUnit_LED_TX": [
+   "PSX"
+  ],
+  "RelayUnit_Needle": [
+   "PSX"
+  ],
+  "RelayUnit_Power": [
+   "PSX"
+  ],
+  "SodiumLamp_ArcTube": [
+   "PSX"
+  ]
+ }
+}

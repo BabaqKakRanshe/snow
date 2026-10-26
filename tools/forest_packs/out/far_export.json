@@ -1,0 +1,16 @@
+{
+ "MeteoStation": {
+  "file": "MeteoStation.fbx",
+  "objects": [
+   "MeteoStation"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Far_Meteo",
+   "M_Far_Panel"
+  ],
+  "tris": 4934,
+  "log": []
+ }
+}

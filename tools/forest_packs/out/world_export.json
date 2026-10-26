@@ -1,0 +1,641 @@
+{
+ "FireBarrel": {
+  "file": "FireBarrel.fbx",
+  "objects": [
+   "FireBarrel",
+   "FireBarrel_Flames",
+   "FireBarrel_Fuel",
+   "FireBarrel_Glow"
+  ],
+  "parents": {
+   "FireBarrel_Flames": "FireBarrel",
+   "FireBarrel_Fuel": "FireBarrel",
+   "FireBarrel_Glow": "FireBarrel"
+  },
+  "poses": {
+   "FireBarrel_Flames": {
+    "pos": [
+     0.0,
+     0.0,
+     0.47
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "FireBarrel_Fuel": {
+    "pos": [
+     0.0,
+     0.0,
+     0.42
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "FireBarrel_Glow": {
+    "pos": [
+     0.0,
+     0.0,
+     0.42
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Embers_Off",
+   "M_World_Fire",
+   "M_World_World"
+  ],
+  "tris": 1062,
+  "log": []
+ },
+ "ForesterCave": {
+  "file": "ForesterCave.fbx",
+  "objects": [
+   "ForesterCave",
+   "COLM_Cave",
+   "ForesterCave_Props"
+  ],
+  "parents": {
+   "COLM_Cave": "ForesterCave",
+   "ForesterCave_Props": "ForesterCave"
+  },
+  "poses": {
+   "COLM_Cave": {
+    "pos": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "ForesterCave_Props": {
+    "pos": [
+     0.0,
+     3.6,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Cave",
+   "M_World_Panel"
+  ],
+  "tris": 7150,
+  "log": []
+ },
+ "Ice_Dish_1": {
+  "file": "Ice_Dish_1.fbx",
+  "objects": [
+   "Ice_Dish_1",
+   "Ice_Dish_1_Bowl",
+   "Ice_Dish_1_Feed"
+  ],
+  "parents": {
+   "Ice_Dish_1_Bowl": "Ice_Dish_1",
+   "Ice_Dish_1_Feed": "Ice_Dish_1"
+  },
+  "poses": {
+   "Ice_Dish_1_Bowl": {
+    "pos": [
+     0.0,
+     4.1432,
+     4.9288
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Dish_1_Feed": {
+    "pos": [
+     0.0,
+     4.9443,
+     11.8568
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Ice"
+  ],
+  "tris": 1336,
+  "log": []
+ },
+ "Ice_Dish_2": {
+  "file": "Ice_Dish_2.fbx",
+  "objects": [
+   "Ice_Dish_2",
+   "Ice_Dish_2_Bowl",
+   "Ice_Dish_2_Feed"
+  ],
+  "parents": {
+   "Ice_Dish_2_Bowl": "Ice_Dish_2",
+   "Ice_Dish_2_Feed": "Ice_Dish_2"
+  },
+  "poses": {
+   "Ice_Dish_2_Bowl": {
+    "pos": [
+     0.0,
+     4.3475,
+     5.2253
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Dish_2_Feed": {
+    "pos": [
+     0.0,
+     4.661,
+     12.194
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Ice"
+  ],
+  "tris": 1336,
+  "log": []
+ },
+ "Ice_Dish_3": {
+  "file": "Ice_Dish_3.fbx",
+  "objects": [
+   "Ice_Dish_3",
+   "Ice_Dish_3_Bowl",
+   "Ice_Dish_3_Feed"
+  ],
+  "parents": {
+   "Ice_Dish_3_Bowl": "Ice_Dish_3",
+   "Ice_Dish_3_Feed": "Ice_Dish_3"
+  },
+  "poses": {
+   "Ice_Dish_3_Bowl": {
+    "pos": [
+     0.0,
+     3.3316,
+     4.5595
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Dish_3_Feed": {
+    "pos": [
+     0.0,
+     3.3022,
+     9.8022
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Ice"
+  ],
+  "tris": 1168,
+  "log": []
+ },
+ "Ice_Dish_4": {
+  "file": "Ice_Dish_4.fbx",
+  "objects": [
+   "Ice_Dish_4",
+   "Ice_Dish_4_Bowl",
+   "Ice_Dish_4_Feed"
+  ],
+  "parents": {
+   "Ice_Dish_4_Bowl": "Ice_Dish_4",
+   "Ice_Dish_4_Feed": "Ice_Dish_4"
+  },
+  "poses": {
+   "Ice_Dish_4_Bowl": {
+    "pos": [
+     0.0,
+     3.1496,
+     4.2765
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Dish_4_Feed": {
+    "pos": [
+     0.0,
+     3.5799,
+     9.4994
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Ice"
+  ],
+  "tris": 1168,
+  "log": []
+ },
+ "Ice_Dish_5": {
+  "file": "Ice_Dish_5.fbx",
+  "objects": [
+   "Ice_Dish_5",
+   "Ice_Dish_5_Bowl",
+   "Ice_Dish_5_Feed"
+  ],
+  "parents": {
+   "Ice_Dish_5_Bowl": "Ice_Dish_5",
+   "Ice_Dish_5_Feed": "Ice_Dish_5"
+  },
+  "poses": {
+   "Ice_Dish_5_Bowl": {
+    "pos": [
+     0.0,
+     4.0334,
+     4.786
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_Dish_5_Feed": {
+    "pos": [
+     0.0,
+     5.077,
+     11.681
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Ice"
+  ],
+  "tris": 1336,
+  "log": []
+ },
+ "Ice_RelayMast": {
+  "file": "Ice_RelayMast.fbx",
+  "objects": [
+   "Ice_RelayMast",
+   "Ice_RelayMast_Drum",
+   "Ice_RelayMast_Panel_1",
+   "Ice_RelayMast_Panel_2",
+   "Ice_RelayMast_Panel_3"
+  ],
+  "parents": {
+   "Ice_RelayMast_Drum": "Ice_RelayMast",
+   "Ice_RelayMast_Panel_1": "Ice_RelayMast",
+   "Ice_RelayMast_Panel_2": "Ice_RelayMast",
+   "Ice_RelayMast_Panel_3": "Ice_RelayMast"
+  },
+  "poses": {
+   "Ice_RelayMast_Drum": {
+    "pos": [
+     1.6326,
+     0.0,
+     31.3602
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_RelayMast_Panel_1": {
+    "pos": [
+     1.1891,
+     0.001,
+     39.9034
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_RelayMast_Panel_2": {
+    "pos": [
+     -0.585,
+     1.0132,
+     39.9184
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_RelayMast_Panel_3": {
+    "pos": [
+     -0.585,
+     -1.0132,
+     39.9568
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Ice"
+  ],
+  "tris": 5802,
+  "log": []
+ },
+ "Ice_RoofMast": {
+  "file": "Ice_RoofMast.fbx",
+  "objects": [
+   "Ice_RoofMast",
+   "Ice_RoofDish",
+   "Ice_RoofMast_Top"
+  ],
+  "parents": {
+   "Ice_RoofDish": "Ice_RoofMast",
+   "Ice_RoofMast_Top": "Ice_RoofMast"
+  },
+  "poses": {
+   "Ice_RoofDish": {
+    "pos": [
+     2.9688,
+     -4.2387,
+     7.8351
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Ice_RoofMast_Top": {
+    "pos": [
+     5.4517,
+     2.8608,
+     17.82
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Ice"
+  ],
+  "tris": 2944,
+  "log": []
+ },
+ "ShiftCar": {
+  "file": "ShiftCar.fbx",
+  "objects": [
+   "ShiftCar",
+   "IX_ShiftCarDoor",
+   "IX_ShiftCarDoor_Glass",
+   "IX_ShiftCarRearDoor",
+   "IX_ShiftCarRearDoor_Glass",
+   "ShiftCar_Glass",
+   "ShiftCar_Snow"
+  ],
+  "parents": {
+   "IX_ShiftCarDoor": "ShiftCar",
+   "IX_ShiftCarDoor_Glass": "IX_ShiftCarDoor",
+   "IX_ShiftCarRearDoor": "ShiftCar",
+   "IX_ShiftCarRearDoor_Glass": "IX_ShiftCarRearDoor",
+   "ShiftCar_Glass": "ShiftCar",
+   "ShiftCar_Snow": "ShiftCar"
+  },
+  "poses": {
+   "IX_ShiftCarDoor": {
+    "pos": [
+     0.89,
+     -0.72,
+     0.8283
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_ShiftCarDoor_Glass": {
+    "pos": [
+     0.85,
+     -0.315,
+     1.41
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_ShiftCarRearDoor": {
+    "pos": [
+     -0.815,
+     2.134,
+     1.2375
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_ShiftCarRearDoor_Glass": {
+    "pos": [
+     0.0,
+     2.1,
+     1.495
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "ShiftCar_Glass": {
+    "pos": [
+     0.0,
+     0.71,
+     1.46
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "ShiftCar_Snow": {
+    "pos": [
+     0.0,
+     0.0,
+     1.9
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Glass",
+   "M_World_Panel",
+   "M_World_World"
+  ],
+  "tris": 4816,
+  "log": [
+   "IX_ShiftCarDoor_Glass: lifted from IX_ShiftCarDoor",
+   "IX_ShiftCarRearDoor_Glass: lifted from IX_ShiftCarRearDoor"
+  ]
+ },
+ "WreckCar": {
+  "file": "WreckCar.fbx",
+  "objects": [
+   "WreckCar",
+   "IX_WreckCarBoot",
+   "WreckCar_BootSnow",
+   "IX_WreckCarDoor",
+   "WreckCar_Glass",
+   "WreckCar_Snow",
+   "WreckCar_Windscreen"
+  ],
+  "parents": {
+   "IX_WreckCarBoot": "WreckCar",
+   "WreckCar_BootSnow": "IX_WreckCarBoot",
+   "IX_WreckCarDoor": "WreckCar",
+   "WreckCar_Glass": "WreckCar",
+   "WreckCar_Snow": "WreckCar",
+   "WreckCar_Windscreen": "WreckCar"
+  },
+  "poses": {
+   "IX_WreckCarBoot": {
+    "pos": [
+     -0.0396,
+     1.65,
+     0.8866
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "WreckCar_BootSnow": {
+    "pos": [
+     -0.0393,
+     1.6402,
+     0.8812
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "IX_WreckCarDoor": {
+    "pos": [
+     0.85,
+     -0.6094,
+     0.54
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "WreckCar_Glass": {
+    "pos": [
+     -0.057,
+     0.4916,
+     1.1113
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "WreckCar_Snow": {
+    "pos": [
+     -0.0702,
+     -0.035,
+     1.2928
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "WreckCar_Windscreen": {
+    "pos": [
+     -0.0527,
+     -0.3557,
+     1.0172
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_World_Glass",
+   "M_World_GlassCracked",
+   "M_World_World"
+  ],
+  "tris": 3728,
+  "log": [
+   "WreckCar_BootSnow: lifted from IX_WreckCarBoot"
+  ]
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "note": "forest_trash heaps at the base (START_IMPORT_PACKS_1026 item 3): by the main building's walls, the garage, the generator yard, the radio mast pad and the gate; ForestPacksStep places them as the group ForestTrash (to be moved by hand later). World x, z; the heap's origin on the ground.",
+ "staticProps": true,
+ "props": [
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Mixed.prefab",
+   "x": 328.3,
+   "z": -366.5,
+   "yaw": 25,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Paper.prefab",
+   "x": 342.5,
+   "z": -374.5,
+   "yaw": 140,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Plastic.prefab",
+   "x": 355.0,
+   "z": -374.5,
+   "yaw": 290,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Metal.prefab",
+   "x": 373.2,
+   "z": -362.8,
+   "yaw": 75,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Wood.prefab",
+   "x": 389.0,
+   "z": -331.5,
+   "yaw": 200,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Glass.prefab",
+   "x": 378.5,
+   "z": -382.5,
+   "yaw": 330,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Mixed.prefab",
+   "x": 304.5,
+   "z": -394.5,
+   "yaw": 110,
+   "ground": "origin",
+   "scale": 1.0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Trash/Prefabs/TrashPile_Paper.prefab",
+   "x": 319.0,
+   "z": -317.0,
+   "yaw": 250,
+   "ground": "origin",
+   "scale": 1.0
+  }
+ ]
+}

@@ -1,0 +1,457 @@
+{
+ "Item_BackupGenerator": {
+  "file": "Item_BackupGenerator.fbx",
+  "objects": [
+   "Item_BackupGenerator",
+   "Gen_Choke",
+   "Gen_FuelCap",
+   "Gen_StartGrip",
+   "Gen_Switch"
+  ],
+  "parents": {
+   "Gen_Choke": "Item_BackupGenerator",
+   "Gen_FuelCap": "Item_BackupGenerator",
+   "Gen_StartGrip": "Item_BackupGenerator",
+   "Gen_Switch": "Item_BackupGenerator"
+  },
+  "poses": {
+   "Gen_Choke": {
+    "pos": [
+     -0.06,
+     -0.15,
+     0.17
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Gen_FuelCap": {
+    "pos": [
+     0.11,
+     0.05,
+     0.457
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Gen_StartGrip": {
+    "pos": [
+     -0.17,
+     -0.088,
+     0.205
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Gen_Switch": {
+    "pos": [
+     0.25,
+     -0.1905,
+     0.225
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Parts_Panel",
+   "M_Parts_Parts"
+  ],
+  "tris": 1522,
+  "log": []
+ },
+ "Item_DosingPump": {
+  "file": "Item_DosingPump.fbx",
+  "objects": [
+   "Item_DosingPump",
+   "DosingPump_Hose",
+   "DosingPump_Needle",
+   "DosingPump_Stroke",
+   "DosingPump_Switch",
+   "DosingPump_V1",
+   "DosingPump_V2",
+   "DosingPump_V3",
+   "DosingPump_Waybill"
+  ],
+  "parents": {
+   "DosingPump_Hose": "Item_DosingPump",
+   "DosingPump_Needle": "Item_DosingPump",
+   "DosingPump_Stroke": "Item_DosingPump",
+   "DosingPump_Switch": "Item_DosingPump",
+   "DosingPump_V1": "Item_DosingPump",
+   "DosingPump_V2": "Item_DosingPump",
+   "DosingPump_V3": "Item_DosingPump",
+   "DosingPump_Waybill": "Item_DosingPump"
+  },
+  "poses": {
+   "DosingPump_Hose": {
+    "pos": [
+     0.415,
+     -0.095,
+     0.31
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "DosingPump_Needle": {
+    "pos": [
+     0.215,
+     -0.1108,
+     0.395
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "DosingPump_Stroke": {
+    "pos": [
+     0.16,
+     0.02,
+     0.225
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "DosingPump_Switch": {
+    "pos": [
+     0.3,
+     -0.022,
+     0.227
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "DosingPump_V1": {
+    "pos": [
+     0.035,
+     -0.06,
+     0.136
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "DosingPump_V2": {
+    "pos": [
+     0.06,
+     -0.095,
+     0.341
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "DosingPump_V3": {
+    "pos": [
+     0.3,
+     -0.095,
+     0.341
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "DosingPump_Waybill": {
+    "pos": [
+     -0.2,
+     -0.16,
+     0.365
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Parts_Panel",
+   "M_Parts_Parts",
+   "M_Parts_Waybill"
+  ],
+  "tris": 1866,
+  "log": []
+ },
+ "Item_RadarCRT": {
+  "file": "Item_RadarCRT.fbx",
+  "objects": [
+   "Item_RadarCRT",
+   "RadarCRT_Face"
+  ],
+  "parents": {
+   "RadarCRT_Face": "Item_RadarCRT"
+  },
+  "poses": {
+   "RadarCRT_Face": {
+    "pos": [
+     0.0,
+     0.0,
+     0.004
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Parts_CRTFace",
+   "M_Parts_Panel",
+   "M_Parts_Parts"
+  ],
+  "tris": 986,
+  "log": []
+ },
+ "Item_RelayUnit": {
+  "file": "Item_RelayUnit.fbx",
+  "objects": [
+   "Item_RelayUnit",
+   "RelayUnit_FuseCap",
+   "RelayUnit_Fuse",
+   "RelayUnit_LED_ALM",
+   "RelayUnit_LED_PWR",
+   "RelayUnit_LED_RX",
+   "RelayUnit_LED_TX",
+   "RelayUnit_Needle",
+   "RelayUnit_Power"
+  ],
+  "parents": {
+   "RelayUnit_FuseCap": "Item_RelayUnit",
+   "RelayUnit_Fuse": "RelayUnit_FuseCap",
+   "RelayUnit_LED_ALM": "Item_RelayUnit",
+   "RelayUnit_LED_PWR": "Item_RelayUnit",
+   "RelayUnit_LED_RX": "Item_RelayUnit",
+   "RelayUnit_LED_TX": "Item_RelayUnit",
+   "RelayUnit_Needle": "Item_RelayUnit",
+   "RelayUnit_Power": "Item_RelayUnit"
+  },
+  "poses": {
+   "RelayUnit_FuseCap": {
+    "pos": [
+     0.1046,
+     -0.164,
+     0.0667
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "RelayUnit_Fuse": {
+    "pos": [
+     0.1046,
+     -0.152,
+     0.0667
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "RelayUnit_LED_ALM": {
+    "pos": [
+     0.0523,
+     -0.1608,
+     0.0728
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "RelayUnit_LED_PWR": {
+    "pos": [
+     -0.0322,
+     -0.1608,
+     0.0728
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "RelayUnit_LED_RX": {
+    "pos": [
+     0.0242,
+     -0.1608,
+     0.0728
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "RelayUnit_LED_TX": {
+    "pos": [
+     -0.004,
+     -0.1608,
+     0.0728
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "RelayUnit_Needle": {
+    "pos": [
+     -0.1167,
+     -0.1612,
+     0.0404
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "RelayUnit_Power": {
+    "pos": [
+     0.169,
+     -0.16,
+     0.0667
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Parts_FuseOK",
+   "M_Parts_LED_Off",
+   "M_Parts_Panel",
+   "M_Parts_Parts"
+  ],
+  "tris": 424,
+  "log": [
+   "RelayUnit_Fuse: lifted from RelayUnit_FuseCap"
+  ]
+ },
+ "Item_SodiumLamp": {
+  "file": "Item_SodiumLamp.fbx",
+  "objects": [
+   "Item_SodiumLamp",
+   "SodiumLamp_ArcTube"
+  ],
+  "parents": {
+   "SodiumLamp_ArcTube": "Item_SodiumLamp"
+  },
+  "poses": {
+   "SodiumLamp_ArcTube": {
+    "pos": [
+     0.0,
+     0.0,
+     0.176
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Parts_ArcTube_Off",
+   "M_Parts_LampGlass",
+   "M_Parts_Parts"
+  ],
+  "tris": 800,
+  "log": []
+ },
+ "Item_SodiumLampBox": {
+  "file": "Item_SodiumLampBox.fbx",
+  "objects": [
+   "Item_SodiumLampBox"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Parts_Panel"
+  ],
+  "tris": 12,
+  "log": []
+ },
+ "LakeSensor": {
+  "file": "LakeSensor.fbx",
+  "objects": [
+   "LakeSensor",
+   "LakeSensor_Lid",
+   "LakeSensor_LED"
+  ],
+  "parents": {
+   "LakeSensor_Lid": "LakeSensor",
+   "LakeSensor_LED": "LakeSensor_Lid"
+  },
+  "poses": {
+   "LakeSensor_Lid": {
+    "pos": [
+     -0.12,
+     -0.145,
+     0.95
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "LakeSensor_LED": {
+    "pos": [
+     0.085,
+     -0.1456,
+     1.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Parts_LED_Off",
+   "M_Parts_Panel",
+   "M_Parts_Sensor"
+  ],
+  "tris": 746,
+  "log": [
+   "LakeSensor_LED: lifted from LakeSensor_Lid"
+  ]
+ }
+}

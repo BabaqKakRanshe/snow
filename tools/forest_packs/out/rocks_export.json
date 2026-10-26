@@ -1,0 +1,158 @@
+{
+ "ForestBoulder_1": {
+  "file": "ForestBoulder_1.fbx",
+  "objects": [
+   "ForestBoulder_1"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 272,
+  "log": []
+ },
+ "ForestBoulder_2": {
+  "file": "ForestBoulder_2.fbx",
+  "objects": [
+   "ForestBoulder_2"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 394,
+  "log": []
+ },
+ "ForestBoulder_3": {
+  "file": "ForestBoulder_3.fbx",
+  "objects": [
+   "ForestBoulder_3"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 216,
+  "log": []
+ },
+ "ForestCliff_1": {
+  "file": "ForestCliff_1.fbx",
+  "objects": [
+   "ForestCliff_1"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Cliff1"
+  ],
+  "tris": 1500,
+  "log": []
+ },
+ "ForestCliff_2": {
+  "file": "ForestCliff_2.fbx",
+  "objects": [
+   "ForestCliff_2"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Cliff2"
+  ],
+  "tris": 1498,
+  "log": []
+ },
+ "ForestCliff_3": {
+  "file": "ForestCliff_3.fbx",
+  "objects": [
+   "ForestCliff_3"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Cliff3"
+  ],
+  "tris": 1500,
+  "log": []
+ },
+ "ForestStone_1": {
+  "file": "ForestStone_1.fbx",
+  "objects": [
+   "ForestStone_1"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 78,
+  "log": []
+ },
+ "ForestStone_2": {
+  "file": "ForestStone_2.fbx",
+  "objects": [
+   "ForestStone_2"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 52,
+  "log": []
+ },
+ "ForestStone_3": {
+  "file": "ForestStone_3.fbx",
+  "objects": [
+   "ForestStone_3"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 74,
+  "log": []
+ },
+ "ForestStone_4": {
+  "file": "ForestStone_4.fbx",
+  "objects": [
+   "ForestStone_4"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 64,
+  "log": []
+ },
+ "ForestStone_5": {
+  "file": "ForestStone_5.fbx",
+  "objects": [
+   "ForestStone_5"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 218,
+  "log": []
+ },
+ "ForestStone_6": {
+  "file": "ForestStone_6.fbx",
+  "objects": [
+   "ForestStone_6"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Rocks_Rocks"
+  ],
+  "tris": 76,
+  "log": []
+ }
+}

@@ -31,6 +31,18 @@ namespace Snow.Levels.Forest
         [Tooltip("Assets/Locations/Forest/Data/Forest_Dressing.json")] public TextAsset dressing;
         [Tooltip("Model -> network prefab (Assets/Snow/Levels/Forest/Items), written by the Forest step")] public ModelPrefab[] prefabs = new ModelPrefab[0];
 
+        /// <summary>A pack item standing in its place from the start (ForestPacksStep: the dosing pump in the pump house).</summary>
+        [Serializable]
+        public class Spot
+        {
+            public string id;
+            public GameObject prefab;
+            public Vector3 position;
+            public Quaternion rotation = Quaternion.identity;
+        }
+
+        [Tooltip("Pack items at their places, written by ForestPacksStep")] public Spot[] spots = new Spot[0];
+
         /// <summary>The opening item that stays a static copy until its lock is taken off (F5.5).</summary>
         public const string PadlockId = "Padlock_Barrier";
         /// <summary>Every player starts with this in his hand, switched on (user 25.10: «появляться с фонариками сразу»).</summary>
@@ -72,9 +84,13 @@ namespace Snow.Levels.Forest
                 foreach (DressingProp it in d.notes)
                     if (it != null && Spawn(it.id, it.model, ForestRelocation.Point(ForestData.V3(it.p)), ForestRelocation.Rotation(ForestData.V3(it.p), ForestData.Q(it.q)), it.massKg, -1f, it.readable) != null) nNotes++;
                     else missing++;
+            int nSpots = 0;
+            foreach (Spot sp in spots)
+                if (sp != null && sp.prefab != null && SpawnPrefab(sp.id, sp.prefab, sp.position, sp.rotation) != null) nSpots++;
+                else missing++;
             sw.Stop();
-            int total = nOpening + nProps + nNotes;
-            Debug.Log($"[Snow] Forest items spawned: {total} ({nOpening} opening, {nProps} props, {nNotes} notes).");
+            int total = nOpening + nProps + nNotes + nSpots;
+            Debug.Log($"[Snow] Forest items spawned: {total} ({nOpening} opening, {nProps} props, {nNotes} notes, {nSpots} pack spots).");
             if (missing > 0) Debug.LogWarning($"[Snow] Forest items: {missing} placement(s) without a prefab (run Tools / Snow / Forest / Build Item Prefabs).");
             BenchLog.Event("forest_items", "total", total, "opening", nOpening, "props", nProps, "notes", nNotes, "ms", sw.Elapsed.TotalMilliseconds);
 
@@ -111,6 +127,13 @@ namespace Snow.Levels.Forest
         public NetworkObject Spawn(string id, string model, Vector3 p, Quaternion q, float massKg = -1f, float fuelL = -1f, string readable = null)
         {
             if (!IsServer || model == null || !_byModel.TryGetValue(model, out GameObject prefab)) return null;
+            return SpawnPrefab(id, prefab, p, q, massKg, fuelL, readable);
+        }
+
+        /// <summary>Server: <see cref="Spawn"/> for a prefab given directly (the pack items are not in the model table).</summary>
+        public NetworkObject SpawnPrefab(string id, GameObject prefab, Vector3 p, Quaternion q, float massKg = -1f, float fuelL = -1f, string readable = null)
+        {
+            if (!IsServer || prefab == null) return null;
             GameObject go = Instantiate(prefab, p, q);
             if (!string.IsNullOrEmpty(id)) go.name = id;
             var item = go.GetComponent<CargoItem>();

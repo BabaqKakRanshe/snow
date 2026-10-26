@@ -33,7 +33,7 @@ namespace Snow.EditorTools
         const string LayoutPath = "Assets/Locations/Forest/Data/Forest_Layout.json";
         const string ExportDir = "../source/world_sync/forest";
         const string RootName = "Forest";
-        public static readonly string[] DressGroups = { ForestYardDressStep.RootName, ForestStartDressStep.RootName, ForestHutDressStep.RootName };
+        public static readonly string[] DressGroups = new[] { ForestYardDressStep.RootName, ForestStartDressStep.RootName, ForestHutDressStep.RootName }.Concat(ForestPacksStep.Groups).Concat(new[] { ForestBunkerStep.RootName }).ToArray();
         /// <summary>m and degrees: smaller differences are not a move; incoming poses this close are "the same place".</summary>
         const float MoveEps = 0.01f, MoveAngle = 0.1f, SameEps = 0.02f, SameAngle = 0.5f;
 

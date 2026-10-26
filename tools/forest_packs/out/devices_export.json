@@ -1,0 +1,488 @@
+{
+ "Cassette": {
+  "file": "Cassette.fbx",
+  "objects": [
+   "Cassette"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Dev_Devices",
+   "M_Dev_Panel"
+  ],
+  "tris": 12,
+  "log": []
+ },
+ "CassetteBox": {
+  "file": "CassetteBox.fbx",
+  "objects": [
+   "CassetteBox"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Dev_Devices",
+   "M_Dev_Panel"
+  ],
+  "tris": 44,
+  "log": []
+ },
+ "DropBox": {
+  "file": "DropBox.fbx",
+  "objects": [
+   "DropBox",
+   "DropBox_Flap"
+  ],
+  "parents": {
+   "DropBox_Flap": "DropBox"
+  },
+  "poses": {
+   "DropBox_Flap": {
+    "pos": [
+     0.0,
+     -0.1525,
+     1.334
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Dev_Outdoor",
+   "M_Dev_Panel"
+  ],
+  "tris": 246,
+  "log": []
+ },
+ "Fax": {
+  "file": "Fax.fbx",
+  "objects": [
+   "Fax",
+   "Fax_Btn_Start",
+   "Fax_Btn_Stop",
+   "Fax_Handset",
+   "Fax_LCD",
+   "Fax_LED_Error",
+   "Fax_LED_Ready"
+  ],
+  "parents": {
+   "Fax_Btn_Start": "Fax",
+   "Fax_Btn_Stop": "Fax",
+   "Fax_Handset": "Fax",
+   "Fax_LCD": "Fax",
+   "Fax_LED_Error": "Fax",
+   "Fax_LED_Ready": "Fax"
+  },
+  "poses": {
+   "Fax_Btn_Start": {
+    "pos": [
+     0.076,
+     -0.0538,
+     0.0777
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Fax_Btn_Stop": {
+    "pos": [
+     0.116,
+     -0.0538,
+     0.0777
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Fax_Handset": {
+    "pos": [
+     -0.13,
+     0.0,
+     0.087
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Fax_LCD": {
+    "pos": [
+     -0.005,
+     -0.0151,
+     0.0836
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Fax_LED_Error": {
+    "pos": [
+     0.075,
+     -0.022,
+     0.0822
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Fax_LED_Ready": {
+    "pos": [
+     0.075,
+     -0.0103,
+     0.0847
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Dev_Devices",
+   "M_Dev_FaxLCD",
+   "M_Dev_LEDG",
+   "M_Dev_LEDR",
+   "M_Dev_Panel"
+  ],
+  "tris": 826,
+  "log": []
+ },
+ "FaxPaper": {
+  "file": "FaxPaper.fbx",
+  "objects": [
+   "FaxPaper"
+  ],
+  "parents": {},
+  "poses": {},
+  "materials": [
+   "M_Dev_FaxPaper"
+  ],
+  "tris": 32,
+  "log": []
+ },
+ "Laptop": {
+  "file": "Laptop.fbx",
+  "objects": [
+   "Laptop",
+   "IX_LaptopLid",
+   "Laptop_Screen",
+   "Laptop_LED"
+  ],
+  "parents": {
+   "IX_LaptopLid": "Laptop",
+   "Laptop_Screen": "IX_LaptopLid",
+   "Laptop_LED": "Laptop"
+  },
+  "poses": {
+   "IX_LaptopLid": {
+    "pos": [
+     0.0,
+     0.108,
+     0.0415
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Laptop_Screen": {
+    "pos": [
+     0.0,
+     -0.004,
+     0.0355
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "Laptop_LED": {
+    "pos": [
+     0.1,
+     -0.1156,
+     0.022
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Dev_Devices",
+   "M_Dev_LEDG",
+   "M_Dev_Panel",
+   "M_Dev_ScreenOff"
+  ],
+  "tris": 246,
+  "log": [
+   "Laptop_Screen: lifted from IX_LaptopLid"
+  ]
+ },
+ "MeteoScreen": {
+  "file": "MeteoScreen.fbx",
+  "objects": [
+   "MeteoScreen",
+   "IX_ScreenDoor"
+  ],
+  "parents": {
+   "IX_ScreenDoor": "MeteoScreen"
+  },
+  "poses": {
+   "IX_ScreenDoor": {
+    "pos": [
+     -0.345,
+     -0.3,
+     1.24
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Dev_Outdoor",
+   "M_Dev_Panel"
+  ],
+  "tris": 1328,
+  "log": []
+ },
+ "ObjectPC": {
+  "file": "ObjectPC.fbx",
+  "objects": [
+   "ObjectPC",
+   "ObjectPC_LED",
+   "ObjectPC_Power",
+   "PC_Keyboard",
+   "PC_Mouse"
+  ],
+  "parents": {
+   "ObjectPC_LED": "ObjectPC",
+   "ObjectPC_Power": "ObjectPC",
+   "PC_Keyboard": "ObjectPC",
+   "PC_Mouse": "ObjectPC"
+  },
+  "poses": {
+   "ObjectPC_LED": {
+    "pos": [
+     -0.0683,
+     -0.2008,
+     0.0452
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "ObjectPC_Power": {
+    "pos": [
+     -0.0342,
+     -0.2045,
+     0.0474
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "PC_Keyboard": {
+    "pos": [
+     0.0,
+     -0.4,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "PC_Mouse": {
+    "pos": [
+     0.33,
+     -0.4,
+     0.0
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Dev_Devices",
+   "M_Dev_LEDG",
+   "M_Dev_Panel"
+  ],
+  "tris": 344,
+  "log": []
+ },
+ "TapeDeck": {
+  "file": "TapeDeck.fbx",
+  "objects": [
+   "TapeDeck",
+   "IX_TapeDoor",
+   "TapeDeck_Window",
+   "TapeDeck_Key_FF",
+   "TapeDeck_Key_Play",
+   "TapeDeck_Key_Rec",
+   "TapeDeck_Key_Rew",
+   "TapeDeck_Key_Stop",
+   "TapeDeck_LED_Power",
+   "TapeDeck_LED_Rec"
+  ],
+  "parents": {
+   "IX_TapeDoor": "TapeDeck",
+   "TapeDeck_Window": "IX_TapeDoor",
+   "TapeDeck_Key_FF": "TapeDeck",
+   "TapeDeck_Key_Play": "TapeDeck",
+   "TapeDeck_Key_Rec": "TapeDeck",
+   "TapeDeck_Key_Rew": "TapeDeck",
+   "TapeDeck_Key_Stop": "TapeDeck",
+   "TapeDeck_LED_Power": "TapeDeck",
+   "TapeDeck_LED_Rec": "TapeDeck"
+  },
+  "poses": {
+   "IX_TapeDoor": {
+    "pos": [
+     -0.3505,
+     -0.0215,
+     -0.0187
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_Window": {
+    "pos": [
+     -0.3505,
+     -0.0215,
+     0.0193
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_Key_FF": {
+    "pos": [
+     -0.0509,
+     -0.027,
+     0.0039
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_Key_Play": {
+    "pos": [
+     -0.1684,
+     -0.027,
+     0.0039
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_Key_Rec": {
+    "pos": [
+     -0.2272,
+     -0.027,
+     0.0039
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_Key_Rew": {
+    "pos": [
+     -0.1097,
+     -0.027,
+     0.0039
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_Key_Stop": {
+    "pos": [
+     0.0078,
+     -0.027,
+     0.0039
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_LED_Power": {
+    "pos": [
+     0.3995,
+     -0.0248,
+     -0.0193
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   },
+   "TapeDeck_LED_Rec": {
+    "pos": [
+     -0.2272,
+     -0.0248,
+     0.0386
+    ],
+    "rot_euler": [
+     0.0,
+     -0.0,
+     0.0
+    ]
+   }
+  },
+  "materials": [
+   "M_Dev_Devices",
+   "M_Dev_Glass",
+   "M_Dev_LEDG",
+   "M_Dev_LEDR",
+   "M_Dev_Panel"
+  ],
+  "tris": 202,
+  "log": [
+   "TapeDeck_Window: lifted from IX_TapeDoor"
+  ]
+ }
+}
