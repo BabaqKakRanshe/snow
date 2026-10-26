@@ -19,13 +19,36 @@ namespace Snow.EditorTools
     /// additive halos. Prefabs: box colliders of the contract, the sockets as empty children, the doors standing at their
     /// data pose (static: no interaction until the pack joins the Forest integration), the lamps' lights driven by a
     /// <see cref="ForestStartLamp"/> (the tripod: battery, dies; the booth lamp: lives a little longer). Re-running rewrites
-    /// the same assets (same GUIDs).
+    /// the same assets (same GUIDs). Tools / Snow / Forest / Build Hut Yard Props builds the forest_hut_yard 1.0 pack
+    /// (FOREST_HUT_YARD_CONTRACT.md: outhouse, feeder, timber stack, trail-head pointer with its lantern, porch, map) the same way
+    /// into Assets/Locations/Forest/HutYard (HutYard_Unity.json from tools/forest_hut_yard).
     /// </summary>
     public static class StartPropsBuilder
     {
-        const string Root = "Assets/Locations/Forest/Start", DataPath = Root + "/Start_Unity.json";
-        const string Models = Root + "/Models", Textures = Root + "/Textures", Materials = Root + "/Materials", Prefabs = Root + "/Prefabs";
         const string LightLayersFrom = "Assets/Locations/Forest/Prefabs/LightPole.prefab";
+
+        /// <summary>One pack: its folder, data file, material prefix and materials.</summary>
+        class Pack
+        {
+            public string label, root, data, prefix;
+            public Func<Dictionary<string, Material>> materials;
+        }
+
+        static readonly Pack StartPack = new Pack
+        {
+            label = "Start props", root = "Assets/Locations/Forest/Start", data = "Start_Unity.json", prefix = "M_Start_", materials = StartMaterials,
+        };
+        static readonly Pack YardPack = new Pack
+        {
+            label = "Hut yard props", root = "Assets/Locations/Forest/HutYard", data = "HutYard_Unity.json", prefix = "M_Yard_", materials = YardMaterials,
+        };
+
+        static Pack _p = StartPack;
+        static string Root => _p.root;
+        static string DataPath => Root + "/" + _p.data;
+        static string Textures => Root + "/Textures";
+        static string Materials => Root + "/Materials";
+        static string Prefabs => Root + "/Prefabs";
 
         [Serializable] class Data { public string version; public Item[] items; }
         [Serializable] class Item { public string name, fbx; public Col[] colliders; public LightDef[] lights; public Socket[] sockets; public Door[] doors; }
@@ -34,25 +57,35 @@ namespace Snow.EditorTools
         [Serializable] class Door { public string name; public float[] pivot, axis; public float min, max, pose; }
         [Serializable] class LightDef { public string name, lens, glow, group; public bool spot; public float angle, intensity, range; public float[] pos, dir, up, color; }
 
-        // lamp life (minutes) by contract group: the tripod's battery goes first, the booth lamp a little later
-        static readonly Dictionary<string, float> Life = new Dictionary<string, float> { { "battery", 12f }, { "post", 14f } };
+        // lamp life (minutes) by contract group: the tripod's battery goes first, the booth lamp a little later; the trail-head
+        // lantern lives until X01 (ForestHutDressStep hands it to ForestOpening.x01Lamps)
+        static readonly Dictionary<string, float> Life = new Dictionary<string, float> { { "battery", 12f }, { "post", 14f }, { "trail", 600f } };
 
         [MenuItem("Tools/Snow/Forest/Build Start Props")]
         static void Menu() => Build();
 
-        public static bool Build()
+        [MenuItem("Tools/Snow/Forest/Build Hut Yard Props")]
+        static void MenuYard() => BuildHutYard();
+
+        public static bool Build() => Build(StartPack);
+
+        public static bool BuildHutYard() => Build(YardPack);
+
+        static bool Build(Pack pack)
         {
+            _p = pack;
             var asset = AssetDatabase.LoadAssetAtPath<TextAsset>(DataPath);
             Data data = asset != null ? JsonUtility.FromJson<Data>(asset.text) : null;
-            if (data?.items == null || data.items.Length == 0) { Debug.LogError($"[Snow] Start props: {DataPath} not found or empty."); return false; }
+            if (data?.items == null || data.items.Length == 0) { Debug.LogError($"[Snow] {_p.label}: {DataPath} not found or empty."); return false; }
             int tex = SetupTextures();
-            Dictionary<string, Material> mats = BuildMaterials();
+            Directory.CreateDirectory(Materials);
+            Dictionary<string, Material> mats = _p.materials();
             var problems = new List<string>();
             int models = data.items.Count(it => SetupModel(it, mats, problems));
             int prefabs = data.items.Count(it => BuildPrefab(it, mats, problems));
             AssetDatabase.SaveAssets();
-            Debug.Log($"[Snow] Start props {data.version}: {tex} textures, {mats.Count} materials, {models} models, {prefabs} prefabs in {Root}.");
-            foreach (string p in problems) Debug.LogWarning("[Snow] Start props: " + p);
+            Debug.Log($"[Snow] {_p.label} {data.version}: {tex} textures, {mats.Count} materials, {models} models, {prefabs} prefabs in {Root}.");
+            foreach (string p in problems) Debug.LogWarning($"[Snow] {_p.label}: " + p);
             return problems.Count == 0 && prefabs == data.items.Length;
         }
 
@@ -86,9 +119,8 @@ namespace Snow.EditorTools
         static Texture2D Tex(string name) => AssetDatabase.LoadAssetAtPath<Texture2D>($"{Textures}/{name}.png");
 
         // ------------------------------------------------------------------ materials
-        static Dictionary<string, Material> BuildMaterials()
+        static Dictionary<string, Material> StartMaterials()
         {
-            Directory.CreateDirectory(Materials);
             Texture2D start = Tex("T_Start_Start_BaseColor"), props = Tex("T_Start_StartProps_BaseColor");
             Texture2D panel = Tex("T_Start_Panel_BaseColor"), panelE = Tex("T_Start_Panel_Emission");
             var m = new Dictionary<string, Material>(StringComparer.Ordinal)
@@ -105,6 +137,21 @@ namespace Snow.EditorTools
                 ["M_Start_Glow"] = Glow("M_Start_Glow", panelE, 1.4f),
             };
             return m;
+        }
+
+        static Dictionary<string, Material> YardMaterials()
+        {
+            Texture2D wood = Tex("T_Yard_YardWood_BaseColor"), props = Tex("T_Yard_YardProps_BaseColor");
+            Texture2D panel = Tex("T_Yard_Panel_BaseColor"), panelE = Tex("T_Yard_Panel_Emission");
+            return new Dictionary<string, Material>(StringComparer.Ordinal)
+            {
+                ["M_Yard_YardWood"] = Lit("M_Yard_YardWood", wood, null, 0f),
+                ["M_Yard_YardProps"] = Lit("M_Yard_YardProps", props, null, 0f),
+                ["M_Yard_Panel"] = Lit("M_Yard_Panel", panel, null, 0f),
+                ["M_Yard_Lamp_Lant"] = Lit("M_Yard_Lamp_Lant", panel, panelE, 3f),
+                ["M_Yard_Lamp_Lant_Off"] = Lit("M_Yard_Lamp_Lant_Off", panel, null, 0f),
+                ["M_Yard_Glow"] = Glow("M_Yard_Glow", panelE, 1.4f),
+            };
         }
 
         static Material Load(string name, Shader shader)
@@ -260,7 +307,7 @@ namespace Snow.EditorTools
                 Transform Find(string n) => n == it.name ? root : Deep(root, n);
                 foreach (Renderer r in inst.GetComponentsInChildren<Renderer>(true))
                 {
-                    bool see = r.name.StartsWith("Glow_", StringComparison.Ordinal) || r.sharedMaterials.Any(x => x == mats["M_Start_Glass"] || x == mats["M_Start_GlassDirty"]);
+                    bool see = r.name.StartsWith("Glow_", StringComparison.Ordinal) || r.sharedMaterials.Any(x => x != null && x.name.StartsWith(_p.prefix + "Glass", StringComparison.Ordinal));
                     r.shadowCastingMode = see ? ShadowCastingMode.Off : ShadowCastingMode.On;
                     r.receiveShadows = !see;
                 }
@@ -339,8 +386,8 @@ namespace Snow.EditorTools
                 if (gt != null && gt.TryGetComponent(out Renderer g)) { glows.Add(g); g.enabled = false; }
                 else problems.Add($"{it.name}: glow {ld.glow} missing");
                 string kind = ld.lens.Replace("Lens_", "");
-                mats.TryGetValue($"M_Start_Lamp_{kind}", out on);
-                mats.TryGetValue($"M_Start_Lamp_{kind}_Off", out off);
+                mats.TryGetValue($"{_p.prefix}Lamp_{kind}", out on);
+                mats.TryGetValue($"{_p.prefix}Lamp_{kind}_Off", out off);
                 if (lens != null && off != null) lens.sharedMaterial = off;   // off in the asset; the lamp script lights it
                 if (Life.TryGetValue(ld.group ?? "", out float lf)) life = lf;
             }

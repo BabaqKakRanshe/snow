@@ -29,7 +29,9 @@ namespace Snow.EditorTools
         const string LightLayersFrom = "Assets/Locations/Forest/Prefabs/LightPole.prefab";
 
         [Serializable] public class Trail { public float w; public float[] p; }
-        [Serializable] public class Prop { public string prefab; public float x, z, yaw; }
+        /// <summary>A prefab on the ground at world x, z; with <c>anchor</c> (a path under the Forest root) at the anchor's local
+        /// point <c>local</c> instead, turned with it (the porch at the hut front, the map on the hut table).</summary>
+        [Serializable] public class Prop { public string prefab, anchor; public float x, z, yaw; public float[] local; }
         [Serializable] public class Candle { public string anchor; public float[] local, color; public float intensity, range, glow; }
         [Serializable] public class Prints { public string material; public float[] uv, p; public float size, step; }
         [Serializable] public class Turn { public float yaw, radius; public string[] objects; }
@@ -86,9 +88,17 @@ namespace Snow.EditorTools
             int props = 0, missing = 0;
             foreach (Prop p in _d.props ?? new Prop[0])
             {
-                if (Place(AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab), dress, p.x, p.z, p.yaw, reference) == null) { missing++; continue; }
+                var asset = AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab);
+                Transform anchor = string.IsNullOrEmpty(p.anchor) ? null : root.Find(p.anchor);
+                if (!string.IsNullOrEmpty(p.anchor) && anchor == null) Debug.LogWarning($"[Snow] Forest hut dress: anchor {p.anchor} of {p.prefab} not found.");
+                GameObject go = anchor != null && p.local != null && p.local.Length >= 3
+                    ? PlaceAt(asset, dress, anchor.TransformPoint(V(p.local)), anchor.rotation * Quaternion.Euler(0f, p.yaw, 0f), reference)
+                    : anchor == null && string.IsNullOrEmpty(p.anchor) ? Place(asset, dress, p.x, p.z, p.yaw, reference) : null;
+                if (go == null) { missing++; continue; }
                 props++;
             }
+            // the yard pack's lamps ride in their prefabs (the pointer's lantern): out at X01 with the rest
+            ForestStartLamp[] propLamps = dress.GetComponentsInChildren<ForestStartLamp>(true);
             int prints = PlacePrints(dress);
             Transform hut = _d.candle != null ? root.Find(_d.candle.anchor) : null;
             ForestStartLamp candle = hut != null ? MakeCandle(dress, hut) : null;
@@ -97,7 +107,7 @@ namespace Snow.EditorTools
             ForestOpening fo = root.GetComponentInChildren<ForestOpening>(true);
             if (fo != null)
             {
-                fo.x01Lamps = new[] { candle, beacon, pointer }.Where(l => l != null).ToArray();
+                fo.x01Lamps = new[] { candle, beacon, pointer }.Concat(propLamps).Where(l => l != null).ToArray();
                 fo.x01Hut = hut;
                 fo.x01OutsideRadius = _d.x01OutsideRadius;
                 EditorUtility.SetDirty(fo);
@@ -332,12 +342,14 @@ namespace Snow.EditorTools
             return w.y;
         }
 
-        static GameObject Place(GameObject asset, Transform parent, float x, float z, float yaw, Transform reference)
+        static GameObject Place(GameObject asset, Transform parent, float x, float z, float yaw, Transform reference) =>
+            PlaceAt(asset, parent, new Vector3(x, Height(new Vector3(x, 0f, z)), z), Quaternion.Euler(0f, yaw, 0f), reference);
+
+        static GameObject PlaceAt(GameObject asset, Transform parent, Vector3 position, Quaternion rotation, Transform reference)
         {
             if (asset == null) return null;
             var go = (GameObject)PrefabUtility.InstantiatePrefab(asset, parent);
-            var w = new Vector3(x, 0f, z);
-            go.transform.SetPositionAndRotation(new Vector3(x, Height(w), z), Quaternion.Euler(0f, yaw, 0f));
+            go.transform.SetPositionAndRotation(position, rotation);
             int layer = reference != null ? reference.gameObject.layer : go.layer;
             StaticEditorFlags flags = reference != null ? GameObjectUtility.GetStaticEditorFlags(reference.gameObject) : 0;
             foreach (Transform t in go.GetComponentsInChildren<Transform>(true))
@@ -491,12 +503,15 @@ namespace Snow.EditorTools
         }
 
         /// <summary>A small warm light on the sign at the trail head (user 25.10: the hut cannot be seen from the road through
-        /// the firs, so a light at the road draws the eye to the trail and the hut's lantern takes over from there). No model
-        /// yet: a point light and a halo on the sign's post (the ordered arrow sign brings its own lamp). Out at X01.</summary>
+        /// the firs, so a light at the road draws the eye to the trail and the hut's lantern takes over from there). With the
+        /// yard pack's pointer (HutSign) among the props its lantern is the light: only the far halo is added on its LIGHT_Lant;
+        /// without it a point light and a halo at the data's place. Out at X01.</summary>
         static ForestStartLamp MakePointer(Transform dress)
         {
             Pointer p = _d.pointer;
             if (p == null || p.color == null) return null;
+            Transform lant = dress.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == "LIGHT_Lant");
+            if (lant != null) return MakePointerHalo(lant, p);
             var go = new GameObject("TrailLight");
             go.transform.SetParent(dress, false);
             var w = new Vector3(p.x, 0f, p.z);
@@ -538,6 +553,30 @@ namespace Snow.EditorTools
             lamp.lifeMinutes = 600f;
             lamp.dipEvery = 6f;
             go.AddComponent<ForestLanternSway>().amplitude = 0.03f;
+            return lamp;
+        }
+
+        /// <summary>The far halo on the pointer lantern's light (the beacon's glow: the fog dims it less, so the trail head
+        /// reads from the road); its own glow-only lamp, out at X01 with the lantern.</summary>
+        static ForestStartLamp MakePointerHalo(Transform light, Pointer p)
+        {
+            var go = new GameObject("Beacon_Trail");
+            go.transform.SetParent(light, false);
+            go.transform.localScale = Vector3.one * p.glow;
+            go.AddComponent<MeshFilter>().sharedMesh = AssetDatabase.LoadAssetAtPath<Mesh>(GlowQuad);
+            var r = go.AddComponent<MeshRenderer>();
+            Beacon b = _d.beacon;
+            r.sharedMaterial = b != null ? GlowMat(BeaconMaterial, new Color(b.color[0], b.color[1], b.color[2]), b.intensity, b.fogFloor, b.nearFade)
+                                         : GlowMat(new Color(p.color[0], p.color[1], p.color[2]));
+            r.shadowCastingMode = ShadowCastingMode.Off;
+            r.receiveShadows = false;
+            r.lightProbeUsage = LightProbeUsage.Off;
+            r.reflectionProbeUsage = ReflectionProbeUsage.Off;
+            var lamp = go.AddComponent<ForestStartLamp>();
+            lamp.lights = new Light[0];
+            lamp.glows = new Renderer[] { r };
+            lamp.lifeMinutes = 600f;
+            lamp.dipEvery = 1e4f;                               // the lantern's own dips do the rest
             return lamp;
         }
 
