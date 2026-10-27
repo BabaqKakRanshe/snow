@@ -92,6 +92,7 @@ namespace Snow.Vehicles.Van
             _rb.automaticCenterOfMass = false;
             _rb.automaticInertiaTensor = false;
             ApplyMass(0);
+            SlipperyUnderside();
             _groundMask = ~(1 << LayerMask.NameToLayer("Interact"));
             foreach (var vi in GetComponentsInChildren<VanInteractable>(true))
             {
@@ -108,11 +109,13 @@ namespace Snow.Vehicles.Van
             if (!IsServer) return;
             if (_pos.Count == 0)
                 foreach (VanControl ctl in VanControls.Table)
-                    _pos.Add((byte)(ctl.Zone == "MassSwitch_Key" || ctl.Zone == "Handbrake" ? 1 : 0));   // bench: mass on, hand brake set
+                    _pos.Add((byte)(ctl.Zone == "MassSwitch_Key" || ctl.Zone == "Handbrake"
+                        || ctl.Zone == "TransferLever_Axle" && tuning.frontAxleAtStart ? 1 : 0));   // bench: mass on, hand brake set; front axle in
             if (_fuse.Count == 0)
                 for (int i = 0; i < 8; i++)
                     _fuse.Add(FuseOk);   // forest start: only the tank is empty, the fuses are whole (user 27.10, QUESTIONS_6 §7а 4)
             _motion = new VanMotion(tuning, tuning.massKg);
+            _motion.FrontAxle = Pos("TransferLever_Axle") == 1;
             _elec = new VanElectrics(tuning, 1f, tuning.benchBatteryTempC);
             FuelInit();                                       // the forest start: empty tank (VanVehicle.Fuel.cs)
             BenchLog.Event("van_spawn", "state", startState.ToString(), "p", transform.position);
@@ -149,6 +152,25 @@ namespace Snow.Vehicles.Van
             _rb.inertiaTensorRotation = Quaternion.identity;
         }
 
+        static readonly string[] Underside = { "COL_Underbody", "COL_Tanks", "COL_BumperF", "COL_BumperR", "COL_BullBar" };
+        static PhysicsMaterial _underside;
+
+        /// <summary>
+        /// The belly, tanks and bumpers slide on the ground (default friction 0.6 hooked the van on the edge of a hole and it
+        /// sat there). Only the outside boxes: the floor keeps its grip for the cargo.
+        /// </summary>
+        void SlipperyUnderside()
+        {
+            if (_underside == null)
+                _underside = new PhysicsMaterial("Van_Underside")
+                {
+                    dynamicFriction = tuning.underbodyFriction, staticFriction = tuning.underbodyFriction, bounciness = 0f,
+                    frictionCombine = PhysicsMaterialCombine.Minimum, bounceCombine = PhysicsMaterialCombine.Minimum,
+                };
+            foreach (var c in GetComponentsInChildren<BoxCollider>(true))
+                if (System.Array.IndexOf(Underside, c.name) >= 0) c.sharedMaterial = _underside;
+        }
+
         static Vector3 PointInertia(float m, Vector3 d) =>
             new Vector3(m * (d.y * d.y + d.z * d.z), m * (d.x * d.x + d.z * d.z), m * (d.x * d.x + d.y * d.y));
 
@@ -178,11 +200,12 @@ namespace Snow.Vehicles.Van
             {
                 VanWheel w = _motion.Wheels[i];
                 Vector3 origin = transform.TransformPoint(tuning.wheelCentres[i] + Vector3.up * tuning.bumpTravel);
+                Vector3 heading = Quaternion.AngleAxis(_motion.WheelSteer(i), up) * fwd;
                 var g = new VanWheelInput { Up = up, Radius = tuning.wheelRadius, Mu = tuning.muPackedSnow, Rolling = tuning.rollingResistanceSnow };
-                if (CastWheel(origin, -up, w.RayLength, out RaycastHit hit))
+                if (CastProfile(origin, heading, up, w.RayLength, out RaycastHit hit, out float distance))
                 {
                     g.Hit = true;
-                    g.Distance = hit.distance;
+                    g.Distance = distance;
                     g.Point = hit.point;
                     g.Normal = hit.normal;
                     g.Velocity = _rb.GetPointVelocity(hit.point);
@@ -257,6 +280,29 @@ namespace Snow.Vehicles.Van
                 case SurfaceKind.SandTrack: mu = tuning.muSandTrack; break;
                 default: mu = tuning.muPackedSnow; break;
             }
+        }
+
+        /// <summary>
+        /// The tyre's footprint: rays ahead of and behind the axle, the one that lifts the wheel most wins. distance = where
+        /// the bottom of the wheel would be for that ray (the rim x off the axle sits r − √(r² − x²) higher), so the wheel
+        /// rolls up onto an edge and out of a hole instead of a point dropping in and the ground jumping under it.
+        /// </summary>
+        bool CastProfile(Vector3 origin, Vector3 heading, Vector3 up, float length, out RaycastHit best, out float distance)
+        {
+            best = default;
+            distance = 0f;
+            bool found = false;
+            int n = Mathf.Max(1, tuning.profileRays | 1);
+            float r = tuning.wheelRadius;
+            for (int k = 0; k < n; k++)
+            {
+                float x = n == 1 ? 0f : Mathf.Lerp(-tuning.profileSpan, tuning.profileSpan, k / (n - 1f)) * r;
+                float lift = r - Mathf.Sqrt(Mathf.Max(0f, r * r - x * x));
+                if (!CastWheel(origin + heading * x, -up, length - lift, out RaycastHit hit)) continue;
+                float d = hit.distance + lift;
+                if (!found || d < distance) { best = hit; distance = d; found = true; }
+            }
+            return found;
         }
 
         bool CastWheel(Vector3 origin, Vector3 dir, float length, out RaycastHit best)

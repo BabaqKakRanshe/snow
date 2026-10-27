@@ -22,7 +22,7 @@ namespace Snow.Vehicles.Van
     /// <summary>
     /// One ray wheel of the van (VAN3_INTEGRATION_UNITY.md §4.2): a copy of Snow.Aircraft.WheelContact (tyre anchor and
     /// friction circle), which stays untouched, with what a driven car wheel needs. Pure C#.
-    ///  - Suspension from the static pose: the model shows the wheel loaded (F₀). Compression c is measured from full droop
+    ///  - Suspension from the static pose (the spring force acts along the van's up, the suspension axis): the model shows the wheel loaded (F₀). Compression c is measured from full droop
     ///    F₀/k below that pose, N = k·c (no preload), so at the model pose N = F₀ and at first touch N = 0. A bump stop
     ///    (× bumpStop) past the compression travel. Damper bump / rebound.
     ///  - The wheel spins on its own (Omega, inertia): drive torque, brake torque and the tyre's longitudinal force. The
@@ -35,7 +35,7 @@ namespace Snow.Vehicles.Van
     public class VanWheel
     {
         public readonly float Radius, Droop, BumpTravel, Spring, DamperBump, DamperRebound, BumpStop, Inertia, SlipFull;
-        readonly float _tyreK, _tyreDamping;
+        readonly float _tyreK, _tyreDamping, _bumpStopDamping, _maxRate, _cosSteep;
 
         Vector3 _anchor;
         bool _anchored;
@@ -75,6 +75,9 @@ namespace Snow.Vehicles.Van
             SlipFull = Mathf.Max(0.02f, t.slipFull);
             _tyreK = t.tyreStiffness;
             _tyreDamping = t.tyreDamping;
+            _bumpStopDamping = Mathf.Max(1f, t.bumpStopDamping);
+            _maxRate = Mathf.Max(0.1f, t.damperMaxRate);
+            _cosSteep = Mathf.Cos(t.steepNormalDeg * Mathf.Deg2Rad);
         }
 
         public void Reset()
@@ -111,17 +114,26 @@ namespace Snow.Vehicles.Van
                 return Vector3.zero;
             }
 
+            // damper speed: the change of compression; on the first contact after a lift the body's own speed along up
+            // (_lastC was 0 there, and c/dt kicked one corner with tens of kN — the van flipped off small bumps). Capped:
+            // ground jumping under the ray at an edge is not a real 12 m/s hit
+            float rate = Grounded ? (c - _lastC) / dt : -Vector3.Dot(u.Velocity, u.Up);
+            rate = Mathf.Clamp(rate, -_maxRate, _maxRate);
             Grounded = true;
             Compression = c;
-            float rate = (c - _lastC) / dt;
             _lastC = c;
             float maxC = Droop + BumpTravel;
             float spring = c <= maxC ? Spring * c : Spring * maxC + Spring * BumpStop * (c - maxC);
-            float n = Mathf.Max(0f, spring + (rate > 0f ? DamperBump : DamperRebound) * rate);
+            // on the bump stop the rebound is damped harder: the stop soaks the hit up instead of throwing the body back
+            float damper = rate > 0f ? DamperBump : DamperRebound * (c > maxC ? _bumpStopDamping : 1f);
+            float n = Mathf.Max(0f, spring + damper * rate);
             NormalForce = n;
 
-            Vector3 fwd = Vector3.ProjectOnPlane(u.Heading, u.Normal).normalized;
-            Vector3 side = Vector3.Cross(u.Normal, fwd).normalized;
+            // a hit on a steep face (a rock's side, the edge of a step) is taken as flat ground under the wheel: its normal
+            // turned the whole spring force sideways at ground level and rolled the van over
+            Vector3 normal = Vector3.Dot(u.Normal, u.Up) >= _cosSteep ? u.Normal : u.Up;
+            Vector3 fwd = Vector3.ProjectOnPlane(u.Heading, normal).normalized;
+            Vector3 side = Vector3.Cross(normal, fwd).normalized;
             float vLon = Vector3.Dot(u.Velocity, fwd), vLat = Vector3.Dot(u.Velocity, side);
             float fMax = u.Mu * n;
             float k = fMax / SlipFull;                              // N per m/s of slip
@@ -192,7 +204,7 @@ namespace Snow.Vehicles.Van
             if (!locked) lon -= Mathf.Clamp(vLon / 0.1f, -1f, 1f) * u.Rolling * n;   // fades in over 0.1 m/s: no sign flip at rest
             LongForce = lon;
             LatForce = lat;
-            return u.Normal * n + fwd * lon + side * lat;
+            return u.Up * n + fwd * lon + side * lat;          // the spring pushes along the suspension, the tyre in the ground plane
         }
     }
 }

@@ -19,6 +19,8 @@ namespace Snow.Vehicles.Van
         [Tooltip("kg per litre of petrol in the tanks")] public float fuelKgPerLitre = 0.74f;
         [Tooltip("m², air drag ½ρ·CdA·v²")] public float dragArea = 2.2f;
         [Tooltip("kg/m³")] public float airDensity = 1.3f;
+        [Tooltip("friction of the underside boxes (underbody, tanks, bumpers): the belly slides off an edge, not hooks on it")]
+        public float underbodyFriction = 0.1f;
 
         [Header("Wheels and suspension (§4.2)")]
         [Tooltip("van space, the model pose (static, loaded): FL, FR, RL, RR (vehicle.json wheels[].centre)")]
@@ -33,6 +35,15 @@ namespace Snow.Vehicles.Van
         [Tooltip("N·s/m, rebound")] public float damperRebound = 5000f;
         [Tooltip("m of compression travel above the static pose of the model")] public float bumpTravel = 0.10f;
         [Tooltip("bump stop stiffness, × springRate")] public float bumpStop = 10f;
+        [Tooltip("rebound damper × this while on the bump stop: it soaks the hit up instead of throwing the body back")]
+        public float bumpStopDamping = 4f;
+        [Tooltip("m/s: the damper sees at most this compression speed (a step under the ray is not a 12 m/s hit)")]
+        public float damperMaxRate = 1.5f;
+        [Tooltip("rays along the tyre's footprint (odd): the wheel rolls up onto an edge instead of a point dropping into it")]
+        public int profileRays = 5;
+        [Tooltip("the outer rays at ± this × radius ahead / behind the axle")] public float profileSpan = 0.8f;
+        [Tooltip("degrees: ground steeper than this to the van's up (a rock's side, a step) is taken as flat under the wheel")]
+        public float steepNormalDeg = 40f;
         [Tooltip("kg·m² per wheel (with its share of the axle)")] public float wheelInertia = 1.2f;
         [Tooltip("N/m tangential tyre anchor stiffness (WheelContact)")] public float tyreStiffness = 120000f;
         [Tooltip("damping ratio of the tyre anchor")] public float tyreDamping = 0.7f;
@@ -41,11 +52,11 @@ namespace Snow.Vehicles.Van
         public float rollingResistanceSnow = 0.03f;
 
         [Header("Grip μ (§4.2, V-02)")]
-        public float muRoad = 0.45f;
-        public float muPackedSnow = 0.32f;
-        public float muLooseSnow = 0.22f;
+        public float muRoad = 0.8f;
+        public float muPackedSnow = 0.7f;
+        public float muLooseSnow = 0.55f;
         public float muIce = 0.10f;
-        public float muSandTrack = 0.8f;
+        public float muSandTrack = 0.9f;
         public float chainsBonusSnow = 0.12f;
         public float chainsBonusIce = 0.18f;
         [Tooltip("μ × this on a flat tyre")] public float flatMuFactor = 0.6f;
@@ -98,6 +109,9 @@ namespace Snow.Vehicles.Van
         public float transferLow = 1.94f;
         [Tooltip("km/h: above this the range lever refuses (no synchroniser)")] public float rangeShiftMaxKmh = 3f;
         public float finalDrive = 5.125f;
+        [Tooltip("0 = open differentials; 1 = a wheel can pass all its torque to the other wheel of the axle (self-locking)")]
+        [Range(0f, 1f)] public float diffLock = 0.7f;
+        [Tooltip("the front axle lever is in when the van spawns")] public bool frontAxleAtStart = true;
 
         [Header("Brakes (§4.2, §4.3)")]
         [Tooltip("N·m per front wheel at full pedal")] public float brakeFrontNm = 2600f;

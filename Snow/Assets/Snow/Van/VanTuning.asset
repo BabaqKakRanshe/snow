@@ -36,11 +36,11 @@ MonoBehaviour:
   slipFull: 0.25
   rollingResistance: 0.015
   rollingResistanceSnow: 0.03
-  muRoad: 0.45
-  muPackedSnow: 0.32
-  muLooseSnow: 0.22
+  muRoad: 0.8
+  muPackedSnow: 0.7
+  muLooseSnow: 0.55
   muIce: 0.1
-  muSandTrack: 0.8
+  muSandTrack: 0.9
   chainsBonusSnow: 0.12
   chainsBonusIce: 0.18
   flatMuFactor: 0.6

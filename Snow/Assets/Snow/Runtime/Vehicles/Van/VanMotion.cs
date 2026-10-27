@@ -5,8 +5,8 @@ namespace Snow.Vehicles.Van
     /// <summary>
     /// Motion model of the van (VAN3_INTEGRATION_UNITY.md §4, PHYS-01/02, INPUT-01). Pure C#, server only, no network and
     /// no rig: engine → automatic clutch → 4-speed box with automatic logic → transfer H / L → rear axle (+ front axle by
-    /// lever, no centre differential: torque split by axle load) → open differentials (equal torque per side) → four ray
-    /// wheels (<see cref="VanWheel"/>). Brakes per wheel, hand brake on the transmission. Wheelspin, skids and locked wheels
+    /// lever, no centre differential: torque split by axle load) → self-locking differentials (equal torque per side, plus
+    /// up to diffLock of it passed from the faster wheel to the slower one) → four ray wheels (<see cref="VanWheel"/>). Brakes per wheel, hand brake on the transmission. Wheelspin, skids and locked wheels
     /// come out of the tyres; there is no traction control, no ABS and no hidden help.
     /// Gear: −1 = R, 0 = N, 1..4. Steering angle: + = right (yaw); the rig's SetSteer is + = left.
     /// </summary>
@@ -173,6 +173,8 @@ namespace Snow.Vehicles.Van
             float axle = clutch * ratio;                           // N·m at the wheels, all driven together
             float perRear = rear ? axle * (1f - frontShare) * 0.5f : 0f;
             float perFront = front ? axle * frontShare * 0.5f : 0f;
+            // self-locking: a wheel hanging in a hole no longer takes the whole axle's drive with it
+            float lockRear = DiffLock(2, 3, perRear, dt), lockFront = front ? DiffLock(0, 1, perFront, dt) : 0f;
 
             // ---- brakes: pedal per wheel, hand brake on the transmission (rear, or all four with the front axle in)
             float hand = u.Handbrake * T.handbrakeNm * T.finalDrive;
@@ -183,11 +185,23 @@ namespace Snow.Vehicles.Van
             {
                 VanWheelInput g = ground[i];
                 g.Heading = Quaternion.AngleAxis(_steer[i], g.Up) * forward;
-                g.DriveTorque = i < 2 ? perFront : perRear;
+                g.DriveTorque = (i < 2 ? perFront : perRear) + (i == 0 ? -lockFront : i == 1 ? lockFront : i == 2 ? -lockRear : lockRear);
                 g.BrakeTorque = Brake * (i < 2 ? T.brakeFrontNm : T.brakeRearNm) + (i < 2 ? handFront : handRear);
                 ground[i] = g;
                 forces[i] = Wheels[i].Step(g, dt);
             }
+        }
+
+        /// <summary>N·m moved from wheel a to wheel b of one axle: half of what evens their spin in one step, at most diffLock of the wheel's drive torque.</summary>
+        float DiffLock(int a, int b, float perWheel, float dt)
+        {
+            float bias = T.diffLock * Mathf.Abs(perWheel);
+            if (bias <= 0f) return 0f;
+            VanWheel wa = Wheels[a], wb = Wheels[b];
+            float ia = wa.Inertia + wa.SlipStiffness * wa.Radius * wa.Radius * dt;
+            float ib = wb.Inertia + wb.SlipStiffness * wb.Radius * wb.Radius * dt;
+            float even = (wa.Omega - wb.Omega) / (dt * (1f / ia + 1f / ib));
+            return Mathf.Clamp(0.5f * even, -bias, bias);
         }
 
         static float Smooth(float a, float b, float x) => Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(a, b, x));
