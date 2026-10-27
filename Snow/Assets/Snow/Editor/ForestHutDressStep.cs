@@ -55,6 +55,10 @@ namespace Snow.EditorTools
             public Beacon beacon;
             public Pointer pointer;
             public string[] x01Items;
+            /// <summary>Ground lowered in the hut's own frame (u = its local X, v = its local Z, y = metres above the hut's
+            /// origin) after the turn: the porch deck sits at the hut floor, so the ground in front of the door goes down to
+            /// it (user 27.10). ForestGroundEdit keeps the ground before the first run, a rerun gives the same result.</summary>
+            public ForestGroundEdit.Rect[] ground;
         }
 
         static Data _d;
@@ -73,6 +77,7 @@ namespace Snow.EditorTools
             _d = JsonUtility.FromJson<Data>(File.ReadAllText(DataPath));
             Transform structures = root.Find("Structures");
             string turned = TurnHut(root, structures);
+            string ground = Ground(root, structures);
             var tiles = Terrain.activeTerrains.Where(t => t != null && t.terrainData != null && t.transform.IsChildOf(root) && Overlaps(t)).ToArray();
             int painted = 0, cells = 0, removed = 0;
             foreach (Terrain t in tiles)
@@ -120,7 +125,7 @@ namespace Snow.EditorTools
                 EditorUtility.SetDirty(fo);
             }
 
-            Debug.Log($"[Snow] Forest hut dress ({DataPath}): {turned}, trail of {Length():0} m, {painted} ground texels and {cells} grass cells rewritten, " +
+            Debug.Log($"[Snow] Forest hut dress ({DataPath}): {turned}, {ground}, trail of {Length():0} m, {painted} ground texels and {cells} grass cells rewritten, " +
                       $"{removed} Terrain trees on the trail removed, {props} props, {early}, {prints} boot prints, candle {(candle != null ? "lit" : "MISSING (no " + _d.candle?.anchor + ")")}, " +
                       $"far halo {(beacon != null ? "on the lantern (swaying)" : "none")}, trail-head light {(pointer != null ? "lit" : "none")}, " +
                       $"X01 {(fo != null ? $"at {_d.x01OutsideRadius:0.#} m from the hut" : "NOT linked (no ForestOpening)")}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
@@ -160,6 +165,23 @@ namespace Snow.EditorTools
         }
 
         static Vector3 V(float[] a) => new Vector3(a[0], a[1], a[2]);
+
+        /// <summary>The data's ground rectangles moved from the hut's frame onto the turned hut and applied (heights only go
+        /// down: ForestGroundEdit "cut"); before the paint and the props, so the trail, the prints and the props sit on the
+        /// new ground.</summary>
+        static string Ground(Transform root, Transform structures)
+        {
+            Transform hut = structures != null ? structures.Find("TowerHut") : null;
+            if (_d.ground == null || _d.ground.Length == 0 || hut == null) return "ground as it is";
+            var rects = _d.ground.Select(g => new ForestGroundEdit.Rect
+            {
+                name = g.name, x = hut.position.x, z = hut.position.z, yaw = hut.eulerAngles.y, y = hut.position.y + g.y, fade = g.fade,
+                rect = g.rect, mode = g.mode, heights = g.heights, hole = g.hole, clearTrees = g.clearTrees, clearGrass = g.clearGrass,
+            }).ToArray();
+            (int heights, int _) = ForestGroundEdit.Apply(root, rects, Path.ChangeExtension(DataPath, null) + "_ground.bytes", "forest_hut");
+            int grass = ForestGroundEdit.ClearGrass(root, rects.Where(r => r.clearGrass).ToArray());
+            return $"ground in front of the hut: {heights} height samples lowered, {grass} grass cells cleared";
+        }
 
         // ------------------------------------------------------------------ trail geometry
 
