@@ -1,0 +1,7 @@
+Use case: product-mockup. Asset type: modeling reference sheet for a low-poly 3D artist.
+Primary request: an orthographic reference sheet of small airfield runway equipment of a 1980s West German military forest airstrip, on a plain light grey background, each object shown front view, side view and 3/4 view with a simple 1 m scale bar:
+1) runway EDGE LIGHT: elevated omnidirectional light about 35 cm tall - a round yellow-amber glass dome with an inner ribbed lens on a short grey frangible stand (thin tube with a breakaway coupling) bolted to a small square concrete pad 40 x 40 cm, a cable gland at the base.
+2) runway EDGE MARKER: a 1 m tall post painted in red and white bands, square section, on a small concrete foot.
+3) THRESHOLD LIGHT: same as the edge light but with a green dome.
+Style/medium: clean realistic product illustration, flat even light, no shadows on the background, accurate proportions and construction details (bolts, seams, gaskets).
+Avoid: text other than the scale bar numbers, logos, watermarks.

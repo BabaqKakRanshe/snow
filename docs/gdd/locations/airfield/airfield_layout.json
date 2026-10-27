@@ -1,0 +1,1504 @@
+{
+ "version": "1.0",
+ "site": "B (east road)",
+ "heading": 175.0,
+ "centre": [
+  1040.0,
+  -191.0
+ ],
+ "length": 700.0,
+ "frames": "Unity world x, z; yaw about +y (prefab +Z along it); s along the runway from the centre (+ to the south), o across (+ to the west, toward the road)",
+ "ground": {
+  "note": "for the map work (the chat «Дыры и кривые площадки»): clear and flatten the strip to a straight grade; the berm over the hangar; the track from the road",
+  "strip": {
+   "a": [
+    1006.88,
+    187.55
+   ],
+   "b": [
+    1073.12,
+    -569.55
+   ],
+   "half_width": 30.0,
+   "flat_half_width": 12.0,
+   "grade": "straight line between the ends; the search found ~1.4 % down to the south, ruts up to 5 m filled"
+  },
+  "apron": {
+   "centre": [
+    1028.79,
+    -372.67
+   ],
+   "size_across": 36.0,
+   "size_along": 36.0
+  },
+  "hangar_berm": {
+   "gate": [
+    1010.86,
+    -374.24
+   ],
+   "back": [
+    993.92,
+    -375.72
+   ],
+   "width": 40.0,
+   "top_over_floor": 9.0,
+   "note": "earth over the roof (7.3) and the sides down to the tops of the splayed wing walls"
+  },
+  "track": [
+   [
+    951.06,
+    -413.6
+   ],
+   [
+    998.88,
+    -409.42
+   ],
+   [
+    1018.02,
+    -398.71
+   ]
+  ]
+ },
+ "items": [
+  {
+   "prefab": "RWY_Threshold",
+   "x": 1009.93,
+   "z": 152.69,
+   "yaw": -5.0,
+   "s": -345.0,
+   "o": 0,
+   "note": "north end (the paving ends at +Z)"
+  },
+  {
+   "prefab": "RWY_Num17",
+   "x": 1010.8,
+   "z": 142.73,
+   "yaw": -5.0,
+   "s": -335.0,
+   "o": 0,
+   "note": "read from the north (landing 17)"
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1011.67,
+   "z": 132.76,
+   "yaw": 175.0,
+   "s": -325.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1012.55,
+   "z": 122.8,
+   "yaw": -5.0,
+   "s": -315.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1013.42,
+   "z": 112.84,
+   "yaw": -5.0,
+   "s": -305.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1014.29,
+   "z": 102.88,
+   "yaw": 175.0,
+   "s": -295.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1015.16,
+   "z": 92.92,
+   "yaw": 175.0,
+   "s": -285.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1016.03,
+   "z": 82.95,
+   "yaw": -5.0,
+   "s": -275.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1016.9,
+   "z": 72.99,
+   "yaw": -5.0,
+   "s": -265.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1017.78,
+   "z": 63.03,
+   "yaw": 175.0,
+   "s": -255.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1018.65,
+   "z": 53.07,
+   "yaw": 175.0,
+   "s": -245.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1019.52,
+   "z": 43.11,
+   "yaw": -5.0,
+   "s": -235.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1020.39,
+   "z": 33.14,
+   "yaw": -5.0,
+   "s": -225.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1021.26,
+   "z": 23.18,
+   "yaw": 175.0,
+   "s": -215.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1022.13,
+   "z": 13.22,
+   "yaw": 175.0,
+   "s": -205.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1023.0,
+   "z": 3.26,
+   "yaw": -5.0,
+   "s": -195.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1023.88,
+   "z": -6.7,
+   "yaw": -5.0,
+   "s": -185.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1024.75,
+   "z": -16.67,
+   "yaw": 175.0,
+   "s": -175.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1025.62,
+   "z": -26.63,
+   "yaw": 175.0,
+   "s": -165.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1026.49,
+   "z": -36.59,
+   "yaw": -5.0,
+   "s": -155.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1027.36,
+   "z": -46.55,
+   "yaw": -5.0,
+   "s": -145.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1028.23,
+   "z": -56.51,
+   "yaw": 175.0,
+   "s": -135.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1029.11,
+   "z": -66.48,
+   "yaw": 175.0,
+   "s": -125.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1029.98,
+   "z": -76.44,
+   "yaw": -5.0,
+   "s": -115.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1030.85,
+   "z": -86.4,
+   "yaw": -5.0,
+   "s": -105.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1031.72,
+   "z": -96.36,
+   "yaw": 175.0,
+   "s": -95.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1032.59,
+   "z": -106.32,
+   "yaw": 175.0,
+   "s": -85.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1033.46,
+   "z": -116.29,
+   "yaw": -5.0,
+   "s": -75.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1034.33,
+   "z": -126.25,
+   "yaw": -5.0,
+   "s": -65.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1035.21,
+   "z": -136.21,
+   "yaw": 175.0,
+   "s": -55.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1036.08,
+   "z": -146.17,
+   "yaw": 175.0,
+   "s": -45.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1036.95,
+   "z": -156.13,
+   "yaw": -5.0,
+   "s": -35.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1037.82,
+   "z": -166.1,
+   "yaw": -5.0,
+   "s": -25.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1038.69,
+   "z": -176.06,
+   "yaw": 175.0,
+   "s": -15.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1039.56,
+   "z": -186.02,
+   "yaw": 175.0,
+   "s": -5.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1040.44,
+   "z": -195.98,
+   "yaw": -5.0,
+   "s": 5.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1041.31,
+   "z": -205.94,
+   "yaw": -5.0,
+   "s": 15.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1042.18,
+   "z": -215.9,
+   "yaw": 175.0,
+   "s": 25.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1043.05,
+   "z": -225.87,
+   "yaw": 175.0,
+   "s": 35.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1043.92,
+   "z": -235.83,
+   "yaw": -5.0,
+   "s": 45.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1044.79,
+   "z": -245.79,
+   "yaw": -5.0,
+   "s": 55.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1045.67,
+   "z": -255.75,
+   "yaw": 175.0,
+   "s": 65.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1046.54,
+   "z": -265.71,
+   "yaw": 175.0,
+   "s": 75.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1047.41,
+   "z": -275.68,
+   "yaw": -5.0,
+   "s": 85.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1048.28,
+   "z": -285.64,
+   "yaw": -5.0,
+   "s": 95.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1049.15,
+   "z": -295.6,
+   "yaw": 175.0,
+   "s": 105.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1050.02,
+   "z": -305.56,
+   "yaw": 175.0,
+   "s": 115.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1050.89,
+   "z": -315.52,
+   "yaw": -5.0,
+   "s": 125.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1051.77,
+   "z": -325.49,
+   "yaw": -5.0,
+   "s": 135.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1052.64,
+   "z": -335.45,
+   "yaw": 175.0,
+   "s": 145.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1053.51,
+   "z": -345.41,
+   "yaw": 175.0,
+   "s": 155.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1054.38,
+   "z": -355.37,
+   "yaw": -5.0,
+   "s": 165.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1055.25,
+   "z": -365.33,
+   "yaw": -5.0,
+   "s": 175.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1056.12,
+   "z": -375.3,
+   "yaw": 175.0,
+   "s": 185.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1057.0,
+   "z": -385.26,
+   "yaw": 175.0,
+   "s": 195.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1057.87,
+   "z": -395.22,
+   "yaw": -5.0,
+   "s": 205.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1058.74,
+   "z": -405.18,
+   "yaw": -5.0,
+   "s": 215.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1059.61,
+   "z": -415.14,
+   "yaw": 175.0,
+   "s": 225.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1060.48,
+   "z": -425.11,
+   "yaw": 175.0,
+   "s": 235.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1061.35,
+   "z": -435.07,
+   "yaw": -5.0,
+   "s": 245.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1062.22,
+   "z": -445.03,
+   "yaw": -5.0,
+   "s": 255.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1063.1,
+   "z": -454.99,
+   "yaw": 175.0,
+   "s": 265.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1063.97,
+   "z": -464.95,
+   "yaw": 175.0,
+   "s": 275.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1064.84,
+   "z": -474.92,
+   "yaw": -5.0,
+   "s": 285.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_SlabWorn",
+   "x": 1065.71,
+   "z": -484.88,
+   "yaw": -5.0,
+   "s": 295.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1066.58,
+   "z": -494.84,
+   "yaw": 175.0,
+   "s": 305.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1067.45,
+   "z": -504.8,
+   "yaw": 175.0,
+   "s": 315.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1068.33,
+   "z": -514.76,
+   "yaw": -5.0,
+   "s": 325.0,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "RWY_Num35",
+   "x": 1069.2,
+   "z": -524.73,
+   "yaw": 175.0,
+   "s": 335.0,
+   "o": 0,
+   "note": "read from the south (landing 35)"
+  },
+  {
+   "prefab": "RWY_Threshold",
+   "x": 1070.07,
+   "z": -534.69,
+   "yaw": 175.0,
+   "s": 345.0,
+   "o": 0,
+   "note": "south end"
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1020.39,
+   "z": 153.6,
+   "yaw": 85.0,
+   "s": -345.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 999.47,
+   "z": 151.77,
+   "yaw": 85.0,
+   "s": -345.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1025.62,
+   "z": 93.83,
+   "yaw": 85.0,
+   "s": -285.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1004.7,
+   "z": 92.0,
+   "yaw": 85.0,
+   "s": -285.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1030.85,
+   "z": 34.06,
+   "yaw": 85.0,
+   "s": -225.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1009.93,
+   "z": 32.23,
+   "yaw": 85.0,
+   "s": -225.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1036.08,
+   "z": -25.71,
+   "yaw": 85.0,
+   "s": -165.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1015.16,
+   "z": -27.54,
+   "yaw": 85.0,
+   "s": -165.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1041.31,
+   "z": -85.48,
+   "yaw": 85.0,
+   "s": -105.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1020.39,
+   "z": -87.31,
+   "yaw": 85.0,
+   "s": -105.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1046.54,
+   "z": -145.26,
+   "yaw": 85.0,
+   "s": -45.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1025.62,
+   "z": -147.09,
+   "yaw": 85.0,
+   "s": -45.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1051.77,
+   "z": -205.03,
+   "yaw": 85.0,
+   "s": 15.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1030.85,
+   "z": -206.86,
+   "yaw": 85.0,
+   "s": 15.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1057.0,
+   "z": -264.8,
+   "yaw": 85.0,
+   "s": 75.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1036.08,
+   "z": -266.63,
+   "yaw": 85.0,
+   "s": 75.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1062.23,
+   "z": -324.57,
+   "yaw": 85.0,
+   "s": 135.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1041.31,
+   "z": -326.4,
+   "yaw": 85.0,
+   "s": 135.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1067.46,
+   "z": -384.34,
+   "yaw": 85.0,
+   "s": 195.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1046.54,
+   "z": -386.17,
+   "yaw": 85.0,
+   "s": 195.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1072.68,
+   "z": -444.11,
+   "yaw": 85.0,
+   "s": 255.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1051.76,
+   "z": -445.94,
+   "yaw": 85.0,
+   "s": 255.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1077.91,
+   "z": -503.89,
+   "yaw": 85.0,
+   "s": 315.0,
+   "o": -10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeLight",
+   "x": 1056.99,
+   "z": -505.72,
+   "yaw": 85.0,
+   "s": 315.0,
+   "o": 10.5,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1017.36,
+   "z": 159.56,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": -8,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1015.37,
+   "z": 159.39,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": -6,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1013.38,
+   "z": 159.21,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": -4,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1011.38,
+   "z": 159.04,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": -2,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1009.39,
+   "z": 158.86,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1007.4,
+   "z": 158.69,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": 2,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1005.41,
+   "z": 158.51,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": 4,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1003.41,
+   "z": 158.34,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": 6,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1001.42,
+   "z": 158.17,
+   "yaw": 85.0,
+   "s": -351.2,
+   "o": 8,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1078.58,
+   "z": -540.17,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": -8,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1076.59,
+   "z": -540.34,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": -6,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1074.59,
+   "z": -540.51,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": -4,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1072.6,
+   "z": -540.69,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": -2,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1070.61,
+   "z": -540.86,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": 0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1068.62,
+   "z": -541.04,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": 2,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1066.62,
+   "z": -541.21,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": 4,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1064.63,
+   "z": -541.39,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": 6,
+   "note": ""
+  },
+  {
+   "prefab": "AF_ThresholdLight",
+   "x": 1062.64,
+   "z": -541.56,
+   "yaw": 85.0,
+   "s": 351.2,
+   "o": 8,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1041.56,
+   "z": 135.38,
+   "yaw": 85.0,
+   "s": -325,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 981.79,
+   "z": 130.15,
+   "yaw": 85.0,
+   "s": -325,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1045.92,
+   "z": 85.57,
+   "yaw": 85.0,
+   "s": -275,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 986.15,
+   "z": 80.34,
+   "yaw": 85.0,
+   "s": -275,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1050.28,
+   "z": 35.76,
+   "yaw": 85.0,
+   "s": -225,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 990.5,
+   "z": 30.53,
+   "yaw": 85.0,
+   "s": -225,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1054.63,
+   "z": -14.05,
+   "yaw": 85.0,
+   "s": -175,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 994.86,
+   "z": -19.28,
+   "yaw": 85.0,
+   "s": -175,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1058.99,
+   "z": -63.86,
+   "yaw": 85.0,
+   "s": -125,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 999.22,
+   "z": -69.09,
+   "yaw": 85.0,
+   "s": -125,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1063.35,
+   "z": -113.67,
+   "yaw": 85.0,
+   "s": -75,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1003.58,
+   "z": -118.9,
+   "yaw": 85.0,
+   "s": -75,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1067.71,
+   "z": -163.48,
+   "yaw": 85.0,
+   "s": -25,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1007.94,
+   "z": -168.71,
+   "yaw": 85.0,
+   "s": -25,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1072.06,
+   "z": -213.29,
+   "yaw": 85.0,
+   "s": 25,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1012.29,
+   "z": -218.52,
+   "yaw": 85.0,
+   "s": 25,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1076.42,
+   "z": -263.1,
+   "yaw": 85.0,
+   "s": 75,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1016.65,
+   "z": -268.33,
+   "yaw": 85.0,
+   "s": 75,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1080.78,
+   "z": -312.91,
+   "yaw": 85.0,
+   "s": 125,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1021.01,
+   "z": -318.14,
+   "yaw": 85.0,
+   "s": 125,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1085.14,
+   "z": -362.72,
+   "yaw": 85.0,
+   "s": 175,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1025.37,
+   "z": -367.95,
+   "yaw": 85.0,
+   "s": 175,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1089.5,
+   "z": -412.53,
+   "yaw": 85.0,
+   "s": 225,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1029.72,
+   "z": -417.76,
+   "yaw": 85.0,
+   "s": 225,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1093.85,
+   "z": -462.34,
+   "yaw": 85.0,
+   "s": 275,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1034.08,
+   "z": -467.57,
+   "yaw": 85.0,
+   "s": 275,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1098.21,
+   "z": -512.15,
+   "yaw": 85.0,
+   "s": 325,
+   "o": -30.0,
+   "note": ""
+  },
+  {
+   "prefab": "AF_EdgeMarker",
+   "x": 1038.44,
+   "z": -517.38,
+   "yaw": 85.0,
+   "s": 325,
+   "o": 30.0,
+   "note": ""
+  },
+  {
+   "prefab": "BunkerHangar",
+   "x": 1010.86,
+   "z": -374.24,
+   "yaw": 85.0,
+   "s": 180.0,
+   "o": 45.0,
+   "note": "forest_bunker hangar: gate (origin) on this line, the hall runs west 16.4 m; berm over it from Terrain"
+  },
+  {
+   "prefab": "AF_HangarPlug",
+   "x": 994.52,
+   "z": -375.67,
+   "yaw": 85.0,
+   "s": 180.0,
+   "o": 61.4,
+   "note": "into the hangar's Link_BlastDoor (same as the hangar root, offset 16.4 m back); placed as its child"
+  },
+  {
+   "prefab": "UtilityPlane",
+   "x": 1010.86,
+   "z": -374.24,
+   "yaw": 85.0,
+   "s": 180.0,
+   "o": 45.0,
+   "note": "on the hangar's Slot_Plane (nose to the gate); PlaneTarp: open question (QUESTIONS.md 8-10)"
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1040.96,
+   "z": -362.57,
+   "yaw": 85.0,
+   "s": 171.0,
+   "o": 14.0,
+   "note": "apron between the runway and the hangar"
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1042.53,
+   "z": -380.5,
+   "yaw": 85.0,
+   "s": 189.0,
+   "o": 14.0,
+   "note": "apron between the runway and the hangar"
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1030.99,
+   "z": -363.44,
+   "yaw": 85.0,
+   "s": 171.0,
+   "o": 24.0,
+   "note": "apron between the runway and the hangar"
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1032.56,
+   "z": -381.37,
+   "yaw": 85.0,
+   "s": 189.0,
+   "o": 24.0,
+   "note": "apron between the runway and the hangar"
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1021.03,
+   "z": -364.31,
+   "yaw": 85.0,
+   "s": 171.0,
+   "o": 34.0,
+   "note": "apron between the runway and the hangar"
+  },
+  {
+   "prefab": "RWY_Slab",
+   "x": 1022.6,
+   "z": -382.24,
+   "yaw": 85.0,
+   "s": 189.0,
+   "o": 34.0,
+   "note": "apron between the runway and the hangar"
+  },
+  {
+   "prefab": "AF_Sign",
+   "x": 957.04,
+   "z": -413.08,
+   "yaw": 175.0,
+   "s": 214.0,
+   "o": 102.0,
+   "note": "at the turn-off, faces the road; arrow into the track"
+  },
+  {
+   "prefab": "Barrier_Boom",
+   "x": 967.0,
+   "z": -412.2,
+   "yaw": 85.0,
+   "s": 214.0,
+   "o": 92.0,
+   "note": "Sky Island, raised"
+  },
+  {
+   "prefab": "Guard_Hut",
+   "x": 964.06,
+   "z": -424.51,
+   "yaw": 85.0,
+   "s": 226.0,
+   "o": 96.0,
+   "note": "Sky Island, by the barrier"
+  },
+  {
+   "prefab": "Windsock",
+   "x": 974.88,
+   "z": 94.41,
+   "yaw": 0.0,
+   "s": -290.0,
+   "o": 40.0,
+   "note": "west of the north end, on a small mound"
+  },
+  {
+   "prefab": "PAPI_Red",
+   "x": 1002.02,
+   "z": 36.56,
+   "yaw": -5.0,
+   "s": -230.0,
+   "o": 18.0,
+   "note": "left of the runway for landing 17"
+  },
+  {
+   "prefab": "PAPI_Red",
+   "x": 993.06,
+   "z": 35.77,
+   "yaw": -5.0,
+   "s": -230.0,
+   "o": 27.0,
+   "note": ""
+  },
+  {
+   "prefab": "PAPI_White",
+   "x": 984.09,
+   "z": 34.99,
+   "yaw": -5.0,
+   "s": -230.0,
+   "o": 36.0,
+   "note": ""
+  },
+  {
+   "prefab": "PAPI_White",
+   "x": 975.13,
+   "z": 34.2,
+   "yaw": -5.0,
+   "s": -230.0,
+   "o": 45.0,
+   "note": ""
+  },
+  {
+   "prefab": "Flood_Mast",
+   "x": 1017.76,
+   "z": -395.72,
+   "yaw": 85.0,
+   "s": 202.0,
+   "o": 40.0,
+   "note": "apron corner"
+  },
+  {
+   "prefab": "Electrical_Cabinet",
+   "x": 1009.94,
+   "z": -352.23,
+   "yaw": 85.0,
+   "s": 158.0,
+   "o": 44.0,
+   "note": "the airfield's power: lights the runway group"
+  },
+  {
+   "prefab": "Earth_Shelter",
+   "x": 952.21,
+   "z": -48.11,
+   "yaw": 85.0,
+   "s": -150.0,
+   "o": 75.0,
+   "note": "a second, closed shelter in the forest west of the north half"
+  }
+ ]
+}

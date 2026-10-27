@@ -1,0 +1,6 @@
+{"tag": "day", "name": "afr_north_end", "client": null, "teleport": "feet (916.10, -9.50, -60.50)", "perf": [[11.03, 5.47, 1418], [9.71, 4.3, 1418], [9.03, 4.41, 1418]], "shot": true}
+{"tag": "day", "name": "afr_south_road", "client": null, "teleport": "feet (1016.70, -35.71, -839.10)", "perf": [[12.56, 8.21, 6796], [12.13, 0, 6796], [20.62, 11.29, 6795]], "shot": true}
+{"tag": "day", "name": "afr_south_end", "client": null, "teleport": "feet (999.50, -34.10, -755.50)", "perf": [[12.98, 0, 5864], [11.48, 5.52, 5864], [10.61, 6.11, 5864]], "shot": true}
+{"tag": "day", "name": "afr_hangar", "client": null, "teleport": "feet (931.80, -15.42, -214.70)", "perf": [[7.96, 4.93, 776], [8.64, 3.21, 776], [8.25, 3.73, 776]], "shot": true}
+{"tag": "day", "name": "afr_hangar_close", "client": null, "teleport": "feet (956.90, -15.68, -205.60)", "perf": [[8.64, 3.94, 845], [8.04, 4.49, 845], [7.86, 4.23, 845]], "shot": true}
+{"tag": "day", "name": "afr_mid_side", "client": null, "teleport": "feet (972.80, -11.25, -270.20)", "perf": [[8.3, 5.38, 1102], [9.91, 5.49, 1102], [9.09, 4.51, 1102]], "shot": true}
