@@ -73,6 +73,9 @@ namespace Snow.Levels.Forest
         [Tooltip("Opening items that put the lantern out when carried out of the hut")] public string[] x01Items = { "Flashlight_Hut", "Note_Forester" };
         [Tooltip("The van's spare fuse (VanItem_Fuse_Net) and its place on the start post's desk (ForestStartDressStep)")] public NetworkObject startFusePrefab;
         public Transform startFuseSpawn;
+        [Tooltip("The players' van (VanVehicle.prefab) and its place at the start post: spawned with an empty tank (ForestStartDressStep, user 27.10)")]
+        public NetworkObject startVanPrefab;
+        public Transform startVanSpawn;
         Snow.Vehicles.Van.VanVehicle _van;
         float _nextVanLook;
 
@@ -270,6 +273,21 @@ namespace Snow.Levels.Forest
                 // the van's spare headlight fuse waits on the start post's desk, not in its tool box (user 25.10)
                 NetworkObject fuse = Instantiate(startFusePrefab, startFuseSpawn.position + Vector3.up * 0.04f, startFuseSpawn.rotation);
                 fuse.Spawn(true);
+            }
+            if (startVanPrefab != null && startVanSpawn != null)
+            {
+                // the players' van stalled at the start post, its tank empty: the jerrycan in the booth (user 27.10)
+                NetworkObject van = Instantiate(startVanPrefab, startVanSpawn.position, startVanSpawn.rotation);
+                if (van.TryGetComponent(out Snow.Vehicles.Van.VanVehicle vv)) vv.startState = Snow.Vehicles.Van.VanVehicle.StartState.ForestStart;
+                van.Spawn(true);
+                _van = vv;
+                // the shift order on the passenger seat (QUESTIONS_6 §7а 2): a readable note, lies there from the start
+                if (vv != null && items != null && vv.seats != null && vv.seats.Length > 0)
+                {
+                    Snow.Seats.SeatAnchor seat = vv.seats[vv.seats.Length > 1 ? 1 : 0];
+                    Transform at = seat.pelvis != null ? seat.pelvis : seat.transform;          // the anchor sits at the van's root
+                    items.Spawn("Note_Shift", "Item_Note", at.position + Vector3.up * 0.05f, vv.transform.rotation, -1f, -1f, "shift_order");
+                }
             }
             ulong prints = 0UL;
             for (int i = GrimeCount; i < GrimeCount + PrintCount && i < 64; i++) prints |= 1UL << i;

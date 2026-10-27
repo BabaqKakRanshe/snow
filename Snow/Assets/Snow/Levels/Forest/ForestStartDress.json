@@ -1,5 +1,5 @@
 {
-  "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u). No spare fuse on the desk any more (user 27.10: the van needs only fuel, its fuses are whole). The manual barrier (QUESTIONS_START 8; user 26.10: raised) stands 3.5 m before the gate on the approach side, its post by the booth, the arm raised (static until the post's interaction task). The post lamps carry a far halo the fog dims less (user 27.10, QUESTIONS_6 §7а 16: the post must read from the start ~80 m off), cold white, out with each lamp. The post lamps' battery lasts 40 min here (the game starts at 17:30 and is dark ~15 min later: the lamps and their halo must burn into the night). Rework 27.10 (docs/gdd/locations/start_post, all 9 proposals): the ground is Blender's (levelGround false, the pad follows the road's 8.7 % fall, 1:2 slopes; tools/blender_context/edits/forest_start_pad.py); the booth turned so its door faces the road and pad and its sign the approach; the car in the middle nose to the booth; crates, trash and tyres by the booth on the flat; the jersey blocks on the pad's far edge; a warm sodium pole lamp (the yard LightPole on its own battery, lamp.life) over the pad, the booth light warm, the tripod stays the cold light at the gate; rocks on the hill edge.",
+  "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u). No spare fuse on the desk any more (user 27.10: the van needs only fuel, its fuses are whole). The manual barrier (QUESTIONS_START 8; user 26.10: raised) stands 3.5 m before the gate on the approach side, its post by the booth, the arm raised (static until the post's interaction task). The post lamps carry a far halo the fog dims less (user 27.10, QUESTIONS_6 §7а 16: the post must read from the start ~80 m off), cold white, out with each lamp. The post lamps' battery lasts 40 min here (the game starts at 17:30 and is dark ~15 min later: the lamps and their halo must burn into the night). Rework 27.10 (docs/gdd/locations/start_post, all 9 proposals): the ground is Blender's (levelGround false, the pad follows the road's 8.7 % fall, 1:2 slopes; tools/blender_context/edits/forest_start_pad.py); the booth turned so its door faces the road and pad and its sign the approach; the car in the middle nose to the booth; crates, trash and tyres by the booth on the flat; the jersey blocks on the pad's far edge; a warm sodium pole lamp (the yard LightPole on its own battery, lamp.life) over the pad, the booth light warm, the tripod stays the cold light at the gate; rocks on the hill edge. Second round 27.10 (user, docs/gdd/locations/start_post concept_v2 pad_1 / night_1): smaller far halos (0.7 m, they were big white balls at night), the RADIOOBSERVATORIUM sign moved from mid-pad to the right verge inside the gate, its face to the players (moves) (the Sky Island sandbag wall was tried and dropped: a block wall out of style). The players' van stands on the road 14 m inside the gate, nose into the zone, its tank empty (van: ForestOpening spawns VanVehicle there in the forest start state; user 27.10, the van is filled from the booth's jerrycan); the players spawn on the road between the van and the post, looking at the post (clear of the van's body: a spawn inside it pushed it 20 m away) (spawn: PlayerSpawn and the spawn points follow).",
   "centre": [
     -511.5175,
     554.2235
@@ -194,11 +194,31 @@
       0.94,
       1.0
     ],
-    "size": 1.6,
-    "intensity": 1.4,
+    "size": 0.7,
+    "intensity": 1.0,
     "fogFloor": 0.35,
     "nearFade": 8.0
   },
   "lampLifeMinutes": 40.0,
-  "levelGround": false
+  "levelGround": false,
+  "moves": [
+    {
+      "name": "Sign_Observatory",
+      "u": 5.0,
+      "v": -5.0,
+      "yaw": 180.0
+    }
+  ],
+  "van": {
+    "prefab": "Assets/Snow/Van/VanVehicle.prefab",
+    "u": 1.0,
+    "v": -14.0,
+    "yaw": 180.0,
+    "lift": 0.5
+  },
+  "spawn": {
+    "u": 1.0,
+    "v": -8.0,
+    "yaw": 0.0
+  }
 }

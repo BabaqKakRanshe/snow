@@ -3,6 +3,14 @@
  "_doc": "Readable notes (array): id, title, author, date, de (original, as written in the world), ru. Shown by the project when a note item is read.",
  "notes": [
   {
+   "id": "shift_order",
+   "title": "Fahrauftrag / Наряд на смену",
+   "author": "K.",
+   "date": "",
+   "de": "FAHRAUFTRAG Nr. 17\nZiel: Station Hohenmoos (Radioobservatorium).\nAnkunft: vor Einbruch der Dunkelheit.\nAuftrag: Ablösung der Winterschicht. Station besetzen, Strom und Heizung in Betrieb nehmen, für die Nacht sichern.\nSchlüssel: im Wachhäuschen am KPP.\n— K.",
+   "ru": "НАРЯД № 17\nКуда: станция Hohenmoos (радиообсерватория).\nПрибыть: до темноты.\nЗадача: смена зимней вахты. Занять станцию, дать питание и отопление, закрыть на ночь.\nКлючи: в будке КПП.\n— K."
+  },
+  {
    "id": "note_forester",
    "title": "Zettel auf dem Tisch / Записка на столе",
    "author": "H. Brandt, Revierförster",

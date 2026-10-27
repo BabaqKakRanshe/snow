@@ -21,7 +21,7 @@ namespace Snow.Vehicles.Van
     /// (hand brake lever, toggled); Z (the seat's autopilot command) = hazard lights.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class VanVehicle : SeatedVehicle
+    public partial class VanVehicle : SeatedVehicle
     {
         protected override string SitCue => "van.seat.sit";
         public enum StartState : byte
@@ -114,6 +114,7 @@ namespace Snow.Vehicles.Van
                     _fuse.Add(FuseOk);   // forest start: only the tank is empty, the fuses are whole (user 27.10, QUESTIONS_6 §7а 4)
             _motion = new VanMotion(tuning, tuning.massKg);
             _elec = new VanElectrics(tuning, 1f, tuning.benchBatteryTempC);
+            FuelInit();                                       // the forest start: empty tank (VanVehicle.Fuel.cs)
             BenchLog.Event("van_spawn", "state", startState.ToString(), "p", transform.position);
         }
 
@@ -170,6 +171,7 @@ namespace Snow.Vehicles.Van
             ControlState c = Controls;
             DriverSwitches(c);
             EngineSwitches();
+            FuelTick(dt, c.Pitch);
 
             Vector3 up = transform.up, fwd = transform.forward;
             for (int i = 0; i < 4; i++)
@@ -305,7 +307,7 @@ namespace Snow.Vehicles.Van
         /// </summary>
         void EngineSwitches()
         {
-            bool spark = IgnitionOn && Pos("Engine_Lead_1") == 0;
+            bool spark = IgnitionOn && Pos("Engine_Lead_1") == 0 && HasFuel;   // no fuel: the starter cranks, nothing catches
             if (_engine && !spark)
             {
                 _engine = false;
@@ -618,6 +620,7 @@ namespace Snow.Vehicles.Van
                 if (phase == UsePhase.Press) door.Toggle(DoorDrive.Manual);
                 return true;
             }
+            if (FuelZoneUse(clientId, id, phase, out bool fuelResult, out reason)) return fuelResult;
             int c = VanControls.IndexOf(id);
             if (c >= 0) return ServerControl(clientId, c, phase, out reason);
             if (FuseIndex(id) >= 0) return ServerFuse(clientId, FuseIndex(id), phase, out reason);
@@ -677,6 +680,8 @@ namespace Snow.Vehicles.Van
             if (seat >= 0) return SeatText(seat);
             NetworkDoor door = Door(id);
             if (door != null) return DoorText(door.State);
+            string fuel = FuelDescribe(id);
+            if (fuel != null) return fuel;
             int c = VanControls.IndexOf(id);
             if (c >= 0 && c < _pos.Count) return VanControls.Table[c].States[_pos[c]];
             if (FuseIndex(id) >= 0)
@@ -691,6 +696,8 @@ namespace Snow.Vehicles.Van
         {
             if (id == FoldSeatZone) return "сесть; держать — сложить сиденье";
             if (SeatIndex(id) >= 0) return "сесть";
+            string pour = FuelActionText(id);
+            if (pour != null) return pour;
             NetworkDoor door = Door(id);
             if (door != null) return door.State == DoorState.Open || door.State == DoorState.Opening ? "закрыть" : "открыть";
             int c = VanControls.IndexOf(id);

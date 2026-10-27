@@ -1102,3 +1102,6 @@ Forstkarte Hohenmoos / Карта лесника	Forstkarte Hohenmoos / Forester
 Аварийный выключатель на стене у двери. Потом насос, потом горелка.	Emergency switch on the wall by the door. Then the pump, then the burner.
 Темнеет. Корпус закрыт?	It's getting dark. Is the building closed?
 Ставни: ремнём или приводом, если есть ток. И ворота гаража.	Shutters: the strap, or the motor if you have power. And the garage gate.
+Fahrauftrag / Наряд на смену	Fahrauftrag / Shift order
+НАРЯД № 17\nКуда: станция Hohenmoos (радиообсерватория).\nПрибыть: до темноты.\nЗадача: смена зимней вахты. Занять станцию, дать питание и отопление, закрыть на ночь.\nКлючи: в будке КПП.\n— K.	SHIFT ORDER No. 17\nDestination: Hohenmoos station (radio observatory).\nArrive: before dark.\nTask: relieve the winter shift. Take over the station, get power and heating running, lock up for the night.\nKeys: in the KPP booth.\n— K.
+Бак слева: открой лючок и крышку, потом с канистрой в руках держи у горловины.	Tank on the left: open the flap and the cap, then hold the use at the neck with the can in your hands.

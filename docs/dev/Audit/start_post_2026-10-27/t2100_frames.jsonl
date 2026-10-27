@@ -1,0 +1,6 @@
+{"tag": "t2100", "name": "start_overview", "client": null, "teleport": "feet (-481.64, 25.10, 527.33)", "perf": [[8.1, 4.13, 814], [7.43, 4.09, 815], [7.14, 4.17, 814]], "shot": true}
+{"tag": "t2100", "name": "start_arrive", "client": null, "teleport": "feet (-490.11, 26.34, 527.73)", "perf": [[7.58, 4.25, 860], [7.46, 4.48, 860], [7.62, 4.28, 860]], "shot": true}
+{"tag": "t2100", "name": "start_pad", "client": null, "teleport": "feet (-506.53, 28.21, 539.83)", "perf": [[7.95, 4.52, 818], [7.61, 4.54, 819], [7.88, 4.26, 818]], "shot": true}
+{"tag": "t2100", "name": "start_booth", "client": null, "teleport": "feet (-515.92, 29.44, 550.89)", "perf": [[7.64, 4.03, 785], [7.39, 4.0, 785], [7.62, 3.59, 785]], "shot": true}
+{"tag": "t2100", "name": "start_gate", "client": null, "teleport": "feet (-506.74, 28.85, 550.46)", "perf": [[7.49, 3.95, 713], [7.24, 4.92, 713], [7.2, 4.12, 713]], "shot": true}
+{"tag": "t2100", "name": "start_from_out", "client": null, "teleport": "feet (-520.81, 30.41, 567.40)", "perf": [[10.12, 5.77, 5524], [9.57, 5.87, 5524], [10.25, 6.01, 5524]], "shot": true}

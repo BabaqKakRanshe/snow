@@ -11,7 +11,7 @@ namespace Snow.Levels.Forest
     /// the server also sets the body's mass. Numbers TEMPORARY.
     /// </summary>
     [RequireComponent(typeof(CargoItem))]
-    public class FuelCan : NetworkBehaviour
+    public class FuelCan : NetworkBehaviour, IFuelSource      // the van's tank pours from it (Runtime, user 27.10)
     {
         public float capacityL = 20f;
         [Tooltip("kg of the empty can")] public float emptyKg = 4f;

@@ -1,0 +1,6 @@
+{"tag": "v2_1730", "name": "start_overview", "client": null, "teleport": "feet (-481.64, 25.10, 527.33)", "perf": [[9.47, 5.31, 2008], [9.42, 4.45, 2008], [8.91, 5.45, 2008]], "shot": true}
+{"tag": "v2_1730", "name": "start_arrive", "client": null, "teleport": "feet (-490.11, 26.34, 527.73)", "perf": [[11.96, 6.15, 2061], [9.58, 6.34, 2061], [9.1, 4.83, 2061]], "shot": true}
+{"tag": "v2_1730", "name": "start_pad", "client": null, "teleport": "feet (-506.53, 28.21, 539.83)", "perf": [[8.28, 4.4, 884], [8.45, 4.83, 884], [14.12, 7.44, 884]], "shot": true}
+{"tag": "v2_1730", "name": "start_booth", "client": null, "teleport": "feet (-515.92, 29.73, 550.89)", "perf": [[8.99, 4.86, 1321], [8.8, 5.66, 1321], [8.87, 4.44, 1321]], "shot": true}
+{"tag": "v2_1730", "name": "start_gate", "client": null, "teleport": "feet (-506.74, 28.85, 550.46)", "perf": [[7.93, 5.36, 705], [8.2, 5.31, 705], [13.02, 4.34, 705]], "shot": true}
+{"tag": "v2_1730", "name": "start_from_out", "client": null, "teleport": "feet (-520.81, 30.41, 567.40)", "perf": [[10.56, 7.45, 6727], [11.09, 7.54, 6726], [10.89, 7.37, 6727]], "shot": true}

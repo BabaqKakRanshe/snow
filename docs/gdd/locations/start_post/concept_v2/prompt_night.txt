@@ -1,0 +1,8 @@
+Use case: stylized-concept (game level target picture)
+Asset type: target picture for a level artist, edit of a real in-game screenshot
+Primary request: Edit this night screenshot of a PS1-style horror game (guard post at a forest gate, 21:00). Keep the same camera, framing, darkness, trees, booth, barrier, gate, posts and the same low-poly PS1 look. Change only the lights and two details:
+1. The white ball of light at the tripod work light becomes a small cold-white lamp glow with a cone of light on the ground; the warm sodium lamp at top-left becomes a small orange glow with a soft pool of light on the gravel under it; the booth window and open door glow warm.
+2. Add the players' old olive-green UAZ-452 "bukhanka" van stalled on the right half of the pad, dark, only lit by the lamps.
+3. The blank grey back of the road sign on two posts in the middle: move the sign to the right verge, face to camera, blue with white text RADIOOBSERVATORIUM HOHENMOOS, barely readable in the dark.
+Constraints: keep it dark and readable like PS1 night; no people.
+Avoid: photorealism, bloom balls, lens flares, extra text, watermark.

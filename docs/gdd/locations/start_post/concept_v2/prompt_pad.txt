@@ -1,0 +1,9 @@
+Use case: stylized-concept (game level target picture)
+Asset type: target picture for a level artist, edit of a real in-game screenshot
+Primary request: Edit this screenshot of a PS1-style horror game (a guard post at a closed forest gate, 17:30, fog). Keep the same camera, framing, fog, light, trees, ground, booth, barrier, gate and red abandoned car, and the same low-poly PS1 look (pixelated textures, dithering, no modern detail). Change only:
+1. Add the players' van: an old olive-green Soviet UAZ-452 "bukhanka" van, stalled on the gravel on the right half of the pad, facing away from the gate toward the camera-right, driver door open, headlights off.
+2. The big blue road sign on two posts in the middle of the pad: move it to the right verge of the road and turn it so its blue face with white text RADIOOBSERVATORIUM HOHENMOOS faces the camera.
+3. Small believable details of a forgotten guard post: two muddy tyre ruts across the pad, a few puddles, an orange cable from the tripod work light to a battery box, two sandbags at the booth corner, a red jerrycan visible on the floor through the open booth door.
+4. Keep the lamps' glow small and soft (no big white balls).
+Constraints: same perspective, same objects in the same places except item 2; PS1 low-poly look; no people; no modern cars.
+Avoid: photorealism, cinematic depth of field, extra text, watermark, UI text.

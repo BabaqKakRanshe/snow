@@ -36,6 +36,12 @@ namespace Snow.EditorTools
         [Serializable] public class Fuse { public string prefab, on, slot; }
         /// <summary>The far halo on the post's lamps (user 27.10, QUESTIONS_6 §7а 16): the hut's beacon glow (the fog dims it
         /// less than the light), so the post reads from the start ~80 m off; out with its lamp (the lamp's glows).</summary>
+        /// <summary>A map structure (Structures/&lt;name&gt;) set at frame u, v on the ground, turned by yaw on the frame's (user 27.10:
+        /// the RADIOOBSERVATORIUM sign stood mid-pad with its blank back to the players; it goes to the verge, face to them).</summary>
+        [Serializable] public class Move { public string name; public float u, v, yaw; }
+        /// <summary>A spot at frame u, v (yaw on the frame's): the players' van (ForestOpening spawns it there with an empty tank,
+        /// user 27.10) and the players' spawn next to it (PlayerSpawn and SnowLevel/SpawnPoints follow).</summary>
+        [Serializable] public class Spot2 { public string prefab; public float u, v, yaw, lift; }
         [Serializable] public class Beacon { public float[] color; public float size, intensity, fogFloor, nearFade; }
         // lampLifeMinutes: the post lamps' battery on this map (0 = the prefab's); with the 17:30 start they must outlast the dusk
         [Serializable]
@@ -44,6 +50,8 @@ namespace Snow.EditorTools
             public float[] centre, level, asphalt, gravel;
             public float yaw, roadFade, outerFade, padY, shoulder, clearMargin;
             public Prop[] props;
+            public Move[] moves;
+            public Spot2 van, spawn;
             public string[] clumpPrefabs;
             public Spot[] clumps;
             public Fuse fuse;
@@ -118,10 +126,82 @@ namespace Snow.EditorTools
             clumps = PlaceClumps(dress, reference, ref missing);
             string fuse = LinkFuse(root, dress);
             int halos = PostHalos(dress);
+            string moved = MoveStructures(structures);
+            string van = LinkVan(root, dress);
 
             Debug.Log($"[Snow] Forest start dress ({DataPath}): pad at {_d.padY:0.00} m, {levelled} height samples levelled, {painted} ground texels and " +
                       $"{cells} grass cells rewritten, {removed} Terrain trees removed from the pad, {snapped} put back on the new ground, " +
-                      $"{props} props, {clumps} grass clumps, {halos} far halos on the post lamps, {fuse}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+                      $"{props} props, {clumps} grass clumps, {halos} far halos on the post lamps, {moved}, {van}, {fuse}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+        }
+
+        static string LinkVan(Transform root, Transform dress)
+        {
+            ForestOpening fo = root.GetComponentInChildren<ForestOpening>(true);
+            if (fo == null) return "van NOT linked (no ForestOpening)";
+            if (_d.van == null || string.IsNullOrEmpty(_d.van.prefab))
+            {
+                fo.startVanPrefab = null;
+                fo.startVanSpawn = null;
+                EditorUtility.SetDirty(fo);
+                return "no van";
+            }
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(_d.van.prefab);
+            if (prefab == null || !prefab.TryGetComponent(out Unity.Netcode.NetworkObject no)) return $"van NOT linked (no NetworkObject prefab {_d.van.prefab})";
+            Vector3 w = World(_d.van.u, _d.van.v);
+            var spot = new GameObject("VanSpot").transform;
+            spot.SetParent(dress, false);
+            spot.SetPositionAndRotation(new Vector3(w.x, Height(w) + _d.van.lift, w.z), Quaternion.Euler(0f, _d.yaw + _d.van.yaw, 0f));
+            fo.startVanPrefab = no;
+            fo.startVanSpawn = spot;
+            EditorUtility.SetDirty(fo);
+            string spawn = MoveSpawn(root);
+            return $"the players' van at the post (u {_d.van.u:0.#}, v {_d.van.v:0.#}), {spawn}";
+        }
+
+        /// <summary>PlayerSpawn to the data's spot; the built spawn points (SnowLevel/SpawnPoints) move with it.</summary>
+        static string MoveSpawn(Transform root)
+        {
+            if (_d.spawn == null) return "spawn as it is";
+            Transform ps = root.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == "PlayerSpawn" && t.CompareTag("Respawn"));
+            if (ps == null) return "PlayerSpawn NOT found";
+            Vector3 w = World(_d.spawn.u, _d.spawn.v);
+            var target = new Vector3(w.x, Height(w), w.z);
+            Quaternion yaw = Quaternion.Euler(0f, _d.yaw + _d.spawn.yaw, 0f);
+            Vector3 delta = target - ps.position;
+            Quaternion turn = yaw * Quaternion.Inverse(Quaternion.Euler(0f, ps.eulerAngles.y, 0f));
+            Vector3 old = ps.position;
+            ps.SetPositionAndRotation(target, yaw);
+            EditorUtility.SetDirty(ps);
+            int n = 0;
+            GameObject level = root.gameObject.scene.GetRootGameObjects().FirstOrDefault(g => g.name == "SnowLevel");
+            Transform points = level != null ? level.transform.Find("SpawnPoints") : null;
+            if (points != null)
+                foreach (Transform sp in points)
+                {
+                    Vector3 off = turn * (sp.position - old);
+                    Vector3 p = target + off;
+                    sp.SetPositionAndRotation(new Vector3(p.x, Height(p), p.z), yaw);
+                    EditorUtility.SetDirty(sp);
+                    n++;
+                }
+            return $"player spawn moved {delta.magnitude:0} m to the van ({n} spawn points with it)";
+        }
+
+        static string MoveStructures(Transform structures)
+        {
+            if (_d.moves == null || _d.moves.Length == 0 || structures == null) return "no structures moved";
+            var done = new List<string>();
+            foreach (Move m in _d.moves)
+            {
+                Transform t = structures.Find(m.name);
+                if (t == null) { Debug.LogWarning($"[Snow] Forest start dress: Structures/{m.name} not found to move."); continue; }
+                Vector3 w = World(m.u, m.v);
+                t.SetPositionAndRotation(new Vector3(w.x, Height(w), w.z), Quaternion.Euler(0f, _d.yaw + m.yaw, 0f));
+                if (PrefabUtility.IsPartOfPrefabInstance(t)) PrefabUtility.RecordPrefabInstancePropertyModifications(t);
+                EditorUtility.SetDirty(t);
+                done.Add(m.name);
+            }
+            return done.Count > 0 ? "moved " + string.Join(", ", done) : "no structures moved";
         }
 
         const string BeaconMaterial = "Assets/Locations/Forest/Start/Materials/M_Start_BeaconGlow.mat";

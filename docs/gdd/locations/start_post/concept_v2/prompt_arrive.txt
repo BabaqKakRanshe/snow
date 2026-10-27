@@ -1,0 +1,8 @@
+Use case: stylized-concept (game level target picture)
+Asset type: target picture for a level artist, edit of a real in-game screenshot
+Primary request: Edit this screenshot of a PS1-style horror game: the view from the road ~40 m before a small guard post at a closed forest gate, 17:30, thick fog. Keep the same camera, framing, fog, light, trees, road, concrete blocks, booth, lamp pole, barrier and gate, and the same low-poly PS1 look (pixelated textures, dithering). Change only:
+1. In the foreground on the road: the players' old olive-green Soviet UAZ-452 "bukhanka" van, stalled, seen from behind-left, its rear doors closed, driver door open; it stands where the player begins, so the post is seen past it.
+2. Make the post read better through the fog as a destination: the warm lamp on the pole and the light in the booth window glow a bit stronger, still small and soft, PS1-style.
+3. A small roadside sign on a post at the right verge before the post: WACHE (German, black on white, readable).
+Constraints: same perspective and objects; PS1 low-poly look; no people.
+Avoid: photorealism, depth of field, extra text, watermark, UI text.
