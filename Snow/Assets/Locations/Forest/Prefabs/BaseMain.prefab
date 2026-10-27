@@ -13041,7 +13041,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &2537009303197417410
+--- !u!1001 &4345443274539717482
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -13102,10 +13102,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf60a8fcc51d13f4496b5ad4591a1bea, type: 3}
---- !u!4 &614787009677132673 stripped
+--- !u!4 &1725846917833371433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3151795170268544067, guid: cf60a8fcc51d13f4496b5ad4591a1bea, type: 3}
-  m_PrefabInstance: {fileID: 2537009303197417410}
+  m_PrefabInstance: {fileID: 4345443274539717482}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7866290990448243789
 PrefabInstance:
@@ -14928,7 +14928,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -4216859302048453862, guid: a1cc47b87dafc62f07839ad356f6aa90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 614787009677132673}
+      addedObject: {fileID: 1725846917833371433}
     - targetCorrespondingSourceObject: {fileID: 8943707979170933470, guid: a1cc47b87dafc62f07839ad356f6aa90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8501023815213018085}
