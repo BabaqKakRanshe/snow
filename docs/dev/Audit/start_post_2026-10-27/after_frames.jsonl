@@ -1,0 +1,6 @@
+{"tag": "after", "name": "start_overview", "client": null, "teleport": "feet (-481.64, 25.10, 527.33)", "perf": [[10.95, 5.88, 866], [12.8, 6.86, 866], [16.88, 0, 866]], "shot": true}
+{"tag": "after", "name": "start_arrive", "client": null, "teleport": "feet (-490.11, 26.34, 527.73)", "perf": [[9.85, 6.72, 1164], [15.14, 8.8, 116], [1.02, 0, 116]], "shot": false}
+{"tag": "after", "name": "start_pad", "client": null, "teleport": "no player", "perf": [[0.77, 0, 116], [0.95, 0, 116], [1.15, 0, 116]], "shot": false}
+{"tag": "after", "name": "start_booth", "client": null, "teleport": "no player", "perf": [[1.19, 0, 116], [99.89, 0, 116], [7.8, 0, 116]], "shot": false}
+{"tag": "after", "name": "start_gate", "client": null, "teleport": "no player", "perf": [[11.9, 7.31, 800], [16.09, 7.37, 791], [13.14, 0, 809]], "shot": true}
+{"tag": "after", "name": "start_from_out", "client": null, "teleport": "feet (-520.81, 30.41, 567.40)", "perf": [[12.38, 7.9, 5634], [14.81, 0, 5634], [17.2, 11.23, 5634]], "shot": true}

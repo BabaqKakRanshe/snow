@@ -1,150 +1,204 @@
 {
- "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u). No spare fuse on the desk any more (user 27.10: the van needs only fuel, its fuses are whole). The manual barrier (QUESTIONS_START 8; user 26.10: raised) stands 3.5 m before the gate on the approach side, its post by the booth, the arm raised (static until the post's interaction task). The post lamps carry a far halo the fog dims less (user 27.10, QUESTIONS_6 §7а 16: the post must read from the start ~80 m off), cold white, out with each lamp. The post lamps' battery lasts 40 min here (the game starts at 17:30 and is dark ~15 min later: the lamps and their halo must burn into the night).",
- "centre": [
-  -511.5175,
-  554.2235
- ],
- "yaw": -42.3,
- "level": [
-  -13.5,
-  -22.5,
-  -5.8,
-  2.5
- ],
- "roadFade": 1.5,
- "outerFade": 5.0,
- "padY": 28.69,
- "asphalt": [
-  -12.5,
-  -21.5,
-  -5.2,
-  1.5
- ],
- "gravel": [
-  -13.0,
-  -22.0,
-  -2.8,
-  2.0
- ],
- "shoulder": 0.9,
- "clearMargin": 1.0,
- "props": [
-  {
-   "prefab": "Assets/Locations/Forest/Start/Prefabs/StartBooth.prefab",
-   "u": -8.0,
-   "v": 0.6,
-   "yaw": 90
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Start/Prefabs/StartLamp.prefab",
-   "u": -5.4,
-   "v": -1.2,
-   "yaw": 90
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Start/Prefabs/StartCar.prefab",
-   "u": -9.7,
-   "v": -15.5,
-   "yaw": -90
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Start/Prefabs/StartTrash.prefab",
-   "u": -10.3,
-   "v": 2.6,
-   "yaw": 12
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Start/Prefabs/StartTyres.prefab",
-   "u": -10.8,
-   "v": -2.4,
-   "yaw": 30
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/Sign_Halt.prefab",
-   "u": -5.8,
-   "v": 7.5,
-   "yaw": 0
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/Sign_NoEntry.prefab",
-   "u": 5.8,
-   "v": 7.5,
-   "yaw": 0
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/Crates.prefab",
-   "u": -12.1,
-   "v": -0.6,
-   "yaw": 8
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
-   "u": -7.8,
-   "v": -22.6,
-   "yaw": 0
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
-   "u": -10.0,
-   "v": -22.6,
-   "yaw": 0
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
-   "u": -12.3,
-   "v": -22.2,
-   "yaw": 14
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/WireBarricade.prefab",
-   "u": -12.8,
-   "v": -6.5,
-   "yaw": 75
-  },
-  {
-   "prefab": "Assets/Locations/Forest/Prefabs/Barrier_Manual.prefab",
-   "u": -5.2,
-   "v": -3.5,
-   "yaw": 0,
-   "part": "IX_BarrierArm_Manual_318",
-   "open": 80
-  }
- ],
- "clumpPrefabs": [
-  "Assets/SkyIsland/Prefabs/Grass_Clump_A.prefab",
-  "Assets/SkyIsland/Prefabs/Grass_Clump_B.prefab",
-  "Assets/SkyIsland/Prefabs/Grass_Clump_C.prefab"
- ],
- "clumps": [
-  {
-   "u": -13.6,
-   "v": -14.0,
-   "r": 1.2,
-   "n": 3
-  },
-  {
-   "u": -6.2,
-   "v": -21.0,
-   "r": 1.0,
-   "n": 2
-  },
-  {
-   "u": -12.8,
-   "v": 1.8,
-   "r": 1.0,
-   "n": 2
-  }
- ],
- "beacon": {
-  "color": [
-   0.85,
-   0.94,
-   1.0
+  "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u). No spare fuse on the desk any more (user 27.10: the van needs only fuel, its fuses are whole). The manual barrier (QUESTIONS_START 8; user 26.10: raised) stands 3.5 m before the gate on the approach side, its post by the booth, the arm raised (static until the post's interaction task). The post lamps carry a far halo the fog dims less (user 27.10, QUESTIONS_6 §7а 16: the post must read from the start ~80 m off), cold white, out with each lamp. The post lamps' battery lasts 40 min here (the game starts at 17:30 and is dark ~15 min later: the lamps and their halo must burn into the night). Rework 27.10 (docs/gdd/locations/start_post, all 9 proposals): the ground is Blender's (levelGround false, the pad follows the road's 8.7 % fall, 1:2 slopes; tools/blender_context/edits/forest_start_pad.py); the booth turned so its door faces the road and pad and its sign the approach; the car in the middle nose to the booth; crates, trash and tyres by the booth on the flat; the jersey blocks on the pad's far edge; a warm sodium pole lamp (the yard LightPole on its own battery, lamp.life) over the pad, the booth light warm, the tripod stays the cold light at the gate; rocks on the hill edge.",
+  "centre": [
+    -511.5175,
+    554.2235
   ],
-  "size": 1.6,
-  "intensity": 1.4,
-  "fogFloor": 0.35,
-  "nearFade": 8.0
- },
- "lampLifeMinutes": 40.0
+  "yaw": -42.3,
+  "level": [
+    -13.5,
+    -24.0,
+    -3.5,
+    3.0
+  ],
+  "roadFade": 1.5,
+  "outerFade": 5.0,
+  "padY": 28.69,
+  "asphalt": [
+    -12.5,
+    -22.5,
+    -4.2,
+    2.0
+  ],
+  "gravel": [
+    -13.2,
+    -23.5,
+    -3.0,
+    2.6
+  ],
+  "shoulder": 0.9,
+  "clearMargin": 1.0,
+  "props": [
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartBooth.prefab",
+      "u": -10.0,
+      "v": 0.2,
+      "yaw": 180,
+      "lamp": {
+        "color": [
+          1.0,
+          0.74,
+          0.46
+        ]
+      }
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartLamp.prefab",
+      "u": -6.6,
+      "v": -1.0,
+      "yaw": 80
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/LightPole.prefab",
+      "u": -12.9,
+      "v": -10.0,
+      "yaw": 90,
+      "lamp": {
+        "color": [
+          1.0,
+          0.6,
+          0.27
+        ],
+        "intensity": 10.0,
+        "range": 18.0,
+        "life": 50.0
+      }
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartCar.prefab",
+      "u": -8.6,
+      "v": -13.0,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartTrash.prefab",
+      "u": -11.4,
+      "v": -4.4,
+      "yaw": 12
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Start/Prefabs/StartTyres.prefab",
+      "u": -11.3,
+      "v": -6.6,
+      "yaw": 30
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Sign_Halt.prefab",
+      "u": -5.8,
+      "v": 7.5,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Sign_NoEntry.prefab",
+      "u": 5.8,
+      "v": 7.5,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Crates.prefab",
+      "u": -11.6,
+      "v": -2.2,
+      "yaw": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
+      "u": -11.9,
+      "v": -22.8,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
+      "u": -9.7,
+      "v": -22.8,
+      "yaw": 0
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/RoadBlock_Jersey.prefab",
+      "u": -7.5,
+      "v": -22.6,
+      "yaw": 6
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/WireBarricade.prefab",
+      "u": -13.0,
+      "v": -19.0,
+      "yaw": 10
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Prefabs/Barrier_Manual.prefab",
+      "u": -5.2,
+      "v": -3.5,
+      "yaw": 0,
+      "part": "IX_BarrierArm_Manual_318",
+      "open": 80
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_2.prefab",
+      "u": -14.6,
+      "v": -3.5,
+      "yaw": 40
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_4.prefab",
+      "u": -14.9,
+      "v": -9.8,
+      "yaw": 110
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_1.prefab",
+      "u": -14.4,
+      "v": -15.2,
+      "yaw": 200
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_5.prefab",
+      "u": -14.7,
+      "v": -20.4,
+      "yaw": 300
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestStone_3.prefab",
+      "u": -5.6,
+      "v": -25.3,
+      "yaw": 70
+    }
+  ],
+  "clumpPrefabs": [
+    "Assets/SkyIsland/Prefabs/Grass_Clump_A.prefab",
+    "Assets/SkyIsland/Prefabs/Grass_Clump_B.prefab",
+    "Assets/SkyIsland/Prefabs/Grass_Clump_C.prefab"
+  ],
+  "clumps": [
+    {
+      "u": -13.6,
+      "v": -14.0,
+      "r": 1.2,
+      "n": 3
+    },
+    {
+      "u": -6.2,
+      "v": -21.0,
+      "r": 1.0,
+      "n": 2
+    },
+    {
+      "u": -12.8,
+      "v": 1.8,
+      "r": 1.0,
+      "n": 2
+    }
+  ],
+  "beacon": {
+    "color": [
+      0.85,
+      0.94,
+      1.0
+    ],
+    "size": 1.6,
+    "intensity": 1.4,
+    "fogFloor": 0.35,
+    "nearFade": 8.0
+  },
+  "lampLifeMinutes": 40.0,
+  "levelGround": false
 }

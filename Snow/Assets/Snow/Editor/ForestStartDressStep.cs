@@ -27,7 +27,11 @@ namespace Snow.EditorTools
 
         /// <summary>A prop at frame u, v, turned by yaw; <c>part</c> (optional) stands turned by <c>open</c> degrees about its
         /// hinge (the axis of its SkyIslandInteractable): the barrier's arm raised, static until the post gets its interaction.</summary>
-        [Serializable] public class Prop { public string prefab, part; public float u, v, yaw, open; }
+        [Serializable] public class Prop { public string prefab, part; public float u, v, yaw, open; public PropLamp lamp; }
+        /// <summary>A prop's lights set by the data (start post rework 27.10): colour, intensity, range, battery minutes
+        /// (0 = the map's lampLifeMinutes). A prop whose lights belong to the base's power (Light_power_* / Glow_power_*, the
+        /// yard's LightPole) gets them renamed Light_post_* / Glow_post_* and its own <see cref="ForestStartLamp"/>: battery, not grid.</summary>
+        [Serializable] public class PropLamp { public float[] color; public float intensity, range, life; }
         [Serializable] public class Spot { public float u, v, r; public int n; }
         [Serializable] public class Fuse { public string prefab, on, slot; }
         /// <summary>The far halo on the post's lamps (user 27.10, QUESTIONS_6 §7а 16): the hut's beacon glow (the fog dims it
@@ -45,6 +49,9 @@ namespace Snow.EditorTools
             public Fuse fuse;
             public Beacon beacon;
             public float lampLifeMinutes;
+            // false (start post rework 27.10): the ground is Blender's (world sync, tools/blender_context/edits/forest_start_pad.py);
+            // this step keeps paint, grass, Terrain trees and props only
+            public bool levelGround = true;
         }
 
         static Data _d;
@@ -69,7 +76,7 @@ namespace Snow.EditorTools
             if (tiles.Length == 0) { Debug.LogWarning("[Snow] Forest start dress: no baked terrain under the gate; nothing done."); return; }
 
             // the pad's height: measured once on its road-side edge, then kept in the data (a rerun must not measure its own pad)
-            if (_d.padY == 0f)
+            if (_d.levelGround && _d.padY == 0f)
             {
                 float sum = 0f;
                 int n = 0;
@@ -82,7 +89,7 @@ namespace Snow.EditorTools
             int levelled = 0, painted = 0, cells = 0, removed = 0, snapped = 0;
             foreach (Terrain t in tiles)
             {
-                levelled += Level(t);
+                if (_d.levelGround) levelled += Level(t);
                 painted += Paint(t);
                 cells += Details(t);
                 (int r, int s) = Trees(t);
@@ -98,11 +105,14 @@ namespace Snow.EditorTools
             dress.SetParent(root, false);
             Transform reference = structures != null ? structures.Find("Sign_Observatory") ?? structures.Find("ZoneGate") : null;
             int props = 0, clumps = 0, missing = 0;
+            _ownLife.Clear();
             foreach (Prop p in _d.props)
             {
                 GameObject placed = Place(AssetDatabase.LoadAssetAtPath<GameObject>(p.prefab), dress, p.u, p.v, p.yaw, reference);
                 if (placed == null) { missing++; continue; }
                 if (!string.IsNullOrEmpty(p.part)) Pose(placed.transform, p.part, p.open);
+                if (p.lamp != null && ((p.lamp.color?.Length ?? 0) >= 3 || p.lamp.intensity > 0f || p.lamp.range > 0f || p.lamp.life > 0f))
+                    Lamp(placed, p.lamp);                               // JsonUtility makes an empty one for every prop
                 props++;
             }
             clumps = PlaceClumps(dress, reference, ref missing);
@@ -122,7 +132,16 @@ namespace Snow.EditorTools
         {
             Beacon b = _d.beacon;
             if (b == null || b.color == null || b.size <= 0f) return 0;
-            Material mat = ForestHutDressStep.GlowMat(BeaconMaterial, new Color(b.color[0], b.color[1], b.color[2]), b.intensity, b.fogFloor, b.nearFade);
+            var beaconColor = new Color(b.color[0], b.color[1], b.color[2]);
+            var mats = new Dictionary<string, Material>();
+            // the halo takes its lamp's colour (the warm pole lamp gets a warm one); the beacon colour is the cold lamps'
+            Material MatFor(Color c)
+            {
+                bool same = Mathf.Abs(c.r - beaconColor.r) + Mathf.Abs(c.g - beaconColor.g) + Mathf.Abs(c.b - beaconColor.b) < 0.15f;
+                string path = same ? BeaconMaterial : BeaconMaterial.Replace(".mat", "_" + ColorUtility.ToHtmlStringRGB(c) + ".mat");
+                if (!mats.TryGetValue(path, out Material m)) mats[path] = m = ForestHutDressStep.GlowMat(path, same ? beaconColor : c, b.intensity, b.fogFloor, b.nearFade);
+                return m;
+            }
             var quad = AssetDatabase.LoadAssetAtPath<Mesh>(ForestHutDressStep.GlowQuad);
             int n = 0;
             foreach (ForestStartLamp lamp in dress.GetComponentsInChildren<ForestStartLamp>(true))
@@ -136,7 +155,7 @@ namespace Snow.EditorTools
                     go.transform.localScale = Vector3.one * b.size;
                     go.AddComponent<MeshFilter>().sharedMesh = quad;
                     var r = go.AddComponent<MeshRenderer>();
-                    r.sharedMaterial = mat;
+                    r.sharedMaterial = MatFor(l.color);
                     r.shadowCastingMode = ShadowCastingMode.Off;
                     r.receiveShadows = false;
                     r.lightProbeUsage = LightProbeUsage.Off;
@@ -146,7 +165,7 @@ namespace Snow.EditorTools
                     n++;
                 }
                 lamp.glows = glows.ToArray();
-                if (_d.lampLifeMinutes > 0f) lamp.lifeMinutes = _d.lampLifeMinutes;
+                if (_d.lampLifeMinutes > 0f && !_ownLife.Contains(lamp)) lamp.lifeMinutes = _d.lampLifeMinutes;
                 EditorUtility.SetDirty(lamp);
             }
             return n;
@@ -494,6 +513,33 @@ namespace Snow.EditorTools
 
         /// <summary>A prefab instance on the ground at a frame point, turned by the frame's yaw plus its own; layer and static
         /// flags taken from a structure of the gate.</summary>
+        static readonly HashSet<ForestStartLamp> _ownLife = new HashSet<ForestStartLamp>();
+
+        /// <summary>The data's colour, intensity, range and battery on a prop's lights (<see cref="PropLamp"/>).</summary>
+        static void Lamp(GameObject go, PropLamp d)
+        {
+            foreach (Transform t in go.GetComponentsInChildren<Transform>(true))
+                if (t.name.StartsWith("Light_power", StringComparison.Ordinal) || t.name.StartsWith("Glow_power", StringComparison.Ordinal))
+                    t.name = t.name.Replace("_power", "_post");
+            Light[] lights = go.GetComponentsInChildren<Light>(true);
+            if (!go.TryGetComponent(out ForestStartLamp lamp))
+            {
+                lamp = go.AddComponent<ForestStartLamp>();
+                lamp.lights = lights;
+                lamp.glows = go.GetComponentsInChildren<Renderer>(true).Where(r => r.name.StartsWith("Glow_", StringComparison.Ordinal)).ToArray();
+                lamp.lens = null;
+            }
+            foreach (Light l in lights)
+            {
+                if (d.color != null && d.color.Length >= 3) l.color = new Color(d.color[0], d.color[1], d.color[2]);
+                if (d.range > 0f) l.range = d.range;
+                if (d.intensity > 0f) l.intensity = d.intensity;
+            }
+            if (d.intensity > 0f) lamp.intensity = d.intensity;
+            if (d.life > 0f) { lamp.lifeMinutes = d.life; _ownLife.Add(lamp); }
+            EditorUtility.SetDirty(lamp);
+        }
+
         static GameObject Place(GameObject asset, Transform parent, float u, float v, float yaw, Transform reference)
         {
             if (asset == null) return null;
