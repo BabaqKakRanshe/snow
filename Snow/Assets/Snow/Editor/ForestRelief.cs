@@ -321,7 +321,7 @@ namespace Snow.EditorTools
         }
 
         // ------------------------------------------------------------------ hand layer
-        /// <summary>The sculpt delta (millimetres, int16, gzip) that the bake adds after the generated relief, so brush work
+        /// <summary>The sculpt delta (centimetres, int32, gzip; old files: millimetres, int16) that the bake adds after the generated relief, so brush work
         /// on the tiles survives a re-bake. Missing file: no delta.</summary>
         public const string HandPath = "Assets/Locations/Forest/Data/Forest_HandSculpt.bytes";
 
@@ -331,11 +331,14 @@ namespace Snow.EditorTools
             using var fs = File.OpenRead(HandPath);
             using var gz = new GZipStream(fs, CompressionMode.Decompress);
             using var br = new BinaryReader(gz);
+            // a negative grid size marks centimetres in int32 (27.10: the south gorge fill raises up to 82 m, past int16 mm)
             int n = br.ReadInt32();
+            bool wide = n < 0;
+            if (wide) n = -n;
             if (n != gn) { Debug.LogWarning($"[Snow] Forest hand sculpt: grid {n} != {gn}, ignored."); return false; }
             for (int z = 0; z < gn; z++)
                 for (int x = 0; x < gn; x++)
-                    h[z, x] += br.ReadInt16() * 0.001f;
+                    h[z, x] += wide ? br.ReadInt32() * 0.01f : br.ReadInt16() * 0.001f;
             return true;
         }
 
@@ -345,14 +348,14 @@ namespace Snow.EditorTools
             using var fs = File.Create(HandPath);
             using var gz = new GZipStream(fs, System.IO.Compression.CompressionLevel.Optimal);
             using var bw = new BinaryWriter(gz);
-            bw.Write(gn);
+            bw.Write(-gn);                                           // int32 centimetres (see ApplyHand)
             for (int z = 0; z < gn; z++)
                 for (int x = 0; x < gn; x++)
                 {
                     float d = delta[z, x];
-                    short mm = Mathf.Abs(d) < 0.02f ? (short)0 : (short)Mathf.Clamp(Mathf.RoundToInt(d * 1000f), short.MinValue, short.MaxValue);
-                    if (mm != 0) nonZero++;
-                    bw.Write(mm);
+                    int cm = Mathf.Abs(d) < 0.02f ? 0 : Mathf.RoundToInt(d * 100f);
+                    if (cm != 0) nonZero++;
+                    bw.Write(cm);
                 }
             return nonZero;
         }

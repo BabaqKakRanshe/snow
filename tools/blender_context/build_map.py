@@ -116,7 +116,7 @@ def build_meshes(m, base, mats):
 
 # ---------------------------------------------------------------------------------------------------------- ground
 
-def build_ground(m, base, step, top):
+def build_ground(m, base, step, top, map_path):
     g = m['ground']
     nx, nz = g['nx'], g['nz']
     raw = np.fromfile(os.path.join(base, g['file']), dtype='<u2').reshape(nz, nx)
@@ -165,7 +165,7 @@ def build_ground(m, base, step, top):
     ob = bpy.data.objects.new('Ground', me)
     ob['ground_step_m'] = float(g['step'] * step)
     ob['grid_step'] = int(step)                         # export_ground.py: this mesh's vertices are every step-th sample
-    ob['map_json'] = os.path.join(base, 'map.json')
+    ob['map_json'] = os.path.abspath(map_path)               # the set this ground came from (export_ground.py)
     ob.hide_select = True
     collection('Ground', top).objects.link(ob)
     return ob, nq
@@ -290,7 +290,7 @@ def main():
     top = collection(m.get('location', 'Map'), scene.collection)
     mats = build_materials(m, base)
     meshes = build_meshes(m, base, mats)
-    ground, quads = build_ground(m, base, o['step'], top)
+    ground, quads = build_ground(m, base, o['step'], top, o['map'])
     roots, placed = build_objects(m, meshes, top)
     trees = build_trees(m, base, meshes, top) if o['trees'] else 0
     build_lights(m, top)

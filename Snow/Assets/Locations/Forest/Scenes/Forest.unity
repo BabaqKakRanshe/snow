@@ -4420,7 +4420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8417840047747568453, guid: 16a2e0098a0f46f45bb2cefb73afc396, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -66.35642
+      value: 3.4848022
       objectReference: {fileID: 0}
     - target: {fileID: 8417840047747568453, guid: 16a2e0098a0f46f45bb2cefb73afc396, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4494,7 +4494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestBoulder_3#6
   placed: 1
-  placedPosition: {x: 306.38, y: -66.35642, z: -577.95}
+  placedPosition: {x: 306.38, y: 3.4848022, z: -577.95}
   placedRotation: {x: -0, y: 0.8642749, z: -0, w: -0.50301987}
 --- !u!1001 &70569728
 PrefabInstance:
@@ -10870,7 +10870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.810234
+      value: 4.501991
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10944,7 +10944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_2#14
   placed: 1
-  placedPosition: {x: 367, y: 3.810234, z: -664.86}
+  placedPosition: {x: 367, y: 4.501991, z: -664.86}
   placedRotation: {x: -0, y: 0.9677092, z: -0, w: -0.2520693}
 --- !u!1 &185763539
 GameObject:
@@ -20637,7 +20637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 677703709712522760, guid: d22949aab23938540850bfd11b4cdb14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7610855
+      value: -2.901227
       objectReference: {fileID: 0}
     - target: {fileID: 677703709712522760, guid: d22949aab23938540850bfd11b4cdb14, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20711,7 +20711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestBoulder_1#12
   placed: 1
-  placedPosition: {x: 537.32, y: 0.7610855, z: -678.62}
+  placedPosition: {x: 537.32, y: -2.901227, z: -678.62}
   placedRotation: {x: -0, y: 0.789084, z: -0, w: -0.6142853}
 --- !u!1 &333719434
 GameObject:
@@ -22525,7 +22525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.761589
+      value: 9.724002
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22599,7 +22599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_2#21
   placed: 1
-  placedPosition: {x: -192.84, y: 8.761589, z: -663.4}
+  placedPosition: {x: -192.84, y: 9.724002, z: -663.4}
   placedRotation: {x: -0, y: 0.9967789, z: -0, w: -0.08019889}
 --- !u!1001 &355787451
 PrefabInstance:
@@ -29509,7 +29509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -67.71288
+      value: -7.9785995
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29583,7 +29583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestCliff_2#9
   placed: 1
-  placedPosition: {x: 684.24, y: -67.71288, z: -600.63}
+  placedPosition: {x: 684.24, y: -7.9785995, z: -600.63}
   placedRotation: {x: -0, y: -0.68645316, z: -0, w: 0.727174}
 --- !u!1001 &426747677
 PrefabInstance:
@@ -37484,7 +37484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.713387
+      value: 11.10001
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37558,7 +37558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_2#12
   placed: 1
-  placedPosition: {x: -123.05, y: 10.713387, z: -537.41}
+  placedPosition: {x: -123.05, y: 11.10001, z: -537.41}
   placedRotation: {x: -0, y: 0.9971852, z: -0, w: -0.074978784}
 --- !u!1001 &548201557
 PrefabInstance:
@@ -41945,7 +41945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -62.372997
+      value: 10.796726
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42019,7 +42019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestCliff_2#10
   placed: 1
-  placedPosition: {x: -153.84, y: -62.372997, z: -578.02}
+  placedPosition: {x: -153.84, y: 10.796726, z: -578.02}
   placedRotation: {x: -0, y: -0.67365766, z: -0, w: 0.73904353}
 --- !u!1001 &606964809
 PrefabInstance:
@@ -44199,7 +44199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849343796796530316, guid: 5727b5a2a0c8d81429decfbcbd65bc4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -65.668304
+      value: 3.7737122
       objectReference: {fileID: 0}
     - target: {fileID: 1849343796796530316, guid: 5727b5a2a0c8d81429decfbcbd65bc4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44265,7 +44265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_6#21
   placed: 1
-  placedPosition: {x: 362.28, y: -65.668304, z: -633.81}
+  placedPosition: {x: 362.28, y: 3.7737122, z: -633.81}
   placedRotation: {x: -0, y: 0.7217603, z: -0, w: 0.6921432}
 --- !u!1 &637050373
 GameObject:
@@ -47291,7 +47291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8417840047747568453, guid: 16a2e0098a0f46f45bb2cefb73afc396, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.718979
+      value: 6.262058
       objectReference: {fileID: 0}
     - target: {fileID: 8417840047747568453, guid: 16a2e0098a0f46f45bb2cefb73afc396, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47365,7 +47365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestBoulder_3#2
   placed: 1
-  placedPosition: {x: 199.93, y: 5.718979, z: -524.22}
+  placedPosition: {x: 199.93, y: 6.262058, z: -524.22}
   placedRotation: {x: -0, y: 0.8960995, z: -0, w: -0.44385323}
 --- !u!1 &683682150
 GameObject:
@@ -57913,7 +57913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8417840047747568453, guid: 16a2e0098a0f46f45bb2cefb73afc396, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.857338
+      value: 10.557653
       objectReference: {fileID: 0}
     - target: {fileID: 8417840047747568453, guid: 16a2e0098a0f46f45bb2cefb73afc396, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57987,7 +57987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestBoulder_3#9
   placed: 1
-  placedPosition: {x: -213.81, y: 10.857338, z: -545.24}
+  placedPosition: {x: -213.81, y: 10.557653, z: -545.24}
   placedRotation: {x: -0, y: 0.9396927, z: -0, w: -0.34202015}
 --- !u!1 &743407941
 GameObject:
@@ -68406,7 +68406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8205721197073973672, guid: 0edbac598c09415468d9191dde2feeac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.638374
+      value: 10.071417
       objectReference: {fileID: 0}
     - target: {fileID: 8205721197073973672, guid: 0edbac598c09415468d9191dde2feeac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68472,7 +68472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_5#27
   placed: 1
-  placedPosition: {x: -351.46, y: 10.638374, z: -550.25}
+  placedPosition: {x: -351.46, y: 10.071417, z: -550.25}
   placedRotation: {x: -0, y: 0.279829, z: -0, w: -0.96004987}
 --- !u!1001 &897925439
 PrefabInstance:
@@ -89602,7 +89602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 677703709712522760, guid: d22949aab23938540850bfd11b4cdb14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -66.29265
+      value: 6.3202286
       objectReference: {fileID: 0}
     - target: {fileID: 677703709712522760, guid: d22949aab23938540850bfd11b4cdb14, type: 3}
       propertyPath: m_LocalPosition.z
@@ -89676,7 +89676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestBoulder_1#15
   placed: 1
-  placedPosition: {x: 234.72, y: -66.29265, z: -610.91}
+  placedPosition: {x: 234.72, y: 6.3202286, z: -610.91}
   placedRotation: {x: -0, y: 0.91460717, z: -0, w: -0.40434358}
 --- !u!1001 &1154779462
 PrefabInstance:
@@ -91202,7 +91202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -35.74698
+      value: -6.80163
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -91276,7 +91276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_1#36
   placed: 1
-  placedPosition: {x: 741.76, y: -35.74698, z: -620.44}
+  placedPosition: {x: 741.76, y: -6.80163, z: -620.44}
   placedRotation: {x: -0, y: 0.8886173, z: -0, w: 0.45864952}
 --- !u!1 &1188083361
 GameObject:
@@ -92475,7 +92475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -73.469795
+      value: -3.5951004
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -92549,7 +92549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestCliff_2#2
   placed: 1
-  placedPosition: {x: 557.26, y: -73.469795, z: -554.62}
+  placedPosition: {x: 557.26, y: -3.5951004, z: -554.62}
   placedRotation: {x: -0, y: 0.9033353, z: -0, w: 0.42893517}
 --- !u!1001 &1207073430
 PrefabInstance:
@@ -94774,7 +94774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317608011098477469, guid: 5cb146edac24398468e43f33c468fbc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -66.291046
+      value: 10.505676
       objectReference: {fileID: 0}
     - target: {fileID: 1317608011098477469, guid: 5cb146edac24398468e43f33c468fbc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -94848,7 +94848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_3#27
   placed: 1
-  placedPosition: {x: 129.47, y: -66.291046, z: -595.67}
+  placedPosition: {x: 129.47, y: 10.505676, z: -595.67}
   placedRotation: {x: -0, y: 0.9868557, z: -0, w: 0.16160388}
 --- !u!43 &1238332164
 Mesh:
@@ -95110,7 +95110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.587334
+      value: -10.067675
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95184,7 +95184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_1#34
   placed: 1
-  placedPosition: {x: 754.15, y: -21.587334, z: -695.08}
+  placedPosition: {x: 754.15, y: -10.067675, z: -695.08}
   placedRotation: {x: -0, y: 0.45709786, z: -0, w: -0.88941646}
 --- !u!1001 &1242409509
 PrefabInstance:
@@ -97622,7 +97622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.298904
+      value: -6.766346
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -97696,7 +97696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_1#28
   placed: 1
-  placedPosition: {x: 696.97, y: -15.298904, z: -668.22}
+  placedPosition: {x: 696.97, y: -6.766346, z: -668.22}
   placedRotation: {x: -0, y: 0.43444526, z: -0, w: -0.90069824}
 --- !u!1001 &1280699795
 PrefabInstance:
@@ -100445,7 +100445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -50.78056
+      value: 20.778027
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -100519,7 +100519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_1#20
   placed: 1
-  placedPosition: {x: -504.99, y: -50.78056, z: -613.52}
+  placedPosition: {x: -504.99, y: 20.778027, z: -613.52}
   placedRotation: {x: -0, y: 0.5976251, z: -0, w: -0.8017757}
 --- !u!1001 &1319598436
 PrefabInstance:
@@ -106560,7 +106560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035630371545257013, guid: bef5e846e2fe92b4488a2735f55f97b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -66.91556
+      value: 10.186844
       objectReference: {fileID: 0}
     - target: {fileID: 6035630371545257013, guid: bef5e846e2fe92b4488a2735f55f97b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -106626,7 +106626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_4#31
   placed: 1
-  placedPosition: {x: 130.27, y: -66.91556, z: -607.83}
+  placedPosition: {x: 130.27, y: 10.186844, z: -607.83}
   placedRotation: {x: -0, y: 0.2605045, z: -0, w: 0.96547264}
 --- !u!1001 &1425142397
 PrefabInstance:
@@ -106953,7 +106953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3174591821992514525, guid: 9dff2d3a551c2264185c438421138902, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -59.83432
+      value: 11.55365
       objectReference: {fileID: 0}
     - target: {fileID: 3174591821992514525, guid: 9dff2d3a551c2264185c438421138902, type: 3}
       propertyPath: m_LocalPosition.z
@@ -107019,7 +107019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestCliff_3#2
   placed: 1
-  placedPosition: {x: -392.76, y: -59.83432, z: -616}
+  placedPosition: {x: -392.76, y: 11.55365, z: -616}
   placedRotation: {x: -0, y: -0.25291374, z: -0, w: 0.9674888}
 --- !u!1 &1435542614
 GameObject:
@@ -111801,7 +111801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8982933312965436089, guid: f5520a79567162a47897f8cddeccd137, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -65.85472
+      value: 5.4104156
       objectReference: {fileID: 0}
     - target: {fileID: 8982933312965436089, guid: f5520a79567162a47897f8cddeccd137, type: 3}
       propertyPath: m_LocalPosition.z
@@ -111867,7 +111867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestBoulder_2#7
   placed: 1
-  placedPosition: {x: 243.79, y: -65.85472, z: -581.43}
+  placedPosition: {x: 243.79, y: 5.4104156, z: -581.43}
   placedRotation: {x: -0, y: 0.7331366, z: -0, w: -0.6800814}
 --- !u!1001 &1500849875
 PrefabInstance:
@@ -122070,7 +122070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -65.69838
+      value: 6.5936584
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -122144,7 +122144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestCliff_2#4
   placed: 1
-  placedPosition: {x: 187.87, y: -65.69838, z: -573.15}
+  placedPosition: {x: 187.87, y: 6.5936584, z: -573.15}
   placedRotation: {x: -0, y: -0.9868557, z: -0, w: 0.16160388}
 --- !u!1001 &1668595090
 PrefabInstance:
@@ -127813,7 +127813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -62.942772
+      value: 10.7421875
       objectReference: {fileID: 0}
     - target: {fileID: 213510824350559739, guid: 91dfe9c5779b9274d8e31ddc0034acc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -127887,7 +127887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestCliff_2#6
   placed: 1
-  placedPosition: {x: -107.07, y: -62.942772, z: -623.28}
+  placedPosition: {x: -107.07, y: 10.7421875, z: -623.28}
   placedRotation: {x: -0, y: 0.42103583, z: -0, w: 0.90704405}
 --- !u!1001 &1756933560
 PrefabInstance:
@@ -135048,7 +135048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -63.794525
+      value: 11.242523
       objectReference: {fileID: 0}
     - target: {fileID: 1932595613904451035, guid: 2358afc813172fd41a78677a669c59b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -135122,7 +135122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_2#19
   placed: 1
-  placedPosition: {x: 111.36, y: -63.794525, z: -599.95}
+  placedPosition: {x: 111.36, y: 11.242523, z: -599.95}
   placedRotation: {x: -0, y: 0.18051909, z: -0, w: -0.9835715}
 --- !u!1 &1877672299
 GameObject:
@@ -142732,7 +142732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849343796796530316, guid: 5727b5a2a0c8d81429decfbcbd65bc4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -62.77774
+      value: -10.231995
       objectReference: {fileID: 0}
     - target: {fileID: 1849343796796530316, guid: 5727b5a2a0c8d81429decfbcbd65bc4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -142798,7 +142798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_6#22
   placed: 1
-  placedPosition: {x: 699.58, y: -62.77774, z: -554.32}
+  placedPosition: {x: 699.58, y: -10.231995, z: -554.32}
   placedRotation: {x: -0, y: 0.72055113, z: -0, w: 0.6934018}
 --- !u!1001 &1989905518
 PrefabInstance:
@@ -144721,7 +144721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -62.457413
+      value: 10.44001
       objectReference: {fileID: 0}
     - target: {fileID: 5591638503278344751, guid: b8b6abf7703a7aa439b8caaa977bc7ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -144795,7 +144795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ForestRocks/ForestStone_1#33
   placed: 1
-  placedPosition: {x: -327.36, y: -62.457413, z: -586.62}
+  placedPosition: {x: -327.36, y: 10.44001, z: -586.62}
   placedRotation: {x: -0, y: 0.6794413, z: -0, w: 0.7337299}
 --- !u!1001 &2012787983
 PrefabInstance:
