@@ -84,5 +84,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stand: {fileID: 3023045328055590053, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
   neckReach: {fileID: 7204195168365927885, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
+  neckReachUp: {fileID: 7731500724084794487, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
   head: {fileID: 941246109562318790}
+  clips:
+  - {fileID: -7242960351495918944, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
+  - {fileID: -7905221130127026258, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
+  - {fileID: 8206393345607043508, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
+  - {fileID: 7970758861463440959, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
+  - {fileID: -7436087273824508062, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
+  - {fileID: -8931608348408223317, guid: 3b35cc6edb7fdd04da1939aeaf3df5ac, type: 3}
   reach: 0

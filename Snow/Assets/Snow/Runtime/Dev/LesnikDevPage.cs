@@ -67,6 +67,32 @@ namespace Snow.Dev
             DevUi.Row();
             if (DevUi.Button("Обратно")) s_it.ReachTo(0f);
             DevUi.Note("0 — стоит (голова висит вверх ногами), 1 — шея 3,5 м, голова у лица игрока в 3,6 м от тела.");
+
+            DevUi.Header("Клипы");
+            DevUi.Raw($"{Loc.T("Сейчас")}: {(s_it.Playing != null ? s_it.Playing.name : Loc.T("поза шеи"))}");
+            if (s_it.clips == null || s_it.clips.Length == 0) { DevUi.Note("Клипов нет в префабе"); return; }
+            for (int i = 0; i < s_it.clips.Length; i++)
+            {
+                var c = s_it.clips[i];
+                if (c == null) continue;
+                if (i > 0) DevUi.Row();
+                if (DevUi.Button(ClipLabel(c.name) + "##" + c.name)) s_it.Play(c.name);
+            }
+            if (DevUi.Button("Стоп (поза шеи)")) s_it.Play(null);
+            DevUi.Note("Клипы на месте: тело не идёт по полу, ноги могут скользить — это блокинг.");
+        }
+
+        static string ClipLabel(string clip)
+        {
+            switch (clip)
+            {
+                case "Shuffle": return "Шаркает";
+                case "Grab": return "Берёт";
+                case "Carry": return "Несёт";
+                case "Cower": return "Закрывается";
+                case "Flee": return "Убегает";
+                default: return clip;
+            }
         }
 
         static Vector3 Front(PlayerNet me, float dist)

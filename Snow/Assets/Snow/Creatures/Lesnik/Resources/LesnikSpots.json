@@ -1,0 +1,30 @@
+{
+    "spots": [
+        {
+            "name": "Kueche window",
+            "p": [
+                338.21,
+                16.28,
+                -350.47
+            ],
+            "yaw": 188.0,
+            "up": true,
+            "rooms": [
+                "Kueche"
+            ]
+        },
+        {
+            "name": "Leitstand window",
+            "p": [
+                339.11,
+                16.28,
+                -349.9
+            ],
+            "yaw": 188.0,
+            "up": false,
+            "rooms": [
+                "Leitstand"
+            ]
+        }
+    ]
+}
