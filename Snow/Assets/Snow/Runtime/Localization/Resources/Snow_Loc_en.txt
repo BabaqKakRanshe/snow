@@ -1102,6 +1102,52 @@ Forstkarte Hohenmoos / Карта лесника	Forstkarte Hohenmoos / Forester
 Аварийный выключатель на стене у двери. Потом насос, потом горелка.	Emergency switch on the wall by the door. Then the pump, then the burner.
 Темнеет. Корпус закрыт?	It's getting dark. Is the building closed?
 Ставни: ремнём или приводом, если есть ток. И ворота гаража.	Shutters: the strap, or the motor if you have power. And the garage gate.
+Клипы	Clips
+Сейчас	Now
+поза шеи	neck pose
+Клипов нет в префабе	No clips in the prefab
+Шаркает	Shuffles
+Берёт	Grabs
+Несёт	Carries
+Закрывается	Cowers
+Убегает	Flees
+Стоп (поза шеи)	Stop (neck pose)
+Клипы на месте: тело не идёт по полу, ноги могут скользить — это блокинг.	Clips in place: the body does not travel, the feet may slide — it is a blockout.
+Лесник в игре (видят все)	The Lesnik in the game (everyone sees him)
+Лесник в игре	Lesnik in the game
+Не появился	Not spawned
+Состояние	State
+нигде (в пути)	nowhere (on his way)
+Где	Where
+Время	Time
+ночь	night
+кража этой ночью	theft tonight
+была	done
+несёт	carries
+Кнопки — только у хоста.	Buttons: host only.
+Замереть (не думает)	Freeze (no thinking)
+Ночь (23:00)	Night (23:00)
+Утро (8:00)	Morning (8:00)
+Выйти к базе сейчас	Come to the base now
+Ещё одна кража	One more theft
+Домой в пещеру	Home to the cave
+К окну, где люди	To a window with people
+NavMesh ещё строится (несколько секунд после старта).	NavMesh is still building (a few seconds after start).
+Точки подглядывания	Peek spots
+Точек	Spots
+Голова вверх (окно второго этажа)	Head up (first-floor window)
+Точка здесь: встать у окна лицом к нему	Spot here: stand at the window, facing it
+Встаньте снаружи в 3 м от окна, лицом к нему. Окно смотрит в комнату, где стоит голова; в ней должен быть игрок.	Stand outside 3 m from the window, facing it. The head looks into that room; a player must be in it.
+в пути	on his way
+спит	asleep
+бродит	wanders
+подглядывает	peeks
+у окна	at a window
+крадётся	sneaks
+берёт	takes
+уносит	carries off
+убегает	flees
+Спит	Sleeps
 Fahrauftrag / Наряд на смену	Fahrauftrag / Shift order
 НАРЯД № 17\nКуда: станция Hohenmoos (радиообсерватория).\nПрибыть: до темноты.\nЗадача: смена зимней вахты. Занять станцию, дать питание и отопление, закрыть на ночь.\nКлючи: в будке КПП.\n— K.	SHIFT ORDER No. 17\nDestination: Hohenmoos station (radio observatory).\nArrive: before dark.\nTask: relieve the winter shift. Take over the station, get power and heating running, lock up for the night.\nKeys: in the KPP booth.\n— K.
 Бак слева: открой лючок и крышку, потом с канистрой в руках держи у горловины.	Tank on the left: open the flap and the cap, then hold the use at the neck with the can in your hands.

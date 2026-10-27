@@ -414,7 +414,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &8194661200424952894
+--- !u!1001 &6765270761470856155
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -471,12 +471,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d415cf4e1cb2cc844b2b6b45a2c0f431, type: 3}
---- !u!4 &6016626181850631348 stripped
+--- !u!4 &9161729818961273681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2505709292360099978, guid: d415cf4e1cb2cc844b2b6b45a2c0f431, type: 3}
-  m_PrefabInstance: {fileID: 8194661200424952894}
+  m_PrefabInstance: {fileID: 6765270761470856155}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8366434585212627294
+--- !u!1001 &7789858426283768599
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -537,10 +537,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 416dab6fa3f1329478c8ca85859c4398, type: 3}
---- !u!4 &4449223100341009963 stripped
+--- !u!4 &2719745146275474530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5306748047679395701, guid: 416dab6fa3f1329478c8ca85859c4398, type: 3}
-  m_PrefabInstance: {fileID: 8366434585212627294}
+  m_PrefabInstance: {fileID: 7789858426283768599}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8976270707276995426
 PrefabInstance:
@@ -627,10 +627,10 @@ PrefabInstance:
       addedObject: {fileID: 1803750934480447370}
     - targetCorrespondingSourceObject: {fileID: -4216859302048453862, guid: cfdfca7753b8876245ffdc402383055d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6016626181850631348}
+      addedObject: {fileID: 9161729818961273681}
     - targetCorrespondingSourceObject: {fileID: -4216859302048453862, guid: cfdfca7753b8876245ffdc402383055d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4449223100341009963}
+      addedObject: {fileID: 2719745146275474530}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -5993277302141215593, guid: cfdfca7753b8876245ffdc402383055d, type: 3}
       insertIndex: -1

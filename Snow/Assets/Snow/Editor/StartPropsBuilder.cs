@@ -22,7 +22,10 @@ namespace Snow.EditorTools
     /// <see cref="ForestStartLamp"/> (the tripod: battery, dies; the booth lamp: lives a little longer). Re-running rewrites
     /// the same assets (same GUIDs). Tools / Snow / Forest / Build Hut Yard Props builds the forest_hut_yard 1.0 pack
     /// (FOREST_HUT_YARD_CONTRACT.md: outhouse, feeder, timber stack, trail-head pointer with its lantern, porch, map) the same way
-    /// into Assets/Locations/Forest/HutYard (HutYard_Unity.json from tools/forest_hut_yard).
+    /// into Assets/Locations/Forest/HutYard (HutYard_Unity.json from tools/forest_hut_yard). Tools / Snow / Forest / Build Airfield
+    /// Props builds the forest_airfield 1.0 kit (FOREST_AIRFIELD_CONTRACT.md: runway modules, edge and threshold lights, marker,
+    /// pointer, the hangar's back plug) into Assets/Locations/Forest/Airfield (Airfield_Unity.json from tools/forest_airfield);
+    /// its lights are not battery lamps: they stay off in the prefab until the airfield's power lights them.
     /// </summary>
     public static class StartPropsBuilder
     {
@@ -33,6 +36,7 @@ namespace Snow.EditorTools
         {
             public string label, root, data, prefix;
             public Func<Dictionary<string, Material>> materials;
+            public bool batteryLamps = true;
         }
 
         static readonly Pack StartPack = new Pack
@@ -42,6 +46,11 @@ namespace Snow.EditorTools
         static readonly Pack YardPack = new Pack
         {
             label = "Hut yard props", root = "Assets/Locations/Forest/HutYard", data = "HutYard_Unity.json", prefix = "M_Yard_", materials = YardMaterials,
+        };
+        static readonly Pack AirfieldPack = new Pack
+        {
+            label = "Airfield props", root = "Assets/Locations/Forest/Airfield", data = "Airfield_Unity.json", prefix = "M_AF_", materials = AirfieldMaterials,
+            batteryLamps = false,
         };
 
         static Pack _p = StartPack;
@@ -71,6 +80,11 @@ namespace Snow.EditorTools
         public static bool Build() => Build(StartPack);
 
         public static bool BuildHutYard() => Build(YardPack);
+
+        [MenuItem("Tools/Snow/Forest/Build Airfield Props")]
+        static void MenuAirfield() => BuildAirfield();
+
+        public static bool BuildAirfield() => Build(AirfieldPack);
 
         static bool Build(Pack pack)
         {
@@ -152,6 +166,24 @@ namespace Snow.EditorTools
                 ["M_Yard_Lamp_Lant"] = Lit("M_Yard_Lamp_Lant", panel, panelE, 3f),
                 ["M_Yard_Lamp_Lant_Off"] = Lit("M_Yard_Lamp_Lant_Off", panel, null, 0f),
                 ["M_Yard_Glow"] = Glow("M_Yard_Glow", panelE, 1.4f),
+            };
+        }
+
+        static Dictionary<string, Material> AirfieldMaterials()
+        {
+            Texture2D runway = Tex("T_AF_Runway_BaseColor"), props = Tex("T_AF_AFProps_BaseColor"), plug = Tex("T_AF_AFPlug_BaseColor");
+            Texture2D panel = Tex("T_AF_Panel_BaseColor"), panelE = Tex("T_AF_Panel_Emission");
+            return new Dictionary<string, Material>(StringComparer.Ordinal)
+            {
+                ["M_AF_Runway"] = Lit("M_AF_Runway", runway, null, 0f),
+                ["M_AF_AFProps"] = Lit("M_AF_AFProps", props, null, 0f),
+                ["M_AF_AFPlug"] = Lit("M_AF_AFPlug", plug, null, 0f),
+                ["M_AF_Panel"] = Lit("M_AF_Panel", panel, null, 0f),
+                ["M_AF_Lamp_Edge"] = Lit("M_AF_Lamp_Edge", panel, panelE, 3f),
+                ["M_AF_Lamp_Edge_Off"] = Lit("M_AF_Lamp_Edge_Off", panel, null, 0f),
+                ["M_AF_Lamp_Thr"] = Lit("M_AF_Lamp_Thr", panel, panelE, 3f),
+                ["M_AF_Lamp_Thr_Off"] = Lit("M_AF_Lamp_Thr_Off", panel, null, 0f),
+                ["M_AF_Glow"] = Glow("M_AF_Glow", panelE, 1.4f),
             };
         }
 
@@ -401,6 +433,12 @@ namespace Snow.EditorTools
                 mats.TryGetValue($"{_p.prefix}Lamp_{kind}_Off", out off);
                 if (lens != null && off != null) lens.sharedMaterial = off;   // off in the asset; the lamp script lights it
                 if (Life.TryGetValue(ld.group ?? "", out float lf)) life = lf;
+            }
+            if (!_p.batteryLamps)
+            {
+                // mains lamps (the airfield): dark in the asset - lights off, halos hidden, lens _Off; whatever powers them lights them
+                foreach (Light l in lights) l.enabled = false;
+                return;
             }
             var lamp = inst.AddComponent<ForestStartLamp>();
             lamp.lights = lights.ToArray();

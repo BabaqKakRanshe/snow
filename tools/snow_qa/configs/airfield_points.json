@@ -1,0 +1,206 @@
+{
+ "af_overview": {
+  "eye": [
+   441.9,
+   45,
+   13.4
+  ],
+  "look": [
+   143.7,
+   0,
+   337.6
+  ],
+  "rel": true,
+  "groups": [
+   "airfield"
+  ],
+  "wait": 6.0
+ },
+ "af_end_nw": {
+  "eye": [
+   21.6,
+   1.7,
+   483.2
+  ],
+  "look": [
+   400.8,
+   1.0,
+   31.2
+  ],
+  "rel": true,
+  "groups": [
+   "airfield"
+  ],
+  "wait": 4.0
+ },
+ "af_end_se": {
+  "eye": [
+   394.4,
+   1.7,
+   38.8
+  ],
+  "look": [
+   15.2,
+   1.0,
+   490.8
+  ],
+  "rel": true,
+  "groups": [
+   "airfield"
+  ],
+  "wait": 4.0
+ },
+ "af_hangar_spot": {
+  "eye": [
+   308.2,
+   1.7,
+   149.3
+  ],
+  "look": [
+   250.8,
+   2.0,
+   101.1
+  ],
+  "rel": true,
+  "groups": [
+   "airfield"
+  ],
+  "wait": 4.0
+ },
+ "af_from_road": {
+  "eye": [
+   40,
+   1.7,
+   15
+  ],
+  "look": [
+   250.8,
+   2.0,
+   101.1
+  ],
+  "rel": true,
+  "groups": [
+   "airfield"
+  ],
+  "wait": 4.0
+ },
+ "af_from_overlook": {
+  "eye": [
+   -185,
+   1.7,
+   150
+  ],
+  "look": [
+   208.0,
+   2.0,
+   261.0
+  ],
+  "rel": true,
+  "groups": [
+   "airfield"
+  ],
+  "wait": 4.0
+ },
+ "afr_north_end": {
+  "eye": [
+   916.1,
+   1.7,
+   -60.5
+  ],
+  "look": [
+   943.8,
+   1.0,
+   -263.6
+  ],
+  "rel": true,
+  "groups": [
+   "airfield_road"
+  ],
+  "wait": 4.0
+ },
+ "afr_south_road": {
+  "eye": [
+   1016.7,
+   1.7,
+   -839.1
+  ],
+  "look": [
+   992.0,
+   1.0,
+   -660.7
+  ],
+  "rel": true,
+  "groups": [
+   "airfield_road"
+  ],
+  "wait": 4.0
+ },
+ "afr_south_end": {
+  "eye": [
+   999.5,
+   1.7,
+   -755.5
+  ],
+  "look": [
+   973.9,
+   1.0,
+   -511.8
+  ],
+  "rel": true,
+  "groups": [
+   "airfield_road"
+  ],
+  "wait": 4.0
+ },
+ "afr_hangar": {
+  "eye": [
+   931.8,
+   1.7,
+   -214.7
+  ],
+  "look": [
+   982.4,
+   3.5,
+   -208.6
+  ],
+  "rel": true,
+  "groups": [
+   "airfield_road"
+  ],
+  "wait": 4.0
+ },
+ "afr_hangar_close": {
+  "eye": [
+   956.9,
+   1.7,
+   -205.6
+  ],
+  "look": [
+   982.4,
+   2.5,
+   -208.6
+  ],
+  "rel": true,
+  "groups": [
+   "airfield_road"
+  ],
+  "wait": 4.0
+ },
+ "afr_mid_side": {
+  "eye": [
+   972.8,
+   3.0,
+   -270.2
+  ],
+  "look": [
+   961.9,
+   0.5,
+   -412.6
+  ],
+  "rel": true,
+  "groups": [
+   "airfield_road"
+  ],
+  "wait": 4.0
+ }
+}

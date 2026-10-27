@@ -1,0 +1,11 @@
+Use case: stylized-concept (mood reference for a game art direction change)
+Asset type: before/after look target for a PS1-style horror game, edit of a real in-game screenshot
+Primary request: Turn this autumn forest frame into EARLY WINTER (first snow). Keep the exact camera, composition, every object, building, tree position, road shape and the low-res PS1 look (chunky pixels, dithering, low-poly trees, fog).
+Changes:
+- Ground: thin uneven snow (2-10 cm) covering about 60 % of the forest floor in patches; brown needle litter, dead grass and dark earth showing through between patches, more bare ground under spruce crowns.
+- Road: wet dark gravel with snow only on the edges and the middle ridge between the ruts.
+- Trees: a light dusting of snow on the upper sides of spruce branches.
+- Objects: thin snow on roofs, fences, rocks and car roofs.
+- Vegetation: green grass and ferns turned dead yellow-brown and flattened, sticking through the snow.
+- Light and fog: cold grey overcast, white-grey fog, no green tint in the colour grade.
+Constraints: same game, same PS1-era graphics quality, low-res texture pixels, no photorealism; framing 1:1; no text, no UI, no watermark.

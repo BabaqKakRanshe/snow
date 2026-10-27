@@ -26,7 +26,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _FogFloor: 0.35
-    - _Intensity: 1.4
+    - _Intensity: 1
     - _NearFade: 8
     - _Softness: 2.6
     m_Colors:

@@ -113,7 +113,7 @@ namespace Snow.EditorTools
 
         /// <summary>The winter kit stands on the plane (mothballed): every slot installed but the heater, which shares the
         /// intake with the intake plug. A scene override of the instance; the kit's component shows them at Awake.</summary>
-        static int InstallKit(GameObject plane)
+        internal static int InstallKit(GameObject plane)
         {
             var kit = plane.GetComponentInChildren<UtilityPlaneWinterKit>(true);
             if (kit == null) return 0;

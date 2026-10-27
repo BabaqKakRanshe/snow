@@ -31,6 +31,19 @@ namespace Snow.EditorTools
             /// <summary>false: the rectangle only clears trees / grass or cuts holes, the heights stay.</summary>
             public bool heights = true;
             public bool hole, clearTrees = true, clearGrass = true;
+            /// <summary>Optional heights added to <c>y</c> along v, from rect[1] every <c>profileStep</c> m (linear between): a
+            /// strip that follows a slope (the airfield's runway on the east road). Empty: a flat <c>y</c>.</summary>
+            public float[] profile;
+            public float profileStep = 10f;
+        }
+
+        /// <summary>The rectangle's height at a point of its frame: y, plus the profile along v when it has one.</summary>
+        static float TargetY(Rect r, Vector2 p)
+        {
+            if (r.profile == null || r.profile.Length == 0 || r.profileStep <= 0f) return r.y;
+            float t = Mathf.Clamp((p.y - r.rect[1]) / r.profileStep, 0f, r.profile.Length - 1);
+            int i = Mathf.Min((int)t, r.profile.Length - 2);
+            return r.y + (r.profile.Length == 1 ? r.profile[0] : Mathf.Lerp(r.profile[i], r.profile[i + 1], t - i));
         }
 
         static float Cos(Rect r) => Mathf.Cos(r.yaw * Mathf.Deg2Rad);
@@ -218,8 +231,9 @@ namespace Snow.EditorTools
                                 Vector2 p = Frame(r, wx, wz);
                                 if (!InReach(r, p)) continue;
                                 float k = Share(r, p);
-                                if (r.mode == "raise") { v = Mathf.Max(v, Mathf.Lerp(g, Mathf.Max(g, r.y), k)); continue; }
-                                float target = r.mode == "set" ? r.y : Mathf.Min(g, r.y);
+                                float ry = TargetY(r, p);
+                                if (r.mode == "raise") { v = Mathf.Max(v, Mathf.Lerp(g, Mathf.Max(g, ry), k)); continue; }
+                                float target = r.mode == "set" ? ry : Mathf.Min(g, ry);
                                 float nv = Mathf.Lerp(g, target, k);
                                 v = r.mode == "set" ? (k > 0f ? nv : v) : Mathf.Min(v, nv);
                             }
