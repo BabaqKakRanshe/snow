@@ -26,6 +26,11 @@ namespace Snow.EditorTools
 
         [Serializable] public class Area { public string n; public float[] r; }
         [Serializable] public class Path { public string n; public float w; public float[] p; }
+        /// <summary>A gravel road with two ruts outside the fence (u, v points; w its width, ruts rut m either side of the middle,
+        /// rutW wide, fade the soft edge): the package's road still ends where the gate stood before the yard was drawn x0.7071
+        /// (user 27.10: "дорога обрывается и выглядит по-другому"); the link carries it on to the gate. Asphalt of the old
+        /// apron outside the fence near it turns to gravel; grass and Terrain trees on it go.</summary>
+        [Serializable] public class RoadLink { public string n; public float w, rut, rutW, fade; public float[] p; }
         [Serializable] public class Move { public string m; public float[] from, to; }
         [Serializable] public class Lamp { public float u, v, fu, fv; }
         [Serializable] public class Prop { public string prefab; public float u, v, yaw; }
@@ -38,6 +43,7 @@ namespace Snow.EditorTools
             public float yaw, shoulder, fenceBand, lampIntensity, lampRange;
             public Area[] asphalt, gravel, wild, keepClear;
             public Path[] paths;
+            public RoadLink[] roadLinks;
             public Move[] moves;
             public Lamp[] lamps;
             public Prop[] props;
@@ -72,6 +78,8 @@ namespace Snow.EditorTools
                 cells += Details(t);
             }
             (removed, planted) = PlantTrees(tiles, lampSpots);
+            int linkTexels = 0, linkCells = 0, linkTrees = 0;
+            foreach (Terrain t in tiles) (linkTexels, linkCells, linkTrees) = Add((linkTexels, linkCells, linkTrees), RoadLinks(t));
             foreach (Terrain t in tiles) EditorUtility.SetDirty(t.terrainData);
             AssetDatabase.SaveAssets();
 
@@ -104,7 +112,93 @@ namespace Snow.EditorTools
             Debug.Log($"[Snow] Forest yard dress ({DataPath}): {moved} yard lamps moved off the new roads, {painted} ground texels and " +
                       $"{cells} detail cells inside the fence rewritten ({_d.asphalt.Length} asphalt, {_d.gravel.Length} gravel, {_d.paths.Length} paths, " +
                       $"weeds along {_d.fenceBand:0} m of the fence), Terrain trees inside the fence {removed} removed / {planted} planted, " +
-                      $"{lamps} lamps (power), {bright} yard lamps at {_d.lampIntensity:0.#} / {_d.lampRange:0} m, {props} props, {clumps} grass clumps" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+                      $"road links {linkTexels} texels / {linkCells} grass cells / {linkTrees} trees, {lamps} lamps (power), {bright} yard lamps at {_d.lampIntensity:0.#} / {_d.lampRange:0} m, {props} props, {clumps} grass clumps" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+        }
+
+        // ------------------------------------------------------------------ road links (outside the fence)
+
+        static (int, int, int) Add((int, int, int) a, (int, int, int) b) => (a.Item1 + b.Item1, a.Item2 + b.Item2, a.Item3 + b.Item3);
+
+        /// <summary>Metres from p to the link's middle line (u, v pairs).</summary>
+        static float ToLink(Vector2 p, float[] line)
+        {
+            float best = float.MaxValue;
+            for (int i = 0; i + 3 < line.Length; i += 2)
+            {
+                Vector2 a = new Vector2(line[i], line[i + 1]), b = new Vector2(line[i + 2], line[i + 3]), ab = b - a;
+                float t = Mathf.Clamp01(Vector2.Dot(p - a, ab) / Mathf.Max(ab.sqrMagnitude, 1e-6f));
+                best = Mathf.Min(best, Vector2.Distance(p, a + ab * t));
+            }
+            return best;
+        }
+
+        static (int texels, int cells, int trees) RoadLinks(Terrain t)
+        {
+            if (_d.roadLinks == null || _d.roadLinks.Length == 0) return (0, 0, 0);
+            TerrainData td = t.terrainData;
+            int gravel = Layer(td, "TL_RoadGravel"), ruts = Layer(td, "TL_RoadRuts"), asphalt = Layer(td, "TL_Asphalt");
+            if (gravel < 0 || ruts < 0 || asphalt < 0) return (0, 0, 0);
+            Vector3 o = t.transform.position, s = td.size;
+            int texels = 0, cells = 0, trees = 0;
+
+            int n = td.alphamapResolution, layers = td.alphamapLayers;
+            float[,,] map = td.GetAlphamaps(0, 0, n, n);
+            for (int z = 0; z < n; z++)
+                for (int x = 0; x < n; x++)
+                {
+                    Vector2 p = Yard(o.x + (x + 0.5f) * s.x / n, o.z + (z + 0.5f) * s.z / n);
+                    if (InFence(p, 0f)) continue;
+                    foreach (RoadLink r in _d.roadLinks)
+                    {
+                        float d = ToLink(p, r.p), half = r.w * 0.5f;
+                        if (d > half + 4f) continue;
+                        if (d > half)
+                        {
+                            // the old apron's asphalt beside the link turns to gravel
+                            if (map[z, x, asphalt] > 0f) { map[z, x, gravel] += map[z, x, asphalt]; map[z, x, asphalt] = 0f; texels++; }
+                            continue;
+                        }
+                        float k = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01((half - d) / Mathf.Max(r.fade, 0.01f)));
+                        float rut = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01((r.rutW * 0.5f - Mathf.Abs(d - r.rut)) / 0.25f + 0.5f));
+                        for (int l = 0; l < layers; l++)
+                        {
+                            float target = l == ruts ? rut : l == gravel ? 1f - rut : 0f;
+                            map[z, x, l] = Mathf.Lerp(map[z, x, l], target, k);
+                        }
+                        texels++;
+                    }
+                }
+            td.SetAlphamaps(0, 0, map);
+
+            int dn = td.detailResolution;
+            var protos = td.detailPrototypes;
+            for (int l = 0; l < protos.Length; l++)
+            {
+                int[,] m = td.GetDetailLayer(0, 0, dn, dn, l);
+                bool any = false;
+                for (int z = 0; z < dn; z++)
+                    for (int x = 0; x < dn; x++)
+                    {
+                        if (m[z, x] == 0) continue;
+                        Vector2 p = Yard(o.x + (x + 0.5f) * s.x / dn, o.z + (z + 0.5f) * s.z / dn);
+                        if (InFence(p, 0f) || !_d.roadLinks.Any(r => ToLink(p, r.p) < r.w * 0.5f + 0.5f)) continue;
+                        m[z, x] = 0;
+                        any = true;
+                        cells++;
+                    }
+                if (any) td.SetDetailLayer(0, 0, l, m);
+            }
+
+            var keep = new List<TreeInstance>(td.treeInstanceCount);
+            foreach (TreeInstance ti in td.treeInstances)
+            {
+                Vector3 w = o + Vector3.Scale(ti.position, s);
+                Vector2 p = Yard(w.x, w.z);
+                if (!InFence(p, 0f) && _d.roadLinks.Any(r => ToLink(p, r.p) < r.w * 0.5f + 1.5f)) { trees++; continue; }
+                keep.Add(ti);
+            }
+            if (trees > 0) td.SetTreeInstances(keep.ToArray(), false);
+            return (texels, cells, trees);
         }
 
         // ------------------------------------------------------------------ frame
