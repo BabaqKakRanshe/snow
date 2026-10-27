@@ -29,7 +29,7 @@ namespace Snow.EditorTools
         const string BackupRoot = @"F:\ClaudeGames\snow_archive\backup";
         const float RefillFade = 2f, Around = 150f, MaxSlope = 30f, StructureMargin = 4f;
         static float _refillFrom = 1f;                                  // this import's refillFrom (NearNew)
-        static readonly string[] FollowGroups = { "ForestRocks", "ForestTrash", "ForestWorld", "ForestParts" };
+        static readonly string[] FollowGroups = { "ForestRocks", "ForestTrash", "ForestWorld", "ForestParts", "ForestTors" };
 
         [Serializable]
         class Info

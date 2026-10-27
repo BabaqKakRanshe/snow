@@ -24,7 +24,7 @@ namespace Snow.EditorTools
     /// </summary>
     public static class ForestPacksStep
     {
-        public static readonly string[] Groups = { "ForestRocks", "ForestTrash", "ForestWorld", "ForestParts" };
+        public static readonly string[] Groups = { "ForestRocks", "ForestTrash", "ForestWorld", "ForestParts", "ForestTors" };   // ForestTors: granite tors on the relief's crests (27.10)
         const string DataFolder = "Assets/Snow/Levels/Forest/";
         const string HostFolder = "Assets/Locations/Forest/Prefabs/";
 

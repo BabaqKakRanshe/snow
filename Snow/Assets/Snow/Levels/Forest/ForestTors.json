@@ -1,0 +1,306 @@
+{
+  "note": "Granite tors (Harzklippen) on three crests of the Harz relief (docs/gdd/locations/relief, QUESTIONS 2, user 27.10 'делай'): a Klippe tower x3.4 (~23 m, over the 20 m spruces) with a second one, a wall and a ledge, boulders round them; trees cleared so they stand over the forest. Placed by ForestPacksStep as the group ForestTors; crests: west, the hut's landmark (-366; 94), east (1012; 295), south (112; -705). The crest is cleared 20-30 m round the rocks (a bald rocky top, as on the Harz Klippen), or the forest hides them.",
+  "staticProps": true,
+  "props": [
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_2.prefab",
+      "ground": "lowest",
+      "x": -366.0,
+      "z": 94.0,
+      "yaw": 318.5,
+      "dy": -0.8,
+      "scale": 3.4,
+      "clear": 30
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_2.prefab",
+      "ground": "lowest",
+      "x": -375.24,
+      "z": 99.63,
+      "yaw": 172.5,
+      "dy": -0.8,
+      "scale": 2.6,
+      "clear": 22
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_1.prefab",
+      "ground": "lowest",
+      "x": -354.85,
+      "z": 90.45,
+      "yaw": 103.9,
+      "dy": -0.8,
+      "scale": 2.4,
+      "clear": 22
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_3.prefab",
+      "ground": "lowest",
+      "x": -369.51,
+      "z": 81.85,
+      "yaw": 91.8,
+      "dy": -0.8,
+      "scale": 2.4,
+      "clear": 20
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": -366.06,
+      "z": 110.91,
+      "yaw": 228.5,
+      "dy": -0.3,
+      "scale": 2.74,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": -354.5,
+      "z": 104.37,
+      "yaw": 298.3,
+      "dy": -0.3,
+      "scale": 1.89,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_1.prefab",
+      "ground": "lowest",
+      "x": -373.12,
+      "z": 110.56,
+      "yaw": 336.5,
+      "dy": -0.3,
+      "scale": 2.16,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": -360.23,
+      "z": 76.26,
+      "yaw": 58.6,
+      "dy": -0.3,
+      "scale": 2.37,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": -381.14,
+      "z": 94.4,
+      "yaw": 322.1,
+      "dy": -0.3,
+      "scale": 2.07,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_3.prefab",
+      "ground": "lowest",
+      "x": -350.76,
+      "z": 81.27,
+      "yaw": 99.1,
+      "dy": -0.3,
+      "scale": 2.34,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_2.prefab",
+      "ground": "lowest",
+      "x": 1012.0,
+      "z": 295.0,
+      "yaw": 351.9,
+      "dy": -0.8,
+      "scale": 3.4,
+      "clear": 30
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_2.prefab",
+      "ground": "lowest",
+      "x": 1007.3,
+      "z": 285.26,
+      "yaw": 248.7,
+      "dy": -0.8,
+      "scale": 2.6,
+      "clear": 22
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_1.prefab",
+      "ground": "lowest",
+      "x": 1014.45,
+      "z": 306.45,
+      "yaw": 148.1,
+      "dy": -0.8,
+      "scale": 2.4,
+      "clear": 22
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_3.prefab",
+      "ground": "lowest",
+      "x": 1024.44,
+      "z": 292.69,
+      "yaw": 2.2,
+      "dy": -0.8,
+      "scale": 2.4,
+      "clear": 20
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": 996.47,
+      "z": 299.66,
+      "yaw": 157.4,
+      "dy": -0.3,
+      "scale": 2.99,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_3.prefab",
+      "ground": "lowest",
+      "x": 1009.19,
+      "z": 310.03,
+      "yaw": 23.6,
+      "dy": -0.3,
+      "scale": 2.95,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_1.prefab",
+      "ground": "lowest",
+      "x": 1025.92,
+      "z": 290.24,
+      "yaw": 71.4,
+      "dy": -0.3,
+      "scale": 2.16,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_1.prefab",
+      "ground": "lowest",
+      "x": 1011.97,
+      "z": 278.17,
+      "yaw": 136.8,
+      "dy": -0.3,
+      "scale": 2.43,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": 999.07,
+      "z": 296.44,
+      "yaw": 112.9,
+      "dy": -0.3,
+      "scale": 2.27,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_1.prefab",
+      "ground": "lowest",
+      "x": 1009.62,
+      "z": 312.61,
+      "yaw": 294.0,
+      "dy": -0.3,
+      "scale": 2.83,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_2.prefab",
+      "ground": "lowest",
+      "x": 112.0,
+      "z": -705.0,
+      "yaw": 179.6,
+      "dy": -0.8,
+      "scale": 3.4,
+      "clear": 30
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_2.prefab",
+      "ground": "lowest",
+      "x": 113.29,
+      "z": -694.26,
+      "yaw": 135.4,
+      "dy": -0.8,
+      "scale": 2.6,
+      "clear": 22
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_1.prefab",
+      "ground": "lowest",
+      "x": 113.4,
+      "z": -716.62,
+      "yaw": 16.8,
+      "dy": -0.8,
+      "scale": 2.4,
+      "clear": 22
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestCliff_3.prefab",
+      "ground": "lowest",
+      "x": 99.49,
+      "z": -706.85,
+      "yaw": 350.4,
+      "dy": -0.8,
+      "scale": 2.4,
+      "clear": 20
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": 125.41,
+      "z": -699.6,
+      "yaw": 182.5,
+      "dy": -0.3,
+      "scale": 2.83,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_3.prefab",
+      "ground": "lowest",
+      "x": 123.67,
+      "z": -692.52,
+      "yaw": 328.6,
+      "dy": -0.3,
+      "scale": 2.87,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_1.prefab",
+      "ground": "lowest",
+      "x": 127.28,
+      "z": -698.0,
+      "yaw": 75.7,
+      "dy": -0.3,
+      "scale": 1.78,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": 121.28,
+      "z": -692.76,
+      "yaw": 146.5,
+      "dy": -0.3,
+      "scale": 2.48,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": 127.04,
+      "z": -703.27,
+      "yaw": 26.8,
+      "dy": -0.3,
+      "scale": 2.68,
+      "clear": 8
+    },
+    {
+      "prefab": "Assets/Locations/Forest/Rocks/Prefabs/ForestBoulder_2.prefab",
+      "ground": "lowest",
+      "x": 125.77,
+      "z": -711.96,
+      "yaw": 91.0,
+      "dy": -0.3,
+      "scale": 1.87,
+      "clear": 8
+    }
+  ]
+}
