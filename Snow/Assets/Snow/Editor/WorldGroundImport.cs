@@ -27,7 +27,8 @@ namespace Snow.EditorTools
     public static class WorldGroundImport
     {
         const string BackupRoot = @"F:\ClaudeGames\snow_archive\backup";
-        const float RefillFrom = 1f, RefillFade = 2f, Around = 150f, MaxSlope = 30f, StructureMargin = 4f;
+        const float RefillFade = 2f, Around = 150f, MaxSlope = 30f, StructureMargin = 4f;
+        static float _refillFrom = 1f;                                  // this import's refillFrom (NearNew)
         static readonly string[] FollowGroups = { "ForestRocks", "ForestTrash", "ForestWorld", "ForestParts" };
 
         [Serializable]
@@ -48,8 +49,15 @@ namespace Snow.EditorTools
             Debug.Log(Import(path, true));
         }
 
-        public static string Import(string infoPath, bool captureHand)
+        public static string Import(string infoPath, bool captureHand) => Import(infoPath, captureHand, 1f, 0f);
+
+        /// <summary><paramref name="refillFrom"/>: metres of change from which the ground gets new forest (a whole-map relief:
+        /// float.MaxValue, the trees only follow); <paramref name="rockSlope"/>: degrees from which changed ground is painted rock
+        /// (0 = no rock paint).</summary>
+        public static string Import(string infoPath, bool captureHand, float refillFrom, float rockSlope)
         {
+            float RefillFrom = refillFrom;
+            _refillFrom = refillFrom;
             Info info = JsonUtility.FromJson<Info>(File.ReadAllText(infoPath));
             float[] delta = ReadFloats(Path.Combine(Path.GetDirectoryName(infoPath), info.file), info.nx * info.nz);
             Terrain[] ts = Terrain.activeTerrains.Where(t => t != null && t.terrainData != null).ToArray();
@@ -61,7 +69,7 @@ namespace Snow.EditorTools
 
             float D(int gx, int gz) => gx < 0 || gz < 0 || gx >= info.nx || gz >= info.nz ? 0f : delta[gz * info.nx + gx];
             float DAt(float x, float z) => D(Mathf.RoundToInt((x - info.x0) / info.step), Mathf.RoundToInt((z - info.z0) / info.step));
-            float Refill(float x, float z) => Smooth(RefillFrom, RefillFrom + RefillFade, Mathf.Abs(DAt(x, z)));
+            float Refill(float x, float z) => RefillFrom >= 1e6f ? 0f : Smooth(RefillFrom, RefillFrom + RefillFade, Mathf.Abs(DAt(x, z)));
             var touched = ts.Where(t => Overlaps(t, info.box)).ToArray();
 
             // 1. the tiles must still be the ground the edit was made on
@@ -164,8 +172,22 @@ namespace Snow.EditorTools
             int planted = Plant(ts, info, Refill, keepOut, protos, nearArea, rng);
 
             // 6. paint and grass of new ground: the mean of the ring
-            int texels = Paint(ts, touched, info, Refill, DAt);
-            int cells = Grass(ts, touched, info, Refill, DAt, rng);
+            int texels = RefillFrom < 1e6f ? Paint(ts, touched, info, Refill, DAt) : 0;
+            int cells = RefillFrom < 1e6f ? Grass(ts, touched, info, Refill, DAt, rng) : 0;
+            int rock = rockSlope > 0f ? Rock(touched, DAt, rockSlope) : 0;
+
+            // 7. the mist cards of the package lie at their height over the ground: they follow it
+            int mist = 0;
+            Transform mistRoot = root != null ? root.Find("World/Forest_Mist") : null;
+            if (mistRoot != null)
+                foreach (Renderer r in mistRoot.GetComponentsInChildren<Renderer>(true))
+                {
+                    Vector3 c = r.bounds.center;
+                    float d = DAt(c.x, c.z);
+                    if (Mathf.Abs(d) < 0.05f) continue;
+                    r.transform.position += Vector3.up * d;
+                    mist++;
+                }
 
             foreach (Terrain t in touched)
             {
@@ -177,7 +199,7 @@ namespace Snow.EditorTools
             bool hand = captureHand && ForestTerrainBaker.CaptureHandSculpt();
             return $"[Snow] Import ground {infoPath}: {samples} height samples on {touched.Length} tiles ({clamped} clamped), {moved} trees followed the ground, " +
                    $"{removed} gave way, {planted} planted from {protos.Count} trees around ({protos.Select(p => p.prefab).Distinct().Count()} kinds), {texels} paint texels, " +
-                   $"{cells} grass cells, {followed} pack objects followed, {keepOut.Count} structures kept free; backup {backup}; hand sculpt {(hand ? "captured" : "not captured")}.";
+                   $"{cells} grass cells, {rock} rock texels on steep new slopes, {mist} mist cards followed, {followed} pack objects followed, {keepOut.Count} structures kept free; backup {backup}; hand sculpt {(hand ? "captured" : "not captured")}.";
         }
 
         // ------------------------------------------------------------------ checks
@@ -224,8 +246,8 @@ namespace Snow.EditorTools
             for (int a = 0; a < 8; a++)
             {
                 float r = Around * 0.5f, ang = a * Mathf.PI / 4f;
-                if (Mathf.Abs(dAt(x + Mathf.Cos(ang) * r, z + Mathf.Sin(ang) * r)) >= RefillFrom) return true;
-                if (Mathf.Abs(dAt(x + Mathf.Cos(ang) * Around, z + Mathf.Sin(ang) * Around)) >= RefillFrom) return true;
+                if (Mathf.Abs(dAt(x + Mathf.Cos(ang) * r, z + Mathf.Sin(ang) * r)) >= _refillFrom) return true;
+                if (Mathf.Abs(dAt(x + Mathf.Cos(ang) * Around, z + Mathf.Sin(ang) * Around)) >= _refillFrom) return true;
             }
             return false;
         }
@@ -339,6 +361,34 @@ namespace Snow.EditorTools
                 }
             }
             return changed;
+        }
+
+        /// <summary>Changed ground steeper than <paramref name="from"/> deg (blended over 8 deg) is painted TL_Rock, as the bake
+        /// paints its own steep ground.</summary>
+        static int Rock(Terrain[] touched, Func<float, float, float> dAt, float from)
+        {
+            int n = 0;
+            foreach (Terrain t in touched)
+            {
+                TerrainData td = t.terrainData;
+                int rock = Array.FindIndex(td.terrainLayers, l => l != null && l.name == "TL_Rock");
+                if (rock < 0) continue;
+                int w = td.alphamapWidth, h = td.alphamapHeight, L = td.alphamapLayers;
+                float[,,] map = td.GetAlphamaps(0, 0, w, h);
+                Vector3 o = t.transform.position, s = td.size;
+                for (int z = 0; z < h; z++)
+                    for (int x = 0; x < w; x++)
+                    {
+                        float u = (x + 0.5f) / w, v = (z + 0.5f) / h;
+                        if (Mathf.Abs(dAt(o.x + u * s.x, o.z + v * s.z)) < 0.05f) continue;
+                        float k = Smooth(from - 4f, from + 4f, td.GetSteepness(u, v));
+                        if (k <= 0f) continue;
+                        for (int l = 0; l < L; l++) map[z, x, l] = Mathf.Lerp(map[z, x, l], l == rock ? 1f : 0f, k);
+                        n++;
+                    }
+                td.SetAlphamaps(0, 0, map);
+            }
+            return n;
         }
 
         // ------------------------------------------------------------------ helpers
