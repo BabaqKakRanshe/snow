@@ -1,0 +1,12 @@
+Use case: stylized-concept. Asset type: level-design target picture for a co-op horror game map (Forest, 1.8 km).
+Primary request: edit this aerial frame of the forest to show MORE giant human skeletons of DIFFERENT sizes. Keep the existing huge skeleton exactly where it is (raised hand and forearm standing in the lake, ribs along the road, pelvis, skull on the left, legs to the right).
+Add, each clearly readable against the spruce forest:
+- one 150 m skeleton lying on its side on a forest clearing in the upper-left part of the frame, half buried, its rib cage arching above the tree tops, with a small abandoned excavation camp next to it (wooden scaffolding on the ribs, one rib sawn off, a narrow rail track, wooden huts, two lamp posts);
+- two 60 m skeletons inside the forest: one curled up on its side, one face-down with its skull torn off and lying 40 m away; trees thinned around them so the bones show between the crowns;
+- four small 15 m skeletons, complete, lying near the roads and near the base fence, each the length of half a spruce;
+- three single big loose bones beside the roads (a finger bone, a vertebra, a broken rib).
+
+Constraints: this is an edit of a real in-game frame. Keep the exact same camera, framing, horizon, terrain, roads, trees, buildings, fog and lighting. Keep the game's low-poly PSX look: low texture resolution, flat shading, slight dithering, simple chunky shapes, no photoreal detail. The ground has no snow cover - keep it as in the frame.
+Bone look: aged ochre-grey bone, clearly darker and warmer than the sky and fog, dark cracks and lichen, moss and young spruces on the lower, buried parts; eye sockets and gaps between ribs are dark holes. Skeletons are human anatomy, lying for decades, half sunk into the earth.
+Scale cues: spruces are about 30 m tall, the road is 6 m wide.
+Avoid: text, labels, watermark, people, frames, UI.

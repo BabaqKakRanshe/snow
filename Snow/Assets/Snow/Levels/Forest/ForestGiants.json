@@ -1,0 +1,1206 @@
+{
+ "note": "Giants' skeletons in the Forest (docs/gdd/locations/giant_bones, ForestGiantsStep). Sizes in m of height standing; x, z = the pelvis; dy = pelvis over the ground; yaw/pitch/roll turn the posed body (pitch 90 = on its back, -90 = face down, roll 90 = on its right side, -90 = on its left side). Body frame of a pose: +X = the giant's left, +Y = up the spine, -Z = its front. Joint e = Euler degrees at that joint (x + bends forward: shoulder / hip flexion, elbow; knee is x -).",
+ "skullFbx": "Assets/Snow/Giants/Giant_SkullFix.fbx",
+ "skullTexture": "Assets/Snow/Giants/T_GiantSkullFix_A.png",
+ "coreMaterial": "dark",
+ "materials": [
+  {
+   "name": "dark",
+   "from": "Assets/Locations/Forest/Materials/URP/M_Bone_Forest.mat",
+   "color": [
+    0.74,
+    0.7,
+    0.62
+   ]
+  },
+  {
+   "name": "moss",
+   "from": "Assets/Locations/Forest/Materials/URP/M_Bone_Forest.mat",
+   "color": [
+    0.72,
+    0.74,
+    0.62
+   ]
+  },
+  {
+   "name": "pale",
+   "from": "Assets/Locations/Forest/Materials/URP/M_Bone_Forest.mat",
+   "color": [
+    0.86,
+    0.84,
+    0.77
+   ]
+  }
+ ],
+ "poses": [
+  {
+   "name": "back",
+   "joints": [
+    {
+     "name": "neck",
+     "e": [
+      0,
+      45,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_L",
+     "e": [
+      0,
+      0,
+      12
+     ]
+    },
+    {
+     "name": "B_Humerus_R",
+     "e": [
+      10,
+      0,
+      -25
+     ]
+    },
+    {
+     "name": "B_Radius_R",
+     "e": [
+      30,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_R",
+     "e": [
+      30,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_L",
+     "e": [
+      35,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_R",
+     "e": [
+      55,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_L",
+     "e": [
+      0,
+      0,
+      6
+     ]
+    },
+    {
+     "name": "B_Femur_R",
+     "e": [
+      12,
+      0,
+      -4
+     ]
+    },
+    {
+     "name": "B_Tibia_R",
+     "e": [
+      -20,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_R",
+     "e": [
+      -20,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_R",
+     "e": [
+      -20,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "curled",
+   "joints": [
+    {
+     "name": "spine",
+     "e": [
+      -35,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "chest",
+     "e": [
+      -15,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "neck",
+     "e": [
+      -35,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_L",
+     "e": [
+      85,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_R",
+     "e": [
+      70,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Tibia_L",
+     "e": [
+      -120,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_L",
+     "e": [
+      -120,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_L",
+     "e": [
+      -120,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Tibia_R",
+     "e": [
+      -110,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_R",
+     "e": [
+      -110,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_R",
+     "e": [
+      -110,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_L",
+     "e": [
+      60,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_R",
+     "e": [
+      45,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Radius_L",
+     "e": [
+      70,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_L",
+     "e": [
+      70,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Radius_R",
+     "e": [
+      80,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_R",
+     "e": [
+      80,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_L",
+     "e": [
+      60,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_R",
+     "e": [
+      60,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "sit_slumped",
+   "joints": [
+    {
+     "name": "spine",
+     "e": [
+      -20,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "chest",
+     "e": [
+      -15,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "neck",
+     "e": [
+      -40,
+      10,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_L",
+     "e": [
+      88,
+      0,
+      10
+     ]
+    },
+    {
+     "name": "B_Femur_R",
+     "e": [
+      85,
+      0,
+      -6
+     ]
+    },
+    {
+     "name": "B_Tibia_L",
+     "e": [
+      -70,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_L",
+     "e": [
+      -70,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_L",
+     "e": [
+      -70,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Tibia_R",
+     "e": [
+      -30,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_R",
+     "e": [
+      -30,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_R",
+     "e": [
+      -30,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_L",
+     "e": [
+      20,
+      0,
+      10
+     ]
+    },
+    {
+     "name": "B_Humerus_R",
+     "e": [
+      10,
+      0,
+      -12
+     ]
+    },
+    {
+     "name": "B_Radius_L",
+     "e": [
+      45,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_L",
+     "e": [
+      45,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Radius_R",
+     "e": [
+      20,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_R",
+     "e": [
+      20,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_L",
+     "e": [
+      40,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_R",
+     "e": [
+      30,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "arm_arch",
+   "joints": [
+    {
+     "name": "spine",
+     "e": [
+      -10,
+      0,
+      8
+     ]
+    },
+    {
+     "name": "chest",
+     "e": [
+      -5,
+      0,
+      6
+     ]
+    },
+    {
+     "name": "neck",
+     "e": [
+      -30,
+      25,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_L",
+     "e": [
+      85,
+      0,
+      12
+     ]
+    },
+    {
+     "name": "B_Femur_R",
+     "e": [
+      80,
+      0,
+      -10
+     ]
+    },
+    {
+     "name": "B_Tibia_L",
+     "e": [
+      -90,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_L",
+     "e": [
+      -90,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_L",
+     "e": [
+      -90,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Tibia_R",
+     "e": [
+      -40,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_R",
+     "e": [
+      -40,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_R",
+     "e": [
+      -40,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_L",
+     "e": [
+      10,
+      0,
+      82
+     ]
+    },
+    {
+     "name": "B_Radius_L",
+     "e": [
+      0,
+      0,
+      -12
+     ]
+    },
+    {
+     "name": "B_Ulna_L",
+     "e": [
+      0,
+      0,
+      -12
+     ]
+    },
+    {
+     "name": "B_Carpals_L",
+     "e": [
+      0,
+      0,
+      -25
+     ]
+    },
+    {
+     "name": "fingers_L",
+     "e": [
+      55,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_R",
+     "e": [
+      15,
+      0,
+      -10
+     ]
+    },
+    {
+     "name": "B_Radius_R",
+     "e": [
+      35,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_R",
+     "e": [
+      35,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_R",
+     "e": [
+      35,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "face_down",
+   "joints": [
+    {
+     "name": "neck",
+     "e": [
+      10,
+      75,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_L",
+     "e": [
+      165,
+      0,
+      15
+     ]
+    },
+    {
+     "name": "B_Radius_L",
+     "e": [
+      10,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_L",
+     "e": [
+      10,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_R",
+     "e": [
+      -5,
+      0,
+      -18
+     ]
+    },
+    {
+     "name": "B_Radius_R",
+     "e": [
+      15,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_R",
+     "e": [
+      15,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_L",
+     "e": [
+      25,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_R",
+     "e": [
+      45,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_L",
+     "e": [
+      0,
+      0,
+      8
+     ]
+    },
+    {
+     "name": "B_Femur_R",
+     "e": [
+      5,
+      0,
+      -6
+     ]
+    },
+    {
+     "name": "B_Tibia_R",
+     "e": [
+      -15,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_R",
+     "e": [
+      -15,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_R",
+     "e": [
+      -15,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "side_knee",
+   "joints": [
+    {
+     "name": "spine",
+     "e": [
+      -15,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "neck",
+     "e": [
+      -25,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_R",
+     "e": [
+      55,
+      0,
+      -50
+     ]
+    },
+    {
+     "name": "B_Tibia_R",
+     "e": [
+      -115,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_R",
+     "e": [
+      -115,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_R",
+     "e": [
+      -115,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Femur_L",
+     "e": [
+      20,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Tibia_L",
+     "e": [
+      -25,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Fibula_L",
+     "e": [
+      -25,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Patella_L",
+     "e": [
+      -25,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_R",
+     "e": [
+      95,
+      0,
+      -20
+     ]
+    },
+    {
+     "name": "B_Radius_R",
+     "e": [
+      30,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_R",
+     "e": [
+      30,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Humerus_L",
+     "e": [
+      70,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Radius_L",
+     "e": [
+      50,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "B_Ulna_L",
+     "e": [
+      50,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_L",
+     "e": [
+      50,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "fingers_R",
+     "e": [
+      30,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "giants": [
+  {
+   "name": "Dig150",
+   "note": "150 m on its left side, right knee up over the forest; the old Projekt Schnee dig at its chest, camp towards the lake road",
+   "size": 150,
+   "pose": "side_knee",
+   "x": -80,
+   "z": 235,
+   "yaw": 0,
+   "pitch": 0,
+   "roll": -90,
+   "dy": -3,
+   "material": "dark",
+   "overgrown": 0,
+   "clear": 3
+  },
+  {
+   "name": "Arch60",
+   "note": "60 m sitting on the right of the start road after the motorway, its left arm across the road",
+   "size": 60,
+   "pose": "arm_arch",
+   "x": -282,
+   "z": 267,
+   "yaw": -43,
+   "pitch": 0,
+   "roll": 0,
+   "dy": -4,
+   "material": "moss",
+   "overgrown": 6,
+   "clear": 4
+  },
+  {
+   "name": "Face60",
+   "note": "60 m face down in a crater by the south-west track, head towards the track",
+   "size": 60,
+   "pose": "face_down",
+   "x": -150,
+   "z": -345,
+   "yaw": -143,
+   "pitch": -90,
+   "roll": 0,
+   "dy": 0.5,
+   "material": "moss",
+   "overgrown": 10,
+   "clear": 6
+  },
+  {
+   "name": "Road20",
+   "note": "first meeting: 20 m sitting slumped in the ditch left of the start road, facing it",
+   "size": 20,
+   "pose": "sit_slumped",
+   "x": -456,
+   "z": 505,
+   "yaw": 47.5,
+   "pitch": 0,
+   "roll": 0,
+   "dy": -0.3,
+   "material": "pale",
+   "overgrown": 4,
+   "extra": [],
+   "clear": 6
+  },
+  {
+   "name": "Lake18",
+   "note": "15 m curled on its right side on the lake shore, overgrown",
+   "size": 18,
+   "pose": "curled",
+   "x": -150,
+   "z": -75,
+   "yaw": 30,
+   "pitch": 0,
+   "roll": 90,
+   "dy": -0.4,
+   "material": "moss",
+   "overgrown": 14,
+   "clear": 5
+  },
+  {
+   "name": "Fence18",
+   "note": "15 m face down outside the base fence (north-east)",
+   "size": 18,
+   "pose": "back",
+   "x": 395,
+   "z": -235,
+   "yaw": 70,
+   "pitch": 90,
+   "roll": 0,
+   "dy": 0,
+   "material": "pale",
+   "overgrown": 12,
+   "clear": 5
+  },
+  {
+   "name": "Hut20",
+   "note": "15 m sitting slumped in the trees near the forester's hut",
+   "size": 20,
+   "pose": "sit_slumped",
+   "x": -445,
+   "z": 425,
+   "yaw": 200,
+   "pitch": 0,
+   "roll": 0,
+   "dy": -0.6,
+   "material": "pale",
+   "overgrown": 0,
+   "clear": 6
+  }
+ ],
+ "bones": [
+  {
+   "bone": "B_Phalanx_L3_1",
+   "note": "a finger bone of the big one by the start road",
+   "size": 558,
+   "x": -400,
+   "z": 430,
+   "yaw": 30,
+   "pitch": 0,
+   "roll": 85,
+   "dy": -1,
+   "material": "dark"
+  },
+  {
+   "bone": "B_C4",
+   "note": "a neck vertebra of the big one off the lake-east road",
+   "size": 558,
+   "x": 75,
+   "z": -5,
+   "yaw": 20,
+   "pitch": 15,
+   "roll": 0,
+   "dy": -3,
+   "material": "moss"
+  },
+  {
+   "bone": "B_Rib_R6",
+   "note": "a rib sawn off the 150 m one, lying by the dig camp",
+   "size": 150,
+   "x": -20,
+   "z": 205,
+   "yaw": 20,
+   "pitch": 0,
+   "roll": 90,
+   "dy": -1.5,
+   "material": "dark"
+  },
+  {
+   "bone": "B_Metatarsal_R3",
+   "note": "a foot bone of the big one past the motorway",
+   "size": 558,
+   "x": -215,
+   "z": 250,
+   "yaw": 60,
+   "pitch": 0,
+   "roll": 20,
+   "dy": -2,
+   "material": "moss"
+  },
+  {
+   "bone": "B_Phalanx_R2_2",
+   "note": "a finger bone by the lake road",
+   "size": 558,
+   "x": 0,
+   "z": 140,
+   "yaw": -40,
+   "pitch": 0,
+   "roll": 80,
+   "dy": -0.8,
+   "material": "dark"
+  }
+ ],
+ "props": [
+  {
+   "prefab": "Assets/Locations/Forest/Prefabs/Crates.prefab",
+   "x": -82,
+   "z": 182,
+   "yaw": 10,
+   "note": "dig camp"
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Prefabs/Crates.prefab",
+   "x": -77,
+   "z": 187,
+   "yaw": 95
+  },
+  {
+   "prefab": "Assets/Locations/CoalPit/Prefabs/Cable_Drum.prefab",
+   "x": -70,
+   "z": 180,
+   "yaw": 30
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Prefabs/LogPile.prefab",
+   "x": -92,
+   "z": 190,
+   "yaw": 70
+  },
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/FireBarrel.prefab",
+   "x": -86,
+   "z": 176,
+   "yaw": 0
+  },
+  {
+   "prefab": "Assets/Locations/Bunker/Prefabs/PlaneTarp.prefab",
+   "x": -64,
+   "z": 190,
+   "yaw": 20
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Prefabs/LightPole.prefab",
+   "x": -80,
+   "z": 170,
+   "yaw": 90
+  },
+  {
+   "prefab": "Assets/Kit/Prefabs/Kit_Pole.prefab",
+   "x": -75,
+   "z": 160,
+   "yaw": 80
+  },
+  {
+   "prefab": "Assets/Kit/Prefabs/Kit_Pole.prefab",
+   "x": -62,
+   "z": 195,
+   "yaw": 80
+  },
+  {
+   "prefab": "Assets/Kit/Prefabs/Kit_Pole.prefab",
+   "x": -50,
+   "z": 222,
+   "yaw": 80
+  },
+  {
+   "prefab": "Assets/Locations/Bunker/Prefabs/PlaneTarp.prefab",
+   "x": 200,
+   "z": -165,
+   "yaw": 40,
+   "note": "camp under the big one's ribs"
+  },
+  {
+   "prefab": "Assets/Locations/Forest/World/Prefabs/FireBarrel.prefab",
+   "x": 205,
+   "z": -160,
+   "yaw": 0
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Prefabs/LogPile.prefab",
+   "x": 195,
+   "z": -173,
+   "yaw": 130
+  },
+  {
+   "prefab": "Assets/Locations/Forest/Prefabs/Crates.prefab",
+   "x": 208,
+   "z": -171,
+   "yaw": 15
+  }
+ ],
+ "ground": [
+  {
+   "mode": "cut",
+   "heights": true,
+   "hole": false,
+   "clearTrees": true,
+   "clearGrass": true,
+   "profile": [],
+   "profileStep": 10,
+   "name": "dig_pit",
+   "x": -45,
+   "z": 225,
+   "yaw": 0,
+   "y": 17.9,
+   "fade": 14,
+   "rect": [
+    -38,
+    -22,
+    38,
+    22
+   ]
+  },
+  {
+   "mode": "cut",
+   "heights": false,
+   "hole": false,
+   "clearTrees": true,
+   "clearGrass": false,
+   "profile": [],
+   "profileStep": 10,
+   "name": "dig_camp_clearing",
+   "x": -70,
+   "z": 195,
+   "yaw": 0,
+   "y": 0,
+   "fade": 0,
+   "rect": [
+    -30,
+    -25,
+    30,
+    25
+   ]
+  },
+  {
+   "mode": "cut",
+   "heights": true,
+   "hole": false,
+   "clearTrees": true,
+   "clearGrass": true,
+   "profile": [],
+   "profileStep": 10,
+   "name": "face60_crater",
+   "x": -150,
+   "z": -345,
+   "yaw": -143,
+   "y": 24.6,
+   "fade": 12,
+   "rect": [
+    -14,
+    -26,
+    14,
+    30
+   ]
+  }
+ ]
+}

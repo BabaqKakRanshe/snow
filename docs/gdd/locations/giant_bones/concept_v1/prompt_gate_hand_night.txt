@@ -1,0 +1,7 @@
+Use case: stylized-concept. Asset type: level-design target picture - the main landmark at night.
+Primary request: edit this night frame (view from the base gate along the road). Make the giant raised forearm and open hand in the distance rise HIGH above the forest horizon, about three times taller than the spruces, as a dark silhouette against the moonlit cloudy sky. Put small red aviation warning lights on the fingertips and a weak white work lamp at the wrist, as if a secret program marked it decades ago - these lights must read through the fog. Keep the night darkness, stars and fog.
+
+Constraints: this is an edit of a real in-game frame. Keep the exact same camera, framing, horizon, terrain, roads, trees, buildings, fog and lighting. Keep the game's low-poly PSX look: low texture resolution, flat shading, slight dithering, simple chunky shapes, no photoreal detail. The ground has no snow cover - keep it as in the frame.
+Bone look: aged ochre-grey bone, clearly darker and warmer than the sky and fog, dark cracks and lichen, moss and young spruces on the lower, buried parts; eye sockets and gaps between ribs are dark holes. Skeletons are human anatomy, lying for decades, half sunk into the earth.
+Scale cues: spruces are about 30 m tall, the road is 6 m wide.
+Avoid: text, labels, watermark, people, frames, UI.

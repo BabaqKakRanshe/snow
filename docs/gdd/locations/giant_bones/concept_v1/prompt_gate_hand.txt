@@ -1,0 +1,7 @@
+Use case: stylized-concept. Asset type: level-design target picture - the main landmark from the base gate.
+Primary request: edit this frame (view from the base gate along the road). Make the giant raised forearm and open hand in the distance much more visible: it rises HIGH above the forest horizon, about three times taller than the spruces, a clear dark silhouette of a bony hand against the bright sky, fingers spread. Also add, on the far right horizon, the arching ribs of a second, smaller giant skeleton sticking above the tree line. Bone darker than the sky.
+
+Constraints: this is an edit of a real in-game frame. Keep the exact same camera, framing, horizon, terrain, roads, trees, buildings, fog and lighting. Keep the game's low-poly PSX look: low texture resolution, flat shading, slight dithering, simple chunky shapes, no photoreal detail. The ground has no snow cover - keep it as in the frame.
+Bone look: aged ochre-grey bone, clearly darker and warmer than the sky and fog, dark cracks and lichen, moss and young spruces on the lower, buried parts; eye sockets and gaps between ribs are dark holes. Skeletons are human anatomy, lying for decades, half sunk into the earth.
+Scale cues: spruces are about 30 m tall, the road is 6 m wide.
+Avoid: text, labels, watermark, people, frames, UI.

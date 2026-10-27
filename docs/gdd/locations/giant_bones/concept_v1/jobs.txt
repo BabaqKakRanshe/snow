@@ -1,0 +1,10 @@
+aerial_ladder now_giant_air_south_nofog
+aerial_fall now_giant_air_south_nofog
+road_small h13_giant_from_start
+road_arch h13_giant_from_start
+skull_fixed now_giant_skull_macro_nofog
+skull_dig h13_giant_skull_close
+gate_hand h13_giant_from_gate
+gate_hand_night now_giant_from_gate
+ribs_shelter h13_giant_ribs
+pelvis_60 h13_giant_pelvis_road

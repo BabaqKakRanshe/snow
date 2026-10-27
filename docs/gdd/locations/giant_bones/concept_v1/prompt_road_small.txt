@@ -1,0 +1,7 @@
+Use case: stylized-concept. Asset type: level-design target picture - first meeting with a giant skeleton from the road.
+Primary request: edit this frame (forest road at dusk-light day, a car light far ahead) and add ONE complete small giant skeleton, about 15 m long, lying on its back in the ditch and the low ground on the LEFT side of the road, 25-40 m ahead of the camera, partly sunk into the earth. Its rib cage rises about 2-3 m, as high as a person; its skull is turned towards the road; one arm reaches onto the road edge. A young spruce grows through the ribs. It must be obviously a human skeleton, just giant.
+
+Constraints: this is an edit of a real in-game frame. Keep the exact same camera, framing, horizon, terrain, roads, trees, buildings, fog and lighting. Keep the game's low-poly PSX look: low texture resolution, flat shading, slight dithering, simple chunky shapes, no photoreal detail. The ground has no snow cover - keep it as in the frame.
+Bone look: aged ochre-grey bone, clearly darker and warmer than the sky and fog, dark cracks and lichen, moss and young spruces on the lower, buried parts; eye sockets and gaps between ribs are dark holes. Skeletons are human anatomy, lying for decades, half sunk into the earth.
+Scale cues: spruces are about 30 m tall, the road is 6 m wide.
+Avoid: text, labels, watermark, people, frames, UI.

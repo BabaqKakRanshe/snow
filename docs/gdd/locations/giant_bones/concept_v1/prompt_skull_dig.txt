@@ -1,0 +1,7 @@
+Use case: stylized-concept. Asset type: target picture - the giant skull as a place to visit.
+Primary request: edit this frame of a giant skull lying among spruces. Repaint the skull as one solid smooth closed giant human skull (no torn triangles, no holes, no green patch), same size and place. Turn it into an old 1970s research dig of a secret program: wooden scaffolding and ladders up the side of the cranium, a square door sawn into the temple with a lamp above it, a narrow rail track leading into the eye socket, cable on poles, a few wooden crates. Everything abandoned, one lamp still dimly on.
+
+Constraints: this is an edit of a real in-game frame. Keep the exact same camera, framing, horizon, terrain, roads, trees, buildings, fog and lighting. Keep the game's low-poly PSX look: low texture resolution, flat shading, slight dithering, simple chunky shapes, no photoreal detail. The ground has no snow cover - keep it as in the frame.
+Bone look: aged ochre-grey bone, clearly darker and warmer than the sky and fog, dark cracks and lichen, moss and young spruces on the lower, buried parts; eye sockets and gaps between ribs are dark holes. Skeletons are human anatomy, lying for decades, half sunk into the earth.
+Scale cues: spruces are about 30 m tall, the road is 6 m wide.
+Avoid: text, labels, watermark, people, frames, UI.

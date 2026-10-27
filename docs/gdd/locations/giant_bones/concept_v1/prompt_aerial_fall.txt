@@ -1,0 +1,13 @@
+Use case: stylized-concept. Asset type: level-design target picture for a co-op horror game map (Forest).
+Primary request: edit this aerial frame so that the giants clearly FELL FROM THE SKY in one event. Keep the existing huge skeleton exactly as it is.
+Add a line of impact craters running diagonally across the forest from the top-right to the bottom-left, with flattened and fallen trees around each crater and skeletons lying in them:
+- a 150 m skeleton face-down in the largest crater on the far hill, its spine ridge and shoulder blades sticking above the trees;
+- a 60 m skeleton sitting slumped against the lake shore, skull bowed forward;
+- two 15 m skeletons (children) next to the big one, one of them under its hand;
+- loose bones scattered along the impact line.
+The crater rims are bare earth and broken trunks; young spruces grow back in them.
+
+Constraints: this is an edit of a real in-game frame. Keep the exact same camera, framing, horizon, terrain, roads, trees, buildings, fog and lighting. Keep the game's low-poly PSX look: low texture resolution, flat shading, slight dithering, simple chunky shapes, no photoreal detail. The ground has no snow cover - keep it as in the frame.
+Bone look: aged ochre-grey bone, clearly darker and warmer than the sky and fog, dark cracks and lichen, moss and young spruces on the lower, buried parts; eye sockets and gaps between ribs are dark holes. Skeletons are human anatomy, lying for decades, half sunk into the earth.
+Scale cues: spruces are about 30 m tall, the road is 6 m wide.
+Avoid: text, labels, watermark, people, frames, UI.

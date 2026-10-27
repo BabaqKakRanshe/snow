@@ -1,0 +1,7 @@
+Use case: stylized-concept. Asset type: level-design target picture - the road passes UNDER a giant bone.
+Primary request: edit this frame and add a 60 m giant skeleton sitting slumped against the slope on the RIGHT of the road, partly buried up to the pelvis. Its long arm and hand lie ACROSS the road high above it, forming an arch (like a whalebone gate): the road passes under the forearm, about 8 m clearance. The skull hangs forward between the spruces on the right, eye sockets towards the road. Old reflector posts on the road stay as they are.
+
+Constraints: this is an edit of a real in-game frame. Keep the exact same camera, framing, horizon, terrain, roads, trees, buildings, fog and lighting. Keep the game's low-poly PSX look: low texture resolution, flat shading, slight dithering, simple chunky shapes, no photoreal detail. The ground has no snow cover - keep it as in the frame.
+Bone look: aged ochre-grey bone, clearly darker and warmer than the sky and fog, dark cracks and lichen, moss and young spruces on the lower, buried parts; eye sockets and gaps between ribs are dark holes. Skeletons are human anatomy, lying for decades, half sunk into the earth.
+Scale cues: spruces are about 30 m tall, the road is 6 m wide.
+Avoid: text, labels, watermark, people, frames, UI.

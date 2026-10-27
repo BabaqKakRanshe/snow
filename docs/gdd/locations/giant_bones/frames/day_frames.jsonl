@@ -1,0 +1,10 @@
+{"tag": "day", "name": "giant_skull_close", "client": null, "teleport": "feet (140.00, 9.38, -305.00)", "perf": [[9.45, 0, 1354], [9.22, 4.34, 1353], [11.72, 4.05, 1353]], "shot": false}
+{"tag": "day", "name": "giant_skull_far", "client": null, "teleport": "no player", "perf": [[9.6, 5.04, 1353], [12.98, 5.31, 1353], [9.62, 6.4, 1353]], "shot": false}
+{"tag": "day", "name": "giant_from_gate", "client": null, "teleport": "no player", "perf": [[9.65, 5.06, 1353], [10.02, 4.44, 1353], [10.84, 6.26, 1353]], "shot": false}
+{"tag": "day", "name": "giant_ribs", "client": null, "teleport": "no player", "perf": [[10.26, 5.48, 1354], [10.31, 4.67, 1353], [11.65, 4.73, 1353]], "shot": false}
+{"tag": "day", "name": "giant_pelvis_road", "client": null, "teleport": "no player", "perf": [[9.42, 5.21, 1353], [11.15, 5.76, 1353], [9.61, 5.06, 1353]], "shot": false}
+{"tag": "day", "name": "giant_hand", "client": null, "teleport": "no player", "perf": [[9.58, 5.2, 1353], [11.09, 5.14, 1353], [11.51, 0, 1353]], "shot": false}
+{"tag": "day", "name": "giant_hand_kpp", "client": null, "teleport": "no player", "perf": [[14.15, 3.97, 1353], [11.31, 4.14, 1353], [9.52, 4.31, 1353]], "shot": false}
+{"tag": "day", "name": "giant_knee", "client": null, "teleport": "no player", "perf": [[8.91, 4.81, 1353], [10.34, 5.11, 1353], [9.99, 6.34, 1354]], "shot": false}
+{"tag": "day", "name": "giant_foot", "client": null, "teleport": "no player", "perf": [[13.76, 5.96, 1352], [19.2, 4.81, 1353], [13.74, 5.24, 1353]], "shot": false}
+{"tag": "day", "name": "giant_from_start", "client": null, "teleport": "no player", "perf": [[11.08, 4.56, 1351], [10.36, 5.29, 1353], [12.35, 0, 1354]], "shot": false}
