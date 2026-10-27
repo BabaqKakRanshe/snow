@@ -55,6 +55,7 @@ namespace Snow.Tasks
 
         void OnHinted(TaskDef t, string text)
         {
+            if (t.letter) return;                                     // a letter task's hints come on the pager (Pager), not as a subtitle
             Snow.Audio.SnowAudio.PlayUi("ui.hint");
             _hint = Loc.T(text);
             _hintAt = Time.time;

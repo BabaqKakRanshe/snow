@@ -12,7 +12,8 @@ namespace Snow.EditorTools
     /// Materials M_Pager_*: URP Lit (PSX: no specular, no reflections) - the atlas, the panel, the LCD lit with the pack's sample
     /// list, the LCD glowing blank (the game prints its list over it, <see cref="Snow.Tasks.Pager"/>) and off, the LED red and
     /// off. Prefab Resources/SnowPager: the model only (it is a held device, no collider, no shadows). Re-running rewrites the
-    /// same assets (same GUIDs).
+    /// same assets (same GUIDs). Prefab Resources/PagerView (<see cref="Snow.Tasks.PagerView"/>: the eye with SnowPager inside
+    /// at the held pose and the lowered pose) is made only when missing - the user places the pager in it by hand.
     /// </summary>
     public static class PagerBuilder
     {
@@ -21,6 +22,7 @@ namespace Snow.EditorTools
         const string Textures = Root + "/Textures";
         const string Materials = Root + "/Materials";
         const string Prefab = Root + "/Resources/SnowPager.prefab";
+        const string ViewPrefab = Root + "/Resources/PagerView.prefab";
 
         [MenuItem("Tools/Snow/Items/Build Pager")]
         static void Menu() => Build();
@@ -69,7 +71,8 @@ namespace Snow.EditorTools
             // readable at night (RESEARCH_UI_3.md §5): the pager's renderers on the world's lights and on its own layer
             uint mask = 1u | (1u << Snow.Tasks.PagerModel.ViewmodelLayer);
             foreach (var r in inst.GetComponentsInChildren<Renderer>()) r.renderingLayerMask = mask;
-            var pm = inst.GetComponent<Snow.Tasks.PagerModel>() ?? inst.AddComponent<Snow.Tasks.PagerModel>();
+            var pm = inst.GetComponent<Snow.Tasks.PagerModel>();
+            if (pm == null) pm = inst.AddComponent<Snow.Tasks.PagerModel>();
             Transform Part(string n) { var t = inst.transform.Find(n); if (t == null) Debug.LogWarning($"[Snow] Pager: no {n} in the model."); return t; }
             pm.lcd = Part("Pager_LCD")?.GetComponent<MeshRenderer>();
             pm.led = Part("Pager_LED")?.GetComponent<MeshRenderer>();
@@ -79,19 +82,53 @@ namespace Snow.EditorTools
             pm.ledOn = mats["M_Pager_LEDR"];
             pm.ledOff = mats["M_Pager_LED_Off"];
             if (pm.lcd != null) pm.lcd.sharedMaterial = pm.lcdOff;
-            // the backlight: a green point light just in front of the glass (lights the keys, the case, a little of the world);
-            // the fill: a dim warm point light up right of the pager (as from the torch in the right hand), the pager only
+            // the backlight: a green point light in front of the glass (Pager.cs sets its place and strength); no fill light of
+            // its own (27.10 user: the world's light only) - an old Pager_Fill goes
             Vector3 glass = pm.lcd != null ? pm.lcd.transform.localPosition : new Vector3(0f, 0.04f, 0.011f);
             pm.backlight = PointLight(inst.transform, "Pager_Backlight", glass + new Vector3(0f, -0.004f, 0.03f),
                                       new Color(0.45f, 1f, 0.35f), 1.4f, 0.35f, ~0u);
-            pm.fill = PointLight(inst.transform, "Pager_Fill", new Vector3(-0.10f, 0.14f, 0.12f),
-                                 new Color(1f, 0.92f, 0.80f), 0.55f, 0.6f, 1u << Snow.Tasks.PagerModel.ViewmodelLayer);
+            var oldFill = inst.transform.Find("Pager_Fill");
+            if (oldFill != null) Object.DestroyImmediate(oldFill.gameObject);
+            pm.fill = null;
             pm.backlight.enabled = false;
             pm.dim = Dim("M_Pager_Dim");
             PrefabUtility.SaveAsPrefabAsset(inst, Prefab);
             Object.DestroyImmediate(inst);
             AssetDatabase.SaveAssets();
-            Debug.Log($"[Snow] Pager: {tex} textures, {mats.Count} materials, prefab {Prefab}.");
+            bool made = MakeView();
+            Debug.Log($"[Snow] Pager: {tex} textures, {mats.Count} materials, prefab {Prefab}, view {ViewPrefab}" + (made ? " (new)." : " (kept)."));
+            return true;
+        }
+
+        // Resources/PagerView, once: the eye (a camera, 40 deg vertical: §6's narrow lens) with SnowPager at the held pose -
+        // lower left of the centre, the screen to the eye (27.10 user) - and the lowered pose at the hip, face down by 38 deg
+        static bool MakeView()
+        {
+            if (AssetDatabase.LoadAssetAtPath<GameObject>(ViewPrefab) != null) return false;
+            var root = new GameObject("PagerView");
+            var cam = root.AddComponent<Camera>();
+            cam.fieldOfView = 40f;
+            cam.nearClipPlane = 0.01f;
+            cam.farClipPlane = 2f;
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0f, 0f, 0f, 0f);
+            cam.allowHDR = false;
+            cam.allowMSAA = false;
+            cam.enabled = false;
+            var view = root.AddComponent<Snow.Tasks.PagerView>();
+            var pager = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Prefab), root.transform);
+            pager.name = "Pager";
+            Vector3 held = new Vector3(-0.046f, -0.059f, 0.21f), low = new Vector3(-0.046f, -0.20f, 0.19f);
+            pager.transform.localPosition = held;
+            pager.transform.localRotation = Quaternion.LookRotation(-held.normalized, Vector3.up);
+            var lowered = new GameObject("Lowered").transform;
+            lowered.SetParent(root.transform, false);
+            lowered.localPosition = low;
+            lowered.localRotation = Quaternion.Euler(-38f, 0f, 0f) * Quaternion.LookRotation(-low.normalized, Vector3.up);
+            view.pager = pager.transform;
+            view.lowered = lowered;
+            PrefabUtility.SaveAsPrefabAsset(root, ViewPrefab);
+            Object.DestroyImmediate(root);
             return true;
         }
 
@@ -101,7 +138,8 @@ namespace Snow.EditorTools
             var go = t != null ? t.gameObject : new GameObject(name);
             go.transform.SetParent(parent, false);
             go.transform.localPosition = local;
-            var l = go.GetComponent<Light>() ?? go.AddComponent<Light>();
+            var l = go.GetComponent<Light>();
+            if (l == null) l = go.AddComponent<Light>();                   // Unity's fake null: no ?? on components
             l.type = LightType.Point;
             l.color = color;
             l.intensity = intensity;
