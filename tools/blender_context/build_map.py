@@ -164,6 +164,8 @@ def build_ground(m, base, step, top):
     me.update()
     ob = bpy.data.objects.new('Ground', me)
     ob['ground_step_m'] = float(g['step'] * step)
+    ob['grid_step'] = int(step)                         # export_ground.py: this mesh's vertices are every step-th sample
+    ob['map_json'] = os.path.join(base, 'map.json')
     ob.hide_select = True
     collection('Ground', top).objects.link(ob)
     return ob, nq
