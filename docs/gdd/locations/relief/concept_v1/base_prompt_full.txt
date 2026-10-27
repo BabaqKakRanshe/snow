@@ -1,0 +1,6 @@
+Use case: stylized-concept (target picture for reshaping the terrain of a game map)
+Primary request: edit this editor screenshot of a fenced military radio station in a forest so the land around it has natural relief, while the fenced yard itself stays flat.
+Changes: behind the station the forest climbs a low ridge with granite rock outcrops; the gravel road comes to the gate down a gentle slope through a cutting with low banks; beside the road a shallow ravine with a small creek and a little culvert under the road; the forest outside the fence rises and falls in hummocks and small hills; keep the fence, helipad, road and buildings exactly where they are.
+Style/medium: the SAME low-poly PS1-era game render as the reference (flat-shaded low-poly spruce and birch, small pixel textures, same night-blue sky and lighting), not a photo, not painterly.
+Constraints: keep the camera position, lens and framing of the reference; keep the kinds of trees, their density and colours; only the ground's shape and what belongs to it (rocks, water, deadwood) changes. Real Central-European mountain forest (Harz / Bavarian Forest), believable scale: hills 20-60 m, ravines 5-15 m deep.
+Avoid: no people, no text, no watermark, no snow, no tropical or alpine peaks, no canyons with vertical walls.

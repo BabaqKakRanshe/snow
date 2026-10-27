@@ -1,0 +1,6 @@
+Use case: stylized-concept (target picture for reshaping the terrain of a game map)
+Primary request: edit this first-person view in a flat spruce forest so the ground has natural relief around the player.
+Changes: the ground in front dips into a shallow gully with a small dry creek bed of stones, then rises into a mossy slope with large rounded granite boulders and a low rock outcrop between the trunks; old fallen trunks and roots on the slope; the forest floor is uneven with hummocks; further back the land climbs, so distant trunks stand higher than near ones.
+Style/medium: the SAME low-poly PS1-era game render as the reference (flat-shaded low-poly spruce and birch, small pixel textures, same night-blue sky and lighting), not a photo, not painterly.
+Constraints: keep the camera position, lens and framing of the reference; keep the kinds of trees, their density and colours; only the ground's shape and what belongs to it (rocks, water, deadwood) changes. Real Central-European mountain forest (Harz / Bavarian Forest), believable scale: hills 20-60 m, ravines 5-15 m deep.
+Avoid: no people, no text, no watermark, no snow, no tropical or alpine peaks, no canyons with vertical walls.

@@ -1,0 +1,3 @@
+Style/medium: the SAME low-poly PS1-era game render as the reference (flat-shaded low-poly spruce and birch, small pixel textures, same night-blue sky and lighting), not a photo, not painterly.
+Constraints: keep the camera position, lens and framing of the reference; keep the kinds of trees, their density and colours; only the ground's shape and what belongs to it (rocks, water, deadwood) changes. Real Central-European mountain forest (Harz / Bavarian Forest), believable scale: hills 20-60 m, ravines 5-15 m deep.
+Avoid: no people, no text, no watermark, no snow, no tropical or alpine peaks, no canyons with vertical walls.

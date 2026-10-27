@@ -1,0 +1,3 @@
+Use case: stylized-concept (target picture for reshaping the terrain of a game map)
+Primary request: edit this first-person view in a flat spruce forest so the ground has natural relief around the player.
+Changes: the ground in front dips into a shallow gully with a small dry creek bed of stones, then rises into a mossy slope with large rounded granite boulders and a low rock outcrop between the trunks; old fallen trunks and roots on the slope; the forest floor is uneven with hummocks; further back the land climbs, so distant trunks stand higher than near ones.

@@ -1,0 +1,3 @@
+Use case: stylized-concept (target picture for reshaping the terrain of a game map)
+Primary request: edit this editor screenshot of a fenced military radio station in a forest so the land around it has natural relief, while the fenced yard itself stays flat.
+Changes: behind the station the forest climbs a low ridge with granite rock outcrops; the gravel road comes to the gate down a gentle slope through a cutting with low banks; beside the road a shallow ravine with a small creek and a little culvert under the road; the forest outside the fence rises and falls in hummocks and small hills; keep the fence, helipad, road and buildings exactly where they are.

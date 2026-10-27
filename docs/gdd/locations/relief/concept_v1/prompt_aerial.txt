@@ -1,0 +1,3 @@
+Use case: stylized-concept (target picture for reshaping the terrain of a game map)
+Primary request: edit this aerial view of a flat forest so the land under the forest has rich, natural relief.
+Changes: the canopy now rolls over long wooded ridges and valleys; a granite hill rises above the trees in the middle distance with bare grey rock tors (Harzklippen) on its crest; a winding creek valley with lighter alder and birch along it crosses the view; a small open bog with dead grey trees and dark pools in a hollow; a boulder field on one slope; trees follow the slopes, so the forest top undulates instead of being a flat carpet.
