@@ -12,7 +12,8 @@ namespace Snow.Levels.Forest
     /// <see cref="ForestOpening"/> to its own object; reads the opening's steps and phase.
     /// - Day 1, power on (S7): call sign, the player's personnel number spliced digit by digit, the greeting, the code
     ///   words and one check: Kessler says the first half, the player picks the second from three (answer by choice).
-    /// - Hints when there is no progress: the boiler (S8) and closing the base (S9), two stages each.
+    /// - Hints when there is no progress: the boiler (S8) and closing the base (S9), two stages each - OFF since 27.10
+    ///   (user, QUESTIONS_6 §7а 12: on day 1 only K.'s pager hints; the same lines are the tasks' pager hints).
     /// - X08 at 23:40 with power: the German voice; the player may answer by choice. An answer comes back 1–3 min later
     ///   in that voice (E12) and something moves at the gate (E13: loud noise there for the creatures).
     /// - The morning (phase 2): a short session. Rare jokes while someone is near the radio.
@@ -23,6 +24,8 @@ namespace Snow.Levels.Forest
     public class ForestRadio : MonoBehaviour
     {
         const string RadioProp = "Leitstand_RadioSet_1", Key = "leitstand", Kessler = "kessler", RadioVoice = "radio_voice";
+        /// <summary>The boiler / closing hints by voice (off: the pager gives them, user 27.10).</summary>
+        static readonly bool RadioHints = false;
         const float X08Hour = 23f + 40f / 60f, StartDelay = 4f, HintFirst = 240f, HintNext = 180f, ListenRange = 12f;
         const float CodeTimeout = 40f, NightTimeout = 45f, PromptRadius = 3f;
         const int SessionPriority = 3, AnomalyPriority = 4, IdlePriority = 1;
@@ -170,7 +173,7 @@ namespace Snow.Levels.Forest
 
         void Hints(double now)
         {
-            if (!_day1Done || _opening.Phase != 0) return;
+            if (!RadioHints || !_day1Done || _opening.Phase != 0) return;
             if (_opening.StepDone(8) && _s8At < 0d) _s8At = now;
             if (!_opening.StepDone(8)) Hint(ref _hintC03, "C03", now - _s7At, now);
             else if (!_opening.StepDone(9)) Hint(ref _hintC04, "C04", now - _s8At, now);

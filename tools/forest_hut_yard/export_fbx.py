@@ -7,7 +7,7 @@ blender -b --factory-startup yard.blend --python export_fbx.py -- <out_dir>
 import bpy, sys, os, json
 from mathutils import Matrix
 
-ROOTS = ['HutOuthouse', 'HutFeeder', 'HutPolter', 'HutSign', 'HutPorch', 'HutMap']
+ROOTS = ['HutOuthouse', 'HutFeeder', 'HutPolter', 'HutSign', 'HutPorch', 'HutMap', 'RouteSign']
 SKIP_PREFIX = ('COL_', 'LIGHT_')
 JOIN_INTO = {}
 

@@ -10,7 +10,7 @@ namespace Snow.Levels.Forest
     /// Day and night on Forest (user decision 21.10: "нет смены времени суток; игра начинается глубокой ночью"; research 2,
     /// docs/notes/FOREST_RESEARCH_2_2026-10-21.md section 1). The server keeps only the clock - the hour at a server time,
     /// the day rate and the night speed; every peer computes the hour from NetworkManager.ServerTime, so nothing is sent per
-    /// frame. The session starts at 02:00.
+    /// frame. The session starts at 17:30, the last light (user 27.10, QUESTIONS_6 §7а 1: dark ~15 min later at sunSet 20:00).
     ///  - One directional light is the sun by day and the moon by night: two arcs (sun <see cref="sunRise"/>..<see cref="sunSet"/>,
     ///    moon the rest), the light swaps between them when its intensity is ~0; the sun's colour follows its height
     ///    (colour temperature), shadows fade at the swap. Updated every frame.
@@ -34,7 +34,7 @@ namespace Snow.Levels.Forest
     /// </summary>
     public partial class ForestDayNight : NetworkBehaviour
     {
-        [Tooltip("Hour at the start of a session (deep night)")] public float startHour = 2f;
+        [Tooltip("Hour at the start of a session (17:30: the last light)")] public float startHour = 17.5f;
         [Tooltip("Game hours per real minute (0.1667: one game hour in six minutes; TEMPORARY)")] public float hoursPerMinute = 1f / 6f;
         [Tooltip("Night hours pass this much faster (1 = as fast as day)")] public float nightSpeed = 1f;
 

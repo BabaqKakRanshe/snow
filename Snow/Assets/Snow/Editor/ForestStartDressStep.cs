@@ -5,6 +5,7 @@ using System.Linq;
 using Snow.Levels.Forest;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Snow.EditorTools
 {
@@ -29,6 +30,10 @@ namespace Snow.EditorTools
         [Serializable] public class Prop { public string prefab, part; public float u, v, yaw, open; }
         [Serializable] public class Spot { public float u, v, r; public int n; }
         [Serializable] public class Fuse { public string prefab, on, slot; }
+        /// <summary>The far halo on the post's lamps (user 27.10, QUESTIONS_6 §7а 16): the hut's beacon glow (the fog dims it
+        /// less than the light), so the post reads from the start ~80 m off; out with its lamp (the lamp's glows).</summary>
+        [Serializable] public class Beacon { public float[] color; public float size, intensity, fogFloor, nearFade; }
+        // lampLifeMinutes: the post lamps' battery on this map (0 = the prefab's); with the 17:30 start they must outlast the dusk
         [Serializable]
         public class Data
         {
@@ -38,6 +43,8 @@ namespace Snow.EditorTools
             public string[] clumpPrefabs;
             public Spot[] clumps;
             public Fuse fuse;
+            public Beacon beacon;
+            public float lampLifeMinutes;
         }
 
         static Data _d;
@@ -100,17 +107,66 @@ namespace Snow.EditorTools
             }
             clumps = PlaceClumps(dress, reference, ref missing);
             string fuse = LinkFuse(root, dress);
+            int halos = PostHalos(dress);
 
             Debug.Log($"[Snow] Forest start dress ({DataPath}): pad at {_d.padY:0.00} m, {levelled} height samples levelled, {painted} ground texels and " +
                       $"{cells} grass cells rewritten, {removed} Terrain trees removed from the pad, {snapped} put back on the new ground, " +
-                      $"{props} props, {clumps} grass clumps, {fuse}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+                      $"{props} props, {clumps} grass clumps, {halos} far halos on the post lamps, {fuse}" + (missing > 0 ? $", {missing} prefabs MISSING" : "") + ".");
+        }
+
+        const string BeaconMaterial = "Assets/Locations/Forest/Start/Materials/M_Start_BeaconGlow.mat";
+
+        /// <summary>A camera-facing far halo on every light of the post's lamps (<see cref="ForestStartLamp"/> in the placed
+        /// prefabs), added to that lamp's glows so it dips and dies with it.</summary>
+        static int PostHalos(Transform dress)
+        {
+            Beacon b = _d.beacon;
+            if (b == null || b.color == null || b.size <= 0f) return 0;
+            Material mat = ForestHutDressStep.GlowMat(BeaconMaterial, new Color(b.color[0], b.color[1], b.color[2]), b.intensity, b.fogFloor, b.nearFade);
+            var quad = AssetDatabase.LoadAssetAtPath<Mesh>(ForestHutDressStep.GlowQuad);
+            int n = 0;
+            foreach (ForestStartLamp lamp in dress.GetComponentsInChildren<ForestStartLamp>(true))
+            {
+                var glows = new List<Renderer>(lamp.glows ?? new Renderer[0]);
+                foreach (Light l in lamp.lights ?? new Light[0])
+                {
+                    if (l == null) continue;
+                    var go = new GameObject("Beacon_Post");
+                    go.transform.SetParent(l.transform, false);
+                    go.transform.localScale = Vector3.one * b.size;
+                    go.AddComponent<MeshFilter>().sharedMesh = quad;
+                    var r = go.AddComponent<MeshRenderer>();
+                    r.sharedMaterial = mat;
+                    r.shadowCastingMode = ShadowCastingMode.Off;
+                    r.receiveShadows = false;
+                    r.lightProbeUsage = LightProbeUsage.Off;
+                    r.reflectionProbeUsage = ReflectionProbeUsage.Off;
+                    r.enabled = false;                                   // the lamp lights it (Show)
+                    glows.Add(r);
+                    n++;
+                }
+                lamp.glows = glows.ToArray();
+                if (_d.lampLifeMinutes > 0f) lamp.lifeMinutes = _d.lampLifeMinutes;
+                EditorUtility.SetDirty(lamp);
+            }
+            return n;
         }
 
         /// <summary>The van's spare headlight fuse on the booth's desk (user 25.10): ForestOpening spawns it there at the start.</summary>
         static string LinkFuse(Transform root, Transform dress)
         {
-            if (_d.fuse == null || string.IsNullOrEmpty(_d.fuse.prefab)) return "no spare fuse";
             ForestOpening fo = root.GetComponentInChildren<ForestOpening>(true);
+            if (_d.fuse == null || string.IsNullOrEmpty(_d.fuse.prefab))
+            {
+                // no spare on the desk (user 27.10: the van needs only fuel): an earlier link is cleared
+                if (fo != null && (fo.startFusePrefab != null || fo.startFuseSpawn != null))
+                {
+                    fo.startFusePrefab = null;
+                    fo.startFuseSpawn = null;
+                    EditorUtility.SetDirty(fo);
+                }
+                return "no spare fuse";
+            }
             Transform on = dress.Find(_d.fuse.on);
             Transform slot = on != null ? on.Find(_d.fuse.slot) : null;
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(_d.fuse.prefab);

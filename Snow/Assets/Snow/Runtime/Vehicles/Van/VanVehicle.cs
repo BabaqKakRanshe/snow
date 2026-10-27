@@ -111,9 +111,7 @@ namespace Snow.Vehicles.Van
                     _pos.Add((byte)(ctl.Zone == "MassSwitch_Key" || ctl.Zone == "Handbrake" ? 1 : 0));   // bench: mass on, hand brake set
             if (_fuse.Count == 0)
                 for (int i = 0; i < 8; i++)
-                    _fuse.Add(startState == StartState.ForestStart && i == 0 ? FuseBlown : FuseOk);   // forest start: the headlight fuse is blown (user 21.10)
-            // forest start: the tool box has no spares, the spare fuse lies on the start post's desk (user 25.10, ForestOpening)
-            if (startState == StartState.ForestStart) _spares.Value = 0;
+                    _fuse.Add(FuseOk);   // forest start: only the tank is empty, the fuses are whole (user 27.10, QUESTIONS_6 §7а 4)
             _motion = new VanMotion(tuning, tuning.massKg);
             _elec = new VanElectrics(tuning, 1f, tuning.benchBatteryTempC);
             BenchLog.Event("van_spawn", "state", startState.ToString(), "p", transform.position);

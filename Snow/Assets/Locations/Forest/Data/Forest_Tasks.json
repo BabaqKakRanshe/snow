@@ -1,5 +1,5 @@
 {
-    "about": "Forest tasks (docs/gdd/QUESTS.md, MVP 23.10.2026). A task shows up when every task in 'after' is done; it is done when ANY fact in 'done' is set (facts come from ForestOpening steps). 'until' = deadline hour, -1 none. Hints come one by one after the given minutes without progress. Text is Russian; English lines live in Snow_Loc_en.txt. 'letter': true = the text is a message from 'from', beeps on the workers' pagers and is typed out when the task shows up (Pager). 'hintsBy': 'radio' = the hints are spoken by ForestRadio (voice), TaskBoard gives none.",
+    "about": "Forest tasks (docs/gdd/QUESTS.md, MVP 23.10.2026). A task shows up when every task in 'after' is done; it is done when ANY fact in 'done' is set (facts come from ForestOpening steps). 'until' = deadline hour, -1 none. Hints come one by one after the given minutes without progress. Text is Russian; English lines live in Snow_Loc_en.txt. 'letter': true = the text is a message from 'from', beeps on the workers' pagers and is typed out when the task shows up (Pager). 'hintsBy': 'radio' = the hints are spoken by ForestRadio (voice), TaskBoard gives none. 27.10.2026 (user, QUESTIONS_6 §7а 12): on day 1 only K.'s pager speaks: every day-1 task is a letter from K., the hints of the boiler and of closing the base are his pager lines (the radio hints C03 / C04 are off).",
     "guidedHintMinutes": 5,
     "memoryHintMinutes": 15,
     "tasks": [
@@ -25,7 +25,7 @@
         {
             "id": "kpp",
             "day": 1,
-            "from": "Памятка смены",
+            "from": "K.",
             "title": "Открыть КПП",
             "text": "Шлагбаум на замке. Открыть КПП и проехать на базу.",
             "until": -1,
@@ -39,12 +39,13 @@
                 "Ключи хранятся в будке КПП.",
                 "Шлагбаум с мотором. У будки свой щиток питания.",
                 "Ключ «Schranke» снимает замок. Ворота откатываются руками."
-            ]
+            ],
+            "letter": true
         },
         {
             "id": "power",
             "day": 1,
-            "from": "Памятка смены",
+            "from": "K.",
             "title": "Дать питание",
             "text": "База без света. Запустить генератор и подать питание.",
             "until": -1,
@@ -58,12 +59,13 @@
                 "Генератор — в контейнере во дворе. Ключ «Generator» с КПП.",
                 "Бак генератора пуст. Ручной насос стоит у баков с топливом.",
                 "Порядок пуска — на бланке у пульта генератора. Потом оба рубильника."
-            ]
+            ],
+            "letter": true
         },
         {
             "id": "heat",
             "day": 1,
-            "from": "Памятка смены",
+            "from": "K.",
             "title": "Включить отопление",
             "text": "В корпусе холодно. Запустить котёл.",
             "until": -1,
@@ -73,13 +75,16 @@
             "done": [
                 "forest.S8"
             ],
-            "hints": [],
-            "hintsBy": "radio"
+            "hints": [
+                "Котёл. Кран подпитки открыли? Полтора бара.",
+                "Аварийный выключатель на стене у двери. Потом насос, потом горелка."
+            ],
+            "letter": true
         },
         {
             "id": "lock",
             "day": 1,
-            "from": "Памятка смены",
+            "from": "K.",
             "title": "Закрыть базу на ночь",
             "text": "Темнеет. Закрыть базу: засов, ставни, ворота гаража.",
             "until": -1,
@@ -89,13 +94,16 @@
             "done": [
                 "forest.S9"
             ],
-            "hints": [],
-            "hintsBy": "radio"
+            "hints": [
+                "Темнеет. Корпус закрыт?",
+                "Ставни: ремнём или приводом, если есть ток. И ворота гаража."
+            ],
+            "letter": true
         },
         {
             "id": "sleep",
             "day": 1,
-            "from": "Памятка смены",
+            "from": "K.",
             "title": "Лечь спать",
             "text": "База закрыта. Лечь спать в казарме. Утром — почта на ПК.",
             "until": -1,
@@ -109,7 +117,8 @@
                 "Казарма на втором этаже, там четыре койки.",
                 "Ночь наступает, когда легли все.",
                 "Лечь — подойти к койке и нажать E."
-            ]
+            ],
+            "letter": true
         }
     ]
 }

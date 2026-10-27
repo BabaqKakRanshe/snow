@@ -479,6 +479,43 @@
    "lights": [],
    "sockets": [],
    "doors": []
+  },
+  {
+   "name": "RouteSign",
+   "fbx": "Assets/Locations/Forest/HutYard/Models/RouteSign.fbx",
+   "colliders": [
+    {
+     "name": "COL_Route_Post",
+     "parent": "RouteSign",
+     "center": [
+      0.0,
+      1.14,
+      0.0
+     ],
+     "size": [
+      0.1,
+      2.28,
+      0.1
+     ]
+    },
+    {
+     "name": "COL_Route_BoardBox",
+     "parent": "RouteSign",
+     "center": [
+      -0.44,
+      1.71,
+      0.07
+     ],
+     "size": [
+      1.08,
+      0.22,
+      0.03
+     ]
+    }
+   ],
+   "lights": [],
+   "sockets": [],
+   "doors": []
   }
  ]
 }

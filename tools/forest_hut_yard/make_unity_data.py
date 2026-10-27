@@ -9,7 +9,7 @@ import json, os
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 PKG = os.path.join(ROOT, 'source', 'assets', 'forest_hut_yard')
 OUT = os.path.join(ROOT, 'Snow', 'Assets', 'Locations', 'Forest', 'HutYard', 'HutYard_Unity.json')
-NAMES = ['HutOuthouse', 'HutFeeder', 'HutPolter', 'HutSign', 'HutPorch', 'HutMap']
+NAMES = ['HutOuthouse', 'HutFeeder', 'HutPolter', 'HutSign', 'HutPorch', 'HutMap', 'RouteSign']
 POSE = {'IX_Door': 0.0}                              # contract degrees the door stands at in the prefab (shut)
 # the outhouse door is a game door (user 26.10 'делай'): renamed for the Forest profile's rule, opened by NetworkDoor
 IX = {'IX_Door': 'IX_OuthouseDoor_1'}

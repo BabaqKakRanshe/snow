@@ -18,13 +18,13 @@ namespace Snow.EditorTools
         public static void Run(Transform root)
         {
             if (!root.TryGetComponent(out ForestDayNight dn)) dn = root.gameObject.AddComponent<ForestDayNight>();
-            dn.startHour = 2f;
+            dn.startHour = 17.5f;                              // 17:30, the last light (user 27.10, QUESTIONS_6 §7а 1)
             EditorUtility.SetDirty(dn);
             if (!root.TryGetComponent(out ForestEdgeWrap _)) root.gameObject.AddComponent<ForestEdgeWrap>();   // «Лес не отпускает», 26.10
             int removed = 0;
             foreach (Transform old in root.GetComponentsInChildren<Transform>(true).Where(t => t.name == PanelName || t.name == PanelZone).ToArray())
                 if (old != null) { Object.DestroyImmediate(old.gameObject); removed++; }
-            Debug.Log($"[Snow] Forest extras: day/night (start {dn.startHour:00}:00){(removed > 0 ? $", the old KPP power panel removed ({removed})" : "")}.");
+            Debug.Log($"[Snow] Forest extras: day/night (start {(int)dn.startHour:00}:{Mathf.RoundToInt(dn.startHour % 1f * 60f):00}){(removed > 0 ? $", the old KPP power panel removed ({removed})" : "")}.");
         }
     }
 }

@@ -1098,3 +1098,7 @@ Forstkarte Hohenmoos / Карта лесника	Forstkarte Hohenmoos / Forester
 Тянуть голову	Reach with the head
 Обратно	Back
 0 — стоит (голова висит вверх ногами), 1 — шея 3,5 м, голова у лица игрока в 3,6 м от тела.	0 — stands (head hanging upside down), 1 — neck 3.5 m, the head at the player's face 3.6 m from the body.
+Котёл. Кран подпитки открыли? Полтора бара.	The boiler. Did you open the feed valve? One and a half bar.
+Аварийный выключатель на стене у двери. Потом насос, потом горелка.	Emergency switch on the wall by the door. Then the pump, then the burner.
+Темнеет. Корпус закрыт?	It's getting dark. Is the building closed?
+Ставни: ремнём или приводом, если есть ток. И ворота гаража.	Shutters: the strap, or the motor if you have power. And the garage gate.

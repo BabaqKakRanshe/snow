@@ -1,5 +1,5 @@
 {
- "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u). The van's spare headlight fuse lies on the booth desk (user 25.10; the van's tool box starts without spares). The manual barrier (QUESTIONS_START 8; user 26.10: raised) stands 3.5 m before the gate on the approach side, its post by the booth, the arm raised (static until the post's interaction task).",
+ "_doc": "Forest start post (user 25.10, docs/gdd/QUESTIONS_START.md): a lay-by for 2-3 cars and a guard post at the SPERRGEBIET gate. Frame: centre = the gate's package place (Forest_Layout ZoneGate), yaw = the gate's; u across the road (+u = north-east, downhill), v along it (+v = north-west, out of the zone). Metres. Only the 'level' rect plus its fades is edited on the terrain; padY is filled by the first run and then kept. Props' yaw is added to the frame's; a prefab's +Z (front) at yaw 90 faces the road (+u). No spare fuse on the desk any more (user 27.10: the van needs only fuel, its fuses are whole). The manual barrier (QUESTIONS_START 8; user 26.10: raised) stands 3.5 m before the gate on the approach side, its post by the booth, the arm raised (static until the post's interaction task). The post lamps carry a far halo the fog dims less (user 27.10, QUESTIONS_6 §7а 16: the post must read from the start ~80 m off), cold white, out with each lamp. The post lamps' battery lasts 40 min here (the game starts at 17:30 and is dark ~15 min later: the lamps and their halo must burn into the night).",
  "centre": [
   -511.5175,
   554.2235
@@ -135,9 +135,16 @@
    "n": 2
   }
  ],
- "fuse": {
-  "prefab": "Assets/Snow/Van/Items/VanItem_Fuse_Net.prefab",
-  "on": "StartBooth",
-  "slot": "Slot_Table_2"
- }
+ "beacon": {
+  "color": [
+   0.85,
+   0.94,
+   1.0
+  ],
+  "size": 1.6,
+  "intensity": 1.4,
+  "fogFloor": 0.35,
+  "nearFade": 8.0
+ },
+ "lampLifeMinutes": 40.0
 }

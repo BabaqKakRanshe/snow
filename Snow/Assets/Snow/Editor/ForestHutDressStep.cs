@@ -26,7 +26,7 @@ namespace Snow.EditorTools
         public const string DataPath = "Assets/Snow/Levels/Forest/ForestHutDress.json";
         public const string RootName = "ForestHutDress", EarlyRootName = "ForestHutYard";
         const string GlowMaterial = "Assets/Locations/Forest/Start/Materials/M_Hut_CandleGlow.mat";
-        const string GlowQuad = "Assets/Kit/Materials/Kit_GlowQuad.asset";
+        internal const string GlowQuad = "Assets/Kit/Materials/Kit_GlowQuad.asset";
         const string LightLayersFrom = "Assets/Locations/Forest/Prefabs/LightPole.prefab";
 
         [Serializable] public class Trail { public float w; public float[] p; }
@@ -666,7 +666,7 @@ namespace Snow.EditorTools
 
         static Material GlowMat(Color linear) => GlowMat(GlowMaterial, linear, 1.2f, 0f, 0.3f);
 
-        static Material GlowMat(string path, Color linear, float intensity, float fogFloor, float nearFade)
+        internal static Material GlowMat(string path, Color linear, float intensity, float fogFloor, float nearFade)
         {
             Shader sh = Shader.Find("SkyIsland/LightGlow");
             var m = AssetDatabase.LoadAssetAtPath<Material>(path);
