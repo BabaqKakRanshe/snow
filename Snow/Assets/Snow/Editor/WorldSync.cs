@@ -18,7 +18,8 @@ namespace Snow.EditorTools
     ///  - ids: every direct child of Structures / Rocks (the layout's prefabs / rocks) and of the dress roots gets a
     ///    <see cref="WorldId"/> "&lt;group&gt;/&lt;model&gt;#&lt;n&gt;" (n counts the model in the list's order; an "id" in a layout
     ///    entry wins). <see cref="Begin"/> runs first in the Forest chain, <see cref="LayoutPlaced"/> after the checkpoint and yard
-    ///    steps, <see cref="Finish"/> last: each remembers the pose the steps gave its objects, then puts the hand moves back on;
+    ///    steps (layout moves early, so dress follows), <see cref="Finish"/> last: the pose all steps gave each object is its
+    ///    built pose, then the hand moves go back on;
     ///  - hand moves: saving the Forest scene (or Tools / Snow / World Sync / Save My Moves) writes every object that stands
     ///    elsewhere than its built pose to <see cref="MovesPath"/>; back at the built pose = the move is dropped;
     ///  - Export For Blender: source/world_sync/forest/ — every object with an id in its final pose + the moves;
@@ -62,39 +63,48 @@ namespace Snow.EditorTools
         }
 
         /// <summary>After the steps that move layout objects (checkpoint, yard), before the dress steps: the layout objects'
-        /// built pose is remembered and their hand moves applied, so dress placed around them (the hut's things) follows.</summary>
+        /// hand moves applied early, so dress placed around them (the hut's things) follows. Their built pose is taken here
+        /// and again in <see cref="Finish"/>: later steps move some of them too (the hut turn, yard lamps off the roads).</summary>
         public static void LayoutPlaced(Transform root) => PlaceAndApply(root, w => !IsDress(w.transform, root), "layout");
 
-        /// <summary>Last in the chain: ids for the dress objects, their built pose remembered, their hand moves applied.</summary>
+        /// <summary>Last in the chain: ids for the dress objects; every object's built pose is its pose now unless it still
+        /// stands on its hand move (applied in <see cref="LayoutPlaced"/>, no later step touched it: the pose taken there
+        /// stays); then every hand move applied, so it wins over later steps too.</summary>
         public static void Finish(Transform root)
         {
             int tagged = 0;
             foreach (string g in DressGroups) tagged += TagByName(root.Find(g), g, null);
-            PlaceAndApply(root, w => IsDress(w.transform, root), $"dress ({tagged} new ids)");
+            PlaceAndApply(root, w => true, $"all ({tagged} new dress ids)");
         }
 
         static void PlaceAndApply(Transform root, Func<WorldId, bool> which, string what)
         {
+            var moves = new Dictionary<string, Move>(StringComparer.Ordinal);
+            foreach (Move mv in Load().moves) moves[mv.id] = mv;
             var byId = new Dictionary<string, WorldId>(StringComparer.Ordinal);
             var dup = new List<string>();
             foreach (WorldId w in root.GetComponentsInChildren<WorldId>(true))
             {
                 if (string.IsNullOrEmpty(w.id) || !which(w)) continue;
-                w.placed = true;
-                w.placedPosition = w.transform.position;
-                w.placedRotation = w.transform.rotation;
+                if (byId.ContainsKey(w.id)) { dup.Add(w.id); continue; }
+                byId[w.id] = w;
+                bool onMove = moves.TryGetValue(w.id, out Move mv) && w.placed && Same(w.transform.position, w.transform.rotation, V(mv.p), Q(mv.q), MoveEps, MoveAngle);
+                if (!onMove)
+                {
+                    w.placed = true;
+                    w.placedPosition = w.transform.position;
+                    w.placedRotation = w.transform.rotation;
+                }
                 EditorUtility.SetDirty(w);
-                if (!byId.ContainsKey(w.id)) byId[w.id] = w; else dup.Add(w.id);
             }
             int applied = 0;
-            foreach (Move mv in Load().moves)
+            foreach (Move mv in moves.Values)
                 if (byId.TryGetValue(mv.id, out WorldId w)) { w.transform.SetPositionAndRotation(V(mv.p), Q(mv.q)); applied++; }
             Debug.Log($"[Snow] World sync, {what}: {byId.Count} objects with ids, {applied} hand moves applied from {MovesPath}.");
             if (dup.Count > 0) Debug.LogWarning($"[Snow] World sync: repeated ids (the first one gets the move): {string.Join(", ", dup.Distinct().Take(12))}");
-            if (what.StartsWith("dress", StringComparison.Ordinal))
+            if (what.StartsWith("all", StringComparison.Ordinal))
             {
-                var all = new HashSet<string>(root.GetComponentsInChildren<WorldId>(true).Select(x => x.id), StringComparer.Ordinal);
-                string[] missing = Load().moves.Where(m => !all.Contains(m.id)).Select(m => m.id).ToArray();
+                string[] missing = moves.Keys.Where(id => !byId.ContainsKey(id)).ToArray();
                 if (missing.Length > 0) Debug.LogWarning($"[Snow] World sync: {missing.Length} moves have no object any more (kept in the file): {string.Join(", ", missing.Take(12))}");
             }
         }

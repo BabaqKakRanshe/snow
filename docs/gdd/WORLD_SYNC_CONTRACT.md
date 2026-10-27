@@ -16,7 +16,7 @@
 |---|---|
 | `Structures` | `prefabs` в `Forest_Layout.json` |
 | `Rocks` | `rocks` в `Forest_Layout.json` |
-| `ForestYardDress`, `ForestStartDress`, `ForestHutDress` | собственные объекты Unity (двор, пост у ворот, хижина) |
+| `ForestYardDress`, `ForestStartDress`, `ForestHutDress`, `ForestBunker`, `ForestRocks`, `ForestTrash`, `ForestWorld`, `ForestParts` | собственные объекты Unity (двор, пост у ворот, хижина, бункер у озера, группы пакетов) |
 
 Пример: `Structures/LightPole#3` — третий `LightPole` в `prefabs`.
 
@@ -58,6 +58,22 @@
 - Сдвиги начинают записываться после первой пересборки леса с новым кодом: объекты получают `id` только при сборке.
 - Некоторые объекты Unity сейчас ставит не туда, куда их поставил чат: КПП перенесён на 260 м по дороге (`ForestRelocationStep`), двор собран в масштабе ×0,7071 (`ForestYardStep`). Для них место в пакете чата и место на сцене разные. Пока эти шаги работают, чат берёт `unity_objects.json` как образец того, что видит игрок, но в свой `Forest_Layout.json` эти места не переносит. Иначе Unity сдвинет их второй раз.
 - В шаге 2 чат делает землю целиком и переносит в свой пакет итоговые места всех объектов. В том же обновлении Unity выключает свои шаги, которые двигают объекты и правят землю. После этого место в пакете = место в игре, и сдвиги забираются без оговорок.
+
+## Вся карта — набор для Blender
+
+`Tools / Snow / World Sync / Export Whole Map` → `source/world_sync/forest/map/`. Это не один огромный файл, а набор:
+
+| Файл | Что в нём |
+|---|---|
+| `ground.r16` | высоты всех плиток Terrain одной сеткой (uint16, строки с юга на север), шаг и min/max — в `map.json` |
+| `holes.u8` | дыры в земле: 1 = земля, 0 = дыра |
+| `paint.png` | покраска земли, 1 px на метр, север сверху |
+| `meshes.bin` + `textures/` | каждая модель один раз, уже в осях Blender |
+| `map.json` | объекты (корень + меши, `id` на корне), деревья Terrain (`trees.bin`: модель, место, поворот, размер), лампы |
+| `build_map.py` | собирает `map.blend`: землю, объекты, деревья через Geometry Nodes |
+| `export_moves.py` | сдвиги объектов обратно в Unity |
+
+Собрать: `blender -b --factory-startup --python build_map.py -- map.json map.blend`. Земля по умолчанию через точку (`--ground-step 2`), `--ground-step 1` — полная.
 
 ## Шаг 2 — земля (черновик, согласовать с чатом)
 

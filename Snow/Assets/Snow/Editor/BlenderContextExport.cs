@@ -208,7 +208,7 @@ namespace Snow.EditorTools
         // ------------------------------------------------------------------ frame and helpers
 
         static string Full(string rel) => Path.GetFullPath(Path.Combine(Application.dataPath, "..", rel)).Replace('\\', '/');
-        static string Safe(string s) => new string(s.Select(c => char.IsLetterOrDigit(c) ? c : '_').ToArray());
+        internal static string Safe(string s) => new string(s.Select(c => char.IsLetterOrDigit(c) ? c : '_').ToArray());
         static string F(float v) => v.ToString("0.#####", Ci);
 
         static AreasDef LoadAreas()
@@ -258,7 +258,7 @@ namespace Snow.EditorTools
             return new Vector4(x0, z0, x1, z1);
         }
 
-        static bool Lod0(Renderer r)
+        internal static bool Lod0(Renderer r)
         {
             LODGroup g = r.GetComponentInParent<LODGroup>();
             if (g == null) return true;
@@ -268,7 +268,7 @@ namespace Snow.EditorTools
             return true;
         }
 
-        static string PathOf(Transform t)
+        internal static string PathOf(Transform t)
         {
             var parts = new List<string>();
             for (; t != null; t = t.parent) parts.Add(t.name);
@@ -277,7 +277,7 @@ namespace Snow.EditorTools
         }
 
         /// <summary>The group an object belongs to: the second level of the scene (Forest/Structures → "Structures").</summary>
-        static string GroupOf(Transform t)
+        internal static string GroupOf(Transform t)
         {
             string[] p = PathOf(t).Split('/');
             return p.Length > 2 ? p[1] : p[0];
@@ -285,7 +285,7 @@ namespace Snow.EditorTools
 
         /// <summary>The placed object a renderer belongs to: the outermost prefab instance below the group, else the
         /// object right below the group.</summary>
-        static Transform RootOf(Transform t)
+        internal static Transform RootOf(Transform t)
         {
             Transform best = null;
             for (Transform c = t; c != null && c.parent != null; c = c.parent)
@@ -301,7 +301,7 @@ namespace Snow.EditorTools
         static readonly Matrix4x4 C = new Matrix4x4(new Vector4(-1, 0, 0, 0), new Vector4(0, 0, 1, 0), new Vector4(0, -1, 0, 0), new Vector4(0, 0, 0, 1));
         static Vector3 B(Vector3 u) => new Vector3(-u.x, -u.z, u.y);
 
-        static float[] Blender(Matrix4x4 m)
+        internal static float[] Blender(Matrix4x4 m)
         {
             Matrix4x4 b = C * m * C.transpose;
             var r = new float[16];

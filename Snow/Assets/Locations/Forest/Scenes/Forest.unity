@@ -8263,8 +8263,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Structures/Sign_Forsthuette#1
   placed: 1
-  placedPosition: {x: -472.1541, y: 28.4632, z: 407.0647}
-  placedRotation: {x: -0, y: 0.48195228, z: -0, w: 0.87619746}
+  placedPosition: {x: -476.83603, y: 28.4632, z: 406.18097}
+  placedRotation: {x: -0, y: -0.22387975, z: -0, w: 0.9746168}
 --- !u!1001 &130463408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24220,7 +24220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Structures/LightPole#2
   placed: 1
-  placedPosition: {x: 328.53156, y: 16.28924, z: -329.8263}
+  placedPosition: {x: 328.94968, y: 16.294464, z: -326.53644}
   placedRotation: {x: -0, y: -0.19080904, z: -0, w: 0.9816272}
 --- !u!1 &378498888
 GameObject:
@@ -44146,7 +44146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Structures/LightPole#4
   placed: 1
-  placedPosition: {x: 365.4274, y: 16.314072, z: -372.14218}
+  placedPosition: {x: 366.69443, y: 16.30848, z: -369.8106}
   placedRotation: {x: -0, y: -0.19080904, z: -0, w: 0.9816272}
 --- !u!1001 &636627945
 PrefabInstance:
@@ -56087,7 +56087,7 @@ MonoBehaviour:
   id: Structures/TowerHut#1
   placed: 1
   placedPosition: {x: -474, y: 28.3963, z: 404}
-  placedRotation: {x: -0, y: 0.48195228, z: -0, w: 0.87619746}
+  placedRotation: {x: -0, y: -0.22387975, z: -0, w: 0.9746168}
 --- !u!1 &718771394
 GameObject:
   m_ObjectHideFlags: 0
@@ -84747,7 +84747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Structures/LightPole#1
   placed: 1
-  placedPosition: {x: 357.5698, y: 16.30248, z: -346.7602}
+  placedPosition: {x: 333.8175, y: 16.328995, z: -346.50827}
   placedRotation: {x: -0, y: -0.19080904, z: -0, w: 0.9816272}
 --- !u!1001 &1081043240
 PrefabInstance:
