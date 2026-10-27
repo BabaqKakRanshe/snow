@@ -1,0 +1,10 @@
+Use case: stylized-concept (in-game mockup for a level-design fix)
+Asset type: target picture for reworking the player start area of a co-op horror game
+Primary request: edit this night frame of the start area so it reads as a small abandoned guard post lay-by at the entrance of a restricted military forest zone (German "Sperrgebiet"), and so the players can use everything on it.
+Changes:
+- Ground: the lay-by is one gently sloping gravel and broken-asphalt pad at road level, joined to the road without a mound; its outer edges go down / up to the forest floor as soft grassy slopes about 1:2, with a few rocks along the edge. No steep cut walls, no raised platform.
+- Layout: the guard booth's open door faces the pad; a clear walkable path of gravel leads from the parked old red estate car to the booth door and on to the gate; two concrete jersey blocks stand at the pad edge (not on a mound); a couple of wooden crates and a jerrycan stand next to the booth, reachable.
+- Light: one warm sodium-orange lamp on a wooden pole lights the pad in a round pool (about 12 m), a dim warm light glows inside the booth window and through its open door, the gate keeps a small cold white light; between the pools it is dark; the light leads the eye from the car to the booth to the gate. Soft fog catches the lamp light.
+Style/medium: the SAME low-poly PS1-era game render as the reference frame (flat-shaded low-poly meshes, small pixel textures, slight dithering), not a photo, not painterly.
+Constraints: keep the camera position, lens and framing of the reference exactly; keep the spruce forest, the chain-link gate with its red-white warning sign, the small green guard booth and the red-white barrier arm; same night, same overall darkness away from the lights.
+Avoid: no people, no text added, no watermark, no lens flares, no modern LED look, no snow.

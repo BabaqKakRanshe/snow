@@ -1,0 +1,10 @@
+Use case: stylized-concept (in-game mockup for a level-design fix)
+Asset type: target layout picture (elevated view) for reworking the player start area of a co-op horror game
+Primary request: edit this elevated night view of the start area: a small abandoned guard post lay-by beside a gravel forest road at the gate of a restricted military zone.
+Changes:
+- Ground: replace the raised embankment and the steep cut edges with one level gravel / broken-asphalt lay-by at road height, soft 1:2 grassy slopes into the forest around it, a few rocks on the edge, tyre ruts.
+- Layout: the guard booth stands at the back of the pad with its open door facing the pad; the old red estate car is parked on the pad facing the gate; a clear walking line leads car -> booth door -> gate; two concrete jersey blocks mark the pad edge toward the road; crates and a jerrycan beside the booth.
+- Light: one warm sodium lamp on a pole makes a round pool over the pad, warm glow from the booth, small cold light at the gate, darkness between; light fog.
+Style/medium: the SAME low-poly PS1-era game render as the reference frame (flat-shaded low-poly meshes, small pixel textures, slight dithering), not a photo, not painterly.
+Constraints: keep the camera position, lens and framing of the reference exactly; keep the spruce forest, the chain-link gate with its red-white warning sign, the small green guard booth and the red-white barrier arm; same night, same overall darkness away from the lights.
+Avoid: no people, no text added, no watermark, no lens flares, no modern LED look, no snow.

@@ -1,0 +1,3 @@
+Style/medium: the SAME low-poly PS1-era game render as the reference frame (flat-shaded low-poly meshes, small pixel textures, slight dithering), not a photo, not painterly.
+Constraints: keep the camera position, lens and framing of the reference exactly; keep the spruce forest, the chain-link gate with its red-white warning sign, the small green guard booth and the red-white barrier arm; same night, same overall darkness away from the lights.
+Avoid: no people, no text added, no watermark, no lens flares, no modern LED look, no snow.

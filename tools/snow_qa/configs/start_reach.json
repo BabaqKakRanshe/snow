@@ -1,0 +1,55 @@
+{
+ "region": [
+  -532,
+  490,
+  -455,
+  572
+ ],
+ "step": 0.5,
+ "start": [
+  -462.3,
+  497.1
+ ],
+ "goals": {
+  "booth door (stand 1 m out)": [
+   -519.1,
+   551.0
+  ],
+  "crates": [
+   -519.2,
+   544.6
+  ],
+  "trash": [
+   -520.2,
+   548.0
+  ],
+  "tyres": [
+   -517.0,
+   544.4
+  ],
+  "car driver door": [
+   -507.0,
+   536.3
+  ],
+  "lamp tripod": [
+   -514.0,
+   549.0
+  ],
+  "barrier post": [
+   -512.4,
+   547.4
+  ],
+  "gate middle (inside)": [
+   -511.5,
+   552.0
+  ],
+  "outside the gate": [
+   -516.0,
+   562.0
+  ],
+  "inside the booth (desk)": [
+   -517.6,
+   549.6
+  ]
+ }
+}

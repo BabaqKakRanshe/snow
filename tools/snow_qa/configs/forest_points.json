@@ -159,5 +159,107 @@
   "groups": [
    "forest"
   ]
+ },
+ "start_overview": {
+  "eye": [
+   -481.64,
+   16,
+   527.33
+  ],
+  "look": [
+   -512.66,
+   0,
+   545.07
+  ],
+  "rel": true,
+  "groups": [
+   "start"
+  ],
+  "wait": 4.0
+ },
+ "start_arrive": {
+  "eye": [
+   -490.11,
+   1.6,
+   527.73
+  ],
+  "look": [
+   -513.26,
+   1.4,
+   547.23
+  ],
+  "rel": true,
+  "groups": [
+   "start"
+  ],
+  "wait": 4.0
+ },
+ "start_pad": {
+  "eye": [
+   -506.53,
+   1.6,
+   539.83
+  ],
+  "look": [
+   -517.84,
+   1.2,
+   549.28
+  ],
+  "rel": true,
+  "groups": [
+   "start"
+  ],
+  "wait": 4.0
+ },
+ "start_booth": {
+  "eye": [
+   -515.92,
+   1.6,
+   550.89
+  ],
+  "look": [
+   -517.84,
+   1.0,
+   549.28
+  ],
+  "rel": true,
+  "groups": [
+   "start"
+  ],
+  "wait": 4.0
+ },
+ "start_gate": {
+  "eye": [
+   -506.74,
+   1.6,
+   550.46
+  ],
+  "look": [
+   -512.86,
+   1.5,
+   555.7
+  ],
+  "rel": true,
+  "groups": [
+   "start"
+  ],
+  "wait": 4.0
+ },
+ "start_from_out": {
+  "eye": [
+   -520.81,
+   1.6,
+   567.4
+  ],
+  "look": [
+   -509.83,
+   1.0,
+   544.94
+  ],
+  "rel": true,
+  "groups": [
+   "start"
+  ],
+  "wait": 4.0
  }
 }
