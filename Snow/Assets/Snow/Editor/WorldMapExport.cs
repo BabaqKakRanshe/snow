@@ -28,7 +28,7 @@ namespace Snow.EditorTools
     {
         const string OutDir = "../source/world_sync/forest/map";
         const string AreasFile = "../tools/blender_context/areas.json";
-        const float PaintPxPerM = 1f, MaxObjectSize = 300f;
+        const float PaintPxPerM = 1f;
         static readonly CultureInfo Ci = CultureInfo.InvariantCulture;
 
         [Serializable] class Ground { public string file, holes; public int nx, nz; public float x0, z0, step, hmin, hmax; }
@@ -100,7 +100,6 @@ namespace Snow.EditorTools
                     foreach (Renderer r in top.GetComponentsInChildren<Renderer>(false))
                     {
                         if (!(r is MeshRenderer || r is SkinnedMeshRenderer) || !r.enabled || r.name.StartsWith("__", StringComparison.Ordinal)) continue;
-                        if (r.bounds.size.x > MaxObjectSize || r.bounds.size.z > MaxObjectSize) { skipped.Add(BlenderContextExport.PathOf(r.transform) + " (spans the map)"); continue; }
                         if (!BlenderContextExport.Lod0(r)) continue;
                         Mesh mesh = r is SkinnedMeshRenderer smr ? smr.sharedMesh : r.GetComponent<MeshFilter>()?.sharedMesh;
                         if (mesh == null) continue;
