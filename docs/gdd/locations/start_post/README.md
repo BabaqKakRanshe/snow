@@ -5,11 +5,11 @@
 ## Шаги
 
 - [x] 1. Кадры игры — `frames/` (ночь 02:00, хост; вид сверху из редактора), лист `frames/sheet_before.jpg`.
-- [x] 2. Референсы и практики — `RESEARCH.md`; вопросы — `QUESTIONS.md`. **Ждём ответы.**
-- [x] 3. Картинка-цель (Codex, правка кадров игры) — `concept_v1/`, листы `sheet_pad.jpg` и `sheet_overview.jpg`. **Ждём выбор.**
-- [ ] 4. Модели — новых не нужно, всё есть в `forest_start` и наборах (проверить после выбора картинки).
-- [ ] 5. Земля и путь игрока — площадка в Blender (как русло за базой, `tools/blender_context/edits/`), вещи через `ForestStartDress.json`.
-- [ ] 6. Сборка, снимки «после» с тех же точек (группа `start` в `tools/snow_qa/configs/forest_points.json`), проверка проходимости `tools/snow_qa/configs/start_reach.json`.
+- [x] 2. Референсы и практики — `RESEARCH.md`; вопросы — `QUESTIONS.md`. Ответ 27.10: «согласен со всем».
+- [x] 3. Картинка-цель (Codex, правка кадров игры) — `concept_v1/`. Выбрано: раскладка overview_B + свет pad_B.
+- [x] 4. Модели — новых нет: `forest_start`, `LightPole` двора (на своей батарее), камни `forest_rocks`.
+- [x] 5. Земля — `tools/blender_context/edits/forest_start_pad.py` → импорт земли; вещи и свет — `ForestStartDress.json` (`levelGround: false`). Коммит a609b402.
+- [ ] 6. Проверено по данным: у двери будки 5° (было 46°), машина 6°, свет тёплый/тёплый/холодный. Ночные кадры «после» НЕ готовы: игра теперь стартует в 17:30, время 02:00 не встало, игрок пропадал при съёмке. Сборка, снимки «после» с тех же точек (группа `start` в `tools/snow_qa/configs/forest_points.json`), проверка проходимости `tools/snow_qa/configs/start_reach.json`.
 
 ## Картинки-цели (`concept_v1/`)
 
