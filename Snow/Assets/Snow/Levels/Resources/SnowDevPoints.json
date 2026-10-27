@@ -1,0 +1,21 @@
+{
+ "note": "New places of the dev pult (~ / Игра / Новые места; user 27.10 «в дебаге добавить новые места»). scene = the scene's name; eye = where the player's eyes are (world, metres; the feet go to the ground under it), look = what the view turns to. Points near the models of the packs after forest_start, the lake bunker, the hut yard and the Sky Island systems (docs/dev/Audit/visibility_2026-10-27). SkyBallast has no point: the player falls through the island there.",
+ "points": [
+  { "scene": "Forest", "name": "Пост у ворот SPERRGEBIET", "eye": [-493.2, 28.9, 537.1], "look": [-516.0, 29.9, 549.0] },
+  { "scene": "Forest", "name": "КПП", "eye": [100.5, 10.6, -52.0], "look": [143.5, 10.5, -64.7] },
+  { "scene": "Forest", "name": "Машины перед КПП", "eye": [111.0, 10.8, -60.0], "look": [130.5, 10.0, -61.5] },
+  { "scene": "Forest", "name": "Мусор у базы", "eye": [322.0, 18.0, -356.0], "look": [328.3, 16.5, -366.5] },
+  { "scene": "Forest", "name": "Камни у дороги", "eye": [-405.3, 25.9, 428.7], "look": [-394.2, 23.6, 424.2] },
+  { "scene": "Forest", "name": "Скала у дороги", "eye": [-169.0, 6.8, 139.0], "look": [-181.6, 4.5, 130.9] },
+  { "scene": "Forest", "name": "Ангар у озера", "eye": [-165.9, 1.9, -14.1], "look": [-150.0, 2.0, -34.0] },
+  { "scene": "Forest", "name": "Озеро с перрона ангара", "eye": [-147.4, 0.8, -30.9], "look": [-111.0, -1.0, 12.0] },
+  { "scene": "Forest", "name": "Вход в бункер", "eye": [36.0, 6.3, -40.0], "look": [27.0, 1.5, -44.0] },
+  { "scene": "Forest", "name": "Датчик у озера", "eye": [22.0, 3.4, 25.0], "look": [17.0, 0.5, 19.0] },
+  { "scene": "Forest", "name": "Двор хижины", "eye": [-470.6, 30.2, 406.2], "look": [-473.2, 29.4, 403.3] },
+  { "scene": "Forest", "name": "Бочка у вышки", "eye": [-250.0, 36.6, -69.0], "look": [-256.5, 36.0, -74.5] },
+  { "scene": "Forest", "name": "Пещера Лесника", "eye": [-504.0, 33.0, 437.0], "look": [-518.0, 34.8, 437.0] },
+  { "scene": "SkyIsland", "name": "Охладитель", "eye": [-178.0, 1.8, -93.0], "look": [-185.0, 1.3, -100.0] },
+  { "scene": "SkyIsland", "name": "Распылитель", "eye": [-153.0, 1.6, -103.0], "look": [-160.0, 0.7, -110.0] },
+  { "scene": "SkyIsland", "name": "Альтиметр", "eye": [-23.0, 1.8, -33.0], "look": [-30.0, 1.0, -40.0] }
+ ]
+}

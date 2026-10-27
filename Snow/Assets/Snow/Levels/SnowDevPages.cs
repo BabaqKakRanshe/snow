@@ -17,7 +17,8 @@ namespace Snow.Levels
     /// <summary>
     /// The level pages of the dev pult (~; editor and Development builds only; was the F1 cheat menu, user decisions 21.10
     /// "чит-меню, чтобы самому всё проверять" and 23.10 "все менюшки в нормальную тулзу"): Игра (language, every location
-    /// of Build Settings, teleports to the viewpoints and spawn points of the open scene), Время (Forest day and night),
+    /// of Build Settings, teleports to the viewpoints and spawn points of the open scene and to the new places of
+    /// Resources/SnowDevPoints.json), Время (Forest day and night),
     /// Задания, Рация, База (power and room lights of the Forest base). Location load: the network goes down, the scene
     /// loads, a host starts again if one ran. Teleport moves only the own player (as the fall reset does: view yaw first,
     /// motor, NetworkTransform as owner). Created by itself on the first scene, survives scene loads.
@@ -25,6 +26,11 @@ namespace Snow.Levels
     public class SnowDevPages : MonoBehaviour
     {
         static SnowDevPages s_instance;
+        static Place[] s_places;
+
+        /// <summary>A teleport of Resources/SnowDevPoints.json: scene name, eye (world; the feet go to the ground under it), look.</summary>
+        [Serializable] class Place { public string scene = "", name = ""; public float[] eye, look; }
+        [Serializable] class PlaceList { public Place[] points; }
 
         bool _rehost;
         readonly List<(string name, string path)> _scenes = new List<(string, string)>();
@@ -92,21 +98,42 @@ namespace Snow.Levels
             if (PlayerNet.Local == null) DevUi.Note("нет своего игрока (нажмите Host)");
             for (int i = 0; i < _points.Count; i++)
                 if (_points[i].t != null && DevUi.Button($"{_points[i].name}##pt{i}")) Teleport(_points[i].t);
+
+            // the new places (user 27.10 "в дебаге добавить новые места"): data points, no scene objects to rebuild
+            string scene = SceneManager.GetActiveScene().name;
+            bool header = false;
+            foreach (Place pl in Places())
+            {
+                if (pl.scene != scene || pl.eye == null || pl.look == null || pl.eye.Length < 3 || pl.look.Length < 3) continue;
+                if (!header) { DevUi.Header("Новые места"); header = true; }
+                if (DevUi.Button($"{pl.name}##np{pl.name}"))
+                    Teleport(pl.name, new Vector3(pl.eye[0], pl.eye[1], pl.eye[2]), new Vector3(pl.look[0], pl.look[1], pl.look[2]));
+            }
         }
 
-        void Teleport(Transform point)
+        static Place[] Places()
+        {
+            if (s_places != null) return s_places;
+            TextAsset text = Resources.Load<TextAsset>("SnowDevPoints");
+            s_places = text != null ? JsonUtility.FromJson<PlaceList>(text.text)?.points : null;
+            return s_places ??= new Place[0];
+        }
+
+        void Teleport(Transform point) => Teleport(point.name, point.position, point.position + point.forward * 20f);
+
+        void Teleport(string name, Vector3 eye, Vector3 look)
         {
             PlayerNet p = PlayerNet.Local;
             if (p == null || p.Seated) return;
-            Vector3 eye = point.position, feet = eye - Vector3.up * 1.6f;
+            Vector3 feet = eye - Vector3.up * 1.6f, d = look - eye;
             if (Physics.Raycast(eye + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, 300f, ~0, QueryTriggerInteraction.Ignore)) feet = hit.point;
-            float yaw = point.eulerAngles.y;
+            float yaw = Mathf.Atan2(d.x, d.z) * Mathf.Rad2Deg;
             p.view.SetYaw(yaw);
             p.motor.Teleport(feet, yaw, Vector3.zero);
             if (p.TryGetComponent(out NetworkTransform nt) && nt.CanCommitToTransform)
                 nt.Teleport(feet, Quaternion.Euler(0f, yaw, 0f), p.transform.localScale);
-            p.view.LookAt(point.position + point.forward * 20f);
-            BenchLog.Event("cheat_teleport", "to", point.name, "at", feet);
+            p.view.LookAt(look);
+            BenchLog.Event("cheat_teleport", "to", name, "at", feet);
         }
 
         void LoadLocation(string path)

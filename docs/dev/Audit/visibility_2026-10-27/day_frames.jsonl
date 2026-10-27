@@ -1,0 +1,26 @@
+{"tag": "day", "name": "start_post", "client": null, "teleport": "feet (-493.20, 28.80, 537.10)", "perf": [[7.51, 4.35, 756], [7.9, 4.22, 756], [7.77, 4.54, 756]], "shot": true}
+{"tag": "day", "name": "kpp", "client": null, "teleport": "feet (100.50, 8.89, -52.00)", "perf": [[9.71, 6.85, 4970], [9.38, 6.49, 4970], [10.27, 5.55, 4970]], "shot": true}
+{"tag": "day", "name": "cars_kpp", "client": null, "teleport": "feet (116.00, 8.76, -74.00)", "perf": [[9.86, 5.89, 1790], [9.83, 5.45, 1790], [9.31, 5.73, 1791]], "shot": true}
+{"tag": "day", "name": "base_trash", "client": null, "teleport": "feet (316.70, 16.02, -310.30)", "perf": [[7.4, 5.39, 3425], [8.8, 5.17, 3425], [10.11, 5.57, 3425]], "shot": true}
+{"tag": "day", "name": "rocks_road", "client": null, "teleport": "feet (-405.30, 24.16, 428.70)", "perf": [[9.33, 6.37, 5092], [9.64, 6.3, 5092], [10.78, 0, 5092]], "shot": true}
+{"tag": "day", "name": "lake_hangar", "client": null, "teleport": "feet (-125.40, -1.97, -39.00)", "perf": [[7.87, 5.07, 1477], [8.7, 6.01, 1477], [8.38, 4.89, 1477]], "shot": true}
+{"tag": "day", "name": "lake_ice", "client": null, "teleport": "feet (-150.00, -0.80, -34.00)", "perf": [[8.48, 5.6, 1090], [8.72, 0, 1090], [7.98, 4.26, 1090]], "shot": true}
+{"tag": "day", "name": "bunker_entrance", "client": null, "teleport": "feet (36.00, 4.55, -40.00)", "perf": [[8.19, 4.4, 1121], [8.63, 4.63, 1121], [8.44, 5.11, 1121]], "shot": true}
+{"tag": "day", "name": "hut_porch", "client": null, "teleport": "feet (-470.60, 28.45, 406.20)", "perf": [[7.93, 4.6, 901], [8.28, 4.94, 901], [7.63, 4.77, 902]], "shot": true}
+{"tag": "day", "name": "barrel_tower", "client": null, "teleport": "feet (-250.00, 34.88, -69.00)", "perf": [[7.76, 4.06, 763], [7.68, 4.57, 763], [7.74, 5.14, 763]], "shot": true}
+{"tag": "day", "name": "forester_cave", "client": null, "teleport": "feet (-504.00, 31.24, 437.00)", "perf": [[7.63, 4.19, 712], [7.44, 4.58, 712], [7.97, 4.67, 712]], "shot": true}
+{"tag": "day", "name": "cars_road", "client": null, "teleport": "feet (111.00, 9.13, -60.00)", "perf": [[8.87, 0, 4937], [10.3, 6.2, 4937], [9.93, 7.02, 4941]], "shot": true}
+{"tag": "day", "name": "apron_lake", "client": null, "teleport": "feet (-147.40, -0.93, -30.90)", "perf": [[8.12, 3.63, 983], [7.41, 4.63, 983], [7.69, 4.27, 983]], "shot": true}
+{"tag": "day", "name": "sky_SkyBallast", "client": null, "teleport": "no player", "perf": [[6.31, 4.0, 2930], [6.92, 4.29, 2930], [7.04, 3.97, 2930]], "shot": true}
+{"tag": "day", "name": "sky_SkyChiller", "client": null, "teleport": "no player", "perf": [[8.25, 5.0, 2930], [69.13, 5.59, 2930], [16.86, 7.33, 2930]], "shot": true}
+{"tag": "day", "name": "sky_SkyAltimeter", "client": null, "teleport": "no player", "perf": [[7.01, 3.74, 2930], [6.99, 4.23, 2930], [6.83, 4.3, 2930]], "shot": true}
+{"tag": "day", "name": "sky_SkySprayer", "client": null, "teleport": "no player", "perf": [[6.86, 4.2, 2930], [7.45, 4.73, 2930], [6.25, 5.08, 2930]], "shot": true}
+{"tag": "day", "name": "sky_SkyBallast", "client": null, "teleport": "no player", "perf": [[6.54, 3.8, 6441], [6.57, 4.25, 6441], [6.08, 3.87, 6441]], "shot": true}
+{"tag": "day", "name": "sky_SkyChiller", "client": null, "teleport": "no player", "perf": [[6.98, 3.85, 6441], [6.22, 5.19, 6441], [6.49, 4.13, 6441]], "shot": true}
+{"tag": "day", "name": "sky_SkyAltimeter", "client": null, "teleport": "no player", "perf": [[6.62, 4.24, 6441], [6.11, 4.52, 6441], [6.23, 4.21, 6441]], "shot": true}
+{"tag": "day", "name": "sky_SkySprayer", "client": null, "teleport": "no player", "perf": [[6.84, 4.07, 6441], [6.44, 4.19, 6441], [6.53, 4.95, 6441]], "shot": true}
+{"tag": "day", "name": "sky_SkyBallast", "client": null, "teleport": "feet (17.00, 4.08, 407.20)", "perf": [[6.05, 3.32, 2926], [6.53, 3.46, 2926], [6.65, 3.52, 2924]], "shot": true}
+{"tag": "day", "name": "sky_SkyChiller", "client": null, "teleport": "feet (-178.00, 0.08, -93.00)", "perf": [[6.19, 3.92, 5647], [7.26, 3.72, 5647], [7.12, 3.72, 5647]], "shot": true}
+{"tag": "day", "name": "sky_SkyAltimeter", "client": null, "teleport": "feet (-23.00, 0.00, -33.00)", "perf": [[7.61, 4.45, 7359], [7.18, 4.34, 7359], [7.76, 4.42, 7359]], "shot": true}
+{"tag": "day", "name": "sky_SkySprayer", "client": null, "teleport": "feet (-153.00, -0.15, -103.00)", "perf": [[6.47, 3.83, 5862], [6.93, 3.84, 5862], [6.81, 3.83, 5862]], "shot": true}
+{"tag": "day", "name": "sky_SkyBallast_b", "client": null, "teleport": "feet (0.00, 4.10, 392.00)", "perf": [[7.13, 0, 6202], [7.34, 0, 6202], [7.71, 4.46, 6202]], "shot": true}
